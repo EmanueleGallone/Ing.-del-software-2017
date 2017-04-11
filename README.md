@@ -1,4 +1,4 @@
-# Project Template - Prova Finale (Ingegneria del Software)
+# Lorenzo Il Magnifico ps11 (Ingegneria del Software)
 
 ## Project Setup
 In order to set up your project, follow these steps
