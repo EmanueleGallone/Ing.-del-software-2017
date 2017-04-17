@@ -8,6 +8,6 @@ public interface Observers {
 	 * tramite la funzione "getSubject"
 	 */
 	
-	abstract void preEventUpdate(Observable event);
-	abstract void postEventUpdate(Observable event);
+	abstract void preEventUpdate(Events event);
+	abstract void postEventUpdate(Events event);
 }
