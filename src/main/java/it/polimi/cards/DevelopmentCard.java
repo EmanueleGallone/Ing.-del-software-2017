@@ -2,7 +2,7 @@ package it.polimi.cards;
 
 import event.Activable;
 import event.Event;
-import event.Observer;
+import event.Observers;
 import it.polimi.ingsw.resources.Resource;
 
 public class DevelopmentCard extends Card implements Activable {
@@ -18,7 +18,11 @@ public class DevelopmentCard extends Card implements Activable {
 	protected Resource requirements;
 	protected int period;
 	
-	protected Event activatedEvent = new Event(); //Oggetto che definisce l'evento "Attivato"
+	protected Event activatedEvent; //Oggetto che definisce l'evento "Attivato"
+	
+	public DevelopmentCard() {
+		activatedEvent = new Event(this);
+	}
 	
 	@Override
 	public String toString() {
@@ -35,12 +39,12 @@ public class DevelopmentCard extends Card implements Activable {
 	}
 	
 	@Override //Metodo che serve ad un "observer" per iniziare ad osservare l'evento "activated"
-	public void observActiveEvent(Observer observer) {
+	public void observActiveEvent(Observers observer) {
 		activatedEvent.attach(observer);
 	}
 
 	@Override //Metodo per smettere di osservare l'evento "activated"
-	public void deobservActiveEvent(Observer observer) {
+	public void deobservActiveEvent(Observers observer) {
 		activatedEvent.deatach(observer);
 	}
 	
