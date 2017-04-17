@@ -44,7 +44,7 @@ public class DevelopmentCard extends Card implements Activable {
 
 	@Override //Metodo per smettere di osservare l'evento "activated"
 	public void deobservActiveEvent(Observers observer) {
-		activatedEvent.deatach(observer);
+		activatedEvent.detach(observer);
 	}
 	
 }
