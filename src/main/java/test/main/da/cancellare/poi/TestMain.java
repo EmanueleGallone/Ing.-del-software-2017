@@ -11,6 +11,7 @@ public class TestMain {
 		
 		//funziona! ovviamente da migliorare
 		Player1 player = new Player1();
+		
 		Dice blackdice = new BlackDice();
 		blackdice.rollDice();
 		

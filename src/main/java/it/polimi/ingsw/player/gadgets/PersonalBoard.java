@@ -7,6 +7,8 @@ import it.polimi.cards.*;
 import it.polimi.ingsw.resources.*;
 
 public class PersonalBoard {
+	protected static final int MAX_YELLOW_CARDS=6;
+	protected static final int MAX_GREEN_CARDS=6;
 	private int numberOfYellowCard;
 	private int numberOfGreenCard;
 	
@@ -37,8 +39,8 @@ public class PersonalBoard {
 		victorypoint = new VictoryPoint();
 		faithpoint = new FaithPoint();
 		
-		yellowcard = new YellowCard[DevelopmentCard.MAX_YELLOW_CARDS];
-		greencard = new GreenCard[DevelopmentCard.MAX_GREEN_CARDS];
+		yellowcard = new YellowCard[MAX_YELLOW_CARDS];
+		greencard = new GreenCard[MAX_GREEN_CARDS];
 		bluecard = new ArrayList<BlueCard>();
 		purplecard = new ArrayList<PurpleCard>();
 		
@@ -56,7 +58,7 @@ public class PersonalBoard {
 		
 		if(card instanceof YellowCard) {
 			
-			if(numberOfYellowCard > DevelopmentCard.MAX_YELLOW_CARDS)
+			if(numberOfYellowCard > MAX_YELLOW_CARDS)
 				throw new Exception("HAI RAGGIUNTO IL LIMITE DI CARTE PER IL COLORE GIALLO!");
 			
 			this.yellowcard[numberOfYellowCard]=new YellowCard();
@@ -76,7 +78,7 @@ public class PersonalBoard {
 		
 		if(card instanceof GreenCard) {
 			
-			if(numberOfGreenCard > DevelopmentCard.MAX_GREEN_CARDS)
+			if(numberOfGreenCard > MAX_GREEN_CARDS)
 				throw new Exception("HAI RAGGIUNTO IL LIMITE DI CARTE PER IL COLORE VERDE!");
 			
 			this.greencard[numberOfGreenCard] = new GreenCard();

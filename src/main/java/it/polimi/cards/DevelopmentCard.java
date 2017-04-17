@@ -5,8 +5,7 @@ import it.polimi.ingsw.resources.Resource;
 public class DevelopmentCard extends Card {
 	protected static final int MAX_DECK=96;
 	protected static final int DECK_MAX_CARDS_PER_PERIOD=32;
-	public static final int MAX_YELLOW_CARDS=6;
-	public static final int MAX_GREEN_CARDS=6;
+	
 	
 	protected String name;
 	protected Colour colour;
