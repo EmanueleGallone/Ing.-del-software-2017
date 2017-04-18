@@ -2,17 +2,11 @@ package it.polimi.ingsw.resources;
 
 import it.polimi.ingsw.dices.YellowDice;
 
-public class YellowFamilyMember extends FamilyMember {
+public class OrangeFamilyMember extends FamilyMember {
 	
-	public YellowFamilyMember(){
+	public OrangeFamilyMember(){
 		super();
 	}
-
-	@Override
-	public int getValue() {
-		return this.value;
-	}
-
 	
 	public void setValue(YellowDice dice) {
 		this.value = dice.getValue();		

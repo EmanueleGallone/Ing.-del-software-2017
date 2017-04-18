@@ -7,11 +7,6 @@ public class NeutralFamilyMember extends FamilyMember {
 	}
 
 	@Override
-	public int getValue() {
-		return this.value;
-	}
-
-	@Override
 	//the neutral family member always has 0 value
 	public void setValue(int value) {
 		this.value = 0;

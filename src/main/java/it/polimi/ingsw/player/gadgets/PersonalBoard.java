@@ -52,7 +52,7 @@ public class PersonalBoard {
 		familyMember = new FamilyMember[FamilyMember.MAX_FAMILY_MEMBERS_PER_PLAYER];
 		familyMember[0] = new BlackFamilyMember();
 		familyMember[1] = new WhiteFamilyMember();
-		familyMember[2] = new YellowFamilyMember();
+		familyMember[2] = new OrangeFamilyMember();
 		familyMember[3] = new NeutralFamilyMember();
 	}
 	

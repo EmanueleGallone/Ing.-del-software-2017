@@ -18,7 +18,7 @@ public class HarvestZone1 extends Zone {
 	//set the quantity of resources that by default Production Zone has.
 	private void setDefaultProduction(){
 		resource1.setValue(1);
-		resource2.setValue(5);
+		resource2.setValue(2);
 	}
 	
 	 
