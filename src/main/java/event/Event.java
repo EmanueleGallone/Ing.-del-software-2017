@@ -1,15 +1,12 @@
 package event;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class Event implements Events{
 
-	protected Set<Observers> observersList;
+	protected ArrayList<Observers> observersList = new ArrayList<>();
 	protected Observable subject; //Oggetto osservabile al quale è attaccato l'evento in questione
-	
-	public Event(){
-		subject = null;
-	}
 	
 	public Event(Observable subject){
 		this.subject = subject;		
