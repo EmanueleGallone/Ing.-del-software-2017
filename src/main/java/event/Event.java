@@ -12,12 +12,12 @@ public class Event implements Events{
 	}
 	
 	@Override
-	public void attach(Observers observer) {
+	public synchronized void attach(Observers observer) {
 		observersList.add(observer);
 	}
 
 	@Override
-	public void deatach(Observers observer) {
+	public synchronized void deatach(Observers observer) {
 		observersList.remove(observer);
 	}
 
@@ -36,7 +36,7 @@ public class Event implements Events{
 	}
 
 	@Override
-	public Observable getSubject() {
+	public synchronized Observable getSubject() {
 		return this.subject;
 	}
 
