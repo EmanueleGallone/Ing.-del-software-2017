@@ -36,6 +36,7 @@ public class TestMain {
 		//testing the production zone : funziona. ema
 		production.activate(reference);
 		
+		
 		System.out.println(reference.toString());
 		
 		/*

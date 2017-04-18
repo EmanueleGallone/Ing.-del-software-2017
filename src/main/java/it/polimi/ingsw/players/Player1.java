@@ -9,6 +9,7 @@ public class Player1 extends Player {
 		this.position = 1;
 	}
 	
+	@Override
 	public PersonalBoard getPersonalBoard(){
 		return this.personalboard;
 	}

@@ -48,7 +48,7 @@ public class PersonalBoard {
 		stone = new Stone();
 		servant = new Servant();
 		
-		//ema: non son convinto che sia una buona soluzione l'array di familiari. Però per ora vado avanti così. ema
+		// non son convinto che sia una buona soluzione l'array di familiari. Però per ora vado avanti così. ema
 		familyMember = new FamilyMember[FamilyMember.MAX_FAMILY_MEMBERS_PER_PLAYER];
 		familyMember[0] = new BlackFamilyMember();
 		familyMember[1] = new WhiteFamilyMember();
@@ -57,7 +57,7 @@ public class PersonalBoard {
 	}
 	
 	public void addDevelopmentCard(DevelopmentCard card) throws Exception{
-		//ema: sarebbe meglio cambiare Exception e mettere una eccezione più specifica (più generica di così, si muore). ema
+		//sarebbe meglio cambiare Exception e mettere una eccezione più specifica (più generica di così, si muore). ema
 		
 		//distinguish between different type of cards
 		
@@ -119,16 +119,16 @@ public class PersonalBoard {
 	}// end of changeResource
 	
 	
-	//method needed to update the values of the family members when a new turn arrives
+	/* //method needed to update the values of the family members when a new turn arrives
 	public void updateFamilyMemberValues(){
-		//for(int i = 0; i<FamilyMember.MAX_FAMILY_MEMBERS_PER_PLAYER;i++)
-			// familyMember[i].setValue(); //va scelto con cautela se mettere i dadi static in modo che siano leggibili a tutti
+		for(int i = 0; i<FamilyMember.MAX_FAMILY_MEMBERS_PER_PLAYER;i++)
+			 familyMember[i].setValue(); //va scelto con cautela se mettere i dadi static in modo che siano leggibili a tutti
 											//o come fare per implementare l'update (magari da server, non so). ema
 		
 		//ATTENZIONE: sto provando ad implementare un metodo per ogni family member "updateValue" così sposto il problema a loro
 		//e poi mi basta fare un semplice familyMember[i].updateValue() ;) ema
 		
-	}// end updateFamilyMemberValues
+	}// end updateFamilyMemberValues */
 	
 	
 	@Override

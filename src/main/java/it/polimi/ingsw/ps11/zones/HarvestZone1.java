@@ -5,14 +5,11 @@ import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Stone;
 import it.polimi.ingsw.resources.Wood;
 
-
-// AACHTUNG: classe da rivedere! impostata solo per testing. non è versione finale neanche per testing in realtà.
-//la production zone per la Board. ema
-public class ProductionZone1 extends Zone {
+public class HarvestZone1 extends Zone {
 	private Resource resource1;
 	private Resource resource2;
 	
-	public ProductionZone1(){
+	public HarvestZone1(){
 		resource1 = new Wood();
 		resource2 = new Stone();
 		setDefaultProduction();
@@ -32,7 +29,5 @@ public class ProductionZone1 extends Zone {
 		personalBoard.changeResource(resource2, resource2.getValue());
 
 	}
-	
-	
 
 }

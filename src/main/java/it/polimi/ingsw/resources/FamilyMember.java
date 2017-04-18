@@ -9,6 +9,7 @@ public abstract class FamilyMember extends Resource {
 		this.value = 0;
 	}
 
+	@Override
 	public abstract int getValue();
 	//public abstract void setValue(Dice dice); non funziona se come parametro metto qui Dice e poi nelle specializzazioni metto YellowDice etc..
 	
