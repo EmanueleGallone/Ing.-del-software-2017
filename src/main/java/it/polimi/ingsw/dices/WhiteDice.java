@@ -9,9 +9,13 @@ private Random gen = new Random();
 		this.value = 0;		
 	}
 	
-	//rolls a Dice and return its value
-	public int rollDice(){
+	@Override
+	public void rollDice(){
 		this.value = gen.nextInt(MAX_FACES) +1;
+	}
+	
+	@Override
+	public int getValue(){
 		return this.value;
 	}
 
