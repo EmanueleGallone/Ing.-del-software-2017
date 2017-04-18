@@ -17,7 +17,7 @@ public class Event implements Events{
 	}
 
 	@Override
-	public synchronized void deatach(Observers observer) {
+	public void detach(Observers observer) {
 		observersList.remove(observer);
 	}
 

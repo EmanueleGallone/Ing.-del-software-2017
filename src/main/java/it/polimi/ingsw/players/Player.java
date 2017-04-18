@@ -23,7 +23,7 @@ public abstract class Player {
 	
 	//vecchia implementazione. Le risorse le assegnavo al giocatore. Molto piu semplice dal mio punto di vista.
 	//visto che alla fine la personal board serve solo in veste "grafica". Pensavo che sulla GUI si potesse creare una personal board e poi
-	//mostrare gli oggetti che il giocatore ha semplicemente passando il riferimento a quel determinato oggetto.
+	//mostrare gli oggetti che il giocatore ha, semplicemente passando il riferimento a quel determinato oggetto.
 	//metto in commento perche provo ad attenermi al modello UML.
 	/*protected Resource coin;
 	protected Resource wood;

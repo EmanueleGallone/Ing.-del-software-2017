@@ -6,9 +6,13 @@ public abstract class Dice {
 	
 	
 	
-	//rolls a Dice and return its value
-	public abstract int rollDice();
+	//rolls a Dice; I don't know how a computer rolls a dice but I think that it doesn't need more explanation,right?
+	//#TryingToBeFunnyWhileCodingButFailingMiserably #FinishThisGameOrDieTrying #IWantToGraduate. ema
+	public abstract void rollDice();
 	
+	public abstract int getValue();
+	
+	@Override
 	public abstract String toString();
 
 }

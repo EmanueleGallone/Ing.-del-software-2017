@@ -1,7 +1,5 @@
 package it.polimi.ingsw.players;
 
-import java.util.Arrays;
-import it.polimi.cards.*;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
 
 public class Player1 extends Player {
@@ -11,9 +9,16 @@ public class Player1 extends Player {
 		this.position = 1;
 	}
 	
+	@Override
 	public PersonalBoard getPersonalBoard(){
 		return this.personalboard;
 	}
+
+	@Override
+	public String toString() {
+		return "Player1 [position=" + position + ", personalboard=" + personalboard + "]";
+	}
+	
 	
 	
 	

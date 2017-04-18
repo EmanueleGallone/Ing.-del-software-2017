@@ -9,7 +9,7 @@ public abstract class Resource {
 	}
 	
 	public abstract int getValue();
-	public abstract void setValue(int value);
+	public abstract void setValue(int value);  //scomodo per i FamilyMember. non lo uso. devo capire cosa inventarmi. ema
 	public abstract String toString();
 
 }
