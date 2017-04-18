@@ -8,11 +8,6 @@ public class BlackFamilyMember extends FamilyMember {
 	public BlackFamilyMember(){
 		super();
 	}
-
-	@Override
-	public int getValue() {
-		return this.value;
-	}
 	
 	public void setValue(BlackDice dice){
 		this.value = dice.getValue();

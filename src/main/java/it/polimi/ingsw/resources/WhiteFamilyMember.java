@@ -7,11 +7,6 @@ public class WhiteFamilyMember extends FamilyMember {
 	public WhiteFamilyMember(){
 		super();
 	}
-
-	@Override
-	public int getValue() {
-		return this.value;
-	}
 	
 	//metto private poi eventualmente cambio visibilità. ema
 	private void updateValue(WhiteDice dice){

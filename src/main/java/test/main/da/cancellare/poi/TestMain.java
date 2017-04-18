@@ -1,12 +1,12 @@
 package test.main.da.cancellare.poi;
 
-import it.polimi.cards.PurpleCard;
-import it.polimi.cards.YellowCard;
+import event.*;
 import it.polimi.ingsw.dices.BlackDice;
 import it.polimi.ingsw.dices.Dice;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
 import it.polimi.ingsw.players.Player1;
 import it.polimi.ingsw.ps11.zones.ProductionZone1;
+import it.polimi.ingsw.resources.Stone;
 
 public class TestMain {
 
@@ -43,6 +43,13 @@ public class TestMain {
 		//test BlackDice roll: per fortuna funziona (se non riuscissi ad implementare neanche un dado, allora...). ema
 		System.out.println("\n"+blackdice.toString());
 		*/
+		
+		Stone st = new Stone();
+		Observer obs = new Observer();
+
+		st.observIncrementEvent(obs);
+		
+		st.increment(5);
 
 	}
 

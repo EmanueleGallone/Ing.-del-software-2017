@@ -7,8 +7,16 @@ public class Event implements Events{
 	protected Set<Observers> observersList;
 	protected Observable subject; //Oggetto osservabile al quale è attaccato l'evento in questione
 	
+	public Event(){
+		subject = null;
+	}
+	
 	public Event(Observable subject){
-		this.subject = subject;
+		this.subject = subject;		
+	}
+	
+	public void setSubject(Observable subject){
+		this.subject = subject;		
 	}
 	
 	@Override
