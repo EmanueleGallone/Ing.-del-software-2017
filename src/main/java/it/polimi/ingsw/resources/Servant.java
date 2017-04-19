@@ -5,6 +5,11 @@ public class Servant extends Resource {
 	public Servant(){
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "Servant [value=" + value + "]";
+	}
 	
 
 }

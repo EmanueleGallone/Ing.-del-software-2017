@@ -17,9 +17,6 @@ public class TestMain {
 		
 		ProductionZone1 production = new ProductionZone1();
 		
-		Dice blackdice = new BlackDice();
-		blackdice.rollDice();
-		
 		PersonalBoard reference = player.getPersonalBoard();
 		/*
 		try { //testing per l'aggiunta di carte. Sembra tutto ok. Da migliorare l'output su console, magari rendendolo un po' più leggibile. ema
@@ -33,23 +30,8 @@ public class TestMain {
 		
 		System.out.println(player.toString()+"\nfine toString Player \n");
 		
-		//testing the production zone : funziona. ema
-		production.activate(reference);
 		
 		
-		System.out.println(reference.toString());
-		
-		/*
-		//test BlackDice roll: per fortuna funziona (se non riuscissi ad implementare neanche un dado, allora...). ema
-		System.out.println("\n"+blackdice.toString());
-		*/
-		
-		Stone st = new Stone();
-		Observer obs = new Observer();
-
-		st.observIncrementEvent(obs);
-		
-		st.increment(5);
 
 	}
 
