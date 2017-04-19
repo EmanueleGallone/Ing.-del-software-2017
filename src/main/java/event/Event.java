@@ -7,10 +7,6 @@ public class Event implements Events{
 	protected ArrayList<Observers> observersList = new ArrayList<>();
 	protected Observable subject; //Oggetto osservabile al quale è attaccato l'evento in questione
 	
-	public Event(){
-		subject = null;
-	}
-	
 	public Event(Observable subject){
 		this.subject = subject;		
 	}
@@ -20,7 +16,7 @@ public class Event implements Events{
 	}
 	
 	@Override
-	public void attach(Observers observer) {
+	public synchronized void attach(Observers observer) {
 		observersList.add(observer);
 	}
 
@@ -44,7 +40,7 @@ public class Event implements Events{
 	}
 
 	@Override
-	public Observable getSubject() {
+	public synchronized Observable getSubject() {
 		return this.subject;
 	}
 
