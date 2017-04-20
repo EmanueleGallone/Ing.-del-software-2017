@@ -6,12 +6,13 @@ import it.polimi.ingsw.dices.Dice;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
 import it.polimi.ingsw.players.Player1;
 import it.polimi.ingsw.ps11.zones.ProductionZone1;
+import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Stone;
 
 public class TestMain {
 
 	public static void main(String[] args) {
-		
+/*		
 		//funziona! ovviamente da migliorare. ema
 		Player1 player = new Player1();
 		
@@ -29,7 +30,7 @@ public class TestMain {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 		
 		System.out.println(player.toString()+"\nfine toString Player \n");
 		
@@ -39,18 +40,16 @@ public class TestMain {
 		
 		System.out.println(reference.toString());
 		
-		/*
+		
 		//test BlackDice roll: per fortuna funziona (se non riuscissi ad implementare neanche un dado, allora...). ema
-		System.out.println("\n"+blackdice.toString());
-		*/
+		//System.out.println("\n"+blackdice.toString());
 		
-		Stone st = new Stone();
-		Observer obs = new Observer();
-
-		st.observIncrementEvent(obs);
+	*/
 		
-		st.increment(5);
-
+		Resource prova = new Resource();
+		Observer ob = new Observer();
+		prova.DecrementEvent().attach(ob);
+		prova.decrease(5);
 	}
 
 }

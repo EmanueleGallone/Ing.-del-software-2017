@@ -1,5 +1,8 @@
 package event;
 
+import it.polimi.ingsw.resources.Resource;
+import it.polimi.ingsw.resources.Stone;
+
 public class Observer implements Observers {
 
 	@Override
@@ -11,7 +14,6 @@ public class Observer implements Observers {
 	@Override
 	public void postEventUpdate(Events event) {
 		System.out.println("sempre io, observer!");
-		
 	}
 
 }

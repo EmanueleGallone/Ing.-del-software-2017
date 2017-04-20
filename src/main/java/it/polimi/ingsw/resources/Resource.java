@@ -9,8 +9,8 @@ import event.Observers;
 public class Resource implements Incrementable,Decrementable {
 	protected int value;
 	
-	protected Event incrementEvent;
-	protected Event decrementEvent;
+	protected Event<Resource> incrementEvent;
+	protected Event<Resource> decrementEvent;
 	
 	/*public Resource(){
 		//initialized value for any type of resource
@@ -21,8 +21,8 @@ public class Resource implements Incrementable,Decrementable {
 		//initialized value for any type of resource
 		this.value=0;
 		
-		incrementEvent = new Event(this);
-		decrementEvent = new Event(this);
+		incrementEvent = new Event<Resource>(this);
+		decrementEvent = new Event<Resource>(this);
 	}
 	
 	public  int getValue(){
@@ -46,15 +46,13 @@ public class Resource implements Incrementable,Decrementable {
 			incrementEvent.postEventNotify();
 		}
 
-		@Override
-		public void observIncrementEvent(Observers observer) {
-			incrementEvent.attach(observer);
-		}
 
 		@Override
-		public void deobservIncrementEvent(Observers observer) {
-			incrementEvent.detach(observer);
-		} //fine per increment event
+		public Event IncrementEvent() {
+			return this.incrementEvent;
+		}
+	
+		//fine per increment event
 
 		
 		// metodi per Decrement event
@@ -66,17 +64,9 @@ public class Resource implements Incrementable,Decrementable {
 		}
 
 		@Override
-		public void observDecreaseEvent(Observers observer) {
-			decrementEvent.attach(observer);
+		public Event DecrementEvent() {
+			return this.decrementEvent;
 		}
-
-		@Override
-		public void deobservDecreaseEvent(Observers observer) {
-			decrementEvent.detach(observer);
-			
-		} //fine metodi Decrement event
-	
-	
-	
+		//fine metodi Decrement event
 
 }

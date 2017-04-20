@@ -41,15 +41,10 @@ public class DevelopmentCard extends Card implements Activable {
 		// Do something
 		activatedEvent.postEventNotify();
 	}
-	
-	@Override //Metodo che serve ad un "observer" per iniziare ad osservare l'evento "activated"
-	public void observActiveEvent(Observers observer) {
-		activatedEvent.attach(observer);
-	}
 
-	@Override //Metodo per smettere di osservare l'evento "activated"
-	public void deobservActiveEvent(Observers observer) {
-		activatedEvent.detach(observer);
+	@Override
+	public Event ActiveEvent() {
+		return this.activatedEvent;
 	}
 	
 }
