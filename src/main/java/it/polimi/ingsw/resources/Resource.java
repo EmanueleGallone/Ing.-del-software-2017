@@ -3,7 +3,6 @@ package it.polimi.ingsw.resources;
 import event.Decrementable;
 import event.Event;
 import event.Incrementable;
-import event.Observable;
 import event.Observers;
 
 public class Resource implements Incrementable,Decrementable {
@@ -11,11 +10,6 @@ public class Resource implements Incrementable,Decrementable {
 	
 	protected Event incrementEvent;
 	protected Event decrementEvent;
-	
-	/*public Resource(){
-		//initialized value for any type of resource
-		this.value=0;
-	}*/
 	
 	public Resource(){
 		//initialized value for any type of resource

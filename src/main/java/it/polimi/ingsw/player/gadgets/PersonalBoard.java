@@ -66,19 +66,19 @@ public class PersonalBoard {
 			if(numberOfYellowCard > MAX_YELLOW_CARDS)
 				throw new Exception("HAI RAGGIUNTO IL LIMITE DI CARTE PER IL COLORE GIALLO!");
 			
-			this.yellowcard[numberOfYellowCard]=new YellowCard();
+			this.yellowcard[numberOfYellowCard]=(YellowCard)card;
 			this.numberOfYellowCard++;
 			
 		}
 		
 		if(card instanceof BlueCard) {
 			
-			this.bluecard.add(new BlueCard());
+			this.bluecard.add((BlueCard)card);
 		}
 		
 		if(card instanceof PurpleCard) {
 			
-			this.purplecard.add(new PurpleCard());
+			this.purplecard.add((PurpleCard)card);
 		}
 		
 		if(card instanceof GreenCard) {
@@ -86,7 +86,7 @@ public class PersonalBoard {
 			if(numberOfGreenCard > MAX_GREEN_CARDS)
 				throw new Exception("HAI RAGGIUNTO IL LIMITE DI CARTE PER IL COLORE VERDE!");
 			
-			this.greencard[numberOfGreenCard] = new GreenCard();
+			this.greencard[numberOfGreenCard] = (GreenCard)card;
 			this.numberOfGreenCard++;
 		}
 		

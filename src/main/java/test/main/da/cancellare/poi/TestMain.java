@@ -1,21 +1,21 @@
 package test.main.da.cancellare.poi;
 
 import event.*;
+import it.polimi.cards.PurpleCard;
+import it.polimi.cards.YellowCard;
 import it.polimi.ingsw.dices.BlackDice;
 import it.polimi.ingsw.dices.Dice;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
 import it.polimi.ingsw.players.Player1;
 import it.polimi.ingsw.ps11.zones.ProductionZone1;
 import it.polimi.ingsw.resources.Stone;
+import it.polimi.ingsw.resources.TestBonus;
 
 public class TestMain {
 
 	public static void main(String[] args) {
 		
-		//funziona! ovviamente da migliorare. ema
 		Player1 player = new Player1();
-		
-		ProductionZone1 production = new ProductionZone1();
 		
 		PersonalBoard reference = player.getPersonalBoard();
 		/*
@@ -28,7 +28,16 @@ public class TestMain {
 			e.printStackTrace();
 		}*/
 		
-		System.out.println(player.toString()+"\nfine toString Player \n");
+		Stone st = new Stone();
+		Observers tb = new TestBonus();
+		st.observIncrementEvent(tb);
+		st.increment(5);
+		System.out.println(st.toString());
+		
+		System.out.println(player.toString()+"\nend of toString Player \n");
+		
+		
+		
 		
 		
 		

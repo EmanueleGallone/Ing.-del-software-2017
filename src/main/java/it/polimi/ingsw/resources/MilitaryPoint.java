@@ -3,7 +3,11 @@ package it.polimi.ingsw.resources;
 public class MilitaryPoint extends Points {
 	
 	public MilitaryPoint(){
-		this.value = 0;
+		super();
+	}
+	
+	public MilitaryPoint(int value){
+		super(value);
 	}
 
 	@Override

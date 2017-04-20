@@ -3,7 +3,11 @@ package it.polimi.ingsw.resources;
 public class FaithPoint extends Points {
 	
 	public FaithPoint(){
-		this.value = 0;
+		super();
+	}
+	
+	public FaithPoint(int value){
+		super(value);
 	}
 
 	@Override
