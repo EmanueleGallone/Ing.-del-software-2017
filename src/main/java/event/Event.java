@@ -1,7 +1,6 @@
 package event;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 public class Event<E> implements Events{
 

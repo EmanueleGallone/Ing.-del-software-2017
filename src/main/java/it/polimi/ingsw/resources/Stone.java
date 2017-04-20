@@ -12,11 +12,6 @@ public class Stone extends Resource {
 	}
 
 	@Override
-	public void setValue(int value) {
-		this.value=value;
-	}
-
-	@Override
 	public String toString() {
 		return "Stone [value=" + value + "]";
 	}
