@@ -1,5 +1,7 @@
 package test.main.da.cancellare.poi;
 
+import event.EventHandler;
+
 public class TestMain {
 
 	public static void main(String[] args) {

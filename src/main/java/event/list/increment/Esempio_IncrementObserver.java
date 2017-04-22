@@ -1,4 +1,4 @@
-package event.increment;
+package event.list.increment;
 
 import event.Observers;
 import it.polimi.ingsw.resources.Resource;

@@ -1,7 +1,7 @@
 package it.polimi.ingsw.resources;
 
 import event.*;
-import event.increment.*;
+import event.list.increment.*;
 
 public class Resource implements Incrementable {
 	protected int value;

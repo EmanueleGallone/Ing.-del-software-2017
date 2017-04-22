@@ -11,7 +11,7 @@ package event;
  * 		
  * 		- Interfaccia da attaccare all'oggetto che può invocare l'evento
  * 		- La classe dell'observer con il codice da eseguire quando l'evento verrà suscitato
- * 		- La classe dell'evento (se si ha bisogno di parametri, altrimenti c'è l'Event di base)
+ * 		- La classe dell'evento (se si ha bisogno di parametri, altrimenti c'è l'EventHandler di base)
  * 		
 
  * • INTERFACCIA:
