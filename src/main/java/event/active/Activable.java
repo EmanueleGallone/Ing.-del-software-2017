@@ -1,8 +1,9 @@
 package event.active;
 
-import event.Event;
-import event.EventHandler;
+import event.empty.EmptyEventHandler;
 
-public interface Activable<SUBJECT_TYPE> {
-	public EventHandler<Event<SUBJECT_TYPE>> getActiveEvent();
+public interface Activable{
+	
+	public void Active();
+	public EmptyEventHandler getActiveEvent();
 }

@@ -2,22 +2,17 @@ package it.polimi.ingsw.resources;
 
 
 import event.*;
-import event.increment.IncrementEvent;
-import event.increment.Incrementable;
-import event.stringChange.StringChangeEvent;
-import event.stringChange.StringChangeInterface;
+import event.increment.*;
 
-public class Resource implements Incrementable<Resource>,StringChangeInterface<Resource> {
+public class Resource implements Incrementable {
 	protected int value;
 	
-	protected EventHandler<IncrementEvent<Resource>> incrementEvent;
-	protected EventHandler<StringChangeEvent<Resource>> stringChange;
+	protected EventHandler<IncrementEvent> incrementEvent;
 	
 	public Resource(){
 		//initialized value for any type of resource
 		this.value=0;
 		incrementEvent = new EventHandler<>();
-		stringChange = new EventHandler<>();
 	}
 	
 	public  int getValue(){
@@ -38,27 +33,16 @@ public class Resource implements Incrementable<Resource>,StringChangeInterface<R
 	
 	//metodi per Increment event
 	public void increment(int value) {
-		incrementEvent.invoke(new IncrementEvent<Resource>(this, value));
+		incrementEvent.invoke(new IncrementEvent(value));
 		this.value += value;
 	}
 
 	@Override
-	public EventHandler<IncrementEvent<Resource>> getIncrementEvent() {
+	public EventHandler<IncrementEvent> getIncrementEvent() {
 		return this.incrementEvent;
 	}
 	//fine per increment event
-	
 
-	@Override
-	public void changeString(String newString) {
-		System.out.println("Sto per cambiare stringa in: " + newString);
-		stringChange.invoke(new StringChangeEvent<Resource>(this, newString));
-	}
 
-	@Override
-	public EventHandler<StringChangeEvent<Resource>> getStringChangeEvent() {
-		// TODO Auto-generated method stub
-		return this.stringChange;
-	}
 
 }

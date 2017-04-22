@@ -13,8 +13,7 @@ package event;
  * 		- La classe dell'observer con il codice da eseguire quando l'evento verrà suscitato
  * 		- La classe dell'evento (se si ha bisogno di parametri, altrimenti c'è l'Event di base)
  * 		
- *  NOTA: Tutti e 3 i componenti sono Generics e bisogna passargli il tipo del subject per definirli
- * 
+
  * • INTERFACCIA:
  * 
  *  Questa interfaccia semplicemente definisce il metodo getter dell'evento in questione

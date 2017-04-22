@@ -14,13 +14,9 @@ public class EventHandler<EVENT_TYPE> {
 		observersList.remove(observer);
 	}
 
-	public void invoke(EVENT_TYPE parametro) {
+	public void invoke(EVENT_TYPE event) {
 		for(Observers<EVENT_TYPE> observer:observersList){
-			observer.handle(parametro);
+			observer.handle(event);
 		}
 	}
-	
-	
-	
-	
 }

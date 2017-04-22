@@ -1,13 +1,11 @@
 package event.increment;
 
-import event.Event;
 
-public class IncrementEvent<SUBJECT_TYPE> extends Event<SUBJECT_TYPE> {
+public class IncrementEvent {
 	
 	private int value;
 	
-	public IncrementEvent(SUBJECT_TYPE subject, int value) {
-		super(subject);
+	public IncrementEvent(int value) {
 		this.value = value;
 	}
 	
