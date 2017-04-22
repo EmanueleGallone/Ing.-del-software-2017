@@ -1,5 +1,8 @@
 package event;
 
+import it.polimi.ingsw.resources.Resource;
+import it.polimi.ingsw.resources.Stone;
+
 public class Observer implements Observers {
 
 	@Override

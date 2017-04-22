@@ -1,15 +1,12 @@
 package it.polimi.ingsw.resources;
 
-import event.Decrementable;
 import event.Event;
-import event.Incrementable;
-import event.Observers;
 
-public class Resource implements Incrementable,Decrementable {
+public abstract class Resource {
 	protected int value;
 	
-	protected Event incrementEvent;
-	protected Event decrementEvent;
+	protected Event<Resource> incrementEvent;
+	protected Event<Resource> decrementEvent;
 	
 	public Resource(){
 		//initialized value for any type of resource
@@ -33,44 +30,31 @@ public class Resource implements Incrementable,Decrementable {
 	}
 
 		//metodi per Increment event
-		@Override
+
 		public void increment(int value) {
 			incrementEvent.preEventNotify();
 			this.value += value;
 			incrementEvent.postEventNotify();
 		}
 
-		@Override
-		public void observIncrementEvent(Observers observer) {
-			incrementEvent.attach(observer);
-		}
 
-		@Override
-		public void deobservIncrementEvent(Observers observer) {
-			incrementEvent.detach(observer);
-		} //fine per increment event
+		public Event IncrementEvent() {
+			return this.incrementEvent;
+		}
+	
+		//fine per increment event
 
 		
 		// metodi per Decrement event
-		@Override
 		public void decrease(int value) {
 			decrementEvent.preEventNotify();
 			this.value -= value;
 			decrementEvent.postEventNotify();		
 		}
 
-		@Override
-		public void observDecreaseEvent(Observers observer) {
-			decrementEvent.attach(observer);
+		public Event DecrementEvent() {
+			return this.decrementEvent;
 		}
-
-		@Override
-		public void deobservDecreaseEvent(Observers observer) {
-			decrementEvent.detach(observer);
-			
-		} //fine metodi Decrement event
-	
-	
-	
+		//fine metodi Decrement event
 
 }

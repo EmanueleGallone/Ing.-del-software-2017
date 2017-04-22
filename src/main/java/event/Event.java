@@ -2,17 +2,22 @@ package event;
 
 import java.util.ArrayList;
 
-public class Event implements Events{
+public class Event<E> implements Events{
 
 	protected ArrayList<Observers> observersList = new ArrayList<>();
-	protected Observable subject; //Oggetto osservabile al quale è attaccato l'evento in questione
+	protected E subject; //Oggetto osservabile al quale è attaccato l'evento in questione
 	
-	public Event(Observable subject){
+	public Event(E subject){
 		this.subject = subject;		
 	}
 	
-	public void setSubject(Observable subject){
+	public void setSubject(E subject){
 		this.subject = subject;		
+	}
+	
+	@Override
+	public synchronized E getSubject() {
+		return this.subject;
 	}
 	
 	@Override
@@ -38,10 +43,4 @@ public class Event implements Events{
 			observer.postEventUpdate(this);
 		}
 	}
-
-	@Override
-	public synchronized Observable getSubject() {
-		return this.subject;
-	}
-
 }
