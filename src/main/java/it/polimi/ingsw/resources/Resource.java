@@ -2,10 +2,10 @@ package it.polimi.ingsw.resources;
 
 
 import event.*;
-import event.specification.IncrementEvent;
-import event.specification.Incrementable;
-import event.specification.StringChangeEvent;
-import event.specification.StringChangeInterface;
+import event.increment.IncrementEvent;
+import event.increment.Incrementable;
+import event.stringChange.StringChangeEvent;
+import event.stringChange.StringChangeInterface;
 
 public class Resource implements Incrementable<Resource>,StringChangeInterface<Resource> {
 	protected int value;

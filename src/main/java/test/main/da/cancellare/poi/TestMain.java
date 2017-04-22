@@ -3,8 +3,8 @@ package test.main.da.cancellare.poi;
 import java.util.ArrayList;
 
 import event.*;
-import event.specification.IncrementObserver;
-import event.specification.StringChangeObserver;
+import event.increment.IncrementObserver;
+import event.stringChange.StringChangeObserver;
 import it.polimi.ingsw.dices.BlackDice;
 import it.polimi.ingsw.dices.Dice;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
