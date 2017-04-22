@@ -12,9 +12,6 @@ public abstract class Dice {
 	}
 	
 	
-	
-	//rolls a Dice; I don't know how a computer rolls a dice but I think that it doesn't need more explanation,right?
-	//#TryingToBeFunnyWhileCodingButFailingMiserably #FinishThisGameOrDieTrying #IWantToGraduate. ema
 	public void rollDice(){
 		this.value = gen.nextInt(MAX_FACES) +1;
 	}

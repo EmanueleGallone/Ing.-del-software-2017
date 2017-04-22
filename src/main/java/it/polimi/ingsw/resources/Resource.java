@@ -1,12 +1,11 @@
 package it.polimi.ingsw.resources;
 
-
 import event.*;
 import event.increment.*;
 
 public class Resource implements Incrementable {
 	protected int value;
-	
+
 	protected EventHandler<IncrementEvent> incrementEvent;
 	
 	public Resource(){
@@ -28,9 +27,6 @@ public class Resource implements Incrementable {
 		return "Resource [value=" + value + "]";
 	}
 
-	
-	
-	
 	//metodi per Increment event
 	public void increment(int value) {
 		incrementEvent.invoke(new IncrementEvent(value));
@@ -42,7 +38,4 @@ public class Resource implements Incrementable {
 		return this.incrementEvent;
 	}
 	//fine per increment event
-
-
-
 }
