@@ -1,13 +1,6 @@
 package event;
 
-public interface Observers {
+public interface Observers<EVENTO_INVOCATO> {
 	
-	/*
-	 * All'observer viene passato come parametro l'oggetto "event" che è stato invocato
-	 * nel qualche è contenuto l'oggetto "subject" al quale era attaccato, recuperabile
-	 * tramite la funzione "getSubject"
-	 */
-	
-	abstract void preEventUpdate(Events event);
-	abstract void postEventUpdate(Events event);
+	public void handle(EVENTO_INVOCATO event);
 }

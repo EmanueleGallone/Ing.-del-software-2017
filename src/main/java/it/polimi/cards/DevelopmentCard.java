@@ -1,8 +1,6 @@
 package it.polimi.cards;
 
-import event.Activable;
-import event.Event;
-import event.Observers;
+
 import it.polimi.ingsw.resources.Resource;
 
 //ATTENZIONE: ogni cambiamento che fate nella sovraclasse (Abstract e non) ha ovviamente ripercussioni sulle sottoclassi
@@ -10,7 +8,7 @@ import it.polimi.ingsw.resources.Resource;
 //se però nelle sottoclassi non utilizzate il "super()" all'interno del costruttore di ogni sottoclasse, la variabile "activatedEvent" 
 //non viene istanziata! lascio questo commento come monito per futuri cambiamenti nel costruttore e nelle variabili. ema
 
-public class DevelopmentCard extends Card implements Activable {
+public class DevelopmentCard extends Card{
 	protected static final int MAX_DECK=96;
 	protected static final int DECK_MAX_CARDS_PER_PERIOD=32;
 	
@@ -22,10 +20,10 @@ public class DevelopmentCard extends Card implements Activable {
 	protected Resource requirements;
 	protected int period;
 	
-	protected Event activatedEvent; //Oggetto che definisce l'evento "Attivato"
+	//protected Event activatedEvent; //Oggetto che definisce l'evento "Attivato"
 	
 	public DevelopmentCard() {
-		activatedEvent = new Event(this);
+		//activatedEvent = new DevelopmentCardEvent(this);
 	}
 	
 	@Override
@@ -34,17 +32,16 @@ public class DevelopmentCard extends Card implements Activable {
 				+ ", description=" + description + ", requirements=" + requirements + ", period=" + period + "]";
 	}
 
-
-	@Override
+/*
 	public void active() {
 		activatedEvent.preEventNotify();
 		// Do something
 		activatedEvent.postEventNotify();
 	}
 
-	@Override
-	public Event ActiveEvent() {
+	public Event getActiveEvent() {
 		return this.activatedEvent;
 	}
+	*/
 	
 }

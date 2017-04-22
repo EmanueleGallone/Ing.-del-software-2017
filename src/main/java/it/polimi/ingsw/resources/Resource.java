@@ -1,28 +1,23 @@
 package it.polimi.ingsw.resources;
 
-import event.Decrementable;
-import event.Event;
-import event.Incrementable;
-import event.Observable;
-import event.Observers;
 
-public class Resource implements Incrementable,Decrementable {
+import event.*;
+import event.specification.IncrementEvent;
+import event.specification.Incrementable;
+import event.specification.StringChangeEvent;
+import event.specification.StringChangeInterface;
+
+public class Resource implements Incrementable<Resource>,StringChangeInterface<Resource> {
 	protected int value;
 	
-	protected Event<Resource> incrementEvent;
-	protected Event<Resource> decrementEvent;
-	
-	/*public Resource(){
-		//initialized value for any type of resource
-		this.value=0;
-	}*/
+	protected EventHandler<IncrementEvent<Resource>> incrementEvent;
+	protected EventHandler<StringChangeEvent<Resource>> stringChange;
 	
 	public Resource(){
 		//initialized value for any type of resource
 		this.value=0;
-		
-		incrementEvent = new Event<Resource>(this);
-		decrementEvent = new Event<Resource>(this);
+		incrementEvent = new EventHandler<>();
+		stringChange = new EventHandler<>();
 	}
 	
 	public  int getValue(){
@@ -38,35 +33,32 @@ public class Resource implements Incrementable,Decrementable {
 		return "Resource [value=" + value + "]";
 	}
 
-		//metodi per Increment event
-		@Override
-		public void increment(int value) {
-			incrementEvent.preEventNotify();
-			this.value += value;
-			incrementEvent.postEventNotify();
-		}
-
-
-		@Override
-		public Event IncrementEvent() {
-			return this.incrementEvent;
-		}
 	
-		//fine per increment event
+	
+	
+	//metodi per Increment event
+	public void increment(int value) {
+		incrementEvent.invoke(new IncrementEvent<Resource>(this, value));
+		this.value += value;
+	}
 
-		
-		// metodi per Decrement event
-		@Override
-		public void decrease(int value) {
-			decrementEvent.preEventNotify();
-			this.value -= value;
-			decrementEvent.postEventNotify();		
-		}
+	@Override
+	public EventHandler<IncrementEvent<Resource>> getIncrementEvent() {
+		return this.incrementEvent;
+	}
+	//fine per increment event
+	
 
-		@Override
-		public Event DecrementEvent() {
-			return this.decrementEvent;
-		}
-		//fine metodi Decrement event
+	@Override
+	public void changeString(String newString) {
+		System.out.println("Sto per cambiare stringa in: " + newString);
+		stringChange.invoke(new StringChangeEvent<Resource>(this, newString));
+	}
+
+	@Override
+	public EventHandler<StringChangeEvent<Resource>> getStringChangeEvent() {
+		// TODO Auto-generated method stub
+		return this.stringChange;
+	}
 
 }

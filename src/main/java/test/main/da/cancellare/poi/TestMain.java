@@ -1,6 +1,10 @@
 package test.main.da.cancellare.poi;
 
+import java.util.ArrayList;
+
 import event.*;
+import event.specification.IncrementObserver;
+import event.specification.StringChangeObserver;
 import it.polimi.ingsw.dices.BlackDice;
 import it.polimi.ingsw.dices.Dice;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
@@ -12,38 +16,17 @@ import it.polimi.ingsw.resources.Stone;
 public class TestMain {
 
 	public static void main(String[] args) {
-/*		
-		//funziona! ovviamente da migliorare. ema
-		Player1 player = new Player1();
 		
-		ProductionZone1 production = new ProductionZone1();
+		Resource resource = new Resource();
+		//IncrementObserver ob = new IncrementObserver();
+		StringChangeObserver observer = new StringChangeObserver();
 		
-		PersonalBoard reference = player.getPersonalBoard();
-		/*
-		try { //testing per l'aggiunta di carte. Sembra tutto ok. Da migliorare l'output su console, magari rendendolo un po' più leggibile. ema
-			for(int i = 0;i<6;i++){
-				reference.addDevelopmentCard(new YellowCard());
-				reference.addDevelopmentCard(new PurpleCard());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println(player.toString()+"\nfine toString Player \n");
-		
-		
-<<<<<<< HEAD
-		
-		//test BlackDice roll: per fortuna funziona (se non riuscissi ad implementare neanche un dado, allora...). ema
-		//System.out.println("\n"+blackdice.toString());
-		
-	*/
-		
-		Resource prova = new Resource();
-		Observer ob = new Observer();
-		prova.DecrementEvent().attach(ob);
-		prova.decrease(5);
-
+		resource.getStringChangeEvent().attach(observer);
+		resource.changeString("bla bla");
+	}
+	
+	public void stampa(String message){
+		System.out.println(message);
 	}
 
 }
