@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.zones;
+package it.polimi.ingsw.zones;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

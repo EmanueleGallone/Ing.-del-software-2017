@@ -27,7 +27,7 @@ public class Partita {
 
 	@Override
 	public String toString() {
-		return "Partita [board=" + board + "\n\nGiocatori= "+giocatori.toString() + "]";
+		return "Partita [board=" + board + "\nGiocatori= "+giocatori.toString() + "]";
 	}
 	
 	private void nuovoTurno(){
@@ -135,7 +135,7 @@ public class Partita {
 					case 1:
 						player.addCard(board.getCard(shift));
 						System.out.println("Carta 1 Aggiunta al deck del giocatore= "+player.toString());
-						board.removeCard(shift);
+						board.removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
 						retry = false;
 						break;
 						

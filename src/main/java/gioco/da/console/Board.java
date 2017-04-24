@@ -2,11 +2,11 @@ package gioco.da.console;
 
 import it.polimi.cards.DevelopmentCard;
 import it.polimi.ingsw.dices.*;
-import it.polimi.ingsw.ps11.zones.*;
+import it.polimi.ingsw.zones.*;
 
 public class Board {
 	
-	private TorreGialla torreGialla;
+	private YellowTower yellowTower;
 	
 	private HarvestZone1 harvest;
 	private ProductionZone1 production;
@@ -19,7 +19,7 @@ public class Board {
 	private int period;
 	
 	public Board(){
-		torreGialla = new TorreGialla();
+		yellowTower = new YellowTower();
 		
 		blackDice = new BlackDice();
 		whiteDice = new WhiteDice();
@@ -32,7 +32,7 @@ public class Board {
 	
 	public Board(int period){
 		this.period = period;
-		torreGialla = new TorreGialla();
+		yellowTower = new YellowTower();
 		blackDice = new BlackDice();
 		harvest = new HarvestZone1();
 		production = new ProductionZone1();
@@ -45,7 +45,7 @@ public class Board {
 
 	@Override
 	public String toString() {
-		return "Board [torreGialla=" + torreGialla + "\n\nBlackDice="+ blackDice + "]";
+		return "Board [yellowTower=" + yellowTower + "\n\nBlackDice="+ blackDice + "]";
 	}
 	
 	//start of Dice getters
@@ -68,11 +68,11 @@ public class Board {
 	}
 	
 	public DevelopmentCard getCard(int number){
-		return torreGialla.getCard(number);
+		return yellowTower.getCard(number);
 	}
 	
 	public void removeCard(int position){
-		torreGialla.removeCard(position);		
+		yellowTower.removeCard(position);		
 	}
 	
 	public void cambiaPosizioni(Player player){
@@ -85,6 +85,12 @@ public class Board {
 	
 	public void activateProduction(Player player){
 		production.active(player);
+	}
+	
+	public void printTower(){
+		//mancano le altre torri
+		for(int i = 0; i<4;i++)
+			System.out.println("TorreGialla"+ yellowTower.toString());
 	}
 
 	

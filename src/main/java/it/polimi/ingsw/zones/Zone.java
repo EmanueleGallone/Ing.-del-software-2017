@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.zones;
+package it.polimi.ingsw.zones;
 
 public abstract class Zone {
 	
