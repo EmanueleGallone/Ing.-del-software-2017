@@ -1,4 +1,4 @@
-package test.main.da.cancellare.poi;
+package gioco.da.console;
 
 import java.net.ServerSocket;
 import java.util.ArrayList;

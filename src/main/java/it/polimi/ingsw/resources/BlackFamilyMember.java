@@ -9,16 +9,6 @@ public class BlackFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	public void setValue(BlackDice dice){
-		this.value = dice.getValue();
-	}
-
-	@Override
-	public void setValue(int value) {
-		this.value = value;
-		
-	}
-
 	@Override
 	public String toString() {
 		return "BlackFamilyMember [value=" + value + "]";

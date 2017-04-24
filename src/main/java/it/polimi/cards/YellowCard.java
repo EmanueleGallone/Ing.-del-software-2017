@@ -12,7 +12,18 @@ public class YellowCard extends DevelopmentCard {
 	this.resourceAffected.setValue(5);
 	this.description="aumenta il tuo legname di "+resourceAffected.getValue();
 	this.requirements=new Stone();
-	requirements.setValue(5);
+	this.requirements.setValue(5);
+	}
+	
+	public YellowCard(String name){
+		this.name = name;
+		this.period = 1;
+		this.colour = Colour.YELLOW;
+		this.resourceAffected = new Stone();
+		this.resourceAffected.setValue(10);
+		this.requirements = new Stone();
+		this.requirements.setValue(5); //richiede 5 stone per prendere la carta.
+		
 	}
 
 	@Override

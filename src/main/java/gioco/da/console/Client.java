@@ -1,4 +1,4 @@
-package test.main.da.cancellare.poi;
+package gioco.da.console;
 
 import java.net.Socket;
 
@@ -19,6 +19,10 @@ public class Client {
 	}
 	public void setPlayer(Player player) {
 		this.player = player;
+	}
+	
+	public void setPosition(int position){
+		this.player.setPosition(position);
 	}
 	
 	

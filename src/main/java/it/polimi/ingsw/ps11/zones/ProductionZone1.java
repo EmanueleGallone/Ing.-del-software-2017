@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.zones;
 
+import gioco.da.console.Player;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
 import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Stone;
@@ -31,6 +32,11 @@ public class ProductionZone1 extends Zone {
 		personalBoard.changeResource(resource1, resource1.getValue());
 		personalBoard.changeResource(resource2, resource2.getValue());
 
+	}
+	
+	public void active(Player player){
+		player.addResource(resource1,resource1.getValue());
+		player.addResource(resource2, resource2.getValue());
 	}
 	
 	
