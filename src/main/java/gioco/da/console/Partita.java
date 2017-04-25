@@ -5,6 +5,12 @@ import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import it.polimi.ingsw.resources.BlackFamilyMember;
+import it.polimi.ingsw.resources.FamilyMember;
+import it.polimi.ingsw.resources.NeutralFamilyMember;
+import it.polimi.ingsw.resources.OrangeFamilyMember;
+import it.polimi.ingsw.resources.WhiteFamilyMember;
+
 public class Partita {
 	
 	private final int MAX_TURN = 2;
@@ -108,63 +114,61 @@ public class Partita {
 	}
 	
 	//in questo metodo aggiungo la carta scelta al mazzo del giocatore e rimuovo la carta dalla board. Mancano i check sui requisiti
-	public void sceltaCartaGiocatore(Player player){
+	private void sceltaCartaGiocatore(Player player){
+		//metodo troppo lungo. è da spezzare in sotto metodi
 		boolean retry = true;
 		int temp = 1;
 		Scanner in;
+		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo perchè il compilatore altrimenti mi dà problemi
 		
 			while (retry){
-				
 				boolean exc = true;
-				while(exc){
-					System.out.println("Inserisci quale carta prendere: ");
+				
+				while(exc){ // scelta familiare
+					System.out.println("Quale familiare vuoi usare?");
+					System.out.println("1. Nero (Valore: " + board.getBlackDiceValue() + ")");
+					System.out.println("2. Arancione (Valore: " + board.getYellowDiceValue() + ")");
+					System.out.println("3. Neutro (Valore 0)");
+					System.out.println("4. Bianco (Valore: " + board.getWhiteDiceValue() + ")");
 					try {
 						in = new Scanner(System.in);
 						temp = in.nextInt();
 						exc = false;
+						
 					} catch (InputMismatchException e) {
-						System.err.println("errore nella selezione! riprova\n");
+						System.err.println("Errore nella selezione! riprova\n");
 					}
-				}//end while(exc)
-				
-				
-				//uso lo shift perchè così non faccio inserire la posizione 0 da console. Brutto cominciare a contare da 0 per il giocatore!
-				int shift = temp-1;
+				}
 				
 				switch (temp) {
-					case 1:
-						player.addCard(board.getCard(shift));
-						System.out.println("Carta 1 Aggiunta al deck del giocatore= "+player.toString());
-						board.removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
-						retry = false;
-						break;
-						
-					case 2:
-						player.addCard(board.getCard(shift));
-						System.out.println("Carta 2 Aggiunta al deck del giocatore= "+player.toString());
-						board.removeCard(shift);
-						retry = false;
-						break;
-						
-					case 3:
-						player.addCard(board.getCard(shift));
-						System.out.println("Carta 3 Aggiunta al deck del giocatore= "+player.toString());
-						board.removeCard(shift);
-						retry = false;
-						break;
-						
-					case 4:
-						player.addCard(board.getCard(shift));
-						System.out.println("Carta 4 Aggiunta al deck del giocatore= "+player.toString());
-						board.removeCard(shift);
-						retry = false;
-						break;
-			
-					default:
-						System.out.println("Errore nella scelta! riprova\n");
-						retry = true;
-						break;
-					}
+				case 1:
+					familyChoice = new BlackFamilyMember();
+					familyChoice.setValue(board.getBlackDiceValue());
+					player.getBlackFamilyMember().setIsUsed(true); //dico che il familiare del giocatore è stato usato
+					break;
+					
+				case 2:
+					familyChoice = new OrangeFamilyMember();
+					familyChoice.setValue(board.getYellowDiceValue());
+					player.getOrangeFamilyMember().setIsUsed(true);
+					break;
+				case 3:
+					familyChoice = new NeutralFamilyMember();
+					player.getNeutralFamilyMember();
+					break;
+				case 4:
+					familyChoice = new WhiteFamilyMember();
+					player.getWhiteFamilyMember().setIsUsed(true);
+					break;
+
+				default:
+					System.err.println("Qualcosa è andato storto nella scelta del familiare!");
+					break;
+				} //fine statement per scelta familiare
+				
+				cardChoice(familyChoice,player);
+				
+				retry = false;
 			}// end of while(retry)
 			
 	}// end of sceltaGiocatore()
@@ -224,9 +228,76 @@ public class Partita {
 	
 	}//end menuChoice
 	
+	private void cardChoice(FamilyMember familyChoice,Player player){
+		boolean exc = true;
+		boolean retry = true;
+		Scanner in;
+		int temp=1; //inizializzo altrimenti il compilatore mi dà problemi
+		
+			while(retry){
+				
+				while(exc){
+					System.out.println("Inserisci quale carta prendere: ");
+					try {
+						in = new Scanner(System.in);
+						temp = in.nextInt();
+						exc = false;
+					} catch (InputMismatchException e) {
+						System.err.println("errore nella selezione! riprova\n");
+					}
+				}
+				
+				//uso lo shift perchè così non faccio inserire la posizione 0 da console. Brutto cominciare a contare da 0 per il giocatore!
+				int shift = temp-1;
+				
+				switch (temp) { //per il momento uso solo la YellowTower! poi va ovviamente esteso.
+					case 1:
+						if(familyChoice.getValue() < board.getYellowTower().getFirstPosition() ){
+							System.out.println("ATTENZIONE: il valore del familiare non supera quello della casella scelta\n vuoi usare i servitori?");
+							//AACHTUNG: implementare l'uso dei servitori per aumentare il valore del familiare.
+						}
+						else{
+							player.addCard(board.getCard(shift));
+							System.out.println("Carta 1 Aggiunta al deck del giocatore= "+player.toString());
+							board.removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
+							retry = false;
+							}
+						break;
+						
+					case 2:
+						player.addCard(board.getCard(shift));
+						System.out.println("Carta 2 Aggiunta al deck del giocatore= "+player.toString());
+						board.removeCard(shift);
+						retry = false;
+						break;
+						
+					case 3:
+						player.addCard(board.getCard(shift));
+						System.out.println("Carta 3 Aggiunta al deck del giocatore= "+player.toString());
+						board.removeCard(shift);
+						retry = false;
+						break;
+						
+					case 4:
+						player.addCard(board.getCard(shift));
+						System.out.println("Carta 4 Aggiunta al deck del giocatore= "+player.toString());
+						board.removeCard(shift);
+						retry = false;
+						break;
+			
+					default:
+						System.out.println("Errore nella scelta! riprova\n");
+						retry = true;
+						break;
+					}//end of switch
+				
+			}//end of while(retry)
+			
+	}//end of cardChoice()
 	
 	//da abbandonare quando si userà il comparator.
 		public ArrayList<Player> sortingPlayer(){
+			//non funziona
 			ArrayList<Player> sorted = new ArrayList<>();
 			int min = 1;
 			

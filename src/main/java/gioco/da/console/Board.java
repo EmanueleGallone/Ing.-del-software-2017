@@ -92,6 +92,10 @@ public class Board {
 		for(int i = 0; i<4;i++)
 			System.out.println("TorreGialla"+ yellowTower.toString());
 	}
+	
+	public YellowTower getYellowTower(){
+		return this.yellowTower;
+	}
 
 	
 }

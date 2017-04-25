@@ -35,8 +35,8 @@ public class ProductionZone1 extends Zone {
 	}
 	
 	public void active(Player player){
-		player.addResource(resource1,resource1.getValue());
-		player.addResource(resource2, resource2.getValue());
+		player.changeResourceValue(resource1,resource1.getValue());
+		player.changeResourceValue(resource2, resource2.getValue());
 	}
 	
 	

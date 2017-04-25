@@ -107,8 +107,24 @@ public class Player{
 	
 	public void setOrangeFamilyMemberValue(int value){
 		orangeFamilyMember.setValue(value);
-	} //end of family members setters
-	
+	}	
+		
+	public BlackFamilyMember getBlackFamilyMember() {
+		return blackFamilyMember;
+	}
+
+	public WhiteFamilyMember getWhiteFamilyMember() {
+		return whiteFamilyMember;
+	}
+
+	public NeutralFamilyMember getNeutralFamilyMember() {
+		return neutralFamilyMember;
+	}
+
+	public OrangeFamilyMember getOrangeFamilyMember() {
+		return orangeFamilyMember;
+	}//end of family members setters
+
 	public int getPosition(){
 		return this.position;
 	}
@@ -154,33 +170,83 @@ public class Player{
 		System.out.println("Carta aggiunta al deck! "+ card);
 	}
 	
-	public void addResource(Resource type, int value){
-		int oldValue;
+	private void subResource(Resource type, int value) throws Exception{
+		String error = "Errore! valori negativi non possibili";
 		
 		if(type instanceof Stone){
-			oldValue = this.stone.getValue();
-			this.stone.setValue(oldValue + value);
+			if(this.stone.getValue() < value)
+				throw new Exception (error);
+			else
+			this.stone.setValue(this.stone.getValue() - value);
 		}
 		
 		if(type instanceof Wood){
-			oldValue = this.wood.getValue();
-			this.wood.setValue(oldValue + value);
+			if(this.wood.getValue() < value)
+				throw new Exception (error);
+			else
+			this.wood.setValue(this.wood.getValue() - value);
 		}
 		
 		if(type instanceof Coin){
-			oldValue = this.coin.getValue();
-			this.coin.setValue(oldValue + value);
+			if(this.coin.getValue() < value)
+				throw new Exception (error);
+			else
+			this.coin.setValue(this.coin.getValue() - value);
 		}
 		
 		if(type instanceof Servant){
-			oldValue = this.servant.getValue();
-			this.servant.setValue(oldValue + value);
+			if(this.servant.getValue() < value)
+				throw new Exception (error);
+			else
+			this.servant.setValue(this.servant.getValue() - value);
+		}
+	}//end of subResource
+		
+	private void addResource(Resource type, int value){
+		
+		if(type instanceof Stone){
+			this.stone.setValue(this.stone.getValue() + value);
+		}
+		
+		if(type instanceof Wood){
+			this.wood.setValue(this.wood.getValue() + value);
+		}
+		
+		if(type instanceof Coin){
+			this.coin.setValue(this.coin.getValue() + value);
+		}
+		
+		if(type instanceof Servant){
+			this.servant.setValue(this.servant.getValue() + value);
 		}
 			
 	}//end of addResource()
 	
+	public void changeResourceValue(Resource type, int value){
+		if(value <= 0)
+			try {
+				subResource(type,value);
+			} catch (Exception e) {
+				e.getMessage();
+				e.printStackTrace();
+			}
+		
+		if(value > 0){
+			addResource(type,value);
+		}
+		
+	}
+	
 	public void printDeck(){
 		System.out.println("stampa mazzo completo: " + mazzo.toString());
+	}
+	
+	//use servant for increasing value of family Member
+	public void useServant(int value) throws IllegalArgumentException{
+		if(value > this.servant.getValue())
+			throw new IllegalArgumentException ("Hai superato il numero consentito di servitori!");
+		else
+			this.servant.setValue(this.servant.getValue() - value);
 	}
 	
 

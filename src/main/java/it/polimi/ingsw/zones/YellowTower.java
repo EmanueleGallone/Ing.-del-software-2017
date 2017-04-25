@@ -7,10 +7,10 @@ import it.polimi.cards.DevelopmentCard;
 import it.polimi.cards.YellowCard;
 
 public class YellowTower extends Tower {
-	private int fourthPosition = 7;
-	private int thirdPosition = 5;
-	private int secondPosition = 3;
-	private int firstPosition = 1;
+	private final int fourthPosition = 7;
+	private final int thirdPosition = 5;
+	private final int secondPosition = 3;
+	private final int firstPosition = 1;
 	
 	//firstPosition indico la zona dove mettere il familiare per prendere la carta nella posizione più bassa.
 	//indico il value che deve possedere il family member. ancora da implementare
@@ -50,5 +50,25 @@ public class YellowTower extends Tower {
 	public void removeCard(int position){
 		cards.set(position,null);
 	}
+
+	//getters
+	public int getFourthPosition() {
+		return fourthPosition;
+	}
+
+	public int getThirdPosition() {
+		return thirdPosition;
+	}
+
+	public int getSecondPosition() {
+		return secondPosition;
+	}
+
+	public int getFirstPosition() {
+		return firstPosition;
+	}
+	//end of getters
+	
+	
 
 }

@@ -1,6 +1,5 @@
 package it.polimi.ingsw.zones;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -26,7 +25,7 @@ public class CambiaPosizioni extends Zone {
 		
 		choice();
 		
-		player.addResource(resource, resource.getValue());
+		player.changeResourceValue(resource, resource.getValue());
 	}
 	
 	private void choice(){
