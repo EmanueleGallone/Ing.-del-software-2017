@@ -8,7 +8,7 @@ public class BlackFamilyMember extends FamilyMember {
 	
 	@Override
 	public String toString() {
-		return "BlackFamilyMember [value=" + value + "]";
+		return "BlackFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 	
 	

@@ -1,7 +1,7 @@
 package it.polimi.ingsw.resources;
 
 public abstract class FamilyMember extends Resource {
-	private boolean isUsed;
+	protected boolean isUsed;
 	
 	public FamilyMember(){
 		super();

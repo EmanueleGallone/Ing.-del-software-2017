@@ -7,10 +7,12 @@ import it.polimi.ingsw.resources.Stone;
 import it.polimi.ingsw.resources.Wood;
 
 public class HarvestZone1 extends Zone {
+	private boolean isOccupied;
 	private Resource resource1;
 	private Resource resource2;
 	
 	public HarvestZone1(){
+		isOccupied = false;
 		resource1 = new Wood();
 		resource2 = new Stone();
 		setDefaultProduction();
@@ -35,9 +37,18 @@ public class HarvestZone1 extends Zone {
 	
 	public void active (Player player){
 		player.familiarChoice(); //faccio scegliere il familiare da posizionare
+		isOccupied = true;
 		
 		player.changeResourceValue(resource1,resource1.getValue());
 		player.changeResourceValue(resource2, resource2.getValue());
+	}
+	
+	public boolean isOccupied(){
+		return isOccupied;
+	}
+	
+	public void setIsOccupied(boolean value){
+		isOccupied = value;
 	}
 
 }

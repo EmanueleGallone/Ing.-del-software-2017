@@ -10,7 +10,7 @@ public class OrangeFamilyMember extends FamilyMember {
 
 	@Override
 	public String toString() {
-		return "YellowFamilyMember [value=" + value + "]";
+		return "YellowFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 
 }

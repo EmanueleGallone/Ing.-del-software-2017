@@ -15,7 +15,7 @@ public class NeutralFamilyMember extends FamilyMember {
 
 	@Override
 	public String toString() {
-		return "NeutralFamilyMember [value=" + value + "]";
+		return "NeutralFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 
 }

@@ -1,7 +1,5 @@
 package it.polimi.ingsw.resources;
 
-import it.polimi.ingsw.dices.WhiteDice;
-
 public class WhiteFamilyMember extends FamilyMember {
 	
 	public WhiteFamilyMember(){
@@ -10,7 +8,7 @@ public class WhiteFamilyMember extends FamilyMember {
 
 	@Override
 	public String toString() {
-		return "WhiteFamilyMember [value=" + value + "]";
+		return "WhiteFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 
 }

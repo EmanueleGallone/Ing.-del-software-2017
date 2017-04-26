@@ -10,10 +10,12 @@ import it.polimi.ingsw.resources.Wood;
 // AACHTUNG: classe da rivedere! impostata solo per testing. non è versione finale neanche per testing in realtà.
 //la production zone per la Board. ema
 public class ProductionZone1 extends Zone {
+	private boolean isOccupied;
 	private Resource resource1;
 	private Resource resource2;
 	
 	public ProductionZone1(){
+		isOccupied = false;
 		resource1 = new Wood();
 		resource2 = new Stone();
 		setDefaultProduction();
@@ -35,12 +37,19 @@ public class ProductionZone1 extends Zone {
 	}
 	
 	public void active(Player player){
-		player.familiarChoice();
+		player.familiarChoice();// faccio scegliere il familiare da posizionare
+		isOccupied = true;
 		
 		player.changeResourceValue(resource1,resource1.getValue());
 		player.changeResourceValue(resource2, resource2.getValue());
 	}
 	
+	public boolean isOccupied(){
+		return isOccupied;
+	}
 	
+	public void setIsOccupied(boolean value){
+		isOccupied = value;
+	}
 
 }

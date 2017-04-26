@@ -6,9 +6,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import it.polimi.cards.DevelopmentCard;
-import it.polimi.ingsw.dices.BlackDice;
-import it.polimi.ingsw.dices.WhiteDice;
-import it.polimi.ingsw.dices.OrangeDice;
 import it.polimi.ingsw.resources.BlackFamilyMember;
 import it.polimi.ingsw.resources.Coin;
 import it.polimi.ingsw.resources.FaithPoint;
@@ -25,7 +22,7 @@ import it.polimi.ingsw.resources.Wood;
 
 public class Player implements Comparator<Player>, Comparable<Player>{
 	
-	private static int counter = 1;
+	private static int counter = 1; //per instanziare le posizioni dei giocatori
 	
 	private String name;
 	
@@ -108,36 +105,36 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 
 	public void addCard(DevelopmentCard card){
 		this.mazzo.add(card);
-		System.out.println("Carta aggiunta al deck! "+ card);
+		// System.out.println("Carta aggiunta al deck! "+ card); //non so se serva realmente.
 	}
 	
-	private void subResource(Resource type, int value) throws Exception{
+	private void subResource(Resource type, int value) throws IllegalArgumentException{
 		String error = "Errore! valori negativi non possibili";
 		
 		if(type instanceof Stone){
 			if(this.stone.getValue() < value)
-				throw new Exception (error);
+				throw new IllegalArgumentException (error);
 			else
 			this.stone.setValue(this.stone.getValue() - value);
 		}
 		
 		if(type instanceof Wood){
 			if(this.wood.getValue() < value)
-				throw new Exception (error);
+				throw new IllegalArgumentException (error);
 			else
 			this.wood.setValue(this.wood.getValue() - value);
 		}
 		
 		if(type instanceof Coin){
 			if(this.coin.getValue() < value)
-				throw new Exception (error);
+				throw new IllegalArgumentException (error);
 			else
 			this.coin.setValue(this.coin.getValue() - value);
 		}
 		
 		if(type instanceof Servant){
 			if(this.servant.getValue() < value)
-				throw new Exception (error);
+				throw new IllegalArgumentException (error);
 			else
 			this.servant.setValue(this.servant.getValue() - value);
 		}
@@ -191,12 +188,12 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	}
 
 	@Override
-	public int compareTo(Player o) {
+	public int compareTo(Player o) { //dovuto a Comparator
 		return this.position - o.position;
 	}
 
 	@Override
-	public int compare(Player o1, Player o2) {
+	public int compare(Player o1, Player o2) { //dovuto a Comparable
 		//inutilizzato al momento. ho intenzione di usarlo magari nella verifica finale di chi ha vinto
 		return 0;
 	}
@@ -204,6 +201,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	private int manageCounter(){
 		if ( counter == 4)
 			counter = 1;
+		
 		return counter++;
 	}
 	
@@ -232,20 +230,24 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	}// end of allFamilyisUsed
 	
 	public FamilyMember familiarChoice(){
+		
 		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo per problemi del compiler
 		Scanner in;
 		int temp = 1;
 		boolean retry = true;
+		String alert = "Attenzione! familiare già usato!";
 		
 		while (retry){
 			boolean checkExc = false;
 			
 			while(!checkExc){ // scelta familiare
+				
 				System.out.println("Quale familiare vuoi usare?");
 				System.out.println("1. Nero (Valore: " + this.blackFamilyMember.getValue() + ")");
 				System.out.println("2. Arancione (Valore: " + this.orangeFamilyMember.getValue() + ")");
 				System.out.println("3. Neutro (Valore 0)");
 				System.out.println("4. Bianco (Valore: " + this.whiteFamilyMember.getValue() + ")");
+				
 				try {
 					in = new Scanner(System.in);
 					temp = in.nextInt();
@@ -258,6 +260,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 			}
 			
 			switch (temp) {
+			
 			case 1:
 				
 				familyChoice = new BlackFamilyMember();
@@ -265,7 +268,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 				familyChoice.setIsUsed(this.blackFamilyMember.IsUsed());
 				
 				if(familyChoice.IsUsed())
-					System.err.println("Attenzione! familiare già usato!");
+					System.err.println(alert);
 				
 				this.blackFamilyMember.setIsUsed(true); //dico che il familiare del giocatore è stato usato
 				
@@ -277,7 +280,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 				familyChoice.setIsUsed(this.orangeFamilyMember.IsUsed());
 				
 				if(familyChoice.IsUsed())
-					System.err.println("Attenzione! familiare già usato!");
+					System.err.println(alert);
 				
 				this.orangeFamilyMember.setIsUsed(true);
 				
@@ -289,7 +292,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 				familyChoice.setIsUsed(this.neutralFamilyMember.IsUsed());
 				
 				if(familyChoice.IsUsed())
-					System.err.println("Attenzione! familiare già usato!");
+					System.err.println(alert);
 				
 				this.neutralFamilyMember.setIsUsed(true);
 				
@@ -301,7 +304,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 				familyChoice.setIsUsed(this.whiteFamilyMember.IsUsed());
 				
 				if(familyChoice.IsUsed())
-					System.err.println("Attenzione! familiare già usato!");
+					System.err.println(alert);
 				
 				this.whiteFamilyMember.setIsUsed(true);
 				
@@ -317,9 +320,11 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 			
 		}// end of while(retry)
 		
-		return familyChoice; //ritorno una copia del familiare del giocatore! vorrei usare una clone all'interno di questo metodo
+		return familyChoice; //ritorno una copia del familiare del giocatore! vorrei usare una clone all'interno di questo metodo così da smaltire codice
 		
 	}//end of familiarChoice()
+	
+	
 	
 	
 	
