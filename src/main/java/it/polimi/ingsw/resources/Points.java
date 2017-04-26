@@ -11,6 +11,10 @@ public abstract class Points {
 		this.value = value;
 	}
 	
+	public void setValue(int value){
+		this.value = value;
+	}
+	
 	@Override
 	public abstract String toString();
 

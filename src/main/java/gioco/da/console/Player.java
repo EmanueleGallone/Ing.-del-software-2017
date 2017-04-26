@@ -1,22 +1,31 @@
 package gioco.da.console;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import it.polimi.cards.DevelopmentCard;
 import it.polimi.ingsw.dices.BlackDice;
 import it.polimi.ingsw.dices.WhiteDice;
-import it.polimi.ingsw.dices.YellowDice;
+import it.polimi.ingsw.dices.OrangeDice;
 import it.polimi.ingsw.resources.BlackFamilyMember;
 import it.polimi.ingsw.resources.Coin;
+import it.polimi.ingsw.resources.FaithPoint;
+import it.polimi.ingsw.resources.FamilyMember;
+import it.polimi.ingsw.resources.MilitaryPoint;
 import it.polimi.ingsw.resources.NeutralFamilyMember;
 import it.polimi.ingsw.resources.OrangeFamilyMember;
 import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Servant;
 import it.polimi.ingsw.resources.Stone;
+import it.polimi.ingsw.resources.VictoryPoint;
 import it.polimi.ingsw.resources.WhiteFamilyMember;
 import it.polimi.ingsw.resources.Wood;
 
-public class Player{
+public class Player implements Comparator<Player>, Comparable<Player>{
+	
+	private static int counter = 1;
 	
 	private String name;
 	
@@ -25,14 +34,18 @@ public class Player{
 	private Resource coin;
 	private Resource servant;
 	
-	private int position;
+	private VictoryPoint victoryPoint;
+	private MilitaryPoint militaryPoint;
+	private FaithPoint faithPoint;
+	
+	private int position = 1;
 	
 	private BlackFamilyMember blackFamilyMember;
 	private WhiteFamilyMember whiteFamilyMember;
 	private NeutralFamilyMember neutralFamilyMember;
 	private OrangeFamilyMember orangeFamilyMember;
 	
-	private ArrayList<DevelopmentCard> mazzo = new ArrayList<>();
+	private ArrayList<DevelopmentCard> mazzo = new ArrayList<DevelopmentCard>();
 	
 	
 	public Player(){
@@ -47,8 +60,13 @@ public class Player{
 		servant.setValue(5);
 		coin.setValue(5);
 		
-		//i coin vanno scelti in base alla posizione
+		position = manageCounter();
 		
+		militaryPoint.setValue(0);
+		victoryPoint.setValue(0);
+		faithPoint.setValue(0);
+		
+		//i coin vanno scelti in base alla posizione. potrei aggiungerli successivamente oppure fare un check sulla posizione.		
 		
 		blackFamilyMember = new BlackFamilyMember();
 		whiteFamilyMember = new WhiteFamilyMember();
@@ -63,7 +81,9 @@ public class Player{
 		coin = new Coin();
 		servant = new Servant();
 		
-		stone.setValue(50); //per distinguere il constructor
+		position = manageCounter();
+		
+		stone.setValue(5);
 		wood.setValue(5);
 		servant.setValue(5);
 		coin.setValue(5);
@@ -79,91 +99,12 @@ public class Player{
 	@Override
 	public String toString() {
 		return "Player {name=" + name + "\nstone=" + stone + "\nwood=" + wood + "\ncoin=" + coin + "\nservant="
-				+ servant + ", position=" + position + ",\nblackFamilyMember=" + blackFamilyMember
+				+ servant + "\nposition=" + position + ",\nblackFamilyMember=" + blackFamilyMember
 				+ "\nwhiteFamilyMember=" + whiteFamilyMember + "\nneutralFamilyMember=" + neutralFamilyMember
 				+ "\norangeFamilyMember=" + orangeFamilyMember + ",\nmazzo=" + mazzo + "}";
 	}
 
-	//setters for family Member values
-	public void setBlackFamilyMemberValue(BlackDice d){
-		blackFamilyMember.setValue(d.getValue());
-	}
 	
-	public void setBlackFamilyMemberValue(int value){
-		blackFamilyMember.setValue(value);
-	}
-	
-	public void setWhiteFamilyMemberValue(WhiteDice d){
-		whiteFamilyMember.setValue(d.getValue());
-	}
-	
-	public void setWhiteFamilyMemberValue(int value){
-		whiteFamilyMember.setValue(value);
-	}
-	
-	public void setOrangeFamilyMemberValue(YellowDice d){
-		orangeFamilyMember.setValue(d.getValue());
-	}
-	
-	public void setOrangeFamilyMemberValue(int value){
-		orangeFamilyMember.setValue(value);
-	}	
-		
-	public BlackFamilyMember getBlackFamilyMember() {
-		return blackFamilyMember;
-	}
-
-	public WhiteFamilyMember getWhiteFamilyMember() {
-		return whiteFamilyMember;
-	}
-
-	public NeutralFamilyMember getNeutralFamilyMember() {
-		return neutralFamilyMember;
-	}
-
-	public OrangeFamilyMember getOrangeFamilyMember() {
-		return orangeFamilyMember;
-	}//end of family members setters
-
-	public int getPosition(){
-		return this.position;
-	}
-	
-	public void setPosition(int position){
-		this.position = position;
-	}	
-	//start of Resource setters and getters
-	public int getStone() {
-		return stone.getValue();
-	}
-
-	public int getWood() {
-		return wood.getValue();
-	}
-
-	public int getCoin() {
-		return coin.getValue();
-	}
-
-	public int getServant() {
-		return servant.getValue();
-	}
-
-	public void setStone(int value) {
-		this.stone.setValue(value);
-	}
-
-	public void setWood(int value) {
-		this.wood.setValue(value);
-	}
-
-	public void setCoin(int value) {
-		this.coin.setValue(value);
-	}
-
-	public void setServant(int value) {
-		this.servant.setValue(value);
-	}//end of Resource Setters and Getters
 
 	public void addCard(DevelopmentCard card){
 		this.mazzo.add(card);
@@ -248,6 +189,209 @@ public class Player{
 		else
 			this.servant.setValue(this.servant.getValue() - value);
 	}
+
+	@Override
+	public int compareTo(Player o) {
+		return this.position - o.position;
+	}
+
+	@Override
+	public int compare(Player o1, Player o2) {
+		//inutilizzato al momento. ho intenzione di usarlo magari nella verifica finale di chi ha vinto
+		return 0;
+	}
+	
+	private int manageCounter(){
+		if ( counter == 4)
+			counter = 1;
+		return counter++;
+	}
+	
+	public boolean allFamilyisUsed(){
+
+		int countIsUsed = 0;
+
+		if(blackFamilyMember.IsUsed())
+			countIsUsed++;
+		
+		if(whiteFamilyMember.IsUsed())
+			countIsUsed++;
+		
+		if(neutralFamilyMember.IsUsed())
+			countIsUsed++;
+		
+		if(orangeFamilyMember.IsUsed())
+			countIsUsed++;		
+		
+		if(countIsUsed == 4)
+			return true;
+		
+		
+		return false;
+		
+	}// end of allFamilyisUsed
+	
+	public FamilyMember familiarChoice(){
+		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo per problemi del compiler
+		Scanner in;
+		int temp = 1;
+		boolean retry = true;
+		
+		while (retry){
+			boolean checkExc = false;
+			
+			while(!checkExc){ // scelta familiare
+				System.out.println("Quale familiare vuoi usare?");
+				System.out.println("1. Nero (Valore: " + this.blackFamilyMember.getValue() + ")");
+				System.out.println("2. Arancione (Valore: " + this.orangeFamilyMember.getValue() + ")");
+				System.out.println("3. Neutro (Valore 0)");
+				System.out.println("4. Bianco (Valore: " + this.whiteFamilyMember.getValue() + ")");
+				try {
+					in = new Scanner(System.in);
+					temp = in.nextInt();
+					checkExc = true;
+					
+				} catch (InputMismatchException e) {
+					System.err.println("Errore nella selezione! riprova\n");
+				}
+				
+			}
+			
+			switch (temp) {
+			case 1:
+				
+				familyChoice = new BlackFamilyMember();
+				familyChoice.setValue(this.blackFamilyMember.getValue());
+				familyChoice.setIsUsed(this.blackFamilyMember.IsUsed());
+				
+				if(familyChoice.IsUsed())
+					System.err.println("Attenzione! familiare già usato!");
+				
+				this.blackFamilyMember.setIsUsed(true); //dico che il familiare del giocatore è stato usato
+				
+				break;
+				
+			case 2:
+				familyChoice = new OrangeFamilyMember();
+				familyChoice.setValue(this.orangeFamilyMember.getValue());
+				familyChoice.setIsUsed(this.orangeFamilyMember.IsUsed());
+				
+				if(familyChoice.IsUsed())
+					System.err.println("Attenzione! familiare già usato!");
+				
+				this.orangeFamilyMember.setIsUsed(true);
+				
+				break;
+				
+			case 3:
+				familyChoice = new NeutralFamilyMember();
+				familyChoice.setValue(this.neutralFamilyMember.getValue());
+				familyChoice.setIsUsed(this.neutralFamilyMember.IsUsed());
+				
+				if(familyChoice.IsUsed())
+					System.err.println("Attenzione! familiare già usato!");
+				
+				this.neutralFamilyMember.setIsUsed(true);
+				
+				break;
+				
+			case 4:
+				familyChoice = new WhiteFamilyMember();
+				familyChoice.setValue(this.whiteFamilyMember.getValue());
+				familyChoice.setIsUsed(this.whiteFamilyMember.IsUsed());
+				
+				if(familyChoice.IsUsed())
+					System.err.println("Attenzione! familiare già usato!");
+				
+				this.whiteFamilyMember.setIsUsed(true);
+				
+				break;
+
+			default:
+				System.err.println("Qualcosa è andato storto nella scelta del familiare!");
+				break;
+			} //fine statement per scelta familiare
+			
+			if((temp <= 4) && (temp >= 1) && !familyChoice.IsUsed()) //check condition per l'uscita dal ciclo
+				retry = false;				
+			
+		}// end of while(retry)
+		
+		return familyChoice; //ritorno una copia del familiare del giocatore! vorrei usare una clone all'interno di questo metodo
+		
+	}//end of familiarChoice()
+	
+	
+	
+	//setters for family Member values
+	
+		public void setBlackFamilyMemberValue(int value){
+			blackFamilyMember.setValue(value);
+		}
+		
+		public void setWhiteFamilyMemberValue(int value){
+			whiteFamilyMember.setValue(value);
+		}
+		
+		public void setOrangeFamilyMemberValue(int value){
+			orangeFamilyMember.setValue(value);
+		}	
+			
+		public BlackFamilyMember getBlackFamilyMember() {
+			return blackFamilyMember;
+		}
+
+		public WhiteFamilyMember getWhiteFamilyMember() {
+			return whiteFamilyMember;
+		}
+
+		public NeutralFamilyMember getNeutralFamilyMember() {
+			return neutralFamilyMember;
+		}
+
+		public OrangeFamilyMember getOrangeFamilyMember() {
+			return orangeFamilyMember;
+		}//end of family members setters
+
+		public int getPosition(){
+			return this.position;
+		}
+		
+		public void setPosition(int position){
+			this.position = position;
+		}	
+		//start of Resource setters and getters
+		public int getStone() {
+			return stone.getValue();
+		}
+
+		public int getWood() {
+			return wood.getValue();
+		}
+
+		public int getCoin() {
+			return coin.getValue();
+		}
+
+		public int getServant() {
+			return servant.getValue();
+		}
+
+		public void setStone(int value) {
+			this.stone.setValue(value);
+		}
+
+		public void setWood(int value) {
+			this.wood.setValue(value);
+		}
+
+		public void setCoin(int value) {
+			this.coin.setValue(value);
+		}
+
+		public void setServant(int value) {
+			this.servant.setValue(value);
+		}//end of Resource Setters and Getters
 	
 
 	

@@ -21,7 +21,7 @@ public class CambiaPosizioni extends Zone {
 	
 	public void activate (Player player){
 		player.setPosition(position);
-		position++;
+		position++; //è da vedere come impostare le posizioni per tutti gli altri player
 		
 		choice();
 		
@@ -80,7 +80,7 @@ public class CambiaPosizioni extends Zone {
 					retry = false;
 				}
 				
-				//end if
+				
 				
 			} catch (InputMismatchException e) {
 				System.err.println("Errore. Scegli tra l'elenco \n");

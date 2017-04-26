@@ -8,9 +8,9 @@ public class GameMaster {
 	private final int MAX_PLAYER = 4;
 	//private int timeout = 60;
 	
-	private ArrayList<Partita> games = new ArrayList<>();
-	private ArrayList<Client> clientNonInGioco = new ArrayList<>();
-	private ArrayList<Player> giocatori = new ArrayList<>();
+	private ArrayList<Partita> games = new ArrayList<Partita>();
+	private ArrayList<Client> clientNonInGioco = new ArrayList<Client>(); //ho davvero bisogno di questo?
+	private ArrayList<Player> giocatori = new ArrayList<Player>();
 
 	
 	public void add(Client c){
@@ -30,7 +30,7 @@ public class GameMaster {
 		
 	}
 	
-	//metodo per ritornare la partita per delegarla al controller
+	//metodo per ritornare la partita per delegarla al controller. Molto probabilmente inutile
 	public Partita delegaPartitaController(int index){
 		return games.get(index);
 	}
@@ -42,10 +42,6 @@ public class GameMaster {
 		games.add(partita);
 		clientNonInGioco.clear();
 		giocatori.clear();
-	}
-	
-	public void gestisciPartita(){
-		
 	}
 	
 	public Partita getPartita(int number){

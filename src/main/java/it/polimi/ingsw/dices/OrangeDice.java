@@ -1,8 +1,8 @@
 package it.polimi.ingsw.dices;
 
-public class YellowDice extends Dice {
+public class OrangeDice extends Dice {
 	
-	public YellowDice(){
+	public OrangeDice(){
 		super();	
 	}
 	

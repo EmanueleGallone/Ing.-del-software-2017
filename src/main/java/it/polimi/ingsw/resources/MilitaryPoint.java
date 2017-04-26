@@ -5,10 +5,6 @@ public class MilitaryPoint extends Points {
 	public MilitaryPoint(){
 		super();
 	}
-	
-	public MilitaryPoint(int value){
-		super(value);
-	}
 
 	@Override
 	public String toString() {

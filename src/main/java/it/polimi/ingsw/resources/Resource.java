@@ -18,7 +18,7 @@ public class Resource implements Incrementable {
 		return this.value;
 	}
 	
-	public void setValue(int value){ //scomodo per i FamilyMember. non lo uso. devo capire cosa inventarmi. ema
+	public void setValue(int value){
 		this.value = value;
 	}
 	

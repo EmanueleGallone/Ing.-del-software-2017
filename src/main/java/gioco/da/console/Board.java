@@ -13,7 +13,7 @@ public class Board {
 	private CambiaPosizioni cambiaPosizioni;
 	
 	private BlackDice blackDice;
-	private YellowDice yellowDice;
+	private OrangeDice orangeDice;
 	private WhiteDice whiteDice;
 	
 	private int period;
@@ -23,7 +23,7 @@ public class Board {
 		
 		blackDice = new BlackDice();
 		whiteDice = new WhiteDice();
-		yellowDice = new YellowDice();
+		orangeDice = new OrangeDice();
 		
 		harvest = new HarvestZone1();
 		production = new ProductionZone1();
@@ -40,7 +40,7 @@ public class Board {
 		
 		blackDice = new BlackDice();
 		whiteDice = new WhiteDice();
-		yellowDice = new YellowDice();
+		orangeDice = new OrangeDice();
 	}
 
 	@Override
@@ -57,14 +57,14 @@ public class Board {
 		return whiteDice.getValue();
 	}
 	
-	public int getYellowDiceValue(){
-		return yellowDice.getValue();
+	public int getOrangeDiceValue(){
+		return orangeDice.getValue();
 	}//end of Dice getters
 	
 	public void rollDices(){
 		blackDice.rollDice();
 		whiteDice.rollDice();
-		yellowDice.rollDice();
+		orangeDice.rollDice();
 	}
 	
 	public DevelopmentCard getCard(int number){

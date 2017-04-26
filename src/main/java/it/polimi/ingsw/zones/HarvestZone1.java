@@ -34,6 +34,8 @@ public class HarvestZone1 extends Zone {
 	}//fine vecchia implementazione
 	
 	public void active (Player player){
+		player.familiarChoice(); //faccio scegliere il familiare da posizionare
+		
 		player.changeResourceValue(resource1,resource1.getValue());
 		player.changeResourceValue(resource2, resource2.getValue());
 	}

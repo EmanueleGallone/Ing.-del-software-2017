@@ -9,11 +9,11 @@ public abstract class FamilyMember extends Resource {
 	}
 	
 	public void setIsUsed(boolean value){
-		this.isUsed = value;
+		isUsed = value;
 	}
 	
 	public boolean IsUsed(){
-		return this.isUsed;
+		return isUsed;
 	}
 
 }

@@ -11,13 +11,17 @@ public class TestMain {
 		//emulazione di Connection Accept
 		Client c = new Client();
 		c.setPlayer(new Player("Mario"));
-		c.getPlayer().setPosition(2);
+		//c.getPlayer().setPosition(2);
 		Client c2 = new Client();
 		c2.setPlayer(new Player("Ken"));
+		
+		//se vuoi aggiungere giocatori ricordati di modificare il metodo add di gameMaster.
+		//al momento crea una partita con 2 giocatori, immediatamente
 		
 		//aggiungo i client al gameMaster
 		gameMaster.add(c);
 		gameMaster.add(c2);
+
 		
 		//creo una nuova partita e la prendo dal gameMaster
 		Partita game = gameMaster.getPartita(0);
