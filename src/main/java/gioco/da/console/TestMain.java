@@ -11,7 +11,6 @@ public class TestMain {
 		//emulazione di Connection Accept
 		Client c = new Client();
 		c.setPlayer(new Player("Mario"));
-		//c.getPlayer().setPosition(2);
 		Client c2 = new Client();
 		c2.setPlayer(new Player("Ken"));
 		

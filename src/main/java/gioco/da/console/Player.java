@@ -175,18 +175,10 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 		
 	}
 	
-	public void printDeck(){
+	private /* public */ void printDeck(){
 		System.out.println("stampa mazzo completo: " + mazzo.toString());
 	}
 	
-	//use servant for increasing value of family Member
-	public void useServant(int value) throws IllegalArgumentException{
-		if(value > this.servant.getValue())
-			throw new IllegalArgumentException ("Hai superato il numero consentito di servitori!");
-		else
-			this.servant.setValue(this.servant.getValue() - value);
-	}
-
 	@Override
 	public int compareTo(Player o) { //dovuto a Comparator
 		return this.position - o.position;
@@ -230,7 +222,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	}// end of allFamilyisUsed
 	
 	public FamilyMember familiarChoice(){
-		
+		//funziona alla perfezione
 		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo per problemi del compiler
 		Scanner in;
 		int temp = 1;
@@ -323,6 +315,39 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 		return familyChoice; //ritorno una copia del familiare del giocatore! vorrei usare una clone all'interno di questo metodo così da smaltire codice
 		
 	}//end of familiarChoice()
+	
+	public void useServant(FamilyMember familyChoice){
+		int max = this.getServant();
+		Scanner in;
+		int temp = 0;
+		boolean retry = true;
+		
+		while(retry){
+		
+			try {
+				in = new Scanner(System.in);
+				System.out.println("Quanti servitori vuoi usare? (Max: " + max + ")");
+				temp = in.nextInt();
+				
+				if(temp >=0 && temp <= max){
+					familyChoice.setValue(familyChoice.getValue() + temp);
+					this.setServant(this.servant.getValue() - temp);
+					System.out.println(temp + " servitori usati! " + getServant() + " rimanenti!");
+					retry = false;
+				}
+				
+				if(max == 0){
+					System.err.println("Hai 0 servitori!");
+					return;
+				}
+				
+			} catch (InputMismatchException e) {
+				System.err.println("Errore, inserisci un valore adeguato");
+			}
+		}
+		
+		
+	}
 	
 	
 	

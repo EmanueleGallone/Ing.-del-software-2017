@@ -5,10 +5,18 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gioco.da.console.TowerChoice.BlueTowerChoice;
+import gioco.da.console.TowerChoice.GreenTowerChoice;
+import gioco.da.console.TowerChoice.PurpleTowerChoice;
+import gioco.da.console.TowerChoice.YellowTowerChoice;
 import it.polimi.ingsw.resources.BlackFamilyMember;
 import it.polimi.ingsw.resources.FamilyMember;
 
 public class Partita {
+	
+	/*
+	 * cose da fare: fare un check del familiare posizionato sulla casella; per ogni torre ovviamente.
+	 */
 	
 	private final int MAX_TURN = 2;
 	private final int MAX_PERIOD = 3;
@@ -98,7 +106,7 @@ public class Partita {
 							break;
 							
 						case 3: 
-							sceltaCartaGiocatore(giocatori.get(i));
+							sceltaTorre(giocatori.get(i));
 							retry = !giocatori.get(i).allFamilyisUsed();
 							break;
 								
@@ -132,7 +140,7 @@ public class Partita {
 			
 			this.board = new Board(period);
 			
-		}//end period for	
+		}//end for(period)	
 		
 	}
 	
@@ -167,26 +175,36 @@ public class Partita {
 		
 	}
 	
-	//in questo metodo aggiungo la carta scelta al mazzo del giocatore e rimuovo la carta dalla board. Mancano i check sui requisiti
-	private void sceltaCartaGiocatore(Player player){
+	//in questo metodo faccio scegliere la torre
+	private void sceltaTorre(Player player){
 		int choice;
-		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo perchè il compilatore altrimenti mi dà problemi
+		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo perchè il compilatore altrimenti mi dà problemi. poi testo se posso toglierlo
 		
 		choice = TowerChoice();
-		//procedo solo con la torre gialla per testing. poi estendo
+		
 		switch(choice){
 			case 1:		
 				familyChoice = player.familiarChoice();			
-				YellowTowerChoice(player,familyChoice);
+				new YellowTowerChoice(player,familyChoice,this.board);
 				break;
 			
 			case 2:
 				familyChoice = player.familiarChoice();
-				BlueTowerChoice(player,familyChoice);
+				new BlueTowerChoice(player,familyChoice,this.board);
+				break;
+				
+			case 3:
+				familyChoice = player.familiarChoice();
+				new GreenTowerChoice(player,familyChoice,this.board);
+				break;
+				
+			case 4:
+				familyChoice = player.familiarChoice();
+				new PurpleTowerChoice(player,familyChoice,this.board);
 				break;
 			
 			default:
-				System.err.println("sono nella selezione della torre. qualcosa è andato storto!");
+				System.err.println("qualcosa è andato storto nella selezione della torre!");
 				break;
 		}
 		
@@ -234,307 +252,34 @@ public class Partita {
 		return choice;
 	
 	}
-	
-	private void YellowTowerChoice(Player player,FamilyMember familyChoice){
-		Scanner in;
-		int temp=1;
-		boolean checkExc = true;
-		boolean retry = true;
 		
-		while(retry){
-			checkExc=true;
+	private void checkPositionValue(FamilyMember familyChoice, int value, Player player){
+		// spostato su TowerChoices
+		Scanner in = new Scanner(System.in);
+		String choice = "n";
 		
-			while(checkExc){
-				
-				System.out.println("Inserisci quale carta prendere: ");
-				
-				try {
-					
-					in = new Scanner(System.in);
-					temp = in.nextInt();
-					
-					if(board.getYellowTower().getCard(temp-1) == null){
-						System.err.println("Carta già in possesso di qualcun'altro!");
-					}
-					else
-					checkExc = false;
-					
-				} catch (InputMismatchException e) {
-					System.err.println("errore nella selezione! riprova\n");
-				}
-			}//end of checkExc
+		if(familyChoice.getValue() < value){
+			System.out.println("Attenzione! il valore del familiare non è sufficiente! vuoi usare i servitori? (s/n) ");
+			in.next();
 			
-			int shift = temp-1;
+			if(choice.equalsIgnoreCase("s")){
+				player.useServant(familyChoice);
+			}
 			
-			switch (temp) { 
-				case 1:
-					
-					
-					if(familyChoice.getValue() < board.getYellowTower().getFirstPositionValue() ){
-						System.out.println("ATTENZIONE: il valore del familiare non supera quello della casella scelta\n vuoi usare i servitori?");
-						//AACHTUNG: implementare l'uso dei servitori per aumentare il valore del familiare.
-						retry = false; //testing
-					}
-					else{
-						player.addCard(board.getYellowTower().getCard(shift));
-						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getYellowTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
-						retry = false;
-					}
-					break;
-					
-				case 2:
-					player.addCard(board.getYellowTower().getCard(shift));
-					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getYellowTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 3:
-					player.addCard(board.getYellowTower().getCard(shift));
-					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getYellowTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 4:
-					player.addCard(board.getYellowTower().getCard(shift));
-					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getYellowTower().removeCard(shift);
-					retry = false;
-					break;
-		
-				default:
-					System.out.println("Errore nella scelta! riprova\n");
-					retry = true;
-					break;
-				}//end of switch
+			else if(choice.equalsIgnoreCase("n"))
+				return;
 			
-		}//end of retry
-		
-	} 
-	
-	private void BlueTowerChoice(Player player,FamilyMember familyChoice){
-		Scanner in;
-		int temp=1;
-		boolean checkExc = true;
-		boolean retry = true;
-		
-		while(retry){
-			checkExc=true;
-		
-			while(checkExc){
-				
-				System.out.println("Inserisci quale carta prendere: ");
-				
-				try {
-					
-					in = new Scanner(System.in);
-					temp = in.nextInt();
-					
-					checkExc = false;
-					
-				} catch (InputMismatchException e) {
-					System.err.println("errore nella selezione! riprova\n");
-				}
-			}//end of checkExc
+			else
+				return;
 			
-			int shift = temp-1;
-			
-			switch (temp) { 
-				case 1:
-					if(familyChoice.getValue() < board.getBlueTower().getFirstPositionValue() ){ //ATTENZIONE. da cambiare
-						System.out.println("ATTENZIONE: il valore del familiare non supera quello della casella scelta\n vuoi usare i servitori?");
-						//AACHTUNG: implementare l'uso dei servitori per aumentare il valore del familiare.
-						retry = false; //testing
-					}
-					else{
-						player.addCard(board.getBlueTower().getCard(shift));
-						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getBlueTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
-						retry = false;
-					}
-					break;
-					
-				case 2:
-					player.addCard(board.getBlueTower().getCard(shift));
-					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getBlueTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 3:
-					player.addCard(board.getBlueTower().getCard(shift));
-					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getBlueTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 4:
-					player.addCard(board.getBlueTower().getCard(shift));
-					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getBlueTower().removeCard(shift);
-					retry = false;
-					break;
+		}
 		
-				default:
-					System.out.println("Errore nella scelta! riprova\n");
-					retry = true;
-					break;
-				}//end of switch
-			
-		}//end of retry
+		else
+			return;
+		
+		
 		
 	}
-	
-	private void PurpleTowerChoice(Player player,FamilyMember familyChoice){
-		Scanner in;
-		int temp=1;
-		boolean checkExc = true;
-		boolean retry = true;
-		
-		while(retry){
-			checkExc=true;
-		
-			while(checkExc){
-				
-				System.out.println("Inserisci quale carta prendere: ");
-				
-				try {
-					
-					in = new Scanner(System.in);
-					temp = in.nextInt();
-					
-					checkExc = false;
-					
-				} catch (InputMismatchException e) {
-					System.err.println("errore nella selezione! riprova\n");
-				}
-			}//end of checkExc
-			
-			int shift = temp-1;
-			
-			switch (temp) { 
-				case 1:
-					if(familyChoice.getValue() < board.getPurpleTower().getFirstPositionValue() ){ //ATTENZIONE. da cambiare
-						System.out.println("ATTENZIONE: il valore del familiare non supera quello della casella scelta\n vuoi usare i servitori?");
-						//AACHTUNG: implementare l'uso dei servitori per aumentare il valore del familiare.
-						retry = false; //testing
-					}
-					else{
-						player.addCard(board.getPurpleTower().getCard(shift));
-						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getPurpleTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
-						retry = false;
-					}
-					break;
-					
-				case 2:
-					player.addCard(board.getPurpleTower().getCard(shift));
-					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getPurpleTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 3:
-					player.addCard(board.getPurpleTower().getCard(shift));
-					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getPurpleTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 4:
-					player.addCard(board.getPurpleTower().getCard(shift));
-					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getPurpleTower().removeCard(shift);
-					retry = false;
-					break;
-		
-				default:
-					System.out.println("Errore nella scelta! riprova\n");
-					retry = true;
-					break;
-				}//end of switch
-			
-		}//end of retry
-		
-	}
-	
-	private void GreenTowerChoice(Player player,FamilyMember familyChoice){
-		Scanner in;
-		int temp=1;
-		boolean checkExc = true;
-		boolean retry = true;
-		
-		while(retry){
-			checkExc=true;
-		
-			while(checkExc){
-				
-				System.out.println("Inserisci quale carta prendere: ");
-				
-				try {
-					
-					in = new Scanner(System.in);
-					temp = in.nextInt();
-					
-					checkExc = false;
-					
-				} catch (InputMismatchException e) {
-					System.err.println("errore nella selezione! riprova\n");
-				}
-			}//end of checkExc
-			
-			int shift = temp-1;
-			
-			switch (temp) { 
-				case 1:
-					if(familyChoice.getValue() < board.getGreenTower().getFirstPositionValue() ){ //ATTENZIONE. da cambiare
-						System.out.println("ATTENZIONE: il valore del familiare non supera quello della casella scelta\n vuoi usare i servitori?");
-						//AACHTUNG: implementare l'uso dei servitori per aumentare il valore del familiare.
-						retry = false; //testing
-					}
-					else{
-						player.addCard(board.getGreenTower().getCard(shift));
-						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getGreenTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
-						retry = false;
-					}
-					break;
-					
-				case 2:
-					player.addCard(board.getGreenTower().getCard(shift));
-					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getGreenTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 3:
-					player.addCard(board.getGreenTower().getCard(shift));
-					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getGreenTower().removeCard(shift);
-					retry = false;
-					break;
-					
-				case 4:
-					player.addCard(board.getGreenTower().getCard(shift));
-					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getGreenTower().removeCard(shift);
-					retry = false;
-					break;
-		
-				default:
-					System.out.println("Errore nella scelta! riprova\n");
-					retry = true;
-					break;
-				}//end of switch
-			
-		}//end of retry
-		
-	}
-	
-	
-	
 
 }//end of Class
 
