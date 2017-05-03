@@ -14,6 +14,10 @@ public class Resource implements Incrementable {
 		incrementEvent = new EventHandler<>();
 	}
 	
+	public Resource(int value){
+		this.value = value;
+	}
+	
 	public  int getValue(){
 		return this.value;
 	}

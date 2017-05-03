@@ -3,6 +3,7 @@ package it.polimi.cards;
 import it.polimi.ingsw.resources.*;
 
 public class YellowCard extends DevelopmentCard {
+	//carte EDIFICIO
 	
 	public YellowCard(){
 	this.name="Carta gialla 1";

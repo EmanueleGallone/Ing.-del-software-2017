@@ -1,5 +1,8 @@
 package gioco.da.console;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameMaster {
@@ -44,8 +47,37 @@ public class GameMaster {
 		giocatori.clear();
 	}
 	
+	private void readTimeoutFile(){
+		//funge. ho cambiato la directory però
+		try {
+			
+			BufferedReader br = new BufferedReader(new FileReader ("configuration/timeout.txt"));
+			String line = br.readLine();
+			StringBuilder sb = new StringBuilder();
+			int timeout;
+			
+			do{
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				timeout = Integer.valueOf(line);
+				
+				line = br.readLine();
+				
+				System.out.println("Timeout caricato: " + timeout); //per debugging
+				
+			} while( line != null);
+			
+		} catch (IOException e) {
+			e.getMessage();
+			e.getStackTrace();
+		}
+		
+	}
+	
 	public Partita getPartita(int number){
 		return games.get(number);
 	}
+	
+	
 
 }

@@ -1,11 +1,16 @@
 package it.polimi.ingsw.resources;
 
+import gioco.da.console.Player;
 import it.polimi.ingsw.dices.OrangeDice;
 
 public class OrangeFamilyMember extends FamilyMember {
 	
 	public OrangeFamilyMember(){
 		super();
+	}
+	
+	public OrangeFamilyMember(Player player){
+		super(player);
 	}
 
 	@Override

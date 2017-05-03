@@ -4,14 +4,16 @@ import it.polimi.ingsw.dices.BlackDice;
 import it.polimi.ingsw.dices.OrangeDice;
 import it.polimi.ingsw.dices.WhiteDice;
 import it.polimi.ingsw.zones.BlueTower;
-import it.polimi.ingsw.zones.CambiaPosizioni;
+import it.polimi.ingsw.zones.CouncilPalace;
 import it.polimi.ingsw.zones.GreenTower;
 import it.polimi.ingsw.zones.HarvestZone1;
+import it.polimi.ingsw.zones.Market;
 import it.polimi.ingsw.zones.ProductionZone1;
 import it.polimi.ingsw.zones.PurpleTower;
 import it.polimi.ingsw.zones.YellowTower;
 
 public class Board {
+	//rispetta il pattern Facade, o no?
 	
 	private YellowTower yellowTower;
 	private BlueTower blueTower;
@@ -20,7 +22,9 @@ public class Board {
 	
 	private HarvestZone1 harvest;
 	private ProductionZone1 production;
-	private CambiaPosizioni cambiaPosizioni;
+	private CouncilPalace cambiaPosizioni;
+	
+	private Market market;
 	
 	private BlackDice blackDice;
 	private OrangeDice orangeDice;
@@ -34,13 +38,15 @@ public class Board {
 		greenTower = new GreenTower();
 		blueTower = new BlueTower();
 		
+		harvest = new HarvestZone1();
+		production = new ProductionZone1();
+		cambiaPosizioni = new CouncilPalace();
+		
+		market = new Market();
+		
 		blackDice = new BlackDice();
 		whiteDice = new WhiteDice();
 		orangeDice = new OrangeDice();
-		
-		harvest = new HarvestZone1();
-		production = new ProductionZone1();
-		cambiaPosizioni = new CambiaPosizioni();
 	}
 	
 	public Board(int period){
@@ -53,7 +59,9 @@ public class Board {
 		
 		harvest = new HarvestZone1();
 		production = new ProductionZone1();
-		cambiaPosizioni = new CambiaPosizioni();
+		cambiaPosizioni = new CouncilPalace();
+		
+		market = new Market();
 		
 		blackDice = new BlackDice();
 		whiteDice = new WhiteDice();
@@ -99,8 +107,16 @@ public class Board {
 		production.active(player);
 	}
 	
-	public void printTower(){
-		//mancano le altre torri
+	public void activateCoinGen(Player player){
+		market.getCoinGen().activate(player);
+	}
+	
+	public void activateServantGen(Player player){
+		market.getSerGen().activate(player);
+	}
+	
+	private void printTower(){
+		//mancano le altre torri. credo si possa anche eliminare questo metodo
 		for(int i = 0; i<4;i++)
 			System.out.println("TorreGialla"+ yellowTower.toString());
 	}
@@ -127,6 +143,14 @@ public class Board {
 
 	public boolean hasProductionZoneOccupied(){
 		return production.isOccupied();
+	}
+	
+	public boolean hasCoinGeneratorOccupied(){
+		return market.getCoinGen().isOccupied();
+	}
+	
+	public boolean hasServantGeneratorOccupied(){
+		return market.getSerGen().isOccupied();
 	}
 	
 }

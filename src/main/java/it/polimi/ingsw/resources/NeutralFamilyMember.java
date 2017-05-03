@@ -1,9 +1,15 @@
 package it.polimi.ingsw.resources;
 
+import gioco.da.console.Player;
+
 public class NeutralFamilyMember extends FamilyMember {
 	
 	public NeutralFamilyMember(){
 		super();
+	}
+	
+	public NeutralFamilyMember(Player player){
+		super(player);
 	}
 
 	@Override

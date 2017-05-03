@@ -1,9 +1,15 @@
 package it.polimi.ingsw.resources;
 
+import gioco.da.console.Player;
+
 public class WhiteFamilyMember extends FamilyMember {
 	
 	public WhiteFamilyMember(){
 		super();
+	}
+	
+	public WhiteFamilyMember(Player player){
+		super(player);
 	}
 
 	@Override

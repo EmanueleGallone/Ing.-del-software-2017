@@ -42,28 +42,31 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	private NeutralFamilyMember neutralFamilyMember;
 	private OrangeFamilyMember orangeFamilyMember;
 	
+	//ATTENZIONE: MAX 6 Carte per colore
+	// farò più mazzi in base al colore
 	private ArrayList<DevelopmentCard> mazzo = new ArrayList<DevelopmentCard>();
 	
 	
 	public Player(){
-		name = "MarioRossi";
+		name = "Predefinito " + position;
 		stone = new Stone();
 		wood = new Wood();
 		coin = new Coin();
 		servant = new Servant();
 		
-		stone.setValue(5);
-		wood.setValue(5);
-		servant.setValue(5);
+		stone.setValue(2);
+		wood.setValue(2);
+		servant.setValue(3);
 		coin.setValue(5);
+		
+		//i coin vanno scelti in base alla posizione
+		coin.setValue(coin.getValue()+counter-1);//funge. Do not touch
 		
 		position = manageCounter();
 		
-		militaryPoint.setValue(0);
-		victoryPoint.setValue(0);
-		faithPoint.setValue(0);
-		
-		//i coin vanno scelti in base alla posizione. potrei aggiungerli successivamente oppure fare un check sulla posizione.		
+		militaryPoint = new MilitaryPoint();
+		victoryPoint = new VictoryPoint();
+		faithPoint = new FaithPoint();		
 		
 		blackFamilyMember = new BlackFamilyMember();
 		whiteFamilyMember = new WhiteFamilyMember();
@@ -78,25 +81,38 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 		coin = new Coin();
 		servant = new Servant();
 		
-		position = manageCounter();
-		
-		stone.setValue(5);
-		wood.setValue(5);
-		servant.setValue(5);
+		stone.setValue(2);
+		wood.setValue(2);
+		servant.setValue(3);
 		coin.setValue(5);
 		
-		//i coin vanno scelti in base alla posizione
+		//i coin vanno scelti in base alla posizione:		
+		coin.setValue(coin.getValue()+counter-1); //funziona, non toccare		
 		
-		blackFamilyMember = new BlackFamilyMember();
-		whiteFamilyMember = new WhiteFamilyMember();
-		orangeFamilyMember = new OrangeFamilyMember();
-		neutralFamilyMember = new NeutralFamilyMember();
+		position = manageCounter();
+		
+		militaryPoint = new MilitaryPoint();
+		victoryPoint = new VictoryPoint();
+		faithPoint = new FaithPoint();
+		
+		blackFamilyMember = new BlackFamilyMember(this);//da migliorare. cosa uso per verificare l'owner dei familiari sul tabellone?
+		whiteFamilyMember = new WhiteFamilyMember(this);
+		orangeFamilyMember = new OrangeFamilyMember(this);
+		neutralFamilyMember = new NeutralFamilyMember(this);
 	}
 	
 	@Override
 	public String toString() {
-		return "Player {name=" + name + "\nstone=" + stone + "\nwood=" + wood + "\ncoin=" + coin + "\nservant="
-				+ servant + "\nposition=" + position + ",\nblackFamilyMember=" + blackFamilyMember
+		return "Player {name=" + name 
+				+ "\nstone=" + stone 
+				+ "\nwood=" + wood 
+				+ "\ncoin=" + coin 
+				+ "\nservant="+ servant
+				+ "\nposition=" + position
+				+ "\nMilitary Points: "+ militaryPoint
+				+ "\nFaith Points:"+ faithPoint
+				+"\nVictory Points: " + victoryPoint
+				+",\nblackFamilyMember=" + blackFamilyMember
 				+ "\nwhiteFamilyMember=" + whiteFamilyMember + "\nneutralFamilyMember=" + neutralFamilyMember
 				+ "\norangeFamilyMember=" + orangeFamilyMember + ",\nmazzo=" + mazzo + "}";
 	}
@@ -105,7 +121,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 
 	public void addCard(DevelopmentCard card){
 		this.mazzo.add(card);
-		// System.out.println("Carta aggiunta al deck! "+ card); //non so se serva realmente.
+		// System.out.println("Carta aggiunta al deck! "+ card); per debug
 	}
 	
 	private void subResource(Resource type, int value) throws IllegalArgumentException{
@@ -201,16 +217,16 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 
 		int countIsUsed = 0;
 
-		if(blackFamilyMember.IsUsed())
+		if(blackFamilyMember.isUsed())
 			countIsUsed++;
 		
-		if(whiteFamilyMember.IsUsed())
+		if(whiteFamilyMember.isUsed())
 			countIsUsed++;
 		
-		if(neutralFamilyMember.IsUsed())
+		if(neutralFamilyMember.isUsed())
 			countIsUsed++;
 		
-		if(orangeFamilyMember.IsUsed())
+		if(orangeFamilyMember.isUsed())
 			countIsUsed++;		
 		
 		if(countIsUsed == 4)
@@ -222,7 +238,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	}// end of allFamilyisUsed
 	
 	public FamilyMember familiarChoice(){
-		//funziona alla perfezione
+	
 		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo per problemi del compiler
 		Scanner in;
 		int temp = 1;
@@ -255,47 +271,43 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 			
 			case 1:
 				
-				familyChoice = new BlackFamilyMember();
-				familyChoice.setValue(this.blackFamilyMember.getValue());
-				familyChoice.setIsUsed(this.blackFamilyMember.IsUsed());
+				familyChoice = this.blackFamilyMember.clone();
 				
-				if(familyChoice.IsUsed())
+				if(familyChoice.isUsed())
 					System.err.println(alert);
 				
-				this.blackFamilyMember.setIsUsed(true); //dico che il familiare del giocatore è stato usato
+				this.blackFamilyMember.setIsUsed(true); //setto il familiare del giocatore è stato usato
 				
 				break;
 				
 			case 2:
-				familyChoice = new OrangeFamilyMember();
-				familyChoice.setValue(this.orangeFamilyMember.getValue());
-				familyChoice.setIsUsed(this.orangeFamilyMember.IsUsed());
+				familyChoice = this.orangeFamilyMember.clone();
 				
-				if(familyChoice.IsUsed())
+				if(this.orangeFamilyMember.isUsed())
 					System.err.println(alert);
 				
 				this.orangeFamilyMember.setIsUsed(true);
 				
+			
+				
 				break;
 				
 			case 3:
-				familyChoice = new NeutralFamilyMember();
-				familyChoice.setValue(this.neutralFamilyMember.getValue());
-				familyChoice.setIsUsed(this.neutralFamilyMember.IsUsed());
-				
-				if(familyChoice.IsUsed())
+				familyChoice = this.neutralFamilyMember.clone();
+		
+				if(familyChoice.isUsed())
 					System.err.println(alert);
 				
 				this.neutralFamilyMember.setIsUsed(true);
 				
+				//useServant(familyChoice); se lo uso qui ho problemi nel caso il familiare fosse già usato
+				
 				break;
 				
 			case 4:
-				familyChoice = new WhiteFamilyMember();
-				familyChoice.setValue(this.whiteFamilyMember.getValue());
-				familyChoice.setIsUsed(this.whiteFamilyMember.IsUsed());
-				
-				if(familyChoice.IsUsed())
+				familyChoice = this.whiteFamilyMember.clone();
+	
+				if(familyChoice.isUsed())
 					System.err.println(alert);
 				
 				this.whiteFamilyMember.setIsUsed(true);
@@ -307,12 +319,12 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 				break;
 			} //fine statement per scelta familiare
 			
-			if((temp <= 4) && (temp >= 1) && !familyChoice.IsUsed()) //check condition per l'uscita dal ciclo
+			if((temp <= 4) && (temp >= 1) && !familyChoice.isUsed()) //check condition per l'uscita dal ciclo
 				retry = false;				
 			
 		}// end of while(retry)
 		
-		return familyChoice; //ritorno una copia del familiare del giocatore! vorrei usare una clone all'interno di questo metodo così da smaltire codice
+		return familyChoice; //ritorno una copia del familiare del giocatore!
 		
 	}//end of familiarChoice()
 	
@@ -322,8 +334,13 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 		int temp = 0;
 		boolean retry = true;
 		
-		while(retry){
+		if(max == 0){
+			System.err.println("Hai 0 servitori!\n");
+			return;
+		}
 		
+		while(retry){
+			
 			try {
 				in = new Scanner(System.in);
 				System.out.println("Quanti servitori vuoi usare? (Max: " + max + ")");
@@ -336,10 +353,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 					retry = false;
 				}
 				
-				if(max == 0){
-					System.err.println("Hai 0 servitori!");
-					return;
-				}
+				
 				
 			} catch (InputMismatchException e) {
 				System.err.println("Errore, inserisci un valore adeguato");
@@ -355,76 +369,107 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 	
 	//setters for family Member values
 	
-		public void setBlackFamilyMemberValue(int value){
-			blackFamilyMember.setValue(value);
-		}
+	public void setBlackFamilyMemberValue(int value){
+		blackFamilyMember.setValue(value);
+	}
+	
+	public void setWhiteFamilyMemberValue(int value){
+		whiteFamilyMember.setValue(value);
+	}
 		
-		public void setWhiteFamilyMemberValue(int value){
-			whiteFamilyMember.setValue(value);
-		}
-		
-		public void setOrangeFamilyMemberValue(int value){
-			orangeFamilyMember.setValue(value);
-		}	
+	public void setOrangeFamilyMemberValue(int value){
+		orangeFamilyMember.setValue(value);
+	}	
 			
-		public BlackFamilyMember getBlackFamilyMember() {
-			return blackFamilyMember;
-		}
+	public BlackFamilyMember getBlackFamilyMember() {
+		return blackFamilyMember;
+	}
 
-		public WhiteFamilyMember getWhiteFamilyMember() {
-			return whiteFamilyMember;
-		}
+	public WhiteFamilyMember getWhiteFamilyMember() {
+		return whiteFamilyMember;
+	}
 
-		public NeutralFamilyMember getNeutralFamilyMember() {
-			return neutralFamilyMember;
-		}
+	public NeutralFamilyMember getNeutralFamilyMember() {
+		return neutralFamilyMember;
+	}
 
-		public OrangeFamilyMember getOrangeFamilyMember() {
-			return orangeFamilyMember;
-		}//end of family members setters
+	public OrangeFamilyMember getOrangeFamilyMember() {
+		return orangeFamilyMember;
+	}//end of family members setters
 
-		public int getPosition(){
-			return this.position;
-		}
+	public int getPosition(){
+		return this.position;
+	}
 		
-		public void setPosition(int position){
-			this.position = position;
-		}	
-		//start of Resource setters and getters
-		public int getStone() {
-			return stone.getValue();
-		}
+	public void setPosition(int position){
+		this.position = position;
+	}	
+	
+	//start of Resource setters and getters
+	public int getStone() {
+		return stone.getValue();
+	}
 
-		public int getWood() {
-			return wood.getValue();
-		}
+	public int getWood() {
+		return wood.getValue();
+	}
 
-		public int getCoin() {
-			return coin.getValue();
-		}
+	public int getCoin() {
+		return coin.getValue();
+	}
 
-		public int getServant() {
-			return servant.getValue();
-		}
+	public int getServant() {
+		return servant.getValue();
+	}
 
-		public void setStone(int value) {
-			this.stone.setValue(value);
-		}
+	public void setStone(int value) {
+		this.stone.setValue(value);
+	}
 
-		public void setWood(int value) {
-			this.wood.setValue(value);
-		}
+	public void setWood(int value) {
+		this.wood.setValue(value);
+	}
 
-		public void setCoin(int value) {
-			this.coin.setValue(value);
-		}
+	public void setCoin(int value) {
+		this.coin.setValue(value);
+	}
 
-		public void setServant(int value) {
-			this.servant.setValue(value);
-		}//end of Resource Setters and Getters
+	public void setServant(int value) {
+		this.servant.setValue(value);
+	}//end of Resource Setters and Getters
+		
+	//start of Points setters and getters
+	public int getMilitaryPoints(){
+		return this.militaryPoint.getValue();
+	}
+		
+	public int getFaithPoints(){
+		return this.faithPoint.getValue();
+	}
+		
+	public int getVictoryPoints(){
+		return this.victoryPoint.getValue();
+	}
+		
+	public void setMilitaryPoints(int value){
+		this.militaryPoint.setValue(value);
+	}
+		
+	public void setFaithPoints(int value){
+		this.faithPoint.setValue(value);
+	}
+		
+	public void setVictoryPoints(int value){
+		this.victoryPoint.setValue(value);
+	}
+		//end of Points setters and getters
+	
+	public String getPlayerName(){ //TEMPORANEO. lo uso nei familyMember così da conoscere il proprietario. Da migliorare.
+		return this.name;
+	}
 	
 
 	
 	
 	
-}
+}//end of Class

@@ -16,12 +16,15 @@ public class Partita {
 	
 	/*
 	 * cose da fare: fare un check del familiare posizionato sulla casella; per ogni torre ovviamente.
+	 * solo su PurpleTowerChoice. poi se funziona tutto, si estende alle altre torri.
 	 */
 	
 	private final int MAX_TURN = 2;
 	private final int MAX_PERIOD = 3;
 	
 	private Board board;
+	
+	//private final Duration actionTimeout = Duration.ofSeconds(2); //devo impostare il timeout per azione da file. creerò un metodo
 	
 	private ArrayList<Player> giocatori;
 	
@@ -42,6 +45,7 @@ public class Partita {
 	}
 	
 	private void nuovoTurno(){
+		//funziona perfettamente. NON TOCCARE
 		board.rollDices();
 		
 		//update dei familyMember for each of the players
@@ -73,7 +77,7 @@ public class Partita {
 				System.out.println("Periodo: " + period + "\t\t\tTURNO " + turn + " \n");
 				nuovoTurno();
 				
-				Collections.sort(giocatori); //sorting in base alla posizione!
+				Collections.sort(giocatori); //sorting in base alla posizione! usa il Compare dell'interfaccia Comparator usato su Player
 				
 				for(int i = 0; i<giocatori.size();i++){ 
 					boolean retry = true;
@@ -106,7 +110,7 @@ public class Partita {
 							break;
 							
 						case 3: 
-							sceltaTorre(giocatori.get(i));
+							torreScelta(giocatori.get(i));
 							retry = !giocatori.get(i).allFamilyisUsed();
 							break;
 								
@@ -114,12 +118,30 @@ public class Partita {
 							board.cambiaPosizioni(giocatori.get(i));
 							retry = !giocatori.get(i).allFamilyisUsed();
 							break;
+							
+						case 5:
+							if(!board.hasCoinGeneratorOccupied()){
+								board.activateCoinGen(giocatori.get(i));
+								retry = !giocatori.get(i).allFamilyisUsed();
+							}
+							else
+								System.out.println("Lo spazio monete del mercato è occupato!");
+							break;
+							
+						case 6:
+							if(!board.hasServantGeneratorOccupied()){
+								board.activateServantGen(giocatori.get(i));
+								retry = !giocatori.get(i).allFamilyisUsed();
+							}
+							else
+								System.out.println("lo spazio servitori del mercato è occupato!");
+							break;
 						
-						case 5: 
+						case 7: 
 							System.out.println(giocatori.get(i).toString());
 							break;
 						
-						case 6:
+						case 8:
 							System.out.println("Hai passato il tuo turno \n");
 							retry = false;
 							break;
@@ -136,17 +158,20 @@ public class Partita {
 				
 			}// end for(turn)
 			
-			//finito il periodo si cambiano le carta sulla board. ne creo una nuova
+			//churchTurn(period); alla fine del for siamo al turno 2. si verificano i punti fede
 			
-			this.board = new Board(period);
+			this.board = new Board(period); //finito il periodo si cambiano le carta sulla board. ne creo una nuova
 			
 		}//end for(period)	
+		
+		//endGame()
 		
 	}
 	
 	private int TowerChoice(){
+		//funziona alla perfezione. NON TOCCARE
 		Scanner in;
-		int temp = 0;
+		int choice = 0;
 		boolean retry = true;
 		
 		while(retry){
@@ -158,9 +183,9 @@ public class Partita {
 				System.out.println("2. Torre Blu");
 				System.out.println("3. Torre Verde");
 				System.out.println("4. Torre Viola");
-				temp = in.nextInt();
+				choice = in.nextInt();
 				
-				if(temp >= 1 && temp <=4)
+				if(choice >= 1 && choice <=4)
 					retry = false;
 				else
 					System.err.println("Inserisci un valore ammissibile\n");
@@ -170,13 +195,13 @@ public class Partita {
 			}
 		}
 		
-		return temp;
+		return choice;
 		
 		
 	}
 	
 	//in questo metodo faccio scegliere la torre
-	private void sceltaTorre(Player player){
+	private void torreScelta(Player player){
 		int choice;
 		FamilyMember familyChoice = new BlackFamilyMember(); //inizializzo perchè il compilatore altrimenti mi dà problemi. poi testo se posso toglierlo
 		
@@ -212,7 +237,7 @@ public class Partita {
 	}
 	
 	public int menuChoice(){
-		final int MAX_CHOICES = 6;
+		final int MAX_CHOICES = 8;
 		Scanner input;
 		int choice = 1;
 		boolean retry = true;
@@ -229,8 +254,10 @@ public class Partita {
 					System.out.println("2. Zona raccolta");
 					System.out.println("3. prendi una carta");
 					System.out.println("4 Palazzo del Consiglio");
-					System.out.println("5 Stampa il tuo status");
-					System.out.println("6 Passa il tuo turno");
+					System.out.println("5 Mercato: +5 Monete");
+					System.out.println("6 Mercato: +5 servitori");
+					System.out.println("7 Stampa il tuo status");
+					System.out.println("8 Passa il tuo turno");
 					
 					choice = input.nextInt();
 					
@@ -244,7 +271,7 @@ public class Partita {
 			//checking if the value is correct
 			if( (choice <=MAX_CHOICES) && (choice >=1) ){
 				retry = false;
-				System.out.println("perfetto");
+				System.out.println("perfetto! hai scelto: "+ choice); //per debug
 			}
 			
 		}//end of while(retry)
@@ -252,32 +279,42 @@ public class Partita {
 		return choice;
 	
 	}
+	
+	private void churchTurn(int period){
+		//va invocato al secondo turno di ogni periodo. se i giocatori non hanno raggiunto
+		//almeno i 3-4-5 punti fede, rispettivamente nel primo,secondo e terzo periodo, si assegna una scomunica
 		
-	private void checkPositionValue(FamilyMember familyChoice, int value, Player player){
-		// spostato su TowerChoices
-		Scanner in = new Scanner(System.in);
-		String choice = "n";
+		switch (period){
 		
-		if(familyChoice.getValue() < value){
-			System.out.println("Attenzione! il valore del familiare non è sufficiente! vuoi usare i servitori? (s/n) ");
-			in.next();
-			
-			if(choice.equalsIgnoreCase("s")){
-				player.useServant(familyChoice);
+		case 1:
+			for(Player p : giocatori){
+				if(p.getFaithPoints() < 3){
+					//assegna una scomunica
+				}
 			}
+			break;
 			
-			else if(choice.equalsIgnoreCase("n"))
-				return;
+		case 2:
+			for(Player p : giocatori){
+				if(p.getFaithPoints() < 4){
+					//assegna una scomunica
+				}
+			}
+			break;
 			
-			else
-				return;
+		case 3:
+			for(Player p : giocatori){
+				if(p.getFaithPoints() < 5){
+					//assegna una scomunica
+				}
+			}
+			break;
+			
+		default:
+			System.err.println("Qualcosa è andato storto nel metodo churchTurn");
+			break;
 			
 		}
-		
-		else
-			return;
-		
-		
 		
 	}
 

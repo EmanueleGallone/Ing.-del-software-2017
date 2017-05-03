@@ -1,6 +1,7 @@
 package it.polimi.ingsw.zones;
 
 import it.polimi.cards.GreenCard;
+import it.polimi.ingsw.resources.Wood;
 
 public class GreenTower extends Tower {
 	
@@ -10,6 +11,7 @@ public class GreenTower extends Tower {
 		cards.add(new GreenCard());
 		cards.add(new GreenCard());
 		cards.add(new GreenCard());
+		instanceActionSpace();
 	}
 	
 	public GreenTower(int period){
@@ -26,6 +28,17 @@ public class GreenTower extends Tower {
 		
 		//if period == 2 etc etc
 
+	}
+	
+	@Override
+	protected void instanceActionSpace(){
+		//brutto questo metodo. si dovrebbe usare un ciclo.
+		//bisogna che ogni torre instanzi questo metodo per conto suo -> abstract
+		
+		actionSpace.add(new ActionSpace()); //primo action Space
+		actionSpace.add(new ActionSpace());
+		actionSpace.add(new ActionSpace(new Wood(),1)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
+		actionSpace.add(new ActionSpace(new Wood(),2)); //ultimo action Space dove posizionare il familiare
 	}
 
 	@Override

@@ -52,7 +52,7 @@ public class BlueTowerChoice extends TowerChoices {
 					else{
 						player.addCard(board.getBlueTower().getCard(shift));
 						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getBlueTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
+						board.getBlueTower().takeCard(shift,familyChoice); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
 						retry = false;
 					}
 					break;
@@ -60,21 +60,21 @@ public class BlueTowerChoice extends TowerChoices {
 				case 2:
 					player.addCard(board.getBlueTower().getCard(shift));
 					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getBlueTower().removeCard(shift);
+					board.getBlueTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 					
 				case 3:
 					player.addCard(board.getBlueTower().getCard(shift));
 					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getBlueTower().removeCard(shift);
+					board.getBlueTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 					
 				case 4:
 					player.addCard(board.getBlueTower().getCard(shift));
 					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getBlueTower().removeCard(shift);
+					board.getBlueTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 		

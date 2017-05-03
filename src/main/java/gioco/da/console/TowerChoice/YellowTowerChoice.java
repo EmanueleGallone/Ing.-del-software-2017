@@ -29,6 +29,7 @@ public class YellowTowerChoice extends TowerChoices {
 					in = new Scanner(System.in);
 					temp = in.nextInt();
 					
+					//c'è da fare il controllo che se c'è un familiare nella torre bisogna pagare 3 monete
 					if(board.getYellowTower().getCard(temp-1) == null){
 						System.err.println("Carta già in possesso di qualcun'altro!");
 					}
@@ -53,7 +54,7 @@ public class YellowTowerChoice extends TowerChoices {
 					else{
 						player.addCard(board.getYellowTower().getCard(shift));
 						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getYellowTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
+						board.getYellowTower().takeCard(shift,familyChoice); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
 						retry = false;
 					}
 					break;
@@ -61,21 +62,21 @@ public class YellowTowerChoice extends TowerChoices {
 				case 2:
 					player.addCard(board.getYellowTower().getCard(shift));
 					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getYellowTower().removeCard(shift);
+					board.getYellowTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 					
 				case 3:
 					player.addCard(board.getYellowTower().getCard(shift));
 					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getYellowTower().removeCard(shift);
+					board.getYellowTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 					
 				case 4:
 					player.addCard(board.getYellowTower().getCard(shift));
 					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getYellowTower().removeCard(shift);
+					board.getYellowTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 		
@@ -89,4 +90,7 @@ public class YellowTowerChoice extends TowerChoices {
 		
 	} 
 
+	private void familiarInTower(){
+		
+	}
 }

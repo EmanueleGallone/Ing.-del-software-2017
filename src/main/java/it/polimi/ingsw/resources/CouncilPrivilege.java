@@ -1,8 +1,9 @@
 package it.polimi.ingsw.resources;
 
-public class Papir extends Resource {
+public class CouncilPrivilege extends Resource {
+	//sarebbe la pergamena
 	
-	public Papir(){
+	public CouncilPrivilege(){
 		super();
 	}
 

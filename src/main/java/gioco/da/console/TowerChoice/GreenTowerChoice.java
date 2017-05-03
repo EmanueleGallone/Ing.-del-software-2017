@@ -28,7 +28,7 @@ public class GreenTowerChoice {
 					temp = in.nextInt();
 					
 					if(board.getPurpleTower().getCard(temp-1) == null){
-						System.err.println("Carta già in possesso di qualcun'altro!");
+						System.err.println("Carta già presa!");
 					}
 					else
 					checkExc = false;
@@ -50,7 +50,7 @@ public class GreenTowerChoice {
 					else{
 						player.addCard(board.getGreenTower().getCard(shift));
 						System.out.println("Carta 1 Aggiunta al deck!");
-						board.getGreenTower().removeCard(shift); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
+						board.getGreenTower().takeCard(shift,familyChoice); //la remove card setta quel posto nella List a null! evitando così tutto lo shift
 						retry = false;
 					}
 					break;
@@ -58,21 +58,21 @@ public class GreenTowerChoice {
 				case 2:
 					player.addCard(board.getGreenTower().getCard(shift));
 					System.out.println("Carta 2 Aggiunta al deck!");
-					board.getGreenTower().removeCard(shift);
+					board.getGreenTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 					
 				case 3:
 					player.addCard(board.getGreenTower().getCard(shift));
 					System.out.println("Carta 3 Aggiunta al deck!");
-					board.getGreenTower().removeCard(shift);
+					board.getGreenTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 					
 				case 4:
 					player.addCard(board.getGreenTower().getCard(shift));
 					System.out.println("Carta 4 Aggiunta al deck!");
-					board.getGreenTower().removeCard(shift);
+					board.getGreenTower().takeCard(shift,familyChoice);
 					retry = false;
 					break;
 		

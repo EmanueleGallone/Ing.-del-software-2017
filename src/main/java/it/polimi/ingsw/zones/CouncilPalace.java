@@ -5,17 +5,18 @@ import java.util.Scanner;
 
 import gioco.da.console.Player;
 import it.polimi.ingsw.resources.Coin;
-import it.polimi.ingsw.resources.Papir;
 import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Servant;
 import it.polimi.ingsw.resources.Stone;
 import it.polimi.ingsw.resources.Wood;
 
-public class CambiaPosizioni extends Zone {
+public class CouncilPalace extends Zone {
+	private final int MAX_CHOICES = 4;
+	
 	private static int position = 1;
 	private Resource resource;
 	
-	public CambiaPosizioni(){
+	public CouncilPalace(){
 		position = 1;
 	}
 	
@@ -25,7 +26,8 @@ public class CambiaPosizioni extends Zone {
 		
 		choice();
 		
-		player.changeResourceValue(resource, resource.getValue());
+		player.changeResourceValue(resource, resource.getValue()); //aggiungo la risorsa scelta al giocatore
+		player.changeResourceValue(new Coin(), 1); //viene aggiunta la moneta! come da tabellone
 	}
 	
 	private void choice(){
@@ -44,7 +46,7 @@ public class CambiaPosizioni extends Zone {
 				System.out.println("2. 2xLegname");
 				System.out.println("3. 2xMonete");
 				System.out.println("4. 2xServitori");
-				System.out.println("5. 1xPapiro (non so se sia giusto!)");
+				//System.out.println("5. 1xPrivilegio del consiglio (non so se sia giusto!)");
 				temp = in.nextInt();
 				
 				switch (temp) {
@@ -64,10 +66,10 @@ public class CambiaPosizioni extends Zone {
 					resource = new Servant();
 					resource.setValue(2);
 					break;
-				case 5:
-					resource = new Papir();
+				/*case 5:
+					resource = new CouncilPrivilege(); //probabilmente non serve. faccio scegliere direttamente la risorsa, no?
 					resource.setValue(1);
-					break;
+					break;*/
 
 				default:
 					System.out.println("Errore; valore non riconosciuto");
@@ -76,7 +78,7 @@ public class CambiaPosizioni extends Zone {
 						
 				}//end of switch
 					
-				if( temp>=1 && temp<=5 ){
+				if( temp>=1 && temp<=MAX_CHOICES ){
 					retry = false;
 				}
 				

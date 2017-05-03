@@ -4,6 +4,7 @@ import it.polimi.ingsw.resources.Coin;
 import it.polimi.ingsw.resources.Wood;
 
 public class GreenCard extends DevelopmentCard {
+	//carte Territori
 	
 	public GreenCard(){
 		this.name="Carta Verde 1";

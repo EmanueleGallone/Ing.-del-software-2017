@@ -2,6 +2,7 @@ package it.polimi.ingsw.zones;
 
 import gioco.da.console.DecoratedYellowCard;
 import it.polimi.cards.YellowCard;
+import it.polimi.ingsw.resources.MilitaryPoint;
 
 public class YellowTower extends Tower {
 	
@@ -15,6 +16,7 @@ public class YellowTower extends Tower {
 		cards.add(new YellowCard());
 		cards.add(new YellowCard());
 		cards.add(new YellowCard()); //posizione 3 (più alta)
+		instanceActionSpace();
 	}
 	
 	public YellowTower(int period){
@@ -30,6 +32,17 @@ public class YellowTower extends Tower {
 		/*
 		 * if period == 2 etc etc
 		 */
+	}
+	
+	@Override
+	protected void instanceActionSpace(){
+		//brutto questo metodo. si dovrebbe usare un ciclo.
+		//bisogna che ogni torre instanzi questo metodo per conto suo -> abstract
+		
+		actionSpace.add(new ActionSpace()); //primo action Space
+		actionSpace.add(new ActionSpace());
+		actionSpace.add(new ActionSpace(new MilitaryPoint(),1)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
+		actionSpace.add(new ActionSpace(new MilitaryPoint(),2));
 	}
 
 	@Override

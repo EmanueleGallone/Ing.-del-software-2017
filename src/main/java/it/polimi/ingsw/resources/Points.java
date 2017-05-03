@@ -1,18 +1,13 @@
 package it.polimi.ingsw.resources;
 
-public abstract class Points {
-	protected int value;
+public abstract class Points extends Resource {
 	
 	public Points(){
-		this.value = 0;
+		super();
 	}
 	
 	public Points(int value){
-		this.value = value;
-	}
-	
-	public void setValue(int value){
-		this.value = value;
+		super(value);
 	}
 	
 	@Override
