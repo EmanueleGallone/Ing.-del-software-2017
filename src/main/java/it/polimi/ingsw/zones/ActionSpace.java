@@ -10,15 +10,19 @@ public class ActionSpace {
 	
 	private boolean isOccupied;
 	
-	public ActionSpace(Resource resource,int value){
+	private int value; //indico il valore del posto azione.
+	
+	public ActionSpace(Resource resource,int value,int positionValue){
 		this.resource1 = resource;
 		this.resource1.setValue(value);
 		this.isOccupied = false;
+		this.value = positionValue;
 	}
 	
-	public ActionSpace(){ //utilizzato per creare spazi azioni nelle torri. 
+	public ActionSpace(int positionValue){ //utilizzato per creare spazi azioni nelle torri. 
 		resource1 = new Resource();
 		isOccupied = false;
+		this.value = positionValue;
 	}
 	
 	
@@ -51,6 +55,14 @@ public class ActionSpace {
 	
 	public boolean isOccupied(){
 		return this.isOccupied;
+	}
+	
+	public int getValue(){
+		return this.value;
+	}
+	
+	public void setValue(int value){
+		this.value = value;
 	}
 	
 

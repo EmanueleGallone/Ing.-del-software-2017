@@ -183,6 +183,7 @@ public class Partita {
 				System.out.println("2. Torre Blu");
 				System.out.println("3. Torre Verde");
 				System.out.println("4. Torre Viola");
+				
 				choice = in.nextInt();
 				
 				if(choice >= 1 && choice <=4)
@@ -282,7 +283,7 @@ public class Partita {
 	
 	private void churchTurn(int period){
 		//va invocato al secondo turno di ogni periodo. se i giocatori non hanno raggiunto
-		//almeno i 3-4-5 punti fede, rispettivamente nel primo,secondo e terzo periodo, si assegna una scomunica
+		//almeno i 3-4-5 punti fede, rispettivamente nel primo,secondo e terzo periodo
 		
 		switch (period){
 		

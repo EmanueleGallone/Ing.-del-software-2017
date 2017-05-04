@@ -8,7 +8,7 @@ public class CoinGenerator extends Zone {
 	private ActionSpace actionSpace;
 	
 	public CoinGenerator(){
-		actionSpace = new ActionSpace(new Coin(), 5);
+		actionSpace = new ActionSpace(new Coin(), 5,1);
 	}
 	
 	public void activate(Player player){

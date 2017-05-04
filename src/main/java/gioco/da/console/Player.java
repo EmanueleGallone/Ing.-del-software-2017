@@ -96,7 +96,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 		faithPoint = new FaithPoint();
 		
 		blackFamilyMember = new BlackFamilyMember(this);//da migliorare. cosa uso per verificare l'owner dei familiari sul tabellone?
-		whiteFamilyMember = new WhiteFamilyMember(this);
+		whiteFamilyMember = new WhiteFamilyMember(this); //si può anche togliere il "this". userà l'altro costruttore
 		orangeFamilyMember = new OrangeFamilyMember(this);
 		neutralFamilyMember = new NeutralFamilyMember(this);
 	}
@@ -176,6 +176,13 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 			
 	}//end of addResource()
 	
+	/**
+	 * <font size=2><h1>public void changeResource (Resource type, int value)</h1></font size>
+	 * <p>
+	 * cambia (aggiunge o rimuove) la risorsa specificata nel type del valore di value. Attenzione a togliere risorse
+	 * @param type - il tipo di risorsa
+	 * @param value - il valore della risorsa (se positivo la aggiunge, se negativo la diminuisce)
+	 */
 	public void changeResourceValue(Resource type, int value){
 		if(value <= 0)
 			try {
@@ -359,6 +366,40 @@ public class Player implements Comparator<Player>, Comparable<Player>{
 				System.err.println("Errore, inserisci un valore adeguato");
 			}
 		}
+		
+		
+	}//end of familyChoice()
+	
+	public void useCoin(){
+		int max = this.getCoin();
+		int coins = 0;
+		boolean retry = true;
+		Scanner in = new Scanner(System.in);
+		
+		if(max == 0){
+			System.out.println("Hai 0 monete!");
+			return;
+		}
+		
+		while(retry){
+		
+		try {
+				System.out.println("Inserisci il numero di monete da usare (max" + max + " : ");
+				coins = in.nextInt();
+				
+				if(coins <= max && coins>0){
+					retry = false;
+					
+					System.out.println("Hai usato "+ coins +" servitori!");
+					this.setCoin(this.coin.getValue() - coins);
+				}
+				
+			} catch (InputMismatchException e) {
+				System.err.println("errore nell'inserimento del valore!");
+			}
+		}
+		
+		return;
 		
 		
 	}

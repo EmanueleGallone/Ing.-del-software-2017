@@ -8,7 +8,7 @@ public class ServantGenerator extends Zone {
 	private ActionSpace actionSpace;
 	
 	public ServantGenerator(){
-		actionSpace = new ActionSpace(new Servant(), 5);
+		actionSpace = new ActionSpace(new Servant(), 5,1);
 		
 	}
 	

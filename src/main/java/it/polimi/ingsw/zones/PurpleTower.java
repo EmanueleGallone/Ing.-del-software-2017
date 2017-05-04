@@ -7,7 +7,7 @@ public class PurpleTower extends Tower {
 	
 	public PurpleTower(){
 		super();
-		cards.add(new PurpleCard());
+		cards.add(new PurpleCard()); // posiziono le carte (bisogna capire come implementare una funzione per caricarle da file
 		cards.add(new PurpleCard());
 		cards.add(new PurpleCard());
 		cards.add(new PurpleCard());
@@ -33,17 +33,16 @@ public class PurpleTower extends Tower {
 	@Override
 	protected void instanceActionSpace(){
 		//brutto questo metodo. si dovrebbe usare un ciclo.
-		//bisogna che ogni torre instanzi questo metodo per conto suo -> abstract
 		
-		actionSpace.add(new ActionSpace()); //primo action Space
-		actionSpace.add(new ActionSpace());
-		actionSpace.add(new ActionSpace(new Coin(),1)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
-		actionSpace.add(new ActionSpace(new Coin(),2));
+		actionSpace.add(new ActionSpace(1)); //primo action Space
+		actionSpace.add(new ActionSpace(3));
+		actionSpace.add(new ActionSpace(new Coin(),1,5)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
+		actionSpace.add(new ActionSpace(new Coin(),2,7));
 	}
 
 	@Override
 	public String toString() {
-		return "TorreViola [cards=" + cards + "]";
+		return "PurpleTower [actionSpace=" + actionSpace + ", cards=" + cards + "]";
 	}
 
 }

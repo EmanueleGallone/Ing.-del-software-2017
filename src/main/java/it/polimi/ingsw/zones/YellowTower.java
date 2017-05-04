@@ -39,10 +39,10 @@ public class YellowTower extends Tower {
 		//brutto questo metodo. si dovrebbe usare un ciclo.
 		//bisogna che ogni torre instanzi questo metodo per conto suo -> abstract
 		
-		actionSpace.add(new ActionSpace()); //primo action Space
-		actionSpace.add(new ActionSpace());
-		actionSpace.add(new ActionSpace(new MilitaryPoint(),1)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
-		actionSpace.add(new ActionSpace(new MilitaryPoint(),2));
+		actionSpace.add(new ActionSpace(1)); //primo action Space
+		actionSpace.add(new ActionSpace(3));
+		actionSpace.add(new ActionSpace(new MilitaryPoint(),1,5)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
+		actionSpace.add(new ActionSpace(new MilitaryPoint(),2,7));
 	}
 
 	@Override

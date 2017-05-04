@@ -10,12 +10,12 @@ import it.polimi.ingsw.resources.Resource;
 public abstract class Tower extends Zone {
 	//CLASSE DA RIVEDERE
 	
-	protected final static int MAX_CARDS_PER_TOWER = 4;
+	protected final static int MAX_CARDS_PER_TOWER = 4;//inutile al momento
 	
 	protected final int fourthPosition = 7; //top card
 	protected final int thirdPosition = 5;
 	protected final int secondPosition = 3;
-	protected final int firstPosition = 1; //bottom card
+	protected final int firstPosition = 1; //bottom card. SOPPIANTATI dall'attributo value all'interno dell'oggetto ActionSpace
 	
 	protected ArrayList<ActionSpace> actionSpace;
 	
@@ -23,10 +23,10 @@ public abstract class Tower extends Zone {
 	
 	protected Tower(){
 		cards = new ArrayList<DevelopmentCard>();
-		//slots = new FamilyMember[4];
 		actionSpace = new ArrayList<ActionSpace>();
-		//instanceActionSpace();
 	}
+	
+	protected abstract void instanceActionSpace(); //funzione che deve instanziare i 4 spazi azione all'interno delle torri
 	
 	public void takeCard(int position, FamilyMember f){
 		//DA MODIFICARE
@@ -49,17 +49,8 @@ public abstract class Tower extends Zone {
 		actionSpace.get(position).setSlot(familyChoice);
 	}
 	
-	/*private void instanceActionSpace(){
-		//brutto questo metodo. si dovrebbe usare un ciclo.
-		//bisogna che ogni torre instanzi questo metodo per conto suo -> abstract
-		
-		actionSpace.add(new ActionSpace()); //primo action Space
-		actionSpace.add(new ActionSpace());
-		actionSpace.add(new ActionSpace(new Coin(),1)); //ATTENZIONE. va settato il tipo di risorsa da prendere (vedi tabellone)
-		actionSpace.add(new ActionSpace(new Coin(),2));
-	}*/
 	
-	protected abstract void instanceActionSpace();
+	
 	
 	private void printActionSpace(){
 		for(ActionSpace a : actionSpace)
@@ -74,20 +65,20 @@ public abstract class Tower extends Zone {
 	
 	//start of getters
 	public int getFourthPositionValue() {
-		return fourthPosition;
+		return actionSpace.get(3).getValue();
 	}
 	
 
 	public int getThirdPositionValue() {
-		return thirdPosition;
+		return actionSpace.get(2).getValue();
 	}
 
 	public int getSecondPositionValue() {
-		return secondPosition;
+		return actionSpace.get(1).getValue();
 	}
 
 	public int getFirstPositionValue() {
-		return firstPosition;
+		return actionSpace.get(0).getValue();
 	}
 
 	// end of getters

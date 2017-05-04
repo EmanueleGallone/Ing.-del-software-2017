@@ -53,6 +53,7 @@ public class PurpleTowerChoice extends TowerChoices {
 							checkPositionValue(familyChoice, board.getPurpleTower().getFirstPositionValue(), player);
 							
 							//retry = false; //testing per uscire dal ciclo
+							//ATTENZIONE. se il giocatore ha 0 servitori diventa un DEADLOCK
 						}
 						else{
 							ritenta = false; //non ritentare se il valore del familiare è uguale o superiore al posto Azione
@@ -61,7 +62,7 @@ public class PurpleTowerChoice extends TowerChoices {
 							
 							player.changeResourceValue(board.getPurpleTower().getResourceActionSpace(shift),
 									board.getPurpleTower().getResourceActionSpace(shift).getValue()); //se presenti, aggiungo le risorse di quell'action space al giocatore.
-															//troppo lungo. definire metodi intermedi?
+															//troppo lungo. definire metodi intermedi? p.s. funziona. per vedere usa lo shift
 							
 							System.out.println("Carta 1 Aggiunta al deck!");
 							board.getPurpleTower().takeCard(shift,familyChoice); //la take card setta quel posto nella List a null! evitando così tutto lo shift
@@ -74,33 +75,47 @@ public class PurpleTowerChoice extends TowerChoices {
 					
 					while(ritenta){
 						
-						if(familyChoice.getValue() < board.getPurpleTower().getSecondPositionValue()){ //se il valore del familiare è < del valore dello spazio azione, fai un checkpositionvalue()
+						if(familyChoice.getValue() < board.getPurpleTower().getSecondPositionValue()) //se il valore del familiare è < del valore dello spazio azione, fai un checkpositionvalue()
 							checkPositionValue(familyChoice, board.getPurpleTower().getSecondPositionValue(), player);
-						}
+						
 						else{
-							ritenta = false;
+							
 							checkPositionValue(familyChoice, board.getPurpleTower().getSecondPositionValue(), player);
+							
 							player.addCard(board.getPurpleTower().getCard(shift));
+							
 							System.out.println("Carta 2 Aggiunta al deck!");
+							
 							board.getPurpleTower().takeCard(shift,familyChoice);
+							
 							retry = false;
+							ritenta = false;
 						}
 					}
 					break;
 					
-				case 3:
+				case 3://da aggiornare
 					checkPositionValue(familyChoice, board.getPurpleTower().getThirdPositionValue(), player);
 					player.addCard(board.getPurpleTower().getCard(shift));
 					System.out.println("Carta 3 Aggiunta al deck!");
 					board.getPurpleTower().takeCard(shift,familyChoice);
+					
+					player.changeResourceValue(board.getPurpleTower().getResourceActionSpace(shift),
+							board.getPurpleTower().getResourceActionSpace(shift).getValue());
+					
 					retry = false;
 					break;
 					
-				case 4:
+				case 4://da aggiornare
 					checkPositionValue(familyChoice, board.getPurpleTower().getFourthPositionValue(), player);
 					player.addCard(board.getPurpleTower().getCard(shift));
 					System.out.println("Carta 4 Aggiunta al deck!");
+					
 					board.getPurpleTower().takeCard(shift,familyChoice);
+					
+					player.changeResourceValue(board.getPurpleTower().getResourceActionSpace(shift),
+							board.getPurpleTower().getResourceActionSpace(shift).getValue());
+					
 					retry = false;
 					break;
 		
