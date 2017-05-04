@@ -1,6 +1,6 @@
 package event;
 
-public interface Observers<EVENTO_INVOCATO> {
+public interface Observers<PARAMETER> {
 	
-	public void handle(EVENTO_INVOCATO event);
+	public void handle(PARAMETER event);
 }

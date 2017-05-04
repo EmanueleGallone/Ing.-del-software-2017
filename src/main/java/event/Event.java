@@ -1,13 +1,22 @@
 package event;
 
-public class Event<SUBJECT_TYPE> {
-	protected SUBJECT_TYPE subject;
+import java.util.ArrayList;
+
+public class Event<PARAMETER_TYPE> {
 	
-	public Event(SUBJECT_TYPE subject){
-		this.subject = subject;
+	private ArrayList<Observer<PARAMETER_TYPE>> observersList = new ArrayList<>();
+
+	public void attach(Observer<PARAMETER_TYPE> observer) {
+		observersList.add(observer);
 	}
-	
-	public SUBJECT_TYPE getSubject() {
-		return (SUBJECT_TYPE)subject;
+
+	public void detach(Observer<PARAMETER_TYPE> observer) {
+		observersList.remove(observer);
+	}
+
+	public void invoke(PARAMETER_TYPE parameter) {
+		for(Observer<PARAMETER_TYPE> observer:observersList){
+			observer.handle(parameter);
+		}
 	}
 }
