@@ -2,6 +2,7 @@ package pos.players;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 public class ResourceManagerAlternativo {
@@ -35,10 +36,9 @@ public class ResourceManagerAlternativo {
 //Start Logics
 	
 	public boolean greater(ResourceManagerAlternativo others){
-		//Scorre il vottore di risorse e controlla se in resources tutti i campi sono maggiori, 
-		//Se ne trova uno minore ritorna falso
+		//Scorre il vottore di risorse e controlla se in resources tutti i campi sono maggiori
 		for (Entry<ResourceList, Integer> r : others.getResources().entrySet()) {
-		    if (r.getValue()< resources.get(r.getKey())){
+		    if (r.getValue() > resources.get(r.getKey())){
 		    	return false;
 		    }
 		}
@@ -56,4 +56,9 @@ public class ResourceManagerAlternativo {
 		return resources.get(type);
 	}
 //End getters
+//Start setters
+	public void Set(ResourceList type,int value){
+		resources.put(type, value);
+	}
+//End setter
 }
