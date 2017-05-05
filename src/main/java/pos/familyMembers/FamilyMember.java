@@ -1,9 +1,9 @@
-package pos.Resources;
+package pos.familyMembers;
 
 import pos.dices.Dice;
 import pos.players.Player;
 
-public class FamilyMember extends Resource{
+public class FamilyMember{
 	
 	private Player owner;
 	private Dice dice;
@@ -19,7 +19,6 @@ public class FamilyMember extends Resource{
 		this.dice = dice;
 	}
 	
-	@Override
 	public int getValue() {
 		return dice.getValue();
 	}

@@ -5,29 +5,29 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-public class ResourceManagerAlternativo {
+public class ResourceList {
 
 	private static final int DEFAULT_VALUE = 0;
 	
-	public enum ResourceList {
+	public enum Resource {
 		COIN,STONE,WOOD,SERVANT,MILITARY,FAITH,VICTORY
 	}
 
 	
-	private Map<ResourceList, Integer> resources = new HashMap<>();
+	private Map<Resource, Integer> resources = new HashMap<>();
 
 //Start Constructors
 	
 	//Costruttore che inizializza le risorse al valore di default
-	public ResourceManagerAlternativo() {
-		for(ResourceList type: ResourceList.values()){
+	public ResourceList() {
+		for(Resource type: Resource.values()){
 			resources.put(type, DEFAULT_VALUE);
 		}
 	}	
 	
 	//Costruttore che inizializza ad un valore uguale per tutte le risorse
-	public ResourceManagerAlternativo(int value) {
-		for(ResourceList type: ResourceList.values()){
+	public ResourceList(int value) {
+		for(Resource type: Resource.values()){
 			resources.put(type, value);
 		}
 	}
@@ -35,9 +35,9 @@ public class ResourceManagerAlternativo {
 //End Constructors
 //Start Logics
 	
-	public boolean greater(ResourceManagerAlternativo others){
+	public boolean greater(ResourceList others){
 		//Scorre il vottore di risorse e controlla se in resources tutti i campi sono maggiori
-		for (Entry<ResourceList, Integer> r : others.getResources().entrySet()) {
+		for (Entry<Resource, Integer> r : others.getAllResources().entrySet()) {
 		    if (r.getValue() > resources.get(r.getKey())){
 		    	return false;
 		    }
@@ -47,17 +47,17 @@ public class ResourceManagerAlternativo {
 	
 //End logics
 //Start getters
-	public Map<ResourceList, Integer> getResources() {
+	public Map<Resource, Integer> getAllResources() {
 		return resources;
 	}
 	
-	public int get(ResourceList type){
+	public int getResource(Resource type){
 		//Se la risorsa non esiste va previsto? Secondo me no grazie all'uso dell'enum
 		return resources.get(type);
 	}
 //End getters
 //Start setters
-	public void Set(ResourceList type,int value){
+	public void setResource(Resource type,int value){
 		resources.put(type, value);
 	}
 //End setter

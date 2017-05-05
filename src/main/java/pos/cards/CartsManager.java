@@ -1,8 +1,6 @@
-package pos.players;
+package pos.cards;
 
 import java.util.ArrayList;
-
-import pos.cards.Card;
 
 public class CartsManager {
 	

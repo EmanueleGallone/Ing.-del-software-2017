@@ -1,6 +1,6 @@
 package pos.zones;
 
-import pos.Resources.FamilyMember;
+import pos.familyMembers.FamilyMember;
 
 public class FamilyMemberSpace {
 	

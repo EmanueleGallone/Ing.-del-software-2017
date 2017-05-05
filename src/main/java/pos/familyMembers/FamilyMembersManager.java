@@ -1,6 +1,6 @@
-package pos.players;
+package pos.familyMembers;
 
-import pos.Resources.FamilyMember;
+import pos.players.Player;
 
 public class FamilyMembersManager {
 	

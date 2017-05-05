@@ -1,21 +1,25 @@
 package pos;
 
-import pos.players.ResourceManagerAlternativo;
+import pos.players.ResourceList;
+import pos.players.ResourceList.Resource;
 
 public class mainTest {
 	
 	public static void main(String[] args){
-		ResourceManagerAlternativo t1 = new ResourceManagerAlternativo(3);
-		ResourceManagerAlternativo t2 = new ResourceManagerAlternativo(2);
+		//ResourceList t1 = new ResourceList(3);
+		ResourceList giocatore = new ResourceList(2);
 
+		//t1.get(Resource.FAITH);
 		
-		if(t1.greater(t2))
+		ResourceList costo = new ResourceList();
+		costo.setResource(Resource.STONE, 5);
+		
+		if(giocatore.greater(costo))
 			stampa("true");
 		else {
 			stampa("false");
 		}
 	}
-	
 	public static void stampa(String testo){
 		System.out.println(testo);
 	}

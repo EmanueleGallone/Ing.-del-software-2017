@@ -3,26 +3,26 @@ package pos.cards;
 import java.util.ArrayList;
 
 import pos.players.Player;
-import pos.players.ResourceManager;
+import pos.players.ResourceList;
 
 public class Card {
 	
 	private String name;
 	
-	private ArrayList<ResourceManager> costs = new ArrayList<>();
+	private ArrayList<ResourceList> costs = new ArrayList<>();
 	
 	public Card(String name) {
 		this.name = name;
 		//E i vari parametri, periodo,colore, ecc..
 	}
 	
-	public Card(ArrayList<ResourceManager> costs){
+	public Card(ArrayList<ResourceList> costs){
 		this.costs = costs;
 	}
 	
 // Start Logics
 	
-	public void addCost(ResourceManager cost){
+	public void addCost(ResourceList cost){
 		this.costs.add(cost);
 	}
 	
@@ -35,8 +35,8 @@ public class Card {
 	
 	public boolean checkRequirements(Player subject){
 		
-		for(ResourceManager cost: costs){
-			if (subject.getResourceManager().greater(cost)){
+		for(ResourceList cost: costs){
+			if (subject.getResourceList().greater(cost)){
 				return true;
 			}
 		}
@@ -45,7 +45,7 @@ public class Card {
 	
 //End Logics
 	
-	public void setCosts(ArrayList<ResourceManager> costs) {
+	public void setCosts(ArrayList<ResourceList> costs) {
 		this.costs = costs;
 	}
 	

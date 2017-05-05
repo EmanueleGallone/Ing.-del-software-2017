@@ -1,12 +1,15 @@
 package pos.players;
 
+import pos.cards.CartsManager;
+import pos.familyMembers.FamilyMembersManager;
+
 public class Player {
 
 	private static final String NOME_PREDEFINITO = "Unknown";
 	
 	String name;
 	
-	ResourceManager resourceManager;
+	ResourceList resourceList;
 	CartsManager cartsManager = new CartsManager();
 	FamilyMembersManager familyMembersManager;
 	
@@ -16,13 +19,12 @@ public class Player {
 	
 	public Player(String name) {
 		this.name = name;
-		resourceManager = new ResourceManager(5, 2, 2, 3);
-		
+		resourceList = new ResourceList();
 	}
 	
 	
-	public ResourceManager getResourceManager() {
-		return resourceManager;
+	public ResourceList getResourceList() {
+		return resourceList;
 	}
 	
 	public CartsManager getCartsManager() {
