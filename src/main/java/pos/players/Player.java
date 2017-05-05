@@ -17,7 +17,9 @@ public class Player {
 	public Player(String name) {
 		this.name = name;
 		resourceManager = new ResourceManager(5, 2, 2, 3);
+		
 	}
+	
 	
 	public ResourceManager getResourceManager() {
 		return resourceManager;

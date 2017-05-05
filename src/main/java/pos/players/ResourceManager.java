@@ -15,6 +15,20 @@ public class ResourceManager {
 	private Resource militaryPoint;
 	private Resource faithPoint;
 	
+	//Secondo me il tipo Resource non è necessario, può essere sostituito con Int
+	
+//Start Constructors
+	
+	//Costruttore che inizializza le risorse al valore di default
+	public ResourceManager() {
+		this(DEFAULT_VALUE);
+	}	
+	
+	//Costruttore che inizializza ad un valore uguale per tutte le risorse
+	public ResourceManager(int value) {
+		this(value,value,value,value);
+	}
+	
 	// Costruttore che inizializza a determinati valori
 	public ResourceManager(int coin,int wood, int stone, int servant) {
 		this.coin = new Resource(coin);
@@ -23,36 +37,64 @@ public class ResourceManager {
 		this.servant = new Resource(servant);
 	}
 	
-	//Costruttore che inizializza ad un valore uguale per tutte le risorse
-	public ResourceManager(int value) {
-		this(value,value,value,value);
+//End Constructors
+//Start Logics
+	
+	public boolean greater(ResourceManager others){
+		if(coin.getValue()>others.getCoin() && wood.getValue() > others.getWood() && stone.getValue() > others.getStone()){
+			if (militaryPoint.getValue() > others.getMilitaryPoint() && faithPoint.getValue() > others.getFaithPoint()){
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	//Costruttore che inizializza le risorse al valore di default
-	public ResourceManager() {
-		this(DEFAULT_VALUE);
-	}
+//End logics
+//Start getters
 	
-	public Resource getCoin() {
-		return coin;
+	public int getCoin() {
+		return coin.getValue();
 	}
-	public Resource getWood() {
-		return wood;
+	public int getWood() {
+		return wood.getValue();
 	}
-	public Resource getStone() {
-		return stone;
+	public int getStone() {
+		return stone.getValue();
 	}
-	public Resource getServant() {
-		return servant;
+	public int getServant() {
+		return servant.getValue();
 	}
-	public Resource getVictoryPoint() {
-		return victoryPoint;
+	public int getVictoryPoint() {
+		return victoryPoint.getValue();
 	}
-	public Resource getMilitaryPoint() {
-		return militaryPoint;
+	public int getMilitaryPoint() {
+		return militaryPoint.getValue();
 	}
-	public Resource getFaithPoint() {
-		return faithPoint;
+	public int getFaithPoint() {
+		return faithPoint.getValue();
+	}
+//End getters
+//Start setters
+	public void setCoin(int coin) {
+		this.coin.setValue(coin);
+	}
+	public void setWood(int wood) {
+		this.wood.setValue(wood);
+	}
+	public void setStone(int stone) {
+		this.stone.setValue(stone);
+	}
+	public void setServant(int servant) {
+		this.servant.setValue(servant);
+	}
+	public void setVictoryPoint(int victoryPoint) {
+		this.victoryPoint.setValue(victoryPoint);
+	}
+	public void setMilitaryPoint(int militaryPoint) {
+		this.militaryPoint.setValue(militaryPoint);
+	}
+	public void setFaithPoint(int faithPoint) {
+		this.faithPoint.setValue(faithPoint);
 	}
 
 }
