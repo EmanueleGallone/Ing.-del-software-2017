@@ -6,22 +6,24 @@ public class FamilyMemberSpace {
 	
 	private static final int DEFAULT_COST = 1;
 	private FamilyMember familyMember;
-	private int actionCost;
+	private int cost;
 	
 	
 // Start Constructors
 // Con questi costruttori l'actionCost e' sempre definito, il familyMember invece può esseren null
-	public FamilyMemberSpace(int actionCost,FamilyMember familyMember) {
-		this.actionCost = actionCost;
-		this.familyMember = familyMember;
-	}
-	
-	public FamilyMemberSpace(FamilyMember familyMember){
-		this(DEFAULT_COST,familyMember);
-	}
 	
 	public FamilyMemberSpace() {
 		this(DEFAULT_COST, null);
+	}
+	
+	public FamilyMemberSpace(int cost){
+		this(cost,null);
+	}
+	
+	
+	public FamilyMemberSpace(int cost,FamilyMember familyMember) {
+		this.cost = cost;
+		this.familyMember = familyMember;
 	}
 	
 //End constructors
@@ -36,7 +38,7 @@ public class FamilyMemberSpace {
 	}
 	
 	public boolean placeFamilyMember(FamilyMember familyMember){
-		if ( familyMember.getValue() > this.actionCost){
+		if ( familyMember.getValue() > this.cost){
 			this.familyMember = familyMember;
 			return true;
 		}
@@ -48,7 +50,7 @@ public class FamilyMemberSpace {
 //Start setters
 
 	public void setActionCost(int actionCost) { //Forse è superfluo, una zona ha un costo fisso
-		this.actionCost = actionCost;
+		this.cost = actionCost;
 	}
 	protected void setFamilyMember(FamilyMember familyMember) {
 		this.familyMember = familyMember;
@@ -58,7 +60,7 @@ public class FamilyMemberSpace {
 //Start getters
 	
 	public int getActionCost() {
-		return actionCost;
+		return cost;
 	}
 	
 	public FamilyMember getFamilyMember() {

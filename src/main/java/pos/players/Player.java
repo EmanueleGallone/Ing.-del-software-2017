@@ -6,7 +6,9 @@ import pos.cards.Card;
 import pos.cards.Cards;
 import pos.cards.CardsManager;
 import pos.familyMembers.FamilyMembersManager;
+import pos.resources.Resource;
 import pos.resources.ResourceList;
+import pos.resources.Resources;
 
 public class Player {
 
@@ -28,6 +30,7 @@ public class Player {
 		this.name = name;
 		resourceList = new ResourceList();
 	}
+	
 //End constructor
 //Start getters
 	public String getName() {
@@ -52,6 +55,12 @@ public class Player {
 	public Card getCardByName(String name){
 		return cartsManager.getCardByName(name);
 	}
+	public Resource getResource(Resources whichResource){
+		return	this.resourceList.getResource(whichResource);
+	}
+	public int getValueOf(Resources whichResource){
+		return resourceList.getValueOf(whichResource);
+	}
 	
 	//End getter di supporto
 //End getters
@@ -64,6 +73,10 @@ public class Player {
 	
 	public boolean addCard(Card card){
 		return cartsManager.addCard(card);
+	}
+	
+	public void incrementResource(Resources whichResource,int value){
+		this.resourceList.getResource(whichResource).increment(value);
 	}
 	
 	//End setters di supporto

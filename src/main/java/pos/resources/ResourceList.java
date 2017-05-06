@@ -54,8 +54,11 @@ public class ResourceList {
 	}
 //End getters
 //Start setters
-	public void setResource(Resources type,int value){
-		resources.put(type, new Resource(type,value));
+	public void setResource(Resource resource){
+		resources.put(resource.getType(), resource);
+	}
+	public void setValueOf(Resources type,int value){
+		this.getResource(type).setValue(value);
 	}
 //End setter
 }

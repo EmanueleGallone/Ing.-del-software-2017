@@ -2,10 +2,11 @@ package pos.cards;
 
 import java.util.ArrayList;
 
+import pos.interfaceList.Activable;
 import pos.players.Player;
 import pos.resources.ResourceList;
 
-public class Card {
+public class Card implements Activable{
 	
 	private String name; //Va visto come un identificatore unico
 	private Cards type;
@@ -46,6 +47,11 @@ public class Card {
 			}
 		}
 		return false;
+	}
+	
+	@Override
+	public void active() {
+		// TODO Auto-generated method stub
 	}
 	
 //End Logics
