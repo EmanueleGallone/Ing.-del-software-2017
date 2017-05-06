@@ -12,6 +12,9 @@ public class ActionSpace {
 	
 	private int value; //indico il valore del posto azione.
 	
+	
+	//Mi sa che non viene mai usato, non esistono spazi azione in cui paghi risorse per mettertici
+	//Sempre solo il value basta
 	public ActionSpace(Resource resource,int value,int positionValue){
 		this.resource1 = resource;
 		this.resource1.setValue(value);

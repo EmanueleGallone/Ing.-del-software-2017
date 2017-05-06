@@ -25,11 +25,9 @@ public class Resource {
 		return "Resource [value=" + value + "]";
 	}
 
-	//metodi per Increment event
 	public void increment(int value) {
-		//incrementEvent.invoke(new IncrementEvent(value));
 		this.value += value;
+		if (this.value < 0)
+			this.value = 0;
 	}
-
-	//fine per increment event
 }

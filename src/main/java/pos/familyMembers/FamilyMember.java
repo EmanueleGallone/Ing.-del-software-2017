@@ -8,7 +8,6 @@ public class FamilyMember{
 	private Player owner;
 	private Dice dice;
 	
-	
 	public FamilyMember(Player player){
 		super();
 		this.owner = player;

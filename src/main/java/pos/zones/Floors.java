@@ -25,6 +25,7 @@ public class Floors {
 		return familyMemberSpace;
 	}
 //End getters
+	//____________________________________________________________________________
 //Start setters
 	public void setCard(Card card) {
 		this.card = card;
