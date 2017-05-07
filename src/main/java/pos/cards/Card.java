@@ -2,11 +2,13 @@ package pos.cards;
 
 import java.util.ArrayList;
 
+import pos.events.EventHandler;
+import pos.events.event.FamilyCardCheckEvent;
 import pos.interfaceList.Activable;
 import pos.players.Player;
 import pos.resources.ResourceList;
 
-public class Card implements Activable{
+public class Card implements Activable {
 	
 	private String name; //Va visto come un identificatore unico
 	private Cards type;
@@ -33,14 +35,14 @@ public class Card implements Activable{
 		this.costs.add(cost);
 	}
 	
-	public  void take(Player subject) {
+	public void take(Player subject) {
+		
 		if(checkRequirements(subject)){
 			subject.getCartsManager().addCard(this);
 		}
 	}
 	
 	public boolean checkRequirements(Player subject){
-		
 		for(ResourceList cost: costs){
 			if (subject.getResourceList().greaterThen(cost)){
 				return true;
@@ -55,6 +57,7 @@ public class Card implements Activable{
 	}
 	
 //End Logics
+
 //Start setters
 	
 	public void setCosts(ArrayList<ResourceList> costs) {

@@ -1,5 +1,6 @@
 package pos.resources;
 
+import pos.events.EventHandler;
 import pos.interfaceList.Incrementable;
 
 public class Resource implements Incrementable {
@@ -8,6 +9,8 @@ public class Resource implements Incrementable {
 	
 	private Resources type;
 	private int value;
+	
+	EventHandler<Void> incrementEvent = new EventHandler<>();
 	
 //Start constructor
 	
@@ -25,9 +28,20 @@ public class Resource implements Incrementable {
 
 	@Override
 	public void increment(int value) {
+		this.increment(value,true);
+	}
+	public void increment(int value,boolean invokeEvent) {
 		this.value += value;
-		if (this.value < MINIMUM_VALUE)
+		if (invokeEvent)
+			incrementEvent.invoke(null);
+		if (this.value < MINIMUM_VALUE){
 			this.value = MINIMUM_VALUE;
+		}
+	}
+	
+	@Override
+	public EventHandler<Void> getIncrementEvent() {
+		return incrementEvent;
 	}
 	
 //End logics

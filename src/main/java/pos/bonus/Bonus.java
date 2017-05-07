@@ -1,6 +1,6 @@
 package pos.bonus;
 
-public abstract class Bonus<SUBJECT_TYPE> {
+public abstract class Bonus<SUBJECT_TYPE,PARAMETER> {
 	
 	protected SUBJECT_TYPE subjects;
 	
@@ -12,5 +12,5 @@ public abstract class Bonus<SUBJECT_TYPE> {
 
 //End constructor
 	
-	public abstract void behavior();
+	public abstract void behavior(PARAMETER parameter);
 }

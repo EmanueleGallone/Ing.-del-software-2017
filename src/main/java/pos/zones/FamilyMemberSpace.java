@@ -1,5 +1,6 @@
 package pos.zones;
 
+import pos.events.EventHandler;
 import pos.familyMembers.FamilyMember;
 
 public class FamilyMemberSpace {
@@ -7,7 +8,6 @@ public class FamilyMemberSpace {
 	private static final int DEFAULT_COST = 1;
 	private FamilyMember familyMember;
 	private int cost;
-	
 	
 // Start Constructors
 // Con questi costruttori l'actionCost e' sempre definito, il familyMember invece può esseren null

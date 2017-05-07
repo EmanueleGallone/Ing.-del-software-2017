@@ -1,6 +1,7 @@
 package pos.bonus;
 
 import pos.cards.Cards;
+import pos.events.EventListener;
 import pos.players.Player;
 import pos.resources.Resources;
 
@@ -13,16 +14,15 @@ import pos.resources.Resources;
  * a contare (ad esempio Territori, carte blu, gialle ecc...), della risorsa che deve andare ad aumentare
  * (tipo monete, pietre ecc..), e del value ovvero di quanto aumentarla per ogni carta che si possiede 
  */
-public class IncrementForAnyCardBonus extends Bonus<Player>{
+public class IncrementForAnyCardBonus extends Bonus<Cards, Player> implements EventListener<Player>{
 
 	private int value;
-	private Cards card;
 	private Resources resources;
 	
-	public IncrementForAnyCardBonus(Player subject,Cards whichCard,Resources whichResource,int value) {
-		super(subject);
+	public IncrementForAnyCardBonus(Cards whichCard,Resources whichResource,int value) {
+		super(whichCard);
 		this.value = value;
-		this.card = whichCard;
+		this.resources = whichResource;
 	}
 
 	/**
@@ -30,9 +30,14 @@ public class IncrementForAnyCardBonus extends Bonus<Player>{
 	 * quante ce ne sono e incrementa la risorsa indicata di value * numeroCarte
 	 */
 	@Override
-	public void behavior() {
-		int cardNumber = this.subjects.getCardsByType(card).size();
-		this.subjects.incrementResource(resources, cardNumber * value);
+	public void behavior(Player player) {
+		int cardNumber = player.getCardsByType(subjects).size();
+		player.incrementResource(resources, cardNumber * value);
+	}
+
+	@Override
+	public void handle(Player player) {
+		behavior(player);
 	}
 	
 }
