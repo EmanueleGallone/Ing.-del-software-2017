@@ -1,6 +1,7 @@
 package pos.familyMembers;
 
 import pos.dices.Dice;
+import pos.events.EventHandler;
 import pos.players.Player;
 
 public class FamilyMember {
@@ -8,12 +9,11 @@ public class FamilyMember {
 	private final static int DEFAULT_MODIFIER = 0;
 	private Player owner;
 	private Dice dice;
-	private Colors color;
 	private int modifier;
 	
-	public FamilyMember(Player player, Colors color){
+	public FamilyMember(Player player, Dice dice){
 		this.owner = player;
-		this.color = color;
+		this.dice = dice;
 		this.modifier = DEFAULT_MODIFIER;
 		//this.dice = diceManager.getDice(color); Bisogna o passargli il dato, oppure avere un 
 		//gestore di dadi a livello globale
@@ -32,7 +32,7 @@ public class FamilyMember {
 	}
 	
 	public Colors getColor() {
-		return color;
+		return dice.getColors();
 	}
 	
 	public Player getOwner() {

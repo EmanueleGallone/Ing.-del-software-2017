@@ -2,8 +2,6 @@ package pos.cards;
 
 import java.util.ArrayList;
 
-import pos.events.EventHandler;
-import pos.events.event.FamilyCardCheckEvent;
 import pos.interfaceList.Activable;
 import pos.players.Player;
 import pos.resources.ResourceList;

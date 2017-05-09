@@ -1,22 +1,25 @@
 package pos.zones;
 
 import pos.cards.Card;
+import pos.cards.Cards;
+import pos.events.Event;
 import pos.events.EventHandler;
-import pos.events.event.FamilyCardCheckEvent;
 import pos.familyMembers.FamilyMember;
 
-public class Floors {
+public class Floor {
 	
 	private FamilyMemberSpace familyMemberSpace;
 	private Card card;
 	
-	private static EventHandler<FamilyCardCheckEvent> preFamilyMemberCheck = new EventHandler<>();
+	private static EventHandler<Event<Cards, FamilyMember>> preFamilyMemberCheck = new EventHandler<>();
+	//Potrebbe essere sostituito con una mappa con EventType -> eventhandler
 	
-	public Floors(FamilyMemberSpace familyMemberSpace) {
+	
+	public Floor(FamilyMemberSpace familyMemberSpace) {
 		this.familyMemberSpace = familyMemberSpace;
 	}
 	
-	public Floors(FamilyMemberSpace familyMemberSpace, Card card) {
+	public Floor(FamilyMemberSpace familyMemberSpace, Card card) {
 		this(familyMemberSpace);
 		this.card = card;
 	}
@@ -24,9 +27,9 @@ public class Floors {
 //Start Logics
 	
 	public boolean placeFamilyMember(FamilyMember familyMember){
-		preFamilyMemberCheck.invoke(new FamilyCardCheckEvent(card, familyMember));
+		preFamilyMemberCheck.invoke(new Event<Cards, FamilyMember>(card.getType(), familyMember) );
 		boolean result = familyMemberSpace.placeFamilyMember(familyMember);
-		familyMember.resetModifier();
+		familyMember.resetModifier();//Questa riga va sostituita con l'invocazione di un post event
 		return result;
 	}
 	
@@ -41,7 +44,7 @@ public class Floors {
 		return familyMemberSpace;
 	}
 	
-	public static EventHandler<FamilyCardCheckEvent> getPreFamilyMemberCheck() {
+	public static EventHandler<Event<Cards, FamilyMember>> getPreFamilyMemberCheck() {
 		return preFamilyMemberCheck;
 	}
 //End getters

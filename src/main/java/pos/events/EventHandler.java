@@ -15,8 +15,8 @@ public class EventHandler<PARAMETER_TYPE> {
 	}
 
 	public void invoke(PARAMETER_TYPE parameter) {
-		for(EventListener<PARAMETER_TYPE> observer:eventListeners){
-			observer.handle(parameter);
+		for(EventListener<PARAMETER_TYPE> listener:eventListeners){
+			listener.handle(parameter);
 		}
 	}
 }

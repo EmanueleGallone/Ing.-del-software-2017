@@ -4,23 +4,21 @@ import java.util.ArrayList;
 
 import pos.cards.Card;
 import pos.cards.Cards;
+import pos.events.Event;
 import pos.events.EventHandler;
 import pos.events.EventListener;
-import pos.events.event.FamilyCardCheckEvent;
-import pos.events.event.FamilyZoneCheckEvent;
 import pos.familyMembers.FamilyMember;
 import pos.players.Player;
 
-public class ActivableZone {
+public class HarvastAndProduction {
 	
 	private final static int MULTIPLE_SPACE_COST = 3;
-	private ActivableZones type;
 	
 	private FamilyMemberSpace singleSpace = new FamilyMemberSpace();
 	private ArrayList<FamilyMemberSpace> multipleSpace = new ArrayList<>();
-	private Cards whichCard;
+	private Cards cardType;
 	
-	EventHandler<FamilyZoneCheckEvent> familyZoneCheckEvent = new EventHandler<>();
+	EventHandler<Event<Cards, FamilyMember>> preFamilyMemberCheck = new EventHandler<>();
 	
 	EventListener<Void> clearAtTurnEnd = new EventListener<Void>() {
 		@Override
@@ -32,9 +30,9 @@ public class ActivableZone {
 	
 //Start constructors
 	
-	public ActivableZone(ActivableZones type,Cards whichCard) {
-		this.whichCard = whichCard;
-		this.type = type;
+	public HarvastAndProduction(Cards whichCard,FamilyMemberSpace familyMemberSpace) {
+		this.cardType = whichCard;
+		this.singleSpace = familyMemberSpace;
 		//Bisogna attaccare l'evento "clearAtTurnEnd" a chi invoca l'evento "TurnEnd"
 	}
 	
@@ -61,18 +59,18 @@ public class ActivableZone {
 	}
 	
 	private boolean checkFamilyMemberValue(FamilyMemberSpace familyMemberSpace, FamilyMember familyMember){
-		familyZoneCheckEvent.invoke(new FamilyZoneCheckEvent(this.type, familyMember));
+		preFamilyMemberCheck.invoke(new Event<Cards, FamilyMember>(this.cardType, familyMember));
 		boolean esito = familyMemberSpace.placeFamilyMember(familyMember);
 		familyMember.resetModifier();
 		return esito;
 	}
 	
-	public EventHandler<FamilyZoneCheckEvent> getFamilyZoneCheckEvent() {
-		return familyZoneCheckEvent;
+	public EventHandler<Event<Cards, FamilyMember>> getPreFamilyMemberCheck() {
+		return preFamilyMemberCheck;
 	}
 	
 	public void ActiveCards(Player player){
-		for(Card card : player.getCardsByType(whichCard)){
+		for(Card card : player.getCardsByType(cardType)){
 			card.active();
 		}
 	}

@@ -3,6 +3,7 @@ package pos.familyMembers;
 import java.util.HashMap;
 import java.util.Map;
 
+import pos.dices.DicesManager;
 import pos.players.Player;
 
 public class FamilyMembersManager {
@@ -13,10 +14,10 @@ public class FamilyMembersManager {
 
 //Start Constructors
 	
-	public FamilyMembersManager(Player owner) {
+	public FamilyMembersManager(Player owner,DicesManager dices) {
 		this.owner = owner;
 		for(Colors color: Colors.values()){
-			familyList.put(color, new FamilyMember(owner,color));
+			familyList.put(color, new FamilyMember(owner,dices.getDice(color)));
 		}
 	}
 	

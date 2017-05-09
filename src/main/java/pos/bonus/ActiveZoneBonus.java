@@ -2,11 +2,11 @@ package pos.bonus;
 
 import pos.events.EventListener;
 import pos.players.Player;
-import pos.zones.ActivableZone;
+import pos.zones.HarvastAndProduction;
 
-public class ActiveZoneBonus extends Bonus<ActivableZone, Player> implements EventListener<Player>{
+public class ActiveZoneBonus extends Bonus<HarvastAndProduction, Player> implements EventListener<Player>{
 
-	public ActiveZoneBonus(ActivableZone subject) {
+	public ActiveZoneBonus(HarvastAndProduction subject) {
 		super(subject);
 	}
 

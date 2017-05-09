@@ -6,8 +6,7 @@ import java.util.Map;
 
 public class CardsManager {
 	
-	private static final int DEFAULT_MAX_TERRITORIES = 6;
-	private static final int DEFAULT_MAX_BUILDINGS = 6;
+	private static final int DEFAULT_MAX_CARDS = 6;
 	
 	private Map<Cards, ArrayList<Card>> cardList = new HashMap<>();;
 	
@@ -23,11 +22,7 @@ public class CardsManager {
 //Start logics
 	
 	public boolean addCard(Card card){
-		Cards type = card.getType();
-		if (type == Cards.TERRITORY && cardList.get(type).size() > DEFAULT_MAX_TERRITORIES ){
-			return false;
-		}
-		if (type == Cards.BUILDING && cardList.get(type).size() > DEFAULT_MAX_BUILDINGS ){
+		if (cardList.get(card.getType()).size() >= DEFAULT_MAX_CARDS ){
 			return false;
 		}
 		this.setCard(card);
@@ -58,12 +53,10 @@ public class CardsManager {
 		throw new IllegalArgumentException(); //Devo pensare se c'è una soluzione migliore...
 	}
 	
-	public int getMaxTerritories() {
-		return DEFAULT_MAX_TERRITORIES;
+	public int getMaxCards() {
+		return DEFAULT_MAX_CARDS;
 	}
-	public int getMaxBuildings() {
-		return DEFAULT_MAX_BUILDINGS;
-	}
+
 // End getters
 	
 }
