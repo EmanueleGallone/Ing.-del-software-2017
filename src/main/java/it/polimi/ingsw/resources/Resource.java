@@ -1,6 +1,7 @@
 package it.polimi.ingsw.resources;
 
-public class Resource{
+public class Resource {
+
 	protected int value;
 	
 	public Resource(){
@@ -25,4 +26,10 @@ public class Resource{
 		return "Resource [value=" + value + "]";
 	}
 
+
+	public void increment(int value) {
+		this.value += value;
+		if (this.value < 0)
+			this.value = 0;
+	}
 }

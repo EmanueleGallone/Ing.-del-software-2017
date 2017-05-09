@@ -1,6 +1,7 @@
 package it.polimi.ingsw.zones;
 
 import gioco.da.console.Player;
+import it.polimi.ingsw.resources.FamilyMember;
 import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Stone;
 import it.polimi.ingsw.resources.Wood;
@@ -12,8 +13,8 @@ public class ProductionZone1 extends Zone {
 	private boolean isOccupied;
 	private Resource resource1;
 	private Resource resource2;
-	
 	//private ActionSpace actionSpace; //va usato l'action space. da implementare
+
 	
 	public ProductionZone1(){
 		isOccupied = false;
@@ -38,7 +39,7 @@ public class ProductionZone1 extends Zone {
 	}*/
 	
 	public void active(Player player){
-		player.familiarChoice();// faccio scegliere il familiare da posizionare
+		FamilyMember tempFamily = player.familiarChoice();// faccio scegliere il familiare da posizionare
 		isOccupied = true;
 		
 		player.changeResourceValue(resource1,resource1.getValue());

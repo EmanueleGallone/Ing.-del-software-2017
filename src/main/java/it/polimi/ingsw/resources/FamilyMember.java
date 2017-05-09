@@ -2,7 +2,7 @@ package it.polimi.ingsw.resources;
 
 import gioco.da.console.Player;
 
-public abstract class FamilyMember extends Resource implements Cloneable {
+public class FamilyMember extends Resource implements Cloneable {
 	protected boolean isUsed;
 	protected String owner; //importante per il controllo che nella stessa torre non vi siano più familiari dello stesso giocatore
 	
