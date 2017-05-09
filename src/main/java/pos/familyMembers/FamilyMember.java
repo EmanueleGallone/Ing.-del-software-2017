@@ -2,7 +2,7 @@ package pos.familyMembers;
 
 import pos.dices.Dice;
 import pos.events.EventHandler;
-import pos.players.Player;
+import pos.games.Player;
 
 public class FamilyMember {
 	

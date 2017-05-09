@@ -5,9 +5,9 @@ import pos.cards.Cards;
 import pos.dices.Dice;
 import pos.familyMembers.Colors;
 import pos.familyMembers.FamilyMember;
-import pos.players.Player;
+import pos.games.Player;
 import pos.zones.FamilyMemberSpace;
-import pos.zones.HarvastAndProduction;
+import pos.zones.CardsAttivatorZone;
 
 public class mainTest {
 	
@@ -19,7 +19,7 @@ public class mainTest {
 	 
 	 dice.rollDice();
 	 
-	 HarvastAndProduction harvast = new HarvastAndProduction(Cards.BUILDING,familyMemberSpace);
+	 CardsAttivatorZone harvast = new CardsAttivatorZone(Cards.BUILDING,familyMemberSpace);
 	 FamilyMemberBonus bonus = new FamilyMemberBonus(Cards.BUILDING, +3);
 	 harvast.getPreFamilyMemberCheck().attach(bonus);
 	 FamilyMember familyMember = new FamilyMember(p1,dice);

@@ -2,7 +2,7 @@ package pos.bonus;
 
 import pos.cards.Cards;
 import pos.events.EventListener;
-import pos.players.Player;
+import pos.games.Player;
 
 public class GetAnotherCardBonus extends Bonus<Cards, Player> implements EventListener<Player>{
 

@@ -1,4 +1,4 @@
-package pos.players;
+package pos.games;
 
 import java.util.ArrayList;
 

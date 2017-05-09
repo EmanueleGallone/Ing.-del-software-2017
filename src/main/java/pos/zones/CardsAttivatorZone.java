@@ -8,9 +8,9 @@ import pos.events.Event;
 import pos.events.EventHandler;
 import pos.events.EventListener;
 import pos.familyMembers.FamilyMember;
-import pos.players.Player;
+import pos.games.Player;
 
-public class HarvastAndProduction {
+public class CardsAttivatorZone {
 	
 	private final static int MULTIPLE_SPACE_COST = 3;
 	
@@ -30,7 +30,7 @@ public class HarvastAndProduction {
 	
 //Start constructors
 	
-	public HarvastAndProduction(Cards whichCard,FamilyMemberSpace familyMemberSpace) {
+	public CardsAttivatorZone(Cards whichCard,FamilyMemberSpace familyMemberSpace) {
 		this.cardType = whichCard;
 		this.singleSpace = familyMemberSpace;
 		//Bisogna attaccare l'evento "clearAtTurnEnd" a chi invoca l'evento "TurnEnd"

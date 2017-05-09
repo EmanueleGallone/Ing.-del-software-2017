@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pos.dices.DicesManager;
-import pos.players.Player;
+import pos.games.Player;
 
 public class FamilyMembersManager {
 	
