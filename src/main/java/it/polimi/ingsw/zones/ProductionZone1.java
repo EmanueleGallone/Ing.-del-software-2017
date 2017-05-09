@@ -1,7 +1,6 @@
 package it.polimi.ingsw.zones;
 
 import gioco.da.console.Player;
-import it.polimi.ingsw.player.gadgets.PersonalBoard;
 import it.polimi.ingsw.resources.Resource;
 import it.polimi.ingsw.resources.Stone;
 import it.polimi.ingsw.resources.Wood;
@@ -13,6 +12,8 @@ public class ProductionZone1 extends Zone {
 	private boolean isOccupied;
 	private Resource resource1;
 	private Resource resource2;
+	
+	//private ActionSpace actionSpace; //va usato l'action space. da implementare
 	
 	public ProductionZone1(){
 		isOccupied = false;
@@ -28,13 +29,13 @@ public class ProductionZone1 extends Zone {
 	}
 	
 	 
-	//(attenzione, AGGIUNGE o RIMUOVE risorse. non è un setter. guarda bene il metodo "changeResource" in PersonalBoard!
+	/*//(attenzione, AGGIUNGE o RIMUOVE risorse. non è un setter. guarda bene il metodo "changeResource" in PersonalBoard!
 	//eventualmente è da implementare l'interfaccia Activable; devo però capire bene la sua logica. ema
 	public void activate(PersonalBoard personalBoard){
 		personalBoard.changeResource(resource1, resource1.getValue());
 		personalBoard.changeResource(resource2, resource2.getValue());
 
-	}
+	}*/
 	
 	public void active(Player player){
 		player.familiarChoice();// faccio scegliere il familiare da posizionare

@@ -12,11 +12,6 @@ public abstract class Tower extends Zone {
 	
 	protected final static int MAX_CARDS_PER_TOWER = 4;//inutile al momento
 	
-	protected final int fourthPosition = 7; //top card
-	protected final int thirdPosition = 5;
-	protected final int secondPosition = 3;
-	protected final int firstPosition = 1; //bottom card. SOPPIANTATI dall'attributo value all'interno dell'oggetto ActionSpace
-	
 	protected ArrayList<ActionSpace> actionSpace;
 	
 	protected ArrayList<DevelopmentCard> cards; //le carte nella torre.

@@ -30,6 +30,8 @@ public class TestMain {
 		
 		controller.gioca();
 		
+		//ovviamente è tutto da rivedere. MVC
+		
 	}
 
 }
