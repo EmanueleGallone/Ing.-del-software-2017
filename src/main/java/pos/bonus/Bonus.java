@@ -12,5 +12,5 @@ public abstract class Bonus<SUBJECT_TYPE,PARAMETER> {
 
 //End constructor
 	
-	public abstract void behavior(PARAMETER parameter);
+	public abstract void behavior(PARAMETER paramenter);
 }

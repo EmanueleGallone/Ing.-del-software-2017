@@ -1,4 +1,4 @@
-package pos.cards;
+package it.polimi.ingsw.ps11.cranio.cards;
 
 import java.util.ArrayList;
 
@@ -7,27 +7,23 @@ import pos.games.Player;
 import pos.interfaceList.Activable;
 import pos.resources.ResourceList;
 
-public class Card implements Activable {
+public abstract class Card implements Activable {
 	
 	private String name; //Va visto come un identificatore unico
-	private Cards type;
 	private ArrayList<ResourceList> costs = new ArrayList<>();
 	private ArrayList<Bonus> instantBonus = new ArrayList<Bonus>();
 	private ArrayList<Bonus> permanentBonus = new ArrayList<Bonus>();
 	
 	
-	public Card(Cards type) {
-		this.type = type;
+	public Card() {
 		//E i vari parametri, periodo,colore, ecc..
 	}
 	
-	public Card(Cards type,ResourceList cost){
-		this(type);
+	public Card(ResourceList cost){
 		this.costs.add(cost);
 	}
 	
-	public Card(Cards type,ArrayList<ResourceList> costs){
-		this(type);
+	public Card(ArrayList<ResourceList> costs){
 		this.costs = costs;
 	}
 	

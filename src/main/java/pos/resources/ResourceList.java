@@ -19,7 +19,7 @@ public class ResourceList {
 	//Costruttore che inizializza ad un valore uguale per tutte le risorse
 	public ResourceList(int value) {
 		for(Resources type: Resources.values()){
-			resources.put(type, new Resource(type,value));
+			resources.put(type, new Resource(value));
 		}
 	}
 	

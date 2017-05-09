@@ -17,7 +17,7 @@ public class Player {
 	String name;
 	
 	ResourceList resourceList;
-	CardsManager cartsManager = new CardsManager();
+	CardsManager cartsManager = new CardsManager(this);
 	FamilyMembersManager familyMembersManager;
 	
 //Start constructor
