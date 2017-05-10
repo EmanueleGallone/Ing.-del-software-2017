@@ -1,6 +1,5 @@
 package it.polimi.ingsw.zones;
 
-import event.Event;
 import gioco.da.console.Player;
 import it.polimi.ingsw.player.gadgets.PersonalBoard;
 import it.polimi.ingsw.resources.FamilyMember;
@@ -16,7 +15,6 @@ public class ProductionZone1 extends Zone {
 	private Resource resource1;
 	private Resource resource2;
 	
-	private Event<Integer> preActivationEvent = new Event<>();
 	
 	public ProductionZone1(){
 		isOccupied = false;
@@ -43,13 +41,8 @@ public class ProductionZone1 extends Zone {
 	public void active(Player player){
 		FamilyMember tempFamily = player.familiarChoice();// faccio scegliere il familiare da posizionare
 		isOccupied = true;
-		preActivationEvent.invoke(tempFamily.getValue());
 		player.changeResourceValue(resource1,resource1.getValue());
 		player.changeResourceValue(resource2, resource2.getValue());
-	}
-	
-	public Event<Integer> getPreActivationEvent() {
-		return preActivationEvent;
 	}
 	
 	public boolean isOccupied(){
