@@ -4,8 +4,8 @@ import pos.events.EventHandler;
 import pos.interfaceList.Incrementable;
 
 public class Resource implements Incrementable {
-	private static final int DEFAULT_VALUE = 0;
-	private static final int MINIMUM_VALUE = 0;
+	private final static int DEFAULT_VALUE = 0;
+	private final static int MINIMUM_VALUE = 0;
 	
 	private int value;
 	

@@ -20,6 +20,8 @@ public abstract class Dice {
 		return this.value;
 	}
 	
+	
+	
 	@Override
 	public abstract String toString();
 

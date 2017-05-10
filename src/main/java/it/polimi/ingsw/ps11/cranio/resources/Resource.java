@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.cranio.resources;
 public abstract class Resource {
 	protected static final int DEFAULT = 0;
 	protected int value;
-	protected int id;
+	protected static int id;
 	
 	//start constructor
 	public Resource(){
@@ -28,7 +28,7 @@ public abstract class Resource {
 		this.value += value;
 	}
 	
-	public int getID(){
+	public static int getID(){
 		return id;
 	}
 

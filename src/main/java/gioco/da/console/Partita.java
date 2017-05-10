@@ -9,8 +9,8 @@ import gioco.da.console.TowerChoice.BlueTowerChoice;
 import gioco.da.console.TowerChoice.GreenTowerChoice;
 import gioco.da.console.TowerChoice.PurpleTowerChoice;
 import gioco.da.console.TowerChoice.YellowTowerChoice;
-import it.polimi.ingsw.resources.BlackFamilyMember;
-import it.polimi.ingsw.resources.FamilyMember;
+import gioco.da.console.resources.BlackFamilyMember;
+import gioco.da.console.resources.FamilyMember;
 
 public class Partita {
 	

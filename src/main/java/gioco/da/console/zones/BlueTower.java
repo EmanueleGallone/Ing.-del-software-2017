@@ -1,7 +1,7 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
-import it.polimi.cards.BlueCard;
-import it.polimi.ingsw.resources.Stone;
+import gioco.da.console.cards.BlueCard;
+import gioco.da.console.resources.Stone;
 
 public class BlueTower extends Tower {
 	

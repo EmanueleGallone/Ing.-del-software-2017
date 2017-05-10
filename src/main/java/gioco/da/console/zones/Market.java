@@ -1,4 +1,4 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 public class Market extends Zone {
 	private CoinGenerator coinGen;

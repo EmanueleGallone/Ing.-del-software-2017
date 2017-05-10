@@ -1,7 +1,7 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
-import it.polimi.cards.GreenCard;
-import it.polimi.ingsw.resources.Wood;
+import gioco.da.console.cards.GreenCard;
+import gioco.da.console.resources.Wood;
 
 public class GreenTower extends Tower {
 	

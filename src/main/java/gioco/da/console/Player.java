@@ -5,20 +5,22 @@ import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import it.polimi.cards.DevelopmentCard;
-import it.polimi.ingsw.resources.BlackFamilyMember;
-import it.polimi.ingsw.resources.Coin;
-import it.polimi.ingsw.resources.FaithPoint;
-import it.polimi.ingsw.resources.FamilyMember;
-import it.polimi.ingsw.resources.MilitaryPoint;
-import it.polimi.ingsw.resources.NeutralFamilyMember;
-import it.polimi.ingsw.resources.OrangeFamilyMember;
-import it.polimi.ingsw.resources.Resource;
-import it.polimi.ingsw.resources.Servant;
-import it.polimi.ingsw.resources.Stone;
-import it.polimi.ingsw.resources.VictoryPoint;
-import it.polimi.ingsw.resources.WhiteFamilyMember;
-import it.polimi.ingsw.resources.Wood;
+import gioco.da.console.cards.DevelopmentCard;
+import gioco.da.console.resources.BlackFamilyMember;
+import gioco.da.console.resources.Coin;
+import gioco.da.console.resources.FaithPoint;
+import gioco.da.console.resources.FamilyMember;
+import gioco.da.console.resources.MilitaryPoint;
+import gioco.da.console.resources.NeutralFamilyMember;
+import gioco.da.console.resources.OrangeFamilyMember;
+import gioco.da.console.resources.Resource;
+import gioco.da.console.resources.Servant;
+import gioco.da.console.resources.Stone;
+import gioco.da.console.resources.VictoryPoint;
+import gioco.da.console.resources.WhiteFamilyMember;
+import gioco.da.console.resources.Wood;
+
+
 
 public class Player implements Comparator<Player>, Comparable<Player>{
 	

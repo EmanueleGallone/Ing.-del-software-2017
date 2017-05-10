@@ -22,7 +22,7 @@ public class DevelopmentCard extends Card {
 	
 	@Override
 	public String toString() {
-		return "DevelopmentCard [name=" + name + ", colour=" + colour + ", resourceAffected=" + resourceAffected
+		return "DevelopmentCard [name=" + name + ", resourceAffected=" + resourceAffected
 				+ ", description=" + description + ", requirements=" + requirements + ", period=" + period + "]";
 	}
 

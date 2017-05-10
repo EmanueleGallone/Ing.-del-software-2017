@@ -1,11 +1,12 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 import java.util.ArrayList;
 
-import it.polimi.cards.DevelopmentCard;
-import it.polimi.ingsw.resources.Coin;
-import it.polimi.ingsw.resources.FamilyMember;
-import it.polimi.ingsw.resources.Resource;
+import gioco.da.console.cards.DevelopmentCard;
+import gioco.da.console.resources.FamilyMember;
+import gioco.da.console.resources.Resource;
+
+
 
 public abstract class Tower extends Zone {
 	//CLASSE DA RIVEDERE

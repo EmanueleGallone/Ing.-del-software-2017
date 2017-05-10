@@ -14,8 +14,8 @@ public class CardsAttivatorZone {
 	
 	private final static int MULTIPLE_SPACE_COST = 3;
 	
-	private FamilyMemberSpace singleSpace = new FamilyMemberSpace();
-	private ArrayList<FamilyMemberSpace> multipleSpace = new ArrayList<>();
+	private ActionSpace singleSpace = new ActionSpace();
+	private ArrayList<ActionSpace> multipleSpace = new ArrayList<>();
 	private Cards cardType;
 	
 	EventHandler<Event<Cards, FamilyMember>> preFamilyMemberCheck = new EventHandler<>();
@@ -23,14 +23,14 @@ public class CardsAttivatorZone {
 	EventListener<Void> clearAtTurnEnd = new EventListener<Void>() {
 		@Override
 		public void handle(Void event) {
-			singleSpace = new FamilyMemberSpace();
+			singleSpace = new ActionSpace();
 			multipleSpace.clear();
 		}
 	};
 	
 //Start constructors
 	
-	public CardsAttivatorZone(Cards whichCard,FamilyMemberSpace familyMemberSpace) {
+	public CardsAttivatorZone(Cards whichCard,ActionSpace familyMemberSpace) {
 		this.cardType = whichCard;
 		this.singleSpace = familyMemberSpace;
 		//Bisogna attaccare l'evento "clearAtTurnEnd" a chi invoca l'evento "TurnEnd"
@@ -49,7 +49,7 @@ public class CardsAttivatorZone {
 	}
 	
 	public boolean placeInMultipleArea(FamilyMember familyMember){
-		FamilyMemberSpace newFamilyMemberSpace = new FamilyMemberSpace(MULTIPLE_SPACE_COST);
+		ActionSpace newFamilyMemberSpace = new ActionSpace(MULTIPLE_SPACE_COST);
 		if(checkFamilyMemberValue(newFamilyMemberSpace, familyMember)){
 			multipleSpace.add(newFamilyMemberSpace);
 			ActiveCards(familyMember.getOwner());
@@ -58,7 +58,7 @@ public class CardsAttivatorZone {
 		return false;
 	}
 	
-	private boolean checkFamilyMemberValue(FamilyMemberSpace familyMemberSpace, FamilyMember familyMember){
+	private boolean checkFamilyMemberValue(ActionSpace familyMemberSpace, FamilyMember familyMember){
 		preFamilyMemberCheck.invoke(new Event<Cards, FamilyMember>(this.cardType, familyMember));
 		boolean esito = familyMemberSpace.placeFamilyMember(familyMember);
 		familyMember.resetModifier();

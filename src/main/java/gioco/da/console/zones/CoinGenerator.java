@@ -1,7 +1,7 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 import gioco.da.console.Player;
-import it.polimi.ingsw.resources.Coin;
+import gioco.da.console.resources.Coin;
 
 public class CoinGenerator extends Zone {
 	//a posto non necessita di modifiche

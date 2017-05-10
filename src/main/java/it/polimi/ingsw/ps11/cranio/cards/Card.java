@@ -2,10 +2,11 @@ package it.polimi.ingsw.ps11.cranio.cards;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import pos.bonus.Bonus;
-import pos.games.Player;
+
 import pos.interfaceList.Activable;
-import pos.resources.ResourceList;
 
 public abstract class Card implements Activable {
 	
@@ -33,21 +34,21 @@ public abstract class Card implements Activable {
 		this.costs.add(cost);
 	}
 	
-	public void take(Player subject) {
+	/*public void take(Player subject) {
 		
 		if(checkRequirements(subject)){
 			subject.getCartsManager().addCard(this);
 		}
-	}
+	}DA RIVEDERE
 	
 	public boolean checkRequirements(Player subject){
 		for(ResourceList cost: costs){
-			if (subject.getResourceList().greaterThen(cost)){
+			if (subject.getResources().greaterThen(cost)){
 				return true;
 			}
 		}
 		return false;
-	}
+	}*/
 	
 	@Override
 	public void active() {
@@ -77,9 +78,7 @@ public abstract class Card implements Activable {
 	public ArrayList<ResourceList> getCosts() {
 		return costs;
 	}
-	public Cards getType() {
-		return type;
-	}
+	
 	public String getName() {
 		return name;
 	}

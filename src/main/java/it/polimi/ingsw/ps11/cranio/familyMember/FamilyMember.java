@@ -9,41 +9,21 @@ public abstract class FamilyMember implements Cloneable {
 	protected int value;
 	protected boolean isUsed;
 	protected Player owner; 
+	protected int id;
 	
 	public FamilyMember(Player player){
 		value = DEFAULT;
 		isUsed = false;
 		owner = player;
+		id = 0;
 	}
 	
-	public FamilyMember(){
-		super();
-		isUsed = false;
-	}
+//start logics
 	
-	/**
-	 * public void setIsUsed(boolean value) 
-	 * setter per la variabile isUsed
-	 * @param value - boolean 
-	 */
-	public void setIsUsed(boolean value){
-		isUsed = value;
-	}
 	
-	/**
-	 *  public boolean isUsed()
-	 * se il familiare è stato usato ritorna true 
-	 * @return boolean 
-	 */
-	public boolean isUsed(){
-		return isUsed;
-	}
-	public int getValue(){
-		return this.value;
-	}
-	public void setValue(int value){
-		this.value = value;
-	}
+	
+//end logics
+	
 	
 	
 	@Override
@@ -61,5 +41,24 @@ public abstract class FamilyMember implements Cloneable {
 	public Player getOwner(){
 		return this.owner; 
 	}
+	
+	public int getID(){
+		return this.id; 
+	}
 
+	public void setIsUsed(boolean value){
+		isUsed = value;
+	}
+	
+	public boolean isUsed(){
+		return isUsed;
+	}
+	
+	public void setValue(int value){
+		this.value = value;
+	}
+	
+	public int getValue(){
+		return this.value;
+	}
 }

@@ -1,60 +1,23 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-import it.polimi.ingsw.ps11.cranio.cards.*;
-import pos.events.Event;
-import pos.events.EventHandler;
-import pos.familyMembers.FamilyMember;
-
-public class Floor {
+public class Floor<CARD_TYPE,RESOURCE_TYPE> {
 	
-	private FamilyMemberSpace familyMemberSpace;
-	private Card card;
+	private ActionSpace<RESOURCE_TYPE> actionSpace;
+	private CARD_TYPE card;
 	
-	private static EventHandler<Event<Cards, FamilyMember>> preFamilyMemberCheck = new EventHandler<>();
-	//Potrebbe essere sostituito con una mappa con EventType -> eventhandler
+	public Floor(ActionSpace<RESOURCE_TYPE> actionSpace){
+		this.actionSpace = actionSpace;
 	
-	
-	public Floor(FamilyMemberSpace familyMemberSpace) {
-		this.familyMemberSpace = familyMemberSpace;
 	}
 	
-	public Floor(FamilyMemberSpace familyMemberSpace, Card card) {
-		this(familyMemberSpace);
+	public Floor(ActionSpace<RESOURCE_TYPE> actionSpace,CARD_TYPE card){
+		this(actionSpace);
 		this.card = card;
 	}
 	
-//Start Logics
-	
-	public boolean placeFamilyMember(FamilyMember familyMember){
-		preFamilyMemberCheck.invoke(new Event<Cards, FamilyMember>(card.getType(), familyMember) );
-		boolean result = familyMemberSpace.placeFamilyMember(familyMember);
-		familyMember.resetModifier();//Questa riga va sostituita con l'invocazione di un post event
-		return result;
+	public CARD_TYPE getCard() {
+		return (CARD_TYPE) card;
 	}
 	
-//End Logics
-	
-
-//Start getters
-	public Card getCard() {
-		return card;
-	}
-	public FamilyMemberSpace getFamilyMemberSpace() {
-		return familyMemberSpace;
-	}
-	
-	public static EventHandler<Event<Cards, FamilyMember>> getPreFamilyMemberCheck() {
-		return preFamilyMemberCheck;
-	}
-//End getters
-	//____________________________________________________________________________
-//Start setters
-	public void setCard(Card card) {
-		this.card = card;
-	}
-	private void setFamilyMemberSpace(FamilyMemberSpace familyMemberSpace) {
-		this.familyMemberSpace = familyMemberSpace;
-	}
-//End setters
 	
 }

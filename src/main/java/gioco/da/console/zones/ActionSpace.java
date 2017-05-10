@@ -1,7 +1,7 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
-import it.polimi.ingsw.resources.FamilyMember;
-import it.polimi.ingsw.resources.Resource;
+import gioco.da.console.resources.FamilyMember;
+import gioco.da.console.resources.Resource;
 
 public class ActionSpace {
 	private Resource resource1; //qui probabilmente si userà un array oppure al max un'altra variabile. ci sono spazi azione con più di 2 risorse?

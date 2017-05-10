@@ -1,48 +1,37 @@
 package it.polimi.ingsw.ps11.cranio.player;
 
-import java.util.ArrayList;
-
-import it.polimi.ingsw.ps11.cranio.familyMember.*;
-import it.polimi.ingsw.ps11.cranio.resources.*;
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
-import it.polimi.ingsw.ps11.cranio.cards.*;
+import it.polimi.ingsw.ps11.cranio.cards.BlueCard;
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.Deck;
+import it.polimi.ingsw.ps11.cranio.cards.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.PurpleCard;
+import it.polimi.ingsw.ps11.cranio.cards.YellowCard;
+import it.polimi.ingsw.ps11.cranio.familyMember.BlackFamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.cranio.familyMember.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.WhiteFamilyMember;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 
 
 public class Player{
 	private static final String DEFAULT_NAME = "Predefinito";
-		
-	//private static int counter = 1; //per instanziare le posizioni dei giocatori
 	
 	private String name;
 	
-	private ResourceList resources;
-	
-	private BlackFamilyMember blackFamilyMember;
-	private WhiteFamilyMember whiteFamilyMember;
-	private NeutralFamilyMember neutralFamilyMember;
-	private OrangeFamilyMember orangeFamilyMember;
-	
-	//ATTENZIONE: MAX 6 Carte per colore
-	// farò più mazzi in base al colore
-	private ArrayList<DevelopmentCard> mazzo = new ArrayList<DevelopmentCard>();
+	private ResourceList resourceList;
+	private FamilyMemberManager familyManager;
+	private CardManager cardManager;
 	
 	
 	public Player(){
 		name = DEFAULT_NAME;
 		
-		resources = new ResourceList();		
+		resourceList = new ResourceList();	
+		familyManager = new FamilyMemberManager(this);
+		cardManager = new CardManager();
 		
-		blackFamilyMember = new BlackFamilyMember(this);
-		whiteFamilyMember = new WhiteFamilyMember(this);
-		orangeFamilyMember = new OrangeFamilyMember(this);
-		neutralFamilyMember = new NeutralFamilyMember(this);
 	}
 	
 	public Player(String name){
@@ -54,105 +43,114 @@ public class Player{
 
 	
 
-	public void addCard(DevelopmentCard card){
-		this.mazzo.add(card);
-		// System.out.println("Carta aggiunta al deck! "+ card); per debug
-	}	
+
 	
 	
 	
-	//setters for family Member values
-	
-	public void setBlackFamilyMemberValue(int value){
-		blackFamilyMember.setValue(value);
-	}
-	
-	public void setWhiteFamilyMemberValue(int value){
-		whiteFamilyMember.setValue(value);
-	}
-		
-	public void setOrangeFamilyMemberValue(int value){
-		orangeFamilyMember.setValue(value);
-	}	
-			
+//getter for family Member
 	public BlackFamilyMember getBlackFamilyMember() {
-		return blackFamilyMember;
+		return familyManager.getBlackFamilyMember();
 	}
 
 	public WhiteFamilyMember getWhiteFamilyMember() {
-		return whiteFamilyMember;
+		return familyManager.getWhiteFamilyMember();
 	}
 
 	public NeutralFamilyMember getNeutralFamilyMember() {
-		return neutralFamilyMember;
+		return familyManager.getNeutralFamilyMember();
 	}
 
 	public OrangeFamilyMember getOrangeFamilyMember() {
-		return orangeFamilyMember;
-	}//end of family members setters
+		return familyManager.getOrangeFamilyMember();
+	}
+//end of family members getters
 
 	
-	//start of Resource setters and getters
+//start of Resource setters and getters
 	public ResourceList getResources(){
-		return resources;
+		return resourceList;
 	}
 	
 	public int getStoneValue() {
-		return resources.getStoneValue();
+		return resourceList.getStoneValue();
 	}
 
 	public int getWoodValue() {
-		return resources.getWoodValue();
+		return resourceList.getWoodValue();
 	}
 
 	public int getCoinValue() {
-		return resources.getCoinValue();
+		return resourceList.getCoinValue();
 	}
 
 	public int getServantValue() {
-		return resources.getServantValue();
+		return resourceList.getServantValue();
 	}
 
 	public void incrementStone(int value) {
-		resources.getStone().increment(value);
+		resourceList.getStone().increment(value);
 	}
 
 	public void incrementWood(int value) {
-		resources.getWood().increment(value);
+		resourceList.getWood().increment(value);
 	}
 
 	public void incrementCoin(int value) {
-		resources.getCoin().increment(value);
+		resourceList.getCoin().increment(value);
 	}
 
 	public void incrementServant(int value) {
-		resources.getServant().increment(value);
-	}//end of Resource Setters and Getters
+		resourceList.getServant().increment(value);
+	}
+//end of Resource Setters and Getters
 		
-	//start of Points setters and getters
+//start of Points setters and getters
 	public int getMilitaryPointsValue(){
-		return resources.getMilitaryPointsValue();
+		return resourceList.getMilitaryPointsValue();
 	}
 		
 	public int getFaithPointsValue(){
-		return resources.getFaithPointsValue();
+		return resourceList.getFaithPointsValue();
 	}
 		
 	public int getVictoryPointsValue(){
-		return resources.getVictoryPointsValue();
+		return resourceList.getVictoryPointsValue();
 	}
 	
 	public void incrementMilitaryPoints(int value){
-		resources.getMilitaryPoint().increment(value);
+		resourceList.getMilitaryPoint().increment(value);
 	}
 		
 	public void incrementFaithPoints(int value){
-		resources.getFaithPoint().increment(value);
+		resourceList.getFaithPoint().increment(value);
 	}
 		
 	public void incrementVictoryPoints(int value){
-		resources.getVictoryPoint().increment(value);
-	}//end of Points setters and getters
+		resourceList.getVictoryPoint().increment(value);
+	}
+//end of Points setters and getters
+	
+//start of decks getters
+	public CardManager getCardManager() {
+		return cardManager;
+	}
+	
+	public Deck<PurpleCard> getPurpleDeck() {
+		return cardManager.getPurpleDeck();
+	}
+	
+	public Deck<GreenCard> getGreenDeck() {
+		return cardManager.getGreenDeck();
+	}
+	
+	public Deck<YellowCard> getYellowDeck() {
+		return cardManager.getYellowDeck();
+	}
+	
+	public Deck<BlueCard> getBlueDeck() {
+		return cardManager.getBlueDeck();
+	}
+//end of decks getters
 	
 	
 	public String getPlayerName(){ //TEMPORANEO. lo uso nei familyMember così da conoscere il proprietario. Da migliorare.

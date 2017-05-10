@@ -1,8 +1,9 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 import gioco.da.console.DecoratedYellowCard;
-import it.polimi.cards.YellowCard;
-import it.polimi.ingsw.resources.MilitaryPoint;
+import gioco.da.console.cards.YellowCard;
+import gioco.da.console.resources.MilitaryPoint;
+
 
 public class YellowTower extends Tower {
 	

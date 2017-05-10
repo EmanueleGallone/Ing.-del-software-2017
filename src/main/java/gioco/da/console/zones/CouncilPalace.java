@@ -1,14 +1,10 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import gioco.da.console.Player;
-import it.polimi.ingsw.resources.Coin;
-import it.polimi.ingsw.resources.Resource;
-import it.polimi.ingsw.resources.Servant;
-import it.polimi.ingsw.resources.Stone;
-import it.polimi.ingsw.resources.Wood;
+import gioco.da.console.resources.*;
 
 public class CouncilPalace extends Zone {
 	private final int MAX_CHOICES = 4;

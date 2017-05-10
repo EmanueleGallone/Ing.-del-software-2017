@@ -1,4 +1,4 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 public abstract class Zone {
 	

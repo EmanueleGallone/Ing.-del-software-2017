@@ -37,13 +37,13 @@ public class ResourceList {
 		militaryPoint = new MilitaryPoint(DEFAULT_COST);
 		faithPoint = new FaithPoint(DEFAULT_COST);
 		
-		resources.put(stone.getID(), stone);
-		resources.put(wood.getID(), wood);
-		resources.put(coin.getID(), coin);
-		resources.put(servant.getID(), servant);
-		resources.put(victoryPoint.getID(), victoryPoint);
-		resources.put(militaryPoint.getID(), militaryPoint);
-		resources.put(faithPoint.getID(), faithPoint);
+		resources.put(Stone.getID(), stone);
+		resources.put(Wood.getID(), wood);
+		resources.put(Coin.getID(), coin);
+		resources.put(Servant.getID(), servant);
+		resources.put(VictoryPoint.getID(), victoryPoint);
+		resources.put(MilitaryPoint.getID(), militaryPoint);
+		resources.put(FaithPoint.getID(), faithPoint);
 		
 	
 	}

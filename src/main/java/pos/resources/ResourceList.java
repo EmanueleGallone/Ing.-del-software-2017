@@ -12,7 +12,7 @@ public class ResourceList {
 	//Costruttore che inizializza le risorse al valore di default
 	public ResourceList() {
 		for(Resources type: Resources.values()){
-			resources.put(type, new Resource(type));
+			//resources.put(type, new Resource(type));
 		}
 	}	
 	
@@ -31,9 +31,9 @@ public class ResourceList {
 		
 		Map<Resources, Resource> otherResource = otherResourceList.getAllResources();
 		for(Resource resource : otherResource.values()){
-			if( this.getValueOf(resource.getType()) < resource.getValue()){
+			/*if( this.getValueOf(resource.getType()) < resource.getValue()){
 				return false;
-			}
+			}*/
 		}
 		return true;
 	}
@@ -54,9 +54,9 @@ public class ResourceList {
 	}
 //End getters
 //Start setters
-	public void setResource(Resource resource){
+	/*public void setResource(Resource resource){
 		resources.put(resource.getType(), resource);
-	}
+	}*/
 	public void setValueOf(Resources type,int value){
 		this.getResource(type).setValue(value);
 	}

@@ -4,12 +4,9 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class NeutralFamilyMember extends FamilyMember {
 	
-	public NeutralFamilyMember(){
-		super();
-	}
-	
 	public NeutralFamilyMember(Player player){
 		super(player);
+		id = 4;
 	}
 
 	@Override

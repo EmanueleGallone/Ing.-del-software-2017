@@ -1,7 +1,7 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
-import it.polimi.cards.PurpleCard;
-import it.polimi.ingsw.resources.Coin;
+import gioco.da.console.cards.PurpleCard;
+import gioco.da.console.resources.Coin;
 
 public class PurpleTower extends Tower {
 	

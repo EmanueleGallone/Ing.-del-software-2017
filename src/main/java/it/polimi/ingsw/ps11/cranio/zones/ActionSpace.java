@@ -1,30 +1,27 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-import java.util.ArrayList;
-
 import pos.familyMembers.FamilyMember;
-import pos.resources.Resource;
 
-public class FamilyMemberSpace {
+public class ActionSpace<RESOURCE_TYPE> {
 	
 	private static final int DEFAULT_COST = 1;
 	private FamilyMember familyMember;
 	private int cost;
-	private ArrayList<Resource> bonus = new ArrayList<>();
+	private RESOURCE_TYPE resource;
  	
 // Start Constructors
 // Con questi costruttori l'actionCost e' sempre definito, il familyMember invece può esseren null
 	
-	public FamilyMemberSpace() {
+	public ActionSpace() {
 		this(DEFAULT_COST, null);
 	}
 	
-	public FamilyMemberSpace(int cost){
+	public ActionSpace(int cost){
 		this(cost,null);
 	}
 	
 	
-	public FamilyMemberSpace(int cost,FamilyMember familyMember) {
+	public ActionSpace(int cost,FamilyMember familyMember) {
 		this.cost = cost;
 		this.familyMember = familyMember;
 	}
@@ -38,10 +35,6 @@ public class FamilyMemberSpace {
 			return true;
 		}
 		return false;
-	}
-	
-	public void addBonus(Resource resource){
-		this.bonus.add(resource);
 	}
 	
 	public boolean placeFamilyMember(FamilyMember familyMember){

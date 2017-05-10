@@ -9,7 +9,6 @@ public class PurpleCard extends DevelopmentCard {
 	public PurpleCard(){
 		this.name="Carta Viola 1";
 		this.period=1;
-		this.colour=Colour.PURPLE;
 		this.resourceAffected=new Coin();
 		this.resourceAffected.setValue(5);
 		this.description="aumenta il tuo legname di "+resourceAffected.getValue();
@@ -19,7 +18,7 @@ public class PurpleCard extends DevelopmentCard {
 
 	@Override
 	public String toString() {
-		return "PurpleCard [name=" + name + ", colour=" + colour + ", resourceAffected=" + resourceAffected
+		return "PurpleCard [name=" + name + ", resourceAffected=" + resourceAffected
 				+ ", description=" + description + ", requirements=" + requirements + ", period=" + period + "]\n";
 	}
 	

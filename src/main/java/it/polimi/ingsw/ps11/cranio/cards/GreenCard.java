@@ -9,7 +9,7 @@ public class GreenCard extends DevelopmentCard {
 	public GreenCard(){
 		this.name="Carta Verde 1";
 		this.period=1;
-		this.colour=Colour.GREEN;
+		//this.colour=Colour.GREEN;
 		this.resourceAffected=new Coin();
 		this.resourceAffected.setValue(5);
 		this.description="aumenta il tuo legname di "+resourceAffected.getValue();
@@ -19,7 +19,7 @@ public class GreenCard extends DevelopmentCard {
 
 	@Override
 	public String toString() {
-		return "GreenCard [name=" + name + ", colour=" + colour + ", resourceAffected=" + resourceAffected
+		return "GreenCard [name=" + name  + ", resourceAffected=" + resourceAffected
 				+ ", description=" + description + ", requirements=" + requirements + ", period=" + period + "]";
 	}
 	

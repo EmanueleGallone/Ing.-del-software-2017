@@ -1,10 +1,7 @@
-package it.polimi.ingsw.zones;
+package gioco.da.console.zones;
 
 import gioco.da.console.Player;
-import it.polimi.ingsw.resources.FamilyMember;
-import it.polimi.ingsw.resources.Resource;
-import it.polimi.ingsw.resources.Stone;
-import it.polimi.ingsw.resources.Wood;
+import gioco.da.console.resources.*;
 
 
 // AACHTUNG: classe da rivedere! impostata solo per testing. non è versione finale neanche per testing in realtà.

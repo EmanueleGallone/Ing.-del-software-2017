@@ -1,16 +1,16 @@
 package gioco.da.console;
 
-import it.polimi.ingsw.dices.BlackDice;
-import it.polimi.ingsw.dices.OrangeDice;
-import it.polimi.ingsw.dices.WhiteDice;
-import it.polimi.ingsw.zones.BlueTower;
-import it.polimi.ingsw.zones.CouncilPalace;
-import it.polimi.ingsw.zones.GreenTower;
-import it.polimi.ingsw.zones.HarvestZone1;
-import it.polimi.ingsw.zones.Market;
-import it.polimi.ingsw.zones.ProductionZone1;
-import it.polimi.ingsw.zones.PurpleTower;
-import it.polimi.ingsw.zones.YellowTower;
+import gioco.da.console.dices.BlackDice;
+import gioco.da.console.dices.OrangeDice;
+import gioco.da.console.dices.WhiteDice;
+import gioco.da.console.zones.BlueTower;
+import gioco.da.console.zones.CouncilPalace;
+import gioco.da.console.zones.GreenTower;
+import gioco.da.console.zones.HarvestZone1;
+import gioco.da.console.zones.Market;
+import gioco.da.console.zones.ProductionZone1;
+import gioco.da.console.zones.PurpleTower;
+import gioco.da.console.zones.YellowTower;
 
 public class Board {
 	//rispetta il pattern Facade, o no?
