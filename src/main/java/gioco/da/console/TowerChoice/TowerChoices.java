@@ -3,7 +3,7 @@ package gioco.da.console.TowerChoice;
 import java.util.Scanner;
 
 import gioco.da.console.Player;
-import it.polimi.ingsw.resources.FamilyMember;
+import gioco.da.console.resources.FamilyMember;
 
 public abstract class TowerChoices {
 	//ATTENZIONE: LA TORRE VIOLA È QUELLA CHE VIENE AGGIORNATA. 

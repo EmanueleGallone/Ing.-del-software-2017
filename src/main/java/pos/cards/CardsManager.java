@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import pos.bonus.Bonus;
+import pos.games.Player;
+
 public class CardsManager {
 	
 	private static final int DEFAULT_MAX_CARDS = 6;
 	
-	private Map<Cards, ArrayList<Card>> cardList = new HashMap<>();;
+	private Map<Cards, ArrayList<Card>> cardList = new HashMap<>();
+	private Player owner;
 	
 //Start constructor
 	
-	public CardsManager() {
+	public CardsManager(Player player) {
+		this.owner = player;
 		for(Cards type: Cards.values()){
 			cardList.put(type, new ArrayList<>());
 		}
@@ -26,7 +31,15 @@ public class CardsManager {
 			return false;
 		}
 		this.setCard(card);
+		
 		return true;
+	}
+	
+	private void activeBonus(ArrayList<Bonus> list){
+		for(Bonus b : list){
+			b.behavior(null);
+		}
+			
 	}
 	
 //End logics

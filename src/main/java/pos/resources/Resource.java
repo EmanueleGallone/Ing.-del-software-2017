@@ -4,22 +4,20 @@ import pos.events.EventHandler;
 import pos.interfaceList.Incrementable;
 
 public class Resource implements Incrementable {
-	private static final int DEFAULT_VALUE = 0;
-	private static final int MINIMUM_VALUE = 0;
+	private final static int DEFAULT_VALUE = 0;
+	private final static int MINIMUM_VALUE = 0;
 	
-	private Resources type;
 	private int value;
 	
 	EventHandler<Void> incrementEvent = new EventHandler<>();
 	
 //Start constructor
 	
-	public Resource(Resources type){
-		this(type, DEFAULT_VALUE);
+	public Resource(){
+		this(DEFAULT_VALUE);
 	}
 	
-	public Resource(Resources type, int value) {
-		this.type = type;
+	public Resource(int value) {
 		this.value = value;
 	}	
 	
@@ -54,9 +52,6 @@ public class Resource implements Incrementable {
 //End setters
 //Start getters
 	
-	public Resources getType() {
-		return type;
-	}
 	public int getValue() {
 		return value;
 	}

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import gioco.da.console.Board;
 import gioco.da.console.Player;
-import it.polimi.ingsw.resources.FamilyMember;
+import gioco.da.console.resources.FamilyMember;
 
 public class PurpleTowerChoice extends TowerChoices {
 		//non credo sia corretto usare solo il costruttore

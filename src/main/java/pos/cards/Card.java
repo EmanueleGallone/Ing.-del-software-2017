@@ -2,6 +2,7 @@ package pos.cards;
 
 import java.util.ArrayList;
 
+import pos.bonus.Bonus;
 import pos.games.Player;
 import pos.interfaceList.Activable;
 import pos.resources.ResourceList;
@@ -11,6 +12,9 @@ public class Card implements Activable {
 	private String name; //Va visto come un identificatore unico
 	private Cards type;
 	private ArrayList<ResourceList> costs = new ArrayList<>();
+	private ArrayList<Bonus> instantBonus = new ArrayList<Bonus>();
+	private ArrayList<Bonus> permanentBonus = new ArrayList<Bonus>();
+	
 	
 	public Card(Cards type) {
 		this.type = type;
@@ -64,6 +68,13 @@ public class Card implements Activable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public void setInstantBonus(ArrayList<Bonus> instantBonus) {
+		this.instantBonus = instantBonus;
+	}
+
+	public void setPermanentBonus(ArrayList<Bonus> permanentBonus) {
+		this.permanentBonus = permanentBonus;
+	}
 	
 //End setters
 //Start getters
@@ -76,6 +87,15 @@ public class Card implements Activable {
 	public String getName() {
 		return name;
 	}
+
+	public ArrayList<Bonus> getInstantBonus() {
+		return instantBonus;
+	}
+
+	public ArrayList<Bonus> getPermanentBonus() {
+		return permanentBonus;
+	}
+	
 //End getters
 	
 }
