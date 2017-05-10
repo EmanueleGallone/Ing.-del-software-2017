@@ -10,13 +10,7 @@ public class ProductionZone1 extends Zone {
 	private boolean isOccupied;
 	private Resource resource1;
 	private Resource resource2;
-<<<<<<< HEAD:src/main/java/it/polimi/ingsw/zones/ProductionZone1.java
-	
-=======
-	//private ActionSpace actionSpace; //va usato l'action space. da implementare
 
->>>>>>> 598f6a66494d17e6a67e7801867fb29727ddaaed:src/main/java/gioco/da/console/zones/ProductionZone1.java
-	
 	public ProductionZone1(){
 		isOccupied = false;
 		resource1 = new Wood();
@@ -42,10 +36,6 @@ public class ProductionZone1 extends Zone {
 	public void active(Player player){
 		FamilyMember tempFamily = player.familiarChoice();// faccio scegliere il familiare da posizionare
 		isOccupied = true;
-<<<<<<< HEAD:src/main/java/it/polimi/ingsw/zones/ProductionZone1.java
-=======
-		
->>>>>>> 598f6a66494d17e6a67e7801867fb29727ddaaed:src/main/java/gioco/da/console/zones/ProductionZone1.java
 		player.changeResourceValue(resource1,resource1.getValue());
 		player.changeResourceValue(resource2, resource2.getValue());
 	}
