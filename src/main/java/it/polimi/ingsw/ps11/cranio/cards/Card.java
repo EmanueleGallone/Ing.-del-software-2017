@@ -2,19 +2,12 @@ package it.polimi.ingsw.ps11.cranio.cards;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import pos.bonus.Bonus;
 
-import pos.interfaceList.Activable;
-
-public abstract class Card implements Activable {
+public abstract class Card{
 	
 	private String name; //Va visto come un identificatore unico
 	private ArrayList<ResourceList> costs = new ArrayList<>();
-	private ArrayList<Bonus> instantBonus = new ArrayList<Bonus>();
-	private ArrayList<Bonus> permanentBonus = new ArrayList<Bonus>();
-	
 	
 	public Card() {
 		//E i vari parametri, periodo,colore, ecc..
@@ -34,26 +27,6 @@ public abstract class Card implements Activable {
 		this.costs.add(cost);
 	}
 	
-	/*public void take(Player subject) {
-		
-		if(checkRequirements(subject)){
-			subject.getCartsManager().addCard(this);
-		}
-	}DA RIVEDERE
-	
-	public boolean checkRequirements(Player subject){
-		for(ResourceList cost: costs){
-			if (subject.getResources().greaterThen(cost)){
-				return true;
-			}
-		}
-		return false;
-	}*/
-	
-	@Override
-	public void active() {
-		// TODO Auto-generated method stub
-	}
 	
 //End Logics
 
@@ -65,13 +38,6 @@ public abstract class Card implements Activable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setInstantBonus(ArrayList<Bonus> instantBonus) {
-		this.instantBonus = instantBonus;
-	}
-
-	public void setPermanentBonus(ArrayList<Bonus> permanentBonus) {
-		this.permanentBonus = permanentBonus;
-	}
 	
 //End setters
 //Start getters
@@ -82,14 +48,7 @@ public abstract class Card implements Activable {
 	public String getName() {
 		return name;
 	}
-
-	public ArrayList<Bonus> getInstantBonus() {
-		return instantBonus;
-	}
-
-	public ArrayList<Bonus> getPermanentBonus() {
-		return permanentBonus;
-	}
+	
 	
 //End getters
 	

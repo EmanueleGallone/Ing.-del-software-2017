@@ -37,7 +37,7 @@ public class CardsAttivatorZone {
 	}
 	
 //End constructors
-
+/*
 	
 	public boolean placeInSingleArea(FamilyMember familyMember){
 		if (checkFamilyMemberValue(singleSpace, familyMember)){
@@ -57,13 +57,13 @@ public class CardsAttivatorZone {
 		}
 		return false;
 	}
-	
+
 	private boolean checkFamilyMemberValue(ActionSpace familyMemberSpace, FamilyMember familyMember){
 		preFamilyMemberCheck.invoke(new Event<Cards, FamilyMember>(this.cardType, familyMember));
-		boolean esito = familyMemberSpace.placeFamilyMember(familyMember);
+		//boolean esito = familyMemberSpace.placeFamilyMember(familyMember);
 		familyMember.resetModifier();
-		return esito;
-	}
+		//return esito;
+	}*/
 	
 	public EventHandler<Event<Cards, FamilyMember>> getPreFamilyMemberCheck() {
 		return preFamilyMemberCheck;

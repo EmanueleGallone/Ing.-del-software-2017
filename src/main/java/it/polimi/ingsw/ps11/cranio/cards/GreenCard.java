@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.cranio.cards;
 
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.resources.Coin;
 import it.polimi.ingsw.resources.Wood;
 
@@ -7,22 +8,12 @@ public class GreenCard extends DevelopmentCard {
 	//carte Territori
 	
 	public GreenCard(){
-		this.name="Carta Verde 1";
-		this.period=1;
-		//this.colour=Colour.GREEN;
-		this.resourceAffected=new Coin();
-		this.resourceAffected.setValue(5);
-		this.description="aumenta il tuo legname di "+resourceAffected.getValue();
-		this.requirements=new Wood();
-		requirements.setValue(5);
-		}
+		this.id = 1;
+	}
 
 	@Override
-	public String toString() {
-		return "GreenCard [name=" + name  + ", resourceAffected=" + resourceAffected
-				+ ", description=" + description + ", requirements=" + requirements + ", period=" + period + "]";
+	protected void insertCard(Player player) {
+		player.getCardManager().addGreenCard(this);
 	}
-	
-	
 
 }

@@ -1,23 +1,36 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-public class Floor<CARD_TYPE,RESOURCE_TYPE> {
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+
+public class Floor {
 	
-	private ActionSpace<RESOURCE_TYPE> actionSpace;
-	private CARD_TYPE card;
+	private ActionSpace actionSpace;
+	private DevelopmentCard card;
 	
-	public Floor(ActionSpace<RESOURCE_TYPE> actionSpace){
+	public Floor(ActionSpace actionSpace){
 		this.actionSpace = actionSpace;
 	
 	}
 	
-	public Floor(ActionSpace<RESOURCE_TYPE> actionSpace,CARD_TYPE card){
+	public Floor(ActionSpace actionSpace,DevelopmentCard card){
 		this(actionSpace);
 		this.card = card;
 	}
 	
-	public CARD_TYPE getCard() {
-		return (CARD_TYPE) card;
+	public DevelopmentCard getCard() {
+		return card;
 	}
 	
+	public ActionSpace getActionSpace() {
+		return actionSpace;
+	}
 	
+	public boolean placeFamilyMember(FamilyMember familyMember){
+		if(actionSpace.placeFamilyMember(familyMember)){
+			return card.take(familyMember.getOwner());
+		}
+		return false;
+	
+	}
 }
