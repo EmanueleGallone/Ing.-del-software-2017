@@ -4,6 +4,7 @@ import it.polimi.ingsw.resources.Coin;
 import it.polimi.ingsw.resources.Wood;
 
 public class PurpleCard extends DevelopmentCard {
+	//carte IMPRESE
 	
 	public PurpleCard(){
 		this.name="Carta Viola 1";

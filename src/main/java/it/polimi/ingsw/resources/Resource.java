@@ -1,24 +1,23 @@
 package it.polimi.ingsw.resources;
 
-import event.*;
-import event.increment.*;
+public class Resource {
 
-public class Resource implements Incrementable {
 	protected int value;
-
-	protected EventHandler<IncrementEvent> incrementEvent;
 	
 	public Resource(){
 		//initialized value for any type of resource
 		this.value=0;
-		incrementEvent = new EventHandler<>();
+	}
+	
+	public Resource(int value){
+		this.value = value;
 	}
 	
 	public  int getValue(){
 		return this.value;
 	}
 	
-	public void setValue(int value){ //scomodo per i FamilyMember. non lo uso. devo capire cosa inventarmi. ema
+	public void setValue(int value){
 		this.value = value;
 	}
 	
@@ -27,15 +26,10 @@ public class Resource implements Incrementable {
 		return "Resource [value=" + value + "]";
 	}
 
-	//metodi per Increment event
-	public void increment(int value) {
-		incrementEvent.invoke(new IncrementEvent(value));
-		this.value += value;
-	}
 
-	@Override
-	public EventHandler<IncrementEvent> getIncrementEvent() {
-		return this.incrementEvent;
+	public void increment(int value) {
+		this.value += value;
+		if (this.value < 0)
+			this.value = 0;
 	}
-	//fine per increment event
 }

@@ -1,7 +1,6 @@
 package it.polimi.ingsw.resources;
 
-import it.polimi.ingsw.dices.BlackDice;
-import it.polimi.ingsw.dices.Dice;
+import gioco.da.console.Player;
 
 public class BlackFamilyMember extends FamilyMember {
 	
@@ -9,19 +8,13 @@ public class BlackFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	public void setValue(BlackDice dice){
-		this.value = dice.getValue();
+	public BlackFamilyMember(Player player){
+		super(player);
 	}
-
-	@Override
-	public void setValue(int value) {
-		this.value = value;
-		
-	}
-
+	
 	@Override
 	public String toString() {
-		return "BlackFamilyMember [value=" + value + "]";
+		return "BlackFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 	
 	

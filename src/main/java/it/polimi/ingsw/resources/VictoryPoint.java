@@ -5,11 +5,6 @@ public class VictoryPoint extends Points{
 	public VictoryPoint(){
 		super();
 	}
-	
-	public VictoryPoint(int value){
-		super(value);
-	}
-	
 
 	@Override
 	public String toString() {

@@ -1,18 +1,54 @@
 package it.polimi.ingsw.resources;
 
-import it.polimi.ingsw.dices.Dice;
+import gioco.da.console.Player;
 
-public abstract class FamilyMember extends Resource {
-	public static final int MAX_FAMILY_MEMBERS_PER_PLAYER = 4;
+public class FamilyMember extends Resource implements Cloneable {
+	protected boolean isUsed;
+	protected String owner; //importante per il controllo che nella stessa torre non vi siano più familiari dello stesso giocatore
+	
+	public FamilyMember(Player player){
+		super();
+		isUsed = false;
+		owner = player.getPlayerName(); //ancora non utilizzato
+	}
 	
 	public FamilyMember(){
 		super();
+		isUsed = false;
+	}
+	
+	/**
+	 * public void setIsUsed(boolean value) 
+	 * setter per la variabile isUsed
+	 * @param value - boolean 
+	 */
+	public void setIsUsed(boolean value){
+		isUsed = value;
+	}
+	
+	/**
+	 *  public boolean isUsed()
+	 * se il familiare è stato usato ritorna true 
+	 * @return boolean 
+	 */
+	public boolean isUsed(){
+		return isUsed;
+	}
+	
+	@Override
+	public FamilyMember clone (){
+		try {
+			
+			return (FamilyMember) super.clone();
+			
+		} catch (CloneNotSupportedException e) {
+			System.err.println("Clone not supported!");
+		}
+		return null; 
+	}
+	
+	public String getOwnerName(){
+		return this.owner; //inutilizzato
 	}
 
-
-	//attenzione da capire BENE prima di far casini con i dadi. Me la vedo io. ema
-	//nota per me: magari sposto updateValue inside le varie classi family member e invece di Dice metto WhiteDice etc. etc.. ema
-	public void updateValue(Dice dice){
-		this.value = dice.getValue();
-	}
 }

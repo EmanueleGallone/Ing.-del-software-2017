@@ -2,12 +2,6 @@ package it.polimi.cards;
 
 import it.polimi.ingsw.resources.Resource;
 
-//ATTENZIONE: ogni cambiamento che fate nella sovraclasse (Abstract e non) ha ovviamente ripercussioni sulle sottoclassi
-//ad esempio: qui c'è il costruttore di DevelopmentCard che instanzia la variabile "activatedEvent"
-//se però nelle sottoclassi non utilizzate il "super()" all'interno del costruttore di ogni sottoclasse, la variabile "activatedEvent" 
-//non viene istanziata! lascio questo commento come monito per futuri cambiamenti nel costruttore e nelle variabili. ema
-
-
 public class DevelopmentCard extends Card {
 
 	protected static final int MAX_DECK=96;

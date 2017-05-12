@@ -1,6 +1,6 @@
 package it.polimi.ingsw.resources;
 
-import it.polimi.ingsw.dices.WhiteDice;
+import gioco.da.console.Player;
 
 public class WhiteFamilyMember extends FamilyMember {
 	
@@ -8,25 +8,13 @@ public class WhiteFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	//metto private poi eventualmente cambio visibilità. ema
-	private void updateValue(WhiteDice dice){
-		this.value = dice.getValue();
-	}
-	
-	//serve? mah.. ema
-	private void setValue(WhiteDice dice){
-		this.value = dice.getValue();
-		
-	}
-
-	@Override
-	public void setValue(int value) {
-		this.value = value;
+	public WhiteFamilyMember(Player player){
+		super(player);
 	}
 
 	@Override
 	public String toString() {
-		return "WhiteFamilyMember [value=" + value + "]";
+		return "WhiteFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 
 }

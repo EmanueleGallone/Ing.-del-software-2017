@@ -9,6 +9,7 @@ import it.polimi.ingsw.resources.*;
 public class PersonalBoard {
 	protected static final int MAX_YELLOW_CARDS=6;
 	protected static final int MAX_GREEN_CARDS=6;
+	protected static final int MAX_FAMILY_MEMBERS_PER_PLAYER = 4;
 	private int numberOfYellowCard;
 	private int numberOfGreenCard;
 	
@@ -49,7 +50,7 @@ public class PersonalBoard {
 		servant = new Servant();
 		
 		// non son convinto che sia una buona soluzione l'array di familiari. Però per ora vado avanti così. ema
-		familyMember = new FamilyMember[FamilyMember.MAX_FAMILY_MEMBERS_PER_PLAYER];
+		familyMember = new FamilyMember[MAX_FAMILY_MEMBERS_PER_PLAYER];
 		familyMember[0] = new BlackFamilyMember();
 		familyMember[1] = new WhiteFamilyMember();
 		familyMember[2] = new OrangeFamilyMember();

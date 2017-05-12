@@ -3,6 +3,7 @@ package it.polimi.cards;
 import it.polimi.ingsw.resources.*;
 
 public class BlueCard extends DevelopmentCard {
+	//carte PERSONAGGI
 	
 	public BlueCard(){
 		this.name="Carta Blu 1";

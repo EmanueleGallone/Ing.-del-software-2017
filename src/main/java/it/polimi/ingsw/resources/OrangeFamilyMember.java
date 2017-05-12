@@ -1,6 +1,7 @@
 package it.polimi.ingsw.resources;
 
-import it.polimi.ingsw.dices.YellowDice;
+import gioco.da.console.Player;
+import it.polimi.ingsw.dices.OrangeDice;
 
 public class OrangeFamilyMember extends FamilyMember {
 	
@@ -8,19 +9,13 @@ public class OrangeFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	public void setValue(YellowDice dice) {
-		this.value = dice.getValue();		
+	public OrangeFamilyMember(Player player){
+		super(player);
 	}
 
 	@Override
 	public String toString() {
-		return "YellowFamilyMember [value=" + value + "]";
-	}
-
-	@Override
-	public void setValue(int value) {
-		this.value = value;
-		
+		return "YellowFamilyMember [value=" + value + " isUsed="+ isUsed + "]";
 	}
 
 }
