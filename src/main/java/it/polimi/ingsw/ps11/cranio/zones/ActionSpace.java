@@ -1,29 +1,31 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-import pos.familyMembers.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ActionSpace<RESOURCE_TYPE> {
+public class ActionSpace {
 	
 	private static final int DEFAULT_COST = 1;
 	private FamilyMember familyMember;
 	private int cost;
-	private RESOURCE_TYPE resource;
- 	
+	private ResourceList resources;
 // Start Constructors
 // Con questi costruttori l'actionCost e' sempre definito, il familyMember invece può esseren null
 	
 	public ActionSpace() {
-		this(DEFAULT_COST, null);
+		this(DEFAULT_COST);
+		resources = new ResourceList();
 	}
+	
 	
 	public ActionSpace(int cost){
-		this(cost,null);
+		this.cost = cost;
 	}
 	
 	
-	public ActionSpace(int cost,FamilyMember familyMember) {
-		this.cost = cost;
-		this.familyMember = familyMember;
+	public ActionSpace(int cost, ResourceList resources){
+		this(cost);
+		this.resources = resources;
 	}
 	
 //End constructors
@@ -39,7 +41,7 @@ public class ActionSpace<RESOURCE_TYPE> {
 	
 	public boolean placeFamilyMember(FamilyMember familyMember){
 		if ( familyMember.getValue() > this.cost){
-			this.familyMember = familyMember;
+			this.setFamilyMember(familyMember);
 			return true;
 		}
 		return false;

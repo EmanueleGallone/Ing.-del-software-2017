@@ -1,29 +1,52 @@
 package it.polimi.ingsw.ps11.cranio.cards;
 
-import it.polimi.ingsw.resources.Resource;
+import java.util.ArrayList;
 
-public class DevelopmentCard extends Card {
+import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-	protected static final int MAX_DECK=96;
-	protected static final int DECK_MAX_CARDS_PER_PERIOD=32;
-	
-	
-	protected String name;
-	protected Resource resourceAffected; //the resource that is added to one's personal board. AACHTUNG! sicuramente da modificare. ema
-	protected String description; //a description of what it does
-	protected Resource requirements;
-	protected int period;
-	
-	//protected Event activatedEvent; //Oggetto che definisce l'evento "Attivato"
+public abstract class DevelopmentCard extends Card {
+
+	private String name; 
+	private ArrayList<ResourceList> costs = new ArrayList<>();
+	protected static int id;
 	
 	public DevelopmentCard() {
-		//activatedEvent = new DevelopmentCardEvent(this);
+		this.id = 0;
+		//E i vari parametri, periodo,colore, ecc..
 	}
 	
-	@Override
-	public String toString() {
-		return "DevelopmentCard [name=" + name + ", resourceAffected=" + resourceAffected
-				+ ", description=" + description + ", requirements=" + requirements + ", period=" + period + "]";
+	public DevelopmentCard(ResourceList cost){
+		this.costs.add(cost);
 	}
-
+	
+	public DevelopmentCard(ArrayList<ResourceList> costs){
+		this.costs = costs;
+	}
+	
+// Start Logics
+	
+	public void addCost(ResourceList cost){
+		this.costs.add(cost);
+	}
+	
+	public boolean take(Player player){
+		for(ResourceList r: costs){
+			if(r.greater(player.getResources())){
+				this.insertCard(player);
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	protected abstract void insertCard(Player player);
+	
+	
+//End Logics
+	
+	public static int getId() {
+		return id;
+	}
 }
