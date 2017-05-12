@@ -17,14 +17,12 @@ public class Deck<CARD_TYPE> implements Iterable<CARD_TYPE> {
 			cards.add(card);
 			return true;
 		}
-		
 		return false;
-		
 	}
 	
 	
 	public Iterator<CARD_TYPE> iterator() {
-		return (Iterator<CARD_TYPE>) cards.iterator();
+		return cards.iterator();
 	}
 	
 

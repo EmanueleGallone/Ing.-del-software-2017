@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.cranio.observers;
 
 import java.util.ArrayList;
 
-public class Subject {
+public class Observable {
 	private ArrayList<Observer> observers = new ArrayList<>();
 	
 	public void attach(Observer observer) {
@@ -16,7 +16,6 @@ public class Subject {
 	public void notifyObservers() {
 		for(Observer observer : observers)
 			observer.update();
-		
 	}
 
 }

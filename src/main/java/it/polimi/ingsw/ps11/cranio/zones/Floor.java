@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.cranio.zones;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 
 public class Floor {
 	
@@ -9,8 +10,7 @@ public class Floor {
 	private DevelopmentCard card;
 	
 	public Floor(ActionSpace actionSpace){
-		this.actionSpace = actionSpace;
-	
+		this.actionSpace = actionSpace;	
 	}
 	
 	public Floor(ActionSpace actionSpace,DevelopmentCard card){

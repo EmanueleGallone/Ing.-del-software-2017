@@ -3,10 +3,9 @@ package it.polimi.ingsw.ps11.cranio.resources.list;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 
 public class Wood extends Resource {
-	private static final int WOODS = 2;
-	
+
 	public Wood(){
-		this(WOODS);
+		this(DEFAULT);
 	}
 	
 	public Wood(int value){
