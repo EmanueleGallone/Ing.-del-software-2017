@@ -14,6 +14,18 @@ public class PurpleCard extends DevelopmentCard {
 	protected void insertCard(Player player) {
 		player.getCardManager().addPurpleCard(this);
 	}
+
+	@Override
+	public void activePermanentEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void activeIstantEffect() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

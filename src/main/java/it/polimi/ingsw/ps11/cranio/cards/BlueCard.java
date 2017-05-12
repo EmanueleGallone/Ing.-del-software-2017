@@ -15,4 +15,16 @@ public class BlueCard extends DevelopmentCard {
 		player.getCardManager().addBlueCard(this);
 	}
 
+	@Override
+	public void activePermanentEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void activeIstantEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

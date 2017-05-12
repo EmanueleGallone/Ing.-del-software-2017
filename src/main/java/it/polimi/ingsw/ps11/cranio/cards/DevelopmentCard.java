@@ -37,12 +37,14 @@ public abstract class DevelopmentCard extends Card {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	
 	protected abstract void insertCard(Player player);
 	
+	public abstract void activePermanentEffect();
+	public abstract void activeIstantEffect();
+
 	
 //End Logics
 	

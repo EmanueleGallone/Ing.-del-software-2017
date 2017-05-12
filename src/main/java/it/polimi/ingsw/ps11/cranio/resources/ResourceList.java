@@ -1,7 +1,9 @@
 package it.polimi.ingsw.ps11.cranio.resources;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
@@ -35,13 +37,13 @@ public class ResourceList implements Iterable<Resource> {
 		militaryPoint = new MilitaryPoint(DEFAULT_COST);
 		faithPoint = new FaithPoint(DEFAULT_COST);
 		
-		resources.put(Stone.getID(), stone);
-		resources.put(Wood.getID(), wood);
-		resources.put(Coin.getID(), coin);
-		resources.put(Servant.getID(), servant);
-		resources.put(MilitaryPoint.getID(), militaryPoint);
-		resources.put(FaithPoint.getID(), faithPoint);
-		resources.put(VictoryPoint.getID(), victoryPoint);
+		resources.put(stone.getID(), stone);
+		resources.put(wood.getID(), wood);
+		resources.put(coin.getID(), coin);
+		resources.put(servant.getID(), servant);
+		resources.put(militaryPoint.getID(), militaryPoint);
+		resources.put(faithPoint.getID(), faithPoint);
+		resources.put(victoryPoint.getID(), victoryPoint);
 	}
 	
 // end constructor
@@ -67,7 +69,7 @@ public class ResourceList implements Iterable<Resource> {
 	public void sum(Player player){
 		ResourceList playerResources = player.getResources();
 		for (Resource resource : playerResources){
-			this.getResourceById(resource.getID()).increment(resource.getValue());
+			resource.increment(getResourceById(resource.getID()).getValue());
 			//E' meglio passare per il getter o accedere direttamente facendo resources.get(resource.getID)??
 		}
 	}

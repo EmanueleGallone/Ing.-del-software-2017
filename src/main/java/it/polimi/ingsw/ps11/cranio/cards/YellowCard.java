@@ -16,4 +16,18 @@ public class YellowCard extends DevelopmentCard {
 		player.getCardManager().addYellowCard(this);
 	}
 
+
+	@Override
+	public void activePermanentEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void activeIstantEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

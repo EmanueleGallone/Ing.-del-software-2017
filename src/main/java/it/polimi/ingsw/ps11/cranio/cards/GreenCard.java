@@ -16,4 +16,16 @@ public class GreenCard extends DevelopmentCard {
 		player.getCardManager().addGreenCard(this);
 	}
 
+	@Override
+	public void activePermanentEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void activeIstantEffect() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
