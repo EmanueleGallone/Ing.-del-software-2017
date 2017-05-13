@@ -8,12 +8,16 @@ public class CardManager {
 	private Deck<BlueCard> blueDeck = new Deck<>(MAX_SIZE);
 	private Deck<GreenCard> greenDeck = new Deck<>(MAX_SIZE);
 	
-	public CardManager(){
+	
+	
+// Start logic
+	
+	
+	public void deserializeCard(String serialized){
 		
 	}
 	
 	
-		
 	public void addBlueCard(BlueCard card) {
 		blueDeck.add(card);		
 	}
@@ -30,7 +34,8 @@ public class CardManager {
 		yellowDeck.add(card);		
 	}
 	
-	
+// End logic
+// Start getters
 	
 	public Deck<BlueCard> getBlueDeck() {
 		return blueDeck;
@@ -49,5 +54,7 @@ public class CardManager {
 	public int getMAX_SIZE() {
 		return MAX_SIZE;
 	}
-
+	
+// End getters
+	
 }

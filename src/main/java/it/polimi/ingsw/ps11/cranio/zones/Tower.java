@@ -1,19 +1,31 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
 import java.util.ArrayList;
-
-import gioco.da.console.resources.MilitaryPoint;
-
-public class Tower<FLOOR_TYPE> {
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.Floor;
+public class Tower {
 	
 	private final int MAX_FLOORS = 4;
 	private ArrayList<Floor> floors = new ArrayList<>();
+	
+// Start constructors
 	
 	public Tower(ArrayList<Floor> floors) {
 		this.floors = floors;
 	}
 	
-	private void addFloor(Floor floor){
-		floors.add(floor);
+// End constructors
+	
+// Start logic
+	public void addFloor(Floor floor){
+		if (floors.size() < MAX_FLOORS){
+			floors.add(floor);
+		}
 	}
+	
+	public Floor selectFloor(int index){
+		return floors.get(index);
+	}
+	
+// End logic
+
 }

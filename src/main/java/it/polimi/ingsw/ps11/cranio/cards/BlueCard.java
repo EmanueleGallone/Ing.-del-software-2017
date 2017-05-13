@@ -11,8 +11,8 @@ public class BlueCard extends DevelopmentCard {
 	}
 
 	@Override
-	protected void insertCard(Player player) {
-		player.getCardManager().addBlueCard(this);
+	protected void insertCard(CardManager cardManager) {
+		cardManager.addBlueCard(this);
 	}
 
 	@Override

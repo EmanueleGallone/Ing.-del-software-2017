@@ -7,18 +7,18 @@ import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActivableSpace;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
 
-public class Harvest implements ActivableSpace {
+public class Production implements ActivableSpace {
 	
 	protected static final int DEFAULT_COST = 3; // Il costo per il multiple space
 	protected ActionSpace actionSpace;
 	protected MultipleActionSpace multipleActionSpace;
 	
-	public Harvest() {
+	public Production() {
 		actionSpace = new ActionSpace();
 		multipleActionSpace = new MultipleActionSpace(DEFAULT_COST);
 	}
 	
-	public Harvest(int actionSpaceCost, int multipleActionSpaceCost) {
+	public Production(int actionSpaceCost, int multipleActionSpaceCost) {
 		actionSpace = new ActionSpace(actionSpaceCost);
 		multipleActionSpace = new MultipleActionSpace(multipleActionSpaceCost);
 	}

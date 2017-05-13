@@ -6,7 +6,7 @@ import java.util.Iterator;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class MultipleActionSpace implements Iterable<FamilyMember> {
+public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember> {
 	protected static final int DEFAULT_COST = 1;
 	protected ArrayList<FamilyMember> familyMembers;
 	private int cost;

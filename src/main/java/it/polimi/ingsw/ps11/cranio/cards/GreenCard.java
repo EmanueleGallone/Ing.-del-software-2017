@@ -12,8 +12,8 @@ public class GreenCard extends DevelopmentCard {
 	}
 
 	@Override
-	protected void insertCard(Player player) {
-		player.getCardManager().addGreenCard(this);
+	protected void insertCard(CardManager cardManager) {
+		cardManager.addGreenCard(this);
 	}
 
 	@Override

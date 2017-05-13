@@ -33,14 +33,14 @@ public abstract class DevelopmentCard extends Card {
 	public boolean take(Player player){
 		for(ResourceList r: costs){
 			if(r.greater(player.getResources())){
-				this.insertCard(player);
+				this.insertCard(player.getCardManager());
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	protected abstract void insertCard(Player player);
+	protected abstract void insertCard(CardManager cardManager);
 	
 	public abstract void activePermanentEffect();
 	public abstract void activeIstantEffect();

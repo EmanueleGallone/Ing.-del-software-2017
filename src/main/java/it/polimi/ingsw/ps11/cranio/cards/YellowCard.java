@@ -12,8 +12,8 @@ public class YellowCard extends DevelopmentCard {
 
 
 	@Override
-	protected void insertCard(Player player) {
-		player.getCardManager().addYellowCard(this);
+	protected void insertCard(CardManager cardManager) {
+		cardManager.addYellowCard(this);
 	}
 
 

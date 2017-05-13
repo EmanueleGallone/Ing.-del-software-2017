@@ -11,8 +11,8 @@ public class PurpleCard extends DevelopmentCard {
 	}
 
 	@Override
-	protected void insertCard(Player player) {
-		player.getCardManager().addPurpleCard(this);
+	protected void insertCard(CardManager cardManager) {
+		cardManager.addPurpleCard(this);
 	}
 
 	@Override
