@@ -1,4 +1,4 @@
-package ProvaServerGame;
+package provaGab.ProvaServerGame;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

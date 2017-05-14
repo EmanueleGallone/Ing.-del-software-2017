@@ -1,4 +1,4 @@
-package ProvaServerGame;
+package provaGab.ProvaServerGame;
 
 
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Observable<T> {
 	
-	private List<Observer<T>> observers = new ArrayList<Observer<T>>();	//vantaggio generic, codice più conciso
+	private List<Observer<T>> observers = new ArrayList<Observer<T>>();	//vantaggio generic, codice piï¿½ conciso
 	
-	public void register(Observer<T> observer){							//svantaggio una classe può essere osservabile / osservare solo per un tipo
+	public void register(Observer<T> observer){							//svantaggio una classe puï¿½ essere osservabile / osservare solo per un tipo
 		synchronized (observers) {
 			observers.add(observer);			
 		}		

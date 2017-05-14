@@ -1,4 +1,4 @@
-package ProvaServerGame;
+package provaGab.ProvaServerGame;
 
 import java.util.ArrayList;
 import java.util.HashMap;

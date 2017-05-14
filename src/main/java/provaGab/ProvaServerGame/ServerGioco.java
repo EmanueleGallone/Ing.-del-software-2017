@@ -1,4 +1,4 @@
-package ProvaServerGame;
+package provaGab.ProvaServerGame;
 
 import java.io.*;
 import java.net.*;
@@ -31,7 +31,7 @@ public class ServerGioco {
 	public static void main (String[] args){
 		try {
 			server = new ServerGioco(PORT);														//creo il server sulla porta
-			//activeServer = true ;																deve supportare più partite contemporaneamente, da implementare poi
+			//activeServer = true ;																deve supportare piï¿½ partite contemporaneamente, da implementare poi
 			//while(activeServer){
 				server.run();																	//faccio partire il server
 				//}
@@ -68,15 +68,15 @@ public class ServerGioco {
 	synchronized void registerConnection(Client c){										//da notare che sono synchronized,
 		
 		connections.add(c);
-	}																	//posso essere chiamati da più thread insieme
+	}																	//posso essere chiamati da piï¿½ thread insieme
 	
 	
 	
 	public synchronized void deregisterConnection(Client c){									//se una connessione termina, la tolgo dalla lista
 			connections.remove(c);
-			//Client enemy = playingConnection.get(c);											//se la connessione è associata ad una partita
+			//Client enemy = playingConnection.get(c);											//se la connessione ï¿½ associata ad una partita
 			//if(enemy != null)															
-			//playingConnection.remove(c);														//rimuove il giocatore che si è disconnesso
+			//playingConnection.remove(c);														//rimuove il giocatore che si ï¿½ disconnesso
 			//manda un messaggio di errore agli altri giocatori
 			
 	}
@@ -85,7 +85,7 @@ public class ServerGioco {
 	
 	public synchronized void waitingGame(Client c, String name){
 		waitingConnection.put(name, c);
-		System.out.println("Il giocatore " + name + " si è connesso.\n" + "Giocatori in Attesa: " + waitingConnection.size() );
+		System.out.println("Il giocatore " + name + " si ï¿½ connesso.\n" + "Giocatori in Attesa: " + waitingConnection.size() );
 		if(waitingConnection.size() == MIN) {
 			Lobby GameLobby =  new Lobby (waitingConnection, this, serverSocket, MAX, MIN);
 			executor.submit(GameLobby);

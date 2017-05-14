@@ -1,4 +1,4 @@
-package ProvaServerGame;
+package provaGab.ProvaServerGame;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -62,7 +62,7 @@ public class Lobby implements Runnable {
 	
 	public synchronized static void register(Client c, String name) {
 		Players.put(name, c);
-		System.out.println("Il giocatore " + name + " si è connesso.\n" + Players.size() + " giocatori connessi");	
+		System.out.println("Il giocatore " + name + " si ï¿½ connesso.\n" + Players.size() + " giocatori connessi");	
 		}
 	
 }
