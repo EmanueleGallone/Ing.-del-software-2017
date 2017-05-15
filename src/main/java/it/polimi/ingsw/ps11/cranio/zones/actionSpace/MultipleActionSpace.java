@@ -55,6 +55,11 @@ public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember
 	public void setActionCost(int actionCost) { //Forse è superfluo, una zona ha un costo fisso
 		this.cost = actionCost;
 	}
+	
+	public void setResources(ResourceList resourceList){
+		this.resources = resourceList;
+	}
+	
 	protected boolean addFamilyMember(FamilyMember familyMember) {
 		return this.familyMembers.add(familyMember);
 	}

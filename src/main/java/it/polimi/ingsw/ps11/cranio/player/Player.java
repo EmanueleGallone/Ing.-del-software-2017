@@ -25,6 +25,8 @@ public class Player{
 	private CardManager cardManager;
 	
 	
+// Start constructors
+	
 	public Player(){
 		name = DEFAULT_NAME;
 		
@@ -38,14 +40,16 @@ public class Player{
 		this(); //usa il costruttore sopra definito
 		this.name = name;
 	}
-	
-	
 
+// End constructors
 	
-
-
+// Start logic
 	
+	public void play(){
+		
+	}
 	
+// End logic
 	
 //getter for family Member
 	public BlackFamilyMember getBlackFamilyMember() {

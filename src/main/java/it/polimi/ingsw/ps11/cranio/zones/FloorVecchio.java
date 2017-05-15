@@ -4,16 +4,16 @@ import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 
-public class Floor {
+public class FloorVecchio {
 	
 	private ActionSpace actionSpace;
 	private DevelopmentCard card;
 	
-	public Floor(ActionSpace actionSpace){
+	public FloorVecchio(ActionSpace actionSpace){
 		this.actionSpace = actionSpace;	
 	}
 	
-	public Floor(ActionSpace actionSpace,DevelopmentCard card){
+	public FloorVecchio(ActionSpace actionSpace,DevelopmentCard card){
 		this(actionSpace);
 		this.card = card;
 	}

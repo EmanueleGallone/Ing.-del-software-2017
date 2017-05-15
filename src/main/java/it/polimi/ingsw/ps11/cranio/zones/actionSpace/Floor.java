@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 
 public class Floor extends ActionSpace {
@@ -21,6 +22,14 @@ public class Floor extends ActionSpace {
 	public Floor(DevelopmentCard card){
 		super();
 		this.card = card;
+	}
+	
+	public Floor(ResourceList resources){
+		super(resources);
+	}
+	
+	public Floor(int cost, ResourceList resources){
+		super(cost,resources);
 	}
 	
 	public Floor(int cost,DevelopmentCard card){

@@ -1,11 +1,14 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
+import java.util.ArrayList;
+
+import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
+
 public class Board {
 	
-	private Tower greenTower;
-	private Tower blueTower;
-	private Tower yellowTower;
-	private Tower purpleTower;
+	
+	//Vorrei usare una map che ha come chiave un enum di colori...
+	private ArrayList<Tower> towers = new ArrayList<>();
 	
 	private Harvest harvest = new Harvest();
 	private Production production = new Production();
@@ -13,46 +16,21 @@ public class Board {
 	private Market market = new Market();
 	
 // Start constructors
+	
 	public Board() {
 		
 	}
+	
 // End constructors
 // Start setters
 	
-	public void setGreenTower(Tower greenTower) {
-		this.greenTower = greenTower;
-	}
-	
-	public void setBlueTower(Tower blueTower) {
-		this.blueTower = blueTower;
-	}
-	
-	public void setYellowTower(Tower yellowTower) {
-		this.yellowTower = yellowTower;
-	}
-	
-	public void setPurpleTower(Tower purpleTower) {
-		this.purpleTower = purpleTower;
+	public void addTower(Tower tower){
+		towers.add(tower);
 	}
 	
 // End setters
 // Start getters
-	
-	public Tower getGreenTower() {
-		return greenTower;
-	}
-	
-	public Tower getBlueTower() {
-		return blueTower;
-	}
-	
-	public Tower getYellowTower() {
-		return yellowTower;
-	}
-	
-	public Tower getPurpleTower() {
-		return purpleTower;
-	}
+
 	
 // End getters
 

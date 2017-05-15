@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.cranio.zones;
+package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.Floor;
@@ -8,6 +8,10 @@ public class Tower {
 	private ArrayList<Floor> floors = new ArrayList<>();
 	
 // Start constructors
+	
+	public Tower() {
+
+	}
 	
 	public Tower(ArrayList<Floor> floors) {
 		this.floors = floors;

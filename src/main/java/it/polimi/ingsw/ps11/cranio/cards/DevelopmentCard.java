@@ -10,7 +10,7 @@ public abstract class DevelopmentCard extends Card {
 	private String name; 
 	private ArrayList<ResourceList> costs = new ArrayList<>();
 	protected static int id;
-	
+		
 	public DevelopmentCard() {
 		this.id = 0;
 		//E i vari parametri, periodo,colore, ecc..

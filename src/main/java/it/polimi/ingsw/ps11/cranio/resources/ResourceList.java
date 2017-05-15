@@ -1,15 +1,12 @@
 package it.polimi.ingsw.ps11.cranio.resources;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.list.*;
 
-public class ResourceList implements Iterable<Resource> {
+public class ResourceList implements Iterable<Resource>,Cloneable {
 	
 	private static final int DEFAULT_COST = 0;
 	
@@ -46,6 +43,7 @@ public class ResourceList implements Iterable<Resource> {
 		resources.put(victoryPoint.getID(), victoryPoint);
 	}
 	
+	
 // end constructor
 // start logic
 	
@@ -74,6 +72,9 @@ public class ResourceList implements Iterable<Resource> {
 		}
 	}
 	
+	public ResourceList clone(){
+		return (ResourceList)this.clone();
+	}
 	
 // end logic
 // Start Iterator
@@ -153,32 +154,32 @@ public class ResourceList implements Iterable<Resource> {
 	
 // Start setters
 
-	public void setStone(Stone stone) {
-		this.stone = stone;
+	public void setStone(int stone) {
+		this.stone.setValue(stone);
 	}
 
-	public void setWood(Wood wood) {
-		this.wood = wood;
+	public void setWood(int wood) {
+		this.wood.setValue(wood);
 	}
 
-	public void setCoin(Coin coin) {
-		this.coin = coin;
+	public void setCoin(int coin) {
+		this.coin.setValue(coin);
 	}
 
-	public void setServant(Servant servant) {
-		this.servant = servant;
+	public void setServant(int servant) {
+		this.servant.setValue(servant);
 	}
 
-	public void setVictoryPoint(VictoryPoint victoryPoint) {
-		this.victoryPoint = victoryPoint;
+	public void setVictoryPoint(int victoryPoint) {
+		this.victoryPoint.setValue(victoryPoint);
 	}
 
-	public void setMilitaryPoint(MilitaryPoint militaryPoint) {
-		this.militaryPoint = militaryPoint;
+	public void setMilitaryPoint(int militaryPoint) {
+		this.militaryPoint.setValue(militaryPoint);
 	}
 
-	public void setFaithPoint(FaithPoint faithPoint) {
-		this.faithPoint = faithPoint;
+	public void setFaithPoint(int faithPoint) {
+		this.faithPoint.setValue(faithPoint);
 	}
 //End setters
 	
