@@ -13,6 +13,8 @@ public class TextualView extends View {
 	private EventHandler<ConsoleInputEvent> inputChangeEvent = new EventHandler<>();
 	private EventHandler<Void> stampaEvent = new EventHandler<>();
 	private EventHandler<Void> tiraDadiEvent = new EventHandler<>();
+	private EventHandler<Void> stampaFamiliare = new EventHandler<>();
+	
 	
 	public TextualView() {
 		System.out.println("Game start");
@@ -40,7 +42,13 @@ public class TextualView extends View {
 		System.out.println("Game exit");
 		reader.close();
 	}
-
+	
+	public int scegliCarta(){
+		System.out.println("Scegli carta: ");
+		int i = reader.nextInt();
+		return i;
+	}
+	
 	protected void interpreta(String input) throws Exception{
 		//Questo andrà rivisto
 		switch (input) {
@@ -50,10 +58,16 @@ public class TextualView extends View {
 			break;
 		case "tira dadi": tiraDadiEvent.invoke(null);
 			break;
+		case "stampa familiare": stampaFamiliare.invoke(null); 
+			break;	
 		default:
 			System.out.println("'" + input + "'" +  " Comando non riconosciuto");
 			break;
 		}
+	}
+	
+	public EventHandler<Void> getStampaFamiliare() {
+		return stampaFamiliare;
 	}
 	
 	public void stampaDadi(DiceManager diceManager){

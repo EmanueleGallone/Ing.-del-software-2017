@@ -26,11 +26,11 @@ public class ActionSpace extends MultipleActionSpace {
 // Start logic
 	
 	@Override
-	protected boolean addFamilyMember(FamilyMember familyMember) {
+	public boolean placeFamilyMember(FamilyMember familyMember) {
 		if (familyMembers.size() > MAX_AVAILABLE_SPACE ){
 			return false;
 		}
-		return super.addFamilyMember(familyMember);
+		return super.placeFamilyMember(familyMember);
 	}
 	
 	

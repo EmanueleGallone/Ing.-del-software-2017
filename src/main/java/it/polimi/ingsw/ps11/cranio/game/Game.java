@@ -43,6 +43,10 @@ public class Game {
 		initializeTower(board);
 	}
 	
+	public RoundManager getRoundManager() {
+		return roundManager;
+	}
+	
 	public void initializeTower(Board board){
 		/*
 		ArrayList<Floor> greenFloors = new ArrayList<>();
@@ -77,8 +81,7 @@ public class Game {
 	
 	public void startGame(){
 		diceManager.rollDices();
-		Player player = roundManager.choosePlayer();
-		player.play();
+		roundManager.choosePlayer();
 		// Qualcosa del genere... ovviamente in un ciclo
 	}
 	

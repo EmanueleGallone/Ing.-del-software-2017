@@ -15,7 +15,7 @@ public class RewardedActionSpace extends ActionSpaceDecorator {
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember) {
 		if (super.placeFamilyMember(familyMember)){
-			resources.sum(familyMember.getOwner());
+			resources.sum(familyMember.getOwner().getResources());
 			return true;
 		}
 		return false;

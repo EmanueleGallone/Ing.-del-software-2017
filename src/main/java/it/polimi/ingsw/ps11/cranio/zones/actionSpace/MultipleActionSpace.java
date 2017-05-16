@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember> {
 	protected static final int DEFAULT_COST = 1;
-	protected ArrayList<FamilyMember> familyMembers;
+	protected ArrayList<FamilyMember> familyMembers = new ArrayList<>();
 	private int cost;
 	private ResourceList resources;
 	
@@ -39,10 +39,11 @@ public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember
 	//____________________________________________________________________________
 //Start Logics
 	
+	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember){
 		if ( familyMember.getValue() > this.cost){
 			this.addFamilyMember(familyMember); 
-			resources.sum(familyMember.getOwner()); //Assegna al player le risorse dell'actionSpace
+			resources.sum(familyMember.getOwner().getResources()); //Assegna al player le risorse dell'actionSpace
 			return true;
 		}
 		return false;

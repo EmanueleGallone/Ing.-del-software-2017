@@ -61,12 +61,11 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 	}
 	
 	/**
-	 * Fa la somma tra questa resource list e la resource list del giocatore che gli viene passato.
-	 * Il risultato lo assegna al giocatore.
+	 * Fa la somma tra questa resource list e la resource list del giocatore che gli viene passata.
+	 * Il risultato lo assegna alla resourceList che gli viene passata
 	 */
-	public void sum(Player player){
-		ResourceList playerResources = player.getResources();
-		for (Resource resource : playerResources){
+	public void sum(ResourceList resources){
+		for (Resource resource : resources){
 			resource.increment(getResourceById(resource.getID()).getValue());
 			//E' meglio passare per il getter o accedere direttamente facendo resources.get(resource.getID)??
 		}
