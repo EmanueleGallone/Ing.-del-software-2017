@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.ps11.cranio.dices.DiceManager;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
+import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.events.list.*;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 
 
 public class TextualView extends View {
@@ -14,7 +16,7 @@ public class TextualView extends View {
 	private EventHandler<Void> stampaEvent = new EventHandler<>();
 	private EventHandler<Void> tiraDadiEvent = new EventHandler<>();
 	private EventHandler<Void> stampaFamiliare = new EventHandler<>();
-	
+	private EventHandler<Player> scegliCarta = new EventHandler<>();
 	
 	public TextualView() {
 		System.out.println("Game start");
@@ -60,10 +62,20 @@ public class TextualView extends View {
 			break;
 		case "stampa familiare": stampaFamiliare.invoke(null); 
 			break;	
+		case "scegli carta": scegliCarta.invoke(new Player());
 		default:
 			System.out.println("'" + input + "'" +  " Comando non riconosciuto");
 			break;
 		}
+	}
+	
+	
+	public void addScegliCartaListener(EventListener<Player> listener){
+		this.scegliCarta.attach(listener);
+	}
+	
+	public EventHandler<Player> getScegliCarta() {
+		return scegliCarta;
 	}
 	
 	public EventHandler<Void> getStampaFamiliare() {

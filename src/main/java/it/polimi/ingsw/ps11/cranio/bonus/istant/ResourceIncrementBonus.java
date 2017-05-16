@@ -1,8 +1,9 @@
 package it.polimi.ingsw.ps11.cranio.bonus.istant;
 
+import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ResourceIncrementBonus {
+public class ResourceIncrementBonus extends Bonus {
 
 	private ResourceList target,value;
 	
@@ -10,6 +11,7 @@ public class ResourceIncrementBonus {
 		this.value = value;
 	}
 	
+	@Override
 	public void behavior(){
 		this.target.sum(value);
 	}

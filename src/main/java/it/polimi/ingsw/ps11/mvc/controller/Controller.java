@@ -1,10 +1,8 @@
 package it.polimi.ingsw.ps11.mvc.controller;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.GreenCard;
 import it.polimi.ingsw.ps11.cranio.cards.PurpleCard;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
-import it.polimi.ingsw.ps11.cranio.events.GlobalEventHandler;
 import it.polimi.ingsw.ps11.cranio.events.list.ConsoleInputEvent;
 import it.polimi.ingsw.ps11.cranio.events.list.ScegliCartaEvent;
 import it.polimi.ingsw.ps11.cranio.game.Game;
@@ -26,7 +24,7 @@ public class Controller implements EventListener<ConsoleInputEvent>{
 		view.getTiraDadiEvent().attach(tiraDadiListener);
 		view.getStampaFamiliare().attach(stampaFamiliareListener);
 		
-		GlobalEventHandler.getScegliCarta().attach(scegliCarta);
+		//GlobalEventHandler.getScegliCarta().attach(scegliCarta);
 	}
 	
 

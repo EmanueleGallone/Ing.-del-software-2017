@@ -18,6 +18,7 @@ public class GetAnotherCard extends Bonus {
 	public void behavior() {
 		
 		card.take(player);
+		
 		/*ScegliCartaEvent scegliCartaEvent = new ScegliCartaEvent();
 		GlobalEventHandler.getScegliCarta().invoke(scegliCartaEvent);
 		DevelopmentCard card = scegliCartaEvent.getCard();
