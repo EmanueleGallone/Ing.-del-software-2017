@@ -7,13 +7,13 @@ import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 public class MainTest {
 	public static void main(String[] args){
 		
-		
+		/*
 		ActionSpace actionSpace = new ActionSpace();
 		Player player = new Player();
 		BlackFamilyMember blackFamilyMember = player.getBlackFamilyMember();
 		
 		actionSpace.placeFamilyMember(blackFamilyMember);
-		
+		*/
 		/*
 		Player player = new Player();
 		BlackFamilyMember familyMember = new BlackFamilyMember(player);
@@ -28,6 +28,10 @@ public class MainTest {
 		
 		ActivableSpace consiglio = new RewardedActionSpace(space, resourceList);
 		*/
+		
+	}
+	
+	private void ciao(){
 		
 	}
 }

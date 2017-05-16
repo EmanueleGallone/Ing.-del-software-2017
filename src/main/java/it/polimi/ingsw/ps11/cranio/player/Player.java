@@ -1,11 +1,11 @@
 package it.polimi.ingsw.ps11.cranio.player;
 
-import it.polimi.ingsw.ps11.cranio.cards.BlueCard;
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.cards.Deck;
-import it.polimi.ingsw.ps11.cranio.cards.GreenCard;
-import it.polimi.ingsw.ps11.cranio.cards.PurpleCard;
-import it.polimi.ingsw.ps11.cranio.cards.YellowCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.BlackFamilyMember;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.NeutralFamilyMember;

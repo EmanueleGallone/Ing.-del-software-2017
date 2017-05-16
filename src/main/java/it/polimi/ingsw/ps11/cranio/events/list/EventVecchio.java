@@ -1,11 +1,11 @@
 package it.polimi.ingsw.ps11.cranio.events.list;
 
-public class Event<SUBJECT,PARAMETER> {
+public class EventVecchio<SUBJECT,PARAMETER> {
 	
 	protected SUBJECT subject;
 	protected PARAMETER parameter;
 	
-	public Event(SUBJECT subject,PARAMETER parameter) {
+	public EventVecchio(SUBJECT subject,PARAMETER parameter) {
 		this.subject = subject;
 		this.parameter = parameter;
 	}

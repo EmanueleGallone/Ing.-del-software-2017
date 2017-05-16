@@ -1,5 +1,10 @@
 package it.polimi.ingsw.ps11.cranio.cards;
 
+import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
+
 public class CardManager {
 	private final int MAX_SIZE = 6;
 	

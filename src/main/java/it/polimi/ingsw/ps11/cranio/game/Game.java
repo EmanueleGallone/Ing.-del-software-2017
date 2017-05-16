@@ -81,8 +81,7 @@ public class Game {
 	
 	public void startGame(){
 		diceManager.rollDices();
-		roundManager.choosePlayer();
-		// Qualcosa del genere... ovviamente in un ciclo
+		
 	}
 	
 // End logic

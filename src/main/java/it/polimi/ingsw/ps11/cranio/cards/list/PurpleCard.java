@@ -1,4 +1,7 @@
-package it.polimi.ingsw.ps11.cranio.cards;
+package it.polimi.ingsw.ps11.cranio.cards.list;
+
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 
 public class PurpleCard extends DevelopmentCard {
 	//carte IMPRESE

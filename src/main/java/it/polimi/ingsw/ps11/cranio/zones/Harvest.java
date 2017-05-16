@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
 import it.polimi.ingsw.ps11.cranio.cards.Deck;
-import it.polimi.ingsw.ps11.cranio.cards.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActivableSpace;
