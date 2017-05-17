@@ -4,20 +4,33 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.game.loaders.Loader;
 
-public class CardsLoader {
+public class CardsLoader extends Loader{
 
-	public CardManager load(String filePath) throws IOException {
+	private final static String DEFAULT_PATH = "";
+	
+	public CardsLoader() {
+		super(DEFAULT_PATH);
+	}
+	
+	public CardsLoader(String filePath) {
+		super(filePath);
+	}
+	
+	public ArrayList<DevelopmentCard> load() throws IOException {
 		BufferedReader reader = null;
-		CardManager cardManager = new CardManager();
+		ArrayList<DevelopmentCard> cards = new ArrayList<>();
 		try{
-			reader = new BufferedReader(new FileReader(filePath));
+			reader = new BufferedReader(new FileReader(getFilePath()));
 			String line;
 			
 			while((line = reader.readLine()) != null){
-				cardManager.deserializeCard(line);
+				 cards.add(deserializeCard(line));
 			}
 		}
 		finally {
@@ -29,7 +42,11 @@ public class CardsLoader {
 				}
 			}
 		}
-		return cardManager;
+		return cards;
 	}
 
+	public DevelopmentCard deserializeCard(String card){
+		return null;
+	}
+	
 }

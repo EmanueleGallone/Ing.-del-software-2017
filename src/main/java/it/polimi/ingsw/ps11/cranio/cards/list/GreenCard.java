@@ -6,25 +6,20 @@ import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 public class GreenCard extends DevelopmentCard {
 	//carte Territori
 	
+	private final int DEFAULT_VALUE = 1;
+	private int activeValue;
+	
 	public GreenCard(){
-		this.id = 1;
+		activeValue = DEFAULT_VALUE;
+	}
+
+	public GreenCard(int value){
+		activeValue = value;
 	}
 
 	@Override
-	protected void insertCard(CardManager cardManager) {
-		cardManager.addGreenCard(this);
-	}
-
-	@Override
-	public void activePermanentEffect() {
+	public void enablePermanentBonus() {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void activeIstantEffect() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

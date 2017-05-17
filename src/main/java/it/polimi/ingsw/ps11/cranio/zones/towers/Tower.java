@@ -1,7 +1,8 @@
 package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.Floor;
+
+import it.polimi.ingsw.ps11.cranio.zones.Floor;
 public class Tower {
 	
 	private final int MAX_FLOORS = 4;

@@ -4,18 +4,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.dices.DiceManager;
+import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
+import it.polimi.ingsw.ps11.cranio.game.loaders.RoundManager;
 import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.cranio.zones.towers.*;
 
 public class Game {
-	
-	private final static String cardsFile = "";
-	
+		
 	private Board board = new Board();
+	private ArrayList<Resource> resources = new ArrayList<>();
+	private ArrayList<DevelopmentCard> cards = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
-	private CardManager cardManager = new CardManager();
 	private RoundManager roundManager;
 	
 	public Game(ArrayList<Player> players) {
@@ -38,10 +41,15 @@ public class Game {
 	protected void loadComponent(ArrayList<Player> players) throws IOException{
 		
 		CardsLoader cardsLoader = new CardsLoader();
+		ResourceLoader resourceLoader = new ResourceLoader();
+		
 		roundManager = new RoundManager(players);
-		cardManager = cardsLoader.load(cardsFile);
+		cards = cardsLoader.load();
+		resources = resourceLoader.load();
 		initializeTower(board);
 	}
+	
+	
 	
 	public RoundManager getRoundManager() {
 		return roundManager;

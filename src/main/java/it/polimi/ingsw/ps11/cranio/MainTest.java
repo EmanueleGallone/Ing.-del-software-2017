@@ -1,8 +1,11 @@
 package it.polimi.ingsw.ps11.cranio;
 
-import it.polimi.ingsw.ps11.cranio.familyMember.BlackFamilyMember;
-import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import java.util.ArrayList;
+
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 
 public class MainTest {
 	public static void main(String[] args){

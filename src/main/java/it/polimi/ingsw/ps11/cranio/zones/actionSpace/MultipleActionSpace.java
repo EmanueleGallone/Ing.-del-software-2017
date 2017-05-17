@@ -7,6 +7,7 @@ import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember> {
+	
 	protected static final int DEFAULT_COST = 1;
 	protected ArrayList<FamilyMember> familyMembers = new ArrayList<>();
 	private int cost;
@@ -43,7 +44,7 @@ public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember
 	public boolean placeFamilyMember(FamilyMember familyMember){
 		if ( familyMember.getValue() > this.cost){
 			this.addFamilyMember(familyMember); 
-			resources.sum(familyMember.getOwner().getResources()); //Assegna al player le risorse dell'actionSpace
+			familyMember.getOwner().getResourceList().sum(this.resources); //Assegna al player le risorse dell'actionSpace
 			return true;
 		}
 		return false;
@@ -52,10 +53,6 @@ public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember
 //End logics
 	//____________________________________________________________________________
 //Start setters
-
-	public void setActionCost(int actionCost) { //Forse è superfluo, una zona ha un costo fisso
-		this.cost = actionCost;
-	}
 	
 	public void setResources(ResourceList resourceList){
 		this.resources = resourceList;

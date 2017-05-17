@@ -17,7 +17,7 @@ public class GetAnotherCard extends Bonus {
 	@Override
 	public void behavior() {
 		
-		card.take(player);
+		//card.take(player);
 		
 		/*ScegliCartaEvent scegliCartaEvent = new ScegliCartaEvent();
 		GlobalEventHandler.getScegliCarta().invoke(scegliCartaEvent);

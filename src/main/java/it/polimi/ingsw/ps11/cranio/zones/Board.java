@@ -2,6 +2,8 @@ package it.polimi.ingsw.ps11.cranio.zones;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Harvest;
+import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
 public class Board {

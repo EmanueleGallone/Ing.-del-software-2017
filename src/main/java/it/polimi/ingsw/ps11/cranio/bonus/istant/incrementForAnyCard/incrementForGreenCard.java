@@ -12,8 +12,8 @@ public class incrementForGreenCard extends IncrementForAnyCard{
 
 	@Override
 	public void behavior() {
-		int cardNumber = this.player.getCardManager().getGreenDeck().size();
-		this.player.incrementCoin(cardNumber * this.value);
+		//int cardNumber = this.player.getCardManager().getGreenDeck().size();
+		//this.player.incrementCoin(cardNumber * this.value);
 	}
 
 }

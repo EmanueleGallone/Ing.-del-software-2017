@@ -1,40 +1,33 @@
-package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
+package it.polimi.ingsw.ps11.cranio.zones;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActivableSpace;
 
-public class Floor extends ActionSpace {
+public class Floor implements ActivableSpace {
 	
 	private DevelopmentCard card;
+	private ActionSpace actionSpace;
 	
 // Start constructors
 	
 	public Floor() {
-		super();
+		actionSpace = new ActionSpace();
 	}
 	
 	public Floor(int cost){
-		super(cost);
+		actionSpace = new ActionSpace(cost);
 	}
 	
 	public Floor(DevelopmentCard card){
-		super();
+		this();
 		this.card = card;
-	}
-	
-	public Floor(ResourceList resources){
-		super(resources);
 	}
 	
 	public Floor(int cost, ResourceList resources){
-		super(cost,resources);
-	}
-	
-	public Floor(int cost,DevelopmentCard card){
-		super(cost);
-		this.card = card;
+		actionSpace = new ActionSpace(cost,resources);
 	}
 	
 // End constructors
@@ -42,14 +35,27 @@ public class Floor extends ActionSpace {
 	
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember) {
-		 if(super.placeFamilyMember(familyMember)){
-			 this.card.take(familyMember.getOwner());
+		 if(actionSpace.placeFamilyMember(familyMember)){
 			 return true;
 		 }
 		 return false;
 	}
 	
+	public boolean getCard(FamilyMember familyMember, ResourceList cost){
+		if (placeFamilyMember(familyMember)){
+			return card.take(familyMember.getOwner(), cost);
+		}
+		return false;
+	}
+	
 // End logic
+// Start setters
+	
+	public void setCard(DevelopmentCard card){
+		this.card = card;
+	}
+	
+// End setters
 //Start getter
 	public DevelopmentCard getCard() {
 		return card;

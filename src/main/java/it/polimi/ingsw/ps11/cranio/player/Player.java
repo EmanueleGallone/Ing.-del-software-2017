@@ -1,11 +1,6 @@
 package it.polimi.ingsw.ps11.cranio.player;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.cards.Deck;
-import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.BlackFamilyMember;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.NeutralFamilyMember;
@@ -27,18 +22,13 @@ public class Player{
 	
 // Start constructors
 	
-	public Player(){
+	public Player(ResourceList resourceList, CardManager cardManager, FamilyMemberManager familyMemberManager){
 		name = DEFAULT_NAME;
 		
-		resourceList = new ResourceList();	
-		familyManager = new FamilyMemberManager(this);
-		cardManager = new CardManager();
+		this.resourceList = resourceList;
+		this.cardManager = cardManager;
+		this.familyManager = familyMemberManager;
 		
-	}
-	
-	public Player(String name){
-		this(); //usa il costruttore sopra definito
-		this.name = name;
 	}
 
 // End constructors
@@ -51,118 +41,25 @@ public class Player{
 	
 // End logic
 	
-//getter for family Member
-	public BlackFamilyMember getBlackFamilyMember() {
-		return familyManager.getBlackFamilyMember();
-	}
-
-	public WhiteFamilyMember getWhiteFamilyMember() {
-		return familyManager.getWhiteFamilyMember();
-	}
-
-	public NeutralFamilyMember getNeutralFamilyMember() {
-		return familyManager.getNeutralFamilyMember();
-	}
-
-	public OrangeFamilyMember getOrangeFamilyMember() {
-		return familyManager.getOrangeFamilyMember();
-	}
-//end of family members getters
-
+// Start getters
 	
-//start of Resource setters and getters
-	public ResourceList getResources(){
+	public ResourceList getResourceList() {
 		return resourceList;
 	}
 	
-	public int getStoneValue() {
-		return resourceList.getStoneValue();
-	}
-
-	public int getWoodValue() {
-		return resourceList.getWoodValue();
-	}
-
-	public int getCoinValue() {
-		return resourceList.getCoinValue();
-	}
-
-	public int getServantValue() {
-		return resourceList.getServantValue();
-	}
-
-	public void incrementStone(int value) {
-		resourceList.getStone().increment(value);
-	}
-
-	public void incrementWood(int value) {
-		resourceList.getWood().increment(value);
-	}
-
-	public void incrementCoin(int value) {
-		resourceList.getCoin().increment(value);
-	}
-
-	public void incrementServant(int value) {
-		resourceList.getServant().increment(value);
-	}
-//end of Resource Setters and Getters
-		
-//start of Points setters and getters
-	public int getMilitaryPointsValue(){
-		return resourceList.getMilitaryPointsValue();
-	}
-		
-	public int getFaithPointsValue(){
-		return resourceList.getFaithPointsValue();
-	}
-		
-	public int getVictoryPointsValue(){
-		return resourceList.getVictoryPointsValue();
-	}
-	
-	public void incrementMilitaryPoints(int value){
-		resourceList.getMilitaryPoint().increment(value);
-	}
-		
-	public void incrementFaithPoints(int value){
-		resourceList.getFaithPoint().increment(value);
-	}
-		
-	public void incrementVictoryPoints(int value){
-		resourceList.getVictoryPoint().increment(value);
-	}
-//end of Points setters and getters
-	
-//start of decks getters
 	public CardManager getCardManager() {
 		return cardManager;
 	}
 	
-	public Deck<PurpleCard> getPurpleDeck() {
-		return cardManager.getPurpleDeck();
+	public FamilyMemberManager getFamilyManager() {
+		return familyManager;
 	}
 	
-	public Deck<GreenCard> getGreenDeck() {
-		return cardManager.getGreenDeck();
-	}
-	
-	public Deck<YellowCard> getYellowDeck() {
-		return cardManager.getYellowDeck();
-	}
-	
-	public Deck<BlueCard> getBlueDeck() {
-		return cardManager.getBlueDeck();
-	}
-//end of decks getters
-	
+// End getters
 	
 	public String getPlayerName(){ //TEMPORANEO. lo uso nei familyMember così da conoscere il proprietario. Da migliorare.
 		return this.name;
 	}
-	
 
 	
-	
-	
-}//end of Class
+}

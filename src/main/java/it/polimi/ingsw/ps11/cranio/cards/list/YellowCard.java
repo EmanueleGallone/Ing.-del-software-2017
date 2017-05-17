@@ -1,33 +1,24 @@
 package it.polimi.ingsw.ps11.cranio.cards.list;
 
-import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 
 public class YellowCard extends DevelopmentCard {
 	//carte EDIFICIO
 	
+	private final int DEFAULT_VALUE = 1;
+	private int activeValue;
+	
 	public YellowCard(){
-		this.id = 2;
+		activeValue = DEFAULT_VALUE;
 	}
 
-
-	@Override
-	protected void insertCard(CardManager cardManager) {
-		cardManager.addYellowCard(this);
+	public YellowCard(int value){
+		activeValue = value;
 	}
-
-
+	
 	@Override
-	public void activePermanentEffect() {
+	public void enablePermanentBonus() {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	@Override
-	public void activeIstantEffect() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

@@ -9,10 +9,8 @@ public abstract class DevelopmentCard extends Card {
 
 	private String name; 
 	private ArrayList<ResourceList> costs = new ArrayList<>();
-	protected static int id;
-		
+
 	public DevelopmentCard() {
-		this.id = 0;
 		//E i vari parametri, periodo,colore, ecc..
 	}
 	
@@ -30,25 +28,21 @@ public abstract class DevelopmentCard extends Card {
 		this.costs.add(cost);
 	}
 	
-	public boolean take(Player player){
-		for(ResourceList r: costs){
-			if(r.greater(player.getResources())){
-				this.insertCard(player.getCardManager());
-				return true;
-			}
+	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
+		if (costs.contains(cost) && playerResourceList.greater(cost))
+			return true;
+		return false;
+	}
+	
+	public boolean take(Player player, ResourceList cost){
+		if (checkCost(player.getResourceList(), cost)){
+			player.getCardManager().addCard(this);
+			return true;
 		}
 		return false;
 	}
 	
-	protected abstract void insertCard(CardManager cardManager);
-	
-	public abstract void activePermanentEffect();
-	public abstract void activeIstantEffect();
-
+	public abstract void enablePermanentBonus();
 	
 //End Logics
-	
-	public static int getId() {
-		return id;
-	}
 }

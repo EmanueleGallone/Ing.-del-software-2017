@@ -62,7 +62,6 @@ public class TextualViewProva extends View {
 			break;
 		case "stampa familiare": stampaFamiliare.invoke(null); 
 			break;	
-		case "scegli carta": scegliCarta.invoke(new Player());
 		default:
 			System.out.println("'" + input + "'" +  " Comando non riconosciuto");
 			break;
