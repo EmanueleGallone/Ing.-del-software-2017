@@ -10,4 +10,8 @@ public class GlobalEventHandler {
 		return scegliCarta;
 	}
 	
+	public static void newEvent(EventHandler<?> event){
+		
+	}
+	
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.cranio.cards.productionCard.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.productionCard.YellowCard;
 
 public class MainTest {
 	public static void main(String[] args){

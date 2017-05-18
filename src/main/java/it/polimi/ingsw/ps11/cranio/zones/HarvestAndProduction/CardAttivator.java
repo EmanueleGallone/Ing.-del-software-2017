@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction;
 
-import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActivableSpace;
@@ -12,12 +10,10 @@ public abstract class CardAttivator implements ActivableSpace {
 	protected static final int DEFAULT_COST = 3; // Il costo per il multiple space
 	protected ActionSpace actionSpace;
 	protected MultipleActionSpace multipleActionSpace;
-	protected Class<? extends DevelopmentCard> cardType;
 	
-	public CardAttivator(Class<? extends DevelopmentCard> cardType) {
+	public CardAttivator() {
 		actionSpace = new ActionSpace();
 		multipleActionSpace = new MultipleActionSpace(DEFAULT_COST);
-		this.cardType = cardType;
 	}
 	
 	public CardAttivator(int actionSpaceCost, int multipleActionSpaceCost) {
@@ -28,14 +24,18 @@ public abstract class CardAttivator implements ActivableSpace {
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember) {
 		if (actionSpace.placeFamilyMember(familyMember)){
-			activeCard(familyMember.getOwner().getCardManager());
+			return true;
 		}
 		return false;
 	}
 	
-	protected void activeCard(CardManager cardManager){
-		for(DevelopmentCard card : cardManager.getCard(cardType)){
-			
+	public boolean placeInMultipleSpace(FamilyMember familyMember) {
+		if (actionSpace.placeFamilyMember(familyMember)){
+			FamilyMember f = familyMember.clone();
+			f.setValue(f.getValue() - DEFAULT_COST);
+			return true;
 		}
+		return false;
 	}
+	
 }
