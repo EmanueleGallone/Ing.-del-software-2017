@@ -1,11 +1,15 @@
 package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.Floor;
-public class Tower {
+import java.util.Iterator;
+
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.zones.Floor;
+public class Tower implements Iterable<Floor> {
 	
 	private final int MAX_FLOORS = 4;
 	private ArrayList<Floor> floors = new ArrayList<>();
+	private Class<? extends DevelopmentCard> type;
 	
 // Start constructors
 	
@@ -18,10 +22,10 @@ public class Tower {
 	}
 	
 // End constructors
-	
 // Start logic
+	
 	public void addFloor(Floor floor){
-		if (floors.size() < MAX_FLOORS){
+		if (floors.size() < MAX_FLOORS && floor.getType() == type){
 			floors.add(floor);
 		}
 	}
@@ -31,5 +35,53 @@ public class Tower {
 	}
 	
 // End logic
+	
+// Start setters
+	
+	public void setType(Class<? extends DevelopmentCard> type) {
+		this.type = type;
+	}
+	
+// End setters
+// Start getters
+	public ArrayList<Floor> getFloors() {
+		return floors;
+	}
+	
+	public int getMaxFloors() {
+		return MAX_FLOORS;
+	}
+	
+	public Class<? extends DevelopmentCard> getType() {
+		return type;
+	}
+// End getters
+	
+// __________________________
+
+	@Override
+	public Iterator<Floor> iterator() {
+		Iterator<Floor> iterator = new Iterator<Floor>() {
+			
+			private int nextFloor = MAX_FLOORS;
+			
+			@Override
+			public boolean hasNext() {
+				if (floors.get(nextFloor) == null)
+					return false;
+				return true;
+			}
+
+			@Override
+			public Floor next() {
+				Floor floor =  floors.get(nextFloor);
+				nextFloor--;
+				return floor;
+			}
+		};
+		
+		return iterator ;
+		
+	}
 
 }

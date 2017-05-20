@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.cranio.game;
+package it.polimi.ingsw.ps11.cranio.game.loaders;
 
 import java.util.ArrayList;
 

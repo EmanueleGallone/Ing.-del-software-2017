@@ -10,12 +10,7 @@ public class Model {
 	
 	private Game game;
 	
-	public Model() {
-		ArrayList<Player> players = new ArrayList<>();
-		players.add(new Player());
-		players.add(new Player());
-		players.add(new Player());
-		players.add(new Player());
+	public Model(ArrayList<Player> players) {
 		
 		game = new Game(players);
 	}

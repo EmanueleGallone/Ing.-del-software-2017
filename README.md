@@ -11,3 +11,6 @@ bisogna creare riferimento di ogni giocatore alla partita in cui sta giocando.
 
 
 La classe Deck rispetta il pattern Delegation(per il controllo del max size sui mazzi)
+
+Nota:
+Rifare il familyManager usando la hasMap

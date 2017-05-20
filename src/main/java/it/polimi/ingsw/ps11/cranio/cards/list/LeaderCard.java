@@ -1,4 +1,6 @@
-package it.polimi.ingsw.ps11.cranio.cards;
+package it.polimi.ingsw.ps11.cranio.cards.list;
+
+import it.polimi.ingsw.ps11.cranio.cards.Card;
 
 public class LeaderCard extends Card {
 	private String name;

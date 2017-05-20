@@ -1,19 +1,22 @@
 package it.polimi.ingsw.ps11.cranio;
 
-import it.polimi.ingsw.ps11.cranio.familyMember.BlackFamilyMember;
-import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import java.util.ArrayList;
+
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.cards.productionCard.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.productionCard.YellowCard;
 
 public class MainTest {
 	public static void main(String[] args){
 		
-		
+		/*
 		ActionSpace actionSpace = new ActionSpace();
 		Player player = new Player();
 		BlackFamilyMember blackFamilyMember = player.getBlackFamilyMember();
 		
 		actionSpace.placeFamilyMember(blackFamilyMember);
-		
+		*/
 		/*
 		Player player = new Player();
 		BlackFamilyMember familyMember = new BlackFamilyMember(player);
@@ -28,6 +31,10 @@ public class MainTest {
 		
 		ActivableSpace consiglio = new RewardedActionSpace(space, resourceList);
 		*/
+		
+	}
+	
+	private void ciao(){
 		
 	}
 }

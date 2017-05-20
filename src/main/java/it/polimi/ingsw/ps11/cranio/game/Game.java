@@ -4,18 +4,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.dices.DiceManager;
+import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
+import it.polimi.ingsw.ps11.cranio.game.loaders.RoundManager;
 import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.cranio.zones.towers.*;
 
 public class Game {
-	
-	private final static String cardsFile = "";
-	
+		
 	private Board board = new Board();
+	private ArrayList<Resource> resources = new ArrayList<>();
+	private ArrayList<DevelopmentCard> cards = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
-	private CardManager cardManager = new CardManager();
 	private RoundManager roundManager;
 	
 	public Game(ArrayList<Player> players) {
@@ -38,10 +41,15 @@ public class Game {
 	protected void loadComponent(ArrayList<Player> players) throws IOException{
 		
 		CardsLoader cardsLoader = new CardsLoader();
+		ResourceLoader resourceLoader = new ResourceLoader();
+		
 		roundManager = new RoundManager(players);
-		cardManager = cardsLoader.load(cardsFile);
+		cards = cardsLoader.load();
+		resources = resourceLoader.load();
 		initializeTower(board);
 	}
+	
+	
 	
 	public RoundManager getRoundManager() {
 		return roundManager;
@@ -49,30 +57,10 @@ public class Game {
 	
 	public void initializeTower(Board board){
 		/*
-		ArrayList<Floor> greenFloors = new ArrayList<>();
-		
-		greenFloors.add(new Floor(1));
-		greenFloors.add(new Floor(3));
-		ResourceList resource = new ResourceList();
-		resource.setWood(1);
-		greenFloors.add(new Floor(5,resource.clone()));
-		resource.setWood(2);
-		greenFloors.add(new Floor(7,resource.clone()));
-		
-		board.addTower(new Tower(greenFloors));
-		
-		// Idem per le altre 4 torri... Non è il massimo.. Va rivisto.
-		*/
-		
-		//Avendo introdotto 4 tipi di torri si può semplicemente fare.
-		
 		board.addTower(new GreenTower());
 		board.addTower(new BlueTower());
 		board.addTower(new YellowTower());
-		board.addTower(new PurpleTower());
-		
-		// Si potrebbe fare la stessa cosa usando una Factory di torri però a quel punto
-		// Servirebbe un enum di colori cosi alla factory gli passi il colore e lui ti da la torre costruita
+		board.addTower(new PurpleTower());*/
 	}
 	
 	public DiceManager getDiceManager() {
@@ -81,9 +69,17 @@ public class Game {
 	
 	public void startGame(){
 		diceManager.rollDices();
-		roundManager.choosePlayer();
-		// Qualcosa del genere... ovviamente in un ciclo
+		
 	}
 	
 // End logic
+	
+// Start getters
+	
+	public Board getBoard() {
+		return board;
+	}
+	
+// End getters
+
 }

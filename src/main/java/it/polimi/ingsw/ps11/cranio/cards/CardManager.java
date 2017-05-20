@@ -1,58 +1,44 @@
 package it.polimi.ingsw.ps11.cranio.cards;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 public class CardManager {
-	private final int MAX_SIZE = 6;
 	
-	private Deck<PurpleCard> purpleDeck = new Deck<>(MAX_SIZE);
-	private Deck<YellowCard> yellowDeck = new Deck<>(MAX_SIZE);
-	private Deck<BlueCard> blueDeck = new Deck<>(MAX_SIZE);
-	private Deck<GreenCard> greenDeck = new Deck<>(MAX_SIZE);
+	private HashMap<Class<? extends DevelopmentCard> , ArrayList<DevelopmentCard>> cards = new HashMap<>();
 	
+	public CardManager(ArrayList<DevelopmentCard> cards) {
+		for(DevelopmentCard card : cards){
+			addCard(card);
+		}
+	}
 	
 	
 // Start logic
 	
-	
-	public void deserializeCard(String serialized){
+	public <T extends DevelopmentCard> boolean addCard(T card){
 		
+		ArrayList<DevelopmentCard> temp = cards.get(card.getClass());
+		
+		if(temp == null){
+			temp = new ArrayList<>();
+			this.cards.put(card.getClass(), temp);
+		}
+		
+		if(temp.size() > 6)
+			return false;
+		
+		temp.add(card);
+		return true;
 	}
 	
-	
-	public void addBlueCard(BlueCard card) {
-		blueDeck.add(card);		
-	}
-	
-	public void addGreenCard(GreenCard card) {
-		greenDeck.add(card);		
-	}
-	
-	public void addPurpleCard(PurpleCard card){
-		purpleDeck.add(card);		
-	}
-	
-	public void addYellowCard(YellowCard card){
-		yellowDeck.add(card);		
-	}
 	
 // End logic
 // Start getters
 	
-	public Deck<BlueCard> getBlueDeck() {
-		return blueDeck;
-	}
-	public Deck<GreenCard> getGreenDeck() {
-		return greenDeck;
-	}
-	public Deck<PurpleCard> getPurpleDeck() {
-		return purpleDeck;
-	}
-	public Deck<YellowCard> getYellowDeck() {
-		return yellowDeck;
-	}
-	
-	
-	public int getMAX_SIZE() {
-		return MAX_SIZE;
+	public <T extends DevelopmentCard> ArrayList<T> getCard (Class<T> cardClass){
+		return (ArrayList<T>) this.cards.get(cardClass);
 	}
 	
 // End getters

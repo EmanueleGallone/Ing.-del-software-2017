@@ -1,78 +1,60 @@
 package it.polimi.ingsw.ps11.mvc.controller;
 
-import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.GreenCard;
-import it.polimi.ingsw.ps11.cranio.cards.PurpleCard;
-import it.polimi.ingsw.ps11.cranio.events.EventListener;
-import it.polimi.ingsw.ps11.cranio.events.GlobalEventHandler;
-import it.polimi.ingsw.ps11.cranio.events.list.ConsoleInputEvent;
-import it.polimi.ingsw.ps11.cranio.events.list.ScegliCartaEvent;
-import it.polimi.ingsw.ps11.cranio.game.Game;
-import it.polimi.ingsw.ps11.mvc.model.Model;
-import it.polimi.ingsw.ps11.mvc.view.TextualView;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Controller implements EventListener<ConsoleInputEvent>{
-	
-	
+import it.polimi.ingsw.ps11.cranio.game.Game;
+import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.mvc.model.Model;
+import it.polimi.ingsw.ps11.mvc.view.textual.TextualView;
+
+public class Controller {
 	private Game model;
 	private TextualView view;
 
 	public Controller(Model model, TextualView view) {
 		this.model = model.getGame();
 		this.view = view;
-	
-		view.getInputChangeEvent().attach(this);
-		view.getStampaEvent().attach(stampaListener);
-		view.getTiraDadiEvent().attach(tiraDadiListener);
-		view.getStampaFamiliare().attach(stampaFamiliareListener);
-		
-		GlobalEventHandler.getScegliCarta().attach(scegliCarta);
 	}
+	
+// _______________ EVENT LISTENER _____________________
+	
+	
 	
 
-	private DevelopmentCard scegliCarta(){
-		int i = view.scegliCarta();
-		DevelopmentCard card = null;
-		if (i == 1){
-			card = new PurpleCard();
-		}
-		return card;
+	
+//__________________________________________________________
+	
+	private void start(){
+		model.startGame();
+		view.start();
+	
 	}
+
 	
+//______________________________________________________________________________________________
 	
-	private EventListener<ScegliCartaEvent> scegliCarta = new EventListener<ScegliCartaEvent>() {
+	//MAIN
+	
+	public static void main(String[] args){
 		
-		@Override
-		public void handle(ScegliCartaEvent event) {
-			event.setCard(scegliCarta());
+		/*System.out.println("Premi t per view testuale e g per grafica");
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		TextualView textualView = null;
+		
+		if ( input.equals("t")){
+			textualView = new TextualView();
 		}
-	};
-	
-	private EventListener<Void> stampaFamiliareListener = new EventListener<Void>() {
-		@Override
-		public void handle(Void event) {
-			//String stringa = model.getGame().getRoundManager().getPlayers(0).getWhiteFamilyMember().toString();
-			//view.stampa(stringa);
-		}
-	};
-	
-	private EventListener<Void> stampaListener = new EventListener<Void>() {
-		@Override
-		public void handle(Void event) {
-			System.out.println("Voi che stampi..");
-		}
-	};
-	
-	private EventListener<Void> tiraDadiListener = new EventListener<Void>() {
-		@Override
-		public void handle(Void event) {
-			model.getDiceManager().rollDices();
-			view.stampaDadi(model.getDiceManager());
-		}
-	};
-	
-	@Override
-	public void handle(ConsoleInputEvent event) {
-		System.out.println("Sono il controller, hai scritto: " + event.getInput());
+		*/
+		TextualView textualView = new TextualView();
+		ArrayList<Player> players = new ArrayList<>();
+		
+		Controller controller = new Controller(new Model(players), textualView);
+		textualView.getGame().update(controller.model);
+		controller.start();
 	}
+	
+	
+	
 }

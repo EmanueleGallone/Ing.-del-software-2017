@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.cranio.cards;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
@@ -9,10 +10,10 @@ public abstract class DevelopmentCard extends Card {
 
 	private String name; 
 	private ArrayList<ResourceList> costs = new ArrayList<>();
-	protected static int id;
-		
+	
+	protected ArrayList<Bonus> permanentBonus = new ArrayList<>();
+
 	public DevelopmentCard() {
-		this.id = 0;
 		//E i vari parametri, periodo,colore, ecc..
 	}
 	
@@ -30,25 +31,33 @@ public abstract class DevelopmentCard extends Card {
 		this.costs.add(cost);
 	}
 	
-	public boolean take(Player player){
-		for(ResourceList r: costs){
-			if(r.greater(player.getResources())){
-				this.insertCard(player.getCardManager());
+	private void setOwner(Player player){
+		for(Bonus bonus : permanentBonus){
+			bonus.setOwner(player);
+		}
+	}
+	
+	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
+		if (costs.contains(cost) && playerResourceList.greater(cost))
+			return true;
+		return false;
+	}
+	
+	public boolean take(Player player, ResourceList cost){
+		if (checkCost(player.getResourceList(), cost)){
+			if (player.getCardManager().addCard(this)){
+				setOwner(player);
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	protected abstract void insertCard(CardManager cardManager);
-	
-	public abstract void activePermanentEffect();
-	public abstract void activeIstantEffect();
-
+	public void enablePermanentBonus(){
+		for(Bonus bonus: permanentBonus){
+			bonus.behavior();
+		}
+	}
 	
 //End Logics
-	
-	public static int getId() {
-		return id;
-	}
 }
