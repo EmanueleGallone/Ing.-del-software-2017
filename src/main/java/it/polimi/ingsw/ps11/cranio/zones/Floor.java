@@ -56,9 +56,15 @@ public class Floor implements ActivableSpace {
 	}
 	
 // End setters
-//Start getter
-	public DevelopmentCard getCard() {
-		return card;
+// Start getters
+	
+	public <T extends DevelopmentCard> T getCard() {
+		return (T) card;
 	}
 	
+	public Class<? extends DevelopmentCard> getType(){
+		return this.card.getClass();
+	}
+	
+// End getters
 }

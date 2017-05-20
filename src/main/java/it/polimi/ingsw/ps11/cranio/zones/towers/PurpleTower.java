@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.cranio.zones.towers;
 
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 
 public class PurpleTower extends Tower {

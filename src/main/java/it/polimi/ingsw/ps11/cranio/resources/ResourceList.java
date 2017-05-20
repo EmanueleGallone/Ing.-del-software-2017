@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
 public class ResourceList implements Iterable<Resource>,Cloneable {
 	
 	
-	private ResourceLoader resourceLoader;
+	private ResourceLoader resourceLoader = new ResourceLoader();
 	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
 	
 // start constructor

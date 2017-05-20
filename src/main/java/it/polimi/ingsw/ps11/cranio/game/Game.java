@@ -57,30 +57,10 @@ public class Game {
 	
 	public void initializeTower(Board board){
 		/*
-		ArrayList<Floor> greenFloors = new ArrayList<>();
-		
-		greenFloors.add(new Floor(1));
-		greenFloors.add(new Floor(3));
-		ResourceList resource = new ResourceList();
-		resource.setWood(1);
-		greenFloors.add(new Floor(5,resource.clone()));
-		resource.setWood(2);
-		greenFloors.add(new Floor(7,resource.clone()));
-		
-		board.addTower(new Tower(greenFloors));
-		
-		// Idem per le altre 4 torri... Non è il massimo.. Va rivisto.
-		*/
-		
-		//Avendo introdotto 4 tipi di torri si può semplicemente fare.
-		
 		board.addTower(new GreenTower());
 		board.addTower(new BlueTower());
 		board.addTower(new YellowTower());
-		board.addTower(new PurpleTower());
-		
-		// Si potrebbe fare la stessa cosa usando una Factory di torri però a quel punto
-		// Servirebbe un enum di colori cosi alla factory gli passi il colore e lui ti da la torre costruita
+		board.addTower(new PurpleTower());*/
 	}
 	
 	public DiceManager getDiceManager() {
@@ -93,4 +73,13 @@ public class Game {
 	}
 	
 // End logic
+	
+// Start getters
+	
+	public Board getBoard() {
+		return board;
+	}
+	
+// End getters
+
 }
