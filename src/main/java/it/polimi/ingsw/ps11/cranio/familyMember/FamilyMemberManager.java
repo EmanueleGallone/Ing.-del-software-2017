@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.cranio.familyMember;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
@@ -8,9 +9,9 @@ public class FamilyMemberManager {
 	private BlackFamilyMember blackFamilyMember;
 	private WhiteFamilyMember whiteFamilyMember;
 	private NeutralFamilyMember neutralFamilyMember;
-	private OrangeFamilyMember orangeFamilyMember;
+	private OrangeFamilyMember orangeFamilyMember; // inutili immagino
 	
-	private HashMap<Integer,FamilyMember> family = new HashMap<Integer, FamilyMember>();
+	private HashMap<Class<? extends FamilyMember>,FamilyMember> family = new HashMap<Class<? extends FamilyMember>,FamilyMember>();
 	
 	public FamilyMemberManager(Player owner){
 		
@@ -19,10 +20,10 @@ public class FamilyMemberManager {
 		orangeFamilyMember = new OrangeFamilyMember(owner);
 		neutralFamilyMember = new NeutralFamilyMember(owner);
 		
-		family.put(blackFamilyMember.getID(), blackFamilyMember);
-		family.put(whiteFamilyMember.getID(), whiteFamilyMember);
-		family.put(orangeFamilyMember.getID(), orangeFamilyMember);
-		family.put(neutralFamilyMember.getID(), neutralFamilyMember);
+		family.put(BlackFamilyMember.class, blackFamilyMember);
+		family.put(WhiteFamilyMember.class, whiteFamilyMember);
+		family.put(OrangeFamilyMember.class, orangeFamilyMember);
+		family.put(NeutralFamilyMember.class, neutralFamilyMember);
 		
 	}
 	
@@ -32,37 +33,35 @@ public class FamilyMemberManager {
 	
 	
 
-	public BlackFamilyMember getBlackFamilyMember() {
-		return blackFamilyMember;
+	
+	public <T extends FamilyMember> T getFamilyMember(T familyMember){
+		
+		return (T) this.family.get(familyMember.getClass());
+		
+	}
+	
+	public <T extends FamilyMember> void setFamilyMember(T familyMember){
+		this.family.put(familyMember.getClass(), familyMember);
 	}
 
-	public WhiteFamilyMember getWhiteFamilyMember() {
-		return whiteFamilyMember;
+
+
+
+
+
+
+
+	@Override
+	public String toString() {		
+		return "FamilyMemberManager [family=" 
+				+ "\nBlackFamilyMember= " + family.get(BlackFamilyMember.class).value
+				+ "\nWhiteFamilyMember= " + family.get(WhiteFamilyMember.class).value
+				+ "\nOrangeFamilyMember= " + family.get(OrangeFamilyMember.class).value
+				+ "\nNeutrlaFamilyMember= " + family.get(NeutralFamilyMember.class).value
+				
+				+ "]";
 	}
 
-	public NeutralFamilyMember getNeutralFamilyMember() {
-		return neutralFamilyMember;
-	}
-
-	public OrangeFamilyMember getOrangeFamilyMember() {
-		return orangeFamilyMember;
-	}
-
-	/*public void setBlackFamilyMember(BlackFamilyMember blackFamilyMember) {
-		this.blackFamilyMember = blackFamilyMember;
-	}
-
-	public void setWhiteFamilyMember(WhiteFamilyMember whiteFamilyMember) {
-		this.whiteFamilyMember = whiteFamilyMember;
-	}
-
-	public void setNeutralFamilyMember(NeutralFamilyMember neutralFamilyMember) {
-		this.neutralFamilyMember = neutralFamilyMember;
-	}
-
-	public void setOrangeFamilyMember(OrangeFamilyMember orangeFamilyMember) {
-		this.orangeFamilyMember = orangeFamilyMember;
-	}*/
 	
 	
 	

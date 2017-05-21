@@ -1,35 +1,54 @@
 package it.polimi.ingsw.ps11.cranio.resources;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
+import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
+import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
+import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
+import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 
-public class ResourceList implements Iterable<Resource>,Cloneable {
+public class ResourceList implements Cloneable {
 	
 	
 	private ResourceLoader resourceLoader = new ResourceLoader();
 	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
 	
+	
 // start constructor
 	
-	public ResourceList(){
+	/*public ResourceList(){
 		try {
 			ArrayList<Resource> resources = resourceLoader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-	}
+	}*/
 	
 	public ResourceList(ArrayList<Resource> resources){
 		
 		for(Resource resource: resources){
 			setResource(resource);
 		}
+	}
+	
+	public ResourceList() {
+			//COSTRUTTORE TEMPORANEO di default
+		setResource(new Stone(2));
+		setResource(new Wood(2));
+		setResource(new Servant(3));
+		setResource(new Coin(5));
+		setResource(new VictoryPoint(0));
+		setResource(new FaithPoint(0));
+		setResource(new MilitaryPoint(0));
+		
+		
 	}
 	
 // end constructor
@@ -62,20 +81,22 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 		this.getResource(resource).increment(value);
 	}
 	
-	
+	@Override
 	public ResourceList clone(){
-		return (ResourceList)this.clone();
+		try {
+			return (ResourceList) super.clone();
+			
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
+	
+	
 	
 // end logic
-// Start Iterator
 
-	@Override
-	public Iterator<Resource> iterator() {
-		return  resources.values().iterator();
-	}
-	
-// End iterator
 // Start getters
 	
 	public <T extends Resource> T getResource(Class<T> rClass){
@@ -97,7 +118,30 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 	public <T extends Resource> void setValueOf(Class<T> resource,int value){
 		this.getResource(resource).setValue(value);
 	}
+	
+	public void setAllToZeroValue(){
+		setValueOf(Stone.class, 0);
+		setValueOf(Wood.class, 0);
+		setValueOf(Coin.class, 0);
+		setValueOf(Servant.class, 0);
+		setValueOf(MilitaryPoint.class, 0);
+		setValueOf(FaithPoint.class, 0);
+		setValueOf(VictoryPoint.class, 0);
+	}
 
 //End setters
+	
+	@Override
+	public String toString() {
+		return "ResourceList [resources=" 
+				+ "\nStone= " + resources.get(Stone.class).value
+				+ "\nWood= " + resources.get(Wood.class).value
+				+ "\nServants= " + resources.get(Servant.class).value
+				+ "\nCoin= " + resources.get(Coin.class).value
+				+ "\nMilitaryPoints= " + resources.get(MilitaryPoint.class).value
+				+ "\nFaithPoints= " + resources.get(FaithPoint.class).value
+				+ "\nVictoryPoints= " + resources.get(VictoryPoint.class).value
+				+ "]";
+	}
 	
 }

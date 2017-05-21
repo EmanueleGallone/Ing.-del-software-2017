@@ -6,7 +6,7 @@ public class NeutralFamilyMember extends FamilyMember {
 	
 	public NeutralFamilyMember(Player player){
 		super(player);
-		id = 4;
+
 	}
 
 	@Override

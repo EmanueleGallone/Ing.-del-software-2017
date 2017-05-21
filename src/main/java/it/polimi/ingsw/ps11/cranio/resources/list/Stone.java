@@ -10,7 +10,7 @@ public class Stone extends Resource {
 	
 	public Stone(int value){
 		super(value);
-		id = 1;
+
 	}
 	
 

@@ -1,16 +1,26 @@
 package it.polimi.ingsw.ps11.cranio.game.loaders;
 
-import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class ResourceLoader extends Loader {
 	
-	private static final String DEFAULT_PATH = "";
-	private ArrayList<Resource> resources;
+	private static final String DEFAULT_PATH = "resource.txt";
+	
+	private ResourceList resourceList;
+	
+	private Gson gson = new Gson();
+	
+	private FileReader reader;
 	
 	
 	public ResourceLoader() {
@@ -21,37 +31,25 @@ public class ResourceLoader extends Loader {
 		super(filePath);
 	}
 	
-	@Override
-	public ArrayList<Resource> load() throws IOException{
+	public ResourceList load(){
 		
-		if (this.resources != null){
-			return this.resources;
-		}
-		
-		BufferedReader reader = null;
-		
-		try{
-			reader = new BufferedReader(new FileReader(getFilePath()));
-			String line;
+		try {
+			reader = new FileReader(DEFAULT_PATH);
 			
-			while((line = reader.readLine()) != null){
-				  resources.add(deserializeResource(line));
-			}
-		}
-		finally {
-			if (reader!=null){
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+			resourceList = gson.fromJson(reader, ResourceList.class);			
+			
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
 		}
 		
-		return resources;
+		
+		return resourceList;
+		
+				
+		
 	}
 	
-	public Resource deserializeResource(String line){
-		return null;
-	}
+	
 }

@@ -9,21 +9,21 @@ public abstract class FamilyMember implements Cloneable {
 	protected int value;
 	protected boolean isUsed;
 	protected Player owner; 
-	protected int id;
+
 	protected int modifier;
 	
 	public FamilyMember(Player player){
 		value = DEFAULT;
 		isUsed = false;
 		owner = player;
-		id = 0;
+
 		modifier = 0;
 	}
 	
 //start logics
 	
 	public void resetModifier(){
-		this.modifier = 0; // Si dovrebbe usare una costante di defaul a cui ritornare 
+		this.modifier = 0; // Si dovrebbe usare una costante di default a cui ritornare 
 	}
 	
 	
@@ -45,10 +45,6 @@ public abstract class FamilyMember implements Cloneable {
 	
 	public Player getOwner(){
 		return this.owner; 
-	}
-	
-	public int getID(){
-		return this.id; 
 	}
 
 	

@@ -7,7 +7,7 @@ public class WhiteFamilyMember extends FamilyMember {
 	
 	public WhiteFamilyMember(Player player){
 		super(player);
-		id = 2;
+		
 	}
 
 	@Override

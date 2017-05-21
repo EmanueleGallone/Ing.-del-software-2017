@@ -5,15 +5,20 @@ import java.util.Scanner;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
+import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
+import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
+import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
+import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.cranio.events.Event;
 
 public class TextualView {
 	
-	GameView game = new GameView();
+	private Game game;
 	
-	String menuAzione = ""
+	private String menuAzione = ""
 			+ "0 : Visualizza il tuo status \n"
 			+ "1 : Piazza familiare in una torre \n"
 			+ "2 : Piazza familiare nel mercato \n"
@@ -32,7 +37,7 @@ public class TextualView {
 			switch (input) {
 			
 			case "0":
-				game.printPlayer();
+				printStatus(game.getPlayerCorrente());
 				break;
 			
 			case "1":
@@ -45,28 +50,37 @@ public class TextualView {
 		}
 	}
 	
-	public GameView getGame() {
-		return game;
+	public void printMenu(){
+		print(menuAzione);
 	}
 	
 	public void scegliTorre(){
-		print("Le torri e i piani vanno da 1 a 4. Premi una coppia x y, per scegliere la torre x e il piano y \n"
-				+ "(Es: 1 3 significa torre 1 piano 3)");
-		String in = readInput();
-		Floor floor = game.getFloor(in.charAt(0), in.charAt(2));
-		print("Seleziona family member, premi un numero da 1 a 4");
-		FamilyMember familyMember = game.getFamilyMember(Integer.parseInt(readInput()));
+		printTowers();
+		
+		print("Scegli la torre: 1 torre gialla\n" 
+				+ "2 : torre blu\n"
+				+ "3 : torre verde\n"
+				+ "4 : torre viola\n");
+		
+		String torre = readInput();//dovrei passare la torre e la carta scelta, no?
+		
+		scegliCarta(); //faccio scegliere la carta. Ora dovrei delegare al controller/model!
+		
 		
 	}
 	
 	public void start(){
 		print("Game started");
 		print(menuAzione);
-		game.printTowers();
+		
+		printTowers();
+		
 		String input;
+		
 		while(!(input = readInput()).equals("e")){
 			interpreter.interpreta(input);
 		}
+		
 		print("Game closed");
 	}
 	
@@ -78,6 +92,45 @@ public class TextualView {
 	
 	public void print (String message){
 		System.out.println(message);
+	}
+	
+	
+	public void update(Game game){
+		this.game = game;
+	}
+	
+	
+	public void printStatus(Player player){
+		System.out.println("STATUS: \n" + player.toString());
+	}
+	
+	public void printTowers(){
+		//molto ignorantemente
+		game.getBoard().getTempTowers().get(GreenTower.class).toString();
+		game.getBoard().getTempTowers().get(PurpleTower.class).toString();
+		game.getBoard().getTempTowers().get(YellowTower.class).toString();
+		game.getBoard().getTempTowers().get(BlueTower.class).toString();
+	}
+	
+	public String scegliCarta(){
+		Scanner in = new Scanner(System.in);
+		System.out.println("Scegli quale carta prendere (da 1 a 4) : ");
+		return in.nextLine();
+	}
+	
+	public void printBoard(){
+		System.out.println("MERCATO: \n" + game.getBoard().toString());
+	}
+	
+	public String printFamilyChoice(){
+		Scanner in = new Scanner(System.in);
+		System.out.println("inserisci quale familiare vuoi usare: \n" 
+		+ "1 : Familiare Nero\n" 
+		+ "2: Familiare Bianco\n"
+		+ "3: Familiare Arancione\n"
+		+ "4: Familiare Neutro");
+		return in.nextLine();
+		
 	}
 	
 }

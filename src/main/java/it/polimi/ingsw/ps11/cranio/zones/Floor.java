@@ -67,4 +67,10 @@ public class Floor implements ActivableSpace {
 	}
 	
 // End getters
+	
+	@Override
+	public String toString() {
+		return "Floor [card=" + card + ", actionSpace=" + actionSpace + "]";
+	}
+	
 }

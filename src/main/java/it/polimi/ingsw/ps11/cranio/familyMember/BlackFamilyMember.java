@@ -7,7 +7,7 @@ public class BlackFamilyMember extends FamilyMember {
 	
 	public BlackFamilyMember(Player player){
 		super(player);
-		id = 1;
+		
 	}
 	
 	@Override

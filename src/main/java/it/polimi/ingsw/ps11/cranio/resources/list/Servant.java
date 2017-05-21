@@ -10,7 +10,7 @@ public class Servant extends Resource {
 	
 	public Servant(int value){
 		super(value);
-		id = 4;
+
 	}
 
 }
