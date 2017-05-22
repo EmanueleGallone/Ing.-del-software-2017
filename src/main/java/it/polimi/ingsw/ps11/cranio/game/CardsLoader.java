@@ -8,9 +8,15 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.game.loaders.Loader;
+import it.polimi.ingsw.ps11.cranio.loaders.Loader;
 
 public class CardsLoader extends Loader{
+
+	public CardsLoader(String filePath) {
+		
+		super(filePath);
+		// TODO Auto-generated constructor stub
+	}
 
 	private final static String DEFAULT_PATH = "";
 	

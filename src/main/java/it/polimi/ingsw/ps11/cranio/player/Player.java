@@ -1,12 +1,12 @@
 package it.polimi.ingsw.ps11.cranio.player;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.familyMember.BlackFamilyMember;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.cranio.familyMember.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.WhiteFamilyMember;
-import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
+import it.polimi.ingsw.ps11.cranio.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.list.WhiteFamilyMember;
+import it.polimi.ingsw.ps11.cranio.loaders.ResourceLoader;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 

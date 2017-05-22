@@ -3,68 +3,42 @@ package it.polimi.ingsw.ps11.cranio.familyMember;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
 
-public abstract class FamilyMember implements Cloneable {
-	private final int DEFAULT = 0;
+public abstract class FamilyMember {
 	
+	private final int DEFAULT_MODIFIER = 0;
+	private final int DEFAULT_VALUE = 0;
 	protected int value;
-	protected boolean isUsed;
 	protected Player owner; 
 
 	protected int modifier;
 	
 	public FamilyMember(Player player){
-		value = DEFAULT;
-		isUsed = false;
 		owner = player;
-
-		modifier = 0;
+		value = DEFAULT_VALUE;
+		modifier = DEFAULT_MODIFIER;
 	}
 	
 //start logics
 	
-	public void resetModifier(){
-		this.modifier = 0; // Si dovrebbe usare una costante di default a cui ritornare 
-	}
-	
-	
 //end logics
-	
-	
-	
-	@Override
-	public FamilyMember clone (){
-		try {
-			
-			return (FamilyMember) super.clone();
-			
-		} catch (CloneNotSupportedException e) {
-			System.err.println("Clone not supported!");
-		}
-		return null; 
-	}
 	
 	public Player getOwner(){
 		return this.owner; 
 	}
 
+	public int getValue(){
+		return this.value + this.modifier;
+	}
 	
 	public void setModifier(int value){
 		this.modifier = value;
 	}
 	
-	public void setIsUsed(boolean value){
-		isUsed = value;
-	}
-	
-	public boolean isUsed(){
-		return isUsed;
+	public void resetModifier(){
+		modifier = DEFAULT_MODIFIER;
 	}
 	
 	public void setValue(int value){
 		this.value = value;
-	}
-	
-	public int getValue(){
-		return this.value;
 	}
 }

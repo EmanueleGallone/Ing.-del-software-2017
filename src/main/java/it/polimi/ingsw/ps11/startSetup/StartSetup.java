@@ -14,6 +14,9 @@ import org.junit.experimental.theories.Theories;
 
 import com.google.gson.Gson;
 
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.cranio.loaders.ResourceLoader;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -114,8 +117,7 @@ public class StartSetup {
 	}
 	
 	public static void main (String[] args){
-		initializeResourceList();
-		
+		//initializeResourceList();
 	}
 	
 }

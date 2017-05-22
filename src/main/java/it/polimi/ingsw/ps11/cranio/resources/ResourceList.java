@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import com.google.gson.Gson;
 
-import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
 import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
@@ -20,19 +19,15 @@ public class ResourceList implements Cloneable {
 	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
 	
 // start constructor
-	
-	public ResourceList(){
-	
-	/*public ResourceList(){
-		try {
-			ResourceLoader resourceLoader = new ResourceLoader();
-			ResourceList resourceList = resourceLoader.load();
-			this.resources = resourceList.getResources();
-			System.out.println("daje");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		*/
+
+	public ResourceList() {
+		resources.put(Wood.class, new Wood());
+		resources.put(Stone.class, new Stone());
+		resources.put(Coin.class, new Coin());
+		resources.put(Servant.class, new Servant());
+		resources.put(MilitaryPoint.class, new MilitaryPoint());
+		resources.put(FaithPoint.class, new FaithPoint());
+		resources.put(VictoryPoint.class, new VictoryPoint());
 	}
 	
 	public ResourceList(ArrayList<Resource> resources){
@@ -40,7 +35,7 @@ public class ResourceList implements Cloneable {
 			setResource(resource);
 		}
 	}
-	
+
 // end constructor
 // start logic
 	

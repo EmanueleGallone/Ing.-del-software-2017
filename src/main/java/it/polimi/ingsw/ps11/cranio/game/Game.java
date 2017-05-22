@@ -27,7 +27,7 @@ public class Game {
 	
 	protected void loadComponent(ArrayList<Player> players){
 		
-		CardsLoader cardsLoader = new CardsLoader();
+		//CardsLoader cardsLoader = new CardsLoader();
 		//roundManager = new RoundManager(players);
 		//cards = cardsLoader.load();
 		initializeTower(board);
