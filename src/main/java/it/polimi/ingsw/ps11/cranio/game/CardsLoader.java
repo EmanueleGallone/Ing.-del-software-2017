@@ -14,19 +14,19 @@ public class CardsLoader extends Loader{
 
 	private final static String DEFAULT_PATH = "";
 	
-	public CardsLoader() {
+	/*public CardsLoader() {
 		super(DEFAULT_PATH);
 	}
 	
 	public CardsLoader(String filePath) {
 		super(filePath);
-	}
+	}*/
 	
 	public ArrayList<DevelopmentCard> load() throws IOException {
 		BufferedReader reader = null;
 		ArrayList<DevelopmentCard> cards = new ArrayList<>();
 		try{
-			reader = new BufferedReader(new FileReader(getFilePath()));
+			reader = new BufferedReader(new FileReader(DEFAULT_PATH));
 			String line;
 			
 			while((line = reader.readLine()) != null){

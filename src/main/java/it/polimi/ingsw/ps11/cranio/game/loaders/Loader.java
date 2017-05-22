@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.cranio.game.loaders;
 
 import java.io.IOException;
 
-public abstract class Loader {
+public abstract class Loader {/*
 	
 	private final static String DEFAULT_FILE_PATH = "";
 	private String filePath;
@@ -26,5 +26,5 @@ public abstract class Loader {
 		this.filePath = filePath;
 	}
 	
-	public abstract Object load() throws IOException;
+	public abstract Object load() throws IOException;*/
 }

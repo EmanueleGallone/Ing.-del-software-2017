@@ -6,7 +6,7 @@ public class OrangeFamilyMember extends FamilyMember {
 	
 	public OrangeFamilyMember(Player player){
 		super(player);
-		id = 3;
+	
 	}
 
 	@Override

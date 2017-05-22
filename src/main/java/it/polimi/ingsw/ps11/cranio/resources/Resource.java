@@ -25,5 +25,10 @@ public abstract class Resource {
 	public void increment(int value){
 		this.value += value;
 	}
+	
+	@Override
+	public String toString() {
+		return "Class: " + this.getClass() + " value: " + this.getValue(); 
+	}
 
 }

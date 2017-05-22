@@ -14,6 +14,10 @@ public class CardManager {
 		}
 	}
 	
+	public CardManager() {
+		
+	}
+	
 	
 // Start logic
 	
@@ -37,10 +41,17 @@ public class CardManager {
 // End logic
 // Start getters
 	
-	public <T extends DevelopmentCard> ArrayList<T> getCard (Class<T> cardClass){
+	public <T extends DevelopmentCard> ArrayList<T> getCardList (Class<T> cardClass){
 		return (ArrayList<T>) this.cards.get(cardClass);
+	}
+
+	@Override
+	public String toString() {
+		return "CardManager [cards=" + cards + "]";
 	}
 	
 // End getters
+	
+	
 	
 }

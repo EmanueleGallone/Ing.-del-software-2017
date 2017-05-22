@@ -1,23 +1,29 @@
 package it.polimi.ingsw.ps11.cranio.resources;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import com.google.gson.Gson;
 
 import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
+import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
+import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
+import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
+import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 
-public class ResourceList implements Iterable<Resource>,Cloneable {
+public class ResourceList implements Cloneable {
 	
 	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
 	
 // start constructor
 	
 	public ResourceList(){
-		/*
+	
+	/*public ResourceList(){
 		try {
 			ResourceLoader resourceLoader = new ResourceLoader();
 			ResourceList resourceList = resourceLoader.load();
@@ -65,13 +71,21 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 		this.getResource(resource).increment(value);
 	}
 	
-	
+	@Override
 	public ResourceList clone(){
-		return (ResourceList)this.clone();
+		try {
+			return (ResourceList) super.clone();
+			
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
+	
+	
 // end logic
-
+	
 	public String toJson(){
 		Gson gson = new Gson();
 		return gson.toJson(resources);
@@ -85,13 +99,6 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 	}
 
 // Start Iterator
-
-	@Override
-	public Iterator<Resource> iterator() {
-		return  resources.values().iterator();
-	}
-	
-// End iterator
 // Start getters
 	
 	public <T extends Resource> T getResource(Class<T> rClass){
@@ -121,5 +128,15 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 		this.resources = resources;
 	}
 //End setters
+	
+	@Override
+	public String toString() {
+		String stringa = "";
+		
+		for (Class<? extends Resource> tipo : resources.keySet()){
+			stringa = stringa + tipo + " : " + resources.get(tipo).toString();
+		}
+		return stringa;
+	}
 	
 }
