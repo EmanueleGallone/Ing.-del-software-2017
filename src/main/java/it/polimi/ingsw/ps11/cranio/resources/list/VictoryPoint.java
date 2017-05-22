@@ -10,7 +10,6 @@ public class VictoryPoint extends Resource{
 	
 	public VictoryPoint(int value){
 		super(value);
-		id = 7;
 	}
 
 }

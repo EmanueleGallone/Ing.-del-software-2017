@@ -10,7 +10,6 @@ public class Coin extends Resource {
 	
 	public Coin(int value){
 		super(value);
-		id = 3;
 	}
 
 }

@@ -7,6 +7,7 @@ public abstract class Loader {
 	private final static String DEFAULT_FILE_PATH = "";
 	private String filePath;
 	
+// Start constructors
 	public Loader() {
 		filePath = DEFAULT_FILE_PATH;
 	}
@@ -14,6 +15,8 @@ public abstract class Loader {
 	public Loader(String filePath) {
 		this.filePath = filePath;
 	}
+	
+// End constructors
 	
 	public String getFilePath() {
 		return filePath;

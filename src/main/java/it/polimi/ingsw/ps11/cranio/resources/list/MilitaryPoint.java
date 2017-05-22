@@ -10,7 +10,6 @@ public class MilitaryPoint extends Resource {
 	
 	public MilitaryPoint(int value){
 		super(value);
-		id = 5;
 	}
 
 }

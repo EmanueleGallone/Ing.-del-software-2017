@@ -3,18 +3,19 @@ package it.polimi.ingsw.ps11.cranio.game.loaders;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.cranio.resources.Resource;
+import com.google.gson.Gson;
+
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class ResourceLoader extends Loader {
 	
-	private static final String DEFAULT_PATH = "";
-	private ArrayList<Resource> resources;
+	private static final String DEFAULT_FILE_PATH = "settings//defaultResourceList";
+	private static ResourceList resourceList;
 	
 	
 	public ResourceLoader() {
-		super(DEFAULT_PATH);
+		super(DEFAULT_FILE_PATH);
 	}
 	
 	public ResourceLoader(String filePath) {
@@ -22,21 +23,17 @@ public class ResourceLoader extends Loader {
 	}
 	
 	@Override
-	public ArrayList<Resource> load() throws IOException{
+	public ResourceList load() throws IOException{
 		
-		if (this.resources != null){
-			return this.resources;
+		if (this.resourceList != null){
+			return this.resourceList;
 		}
 		
 		BufferedReader reader = null;
 		
 		try{
 			reader = new BufferedReader(new FileReader(getFilePath()));
-			String line;
-			
-			while((line = reader.readLine()) != null){
-				  resources.add(deserializeResource(line));
-			}
+			this.resourceList = deserializeResource(reader.readLine());
 		}
 		finally {
 			if (reader!=null){
@@ -48,10 +45,11 @@ public class ResourceLoader extends Loader {
 			}
 		}
 		
-		return resources;
+		return resourceList;
 	}
 	
-	public Resource deserializeResource(String line){
-		return null;
+	public ResourceList deserializeResource(String line){
+		Gson gson = new Gson();
+		return gson.fromJson(line, ResourceList.class);
 	}
 }

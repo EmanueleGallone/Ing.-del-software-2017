@@ -16,7 +16,6 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.*;
 public class Game {
 		
 	private Board board = new Board();
-	private ArrayList<Resource> resources = new ArrayList<>();
 	private ArrayList<DevelopmentCard> cards = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
 	private RoundManager roundManager;
@@ -45,7 +44,6 @@ public class Game {
 		
 		roundManager = new RoundManager(players);
 		cards = cardsLoader.load();
-		resources = resourceLoader.load();
 		initializeTower(board);
 	}
 	

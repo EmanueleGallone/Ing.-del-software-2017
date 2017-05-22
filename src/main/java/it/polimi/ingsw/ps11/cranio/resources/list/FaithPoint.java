@@ -11,7 +11,6 @@ public class FaithPoint extends Resource {
 	
 	public FaithPoint(int value){
 		super(value);
-		id = 6;
 	}
 
 }

@@ -5,28 +5,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import com.google.gson.Gson;
+
 import it.polimi.ingsw.ps11.cranio.game.loaders.ResourceLoader;
 
 
 public class ResourceList implements Iterable<Resource>,Cloneable {
 	
-	
-	private ResourceLoader resourceLoader = new ResourceLoader();
 	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
 	
 // start constructor
 	
 	public ResourceList(){
+		/*
 		try {
-			ArrayList<Resource> resources = resourceLoader.load();
+			ResourceLoader resourceLoader = new ResourceLoader();
+			ResourceList resourceList = resourceLoader.load();
+			this.resources = resourceList.getResources();
+			System.out.println("daje");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		*/
 	}
 	
 	public ResourceList(ArrayList<Resource> resources){
-		
 		for(Resource resource: resources){
 			setResource(resource);
 		}
@@ -68,6 +71,19 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 	}
 	
 // end logic
+
+	public String toJson(){
+		Gson gson = new Gson();
+		return gson.toJson(resources);
+	}
+	
+	public static ResourceList fromJson(String json){
+		Gson gson = new Gson();
+		ResourceList resourceList = new ResourceList();
+		resourceList.setResources(gson.fromJson(json, HashMap.class));
+		return resourceList;
+	}
+
 // Start Iterator
 
 	@Override
@@ -85,6 +101,9 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 	public <T extends Resource> int getValueOf(Class<T> rClass ){
 		return this.getResource(rClass).getValue();
 	}
+	public HashMap<Class<? extends Resource>, Resource> getResources() {
+		return resources;
+	}
 	
 //End getters
 	
@@ -98,6 +117,9 @@ public class ResourceList implements Iterable<Resource>,Cloneable {
 		this.getResource(resource).setValue(value);
 	}
 
+	public void setResources(HashMap<Class<? extends Resource>, Resource> resources) {
+		this.resources = resources;
+	}
 //End setters
 	
 }
