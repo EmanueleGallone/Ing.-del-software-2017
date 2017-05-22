@@ -10,4 +10,11 @@ public class WhiteFamilyMember extends FamilyMember {
 		super(player);
 	}
 
+	@Override
+	public WhiteFamilyMember clone(){
+		WhiteFamilyMember familyMember = new WhiteFamilyMember(owner);
+		familyMember.setValue(value);
+		familyMember.setModifier(modifier);
+		return familyMember;
+	}
 }

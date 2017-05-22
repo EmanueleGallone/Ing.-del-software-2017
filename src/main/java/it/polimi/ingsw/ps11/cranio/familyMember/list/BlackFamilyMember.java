@@ -8,6 +8,13 @@ public class BlackFamilyMember extends FamilyMember {
 	
 	public BlackFamilyMember(Player player){
 		super(player);
-		
+	}
+	
+	@Override
+	public BlackFamilyMember clone(){
+		BlackFamilyMember familyMember = new BlackFamilyMember(owner);
+		familyMember.setValue(value);
+		familyMember.setModifier(modifier);
+		return familyMember;
 	}
 }

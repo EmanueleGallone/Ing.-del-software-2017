@@ -8,4 +8,17 @@ public class NeutralFamilyMember extends FamilyMember {
 	public NeutralFamilyMember(Player player){
 		super(player);
 	}
+	
+	@Override
+	public NeutralFamilyMember clone(){
+		NeutralFamilyMember familyMember = new NeutralFamilyMember(owner);
+		familyMember.setValue(value);
+		familyMember.setModifier(modifier);
+		return familyMember;
+	}
+	
+	@Override
+	public void setValue(int value) {
+		return;
+	}
 }

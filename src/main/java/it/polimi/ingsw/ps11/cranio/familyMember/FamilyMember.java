@@ -41,4 +41,7 @@ public abstract class FamilyMember {
 	public void setValue(int value){
 		this.value = value;
 	}
+	
+	@Override
+	public abstract FamilyMember clone();
 }
