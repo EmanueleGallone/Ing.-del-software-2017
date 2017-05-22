@@ -76,6 +76,17 @@ public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember
 	public Iterator<FamilyMember> iterator() {
 		return familyMembers.iterator();
 	}
+
+	@Override
+	public String toString() {
+		return "MultipleActionSpace [familyMembers=" + familyMembers 
+				+ ", cost=" + cost 
+				+ ", resources=" + resources
+				+ "]";
+	}
 	
 //End iterator
+	
+	
+	
 }

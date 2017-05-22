@@ -26,7 +26,7 @@ public class Controller {
 	
 //__________________________________________________________
 	
-	private void start(){
+	/*private void start(){
 		model.startGame();
 		gestisciPartita(model.getPlayers());
 		
@@ -34,20 +34,33 @@ public class Controller {
 		
 		
 	
-	}
+	}*/
 	
-	private void gestisciPartita(ArrayList<Player> players){
+	private void start(){
+		model.startGame();
+		ArrayList<Player> players = model.getPlayers();
+		
 		//funzione per ciclare sui giocatori e fargli fare le loro scelte
 		//a chi lo faccio fare? al controller o al game?
 		
-			for(int i = 0; i < model.MAX_PERIODS; i++)
-				for(int j = 0; j < model.MAX_TURN ; j++){
-					for(int h = 0; h < players.size(); h++) //per ogni giocatore
+			for(int i = 1; i <= model.MAX_PERIODS; i++)
+				for(int j = 1; j <= model.MAX_TURN ; j++)
+					for(int h = 0; h < players.size(); h++){
+						System.out.println("TURNO = " + j + "\t\t PERIODO = " + i);
+						
 						model.setPlayerCorrente(model.getPlayers().get(h)); //al momento non c'è ordinamento!
+						System.out.println("Giocatore = " + model.getPlayerCorrente().getName() +"\n");
+						
+						view.start(); //come faccio ad uscire dal menu e a passare il turno?
+						
+						
+					}
+					
+						
 					
 					
 					//finite le operazioni
-				}//fine ciclo per turni
+				
 	}
 
 	

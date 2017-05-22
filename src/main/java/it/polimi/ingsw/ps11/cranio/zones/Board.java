@@ -1,12 +1,8 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.cranio.cards.productionCard.YellowCard;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Harvest;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
 import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
@@ -23,6 +19,7 @@ public class Board {
 	private Production production;
 		
 	private Market market;
+	private CouncilPalace councilPalace;
 	
 	//manca il palazzo del consiglio
 	
@@ -45,6 +42,7 @@ public class Board {
 	}*/
 	
 	public Board(){
+		
 		tempTowers.put(GreenTower.class, new GreenTower());
 		tempTowers.put(PurpleTower.class, new PurpleTower());
 		tempTowers.put(YellowTower.class, new YellowTower());
@@ -54,6 +52,8 @@ public class Board {
 		production = new Production();
 		
 		market = new Market();
+		councilPalace = new CouncilPalace();
+		
 		
 	}
 	
@@ -71,7 +71,14 @@ public class Board {
 	public HashMap<Class<? extends Tower>, Tower> getTempTowers() {
 		return tempTowers;
 	}
-
+	
+	public <T extends Tower> T getTower(T tower){
+		return (T) this.tempTowers.get(tower.getClass());
+	}
+	
+	public <T extends Tower> T getTower(Class<T> tower){
+		return (T) this.tempTowers.get(tower);
+	}
 	@Override
 	public String toString() {
 		return "Board [tempTowers=" + Arrays.asList(tempTowers) 

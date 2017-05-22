@@ -16,7 +16,7 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 public class ResourceList implements Cloneable {
 	
 	
-	private ResourceLoader resourceLoader = new ResourceLoader();
+	//private ResourceLoader resourceLoader = new ResourceLoader();
 	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
 	
 	
@@ -46,8 +46,7 @@ public class ResourceList implements Cloneable {
 		setResource(new Coin(5));
 		setResource(new VictoryPoint(0));
 		setResource(new FaithPoint(0));
-		setResource(new MilitaryPoint(0));
-		
+		setResource(new MilitaryPoint(0));		
 		
 	}
 	

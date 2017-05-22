@@ -32,6 +32,11 @@ public class ActionSpace extends MultipleActionSpace {
 		}
 		return super.placeFamilyMember(familyMember);
 	}
+
+	@Override
+	public String toString() {
+		return "ActionSpace [familyMembers=" + familyMembers + "]";
+	}
 	
 	
 	/*
@@ -40,5 +45,8 @@ public class ActionSpace extends MultipleActionSpace {
 	*/
 	
 // End logic
+	
+	
+	
 
 }

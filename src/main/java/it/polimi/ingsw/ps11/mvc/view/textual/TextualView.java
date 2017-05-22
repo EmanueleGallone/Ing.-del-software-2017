@@ -25,39 +25,41 @@ public class TextualView {
 			+ "3 : Piazza familiare nella zona produzione \n"
 			+ "4 : Piazza familiare nella zona raccolta \n"
 			+ "5 : Piazza familiare nel palazzo del consiglio \n"
-			+ "p : Passa il tuo turno \n"
-			+ "e : Esci \n";
+			+ "p : Passa il tuo turno \n";
 	
-	Interpreter interpreter = new Interpreter();
-	
-	
-	private class Interpreter{
-		
-		public void interpreta(String input){
-			switch (input) {
-			
-			case "0":
-				printStatus(game.getPlayerCorrente());
-				break;
-			
-			case "1":
-				scegliTorre();
-				break;
-				
-			default: print("Comando non valido");
-				break;
-			}
-		}
-	}
+	private String input;
 	
 	public void printMenu(){
 		print(menuAzione);
+		
+		input = readInput();
+		
+		switch (input) {
+		
+		case "0":
+			printStatus(game.getPlayerCorrente());
+			break;
+		
+		case "1":	
+			scegliTorre();
+			break;
+			
+		case "p":
+			break; 
+			
+			
+		default: print("Comando non valido");
+			break;
+		}
+		
+		
 	}
 	
 	public void scegliTorre(){
 		printTowers();
 		
-		print("Scegli la torre: 1 torre gialla\n" 
+		print("Scegli la torre:\n"
+				+ " 1 torre gialla\n" 
 				+ "2 : torre blu\n"
 				+ "3 : torre verde\n"
 				+ "4 : torre viola\n");
@@ -70,18 +72,11 @@ public class TextualView {
 	}
 	
 	public void start(){
-		print("Game started");
-		print(menuAzione);
 		
-		printTowers();
+		do {
+			printMenu();
+		} while(!this.input.equalsIgnoreCase("p"));
 		
-		String input;
-		
-		while(!(input = readInput()).equals("e")){
-			interpreter.interpreta(input);
-		}
-		
-		print("Game closed");
 	}
 	
 	private String readInput(){
@@ -90,7 +85,7 @@ public class TextualView {
 		return in;
 	}
 	
-	public void print (String message){
+	private void print (String message){
 		System.out.println(message);
 	}
 	
@@ -106,20 +101,21 @@ public class TextualView {
 	
 	public void printTowers(){
 		//molto ignorantemente
-		game.getBoard().getTempTowers().get(GreenTower.class).toString();
-		game.getBoard().getTempTowers().get(PurpleTower.class).toString();
-		game.getBoard().getTempTowers().get(YellowTower.class).toString();
-		game.getBoard().getTempTowers().get(BlueTower.class).toString();
+		print( game.getBoard().getTower(GreenTower.class).toString() );
+		print( game.getBoard().getTower(PurpleTower.class).toString() );
+		print( game.getBoard().getTower(YellowTower.class).toString() );
+		print( game.getBoard().getTower(BlueTower.class).toString() );
 	}
 	
 	public String scegliCarta(){
 		Scanner in = new Scanner(System.in);
 		System.out.println("Scegli quale carta prendere (da 1 a 4) : ");
+		
 		return in.nextLine();
 	}
 	
 	public void printBoard(){
-		System.out.println("MERCATO: \n" + game.getBoard().toString());
+		System.out.println("Board: \n" + game.getBoard().toString());
 	}
 	
 	public String printFamilyChoice(){
@@ -129,7 +125,8 @@ public class TextualView {
 		+ "2: Familiare Bianco\n"
 		+ "3: Familiare Arancione\n"
 		+ "4: Familiare Neutro");
-		return in.nextLine();
+		
+		return in.nextLine();//dovrei ritornare al controller la scelta giusto?
 		
 	}
 	

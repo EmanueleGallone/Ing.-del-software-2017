@@ -22,6 +22,9 @@ public class Player{
 	
 	private ResourceLoader loader; //per caricare direttamente da file!
 	
+	//private int position; //io farei in modo che il player ha come stato la sua posizione. in modo tale da poter fare
+							//ordinamento tramite comparator ad esempio
+	
 	
 // Start constructors
 	
@@ -44,13 +47,17 @@ public class Player{
 	
 	public Player(){
 		//costruttore di default
+		
 		name = DEFAULT_NAME;
+		//this.resourceList = new ResourceList();
+		//this.resourceList.setAllToZeroValue();
 		
 		this.cardManager = new CardManager();
 		this.familyManager = new FamilyMemberManager(this);
 		
 		this.loader = new ResourceLoader();
-		this.resourceList = this.loader.load(); //carico da file! funziona, non toccare
+		this.resourceList = this.loader.load(); 
+		
 		
 	}
 

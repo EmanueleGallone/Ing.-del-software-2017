@@ -17,5 +17,7 @@ public class BlueTower extends Tower {
 		resource.setValueOf(Stone.class, 2);
 		addFloor(new Floor(7,resource.clone()));
 	}
+	
+	
 
 }
