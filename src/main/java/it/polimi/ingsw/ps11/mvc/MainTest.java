@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.cranio;
+package it.polimi.ingsw.ps11.mvc;
 
 import java.util.ArrayList;
 
@@ -31,10 +31,6 @@ public class MainTest {
 		
 		ActivableSpace consiglio = new RewardedActionSpace(space, resourceList);
 		*/
-		
-	}
-	
-	private void ciao(){
 		
 	}
 }
