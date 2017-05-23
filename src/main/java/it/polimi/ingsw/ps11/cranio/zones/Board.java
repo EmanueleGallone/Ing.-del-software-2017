@@ -20,7 +20,7 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
 
 public class Board {
 	
-	private HashMap<Class<? extends Tower>, Tower> towers = new HashMap<Class<? extends Tower>, Tower>();
+	private HashMap<String, Tower> towers = new HashMap<>();
 	
 	private Harvest harvest;
 	private Production production;
@@ -31,10 +31,10 @@ public class Board {
 	public Board(){
 		
 		// Andranno caricate da file 
-		towers.put(GreenTower.class, new GreenTower());
-		towers.put(PurpleTower.class, new PurpleTower());
-		towers.put(YellowTower.class, new YellowTower());
-		towers.put(BlueTower.class, new BlueTower());
+		towers.put(GreenTower.class.toString(), new GreenTower());
+		towers.put(PurpleTower.class.toString(), new PurpleTower());
+		towers.put(YellowTower.class.toString(), new YellowTower());
+		towers.put(BlueTower.class.toString(), new BlueTower());
 		
 		harvest = new Harvest();
 		production = new Production();
