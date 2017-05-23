@@ -32,7 +32,8 @@ public abstract class Loader {
 				testo.add(line);
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.err.println("Errore nel loader");
 			throw e;
 		}
 		finally{

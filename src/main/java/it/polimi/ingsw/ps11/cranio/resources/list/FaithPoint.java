@@ -4,6 +4,8 @@ import it.polimi.ingsw.ps11.cranio.resources.Resource;
 
 public class FaithPoint extends Resource {
 
+	public static final String type = "FaithPoint";
+	
 	public FaithPoint() {
 		this(DEFAULT);
 

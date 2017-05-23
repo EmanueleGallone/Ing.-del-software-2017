@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.cranio.resources;
 public abstract class Resource {
 	protected static final int DEFAULT = 0;
 	protected int value;
+	public static final String type = "Resource";
 	
 	//start constructor
 	public Resource(){
@@ -25,10 +26,4 @@ public abstract class Resource {
 	public void increment(int value){
 		this.value += value;
 	}
-	
-	@Override
-	public String toString() {
-		return "Class: " + this.getClass() + " value: " + this.getValue(); 
-	}
-
 }

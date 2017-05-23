@@ -20,7 +20,7 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
 
 public class Board {
 	
-	private HashMap<Class<? extends Tower>, Tower> tempTowers = new HashMap<Class<? extends Tower>, Tower>();
+	private HashMap<Class<? extends Tower>, Tower> towers = new HashMap<Class<? extends Tower>, Tower>();
 	
 	private Harvest harvest;
 	private Production production;
@@ -30,21 +30,26 @@ public class Board {
 	
 	public Board(){
 		
-		tempTowers.put(GreenTower.class, new GreenTower());
-		tempTowers.put(PurpleTower.class, new PurpleTower());
-		tempTowers.put(YellowTower.class, new YellowTower());
-		tempTowers.put(BlueTower.class, new BlueTower());
+		// Andranno caricate da file 
+		towers.put(GreenTower.class, new GreenTower());
+		towers.put(PurpleTower.class, new PurpleTower());
+		towers.put(YellowTower.class, new YellowTower());
+		towers.put(BlueTower.class, new BlueTower());
 		
 		harvest = new Harvest();
 		production = new Production();
 		
 		market = new Market();
 		
+		councilPalace = new MultipleActionSpace();
+		
 		CardsLoader cardsLoader = new CardsLoader();
+		
 		try {
 			cards = new CardManager(cardsLoader.load());
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.err.println("Errore con il card manager, il file no c'e' ancora \n");
 		}	
 	}
 	
@@ -59,17 +64,19 @@ public class Board {
 // End setters
 // Start getters
 
-	public HashMap<Class<? extends Tower>, Tower> getTempTowers() {
-		return tempTowers;
+	public ArrayList<Tower> getTowers() {
+		
+		ArrayList<Tower> t = new ArrayList<>(this.towers.values());
+		return t;
 	}
 	
 	public <T extends Tower> T getTower(Class<T> tower){
-		return (T) this.tempTowers.get(tower);
+		return (T) this.towers.get(tower);
 	}
 	
 	@Override
 	public String toString() {
-		return "Board [tempTowers=" + Arrays.asList(tempTowers) 
+		return "Board [tempTowers=" + Arrays.asList(towers) 
 		+", harvest=" + harvest 
 		+ ", production=" + production 
 		+ ", market=" + market 

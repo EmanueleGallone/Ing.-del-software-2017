@@ -1,5 +1,9 @@
 package it.polimi.ingsw.ps11.mvc.view;
 
+import java.awt.print.Printable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
@@ -11,7 +15,9 @@ import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
+import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.events.Event;
 
 public class TextualView {
@@ -29,13 +35,21 @@ public class TextualView {
 	
 	private String input;
 	
+// Start Event 
+	
 	EventHandler<Event> printStatus = new EventHandler<>();
+	EventHandler<Event> posizionaFamiliareTorre = new EventHandler<>();
 	
 	public EventHandler<Event> getPrintStatus() {
 		return printStatus;
 	}
+	public EventHandler<Event> getPosizionaFamiliareTorre() {
+		return posizionaFamiliareTorre;
+	}
 	
-	public void printMenu(){
+// End Event
+	
+	public void menu(){
 		print(menuAzione);
 		
 		input = readInput();
@@ -43,86 +57,75 @@ public class TextualView {
 		switch (input) {
 		
 		case "0":
-			//printStatus(game.getPlayerCorrente());
+			printStatus.invoke(new Event());
 			break;
 		
 		case "1":	
-			scegliTorre();
+			posizionaFamiliareTorre.invoke(new Event());
 			break;
 			
 		case "p":
 			break; 
-			
 			
 		default: print("Comando non valido");
 			break;
 		}
 	}
 	
-	public void scegliTorre(){
-		printTowers();
-		
-		print("Scegli la torre:\n"
-				+ " 1 torre gialla\n" 
-				+ "2 : torre blu\n"
-				+ "3 : torre verde\n"
-				+ "4 : torre viola\n");
-		
-		String torre = readInput();//dovrei passare la torre e la carta scelta, no?
-		
-		scegliCarta(); //faccio scegliere la carta. Ora dovrei delegare al controller/model!
-		
-		
+//___ output towers____
+	
+	public String scegliTorre(ArrayList<Tower> towers){
+		printTowers(towers);
+		System.out.println("Scegli la torre ");
+		return readInput();
 	}
 	
-	public void start(){
-		
-		do {
-			printMenu();
-		} while(!this.input.equalsIgnoreCase("p"));
-		
+	public void printTowers(ArrayList<Tower> towers){
+		for(Tower tower: towers){
+			printTower(tower);
+		}
 	}
 	
+	public void printTower(Tower tower){
+		System.out.println("Tower: " + tower.getClass());
+		for(Floor floor : tower.getFloors()){
+			System.out.println(floor.getCard());
+		}
+	}
+	
+//___ end output towers _____
+	
+
+	public String scegliCarta(Tower tower){
+		printTower(tower);
+		print("Scegli quale carta prendere (da 1 a 4) :");
+		Scanner in = new Scanner(System.in);
+		return in.nextLine();
+	}
+	
+	public void printStatus(Player player){
+		System.out.println("STATUS: \n" + player.toString());
+	}
+	
+	
+	public void print (String message){
+		System.out.println(message);
+	}
+
 	private String readInput(){
 		Scanner input = new Scanner(System.in);
 		String in = input.nextLine();
 		return in;
 	}
 	
-	private void print (String message){
-		System.out.println(message);
-	}
 	
+// ____________ START _______________
 	
-	public void printStatus(Player player){
-		System.out.println("STATUS: \n" + player.toString());
-	}
-	
-	public void printTowers(){
-	
-	}
-	
-	public String scegliCarta(){
-		Scanner in = new Scanner(System.in);
-		System.out.println("Scegli quale carta prendere (da 1 a 4) : ");
+	public void start(){
 		
-		return in.nextLine();
-	}
-	
-	public void printBoard(){
-		//System.out.println("Board: \n" + game.getBoard().toString());
-	}
-	
-	public String printFamilyChoice(){
-		Scanner in = new Scanner(System.in);
-		System.out.println("inserisci quale familiare vuoi usare: \n" 
-		+ "1 : Familiare Nero\n" 
-		+ "2: Familiare Bianco\n"
-		+ "3: Familiare Arancione\n"
-		+ "4: Familiare Neutro");
-		
-		return in.nextLine();//dovrei ritornare al controller la scelta giusto?
+		do {
+			menu();
+		} while(!this.input.equalsIgnoreCase("p"));
 		
 	}
-	
 }

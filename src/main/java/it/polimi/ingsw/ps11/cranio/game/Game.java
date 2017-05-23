@@ -14,18 +14,10 @@ public class Game {
 	
 	public Game(ArrayList<Player> players) {
 		
-		loadComponent(players);
-		
+		roundManager = new RoundManager(players);
 	}
 	
 // Start logic
-	
-	protected void loadComponent(ArrayList<Player> players){
-		
-		roundManager = new RoundManager(players);
-		//CardsLoader cardsLoader = new CardsLoader();
-		//cards = cardsLoader.load();
-	}
 	
 	public DiceManager getDiceManager() {
 		return diceManager;

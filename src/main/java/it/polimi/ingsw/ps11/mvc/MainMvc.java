@@ -2,12 +2,14 @@ package it.polimi.ingsw.ps11.mvc;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.mvc.controller.Controller;
 import it.polimi.ingsw.ps11.mvc.model.Model;
 import it.polimi.ingsw.ps11.mvc.view.TextualView;
 
 public class MainMvc {
+	
 	
 		public static void main(String[] args){
 			
@@ -23,8 +25,9 @@ public class MainMvc {
 			players.add(p1);
 			players.add(p2);
 			
-			Controller controller = new Controller(new Model(players), textualView);
-			//textualView.update(controller.model);
+			Game game = new Game(players);
+			
+			Controller controller = new Controller(new Model(game), textualView);
 			controller.start();
 		}
 }

@@ -16,18 +16,20 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 public class ResourceList implements Cloneable {
 	
-	private HashMap<Class<? extends Resource>, Resource> resources = new HashMap<Class<? extends Resource>,Resource>();
+	private HashMap<String, Resource> resources = new HashMap<>();
 	
 // start constructor
 
 	public ResourceList() {
-		resources.put(Wood.class, new Wood());
-		resources.put(Stone.class, new Stone());
-		resources.put(Coin.class, new Coin());
-		resources.put(Servant.class, new Servant());
-		resources.put(MilitaryPoint.class, new MilitaryPoint());
-		resources.put(FaithPoint.class, new FaithPoint());
-		resources.put(VictoryPoint.class, new VictoryPoint());
+		
+		// Andranno caricate da file (?)
+		resources.put(Wood.type, new Wood());
+		resources.put(Stone.type, new Stone());
+		resources.put(Coin.type, new Coin());
+		resources.put(Servant.type, new Servant());
+		resources.put(MilitaryPoint.type, new MilitaryPoint());
+		resources.put(FaithPoint.type, new FaithPoint());
+		resources.put(VictoryPoint.type, new VictoryPoint());
 	}
 	
 	public ResourceList(ArrayList<Resource> resources){
@@ -45,7 +47,7 @@ public class ResourceList implements Cloneable {
 	 */
 	public boolean greater (ResourceList otherResources){
 		for(Resource r : resources.values()){
-			if(this.getValueOf(r.getClass()) <  otherResources.getValueOf(r.getClass())){
+			if(this.getValueOf(r.type) <  otherResources.getValueOf(r.type)){
 				return false;
 			}
 		}
@@ -58,12 +60,12 @@ public class ResourceList implements Cloneable {
 	 */
 	public void sum(ResourceList otherResources){
 		for (Resource r : this.resources.values()){
-			r.increment(otherResources.getValueOf(r.getClass())) ;
+			r.increment(otherResources.getValueOf(r.type)) ;
 		}
 	}
 	
-	public <T extends Resource> void increment(Class<T> resource,int value){
-		this.getResource(resource).increment(value);
+	public <T extends Resource> void increment(String rType,int value){
+		this.getResource(rType).increment(value);
 	}
 	
 	@Override
@@ -80,30 +82,16 @@ public class ResourceList implements Cloneable {
 	
 	
 // end logic
-	
-	public String toJson(){
-		Gson gson = new Gson();
-		return gson.toJson(resources);
-	}
-	
-	public static ResourceList fromJson(String json){
-		Gson gson = new Gson();
-		ResourceList resourceList = new ResourceList();
-		resourceList.setResources(gson.fromJson(json, HashMap.class));
-		return resourceList;
-	}
-
-// Start Iterator
 // Start getters
 	
-	public <T extends Resource> T getResource(Class<T> rClass){
-		return (T) this.resources.get(rClass);
+	public <T extends Resource> T getResource(String rType){
+		return (T) this.resources.get(rType);
 	}
 	
-	public <T extends Resource> int getValueOf(Class<T> rClass ){
-		return this.getResource(rClass).getValue();
+	public <T extends Resource> int getValueOf(String rType){
+		return this.getResource(rType).getValue();
 	}
-	public HashMap<Class<? extends Resource>, Resource> getResources() {
+	public HashMap<String, Resource> getResources() {
 		return resources;
 	}
 	
@@ -112,24 +100,21 @@ public class ResourceList implements Cloneable {
 // Start setters
 
 	public <T extends Resource> void setResource(T resource){
-		this.resources.put(resource.getClass(),resource);
+		this.resources.put(resource.type,resource);
 	}
 	
-	public <T extends Resource> void setValueOf(Class<T> resource,int value){
-		this.getResource(resource).setValue(value);
+	public <T extends Resource> void setValueOf(String rType , int value){
+		this.getResource(rType).setValue(value);
 	}
 
-	public void setResources(HashMap<Class<? extends Resource>, Resource> resources) {
-		this.resources = resources;
-	}
 //End setters
 	
 	@Override
 	public String toString() {
 		String stringa = "";
 		
-		for (Class<? extends Resource> tipo : resources.keySet()){
-			stringa = stringa + tipo + " : " + resources.get(tipo).toString();
+		for (String tipo : resources.keySet()){
+			stringa = stringa + tipo + " : " + this.getValueOf(tipo) + " | ";
 		}
 		return stringa;
 	}
