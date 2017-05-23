@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.mvc.view.textual;
+package it.polimi.ingsw.ps11.mvc.view;
 
 import java.util.Scanner;
 

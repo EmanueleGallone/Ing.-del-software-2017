@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.mvc.model.Model;
-import it.polimi.ingsw.ps11.mvc.view.textual.TextualView;
+import it.polimi.ingsw.ps11.mvc.view.TextualView;
 
 public class Controller {
 	private Game model;
