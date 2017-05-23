@@ -23,13 +23,13 @@ public class ResourceList implements Cloneable {
 	public ResourceList() {
 		
 		// Andranno caricate da file (?)
-		resources.put(Wood.type, new Wood());
-		resources.put(Stone.type, new Stone());
-		resources.put(Coin.type, new Coin());
-		resources.put(Servant.type, new Servant());
-		resources.put(MilitaryPoint.type, new MilitaryPoint());
-		resources.put(FaithPoint.type, new FaithPoint());
-		resources.put(VictoryPoint.type, new VictoryPoint());
+		resources.put(Wood.class.toString(), new Wood());
+		resources.put(Stone.class.toString(), new Stone());
+		resources.put(Coin.class.toString(), new Coin());
+		resources.put(Servant.class.toString(), new Servant());
+		resources.put(MilitaryPoint.class.toString(), new MilitaryPoint());
+		resources.put(FaithPoint.class.toString(), new FaithPoint());
+		resources.put(VictoryPoint.class.toString(), new VictoryPoint());
 	}
 	
 	public ResourceList(ArrayList<Resource> resources){
@@ -47,7 +47,7 @@ public class ResourceList implements Cloneable {
 	 */
 	public boolean greater (ResourceList otherResources){
 		for(Resource r : resources.values()){
-			if(this.getValueOf(r.type) <  otherResources.getValueOf(r.type)){
+			if(this.getValueOf(r.getClass()) <  otherResources.getValueOf(r.getClass())){
 				return false;
 			}
 		}
@@ -60,12 +60,12 @@ public class ResourceList implements Cloneable {
 	 */
 	public void sum(ResourceList otherResources){
 		for (Resource r : this.resources.values()){
-			r.increment(otherResources.getValueOf(r.type)) ;
+			r.increment(otherResources.getValueOf(r.getClass())) ;
 		}
 	}
 	
-	public <T extends Resource> void increment(String rType,int value){
-		this.getResource(rType).increment(value);
+	public <T extends Resource> void increment(Class<T> rClass,int value){
+		this.getResource(rClass).increment(value);
 	}
 	
 	@Override
@@ -84,12 +84,12 @@ public class ResourceList implements Cloneable {
 // end logic
 // Start getters
 	
-	public <T extends Resource> T getResource(String rType){
-		return (T) this.resources.get(rType);
+	public <T extends Resource> T getResource(Class<T> rClass){
+		return (T) resources.get(rClass.toString());
 	}
 	
-	public <T extends Resource> int getValueOf(String rType){
-		return this.getResource(rType).getValue();
+	public <T extends Resource> int getValueOf(Class<T> rClass){
+		return this.getResource(rClass).getValue();
 	}
 	public HashMap<String, Resource> getResources() {
 		return resources;
@@ -100,21 +100,21 @@ public class ResourceList implements Cloneable {
 // Start setters
 
 	public <T extends Resource> void setResource(T resource){
-		this.resources.put(resource.type,resource);
+		this.resources.put(resource.getClass().toString() , resource);
 	}
 	
-	public <T extends Resource> void setValueOf(String rType , int value){
-		this.getResource(rType).setValue(value);
+	public <T extends Resource> void setValueOf(Class<T> rClass , int value){
+		this.getResource(rClass).setValue(value);
 	}
 
 //End setters
 	
 	@Override
-	public String toString() {
+	public  String toString() {
 		String stringa = "";
 		
-		for (String tipo : resources.keySet()){
-			stringa = stringa + tipo + " : " + this.getValueOf(tipo) + " | ";
+		for (String r : resources.keySet()){
+			stringa = stringa + r + " : " +  resources.get(r).getValue() + " | ";
 		}
 		return stringa;
 	}

@@ -11,9 +11,9 @@ public class PurpleTower extends Tower {
 		addFloor(new Floor(3));
 		
 		ResourceList resource = new ResourceList();
-		resource.setValueOf(Coin.type, 1);
+		resource.setValueOf(Coin.class, 1);
 		addFloor(new Floor(5,resource.clone()));
-		resource.setValueOf(Coin.type, 2);
+		resource.setValueOf(Coin.class, 2);
 		addFloor(new Floor(7,resource.clone()));
 	}
 }

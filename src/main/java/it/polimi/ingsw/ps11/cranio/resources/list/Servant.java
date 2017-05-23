@@ -4,8 +4,6 @@ import it.polimi.ingsw.ps11.cranio.resources.Resource;
 
 public class Servant extends Resource {
 
-	public static final String type = "Servant";
-	
 	public Servant(){
 		this(DEFAULT);
 	}

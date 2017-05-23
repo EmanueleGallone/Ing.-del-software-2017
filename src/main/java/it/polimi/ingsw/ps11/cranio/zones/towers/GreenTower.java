@@ -11,9 +11,9 @@ public class GreenTower extends Tower {
 		addFloor(new Floor(3));
 		
 		ResourceList resource = new ResourceList();
-		resource.setValueOf(Wood.type, 1);
+		resource.setValueOf(Wood.class, 1);
 		addFloor(new Floor(5,resource.clone()));
-		resource.setValueOf(Wood.type, 2);
+		resource.setValueOf(Wood.class, 2);
 		addFloor(new Floor(7,resource.clone()));
 		
 	}

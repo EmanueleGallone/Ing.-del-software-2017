@@ -1,9 +1,8 @@
 package it.polimi.ingsw.ps11.cranio.resources;
 
-public abstract class Resource {
+public class Resource {
 	protected static final int DEFAULT = 0;
 	protected int value;
-	public static final String type = "Resource";
 	
 	//start constructor
 	public Resource(){
