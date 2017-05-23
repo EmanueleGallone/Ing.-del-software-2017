@@ -16,11 +16,13 @@ public class ResourceLoader extends Loader {
 
 	@Override
 	public ResourceList load() throws IOException {
-		if (resourceList == null){
+	/*	if (resourceList == null){
 			ArrayList<String> testo = this.read();
-			ResourceList rList = ResourceList.fromJson(testo.get(0)); //Da rivedere
+			ResourceList rList = ResourceList.t(testo.get(0)); //Da rivedere
 			resourceList = rList;
 		}
 		return resourceList.clone();
+		*/
+		return null;
 	}
 }

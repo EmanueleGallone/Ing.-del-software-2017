@@ -12,9 +12,9 @@ public class YellowTower extends Tower {
 		addFloor(new Floor(3));
 		
 		ResourceList resource = new ResourceList();
-		resource.setValueOf(MilitaryPoint.class, 1);
+		resource.setValueOf(MilitaryPoint.type, 1);
 		addFloor(new Floor(5, resource.clone()));
-		resource.setValueOf(MilitaryPoint.class, 2);
+		resource.setValueOf(MilitaryPoint.type, 2);
 		addFloor(new Floor(7, resource.clone()));
 	}
 }

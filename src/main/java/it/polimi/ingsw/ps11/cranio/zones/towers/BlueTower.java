@@ -12,9 +12,9 @@ public class BlueTower extends Tower {
 		addFloor(new Floor(3));
 		
 		ResourceList resource = new ResourceList();
-		resource.setValueOf(Stone.class, 1);
+		resource.setValueOf(Stone.type, 1);
 		addFloor(new Floor(5,resource.clone()));
-		resource.setValueOf(Stone.class, 2);
+		resource.setValueOf(Stone.type, 2);
 		addFloor(new Floor(7,resource.clone()));
 	}
 	
