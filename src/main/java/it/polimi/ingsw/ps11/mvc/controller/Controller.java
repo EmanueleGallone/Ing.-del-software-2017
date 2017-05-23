@@ -43,38 +43,12 @@ public class Controller {
 		view.getPrintStatus().attach(printPlayerStatus);
 	}
 	
-	private void start(){
+	public void start(){
 		
 		attachAll();
 		
 		model.startGame();
 		view.start();
 	}
-
-	
-//______________________________________________________________________________________________
-	
-	//MAIN
-	
-	public static void main(String[] args){
-		
-		
-		TextualView textualView = new TextualView();
-		ArrayList<Player> players = new ArrayList<>();
-		
-		Player p1 = new Player();
-		p1.setName("Jack");
-		Player p2 = new Player();
-		p2.setName("Sparrow");
-		
-		players.add(p1);
-		players.add(p2);
-		
-		Controller controller = new Controller(new Model(players), textualView);
-		//textualView.update(controller.model);
-		controller.start();
-	}
-	
-	
 	
 }

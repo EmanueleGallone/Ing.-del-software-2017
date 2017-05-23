@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.mvc;
+package it.polimi.ingsw.ps11.cranio;
 
 import java.util.ArrayList;
 
