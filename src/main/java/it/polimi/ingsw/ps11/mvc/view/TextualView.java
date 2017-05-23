@@ -1,24 +1,13 @@
 package it.polimi.ingsw.ps11.mvc.view;
 
-import java.awt.print.Printable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Scanner;
 
+import it.polimi.ingsw.ps11.cranio.events.Event;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
-import it.polimi.ingsw.ps11.cranio.events.EventListener;
-import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
-import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.events.Event;
 
 public class TextualView {
 	

@@ -13,4 +13,8 @@ public class FaithPoint extends Resource {
 		super(value);
 	}
 
+	@Override
+	protected FaithPoint clone() {
+		return new FaithPoint(value);
+	}
 }

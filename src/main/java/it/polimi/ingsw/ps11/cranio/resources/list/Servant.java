@@ -12,4 +12,8 @@ public class Servant extends Resource {
 		super(value);
 	}
 
+	@Override
+	protected Servant clone() {
+		return new Servant(value);
+	}
 }

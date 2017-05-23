@@ -12,4 +12,8 @@ public class MilitaryPoint extends Resource {
 		super(value);
 	}
 
+	@Override
+	protected MilitaryPoint clone() {
+		return new MilitaryPoint(value);
+	}
 }

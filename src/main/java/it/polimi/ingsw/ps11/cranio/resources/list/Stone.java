@@ -13,4 +13,8 @@ public class Stone extends Resource {
 	}
 	
 
+	@Override
+	protected Stone clone() {
+		return new Stone(value);
+	}
 }

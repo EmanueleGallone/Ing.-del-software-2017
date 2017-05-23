@@ -30,7 +30,7 @@ public abstract class DevelopmentCard extends Card {
 // Start Logics
 	
 	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
-		if (costs.contains(cost) && playerResourceList.greater(cost))
+		if (costs.contains(cost) && playerResourceList.greaterEquals(cost))
 			return true;
 		return false;
 	}

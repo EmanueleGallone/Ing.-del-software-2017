@@ -16,12 +16,13 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 public class ResourceList implements Cloneable {
 	
+	private static final int DEFAULT_VALUE = 0;
 	private HashMap<String, Resource> resources = new HashMap<>();
 	
 // start constructor
 
 	public ResourceList() {
-		
+	/*
 		// Andranno caricate da file (?)
 		resources.put(Wood.class.toString(), new Wood());
 		resources.put(Stone.class.toString(), new Stone());
@@ -30,6 +31,7 @@ public class ResourceList implements Cloneable {
 		resources.put(MilitaryPoint.class.toString(), new MilitaryPoint());
 		resources.put(FaithPoint.class.toString(), new FaithPoint());
 		resources.put(VictoryPoint.class.toString(), new VictoryPoint());
+	*/
 	}
 	
 	public ResourceList(ArrayList<Resource> resources){
@@ -42,12 +44,16 @@ public class ResourceList implements Cloneable {
 // start logic
 	
 	/**
-	 * Ritorna "False" se almeno un campo di otherList è maggiore di quello della lista su cui viene
-	 * chiamata la funzione greater
+	 * Ritorna true se tutti i campi della resourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'othoerList.
+	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di defaul (zero)
 	 */
-	public boolean greater (ResourceList otherResources){
-		for(Resource r : resources.values()){
-			if(this.getValueOf(r.getClass()) <  otherResources.getValueOf(r.getClass())){
+	public boolean greaterEquals (ResourceList otherList){
+		
+		if (resources.size() == 0)
+			return false;
+		
+		for(Resource r : this.resources.values()){
+			if( r.getValue() <  otherList.getValueOf(r.getClass())){
 				return false;
 			}
 		}
@@ -59,13 +65,16 @@ public class ResourceList implements Cloneable {
 	 * Il risultato lo assegna alla resourceList che gli viene passata
 	 */
 	public void sum(ResourceList otherResources){
-		for (Resource r : this.resources.values()){
-			r.increment(otherResources.getValueOf(r.getClass())) ;
+		Resource temp;
+		for(String key : otherResources.getResources().keySet()){
+			temp = getResource(key);
+			if (temp == null){
+				this.resources.put(key, otherResources.getResource(key).clone());
+			}
+			else {
+				this.resources.get(key).increment(otherResources.getValueOf(key));
+			}
 		}
-	}
-	
-	public <T extends Resource> void increment(Class<T> rClass,int value){
-		this.getResource(rClass).increment(value);
 	}
 	
 	@Override
@@ -85,12 +94,24 @@ public class ResourceList implements Cloneable {
 // Start getters
 	
 	public <T extends Resource> T getResource(Class<T> rClass){
-		return (T) resources.get(rClass.toString());
+		return (T) getResource(rClass.toString());
+	}
+	
+	public <T extends Resource> T getResource(String rType){
+		return (T) resources.get(rType);
+	}
+	
+	public <T extends Resource> int getValueOf(String rType){
+		Resource r = this.getResource(rType);
+		if (r == null)
+			return DEFAULT_VALUE; //Da decidere
+		return r.getValue();
 	}
 	
 	public <T extends Resource> int getValueOf(Class<T> rClass){
-		return this.getResource(rClass).getValue();
+		return getValueOf(rClass.toString());
 	}
+	
 	public HashMap<String, Resource> getResources() {
 		return resources;
 	}
@@ -100,11 +121,7 @@ public class ResourceList implements Cloneable {
 // Start setters
 
 	public <T extends Resource> void setResource(T resource){
-		this.resources.put(resource.getClass().toString() , resource);
-	}
-	
-	public <T extends Resource> void setValueOf(Class<T> rClass , int value){
-		this.getResource(rClass).setValue(value);
+		this.resources.put(resource.getClass().toString() , resource.clone());
 	}
 
 //End setters

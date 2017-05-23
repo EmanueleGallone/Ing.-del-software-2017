@@ -11,5 +11,10 @@ public class Wood extends Resource {
 	public Wood(int value){
 		super(value);
 	}
+	
+	@Override
+	protected Wood clone() {
+		return new Wood(value);
+	}
 
 }

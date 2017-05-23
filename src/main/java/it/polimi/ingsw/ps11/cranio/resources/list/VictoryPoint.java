@@ -12,4 +12,8 @@ public class VictoryPoint extends Resource{
 		super(value);
 	}
 
+	@Override
+	protected VictoryPoint clone() {
+		return new VictoryPoint(value);
+	}
 }

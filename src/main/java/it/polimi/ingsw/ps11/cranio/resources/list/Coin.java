@@ -12,4 +12,8 @@ public class Coin extends Resource {
 		super(value);
 	}
 
+	@Override
+	protected Coin clone() {
+		return  new Coin(value);
+	}
 }

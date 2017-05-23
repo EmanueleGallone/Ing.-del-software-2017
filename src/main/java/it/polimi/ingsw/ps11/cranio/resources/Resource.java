@@ -12,6 +12,7 @@ public class Resource {
 	public Resource(int value){
 		this.value = value;
 	}
+	
 	//end constructor
 	
 	public int getValue(){
@@ -24,5 +25,9 @@ public class Resource {
 	
 	public void increment(int value){
 		this.value += value;
+	}
+	
+	protected Resource clone() {
+		return new Resource(value);
 	}
 }
