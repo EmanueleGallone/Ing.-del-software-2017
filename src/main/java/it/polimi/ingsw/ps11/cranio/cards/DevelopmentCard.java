@@ -9,8 +9,10 @@ import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 public abstract class DevelopmentCard extends Card {
 
 	private String name; 
-	private ArrayList<ResourceList> costs = new ArrayList<>();
 	
+	private ArrayList<ResourceList> costs = new ArrayList<>();
+
+	protected ArrayList<Bonus> istantBonus = new ArrayList<>();
 	protected ArrayList<Bonus> permanentBonus = new ArrayList<>();
 
 	public DevelopmentCard() {
@@ -26,16 +28,6 @@ public abstract class DevelopmentCard extends Card {
 	}
 	
 // Start Logics
-	
-	public void addCost(ResourceList cost){
-		this.costs.add(cost);
-	}
-	
-	private void setOwner(Player player){
-		for(Bonus bonus : permanentBonus){
-			bonus.setOwner(player);
-		}
-	}
 	
 	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
 		if (costs.contains(cost) && playerResourceList.greater(cost))
@@ -60,4 +52,33 @@ public abstract class DevelopmentCard extends Card {
 	}
 	
 //End Logics
+	
+// Start setters
+	
+	public void addIstantBonus(Bonus bonus){
+		this.istantBonus.add(bonus);
+	}
+	
+	public void addPermanentBonus(Bonus bonus){
+		this.istantBonus.add(bonus);
+	}
+	
+	private void setOwner(Player player){
+		for(Bonus bonus : permanentBonus){
+			bonus.setOwner(player);
+		}
+	}
+	
+	public void setIstantBonus(ArrayList<Bonus> istantBonus) {
+		this.istantBonus = istantBonus;
+	}
+	
+	public void setPermanentBonus(ArrayList<Bonus> permanentBonus) {
+		this.permanentBonus = permanentBonus;
+	}
+	
+	public void addCost(ResourceList cost){
+		this.costs.add(cost);
+	}
+// End setters
 }

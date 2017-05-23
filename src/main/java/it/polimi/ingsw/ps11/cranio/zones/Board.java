@@ -1,10 +1,17 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.game.RoundManager;
+import it.polimi.ingsw.ps11.cranio.loaders.CardsLoader;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Harvest;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
@@ -17,29 +24,9 @@ public class Board {
 	
 	private Harvest harvest;
 	private Production production;
-		
 	private Market market;
-	private CouncilPalace councilPalace;
-	
-	//manca il palazzo del consiglio
-	
-// Start constructors
-	
-	/*public Board() {
-		
-		for(Integer i = 0; i < 4; i++){
-			Tower tower = new Tower();
-			tower.setType(YellowCard.class);
-			for(Integer c = 0 ; c < 4 ; c++){
-				Floor floor = new Floor();
-				DevelopmentCard card = new YellowCard();
-				card.setName(i.toString() + " " + c.toString());
-				floor.setCard(card);
-				tower.addFloor(floor);
-			}
-			towers.add(tower);
-		}
-	}*/
+	private CardManager cards;
+	private MultipleActionSpace councilPalace;
 	
 	public Board(){
 		
@@ -52,9 +39,13 @@ public class Board {
 		production = new Production();
 		
 		market = new Market();
-		councilPalace = new CouncilPalace();
 		
-		
+		CardsLoader cardsLoader = new CardsLoader();
+		try {
+			cards = new CardManager(cardsLoader.load());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
 	
 	public Board(int period){
@@ -72,13 +63,10 @@ public class Board {
 		return tempTowers;
 	}
 	
-	public <T extends Tower> T getTower(T tower){
-		return (T) this.tempTowers.get(tower.getClass());
-	}
-	
 	public <T extends Tower> T getTower(Class<T> tower){
 		return (T) this.tempTowers.get(tower);
 	}
+	
 	@Override
 	public String toString() {
 		return "Board [tempTowers=" + Arrays.asList(tempTowers) 
@@ -89,7 +77,4 @@ public class Board {
 	}
 	
 // End getters
-
-
-
 }

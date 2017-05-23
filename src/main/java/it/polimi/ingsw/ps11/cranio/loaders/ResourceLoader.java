@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.cranio.loaders;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
@@ -16,8 +17,8 @@ public class ResourceLoader extends Loader {
 	@Override
 	public ResourceList load() throws IOException {
 		if (resourceList == null){
-			String testo = this.read();
-			ResourceList rList = ResourceList.fromJson(testo);
+			ArrayList<String> testo = this.read();
+			ResourceList rList = ResourceList.fromJson(testo.get(0)); //Da rivedere
 			resourceList = rList;
 		}
 		return resourceList.clone();

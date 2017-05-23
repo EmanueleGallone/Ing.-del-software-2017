@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.cranio.loaders;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public abstract class Loader {
 	
@@ -20,14 +21,15 @@ public abstract class Loader {
 	
 	public abstract Object load() throws IOException;
 
-	protected String read() throws IOException{
+	protected ArrayList<String> read() throws IOException{
 		
 		BufferedReader reader = null; 
-		String line,testo  = "";
+		ArrayList<String> testo = new ArrayList<>();
+		String line  = "";
 		try {
 			reader = new BufferedReader(new FileReader(filePath));
 			while ((line = reader.readLine()) != null){
-				testo = testo + line;
+				testo.add(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

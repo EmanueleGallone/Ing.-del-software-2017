@@ -20,6 +20,8 @@ public abstract class CardAttivator implements ActivableSpace {
 		actionSpace = new ActionSpace(actionSpaceCost);
 		multipleActionSpace = new MultipleActionSpace(multipleActionSpaceCost);
 	}
+	
+// End constructors
 
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember) {
@@ -31,11 +33,13 @@ public abstract class CardAttivator implements ActivableSpace {
 	
 	public boolean placeInMultipleSpace(FamilyMember familyMember) {
 		if (actionSpace.placeFamilyMember(familyMember)){
-			FamilyMember f = familyMember.clone();
-			f.setValue(f.getValue() - DEFAULT_COST);
+			familyMember.setModifier(-DEFAULT_COST);
+			activeCard(familyMember);
 			return true;
 		}
 		return false;
 	}
+	
+	protected abstract void activeCard(FamilyMember familyMember);
 	
 }

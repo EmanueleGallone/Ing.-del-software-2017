@@ -3,6 +3,10 @@ package it.polimi.ingsw.ps11.mvc.controller;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.xml.bind.attachment.AttachmentMarshaller;
+
+import it.polimi.ingsw.ps11.cranio.events.Event;
+import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
@@ -21,33 +25,30 @@ public class Controller {
 // _______________ EVENT LISTENER _____________________
 	
 	
-	
+	EventListener<Event> printPlayerStatus = new EventListener<Event>() {
+		
+		@Override
+		public void handle(Event event) {
+		  Player player =	model.getRoundManager().getActualPlayer();
+		  view.printStatus(player);
+		}
+	};
 
 	
 //__________________________________________________________
 	
-	/*private void start(){
-		model.startGame();
-		gestisciPartita(model.getPlayers());
-		
-		view.start();
-		
-		
+
+	protected void attachAll(){
 	
-	}*/
+		view.getPrintStatus().attach(printPlayerStatus);
+	}
 	
 	private void start(){
-		model.startGame();
-		ArrayList<Player> players = model.getPlayers();
 		
-		//funzione per ciclare sui giocatori e fargli fare le loro scelte
-		//a chi lo faccio fare? al controller o al game?
-					
-						
-					
-					
-					//finite le operazioni
-				
+		attachAll();
+		
+		model.startGame();
+		view.start();
 	}
 
 	
@@ -60,6 +61,7 @@ public class Controller {
 		
 		TextualView textualView = new TextualView();
 		ArrayList<Player> players = new ArrayList<>();
+		
 		Player p1 = new Player();
 		p1.setName("Jack");
 		Player p2 = new Player();
@@ -69,7 +71,7 @@ public class Controller {
 		players.add(p2);
 		
 		Controller controller = new Controller(new Model(players), textualView);
-		textualView.update(controller.model);
+		//textualView.update(controller.model);
 		controller.start();
 	}
 	

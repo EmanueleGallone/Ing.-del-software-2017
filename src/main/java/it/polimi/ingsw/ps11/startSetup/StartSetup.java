@@ -26,6 +26,7 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
 import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
 import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import it.polimi.ingsw.ps11.cranio.zones.Market;
 
 public class StartSetup {
 	
@@ -117,7 +118,14 @@ public class StartSetup {
 	}
 	
 	public static void main (String[] args){
-		//initializeResourceList();
+		/*
+		Gson gson = new Gson();
+		Prova1 prova = new Prova1();
+		String string = gson.toJson(prova);
+		System.out.println(string);
+		Prova1 prova1 = gson.fromJson(string, Prova1.class);
+		System.out.println(prova1);
+		*/
 	}
 	
 }

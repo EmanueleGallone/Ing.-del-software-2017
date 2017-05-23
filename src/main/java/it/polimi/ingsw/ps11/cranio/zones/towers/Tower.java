@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.cranio.cards.productionCard.ProductionCard;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 
 public class Tower {

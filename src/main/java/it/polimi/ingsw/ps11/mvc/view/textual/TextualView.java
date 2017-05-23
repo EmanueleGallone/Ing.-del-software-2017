@@ -16,7 +16,7 @@ import it.polimi.ingsw.ps11.cranio.events.Event;
 
 public class TextualView {
 	
-	private Game game;
+	//private Game game;
 	
 	private String menuAzione = ""
 			+ "0 : Visualizza il tuo status \n"
@@ -29,6 +29,12 @@ public class TextualView {
 	
 	private String input;
 	
+	EventHandler<Event> printStatus = new EventHandler<>();
+	
+	public EventHandler<Event> getPrintStatus() {
+		return printStatus;
+	}
+	
 	public void printMenu(){
 		print(menuAzione);
 		
@@ -37,7 +43,7 @@ public class TextualView {
 		switch (input) {
 		
 		case "0":
-			printStatus(game.getPlayerCorrente());
+			//printStatus(game.getPlayerCorrente());
 			break;
 		
 		case "1":	
@@ -51,8 +57,6 @@ public class TextualView {
 		default: print("Comando non valido");
 			break;
 		}
-		
-		
 	}
 	
 	public void scegliTorre(){
@@ -90,21 +94,12 @@ public class TextualView {
 	}
 	
 	
-	public void update(Game game){
-		this.game = game;
-	}
-	
-	
 	public void printStatus(Player player){
 		System.out.println("STATUS: \n" + player.toString());
 	}
 	
 	public void printTowers(){
-		//molto ignorantemente
-		print( game.getBoard().getTower(GreenTower.class).toString() );
-		print( game.getBoard().getTower(PurpleTower.class).toString() );
-		print( game.getBoard().getTower(YellowTower.class).toString() );
-		print( game.getBoard().getTower(BlueTower.class).toString() );
+	
 	}
 	
 	public String scegliCarta(){
@@ -115,7 +110,7 @@ public class TextualView {
 	}
 	
 	public void printBoard(){
-		System.out.println("Board: \n" + game.getBoard().toString());
+		//System.out.println("Board: \n" + game.getBoard().toString());
 	}
 	
 	public String printFamilyChoice(){

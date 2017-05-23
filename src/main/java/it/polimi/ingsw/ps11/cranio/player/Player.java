@@ -1,18 +1,19 @@
 package it.polimi.ingsw.ps11.cranio.player;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.WhiteFamilyMember;
-import it.polimi.ingsw.ps11.cranio.loaders.ResourceLoader;
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
+import it.polimi.ingsw.ps11.cranio.resources.*;
+import it.polimi.ingsw.ps11.cranio.resources.list.*;
 
 
 
 public class Player{
+	
 	private static final String DEFAULT_NAME = "Predefinito";
+	private static final ArrayList<Resource> DEFAULT_RESOURCE = new ArrayList<>(Arrays.asList(new Wood(2),new Stone(2),new Servant(3),new Coin(5),new VictoryPoint(0),new FaithPoint(0),new MilitaryPoint(0)));	
 	
 	private String name;
 	
@@ -20,44 +21,21 @@ public class Player{
 	private FamilyMemberManager familyManager;
 	private CardManager cardManager;
 	
-	private ResourceLoader loader; //per caricare direttamente da file!
-	
-	//private int position; //io farei in modo che il player ha come stato la sua posizione. in modo tale da poter fare
-							//ordinamento tramite comparator ad esempio
-	
-	
 // Start constructors
 	
-	public Player(ResourceList resourceList, CardManager cardManager, FamilyMemberManager familyMemberManager){
-		name = DEFAULT_NAME;
-		
-		this.resourceList = resourceList;
-		this.cardManager = cardManager;
-		this.familyManager = familyMemberManager;
-		
-	}
-	
-	public Player(ResourceList resourceList) {
-		name = DEFAULT_NAME;
-		
-		this.resourceList = resourceList;
-		this.cardManager = new CardManager(); //nessuna carta!
-		this.familyManager = new FamilyMemberManager(this);
-	}
-	
 	public Player(){
-		//costruttore di default
+		this(DEFAULT_RESOURCE);
+	}
+	
+	public Player(ArrayList<Resource> resources ) {
 		
 		name = DEFAULT_NAME;
-		//this.resourceList = new ResourceList();
-		//this.resourceList.setAllToZeroValue();
 		
+		this.resourceList = new ResourceList(resources);
 		this.cardManager = new CardManager();
 		this.familyManager = new FamilyMemberManager(this);
-		
-		this.loader = new ResourceLoader();
-		//this.resourceList = this.loader.load(); 
 	}
+
 
 // End constructors
 	
@@ -98,8 +76,4 @@ public class Player{
 				+ "\n cardManager=" + cardManager + "\n" 
 				+ "]";
 	}
-	
-	
-
-	
 }
