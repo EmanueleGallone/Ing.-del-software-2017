@@ -6,18 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import com.google.gson.Gson;
+import java.util.Scanner;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.cranio.resources.CouncilPrivilege;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
 import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
@@ -86,6 +80,8 @@ public class MainTest {
 		return testo;
 	}
 	
+ 
+ 
 	public static void inizializzatore(){
 		
 		ArrayList<Class<?>> list = new ArrayList<>();

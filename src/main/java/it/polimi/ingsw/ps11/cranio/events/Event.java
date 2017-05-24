@@ -1,21 +1,21 @@
 package it.polimi.ingsw.ps11.cranio.events;
 
-public class Event {
+public class Event<TYPE> {
 
-	private Object source;
+	protected TYPE source;
 	
 	public Event() {
 		source = null;
 	}
 	
-	public Event(Object source){
+	public Event(TYPE source){
 		this.source = source;
 	}
 	
-	public void setSource(Object source) {
+	public void setSource(TYPE source) {
 		this.source = source;
 	}
-	public Object getSource() {
+	public TYPE getSource() {
 		return source;
 	}
 
