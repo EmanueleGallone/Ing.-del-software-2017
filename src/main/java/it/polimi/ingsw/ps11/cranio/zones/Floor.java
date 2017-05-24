@@ -55,6 +55,10 @@ public class Floor implements ActivableSpace {
 		this.card = card;
 	}
 	
+	public void setActionSpace(ActionSpace actionSpace) {
+		this.actionSpace = actionSpace;
+	}
+	
 // End setters
 // Start getters
 	
@@ -62,15 +66,15 @@ public class Floor implements ActivableSpace {
 		return (T) card;
 	}
 	
-	public Class<? extends DevelopmentCard> getType(){
-		return this.card.getClass();
+	public ActionSpace getActionSpace() {
+		return actionSpace;
 	}
 	
 // End getters
 	
 	@Override
 	public String toString() {
-		return "Floor [card=" + card + ", actionSpace=" + actionSpace + "]";
+		return "Floor [card=" + card +'\n' + ", actionSpace=" + actionSpace + "]";
 	}
 	
 }

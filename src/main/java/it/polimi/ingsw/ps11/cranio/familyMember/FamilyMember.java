@@ -29,7 +29,7 @@ public abstract class FamilyMember {
 	public int getValue(){
 		return this.value + this.modifier;
 	}
-	
+
 	public void setModifier(int value){
 		this.modifier = value;
 	}
@@ -42,6 +42,10 @@ public abstract class FamilyMember {
 		this.value = value;
 	}
 	
+	
 	@Override
-	public abstract FamilyMember clone();
+	public String toString() {
+		return "FamilyMember [value=" + value + ", modifier=" + modifier + "]";
+	}
+	
 }

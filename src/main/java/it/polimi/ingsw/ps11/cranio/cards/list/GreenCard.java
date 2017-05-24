@@ -8,6 +8,7 @@ public class GreenCard extends DevelopmentCard {
 	protected final int DEFAULT_VALUE = 1;
 	protected int activeValue; //valore necessario affinchè la carta attivi il bonus
 	
+	
 	public GreenCard() {
 		super();
 		this.activeValue = DEFAULT_VALUE;
@@ -19,4 +20,10 @@ public class GreenCard extends DevelopmentCard {
 	public void setActiveValue(int activeValue) {
 		this.activeValue = activeValue;
 	}
+
+	@Override
+	public String toString() {
+		return "GreenCard [DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
+	}
+	
 }

@@ -69,6 +69,10 @@ public class MultipleActionSpace implements ActivableSpace,Iterable<FamilyMember
 		return cost;
 	}
 	
+	public ResourceList getResources() {
+		return resources;
+	}
+	
 //End getters
 //Start iterator
 

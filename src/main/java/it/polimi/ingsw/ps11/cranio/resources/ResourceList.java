@@ -90,7 +90,7 @@ public class ResourceList {
 // Start getters
 	
 	public <T extends Resource> T getResource(Class<T> rClass){
-		return (T) getResource(rClass.toString());
+		return (T) resources.get(rClass.toString());
 	}
 	
 	public <T extends Resource> T getResource(String rType){

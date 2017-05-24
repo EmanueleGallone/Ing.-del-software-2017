@@ -1,0 +1,348 @@
+{
+  "towers": {
+    "class it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower",
+      "INSTANCE": {
+        "MAX_FLOORS": 4,
+        "floors": [
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 5,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 7,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "class it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower",
+      "INSTANCE": {
+        "MAX_FLOORS": 4,
+        "floors": [
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 5,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 7,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "class it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower",
+      "INSTANCE": {
+        "MAX_FLOORS": 4,
+        "floors": [
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 5,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 7,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "class it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower",
+      "INSTANCE": {
+        "MAX_FLOORS": 4,
+        "floors": [
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 5,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "MAX_AVAILABLE_SPACE": 1,
+              "familyMembers": [],
+              "cost": 7,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "harvest": {
+    "actionSpace": {
+      "MAX_AVAILABLE_SPACE": 1,
+      "familyMembers": [],
+      "cost": 1,
+      "resources": {
+        "resources": {}
+      }
+    },
+    "multipleActionSpace": {
+      "familyMembers": [],
+      "cost": 3,
+      "resources": {
+        "resources": {}
+      }
+    }
+  },
+  "production": {
+    "actionSpace": {
+      "MAX_AVAILABLE_SPACE": 1,
+      "familyMembers": [],
+      "cost": 1,
+      "resources": {
+        "resources": {}
+      }
+    },
+    "multipleActionSpace": {
+      "familyMembers": [],
+      "cost": 3,
+      "resources": {
+        "resources": {}
+      }
+    }
+  },
+  "market": {
+    "market": [
+      {
+        "MAX_AVAILABLE_SPACE": 1,
+        "familyMembers": [],
+        "cost": 1,
+        "resources": {
+          "resources": {
+            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "INSTANCE": {
+                "value": 5
+              }
+            }
+          }
+        }
+      },
+      {
+        "MAX_AVAILABLE_SPACE": 1,
+        "familyMembers": [],
+        "cost": 1,
+        "resources": {
+          "resources": {
+            "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+              "INSTANCE": {
+                "value": 5
+              }
+            }
+          }
+        }
+      },
+      {
+        "MAX_AVAILABLE_SPACE": 1,
+        "familyMembers": [],
+        "cost": 1,
+        "resources": {
+          "resources": {
+            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "INSTANCE": {
+                "value": 2
+              }
+            },
+            "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+              "INSTANCE": {
+                "value": 3
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "councilPalace": {
+    "familyMembers": [],
+    "cost": 1,
+    "resources": {
+      "resources": {}
+    }
+  }
+}

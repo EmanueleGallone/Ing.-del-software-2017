@@ -19,4 +19,11 @@ public class YellowCard extends DevelopmentCard {
 	public void setActiveValue(int activeValue) {
 		this.activeValue = activeValue;
 	}
+
+	@Override
+	public String toString() {
+		return "YellowCard [DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
+	}
+	
+	
 }

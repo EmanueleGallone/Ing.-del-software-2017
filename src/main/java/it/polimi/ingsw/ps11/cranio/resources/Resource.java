@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.cranio.resources;
 
-public class Resource {
+public abstract class Resource {
 	protected static final int DEFAULT = 0;
 	protected int value;
 	
@@ -27,7 +27,5 @@ public class Resource {
 		this.value += value;
 	}
 	
-	protected Resource clone() {
-		return new Resource(value);
-	}
+	protected abstract Resource clone();
 }
