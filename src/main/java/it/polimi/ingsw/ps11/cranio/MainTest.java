@@ -7,6 +7,9 @@ import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
 import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
@@ -42,7 +45,7 @@ public class MainTest {
 	}
 	
 	
-	public static void main(String[] args){
+	public static void init(){
 		
 		GreenTower greenTower = new GreenTower();
 		greenTower.addFloor(new Floor(1));
@@ -54,15 +57,22 @@ public class MainTest {
 		resource.setResource(new Wood(2));
 		greenTower.addFloor(new Floor(7,resource.clone()));
 		
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String string = gson.toJson(greenTower);
-		System.out.println(string);
-		
-		
-		GreenTower nuova = gson.fromJson(string,GreenTower.class);
-		System.out.println("ok");
-		//System.out.println(string);
 		//writeFile("settings\\defaultBoard", );
+	}
+	
+	public static void main(String[] args){
+		
+		CardManager cardManager = new CardManager();
+		YellowCard yellowCard = new YellowCard();
+		cardManager.addCard(yellowCard);
+		cardManager.addCard(new YellowCard());
+		cardManager.addCard(new YellowCard());
+		cardManager.addCard(new GreenCard());
+		
+		
+		
+		System.out.println( cardManager.getCardList(YellowCard.class).toString());
+		
 	}
 }
 
