@@ -13,7 +13,6 @@ public class MainMvc {
 	
 		public static void main(String[] args){
 			
-			
 			TextualView textualView = new TextualView();
 			ArrayList<Player> players = new ArrayList<>();
 			

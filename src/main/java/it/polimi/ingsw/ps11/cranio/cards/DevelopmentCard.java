@@ -7,8 +7,6 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public abstract class DevelopmentCard extends Card {
-
-	private String name; 
 	
 	private ArrayList<ResourceList> costs = new ArrayList<>();
 

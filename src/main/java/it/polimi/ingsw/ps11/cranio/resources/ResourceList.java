@@ -14,7 +14,7 @@ import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 
-public class ResourceList implements Cloneable {
+public class ResourceList {
 	
 	private static final int DEFAULT_VALUE = 0;
 	private HashMap<String, Resource> resources = new HashMap<>();
@@ -78,14 +78,10 @@ public class ResourceList implements Cloneable {
 	}
 	
 	@Override
-	public ResourceList clone(){
-		try {
-			return (ResourceList) super.clone();
-			
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return null;
+	public ResourceList clone() {
+		ResourceList newList = new ResourceList();
+		newList.setResources((HashMap<String, Resource>)resources.clone());
+		return newList;
 	}
 	
 	
@@ -124,6 +120,9 @@ public class ResourceList implements Cloneable {
 		this.resources.put(resource.getClass().toString() , resource.clone());
 	}
 
+	protected void setResources(HashMap<String, Resource> resources) {
+		this.resources = resources;
+	}
 //End setters
 	
 	@Override

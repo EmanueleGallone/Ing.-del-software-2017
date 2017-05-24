@@ -43,7 +43,7 @@ public class MainTest {
 	
 	
 	public static void main(String[] args){
-		/*
+		
 		GreenTower greenTower = new GreenTower();
 		greenTower.addFloor(new Floor(1));
 		greenTower.addFloor(new Floor(3));
@@ -53,12 +53,14 @@ public class MainTest {
 		greenTower.addFloor(new Floor(5,resource.clone()));
 		resource.setResource(new Wood(2));
 		greenTower.addFloor(new Floor(7,resource.clone()));
-		*/
-		/*
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String string = gson.toJson(new ActionSpace());
-		*/
 		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String string = gson.toJson(greenTower);
+		System.out.println(string);
+		
+		
+		GreenTower nuova = gson.fromJson(string,GreenTower.class);
+		System.out.println("ok");
 		//System.out.println(string);
 		//writeFile("settings\\defaultBoard", );
 	}
