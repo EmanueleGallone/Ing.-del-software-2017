@@ -28,4 +28,5 @@ public abstract class Resource {
 	}
 	
 	protected abstract Resource clone();
+	
 }

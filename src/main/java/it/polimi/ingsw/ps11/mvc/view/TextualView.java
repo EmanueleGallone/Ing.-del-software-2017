@@ -3,6 +3,9 @@ package it.polimi.ingsw.ps11.mvc.view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.sound.sampled.Line;
+
+import it.polimi.ingsw.ps11.cranio.MainTest;
 import it.polimi.ingsw.ps11.cranio.events.Event;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.player.Player;
@@ -10,8 +13,6 @@ import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
 public class TextualView {
-	
-	//private Game game;
 	
 	private String menuAzione = ""
 			+ "0 : Visualizza il tuo status \n"
@@ -26,13 +27,13 @@ public class TextualView {
 	
 // Start Event 
 	
-	EventHandler<Event> printStatus = new EventHandler<>();
-	EventHandler<Event> posizionaFamiliareTorre = new EventHandler<>();
+	EventHandler<Event<TextualView>> printStatus = new EventHandler<>();
+	EventHandler<Event<TextualView>> posizionaFamiliareTorre = new EventHandler<>();
 	
-	public EventHandler<Event> getPrintStatus() {
+	public EventHandler<Event<TextualView>> getPrintStatus() {
 		return printStatus;
 	}
-	public EventHandler<Event> getPosizionaFamiliareTorre() {
+	public EventHandler<Event<TextualView>> getPosizionaFamiliareTorre() {
 		return posizionaFamiliareTorre;
 	}
 	
@@ -46,11 +47,11 @@ public class TextualView {
 		switch (input) {
 		
 		case "0":
-			printStatus.invoke(new Event());
+			printStatus.invoke(new Event<TextualView>(this));
 			break;
 		
 		case "1":	
-			posizionaFamiliareTorre.invoke(new Event());
+			posizionaFamiliareTorre.invoke(new Event<TextualView>(this));
 			break;
 			
 		case "p":

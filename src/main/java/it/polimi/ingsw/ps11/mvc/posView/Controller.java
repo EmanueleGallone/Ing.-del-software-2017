@@ -61,8 +61,8 @@ public class Controller {
 
 	protected void attachAll(){
 	
-		view.getPrintStatus().attach(printPlayerStatus);
-		view.getPosizionaFamiliareTorre().attach(posizionaTorreListener);
+		//view.getPrintStatus().attach(printPlayerStatus);
+		//view.getPosizionaFamiliareTorre().attach(posizionaTorreListener);
 	}
 	
 	public void start(){
