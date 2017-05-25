@@ -1,13 +1,12 @@
 package it.polimi.ingsw.ps11.mvc.posView;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import it.polimi.ingsw.ps11.cranio.events.Event;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
-import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.Floor;
-import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
+import it.polimi.ingsw.ps11.cranio.events.list.TextualViewEvent;
+import it.polimi.ingsw.ps11.mvc.posView.component.BoardView;
+import it.polimi.ingsw.ps11.mvc.posView.component.PlayerView;
+import it.polimi.ingsw.ps11.mvc.posView.component.TowerView;
+import it.polimi.ingsw.ps11.mvc.posView.component.io.Console;
 
 public class TextualView {
 	
@@ -22,99 +21,73 @@ public class TextualView {
 			+ "5 : Piazza familiare nel palazzo del consiglio \n"
 			+ "p : Passa il tuo turno \n";
 	
-	private String input;
+	
+	BoardView board = new BoardView();
+	PlayerView player = new PlayerView();
+	TowerView tower = new TowerView();
+	
+	public TextualView() {
+		
+	}
 	
 // Start Event 
 	
-	EventHandler<Event> printStatus = new EventHandler<>();
-	EventHandler<Event> posizionaFamiliareTorre = new EventHandler<>();
+	EventHandler<TextualViewEvent> printStatus = new EventHandler<>();
+	EventHandler<TextualViewEvent> posizionaFamiliareTorre = new EventHandler<>();
 	
-	public EventHandler<Event> getPrintStatus() {
+	public EventHandler<TextualViewEvent> getPrintStatus() {
 		return printStatus;
 	}
-	public EventHandler<Event> getPosizionaFamiliareTorre() {
+	public EventHandler<TextualViewEvent> getPosizionaFamiliareTorre() {
 		return posizionaFamiliareTorre;
 	}
 	
 // End Event
 	
-	public void menu(){
-		print(menuAzione);
-		
-		input = readInput();
-		
-		switch (input) {
-		
+	public boolean execute(String command){
+		switch (command) {
 		case "0":
-			printStatus.invoke(new Event());
+			printStatus.invoke(new TextualViewEvent(this));
 			break;
-		
 		case "1":	
-			posizionaFamiliareTorre.invoke(new Event());
+			posizionaFamiliareTorre.invoke(new TextualViewEvent(this));
 			break;
-			
 		case "p":
 			break; 
-			
-		default: print("Comando non valido");
+		case "q":
+			return false;
+		default: new Console().print("Comando non valido");
 			break;
 		}
+		return true;
 	}
 	
-//___ output towers____
-	
-	public String scegliTorre(ArrayList<Tower> towers){
-		printTowers(towers);
-		System.out.println("Scegli la torre ");
-		return readInput();
+	public boolean execute(){
+		return execute(new Console().read());
 	}
 	
-	public void printTowers(ArrayList<Tower> towers){
-		for(Tower tower: towers){
-			printTower(tower);
-		}
+// Start getters
+	
+	public BoardView getBoard() {
+		return board;
+	}
+	public PlayerView getPlayer() {
+		return player;
+	}
+	public TowerView getTower() {
+		return tower;
 	}
 	
-	public void printTower(Tower tower){
-		System.out.println("Tower: " + tower.getClass());
-		for(Floor floor : tower.getFloors()){
-			System.out.println(floor.getCard());
-		}
-	}
-	
-//___ end output towers _____
-	
+// End getters
 
-	public String scegliCarta(Tower tower){
-		printTower(tower);
-		print("Scegli quale carta prendere (da 1 a 4) :");
-		Scanner in = new Scanner(System.in);
-		return in.nextLine();
-	}
-	
-	public void printStatus(Player player){
-		System.out.println("STATUS: \n" + player.toString());
-	}
-	
-	
-	public void print (String message){
-		System.out.println(message);
-	}
-
-	private String readInput(){
-		Scanner input = new Scanner(System.in);
-		String in = input.nextLine();
-		return in;
-	}
-	
-	
 // ____________ START _______________
 	
 	public void start(){
 		
-		do {
-			menu();
-		} while(!this.input.equalsIgnoreCase("p"));
+		Console console = new Console();
 		
+		do { 
+			console.print(menuAzione); 
+		} while(execute());
 	}
 }
