@@ -68,6 +68,12 @@ public class Player{
 		this.name = name;
 	}
 
+	
+	@Override
+	public Player clone() throws CloneNotSupportedException {
+		return (Player) super.clone();
+	}
+	
 	@Override
 	public String toString() {
 		return "Player [name=" + name 

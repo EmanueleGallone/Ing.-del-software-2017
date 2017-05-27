@@ -78,5 +78,20 @@ public abstract class DevelopmentCard extends Card {
 	public void addCost(ResourceList cost){
 		this.costs.add(cost);
 	}
+	public void setCosts(ArrayList<ResourceList> costs) {
+		this.costs = costs;
+	}
+	public ArrayList<ResourceList> getCosts() {
+		return costs;
+	}
+	public ArrayList<Bonus> getIstantBonus() {
+		return istantBonus;
+	}
+	public ArrayList<Bonus> getPermanentBonus() {
+		return permanentBonus;
+	}
 // End setters
+	
+	@Override
+	public abstract DevelopmentCard clone();
 }

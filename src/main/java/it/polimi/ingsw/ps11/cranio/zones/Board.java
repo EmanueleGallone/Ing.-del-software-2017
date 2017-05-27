@@ -21,28 +21,7 @@ public class Board {
 	private MultipleActionSpace councilPalace;
 	
 	public Board(){
-		
-		// Andranno caricate da file 
-	/*	towers.put(GreenTower.class.toString(), new GreenTower());
-		towers.put(PurpleTower.class.toString(), new PurpleTower());
-		towers.put(YellowTower.class.toString(), new YellowTower());
-		towers.put(BlueTower.class.toString(), new BlueTower());
-		
-		harvest = new Harvest();
-		production = new Production();
-		
-		market = new Market();
-		
-		councilPalace = new MultipleActionSpace();
-		
-		CardsLoader cardsLoader = new CardsLoader();
-		
-		try {
-			cards = new CardManager(cardsLoader.load());
-		} catch (IOException e) {
-			//e.printStackTrace();
-			System.err.println("Errore con il card manager, il file no c'e' ancora \n");
-		}*/	
+	
 	}
 	
 	public Board(ArrayList<Tower> towers, Market market, MultipleActionSpace councilPalace){

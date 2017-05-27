@@ -14,7 +14,6 @@ public class LeaderCard extends Card {
 	public String toString() {
 		return "LeaderCard [name=" + name + "]";
 	}
-
 	
 
 }

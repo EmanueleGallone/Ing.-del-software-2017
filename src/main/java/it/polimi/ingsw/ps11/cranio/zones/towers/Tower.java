@@ -30,16 +30,16 @@ public class Tower {
 	}
 	
 	public Floor selectFloor(int index){
-		return floors.get(index);
+		if(index < floors.size()){
+			return floors.get(index);	
+		}
+		throw new IllegalArgumentException("Non hai selezionato un piano corretto");
 	}
+	
 	
 // End logic
 	
-// Start setters
-	
-	
-	
-// End setters
+
 // Start getters
 	public ArrayList<Floor> getFloors() {
 		return floors;
@@ -49,7 +49,6 @@ public class Tower {
 		return MAX_FLOORS;
 	}
 	
-	
 // End getters
 
 	@Override
@@ -57,7 +56,11 @@ public class Tower {
 		return "Tower [floors=" + floors + "]";
 	}
 	
-
+	@Override
+	public Tower clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return (Tower) super.clone();
+	}
 	
 
 }

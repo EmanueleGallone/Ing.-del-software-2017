@@ -1,6 +1,11 @@
 package it.polimi.ingsw.ps11.cranio.cards.list;
 
+import java.util.ArrayList;
+
+import it.polimi.ingsw.ps11.cranio.JsonAdapter;
+import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class YellowCard extends DevelopmentCard {
 	//carte EDIFICIO
@@ -12,7 +17,7 @@ public class YellowCard extends DevelopmentCard {
 		super();
 		this.activeValue = DEFAULT_VALUE;
 	}
-	
+
 	public int getActiveValue() {
 		return activeValue;
 	}
@@ -25,5 +30,11 @@ public class YellowCard extends DevelopmentCard {
 		return "YellowCard [DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
 	}
 	
+	@Override
+	public YellowCard clone() {
+		JsonAdapter jsonAdapter = new JsonAdapter(DevelopmentCard.class);
+		String string = jsonAdapter.toJson(this);
+		return jsonAdapter.fromJson(string, YellowCard.class);
+	}
 	
 }

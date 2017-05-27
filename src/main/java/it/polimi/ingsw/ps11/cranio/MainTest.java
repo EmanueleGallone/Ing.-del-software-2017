@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -192,7 +193,7 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		//inizializzatore();		
-		String string = readFile("settings\\board");
+		/*String string = readFile("settings\\board");
 
 		ArrayList<Class<?>> list = new ArrayList<>();
 		list.add(DevelopmentCard.class);
@@ -203,7 +204,8 @@ public class MainTest {
 		Board board = jsonAdapter.fromJson(string, Board.class);
 		
 		System.out.println(board.getTower(BlueTower.class).getFloors().get(3).getActionSpace().getResources());
-		
+		*/
+
 	}
 }
 

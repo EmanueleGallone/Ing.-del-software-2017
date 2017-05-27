@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.cranio.cards.list;
 
+import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 
 public class GreenCard extends DevelopmentCard {
@@ -26,4 +27,10 @@ public class GreenCard extends DevelopmentCard {
 		return "GreenCard [DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
 	}
 	
+	@Override
+	public GreenCard clone() {
+		JsonAdapter jsonAdapter = new JsonAdapter(DevelopmentCard.class);
+		String string = jsonAdapter.toJson(this);
+		return jsonAdapter.fromJson(string, GreenCard.class);
+	}
 }

@@ -1,34 +1,38 @@
 package it.polimi.ingsw.ps11.mvc.posView;
 
-import it.polimi.ingsw.ps11.cranio.events.Event;
+import java.util.HashMap;
+
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
-import it.polimi.ingsw.ps11.cranio.events.list.TextualViewEvent;
 import it.polimi.ingsw.ps11.mvc.posView.component.BoardView;
-import it.polimi.ingsw.ps11.mvc.posView.component.PlayerView;
+import it.polimi.ingsw.ps11.mvc.posView.component.Console;
+import it.polimi.ingsw.ps11.mvc.posView.component.GameView;
 import it.polimi.ingsw.ps11.mvc.posView.component.TowerView;
-import it.polimi.ingsw.ps11.mvc.posView.component.io.Console;
+import it.polimi.ingsw.ps11.mvc.posView.events.TextualViewEvent;
 
 public class TextualView {
 	
-	//private Game game;
-	
-	private String menuAzione = ""
-			+ "0 : Visualizza il tuo status \n"
-			+ "1 : Piazza familiare in una torre \n"
-			+ "2 : Piazza familiare nel mercato \n"
-			+ "3 : Piazza familiare nella zona produzione \n"
-			+ "4 : Piazza familiare nella zona raccolta \n"
-			+ "5 : Piazza familiare nel palazzo del consiglio \n"
-			+ "p : Passa il tuo turno \n";
-	
-	
-	BoardView board = new BoardView();
-	PlayerView player = new PlayerView();
-	TowerView tower = new TowerView();
+	Console console = new Console();
+	private HashMap<String, TextualComponent> components = new HashMap<>();
 	
 	public TextualView() {
-		
+		addComponent(new BoardView());
+		addComponent(new TowerView(this));
+		addComponent(new GameView());
 	}
+	
+	// ____________ START _______________
+	
+		public void start(){
+		
+			try {
+				do {
+					showMessage("Ogni componente ha un nome, digitalo e premi invio per selezionare quel componente ed accedere al suo menu azione. In ogni momento digita 'quit' per uscire: \n");
+				} while(execute(console.read()));
+			} catch (Exception e) {
+				//e.printStackTrace();
+			 	 console.print(e.getMessage());
+			}
+		}
 	
 // Start Event 
 	
@@ -44,50 +48,42 @@ public class TextualView {
 	
 // End Event
 	
-	public boolean execute(String command){
-		switch (command) {
-		case "0":
-			printStatus.invoke(new TextualViewEvent(this));
-			break;
-		case "1":	
-			posizionaFamiliareTorre.invoke(new TextualViewEvent(this));
-			break;
-		case "p":
-			break; 
-		case "q":
+// Start logics
+
+	protected boolean execute(String selection) throws Exception{
+		
+		if(selection.equals("quit"))
 			return false;
-		default: new Console().print("Comando non valido");
-			break;
+		
+		TextualComponent component = components.get(selection);
+		if (component != null){
+			component.select();
 		}
 		return true;
 	}
 	
-	public boolean execute(){
-		return execute(new Console().read());
+	
+	public String scegliFamilyMember() throws QuitGameException{
+		return console.read("Digita il colore del family member");
+	}
+	
+// End logics
+	
+	public void addComponent(TextualComponent component){
+		components.put(component.getClass().getName().toString(), component);
+	}
+	
+	public void showMessage(String message) {
+		console.print(message);
+	}
+	public void showErrorMessage(String message) {
+		console.printError(message);
 	}
 	
 // Start getters
 	
-	public BoardView getBoard() {
-		return board;
+	public <T extends TextualComponent> T getComponent(Class<T> component){
+		return (T) components.get(component.getName().toString());
 	}
-	public PlayerView getPlayer() {
-		return player;
-	}
-	public TowerView getTower() {
-		return tower;
-	}
-	
 // End getters
-
-// ____________ START _______________
-	
-	public void start(){
-		
-		Console console = new Console();
-		
-		do { 
-			console.print(menuAzione); 
-		} while(execute());
-	}
 }
