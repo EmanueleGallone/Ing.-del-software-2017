@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.cranio.zones.Floor;
 
 public class Tower {
 	
-	private final int MAX_FLOORS = 4;
+	private static final int MAX_FLOORS = 4;
 	private ArrayList<Floor> floors = new ArrayList<>();
 	
 	
@@ -45,7 +45,7 @@ public class Tower {
 		return floors;
 	}
 	
-	public int getMaxFloors() {
+	public static int getMaxFloors() {
 		return MAX_FLOORS;
 	}
 	

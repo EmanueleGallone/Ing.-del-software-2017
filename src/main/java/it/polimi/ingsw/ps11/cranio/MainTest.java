@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -27,6 +28,8 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.mvc.MyMap;
+import it.polimi.ingsw.ps11.mvc.components.FloorView;
 
 public class MainTest {
 	
@@ -205,7 +208,6 @@ public class MainTest {
 		
 		System.out.println(board.getTower(BlueTower.class).getFloors().get(3).getActionSpace().getResources());
 		*/
-
 	}
 }
 
