@@ -70,8 +70,13 @@ public class Player{
 
 	
 	@Override
-	public Player clone() throws CloneNotSupportedException {
-		return (Player) super.clone();
+	public Player clone(){
+		try {
+			return (Player) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	@Override
