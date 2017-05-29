@@ -13,13 +13,22 @@ public class TowerView extends TextualContainer {
 	
 	@Override
 	public void selected() {
-		// TODO Auto-generated method stub
-		
+		print();
 	}
 
 	@Override
 	public void print() {
-		this.printChild();
+		Console console = new Console();
+		console.print("["+this.getId()+"]"+"\n");
+		
+		for(int i = 0; i < 4; i++){
+			for(TextualContainer c : getComponents()){
+				FloorView floorView = (FloorView)c;
+				if(floorView.getWhichFloor() == i)
+					floorView.print();
+			}
+			console.print("");
+		}
 	}
 
 }

@@ -1,7 +1,9 @@
 package it.polimi.ingsw.ps11.mvc.components;
 
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.mvc.view.events.FloorSelectedEvent;
@@ -58,7 +60,17 @@ public class FloorView extends TextualContainer{
 	public void print() {
 		this.printEvent.invoke(this);
 		Console console = new Console();
-		console.print(floor.getCard().getName() + " " + floor.getActionSpace().getResources()+ " " + floor.getActionSpace().getActionCost());
+		String string = floor.getActionSpace().getResources().toString();
+		String[] arr = string.split("\\.");
+		
+		//System.out.println(arr.length);
+		
+		if (arr.length > 1)
+			console.print("Piano: " + (whichFloor+1) + " Risorsa: " + arr[arr.length-1]+ " value: " + floor.getActionSpace().getActionCost());
+		else {
+			console.print("Piano: " + (whichFloor+1) + "                     " + " value: " + floor.getActionSpace().getActionCost());	
+		}
+		
 	}
 	
 	public void update(Floor floor){

@@ -20,21 +20,7 @@ public class BoardView extends TextualContainer{
 	
 	@Override
 	public void print() {
-		/*
-		if(Board.class == arg.getClass()){
-			Console console = new Console();
-			Board board = (Board) arg;
-			ArrayList<Tower> towers = board.getTowers();
-			
-			for(int i=Tower.getMaxFloors()-1; i >= 0 ;i--){
-				String out = new String();
-				
-				for(Tower tower : towers){
-					out += tower.getFloors().get(i).toString()+"\t";
-				}
-				console.print(out);
-			}
-		}*/
+		printChild();
 	}
 
 	@Override

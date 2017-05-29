@@ -30,8 +30,8 @@ public abstract class TextualContainer extends TextualComponent {
 		this.components.put(component.getId(), component);
 	}
     
-    public ArrayList<TextualComponent> getComponents() {
-		return new ArrayList<TextualComponent>(components.values()); 
+    public ArrayList<TextualContainer> getComponents() {
+		return new ArrayList<TextualContainer>(components.values()); 
 	}
     
     public TextualComponent get(String id){
@@ -60,24 +60,15 @@ public abstract class TextualContainer extends TextualComponent {
     	
     	return resut;
     }
-    /*
-    public <T extends TextualComponent> ArrayList<TextualComponent> get( Class<T> type){
-    	ArrayList<TextualComponent> resut = new ArrayList<>();
-    	
-    	for(TextualComponent component : components.values()){
-    		if (component.getClass() == type)
-    			resut.add(component);
-    	}
-		return resut;   	
-    }
-    */
+    
     public void remove(String id){
     	components.remove(id);
     }
     
     protected void printChild(){
-    	for(TextualComponent c : this.getComponents()){
-			c.print();
+    	for(TextualContainer c : this.getComponents()){
+			if(this != c)
+				c.print();
 		}
     }
 }
