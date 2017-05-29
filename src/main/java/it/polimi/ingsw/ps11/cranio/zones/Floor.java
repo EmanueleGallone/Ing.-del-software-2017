@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActivableSpace;
 
-public class Floor implements ActivableSpace {
+public class Floor implements ActivableSpace,Cloneable {
 	
 	private DevelopmentCard card;
 	private ActionSpace actionSpace;
@@ -77,4 +77,13 @@ public class Floor implements ActivableSpace {
 		return "Floor [card=" + card +'\n' + ", actionSpace=" + actionSpace + "]";
 	}
 	
+	@Override
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

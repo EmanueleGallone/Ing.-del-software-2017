@@ -5,11 +5,22 @@ import java.util.ArrayList;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
-public class BoardView implements TextualComponent{
+public class BoardView extends TextualContainer{
 
 	
+	public BoardView() {
+		
+	}
+	
+	public BoardView(String id) {
+		super(id);
+	}
+	
+	
+	
 	@Override
-	public <T> void print(T arg) {
+	public void print() {
+		/*
 		if(Board.class == arg.getClass()){
 			Console console = new Console();
 			Board board = (Board) arg;
@@ -23,12 +34,11 @@ public class BoardView implements TextualComponent{
 				}
 				console.print(out);
 			}
-		}
+		}*/
 	}
 
 	@Override
 	public void selected() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Hai selezionato la board");
 	}
 }

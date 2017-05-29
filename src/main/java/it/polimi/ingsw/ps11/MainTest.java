@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.cranio;
+package it.polimi.ingsw.ps11;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,11 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
+import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -28,10 +26,34 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.mvc.MyMap;
 import it.polimi.ingsw.ps11.mvc.components.FloorView;
+import it.polimi.ingsw.ps11.mvc.view.Swing.FamilyMember;
 
 public class MainTest {
+	
+	
+	
+	public static void main(String[] args){
+		
+		//inizializzatore();		
+		/*String string = readFile("settings\\board");
+
+		ArrayList<Class<?>> list = new ArrayList<>();
+		list.add(DevelopmentCard.class);
+		list.add(Resource.class);
+		list.add(Tower.class);
+		
+		JsonAdapter jsonAdapter = new JsonAdapter(list);
+		Board board = jsonAdapter.fromJson(string, Board.class);
+		
+		System.out.println(board.getTower(BlueTower.class).getFloors().get(3).getActionSpace().getResources());
+		*/
+	}
+	
+	
+	
+	
+	
 	
 	
 	public static void writeFile(String fileName, String testo){
@@ -194,21 +216,6 @@ public class MainTest {
 		
 	}
 	
-	public static void main(String[] args){
-		//inizializzatore();		
-		/*String string = readFile("settings\\board");
-
-		ArrayList<Class<?>> list = new ArrayList<>();
-		list.add(DevelopmentCard.class);
-		list.add(Resource.class);
-		list.add(Tower.class);
-		
-		JsonAdapter jsonAdapter = new JsonAdapter(list);
-		Board board = jsonAdapter.fromJson(string, Board.class);
-		
-		System.out.println(board.getTower(BlueTower.class).getFloors().get(3).getActionSpace().getResources());
-		*/
-	}
 }
 
 
