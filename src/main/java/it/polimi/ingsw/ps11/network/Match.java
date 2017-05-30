@@ -13,13 +13,14 @@ public class Match implements Runnable{
 		this.clients = clients;
 		ArrayList<Player> players = new ArrayList<>();
 		for(Client c : clients){
-			players.add(c.getPlayer());
+			players.add(c.getPlayer()); //per ogni client crea un nuovo giocatore
 		}
 		game = new Game(players);
 	}
 
 	@Override
 	public void run() {
+		System.out.println();
 		game.startGame();
 	}
 

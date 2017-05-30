@@ -16,6 +16,7 @@ public class Server extends Thread{
 	 
 	public Server() {
 		//defaultPlayer = carica da file; 
+		lobby = new Lobby();
 		try {
 			serverSocket = new ServerSocket(PORT);
 		} catch (IOException e) {
@@ -25,14 +26,14 @@ public class Server extends Thread{
 	
 	@Override
 	public void run(){
+		System.out.println("Server avviato");
 		while(true){
+			
 			
 			try {
 				Socket socket = serverSocket.accept();
 				
-				
-				
-				lobby.addClient(new Client(socket, defaultPlayer.clone()));
+				lobby.addClient(new Client(socket));
 				
 				System.out.println("Connessione accettata : " + socket.getInetAddress() + "port : " + socket.getPort());
 				
