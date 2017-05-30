@@ -36,7 +36,6 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		
-		/*
 		BoardView boardView = new BoardView();
 		
 		TowerView towerView = new TowerView();
@@ -51,7 +50,7 @@ public class MainTest {
 		towerView.add(new FloorView());
 		
 		System.out.println(boardView.searchById("target"));
-		*/
+		
 		
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");

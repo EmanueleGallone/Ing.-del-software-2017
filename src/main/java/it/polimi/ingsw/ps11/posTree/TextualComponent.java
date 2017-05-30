@@ -2,8 +2,9 @@ package it.polimi.ingsw.ps11.posTree;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
-public abstract  class TextualComponent implements Iterable<TextualComponent> {
+public abstract class TextualComponent implements Iterable<TextualComponent> {
 	
 	private final static String DEFAULT_ID = "unknown";
 	private String id;
@@ -41,18 +42,30 @@ public abstract  class TextualComponent implements Iterable<TextualComponent> {
 	 * @return Ritorna il TextualComponent cercato se presente, altrimenti ritorna null
 	 */
 	public TextualComponent searchById(String id){
-
-		for(TextualComponent component : this){
-			if (component.getId().equals(id)){
-				return component;
-			}else {
-				TextualComponent result = component.searchById(id);
-				if (result != null)
-					return result;
-			}
-		}
+		
+		Predicate<TextualComponent> predicate = (c) ->{return c.getId().equals(id);};
+		return searchById(id, new ArrayList<>(),predicate );
+	}
+	
+	
+	private TextualComponent searchById(String id, ArrayList<TextualComponent> alreadyChecked, Predicate<TextualComponent> predicate ){
+		
+		if (!alreadyChecked.contains(this)){
+			alreadyChecked.add(this);
+			
+			for(TextualComponent component : this){
+				if ( predicate.test(component) /*component.getId().equals(id)*/){
+					return component;
+				}else {
+					TextualComponent result = component.searchById(id,alreadyChecked,predicate); //qua
+					if (result != null)
+						return result;
+				}
+			 }
+		 }
 		return null;
 	}
+	
 	
 	/***
 	 *  Cerca il TextualComponent solo tra i suoi figli (Ricerca superficiale)
@@ -67,6 +80,9 @@ public abstract  class TextualComponent implements Iterable<TextualComponent> {
 		}
 		return null;
 	}
+	
+	
+	
 	
 // Iterator
 
