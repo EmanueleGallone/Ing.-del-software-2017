@@ -9,7 +9,6 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.mvc.MyMap;
 import it.polimi.ingsw.ps11.mvc.components.FloorView;
 import it.polimi.ingsw.ps11.mvc.components.TextualComponent;
 import it.polimi.ingsw.ps11.mvc.components.TextualContainer;
@@ -29,9 +28,7 @@ public class Controller {
 	}
 	
 	private TextualView textualView = new TextualView();
-	
 
-	private MyMap map = new MyMap();
 	
 // _______________ EVENT LISTENER _____________________
 
@@ -101,10 +98,6 @@ public class Controller {
 	}
 	
 	
-	protected void initialize(){
-		map.addModelElement("GreenTower 1", model.getBoard().getTower(GreenTower.class).getFloors().get(0));
-		//map.addViewElement("GreenTowe 1", );
-	}
 	
 	public void start(){
 		event();
