@@ -1,7 +1,9 @@
+
 package it.polimi.ingsw.ps11.posTree;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public abstract class TextualComponent implements Iterable<TextualComponent> {
@@ -13,7 +15,7 @@ public abstract class TextualComponent implements Iterable<TextualComponent> {
 	private ArrayList<TextualComponent> children = new ArrayList<>();
 	private TextualComponent parent;
 
-
+	
 	public TextualComponent() {
 		this.id = DEFAULT_ID;
 	}
@@ -43,27 +45,64 @@ public abstract class TextualComponent implements Iterable<TextualComponent> {
 	 */
 	public TextualComponent searchById(String id){
 		
-		Predicate<TextualComponent> predicate = (c) ->{return c.getId().equals(id);};
-		return searchById(id, new ArrayList<>(),predicate );
+		ArrayList<TextualComponent> result = searchAll((c)->{return c.getId() == id;},true);
+		if (result.size() > 0)
+			return result.get(0);
+		return null;
+	}
+	
+	/***
+	 * 
+	 * Ritorna l'insieme degli elementi che soddisfano il predicato (Ricerca in profondita' nell'albero)
+	 */
+	public ArrayList<TextualComponent> searchAll(Predicate<TextualComponent> predicate){
+		return searchAll(predicate,false);
+	}
+	
+	/***
+	 * 
+	 * Ritorna l'insieme degli elementi che soddisfano il predicato
+	 * Se unique e' true se trova un elemento che soddisfa il predicato allora si ferma e non cerca oltre, altrimenti
+	 * cerca in profondita' nell'albero
+	 */
+	public ArrayList<TextualComponent> searchAll(Predicate<TextualComponent> predicate, boolean unique){
+		return searchAll(predicate,new ArrayList<>(),unique);
+	}
+	
+	private ArrayList<TextualComponent> searchAll(Predicate<TextualComponent> predicate, ArrayList<TextualComponent> alreadyChecked,boolean unique){
+		ArrayList<TextualComponent> metch = new ArrayList<>();
+		if (!alreadyChecked.contains(this)){
+			alreadyChecked.add(this);
+			for(TextualComponent component : this){
+				if (predicate.test(component)){
+					metch.add(component);
+					if (unique)
+						return metch;
+				}
+				metch.addAll(component.searchAll(predicate,alreadyChecked,unique));
+			 }
+		 }
+		return metch;
 	}
 	
 	
-	private TextualComponent searchById(String id, ArrayList<TextualComponent> alreadyChecked, Predicate<TextualComponent> predicate ){
+	/***
+	 * 
+	 * Scorre tutti gli elementi dell'albero sottostante e applica l'operazione passatagli
+	 */
+	public void forEach(Consumer<? super TextualComponent> action){
+		forEach(action,new ArrayList<>());
+	}
+	
+	private void forEach(Consumer<? super TextualComponent> action, ArrayList<TextualComponent> alreadyChecked) {
 		
 		if (!alreadyChecked.contains(this)){
 			alreadyChecked.add(this);
-			
 			for(TextualComponent component : this){
-				if ( predicate.test(component) /*component.getId().equals(id)*/){
-					return component;
-				}else {
-					TextualComponent result = component.searchById(id,alreadyChecked,predicate); //qua
-					if (result != null)
-						return result;
-				}
+				action.accept(component);
+				component.forEach(action,alreadyChecked);
 			 }
 		 }
-		return null;
 	}
 	
 	

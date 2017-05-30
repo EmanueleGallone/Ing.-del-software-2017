@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.posTree;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class Node<T> {
 
@@ -47,6 +49,44 @@ public class Node<T> {
 		return children;
 	}
 
+	public ArrayList<T> searchAll(Predicate<T> predicate){
+		return searchAll(predicate,false);
+	}
+	
+	public ArrayList<T> searchAll(Predicate<T> predicate, boolean unique){
+		return searchAll(predicate,new ArrayList<>(),unique);
+	}
+	
+	private ArrayList<T> searchAll(Predicate<? super T> predicate, ArrayList<Node<T>> alreadyChecked,boolean unique){
+		ArrayList<T> metch = new ArrayList<>();
+		if (!alreadyChecked.contains(this)){
+			alreadyChecked.add(this);
+			for(Node<T> component : this.getChildren()){
+				if (predicate.test(component.getData())){
+					metch.add(component.getData());
+					if (unique)
+						return metch;
+				}
+				metch.addAll(component.searchAll(predicate,alreadyChecked,unique));
+			 }
+		 }
+		return metch;
+	}
+	
+	public void forEach(Consumer<? super T> action){
+		forEach(action,new ArrayList<>());
+	}
+	
+	private void forEach(Consumer<? super T> action, ArrayList<Node<T>> alreadyChecked) {
+		
+		if (!alreadyChecked.contains(this)){
+			alreadyChecked.add(this);
+			for(Node<T> component : this.getChildren()){
+				action.accept(component.getData());
+				component.forEach(action,alreadyChecked);
+			 }
+		 }
+	}
 	/*
 // Iterator
 	

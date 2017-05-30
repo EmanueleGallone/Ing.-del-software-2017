@@ -40,6 +40,7 @@ public class MainTest {
 		
 		TowerView towerView = new TowerView();
 		
+		//towerView.add(boardView); loop test
 		boardView.add(towerView);
 
 		boardView.add(new TowerView());
@@ -49,8 +50,10 @@ public class MainTest {
 		towerView.add(new FloorView("target"));
 		towerView.add(new FloorView());
 		
-		System.out.println(boardView.searchById("target"));
-		
+		//System.out.println(boardView.searchById("target"));
+		boardView.forEach((c)->{c.setId("bo");;});
+		boardView.forEach((c)->{System.out.println(c.getId());});
+		//System.out.println(boardView.searchAll((c)->{return c.getId() == "unknown";}));
 		
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");

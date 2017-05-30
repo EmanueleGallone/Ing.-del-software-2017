@@ -48,13 +48,14 @@ public class Controller {
 		
 		
 		$(FloorView.class).forEach(f -> {f.selectedEvent(new EventListener<FloorView>() {
-
+			
 			@Override
 			public void handle(FloorView e) {
 				//String choice = textualView.choseFamilyMember();
 				e.print();
 			}
-		});});
+		});}
+	 );
 	
 		
 		
@@ -63,7 +64,7 @@ public class Controller {
 			
 			@Override
 			public void handle(String e) {
-				TextualComponent component = $(e);
+				TextualComponent component = textualView.get(e);
 				if (component != null)
 					component.selected();
 			}

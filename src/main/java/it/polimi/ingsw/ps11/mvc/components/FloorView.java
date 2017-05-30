@@ -14,7 +14,7 @@ public class FloorView extends TextualContainer{
 	protected EventHandler<FloorView> printEvent = new EventHandler<>();
 	
 	private Floor floor;
-	private Class<?> color;
+	private Class<? extends Tower> color;
 	private int whichFloor;
 	
 	public FloorView() {
