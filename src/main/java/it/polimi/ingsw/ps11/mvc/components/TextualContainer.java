@@ -3,10 +3,6 @@ package it.polimi.ingsw.ps11.mvc.components;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.imageio.ImageTypeSpecifier;
-
-import org.hamcrest.core.IsInstanceOf;
-
 public abstract class TextualContainer extends TextualComponent {
 
 	private HashMap<String, TextualContainer> components = new HashMap<>();
