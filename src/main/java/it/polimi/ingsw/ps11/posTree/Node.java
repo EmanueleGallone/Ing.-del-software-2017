@@ -49,10 +49,21 @@ public class Node<T> {
 		return children;
 	}
 
+// search _________________________________
+	
+	/***
+	 * Ritorna l'insieme degli elementi che soddisfano il predicato (Ricerca in profondita' nell'albero)
+	 */
 	public ArrayList<T> searchAll(Predicate<T> predicate){
 		return searchAll(predicate,false);
 	}
 	
+	/***
+	 * 
+	 * Ritorna l'insieme degli elementi che soddisfano il predicato
+	 * Se unique e' true se trova un elemento che soddisfa il predicato allora si ferma e non cerca oltre, altrimenti
+	 * cerca in profondita' nell'albero
+	 */
 	public ArrayList<T> searchAll(Predicate<T> predicate, boolean unique){
 		return searchAll(predicate,new ArrayList<>(),unique);
 	}
@@ -73,6 +84,12 @@ public class Node<T> {
 		return metch;
 	}
 	
+// ForEach _________________________________
+	
+	/***
+	 * 
+	 * Scorre tutti gli elementi dell'albero sottostante e applica l'operazione passatagli
+	 */
 	public void forEach(Consumer<? super T> action){
 		forEach(action,new ArrayList<>());
 	}
@@ -87,12 +104,5 @@ public class Node<T> {
 			 }
 		 }
 	}
-	/*
-// Iterator
-	
-	@Override
-	public Iterator<Node<T>> iterator() {
-		return children.iterator();
-	}
-	*/
 }
+

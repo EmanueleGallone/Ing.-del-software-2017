@@ -51,7 +51,7 @@ public class MainTest {
 		towerView.add(new FloorView());
 		
 		//System.out.println(boardView.searchById("target"));
-		boardView.forEach((c)->{c.setId("bo");;});
+		//boardView.forEach((c)->{c.setId("bo");;});
 		boardView.forEach((c)->{System.out.println(c.getId());});
 		//System.out.println(boardView.searchAll((c)->{return c.getId() == "unknown";}));
 		
