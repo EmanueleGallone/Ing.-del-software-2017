@@ -1,12 +1,10 @@
 package it.polimi.ingsw.ps11.cranio.cards;
 
-import java.util.ArrayList;
-
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-
 public abstract class Card{
 	
-	private String name; //Va visto come un identificatore unico
+	protected String name; //Va visto come un identificatore unico
+	
+	protected int period;
 	
 	public Card() {
 		//E i vari parametri, periodo,colore, ecc..
@@ -18,10 +16,19 @@ public abstract class Card{
 		this.name = name;
 	}
 	
+	public void setPeriod(int period) {
+		this.period = period;
+	}
+	
+	
 //End setters
 //Start getters
 	public String getName() {
 		return name;
+	}
+	
+	public int getPeriod() {
+		return period;
 	}
 	
 	

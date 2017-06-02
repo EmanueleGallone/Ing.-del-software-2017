@@ -42,7 +42,7 @@ public class CardManager {
 // Start getters
 	
 	public <T extends DevelopmentCard> ArrayList<T> getCardList (Class<T> cardClass){
-		return (ArrayList<T>) this.cards.get(cardClass.toString());
+		return (ArrayList<T>) this.cards.get(cardClass.toString()); //forse il casting va messo fuori nel chiamante del metodo; come per clone!
 	}
 
 	@Override

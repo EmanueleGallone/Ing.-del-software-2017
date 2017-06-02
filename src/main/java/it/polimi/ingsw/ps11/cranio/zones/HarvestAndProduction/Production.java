@@ -9,10 +9,10 @@ public class Production extends CardAttivator {
 	@Override
 	protected void activeCard(FamilyMember familyMember) {
 		CardManager cardManager = familyMember.getOwner().getCardManager();
-		for(YellowCard card : cardManager.getCardList(YellowCard.class)){
-			if (card.getActiveValue() > familyMember.getValue()){
+		for(YellowCard card : cardManager.getCardList(YellowCard.class))
+			if (card.getActiveValue() > familyMember.getValue())
 				card.enablePermanentBonus();
-			}
-		}
+			
+		
 	}
 }

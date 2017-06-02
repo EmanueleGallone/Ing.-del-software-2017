@@ -8,13 +8,15 @@ import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public abstract class DevelopmentCard extends Card {
 	
-	private ArrayList<ResourceList> costs = new ArrayList<>();
+	protected final int DEFAULT_VALUE = 1;
+	
+	protected ArrayList<ResourceList> costs = new ArrayList<>();
 
-	protected ArrayList<Bonus> istantBonus = new ArrayList<>();
+	protected ArrayList<Bonus> instantBonus = new ArrayList<>(); 
 	protected ArrayList<Bonus> permanentBonus = new ArrayList<>();
 
 	public DevelopmentCard() {
-		//E i vari parametri, periodo,colore, ecc..
+		
 	}
 	
 	public DevelopmentCard(ResourceList cost){
@@ -28,8 +30,9 @@ public abstract class DevelopmentCard extends Card {
 // Start Logics
 	
 	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
-		if (costs.contains(cost) && playerResourceList.greaterEquals(cost))
+		if (playerResourceList.greaterEquals(cost)) 
 			return true;
+		
 		return false;
 	}
 	
@@ -40,6 +43,7 @@ public abstract class DevelopmentCard extends Card {
 				return true;
 			}
 		}
+		
 		return false;
 	}
 	
@@ -49,26 +53,36 @@ public abstract class DevelopmentCard extends Card {
 		}
 	}
 	
+	public void enableInstantBonus(){
+		for(Bonus bonus : instantBonus){
+			bonus.behavior();
+		}
+	}
+	
 //End Logics
 	
 // Start setters
 	
-	public void addIstantBonus(Bonus bonus){
-		this.istantBonus.add(bonus);
+	public void addInstantBonus(Bonus bonus){
+		this.instantBonus.add(bonus);
 	}
 	
 	public void addPermanentBonus(Bonus bonus){
-		this.istantBonus.add(bonus);
+		this.permanentBonus.add(bonus);
 	}
 	
 	private void setOwner(Player player){
 		for(Bonus bonus : permanentBonus){
+			
+			bonus.setOwner(player);
+		}
+		for(Bonus bonus : instantBonus){
 			bonus.setOwner(player);
 		}
 	}
 	
-	public void setIstantBonus(ArrayList<Bonus> istantBonus) {
-		this.istantBonus = istantBonus;
+	public void setInstantBonus(ArrayList<Bonus> istantBonus) {
+		this.instantBonus = istantBonus;
 	}
 	
 	public void setPermanentBonus(ArrayList<Bonus> permanentBonus) {
@@ -85,12 +99,16 @@ public abstract class DevelopmentCard extends Card {
 		return costs;
 	}
 	public ArrayList<Bonus> getIstantBonus() {
-		return istantBonus;
+		return instantBonus;
 	}
 	public ArrayList<Bonus> getPermanentBonus() {
 		return permanentBonus;
 	}
+	
+	
 // End setters
+	
+	
 	
 	@Override
 	public abstract DevelopmentCard clone();
