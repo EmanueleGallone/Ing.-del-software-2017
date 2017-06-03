@@ -1,10 +1,11 @@
-package it.polimi.ingsw.ps11.posTree;
+package it.polimi.ingsw.ps11.cranio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class Node<T> {
+public class Node<T> implements Iterable<T>{
 
 	private T data;
 	private ArrayList<Node<T>> children = new ArrayList<>();
@@ -54,7 +55,7 @@ public class Node<T> {
 	/***
 	 * Ritorna l'insieme degli elementi che soddisfano il predicato (Ricerca in profondita' nell'albero)
 	 */
-	public ArrayList<T> searchAll(Predicate<T> predicate){
+	public ArrayList<T> searchAll(Predicate<? super T> predicate){
 		return searchAll(predicate,false);
 	}
 	
@@ -64,7 +65,7 @@ public class Node<T> {
 	 * Se unique e' true se trova un elemento che soddisfa il predicato allora si ferma e non cerca oltre, altrimenti
 	 * cerca in profondita' nell'albero
 	 */
-	public ArrayList<T> searchAll(Predicate<T> predicate, boolean unique){
+	public ArrayList<T> searchAll(Predicate<? super T> predicate, boolean unique){
 		return searchAll(predicate,new ArrayList<>(),unique);
 	}
 	
@@ -103,6 +104,29 @@ public class Node<T> {
 				component.forEach(action,alreadyChecked);
 			 }
 		 }
+	}
+
+// Iterator _________________________________
+	
+	@Override
+	public Iterator<T> iterator() {
+		Iterator<T> iter = new Iterator<T>() {
+			
+			private int i = 0;
+			
+			@Override
+			public boolean hasNext() {
+				return (i < children.size());
+			}
+
+			@Override
+			public T next() {
+				i++;
+				return children.get(i-1).getData();
+			}
+		};
+		
+		return iter;
 	}
 }
 

@@ -20,15 +20,11 @@ import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.Market;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.posTree.components.BoardView;
-import it.polimi.ingsw.ps11.posTree.components.FloorView;
-import it.polimi.ingsw.ps11.posTree.components.TowerView;
 
 public class MainTest {
 	
@@ -36,6 +32,9 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		
+		
+
+		/*
 		BoardView boardView = new BoardView();
 		
 		TowerView towerView = new TowerView();
@@ -230,7 +229,7 @@ public class MainTest {
 		
 		
 		
-		Board board = new Board(towers,market,new MultipleActionSpace());
+		Board board = new Board(towers,market,new ActionSpace());
 		
 		writeFile("settings\\board", gAdapter.toJson(board));
 		

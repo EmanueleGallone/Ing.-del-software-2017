@@ -7,7 +7,7 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Harvest;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
 public class Board {
@@ -18,13 +18,13 @@ public class Board {
 	private Production production = new Production();
 	private Market market;
 	private CardManager cards;
-	private MultipleActionSpace councilPalace;
+	private ActionSpace councilPalace;
 	
 	public Board(){
 	
 	}
 	
-	public Board(ArrayList<Tower> towers, Market market, MultipleActionSpace councilPalace){
+	public Board(ArrayList<Tower> towers, Market market, ActionSpace councilPalace){
 		this.market = market;
 		this.councilPalace = councilPalace;
 		
@@ -39,7 +39,7 @@ public class Board {
 	
 // End setters
 // Start getters
-
+	
 	public ArrayList<Tower> getTowers() {
 		
 		ArrayList<Tower> t = new ArrayList<>(this.towers.values());
@@ -48,6 +48,10 @@ public class Board {
 	
 	public <T extends Tower> T getTower(Class<T> tower){
 		return (T) this.towers.get(tower.toString());
+	}
+	
+	public ActionSpace getCouncilPalace() {
+		return councilPalace;
 	}
 	
 	@Override

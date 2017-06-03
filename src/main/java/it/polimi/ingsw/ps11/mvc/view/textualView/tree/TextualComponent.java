@@ -1,14 +1,15 @@
 
-package it.polimi.ingsw.ps11.posTree;
+package it.polimi.ingsw.ps11.mvc.view.textualView.tree;
 
 import java.util.ArrayList;
+
+import it.polimi.ingsw.ps11.cranio.Node;
 
 public abstract class TextualComponent extends Node<TextualComponent> {
 	
 	private final static String DEFAULT_ID = "unknown";
 	private String id;
 	private String type;
-	
 	
 	public TextualComponent() {
 		this(DEFAULT_ID);
@@ -41,7 +42,7 @@ public abstract class TextualComponent extends Node<TextualComponent> {
 	 */
 	public TextualComponent searchById(String id){
 		
-		ArrayList<TextualComponent> result = searchAll((c)->{return c.getId() == id;},true);
+		ArrayList<TextualComponent> result = searchAll((c)->{return c.getId().equals(id);},true);
 		if (result.size() > 0)
 			return result.get(0);
 		return null;

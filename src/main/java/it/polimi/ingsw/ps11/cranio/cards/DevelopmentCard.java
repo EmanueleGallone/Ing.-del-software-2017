@@ -58,7 +58,7 @@ public abstract class DevelopmentCard extends Card {
 	}
 	
 	public void addPermanentBonus(Bonus bonus){
-		this.istantBonus.add(bonus);
+		//this.istantBonus.add(bonus);
 	}
 	
 	private void setOwner(Player player){

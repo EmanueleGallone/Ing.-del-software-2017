@@ -2,19 +2,10 @@ package it.polimi.ingsw.ps11.cranio.resources;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import com.google.gson.Gson;
-
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import java.util.Iterator;
 
 
-public class ResourceList {
+public class ResourceList implements Iterable<Resource>{
 	
 	private static final int DEFAULT_VALUE = 0;
 	private HashMap<String, Resource> resources = new HashMap<>();
@@ -22,16 +13,7 @@ public class ResourceList {
 // start constructor
 
 	public ResourceList() {
-	/*
-		// Andranno caricate da file (?)
-		resources.put(Wood.class.toString(), new Wood());
-		resources.put(Stone.class.toString(), new Stone());
-		resources.put(Coin.class.toString(), new Coin());
-		resources.put(Servant.class.toString(), new Servant());
-		resources.put(MilitaryPoint.class.toString(), new MilitaryPoint());
-		resources.put(FaithPoint.class.toString(), new FaithPoint());
-		resources.put(VictoryPoint.class.toString(), new VictoryPoint());
-	*/
+
 	}
 	
 	public ResourceList(ArrayList<Resource> resources){
@@ -47,10 +29,10 @@ public class ResourceList {
 	 * Ritorna true se tutti i campi della resourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'othoerList.
 	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di defaul (zero)
 	 */
-	public boolean greaterEquals (ResourceList otherList){
+	public boolean greaterEquals(ResourceList otherList){
 		
 		if (resources.size() == 0)
-			return false;
+			return (resources.size() == otherList.getResources().size());
 		
 		for(Resource r : this.resources.values()){
 			if( r.getValue() <  otherList.getValueOf(r.getClass())){
@@ -65,14 +47,20 @@ public class ResourceList {
 	 * Il risultato lo assegna alla resourceList che gli viene passata
 	 */
 	public void sum(ResourceList otherResources){
-		Resource temp;
 		for(String key : otherResources.getResources().keySet()){
-			temp = getResource(key);
-			if (temp == null){
+			if (getResource(key) == null){
 				this.resources.put(key, otherResources.getResource(key).clone());
 			}
 			else {
 				this.resources.get(key).increment(otherResources.getValueOf(key));
+			}
+		}
+	}
+	
+	public void subtract(ResourceList otherResources){
+		for(String key : otherResources.getResources().keySet()){
+			if (getResource(key) != null){
+				this.resources.get(key).increment(-otherResources.getValueOf(key));
 			}
 		}
 	}
@@ -84,7 +72,28 @@ public class ResourceList {
 		return newList;
 	}
 	
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj.getClass() == this.getClass()){
+			ResourceList other = (ResourceList) obj;
+			if(resources.values().size() == other.getResources().size()){
+				for(Resource r : resources.values()){
+					Resource r2 = other.getResource(r.getClass());
+					if( !(r2 != null && r.equals(r2)))
+						return false;
+				}
+				return true;
+			}
+			
+		}
+		return false;
+	}
 	
+	@Override
+	public Iterator<Resource> iterator() {
+		return this.resources.values().iterator();
+	}
 	
 // end logic
 // Start getters

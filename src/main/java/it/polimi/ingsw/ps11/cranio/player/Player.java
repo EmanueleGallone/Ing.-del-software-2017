@@ -5,8 +5,16 @@ import java.util.Arrays;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.cranio.resources.*;
-import it.polimi.ingsw.ps11.cranio.resources.list.*;
+import it.polimi.ingsw.ps11.cranio.game.Colors;
+import it.polimi.ingsw.ps11.cranio.resources.Resource;
+import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
+import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
+import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
+import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
+import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 
 
@@ -16,6 +24,7 @@ public class Player{
 	private static final ArrayList<Resource> DEFAULT_RESOURCE = new ArrayList<>(Arrays.asList(new Wood(2),new Stone(2),new Servant(3),new Coin(5),new VictoryPoint(0),new FaithPoint(0),new MilitaryPoint(0)));	
 	
 	private String name;
+	private Colors color;
 	
 	private ResourceList resourceList;
 	private FamilyMemberManager familyManager;
@@ -23,12 +32,13 @@ public class Player{
 	
 // Start constructors
 	
-	public Player(){
-		this(DEFAULT_RESOURCE);
+	public Player(Colors color){
+		this(color,DEFAULT_RESOURCE);
 	}
 	
-	public Player(ArrayList<Resource> resources ) {
+	public Player(Colors color, ArrayList<Resource> resources ) {
 		
+		this.color = color;
 		name = DEFAULT_NAME;
 		
 		this.resourceList = new ResourceList(resources);
@@ -36,13 +46,6 @@ public class Player{
 		this.familyManager = new FamilyMemberManager(this);
 	}
 
-
-// End constructors
-	
-// Start logic
-	
-	
-// End logic
 	
 // Start getters
 	
@@ -62,10 +65,18 @@ public class Player{
 		return name;
 	}
 	
+	public Colors getColor() {
+		return color;
+	}
+	
 // End getters
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setColor(Colors color) {
+		this.color = color;
 	}
 
 	
@@ -77,6 +88,15 @@ public class Player{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		//Da decidere se basta solo il colore
+		if(obj.getClass() == this.getClass()){
+			return(((Player)obj).getColor() == this.getColor());
+		}
+		return false;
 	}
 	
 	@Override
