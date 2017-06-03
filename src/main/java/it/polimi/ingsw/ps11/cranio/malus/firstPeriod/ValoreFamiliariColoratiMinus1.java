@@ -8,15 +8,15 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class ValoreFamiliariColoratiMinus1 extends Excommunication{
 	
-	public ValoreFamiliariColoratiMinus1(Player player) {
-		this.owner = player;
+	public ValoreFamiliariColoratiMinus1() {
+		
 	}
 
 	@Override
 	public void behaviour() {
-		owner.getFamilyManager().getFamilyMember(BlackFamilyMember.class).setModifier(-1);
-		owner.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(-1);
-		owner.getFamilyManager().getFamilyMember(WhiteFamilyMember.class).setModifier(-1);
+		getOwner().getFamilyManager().getFamilyMember(BlackFamilyMember.class).setModifier(-1);
+		getOwner().getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(-1);
+		getOwner().getFamilyManager().getFamilyMember(WhiteFamilyMember.class).setModifier(-1);
 		
 	}
 

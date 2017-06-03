@@ -11,7 +11,7 @@ public class Spend2ServantInsteadOf1 extends Excommunication {
 
 	@Override
 	public void behaviour() {
-		// come lo faccio? boooh
+		// come lo faccio?
 		
 	}
 

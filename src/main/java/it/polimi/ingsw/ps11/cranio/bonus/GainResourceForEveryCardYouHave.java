@@ -5,12 +5,11 @@ import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class GainResourceForEveryCardYouHave extends Bonus{
 	
-	//private Class<? extends DevelopmentCard> cardType;
 	private ResourceList resourceList;
 	private String cardType;
 	
 	public <T extends DevelopmentCard> GainResourceForEveryCardYouHave(Class<T> cardClass, ResourceList resource) {
-		this.cardType = cardClass.getName();
+		this.cardType = cardClass.toString();
 		resourceList = resource;
 	}
 

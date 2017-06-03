@@ -6,10 +6,10 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class Minus4PointsTakingCard<T extends DevelopmentCard> extends Excommunication {
 	
-	private Class<T> cardType;
+	private String cardType;
 	
 	public Minus4PointsTakingCard(Class<T> cardType,Player player) {
-		this.cardType = cardType;
+		this.cardType = cardType.toString();
 		this.owner = player;
 	}
 
@@ -21,7 +21,7 @@ public class Minus4PointsTakingCard<T extends DevelopmentCard> extends Excommuni
 		
 	}
 	
-	public Class<T> getCardType() {
+	public String getCardType() {
 		return cardType;
 	}
 

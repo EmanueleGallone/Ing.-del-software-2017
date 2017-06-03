@@ -16,7 +16,7 @@ public class GetAnotherCardBonus extends Bonus {
 	
 	
 	public <T extends DevelopmentCard> GetAnotherCardBonus(Class<T> cardType) {
-		this.cardType = cardType.getName();
+		this.cardType = cardType.toString(); //to.string! se si usa .getName non va; conflitti con hashmap e varie
 	}
 	
 	@Override

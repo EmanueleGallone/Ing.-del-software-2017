@@ -9,17 +9,17 @@ import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
 
 public class TakeNoVictoryPointsFromCard extends Excommunication {
 	
-	private Class<? extends DevelopmentCard> cardType;
+	private String cardType;
 	
 	public TakeNoVictoryPointsFromCard(Player player, Class<? extends DevelopmentCard> card) {
 		this.owner = player;
-		this.cardType = card;
+		this.cardType = card.toString();
 		
 	}
 	
 	
 	public void behaviour(){ //pare che funzioni
-		for(DevelopmentCard cards : owner.getCardManager().getCardList(cardType)){
+		for(DevelopmentCard cards : getOwner().getCardManager().getCardList(cardType)){
 			// per ogni carta del tipo cardType, set victory point = 0; quindi la carta dovrebbe avere una resourceList?
 			for(Bonus bonus : cards.getPermanentBonus())
 				if (bonus.getClass() == IncrementResourceBonus.class){

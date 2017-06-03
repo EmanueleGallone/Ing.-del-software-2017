@@ -21,6 +21,7 @@ import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.cranio.loaders.GreenDeck;
 import it.polimi.ingsw.ps11.cranio.loaders.PurpleDeck;
+import it.polimi.ingsw.ps11.cranio.loaders.YellowDeck;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -942,7 +943,7 @@ public class MainTest {
 		ResourceList exchangeable = new ResourceList();
 		ResourceList exchange = new ResourceList();
 		
-		YellowCard residenza = new YellowCard();
+		YellowCard residenza = new YellowCard(); //bonus da rivedere
 		residenza.setActiveValue(1);
 		residenza.setPeriod(1);
 		residenza.setName("Residenza");
@@ -1026,6 +1027,351 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(1));
 		zecca.addPermanentBonus(new GainResourceForEveryCardYouHave(YellowCard.class, resourceList.clone()));
+		
+		YellowCard falegnameria = new YellowCard();
+		falegnameria.setActiveValue(4);
+		falegnameria.setPeriod(1);
+		falegnameria.setName("Falegnameria");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(1));
+		falegnameria.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		falegnameria.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource( new VictoryPoint(3));
+		falegnameria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//va settato il bonus permanente
+		
+		YellowCard cappella = new YellowCard(); //bonus permanente da rivedere
+		cappella.setPeriod(1);
+		cappella.setName("Cappella");
+		cappella.setActiveValue(2);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		cappella.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new FaithPoint(1));
+		cappella.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		exchange = new ResourceList();
+		exchangeable = new ResourceList();
+		exchange.setResource(new Coin(1));
+		exchangeable.setResource(new FaithPoint(1));
+		cappella.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone()));
+		
+		YellowCard tagliapietre = new YellowCard();
+		tagliapietre.setPeriod(1);
+		tagliapietre.setName("Tagliapietre");
+		tagliapietre.setPeriod(1);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(1));
+		tagliapietre.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		tagliapietre.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(2));
+		tagliapietre.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//mettere il bonus permanente
+		
+		//INIZIO SECONDO PERIODO
+		
+		YellowCard gildaScultori = new YellowCard();
+		gildaScultori.setPeriod(2);
+		gildaScultori.setName("Gilda degli Scultori");
+		gildaScultori.setActiveValue(5);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(4));
+		gildaScultori.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(6));
+		gildaScultori.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//settare il bonus permanente
+		
+		YellowCard gildaCostruttori = new YellowCard();
+		gildaCostruttori.setPeriod(2);
+		gildaCostruttori.setName("Gilda dei Costruttori");
+		gildaCostruttori.setActiveValue(4);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(1));
+		gildaCostruttori.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		gildaCostruttori.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(4));
+		gildaCostruttori.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//settare il bonus permanente
+		
+		YellowCard gildaPittori = new YellowCard();
+		gildaPittori.setPeriod(2);
+		gildaPittori.setActiveValue(4);
+		gildaPittori.setName("Gilda dei Pittori");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(4));
+		gildaPittori.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(5));
+		gildaPittori.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere bonus permanente
+		
+		YellowCard mercato = new YellowCard();
+		mercato.setPeriod(2);
+		mercato.setName("Mercato");
+		mercato.setActiveValue(3);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		mercato.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(1));
+		mercato.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(3));
+		mercato.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere bonus permanente
+		
+		YellowCard battistero = new YellowCard();
+		battistero.setName("Battistero");
+		battistero.setPeriod(2);
+		battistero.setActiveValue(2);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(3));
+		battistero.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(2));
+		resourceList.setResource(new FaithPoint(1));
+		battistero.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere bonus permanente
+		
+		YellowCard fortezza = new YellowCard();
+		fortezza.setPeriod(2);
+		fortezza.setName("Fortezza");
+		fortezza.setActiveValue(6);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(2));
+		fortezza.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		fortezza.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		fortezza.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(8));
+		fortezza.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new MilitaryPoint(2));
+		resourceList.setResource(new VictoryPoint(2));
+		fortezza.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		YellowCard tesoreria = new YellowCard();
+		tesoreria.setActiveValue(3);
+		tesoreria.setName("Tesoreria");
+		tesoreria.setPeriod(2);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(3));
+		tesoreria.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(4));
+		tesoreria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere bonus permanente
+		
+		YellowCard caserma = new YellowCard();
+		caserma.setActiveValue(1);
+		caserma.setName("Caserma");
+		caserma.setPeriod(2);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(1));
+		caserma.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(1));
+		caserma.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(3));
+		caserma.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere bonus permanente
+		
+		//INIZIO TERZO PERIODO
+		
+		YellowCard giardino = new YellowCard();
+		giardino.setActiveValue(1);
+		giardino.setName("Giardino");
+		giardino.setPeriod(3);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Servant(2));
+		giardino.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(4));
+		giardino.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		giardino.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(10));
+		giardino.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(3));
+		giardino.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		YellowCard banca = new YellowCard();
+		banca.setPeriod(3);
+		banca.setActiveValue(2);
+		banca.setName("Banca");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(3));
+		banca.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(1));
+		banca.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(3));
+		banca.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(7));
+		banca.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(5));
+		banca.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		YellowCard basilica = new YellowCard();
+		basilica.setPeriod(3);
+		basilica.setName("Basilica");
+		basilica.setActiveValue(1);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(1));
+		basilica.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(4));
+		basilica.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(5));
+		resourceList.setResource(new FaithPoint(1));
+		basilica.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungi bonus permanente
+		
+		YellowCard cattedrale = new YellowCard();
+		cattedrale.setPeriod(3);
+		cattedrale.setActiveValue(2);
+		cattedrale.setName("Cattedrale");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(4));
+		cattedrale.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(4));
+		cattedrale.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(7));
+		resourceList.setResource(new FaithPoint(3));
+		cattedrale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(1));
+		cattedrale.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		YellowCard fiera = new YellowCard();
+		fiera.setActiveValue(4);
+		fiera.setPeriod(3);
+		fiera.setName("Fiera");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(4));
+		fiera.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(3));
+		fiera.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(8));
+		fiera.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList= new ResourceList();
+		//aggiungere bonus
+		
+		YellowCard accademiaMilitare = new YellowCard();
+		accademiaMilitare.setActiveValue(3);
+		accademiaMilitare.setName("Accademia Militare");
+		accademiaMilitare.setPeriod(3);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Servant(1));
+		accademiaMilitare.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		accademiaMilitare.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		accademiaMilitare.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(7));
+		accademiaMilitare.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungi bonus permanente
+		
+		YellowCard palazzo = new YellowCard();
+		palazzo.setActiveValue(6);
+		palazzo.setName("Palazzo");
+		palazzo.setPeriod(3);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(3));
+		palazzo.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(3));
+		palazzo.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(1));
+		palazzo.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(9));
+		palazzo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungi bonus permanente
+		
+		YellowCard castelletto = new YellowCard();
+		castelletto.setActiveValue(5);
+		castelletto.setName("Castelletto");
+		castelletto.setPeriod(3);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(2));
+		castelletto.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		castelletto.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(4));
+		castelletto.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(9));
+		castelletto.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(2));
+		resourceList.setResource(new CouncilPrivilege(1));
+		castelletto.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		YellowDeck yellowDeck = new YellowDeck();
+		yellowDeck.add(castelletto);
+		yellowDeck.add(palazzo);
+		yellowDeck.add(accademiaMilitare);
+		yellowDeck.add(fiera);
+		yellowDeck.add(cattedrale);
+		yellowDeck.add(basilica);
+		yellowDeck.add(banca);
+		yellowDeck.add(giardino);
+		yellowDeck.add(caserma);
+		yellowDeck.add(tesoreria);
+		yellowDeck.add(fortezza);	
+		yellowDeck.add(battistero);
+		yellowDeck.add(mercato);
+		yellowDeck.add(gildaPittori);
+		yellowDeck.add(gildaCostruttori);
+		yellowDeck.add(gildaScultori);
+		yellowDeck.add(tagliapietre);
+		yellowDeck.add(cappella);
+		yellowDeck.add(falegnameria);
+		yellowDeck.add(zecca);
+		yellowDeck.add(arcoTrionfo);
+		yellowDeck.add(esattoria);
+		yellowDeck.add(teatro);
+		yellowDeck.add(residenza);
+		
+		writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck));
+		//FINE CARTE GIALLE
+		
+		//INIZIO CARTE BLU
+		
 		
 		
 		
