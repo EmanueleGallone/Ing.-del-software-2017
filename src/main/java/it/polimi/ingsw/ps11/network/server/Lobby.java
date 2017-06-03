@@ -30,7 +30,7 @@ public class Lobby{
 			System.out.println("Inizializzo la Partita, aggiungere fino a "+ (MAX_SIZE-START_SIZE) + " altri giocatori entro " + (delay/1000) + " secondi");
 			TimerTask task = new StartingMatch();
 			timer.schedule(task, delay);		
-		}		
+		}
 	}
 	
 	private void newMatch() {

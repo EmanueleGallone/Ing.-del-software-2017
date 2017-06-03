@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -21,6 +20,7 @@ public class Client extends Thread {
     private Object read;
     private ClientController controller;
     
+ 
     /* Il main thread manda via socket ciò che legge da tastiera
      * Il nuovo Thread di riga 39 legge l'input da socket, lo deserializza e lo passa al controller
      * Quando il controller ha bisogno, chiama la funzione send di riga 68 per serializzare e poi mandare via socket
@@ -28,13 +28,14 @@ public class Client extends Thread {
 	
 	public static void main(String[] args) {
 		try {
-			Socket socket = new Socket( InetAddress.getLocalHost() , PORT );
+			Socket socket = new Socket("192.168.43.173"  /*InetAddress.getLocalHost()*/ , PORT );
 			new Thread(new Client(socket)).start();
 		} catch (IOException e) {
 			System.err.println("Errore, nessun Server a cui collegarsi");
-		}
-		/*while (true) {
-	         out.println(keyboard.nextLine());
+		}/*
+		while (true) {
+			
+	         //out.println(keyboard.nextLine());
 	     }*/
 	}
 	
@@ -62,9 +63,10 @@ public class Client extends Thread {
 				if(read.getClass().equals(String.class)) System.out.println(read);
 				else ClientController.activate(read);*/
 		}catch (IOException e) {				
-			System.err.println("Errore nella lettura");;
+			System.err.println("Errore nella lettura");
+			break;
 		}
-		}	
+		}
 	}
 	
 	public void send(Object object){

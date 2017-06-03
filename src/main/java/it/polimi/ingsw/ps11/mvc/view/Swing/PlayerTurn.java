@@ -67,7 +67,7 @@ public class PlayerTurn extends JPanel {
 		}
 
 		private void sendChoice() {
-			System.out.println(View.getPlayerPanel(player).getSelectedFamilyMember()); //chiede di settarlo static ma non so il perchè
+			System.out.println(GraphicView.getPlayerPanel(player).getSelectedFamilyMember()); //chiede di settarlo static ma non so il perchè
 		}
 	}
 

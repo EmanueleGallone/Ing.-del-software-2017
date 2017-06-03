@@ -1,8 +1,10 @@
-package it.polimi.ingsw.ps11.network;
+package it.polimi.ingsw.ps11.network.old;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import it.polimi.ingsw.ps11.network.newClient.Client;
 
 public class Lobby{
 	private final int MAX_SIZE = 4;

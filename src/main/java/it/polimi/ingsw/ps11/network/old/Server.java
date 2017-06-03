@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.network;
+package it.polimi.ingsw.ps11.network.old;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.network.newClient.Client;
 
 public class Server extends Thread{
 	private final int PORT = 60000;
@@ -32,7 +33,7 @@ public class Server extends Thread{
 				
 				
 				
-				lobby.addClient(new Client(socket, defaultPlayer.clone()));
+				//lobby.addClient(new Client(socket, defaultPlayer.clone()));
 				
 				System.out.println("Connessione accettata : " + socket.getInetAddress() + "port : " + socket.getPort());
 				

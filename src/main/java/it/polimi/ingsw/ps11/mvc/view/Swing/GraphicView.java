@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
 
-public class View extends JFrame {
+public class GraphicView extends JFrame {
 	
 	private static final long serialVersionUID = -8755577984729829880L;
 	protected String[]	types = { "Territories", "Buildings", "Characters", "Ventures"},
@@ -29,7 +29,7 @@ public class View extends JFrame {
 	
 	GridBagConstraints gbc = new GridBagConstraints();
 	
-    public View(ArrayList<String> players) {
+    public GraphicView(ArrayList<String> players) {
     	
         setLayout(new GridBagLayout());// set LayoutManager
         Border eBorder = BorderFactory.createEtchedBorder();
@@ -101,7 +101,7 @@ public class View extends JFrame {
         javax.swing.SwingUtilities.invokeLater(new Runnable() { // important
 
             public void run() {
-            	View newGame = new View(players);
+            	GraphicView newGame = new GraphicView(players);
             }
         });
     }
