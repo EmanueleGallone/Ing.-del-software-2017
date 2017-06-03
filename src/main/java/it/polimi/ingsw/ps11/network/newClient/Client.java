@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.network.newClient;
 
 import it.polimi.ingsw.ps11.mvc.view.View;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
 import it.polimi.ingsw.ps11.network.Connection;
 
 public class Client extends Thread {
@@ -12,6 +13,8 @@ public class Client extends Thread {
 
 		Console console = new Console();
 		View view = null;
+		
+		/*
 		boolean cond = true;
 		while(cond){
 			String input = console.read("Scegli modalita' di gioco: Grafica [g] / Testuale [t]");
@@ -29,8 +32,8 @@ public class Client extends Thread {
 				break;
 			}
 		}
-		
-		Client client = new Client(view);
+		*/
+		Client client = new Client(view, new Connection(""));
 		client.start();
 	}
 	

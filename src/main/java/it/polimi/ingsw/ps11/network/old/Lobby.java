@@ -19,8 +19,8 @@ public class Lobby{
 	}
 	
 	public void addClient(Client client){
-		clients.add(client);
 		
+		clients.add(client);
 		if(clients.size() == START_SIZE){
 			TimerTask task = new StartingMatch();
 			timer.schedule(task, delay);

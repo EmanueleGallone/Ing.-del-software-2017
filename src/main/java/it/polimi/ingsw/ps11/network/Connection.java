@@ -6,11 +6,14 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
+import it.polimi.ingsw.ps11.network.messages.InputChangeEvent;
 import it.polimi.ingsw.ps11.network.messages.Message;
 
 public class Connection {
@@ -26,7 +29,9 @@ public class Connection {
 	private MessageSender messageSender;
 	
 	
-	EventHandler<Message> inputChangeEvent = new EventHandler<>();
+	EventHandler<InputChangeEvent> inputChangeEvent = new EventHandler<>();
+	EventHandler<Connection> clientDisconnectEvent = new EventHandler<>();
+	
 	
 	public Connection() {
 		this(DEFAULT_SERVER, DEFAULT_PORT);
@@ -46,9 +51,10 @@ public class Connection {
 	}
 	
 	public void on() throws UnknownHostException, IOException{
-		socket = new Socket(server, port);
-		messageReceiver = new MessageReceiver(socket);
-		messageSender = new MessageSender(socket);
+		if(socket == null)
+			this.socket = new Socket(server, port);
+		messageReceiver = new MessageReceiver(this.socket);
+		messageSender = new MessageSender(this.socket);
 		
 		messageReceiver.start();
 		messageSender.start();
@@ -58,11 +64,15 @@ public class Connection {
 		return this;
 	}
 	
-	public void inputChangeEvent(EventListener<Message> listener){
+	public void inputChangeEvent(EventListener<InputChangeEvent> listener){
 		inputChangeEvent.attach(listener);
 	}
 	
-	class MessageReceiver extends Thread{
+	public void clientDisconnectEvent(EventListener<Connection> listener){
+		clientDisconnectEvent.attach(listener);
+	}
+	
+	public class MessageReceiver extends Thread{
 		
 		private Socket socket;
 		private BufferedReader reader;
@@ -74,18 +84,22 @@ public class Connection {
 		@Override
 		public void run() {
 			Gson gson = new Gson();
-			while (true) {
-				try {
+			try {
+				while (true) {
+	
 					String input = reader.readLine();
-					Message message = gson.fromJson(input, Message.class);
-					message.setConnection(getConnection());
-					inputChangeEvent.invoke(message);
+					System.out.println("message received: " + input);
 					
-				} catch (IOException e) {
-					e.printStackTrace();
+					Message message = gson.fromJson(input, Message.class);
+					
+					inputChangeEvent.invoke(new InputChangeEvent(getConnection(), message));	
 				}
+				
+			} catch (IOException e) {
+				//e.printStackTrace();
+				System.err.println("Client disconnesso");
+				clientDisconnectEvent.invoke(getConnection());
 			}
-			
 		}	
 	}
 	
@@ -94,7 +108,7 @@ public class Connection {
 	}
 	
 	
-	class MessageSender extends Thread{
+	public class MessageSender extends Thread{
 		
 		private Socket socket;
 		private PrintStream writer;

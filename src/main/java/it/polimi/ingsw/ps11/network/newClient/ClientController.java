@@ -14,8 +14,9 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.mvc.view.View;
 import it.polimi.ingsw.ps11.network.Connection;
 import it.polimi.ingsw.ps11.network.messages.DefaultCommand;
+import it.polimi.ingsw.ps11.network.messages.InputChangeEvent;
 import it.polimi.ingsw.ps11.network.messages.Message;
-import it.polimi.ingsw.ps11.network.messages.Command;
+import it.polimi.ingsw.ps11.network.messages.CommandInterface;
 import it.polimi.ingsw.ps11.network.messages.CommandRecognizer;
 
 public class ClientController implements CommandRecognizer {
@@ -45,9 +46,9 @@ public class ClientController implements CommandRecognizer {
 	
 // _________________________ EVENT LISTENER ________________________
 	
-	EventListener<Message> serverListener = new EventListener<Message>() {
+	EventListener<InputChangeEvent> serverListener = new EventListener<InputChangeEvent>() {
 		@Override
-		public void handle(Message message) {
+		public void handle(InputChangeEvent message) {
 			
 			ArrayList<Class<?>> list = new ArrayList<>();
 			list.add(DevelopmentCard.class);
@@ -56,18 +57,18 @@ public class ClientController implements CommandRecognizer {
 			
 			JsonAdapter jsonAdapter = new JsonAdapter(list);
 			
-			Command command = jsonAdapter.fromJson(message.getObject(), message.getType());
+			CommandInterface command = jsonAdapter.fromJson(message.getMessage().getObject(), message.getMessage().getType());
 			execute(command);
 		}
 	};
 	
-	public EventListener<Message> getServerListener() {
+	public EventListener<InputChangeEvent> getServerListener() {
 		return serverListener;
 	}
 	
 //____________________________ COMMAND INTERPRETER _____________________________
 	
-	public void execute(Command command){
+	public void execute(CommandInterface command){
 		command.accept(this);
 	}
 	

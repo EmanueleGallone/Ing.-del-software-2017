@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+
 import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
@@ -25,12 +27,19 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.network.Connection;
 
 public class MainTest {
 	
 	
 	
 	public static void main(String[] args){
+		
+		Connection connection = new Connection();
+		Gson gson = new Gson();
+		
+		String s = gson.toJson(connection);
+		System.out.println(s);
 		
 		
 

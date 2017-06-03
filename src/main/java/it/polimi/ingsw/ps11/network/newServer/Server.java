@@ -24,6 +24,7 @@ public class Server implements Runnable {
 	  Socket socket = serverSocket.accept();
 	  Connection connection = new Connection(socket);
 	  
+	  connection.on();
 	  System.out.println("New connection");
 	  
 	  gamesManager.add(connection);
