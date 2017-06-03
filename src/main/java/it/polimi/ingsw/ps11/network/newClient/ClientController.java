@@ -50,6 +50,8 @@ public class ClientController implements CommandRecognizer {
 		@Override
 		public void handle(InputChangeEvent message) {
 			
+			
+			
 			ArrayList<Class<?>> list = new ArrayList<>();
 			list.add(DevelopmentCard.class);
 			list.add(Resource.class);

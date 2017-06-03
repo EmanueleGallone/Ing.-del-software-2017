@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.cranio;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,10 +16,24 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.resources.Resource;
+import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
+
 public class JsonAdapter {
 
 	
 	private Gson gson;
+	
+	private ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(Resource.class,
+			Tower.class,
+			DevelopmentCard.class
+			));
+	
+	public JsonAdapter() {
+		
+	}
+	
 	
 	public JsonAdapter(Class<?> Class) {
 		

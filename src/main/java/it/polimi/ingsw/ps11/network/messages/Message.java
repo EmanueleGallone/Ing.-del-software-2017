@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.network.messages;
 
-import it.polimi.ingsw.ps11.network.Connection;
-
 public class Message {
 	
 	private String type, object;

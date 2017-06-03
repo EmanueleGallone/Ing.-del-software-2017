@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.network.old.Match;
 
 public class GamesManager {
 	
-	private final int MAX_SIZE = 4;
+	private final int MAX_SIZE = 4; 
 	private final int START_SIZE = 2;
 	private long delay = 10000; //60000; //va caricato da file
 	Timer timer;
