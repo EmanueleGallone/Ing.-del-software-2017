@@ -5,16 +5,12 @@ import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 
 public class PurpleCard extends DevelopmentCard {
 	//carte IMPRESE
+	
 	public PurpleCard(){
-		
+		super();
 	}
 
-	@Override
-	public void enablePermanentBonus() {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
 	@Override
 	public PurpleCard clone() {
 		JsonAdapter jsonAdapter = new JsonAdapter(DevelopmentCard.class);

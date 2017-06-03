@@ -7,8 +7,8 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 public class GetAnotherCardBonus extends Bonus {
 
 	
-	private Class<? extends DevelopmentCard> cardType;
-	
+	//private Class<? extends DevelopmentCard> cardType; ora con la serializzazione json va
+	private String cardType;
 	private DevelopmentCard card;
 	
 	private EventHandler<GetAnotherCardBonus> scegliCarta = new EventHandler<>();
@@ -16,7 +16,7 @@ public class GetAnotherCardBonus extends Bonus {
 	
 	
 	public <T extends DevelopmentCard> GetAnotherCardBonus(Class<T> cardType) {
-		this.cardType = cardType;
+		this.cardType = cardType.toString(); //to.string! se si usa .getName non va; conflitti con hashmap e varie
 	}
 	
 	@Override

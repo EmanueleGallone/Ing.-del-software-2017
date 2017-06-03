@@ -9,11 +9,11 @@ public class Harvest extends CardAttivator {
 	@Override
 	protected void activeCard(FamilyMember familyMember) {
 		CardManager cardManager = familyMember.getOwner().getCardManager();
-		for(GreenCard card : cardManager.getCardList(GreenCard.class)){
-			if (card.getActiveValue() > familyMember.getValue()){
+		for(GreenCard card : cardManager.getCardList(GreenCard.class))
+			if (card.getActiveValue() > familyMember.getValue())
 				card.enablePermanentBonus();
-			}
-		}
+			
+		
 	}
 
 }

@@ -6,7 +6,6 @@ import java.util.TimerTask;
 
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.network.Connection;
-import it.polimi.ingsw.ps11.network.old.Match;
 
 public class GamesManager {
 	

@@ -42,9 +42,15 @@ public class CardManager {
 // Start getters
 	
 	public <T extends DevelopmentCard> ArrayList<T> getCardList (Class<T> cardClass){
-		return (ArrayList<T>) this.cards.get(cardClass.toString());
+		return (ArrayList<T>) this.cards.get(cardClass.toString()); //forse il casting va messo fuori nel chiamante del metodo; come per clone!
 	}
+	
 
+	public <T extends DevelopmentCard> ArrayList<T> getCardList (String cardClass){ //necessario per bypassare il problema della serializzazione
+		return (ArrayList<T>) this.cards.get(cardClass); 
+	}
+	
+	
 	@Override
 	public String toString() {
 		String string = "";

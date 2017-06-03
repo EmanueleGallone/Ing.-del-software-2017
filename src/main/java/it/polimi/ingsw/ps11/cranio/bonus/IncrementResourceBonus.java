@@ -14,4 +14,9 @@ public class IncrementResourceBonus extends Bonus {
 	public void behavior() {
 		getOwner().getResourceList().sum(resourceList);
 	}
+	
+	public ResourceList getResourceList() {
+		return resourceList;
+	}
+	
 }

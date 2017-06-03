@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 public class GreenCard extends DevelopmentCard {
 	//carte Territori
 	
-	protected final int DEFAULT_VALUE = 1;
+	
 	protected int activeValue; //valore necessario affinchè la carta attivi il bonus
 	
 	
@@ -20,11 +20,6 @@ public class GreenCard extends DevelopmentCard {
 	}
 	public void setActiveValue(int activeValue) {
 		this.activeValue = activeValue;
-	}
-
-	@Override
-	public String toString() {
-		return "GreenCard [DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
 	}
 	
 	@Override

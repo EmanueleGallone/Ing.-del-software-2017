@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 public class FamilyMemberBonus extends Bonus {
 
 	private Tower tower;
-	private int value;	
+	private int value;
 	private FamilyMember familyMember;
 	
 	public FamilyMemberBonus(Tower tower, int value) {
