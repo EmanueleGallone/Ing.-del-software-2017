@@ -11,11 +11,19 @@ import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus;
+import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;
 import it.polimi.ingsw.ps11.cranio.bonus.GetAnotherCardBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus;
+import it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.loaders.GreenDeck;
+import it.polimi.ingsw.ps11.cranio.loaders.PurpleDeck;
+import it.polimi.ingsw.ps11.cranio.loaders.YellowDeck;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -234,8 +242,6 @@ public class MainTest {
 		list.add(Bonus.class);
 		
 		JsonAdapter gAdapter = new JsonAdapter(list); //per la scrittura su file
-		
-		//ArrayList<GreenCard> arrayList = new ArrayList<GreenCard>(); //volevo inserire tutte le carte in un array e poi salvare con Json ma dà problemi
 		
 		ResourceList resourceList = new ResourceList();
 		
@@ -506,7 +512,33 @@ public class MainTest {
 		resourceList.setResource(new Wood(2));
 		tenuta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
-		//writeFile("settings\\GreenCards", gAdapter.toJson(arrayList)); //lasciato alla fine
+		GreenDeck greenDeck = new GreenDeck(); 
+		greenDeck.add(tenuta); 
+		greenDeck.add(cittaMercantile); 
+		greenDeck.add(provincia);
+		greenDeck.add(cavaDiMarmo);
+		greenDeck.add(santuario);
+		greenDeck.add(colonia);
+		greenDeck.add(cittaFortificata);
+		greenDeck.add(castello);
+		greenDeck.add(minieraOro);
+		greenDeck.add(cavaDiPietra);
+		greenDeck.add(villaggioMontano);
+		greenDeck.add(possedimento);
+		greenDeck.add(maniero);
+		greenDeck.add(ducato);
+		greenDeck.add(villaggioMinerario);
+		greenDeck.add(eremo);
+		greenDeck.add(cavaGhiaia);
+		greenDeck.add(citta);
+		greenDeck.add(rocca);
+		greenDeck.add(foresta);
+		greenDeck.add(monastero);
+		greenDeck.add(borgo);
+		greenDeck.add(bosco);
+		greenDeck.add(avampostoCommerciale);	
+		
+		writeFile("settings\\GreenCards", gAdapter.toJson(greenDeck));
 		
 		//FINE CARTE VERDI
 		
@@ -693,6 +725,11 @@ public class MainTest {
 		resourceList.setResource(new Stone(2));
 		sostegnoCardinale.addCost(resourceList.clone());
 		resourceList = new ResourceList();
+		resourceList.setResource(new FaithPoint(3));
+		sostegnoCardinale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(4));
+		sostegnoCardinale.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
 		PurpleCard crociata = new PurpleCard();
 		crociata.setPeriod(2);
@@ -751,20 +788,20 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(1));
 		riparareCattedrale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		riparareCattedrale.addInstantBonus(new GetAnotherCardBonus(DevelopmentCard.class)); //ATTENZIONE. VA RIVISTA QUESTA CARTA!
+		//riparareCattedrale.addInstantBonus(new GetAnotherCardBonus(DevelopmentCard.class)); //ATTENZIONE. VA RIVISTA QUESTA CARTA! E DA' PROBLEMI IN SERIALIZZAZIONE!!!!!!!!!!!!!!!!!!!!!!
 		
-		PurpleCard commissionareARteSacra = new PurpleCard();
-		commissionareARteSacra.setPeriod(3);
-		commissionareARteSacra.setName("Commissionare Arte Sacra");
+		PurpleCard commissionareArteSacra = new PurpleCard();
+		commissionareArteSacra.setPeriod(3);
+		commissionareArteSacra.setName("Commissionare Arte Sacra");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(6));
-		commissionareARteSacra.addCost(resourceList.clone());
+		commissionareArteSacra.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(3));
-		commissionareARteSacra.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		commissionareArteSacra.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(3));
-		commissionareARteSacra.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		commissionareArteSacra.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
 		PurpleCard costruireTorri = new PurpleCard();
 		costruireTorri.setPeriod(3);
@@ -852,9 +889,126 @@ public class MainTest {
 		resourceList.setResource(new VictoryPoint(8));
 		guerraSanta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
-		//writeFile("settings\\PurpleCards", gAdapter.toJson(arrayList)); //lasciato alla fine
+		PurpleDeck purpleDeck = new PurpleDeck();
+		purpleDeck.add(guerraSanta);
+		purpleDeck.add(sostegnoPapa);
+		purpleDeck.add(conquistaMilitare);
+		purpleDeck.add(migliorareStrade);
+		purpleDeck.add(ingaggiareMercenari);
+		purpleDeck.add(costruireTorri);
+		purpleDeck.add(commissionareArteSacra);
+		purpleDeck.add(riparareCattedrale);
+		purpleDeck.add(accogliereStranieri);
+		purpleDeck.add(costruireBastioni);
+		purpleDeck.add(crociata);
+		purpleDeck.add(sostegnoCardinale);
+		purpleDeck.add(supportoRe);
+		purpleDeck.add(riparareAbbazia);
+		purpleDeck.add(scavareCanalizzazioni);
+		purpleDeck.add(ingaggiareSoldati);
+		purpleDeck.add(innalzareStatua);
+		purpleDeck.add(costruireMura);
+		purpleDeck.add(sostegnoVaticano);
+		purpleDeck.add(combattereEresie);
+		purpleDeck.add(ingaggiareReclute);
+		purpleDeck.add(riparareChiesa);
+		purpleDeck.add(ospitareMendicanti);
+		purpleDeck.add(campagnaMilitare);
+		
+		
+		writeFile("settings\\PurpleCards", gAdapter.toJson(purpleDeck)); 
 		
 		//FINE CARTE VIOLA
+		
+		//INIZIO CARTE GIALLE
+		ResourceList exchangeable = new ResourceList();
+		ResourceList exchange = new ResourceList();
+		
+		YellowCard residenza = new YellowCard();
+		residenza.setActiveValue(1);
+		residenza.setPeriod(1);
+		residenza.setName("Residenza");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		residenza.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(1));
+		residenza.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		exchange.setResource(new Coin(1));
+		exchangeable.setResource(new CouncilPrivilege(1));
+		residenza.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone()));
+		
+		YellowCard teatro = new YellowCard();
+		teatro.setActiveValue(6);
+		teatro.setName("Teatro");
+		teatro.setPeriod(1);
+		resourceList = new ResourceList();
+		exchangeable = new ResourceList();
+		exchange = new ResourceList();
+		resourceList.setResource(new Coin(2));
+		teatro.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(2));
+		teatro.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(6));
+		teatro.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(1));
+		teatro.addPermanentBonus(new GainResourceForEveryCardYouHave(BlueCard.class, resourceList.clone()));
+		
+		YellowCard esattoria = new YellowCard();
+		esattoria.setActiveValue(5);
+		esattoria.setPeriod(1);
+		esattoria.setName("Esattoria");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(3));
+		esattoria.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(1));
+		esattoria.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource( new VictoryPoint(5));
+		esattoria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(1));
+		esattoria.addPermanentBonus(new GainResourceForEveryCardYouHave(GreenCard.class, resourceList.clone()));
+		
+		YellowCard arcoTrionfo = new YellowCard();
+		arcoTrionfo.setActiveValue(6);
+		arcoTrionfo.setPeriod(1);
+		arcoTrionfo.setName("Arco di Trionfo");
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(2));
+		arcoTrionfo.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(2));
+		arcoTrionfo.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(6));
+		arcoTrionfo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(1));
+		arcoTrionfo.addPermanentBonus(new GainResourceForEveryCardYouHave(PurpleCard.class, resourceList));
+		
+		YellowCard zecca = new YellowCard();
+		zecca.setActiveValue(5);
+		zecca.setName("Zecca");
+		zecca.setPeriod(1);
+		resourceList = new ResourceList();
+		resourceList.setResource(new Wood(1));
+		zecca.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new Stone(3));
+		zecca.addCost(resourceList.clone());
+		resourceList = new ResourceList();
+		resourceList.setResource(new VictoryPoint(5));
+		zecca.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList();
+		resourceList.setResource(new Coin(1));
+		zecca.addPermanentBonus(new GainResourceForEveryCardYouHave(YellowCard.class, resourceList.clone()));
+		
 		
 		
 		
