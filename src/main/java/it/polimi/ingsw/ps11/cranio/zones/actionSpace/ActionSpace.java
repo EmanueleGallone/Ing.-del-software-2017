@@ -1,52 +1,98 @@
 package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ActionSpace extends MultipleActionSpace {
+public class ActionSpace implements Iterable<FamilyMember> {
 	
-	private final int MAX_AVAILABLE_SPACE = 1; 
+	protected static final int DEFAULT_COST = 1;
+	protected static final int DEFAULT_AVAILABLE_SPACE = 1;
+	protected ArrayList<FamilyMember> familyMembers = new ArrayList<>();
+	private int cost;
+	private int availableSpace;
+	private ResourceList resources; //Sarebbe meglio un arrayList, poi vediamo
+	
+	
+// Start Constructors
 	
 	public ActionSpace() {
-		super(DEFAULT_COST);
+		this(DEFAULT_COST);
 	}
 	
 	public ActionSpace(int cost){
-		super(cost);
+		this(cost,DEFAULT_AVAILABLE_SPACE);
+	}
+	
+	public ActionSpace(int cost,int availableSpace){
+		this.cost = cost;
+		this.availableSpace = availableSpace;
+		resources = new ResourceList();
 	}
 	
 	public ActionSpace(ResourceList resources){
-		super(resources);
+		this();
+		this.resources = resources;
 	}
 	
 	public ActionSpace(int cost, ResourceList resources){
-		super(cost,resources);
+		this(cost);
+		this.resources = resources;
 	}
 	
-// Start logic
+
+//Start setters
 	
+	public void setResources(ResourceList resourceList){
+		this.resources = resourceList;
+	}
+	
+	public boolean addFamilyMember(FamilyMember familyMember) {
+		if (this.familyMembers.size() <= availableSpace)
+			return this.familyMembers.add(familyMember);
+		return false;
+	}
+	
+
+// Getters
+	
+	public int getActionCost() {
+		return cost;
+	}
+	
+	public ResourceList getResources() {
+		return resources;
+	}
+	
+	public ArrayList<FamilyMember> getFamilyMembers() {
+		return familyMembers;
+	}
+	
+// Setters	
+
+	public void setAvailableSpace(int availableSpace) {
+		this.availableSpace = availableSpace;
+	}
+	
+// Iterator
+
 	@Override
-	public boolean placeFamilyMember(FamilyMember familyMember) {
-		if (familyMembers.size() > MAX_AVAILABLE_SPACE ){
-			return false;
-		}
-		return super.placeFamilyMember(familyMember);
+	public Iterator<FamilyMember> iterator() {
+		return familyMembers.iterator();
 	}
 
 	@Override
 	public String toString() {
-		return "ActionSpace [familyMembers=" + familyMembers + "]";
+		return "MultipleActionSpace [familyMembers=" + familyMembers 
+				+ ", cost=" + cost 
+				+ ", resources=" + resources
+				+ "]";
 	}
 	
-	
-	/*
-	 Il get family member è meglio evitarlo perchè dovremmo prevedere il caso in cui 
-	  il familyMember sia null
-	*/
-	
-// End logic
+//End iterator
 	
 	
 	
-
 }

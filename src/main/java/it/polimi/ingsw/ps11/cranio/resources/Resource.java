@@ -29,4 +29,11 @@ public abstract class Resource {
 	
 	protected abstract Resource clone();
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj.getClass() == this.getClass() && ((Resource)obj).getValue() == value){
+			return true;
+		}
+		return false;
+	}
 }

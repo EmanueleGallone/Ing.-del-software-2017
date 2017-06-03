@@ -12,7 +12,6 @@ public class Production extends CardAttivator {
 		for(YellowCard card : cardManager.getCardList(YellowCard.class))
 			if (card.getActiveValue() > familyMember.getValue())
 				card.enablePermanentBonus();
-			
 		
 	}
 }

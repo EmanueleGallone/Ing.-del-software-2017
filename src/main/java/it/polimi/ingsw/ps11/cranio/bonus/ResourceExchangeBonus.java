@@ -14,7 +14,8 @@ public class ResourceExchangeBonus extends Bonus {
 	
 	@Override
 	public void behavior() {
-		
+		//if( il giocatore ha scelto se scambiare la risorsa )
+		//getOwner().getResourceList().sum(exchangeable);
 	}
 
 }

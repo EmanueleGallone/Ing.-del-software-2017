@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.mvc.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Stream;
 
@@ -7,13 +8,13 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
-import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.mvc.components.FloorView;
-import it.polimi.ingsw.ps11.mvc.components.TextualComponent;
-import it.polimi.ingsw.ps11.mvc.components.TextualContainer;
 import it.polimi.ingsw.ps11.mvc.model.Model;
-import it.polimi.ingsw.ps11.mvc.view.TextualView;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponentGenerico;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.FloorView;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.PlayerView;
 
 public class Controller {
 	private Game model;
@@ -22,52 +23,65 @@ public class Controller {
 
 	public Controller(Model model, TextualView view) {
 		this.model = model.getGame();
-		for(Player p : this.model.getRoundManager().getPlayers()){
+		for(Player p : this.model.getRoundManager().getCurrentOrder()){
 			this.viewMap.put(new TextualView(), p);
 		}
 	}
 	
 	private TextualView textualView = new TextualView();
+	
+	private HashMap<Object, TextualComponentGenerico<?>> map = new HashMap<>();
 
 	
 // _______________ EVENT LISTENER _____________________
 
+
+	EventListener<FloorView> floorUpdaterListener = new EventListener<FloorView>() {
+		//Questo non è necessario, l'update del listener verrà notificata dal model
+		
+		@Override
+		public void handle(FloorView e) {
+			e.update(getFloor(e.getColor(), e.getWhichFloor()));
+		}
+	};
+	
+	EventListener<PlayerView> playerUpdaterListener = new EventListener<PlayerView>() {
+
+		@Override
+		public void handle(PlayerView e) {
+			e.update(player.clone()); // Sbagliato, anche clonando il player la view potrebbe accedere alle risorse che sono quelle nel model
+			//La clone del player dovrebbe clonare tutto, anche le risorse
+		}
+	};
+	
+	
+	EventListener<FloorView> floorSelectedListener = new EventListener<FloorView>() {
+
+		@Override
+		public void handle(FloorView e) {
+			//String choice = textualView.choseFamilyMember();
+			e.print();
+		}
+	};
+	
+	EventListener<String> inputChangeListener = new EventListener<String>() {
+
+		@Override
+		public void handle(String e) {
+			TextualComponent component = $(e);
+			if (component != null)
+				component.select();
+		}
+	};
 	
 	public void event(){
 		
-		$(FloorView.class).forEach( f -> {f.printEvent(new EventListener<FloorView>() {
-
-			@Override
-			public void handle(FloorView e) {
-				
-				e.update(getFloor(e.getColor(), e.getWhichFloor()));
-			}
-			
-		});}
-	 );
 		
+		$(FloorView.class).forEach(f -> {f.printEvent(floorUpdaterListener);});
 		
-		$(FloorView.class).forEach(f -> {f.selectedEvent(new EventListener<FloorView>() {
-
-			@Override
-			public void handle(FloorView e) {
-				//String choice = textualView.choseFamilyMember();
-				e.print();
-			}
-		});});
-	
+		$(FloorView.class).forEach(f -> {f.selectedEvent(floorSelectedListener);} );
 		
-		
-		
-		$("DOM",TextualView.class).inputChangeEvent(new EventListener<String>() {
-			
-			@Override
-			public void handle(String e) {
-				TextualComponent component = $(e);
-				if (component != null)
-					component.selected();
-			}
-		});
+		textualView.inputChangeEvent(inputChangeListener);
 	}
 
 	
@@ -79,22 +93,38 @@ public class Controller {
 	
 //__________________________________________________________
 	
+	//					NOTIFICHE DAL MODEL
+	
+	
+	
+	EventListener<Floor> floorChangeListener = new EventListener<Floor>() {
+
+		@Override
+		public void handle(Floor e) {
+			
+		}
+	};
+
+	
+	
+//__________________________________________________________
 	
 	private <T> T $(String id, Class<T> retType){
-		TextualComponent component = this.textualView.get(id);
+		TextualComponent component = textualView.getDocument().searchById(id);
 		if (component != null && component.getClass() == retType){
 			return (T) component; 
 		}
-		return (T) component;
+		return null;
 		//Va gestito il caso di return null
 	}
 	
 	private TextualComponent $(String id){
-		return this.textualView.get(id);
+		return textualView.getDocument().searchById(id);
 	}
 	
-	private <T extends TextualContainer> Stream<T> $(Class<T> retType){
-		return (Stream<T>) textualView.get(retType).stream();
+	private <T extends TextualComponent> Stream<T> $(Class<T> retType){
+		ArrayList<TextualComponent> result = textualView.getDocument().searchAll((t)->{return t.getClass() == retType;});
+		return (Stream<T>) result.stream(); 
 	}
 	
 	

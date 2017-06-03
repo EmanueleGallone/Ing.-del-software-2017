@@ -12,7 +12,6 @@ import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.cranio.bonus.GetAnotherCardBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
@@ -20,10 +19,8 @@ import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.loaders.GreenDeck;
 import it.polimi.ingsw.ps11.cranio.loaders.PurpleDeck;
-import it.polimi.ingsw.ps11.cranio.loaders.YellowDeck;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -38,7 +35,6 @@ import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.Market;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
@@ -53,6 +49,28 @@ public class MainTest {
 		
 		inizializzaCarte();
 		
+		
+
+		/*
+		BoardView boardView = new BoardView();
+		
+		TowerView towerView = new TowerView();
+		
+		//towerView.add(boardView); loop test
+		boardView.add(towerView);
+
+		boardView.add(new TowerView());
+		boardView.add(new TowerView());
+		
+		towerView.add(new FloorView());
+		towerView.add(new FloorView("target"));
+		towerView.add(new FloorView());
+		
+		//System.out.println(boardView.searchById("target"));
+		//boardView.forEach((c)->{c.setId("bo");;});
+		boardView.forEach((c)->{System.out.println(c.getId());});
+		//System.out.println(boardView.searchAll((c)->{return c.getId() == "unknown";}));
+>>>>>>> 2e8ce59c7e0802f86b180e6ef8a188564cbdc36f
 		
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");
@@ -229,7 +247,7 @@ public class MainTest {
 		
 		
 		
-		Board board = new Board(towers,market,new MultipleActionSpace());
+		Board board = new Board(towers,market,new ActionSpace());
 		
 		writeFile("settings\\board", gAdapter.toJson(board));
 		

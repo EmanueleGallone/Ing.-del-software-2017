@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.cranio.bonus;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.list.WhiteFamilyMember;
+import it.polimi.ingsw.ps11.cranio.game.actions.PlaceFamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
 
@@ -20,7 +21,8 @@ public class EnableProductionBonus extends Bonus {
 		Player player = getOwner();
 		WhiteFamilyMember temporaryFamilyMember = new WhiteFamilyMember(player);
 		temporaryFamilyMember.setValue(productionActiveValue);
-		production.placeFamilyMember(temporaryFamilyMember);
+		//production.placeFamilyMember(temporaryFamilyMember);
+		//PlaceFamilyMember placeFamilyMember = new PlaceFamilyMember(temporaryFamilyMember, spazio azione della zona produzione);
 	}
 	
 	

@@ -17,8 +17,4 @@ public class Market {
 		this.market = market;
 	}
 	
-	public boolean placeFamilyMember(int index,FamilyMember familyMember){
-		return market.get(index).placeFamilyMember(familyMember);
-	}
-	
 }

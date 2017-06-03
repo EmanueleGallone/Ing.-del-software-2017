@@ -1,14 +1,13 @@
-package it.polimi.ingsw.ps11.mvc.components;
+package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
-import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.mvc.view.events.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
-public class FloorView extends TextualContainer{
+public class FloorView extends TextualComponent{
 
 	protected EventHandler<FloorView> floorSelectedEvent = new EventHandler<>();
 	protected EventHandler<FloorView> printEvent = new EventHandler<>();
@@ -47,11 +46,6 @@ public class FloorView extends TextualContainer{
 		this.whichFloor = witchFloor;
 	}
 	
-	@Override
-	public void selected() {
-		floorSelectedEvent.invoke(this);
-	}
-	
 	public void selectedEvent(EventListener<FloorView> listener){
 		this.floorSelectedEvent.attach(listener);
 	}
@@ -79,6 +73,11 @@ public class FloorView extends TextualContainer{
 
 	public void printEvent(EventListener<FloorView> listener){
 		printEvent.attach(listener);
+	}
+
+	@Override
+	public void select() {
+		floorSelectedEvent.invoke(this);
 	}
 
 
