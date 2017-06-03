@@ -21,7 +21,6 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 public class Player{
 	
 	private static final String DEFAULT_NAME = "Predefinito";
-	private static final ArrayList<Resource> DEFAULT_RESOURCE = new ArrayList<>(Arrays.asList(new Wood(2),new Stone(2),new Servant(3),new Coin(5),new VictoryPoint(0),new FaithPoint(0),new MilitaryPoint(0)));	
 	
 	private String name;
 	private Colors color;
@@ -33,12 +32,14 @@ public class Player{
 // Start constructors
 	
 	public Player(){
-		this(Colors.RED,DEFAULT_RESOURCE);
+		name = DEFAULT_NAME;
+		this.resourceList = new ResourceList();
+		this.cardManager = new CardManager();
+		this.familyManager = new FamilyMemberManager(this);
 	}
 	
-	public Player(Colors color, ArrayList<Resource> resources ) {
+	public Player( ArrayList<Resource> resources ) {
 		
-		this.color = color;
 		name = DEFAULT_NAME;
 		
 		this.resourceList = new ResourceList(resources);

@@ -1368,6 +1368,7 @@ public class MainTest {
 		yellowDeck.add(residenza);
 		
 		writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck));
+		
 		//FINE CARTE GIALLE
 		
 		//INIZIO CARTE BLU
