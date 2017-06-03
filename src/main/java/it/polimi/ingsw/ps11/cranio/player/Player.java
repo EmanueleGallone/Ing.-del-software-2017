@@ -32,8 +32,8 @@ public class Player{
 	
 // Start constructors
 	
-	public Player(Colors color){
-		this(color,DEFAULT_RESOURCE);
+	public Player(){
+		this(Colors.RED,DEFAULT_RESOURCE);
 	}
 	
 	public Player(Colors color, ArrayList<Resource> resources ) {

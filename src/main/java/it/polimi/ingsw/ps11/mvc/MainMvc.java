@@ -17,9 +17,12 @@ public class MainMvc {
 			TextualView textualView = new TextualView();
 			ArrayList<Player> players = new ArrayList<>();
 			
-			Player p1 = new Player(Colors.RED);
+			//Player p1 = new Player(Colors.RED);
+			//Player p2 = new Player(Colors.BLUE);
+			
+			Player p1 = new Player();
+			Player p2 = new Player();
 			p1.setName("Jack");
-			Player p2 = new Player(Colors.BLUE);
 			p2.setName("Sparrow");
 			
 			players.add(p1);
