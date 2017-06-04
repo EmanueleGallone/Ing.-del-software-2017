@@ -41,9 +41,9 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.posNetwork.client.messages.DefaultClientMessage;
-import it.polimi.ingsw.ps11.posNetwork.messages.Message;
-import it.polimi.ingsw.ps11.posNetwork.networking.MessageBuilder;
+import it.polimi.ingsw.ps11.network.client.messages.DefaultClientMessage;
+import it.polimi.ingsw.ps11.network.connection.MessageBuilder;
+import it.polimi.ingsw.ps11.network.genericMessage.Message;
 
 public class MainTest {
 	
