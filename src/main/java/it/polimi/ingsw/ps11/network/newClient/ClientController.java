@@ -16,10 +16,14 @@ import it.polimi.ingsw.ps11.network.Connection;
 import it.polimi.ingsw.ps11.network.messages.DefaultCommand;
 import it.polimi.ingsw.ps11.network.messages.InputChangeEvent;
 import it.polimi.ingsw.ps11.network.messages.Message;
-import it.polimi.ingsw.ps11.network.messages.CommandInterface;
+import it.polimi.ingsw.ps11.network.messages.Sendable;
+import it.polimi.ingsw.ps11.network.newClient.messages.ClientRecognizer;
+import it.polimi.ingsw.ps11.network.newServer.messages.Default;
+import it.polimi.ingsw.ps11.network.newServer.messages.ServerMessageVisitor;
+import it.polimi.ingsw.ps11.network.newServer.messages.ServerRecognizer;
 import it.polimi.ingsw.ps11.network.messages.CommandRecognizer;
 
-public class ClientController implements CommandRecognizer {
+public class ClientController implements ServerRecognizer {
 	
 	private View view;
 	private Connection connection;
@@ -48,34 +52,35 @@ public class ClientController implements CommandRecognizer {
 	
 	EventListener<InputChangeEvent> serverListener = new EventListener<InputChangeEvent>() {
 		@Override
-		public void handle(InputChangeEvent message) {
+		public void handle(InputChangeEvent e) {
+			/*
+			JsonAdapter jsonAdapter = new JsonAdapter();
 			
+			Class<? extends ServerMessageVisitor> type = e.getMessage().getType();
+
 			
-			
-			ArrayList<Class<?>> list = new ArrayList<>();
-			list.add(DevelopmentCard.class);
-			list.add(Resource.class);
-			list.add(Tower.class);
-			
-			JsonAdapter jsonAdapter = new JsonAdapter(list);
-			
-			CommandInterface command = jsonAdapter.fromJson(message.getMessage().getObject(), message.getMessage().getType());
-			execute(command);
+			ServerMessageVisitor data = jsonAdapter.fromJson(e.getMessage().getObject(),type);
+			execute(data);*/
 		}
 	};
 	
 	public EventListener<InputChangeEvent> getServerListener() {
 		return serverListener;
 	}
+
 	
-//____________________________ COMMAND INTERPRETER _____________________________
+//____________________________ COMMAND EXECUTOR _____________________________
 	
-	public void execute(CommandInterface command){
-		command.accept(this);
+	
+	public void execute(ServerMessageVisitor data){
+		data.accept(this);
 	}
-	
+
+
 	@Override
-	public void execute(DefaultCommand command) {
-		view.out("Comando non riconosciuto");
+	public void execute(Default command) {
+		// TODO Auto-generated method stub
+		
 	}
+
 }

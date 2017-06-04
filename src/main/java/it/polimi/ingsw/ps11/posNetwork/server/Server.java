@@ -1,18 +1,21 @@
-package it.polimi.ingsw.ps11.network.newServer;
+package it.polimi.ingsw.ps11.posNetwork.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.network.Connection;
+import it.polimi.ingsw.ps11.posNetwork.Connection;
+import it.polimi.ingsw.ps11.posNetwork.server.messages.DefaultServerMessage;
+import it.polimi.ingsw.ps11.posNetwork.server.messages.StampaBlu;
+
 
 public class Server implements Runnable {	
 	
 	private static final int PORT = 60000;
 	
 	private GamesManager gamesManager;
-	private ArrayList<Connection> connection;
+	private ArrayList<Connection> connection = new ArrayList<>();
 	ServerSocket serverSocket;
 	
 	public Server() throws IOException {
@@ -26,14 +29,17 @@ public class Server implements Runnable {
 	  
 	  connection.on();
 	  System.out.println("New connection");
-	  connection.send("Ciao");
-	  //gamesManager.add(connection);
+	  DefaultServerMessage m = new DefaultServerMessage("Ciao");
+	  connection.send(m);
+	  connection.send(new StampaBlu("bo"));
+
+	 // gamesManager.add(connection);
 	}
 	
 	
 	@Override
 	public void run() {
-		System.out.println("Server started");
+		System.out.println("Pos Server started");
 		try {
 			while (true) {
 				listen();

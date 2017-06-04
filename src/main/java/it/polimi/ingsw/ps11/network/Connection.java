@@ -57,12 +57,13 @@ public class Connection {
 		messageSender = new MessageSender(this.socket);
 		
 		messageReceiver.start();
-		messageSender.start();
 	}
 	
 	public Connection getConnection(){
 		return this;
 	}
+	
+// Event____________________________________
 	
 	public void inputChangeEvent(EventListener<InputChangeEvent> listener){
 		inputChangeEvent.attach(listener);
@@ -71,6 +72,8 @@ public class Connection {
 	public void clientDisconnectEvent(EventListener<Connection> listener){
 		clientDisconnectEvent.attach(listener);
 	}
+	
+// Input / Output ___________________________
 	
 	public class MessageReceiver extends Thread{
 		
@@ -90,9 +93,9 @@ public class Connection {
 					String input = reader.readLine();
 					System.out.println("message received: " + input);
 					
-					Message message = gson.fromJson(input, Message.class);
+					//Message message = gson.fromJson(input, Message.class);
 					
-					inputChangeEvent.invoke(new InputChangeEvent(getConnection(), message));	
+					//inputChangeEvent.invoke(new InputChangeEvent(getConnection(), message));	
 				}
 				
 			} catch (IOException e) {
@@ -112,18 +115,33 @@ public class Connection {
 		
 		private Socket socket;
 		private PrintStream writer;
+		private String message;
 		
 		public MessageSender(Socket socket) throws IOException {
 			this.socket = socket;
 			writer = new PrintStream(socket.getOutputStream());
 		}
+		
 		@Override
 		public void run() {
-			
+			writer.println(message);
+			message = new String();
 		}	
 		
 		public void send(String message){
-			writer.println(message);
+			this.message = message;
+			this.start();
+		}
+	}
+	
+	public class MessageBuilder {
+		
+		private Object object;
+		
+		public MessageBuilder(String message) {
+			JsonAdapter jsonAdapter = new JsonAdapter();
+			
+			Message m = jsonAdapter.fromJson(message, Message.class);
 		}
 	}
 }

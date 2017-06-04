@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-
 import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus;
@@ -43,36 +41,22 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.network.Connection;
+import it.polimi.ingsw.ps11.posNetwork.client.messages.DefaultClientMessage;
+import it.polimi.ingsw.ps11.posNetwork.messages.Message;
+import it.polimi.ingsw.ps11.posNetwork.networking.MessageBuilder;
 
 public class MainTest {
 	
 	
 	
 	public static void main(String[] args){
-		
 
-		/*
-		BoardView boardView = new BoardView();
+		MessageBuilder messageBuilder = new MessageBuilder();
+		DefaultClientMessage message = new DefaultClientMessage();
+		String mess = messageBuilder.serialize(message);
 		
-		TowerView towerView = new TowerView();
-		
-		//towerView.add(boardView); loop test
-		boardView.add(towerView);
-
-		boardView.add(new TowerView());
-		boardView.add(new TowerView());
-		
-		towerView.add(new FloorView());
-		towerView.add(new FloorView("target"));
-		towerView.add(new FloorView());
-		
-		//System.out.println(boardView.searchById("target"));
-		//boardView.forEach((c)->{c.setId("bo");;});
-		boardView.forEach((c)->{System.out.println(c.getId());});
-		//System.out.println(boardView.searchAll((c)->{return c.getId() == "unknown";}));
->>>>>>> 2e8ce59c7e0802f86b180e6ef8a188564cbdc36f
-		
+		Message<?> m = messageBuilder.deserialize(mess);
+		System.out.println(m.getClass());
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");
 

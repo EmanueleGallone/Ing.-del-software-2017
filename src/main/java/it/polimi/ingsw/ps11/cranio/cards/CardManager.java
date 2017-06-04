@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 public class CardManager {
 	
+	
+	private final int MAX_CARD = 6;
 	private HashMap<String , ArrayList<DevelopmentCard>> cards = new HashMap<>();
 	
 	public CardManager(ArrayList<DevelopmentCard> cards) {
@@ -30,11 +32,11 @@ public class CardManager {
 			this.cards.put(card.getClass().toString(), temp);
 		}
 		
-		if(temp.size() > 6)
-			return false;
-		
-		temp.add(card);
-		return true;
+		if(temp.size() <= MAX_CARD){
+			temp.add(card);
+			return true;
+		}
+		return false;
 	}
 	
 	

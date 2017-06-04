@@ -17,21 +17,26 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
+import it.polimi.ingsw.ps11.posNetwork.messages.Message;
 
 public class JsonAdapter {
 
 	
 	private Gson gson;
 	
-	private ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(Resource.class,
+	private static ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(
+			Resource.class,
 			Tower.class,
-			DevelopmentCard.class
+			DevelopmentCard.class,
+			FamilyMember.class,
+			Message.class
 			));
 	
 	public JsonAdapter() {
-		
+		this(list);
 	}
 	
 	

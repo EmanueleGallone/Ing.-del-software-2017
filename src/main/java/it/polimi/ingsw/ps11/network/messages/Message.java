@@ -1,25 +1,35 @@
 package it.polimi.ingsw.ps11.network.messages;
 
+import it.polimi.ingsw.ps11.network.newClient.messages.ClientMessage;
+import it.polimi.ingsw.ps11.network.newServer.messages.Default;
+import it.polimi.ingsw.ps11.network.newServer.messages.ServerMessageVisitor;
+
 public class Message {
 	
-	private String type, object;
+	private String type;
+	private String clientObject;
+	private String serverObject;
 	
-	
-	public Message(String type, String object) {
-		this.type = type;
-		this.object = object;
+	public Message(Class<? extends ServerMessageVisitor> type, String object) {
+		this.type = type.toString();
+		this.clientObject = object;
 	}
 	
-	public Class<? extends CommandInterface> getType() {
+	public Class<? extends ServerMessageVisitor> getType() {
 		try {
-			return (Class<? extends CommandInterface>) Class.forName(type);
+			return (Class<? extends ServerMessageVisitor>) Class.forName(type);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return DefaultCommand.class;
+		return Default.class;
 	}
 	
 	public String getObject() {
-		return object;
+		return clientObject;
 	}
+	
+	
+	
+	
+	
 }

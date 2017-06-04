@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.network.newServer;
+package it.polimi.ingsw.ps11.posNetwork.server;
 
 import java.util.ArrayList;
 import java.util.HashMap;
