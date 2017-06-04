@@ -19,11 +19,4 @@ public class DefaultClientMessage extends ClientMessage<String> {
 		recognizer.execute(this);
 	}
 
-	@Override
-	public void gAccept(GenericRecogniser recogniser) {
-		recogniser.execute(this);
-	}
-
-
-
 }

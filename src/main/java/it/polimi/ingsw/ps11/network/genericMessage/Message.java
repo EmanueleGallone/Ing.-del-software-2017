@@ -14,19 +14,5 @@ public abstract class Message<T> {
 	}
 	
 	public abstract void gAccept(GenericRecogniser recogniser);
-	
-	/*
-	public Class<?> getType() {
-		
-		Class<?> klass;
-		
-		try {
-			klass = Class.forName(type);
-		} catch (ClassNotFoundException e) {
-			klass = Object.class;
-			e.printStackTrace();
-		}
-		return klass;
-	}
-	*/
+
 }

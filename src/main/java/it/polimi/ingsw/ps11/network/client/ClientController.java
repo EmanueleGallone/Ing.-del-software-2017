@@ -61,22 +61,10 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 
 	public void process(Message<?> message){
 		message.gAccept(this);
-	}
-
-	
+	}	
 	
 //____________________________ COMMAND EXECUTOR _____________________________
 	
-
-	@Override
-	public void execute(ClientMessage<?> clientMessage) {
-		System.out.println("Destinatario sbagliato");
-	}
-
-	@Override
-	public void execute(ServerMessage<?> serverMessage) {
-		serverMessage.accept(this);
-	}
 
 	@Override
 	public void execute(TextualMessage message) {
@@ -85,7 +73,7 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 
 	@Override
 	public void execute(DefaultServerMessage command) {
-		System.out.println("Operazione di default");
+		System.out.println("Mi è arrivato un messaggio di default con dentro: " + command.getContent());
+		connection.send(new TextualMessage("Bella pe te"));
 	}
-
 }

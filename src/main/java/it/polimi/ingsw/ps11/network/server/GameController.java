@@ -85,33 +85,18 @@ public class GameController implements ClientRecognizer,GenericRecogniser,Runnab
 		}*/
 	}
 
+
 	//___________________ COMMAND ____________________________
 	
-	@Override
-	public void execute(DefaultClientMessage command) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void execute(ClientMessage<?> clientMessage) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void execute(ServerMessage<?> serverMessage) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public void execute(TextualMessage message) {
-		// TODO Auto-generated method stub
-		
+		System.out.println(message.getContent());
 	}
-	
+
+
+	@Override
+	public void execute(DefaultClientMessage command) {
+		System.out.println("Mi è arrivato un messaggio di default con dentro: " + command.getContent());
+	}
 }
