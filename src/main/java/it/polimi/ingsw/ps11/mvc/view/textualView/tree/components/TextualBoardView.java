@@ -1,24 +1,24 @@
 package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
 import it.polimi.ingsw.ps11.cranio.zones.Board;
-import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
 
-public class BoardView extends Container{
+public class TextualBoardView extends TextualContainer{
 
 	private Board board;
 	
-	public BoardView() {
+	public TextualBoardView() {
 		super();
 	}
 	
-	public BoardView(String id) {
+	public TextualBoardView(String id) {
 		super(id);
 	}
 	
 	@Override
 	public void print() {
 		super.print();
-		new Console().print("");
+		new TextualConsole().print("");
 	}
 
 	@Override

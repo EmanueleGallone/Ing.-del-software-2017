@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.mvc.view;
+package it.polimi.ingsw.ps11.mvc.view.viewGenerica;
 
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;

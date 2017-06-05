@@ -11,7 +11,6 @@ public interface ClientRecognizer extends GenericRecogniser {
 	public void execute(DefaultClientMessage command);
 	
 	
-	
 	@Override
 	public default void execute(ClientMessage<?> clientMessage){
 		clientMessage.accept(this);

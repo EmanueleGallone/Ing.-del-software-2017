@@ -27,7 +27,6 @@ public class GamesManager {
 		lobby.add(connection);
 		connection.clientDisconnectEvent(disconnectionListener);
 		System.out.println(lobby.size() + " client nella lobby");
-		
 		if(lobby.size() == START_SIZE){
 			timer = new Timer();
 			TimerTask task = new StartingMatch();

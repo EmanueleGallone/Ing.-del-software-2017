@@ -2,13 +2,13 @@ package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
-public abstract class Container extends TextualComponent {
+public abstract class TextualContainer extends TextualComponent {
 
-	public Container() {
+	public TextualContainer() {
 		super();
 	}
 	
-	public Container(String id) {
+	public TextualContainer(String id) {
 		super(id);
 	}
 

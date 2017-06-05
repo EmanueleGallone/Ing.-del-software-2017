@@ -4,27 +4,27 @@ import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
-public class FloorView extends TextualComponent{
+public class TextualFloorView extends TextualComponent{
 
-	protected EventHandler<FloorView> floorSelectedEvent = new EventHandler<>();
-	protected EventHandler<FloorView> printEvent = new EventHandler<>();
+	protected EventHandler<TextualFloorView> floorSelectedEvent = new EventHandler<>();
+	protected EventHandler<TextualFloorView> printEvent = new EventHandler<>();
 	
 	private Floor floor;
 	private Class<?> color;
 	private int whichFloor;
 	
-	public FloorView() {
+	public TextualFloorView() {
 		super();
 	}
 	
-	public FloorView(String id) {
+	public TextualFloorView(String id) {
 		super(id);
 	}
 	
-	public <T extends Tower> FloorView(String id, Class<T> color, int witchFloor) {
+	public <T extends Tower> TextualFloorView(String id, Class<T> color, int witchFloor) {
 		super(id);
 		this.color = color;
 		this.whichFloor = witchFloor;
@@ -46,14 +46,14 @@ public class FloorView extends TextualComponent{
 		this.whichFloor = witchFloor;
 	}
 	
-	public void selectedEvent(EventListener<FloorView> listener){
+	public void selectedEvent(EventListener<TextualFloorView> listener){
 		this.floorSelectedEvent.attach(listener);
 	}
 	
 	@Override
 	public void print() {
 		this.printEvent.invoke(this);
-		Console console = new Console();
+		TextualConsole console = new TextualConsole();
 		String string = floor.getActionSpace().getResources().toString();
 		String[] arr = string.split("\\.");
 		
@@ -71,7 +71,7 @@ public class FloorView extends TextualComponent{
 		this.floor = floor;
 	}
 
-	public void printEvent(EventListener<FloorView> listener){
+	public void printEvent(EventListener<TextualFloorView> listener){
 		printEvent.attach(listener);
 	}
 

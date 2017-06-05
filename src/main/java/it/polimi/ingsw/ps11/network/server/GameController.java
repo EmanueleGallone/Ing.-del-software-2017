@@ -3,23 +3,19 @@ package it.polimi.ingsw.ps11.network.server;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.network.InputChangeEvent;
 import it.polimi.ingsw.ps11.network.client.ClientRecognizer;
-import it.polimi.ingsw.ps11.network.client.messages.ClientMessage;
 import it.polimi.ingsw.ps11.network.client.messages.DefaultClientMessage;
 import it.polimi.ingsw.ps11.network.connection.Connection;
-import it.polimi.ingsw.ps11.network.connection.MessageBuilder;
 import it.polimi.ingsw.ps11.network.genericMessage.GenericRecogniser;
 import it.polimi.ingsw.ps11.network.genericMessage.Message;
 import it.polimi.ingsw.ps11.network.genericMessage.TextualMessage;
-import it.polimi.ingsw.ps11.network.server.messages.ServerMessage;
 
 
-public class GameController implements ClientRecognizer,GenericRecogniser,Runnable {
+public class GameController implements ClientRecognizer,Runnable {
 
 	
 	private Game game;
@@ -44,11 +40,7 @@ public class GameController implements ClientRecognizer,GenericRecogniser,Runnab
 	EventListener<InputChangeEvent> clientListener = new EventListener<InputChangeEvent>() {
 		@Override
 		public void handle(InputChangeEvent e) {
-			
-			MessageBuilder messageBuilder = new MessageBuilder();
-			Message<?> message = messageBuilder.deserialize(e.getMessage());
-			System.out.println(message.getClass());
-			process(message);
+			process(e.getMessage());
 		}
 	};
 	

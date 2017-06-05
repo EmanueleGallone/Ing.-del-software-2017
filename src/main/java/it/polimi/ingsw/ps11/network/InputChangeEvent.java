@@ -1,13 +1,14 @@
 package it.polimi.ingsw.ps11.network;
 
 import it.polimi.ingsw.ps11.network.connection.Connection;
+import it.polimi.ingsw.ps11.network.genericMessage.Message;
 
 public class InputChangeEvent {
 
 	private Connection source;
-	private String message;
+	private Message<?> message;
 	
-	public InputChangeEvent(Connection connection, String message) {
+	public InputChangeEvent(Connection connection, Message<?> message) {
 		this.source = connection;
 		this.message = message;
 	}
@@ -15,7 +16,7 @@ public class InputChangeEvent {
 	public Connection getConnection() {
 		return source;
 	}
-	public String getMessage() {
+	public Message<?> getMessage() {
 		return message;
 	}
 }

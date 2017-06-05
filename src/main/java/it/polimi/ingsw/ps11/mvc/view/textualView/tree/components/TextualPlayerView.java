@@ -5,12 +5,12 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
-public class PlayerView extends TextualComponent {
+public class TextualPlayerView extends TextualComponent {
 
 	private Player player;
-	protected EventHandler<PlayerView> printEvent = new EventHandler<>();
+	protected EventHandler<TextualPlayerView> printEvent = new EventHandler<>();
 	
-	public void printEvent(EventListener<PlayerView> listener){
+	public void printEvent(EventListener<TextualPlayerView> listener){
 		printEvent.attach(listener);
 	}
 	

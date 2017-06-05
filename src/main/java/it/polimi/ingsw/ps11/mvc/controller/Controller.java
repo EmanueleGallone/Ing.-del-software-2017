@@ -12,8 +12,8 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.mvc.model.Model;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.FloorView;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.PlayerView;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualFloorView;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualPlayerView;
 
 public class Controller {
 	private Game model;
@@ -33,29 +33,29 @@ public class Controller {
 // _______________ EVENT LISTENER _____________________
 
 
-	EventListener<FloorView> floorUpdaterListener = new EventListener<FloorView>() {
+	EventListener<TextualFloorView> floorUpdaterListener = new EventListener<TextualFloorView>() {
 		//Questo non è necessario, l'update del listener verrà notificata dal model
 		
 		@Override
-		public void handle(FloorView e) {
+		public void handle(TextualFloorView e) {
 			e.update(getFloor(e.getColor(), e.getWhichFloor()));
 		}
 	};
 	
-	EventListener<PlayerView> playerUpdaterListener = new EventListener<PlayerView>() {
+	EventListener<TextualPlayerView> playerUpdaterListener = new EventListener<TextualPlayerView>() {
 
 		@Override
-		public void handle(PlayerView e) {
+		public void handle(TextualPlayerView e) {
 			e.update(player.clone()); // Sbagliato, anche clonando il player la view potrebbe accedere alle risorse che sono quelle nel model
 			//La clone del player dovrebbe clonare tutto, anche le risorse
 		}
 	};
 	
 	
-	EventListener<FloorView> floorSelectedListener = new EventListener<FloorView>() {
+	EventListener<TextualFloorView> floorSelectedListener = new EventListener<TextualFloorView>() {
 
 		@Override
-		public void handle(FloorView e) {
+		public void handle(TextualFloorView e) {
 			//String choice = textualView.choseFamilyMember();
 			e.print();
 		}
@@ -74,9 +74,9 @@ public class Controller {
 	public void event(){
 		
 		
-		$(FloorView.class).forEach(f -> {f.printEvent(floorUpdaterListener);});
+		$(TextualFloorView.class).forEach(f -> {f.printEvent(floorUpdaterListener);});
 		
-		$(FloorView.class).forEach(f -> {f.selectedEvent(floorSelectedListener);} );
+		$(TextualFloorView.class).forEach(f -> {f.selectedEvent(floorSelectedListener);} );
 		
 		textualView.inputChangeEvent(inputChangeListener);
 	}

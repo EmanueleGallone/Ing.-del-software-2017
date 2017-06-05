@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.network.InputChangeEvent;
+import it.polimi.ingsw.ps11.network.genericMessage.Message;
 
 public class MessageReceiver extends Thread{
 	
@@ -39,7 +40,9 @@ public class MessageReceiver extends Thread{
 				String message = reader.readLine();
 				System.out.println("message received: " + message);
 
-				inputChangeEvent.invoke(new InputChangeEvent(connection, message));	
+				MessageBuilder messageBuilder = new MessageBuilder();
+				Message<?> m = messageBuilder.deserialize(message);
+				inputChangeEvent.invoke(new InputChangeEvent(connection, m));	
 			}
 			
 		} catch (IOException e) {

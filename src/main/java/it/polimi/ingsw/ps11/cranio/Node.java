@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public class Node<T> implements Iterable<T>{
 
@@ -56,12 +55,12 @@ public class Node<T> implements Iterable<T>{
 // search _________________________________
 	
 	
-	public ArrayList<T> serchByClass(Class<? extends T> type){
-		return searchAll(n -> {return n.getClass() == type;});
+	public <K extends T> ArrayList<K> serchByClass(Class<K> type){
+		return (ArrayList<K>) searchAll(n -> {return n.getClass() == type;});
 	}
 	
-	public T getByClass(Class<? extends T> type){
-		return get(n -> {return n.getClass() == type;});
+	public <K extends T> K getByClass(Class<K> type){
+		return (K) get(n -> {return n.getClass() == type;});
 	}
 	
 	/**

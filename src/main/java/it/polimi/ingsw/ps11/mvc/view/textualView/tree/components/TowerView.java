@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
-import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
 public class TowerView extends TextualComponent {
@@ -17,7 +17,7 @@ public class TowerView extends TextualComponent {
 
 	@Override
 	public void print() {
-		Console console = new Console();
+		TextualConsole console = new TextualConsole();
 		console.print("\n"+"\t   "+this.getId());
 		
 		for(TextualComponent component : this){

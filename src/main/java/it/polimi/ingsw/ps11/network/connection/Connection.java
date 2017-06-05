@@ -63,7 +63,6 @@ public class Connection {
 	private void send(String message){
 		try {
 			new MessageSender(this, message).start();
-			//new MessageSender(this, message).send(message);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -4,12 +4,12 @@ import it.polimi.ingsw.ps11.network.client.messages.ClientMessage;
 import it.polimi.ingsw.ps11.network.genericMessage.GenericRecogniser;
 import it.polimi.ingsw.ps11.network.server.messages.DefaultServerMessage;
 import it.polimi.ingsw.ps11.network.server.messages.ServerMessage;
-import it.polimi.ingsw.ps11.network.server.messages.UpdateGame;
+import it.polimi.ingsw.ps11.network.server.messages.UpdateGameMessage;
 
 public interface ServerRecognizer extends GenericRecogniser {
 	
 	public void execute(DefaultServerMessage command);
-	public void execute(UpdateGame command);
+	public void execute(UpdateGameMessage command);
 	
 	
 	

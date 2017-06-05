@@ -13,9 +13,9 @@ import it.polimi.ingsw.ps11.network.genericMessage.Message;
 import it.polimi.ingsw.ps11.network.genericMessage.TextualMessage;
 import it.polimi.ingsw.ps11.network.server.ServerRecognizer;
 import it.polimi.ingsw.ps11.network.server.messages.DefaultServerMessage;
-import it.polimi.ingsw.ps11.network.server.messages.UpdateGame;
+import it.polimi.ingsw.ps11.network.server.messages.UpdateGameMessage;
 
-public class ClientController implements ServerRecognizer,GenericRecogniser {
+public class ClientController implements ServerRecognizer {
 	
 	private View view;
 	private Connection connection;
@@ -32,7 +32,7 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 		
 		try {
 			connection.on();
-			connection.inputChangeEvent(getServerListener());
+			connection.inputChangeEvent(serverListener);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -45,17 +45,9 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 	EventListener<InputChangeEvent> serverListener = new EventListener<InputChangeEvent>() {
 		@Override
 		public void handle(InputChangeEvent e) {
-			
-			MessageBuilder messageBuilder = new MessageBuilder();
-			Message<?> message = messageBuilder.deserialize(e.getMessage());
-			System.out.println(message.getClass());
-			process(message);
+			process(e.getMessage());
 		}
 	};
-	
-	public EventListener<InputChangeEvent> getServerListener() {
-		return serverListener;
-	}
 
 
 	public void process(Message<?> message){
@@ -67,16 +59,16 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 
 	@Override
 	public void execute(TextualMessage message) {
-		System.out.println(message.getContent());
+		view.out(message.getContent());
 	}
 
 	@Override
 	public void execute(DefaultServerMessage command) {
-		System.out.println("Mi è arrivato un messaggio di default con dentro: " + command.getContent());
+		view.out("Mi è arrivato un messaggio di default con dentro: " + command.getContent());
 	}
 
 	@Override
-	public void execute(UpdateGame command) {
+	public void execute(UpdateGameMessage command) {
 		view.update(command.getContent());
 	}
 	

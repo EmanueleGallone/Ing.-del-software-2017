@@ -1,9 +1,9 @@
 package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
-public class Document extends Container {
+public class TextualDocument extends TextualContainer {
 
 	
-	public Document() {
+	public TextualDocument() {
 		super();
 	}
 	

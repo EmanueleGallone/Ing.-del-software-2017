@@ -1,25 +1,24 @@
-
-package it.polimi.ingsw.ps11.mvc.view.textualView.tree;
+package it.polimi.ingsw.ps11.mvc.view.viewGenerica;
 
 import it.polimi.ingsw.ps11.cranio.Node;
 
-public abstract class TextualComponent extends Node<TextualComponent> {
+public abstract class Component extends Node<Component> {
 	
 	private final static String DEFAULT_ID = "unknown";
 	private String id;
 	private String type;
 	
 	
-	public TextualComponent() {
+	public Component() {
 		this(DEFAULT_ID);
 	}
 	
-	public TextualComponent(String id) {
+	public Component(String id) {
 		this.id = id;
 		this.setData(this);
 	}
 	
-	public TextualComponent(String id,String type) {
+	public Component(String id,String type) {
 		this.id = id;
 		this.type = type;
 		this.setData(this);
@@ -38,7 +37,7 @@ public abstract class TextualComponent extends Node<TextualComponent> {
 	 * Cerca il TextualComponent in tutto l'albero sottostante (Ricerca in profondita')
 	 * @return Ritorna il TextualComponent cercato se presente, altrimenti ritorna null
 	 */
-	public TextualComponent searchById(String id){
+	public Component searchById(String id){
 		return get( c ->{return c.getId().equals(id);});
 	}
 	
@@ -47,9 +46,9 @@ public abstract class TextualComponent extends Node<TextualComponent> {
 	 *  Cerca il TextualComponent solo tra i suoi figli (Ricerca superficiale)
 	 * @return Ritorna il TextualComponent cercato se presente, altrimenti ritorna null
 	 */
-	public TextualComponent getById(String id){
+	public Component getById(String id){
 		
-		for(Node<TextualComponent> component : this.getChildren()){
+		for(Node<Component> component : this.getChildren()){
 			if (component.getData().getId().equals(id)){
 				return component.getData();
 			}

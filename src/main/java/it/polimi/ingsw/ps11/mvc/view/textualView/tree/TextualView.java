@@ -6,20 +6,20 @@ import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.mvc.view.View;
-import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.BoardView;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.Document;
+import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualBoardView;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualDocument;
 
 
 public class TextualView extends View {
 
-	private Console console = new Console();
+	private TextualConsole console = new TextualConsole();
 	private EventHandler<String> inputChangeEvent = new EventHandler<>();
-	private Document document = new Document();
+	private TextualDocument document = new TextualDocument();
 	
 	public TextualView() {
 
-		BoardView boardView = new BoardView("board");
+		TextualBoardView boardView = new TextualBoardView("board");
 		
 		/*boardView.add(createTower("greenTower",GreenTower.class));
 		boardView.add(createTower("blueTower",BlueTower.class));
@@ -43,7 +43,9 @@ public class TextualView extends View {
 	
 	@Override
 	public void run() {
-		System.out.println("View started");
+		
+		console.print("View started");
+		
 		String input;
 		while (!(input = console.read()).equals("quit")) {
 			inputChangeEvent.invoke(input);
@@ -59,7 +61,7 @@ public class TextualView extends View {
 		document.print();
 	}
 	
-	public Document getDocument() {
+	public TextualDocument getDocument() {
 		return document;
 	}
 
@@ -74,12 +76,13 @@ public class TextualView extends View {
 	@Override
 	public void update(Game game) {
 		super.update(game);
+		update(game.getBoard());
 	}
 
 	@Override
 	public void update(Board board) {
-		BoardView boardView = (BoardView) document.getByClass(BoardView.class);
-		System.out.println("daje");
+		TextualBoardView boardView = document.getByClass(TextualBoardView.class);
+		
 	}
 
 	@Override
