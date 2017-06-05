@@ -6,7 +6,6 @@ import java.net.UnknownHostException;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.mvc.view.View;
 import it.polimi.ingsw.ps11.network.InputChangeEvent;
-import it.polimi.ingsw.ps11.network.client.messages.ClientMessage;
 import it.polimi.ingsw.ps11.network.connection.Connection;
 import it.polimi.ingsw.ps11.network.connection.MessageBuilder;
 import it.polimi.ingsw.ps11.network.genericMessage.GenericRecogniser;
@@ -14,7 +13,7 @@ import it.polimi.ingsw.ps11.network.genericMessage.Message;
 import it.polimi.ingsw.ps11.network.genericMessage.TextualMessage;
 import it.polimi.ingsw.ps11.network.server.ServerRecognizer;
 import it.polimi.ingsw.ps11.network.server.messages.DefaultServerMessage;
-import it.polimi.ingsw.ps11.network.server.messages.ServerMessage;
+import it.polimi.ingsw.ps11.network.server.messages.UpdateGame;
 
 public class ClientController implements ServerRecognizer,GenericRecogniser {
 	
@@ -30,10 +29,10 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 // _________________________________________________________________
 	
 	public void start(){
+		
 		try {
 			connection.on();
 			connection.inputChangeEvent(getServerListener());
-			System.out.println("Pos client start");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -74,6 +73,12 @@ public class ClientController implements ServerRecognizer,GenericRecogniser {
 	@Override
 	public void execute(DefaultServerMessage command) {
 		System.out.println("Mi è arrivato un messaggio di default con dentro: " + command.getContent());
-		connection.send(new TextualMessage("Bella pe te"));
 	}
+
+	@Override
+	public void execute(UpdateGame command) {
+		view.update(command.getContent());
+	}
+	
+	
 }

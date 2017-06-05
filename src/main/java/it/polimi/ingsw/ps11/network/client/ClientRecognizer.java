@@ -6,7 +6,11 @@ import it.polimi.ingsw.ps11.network.genericMessage.GenericRecogniser;
 import it.polimi.ingsw.ps11.network.server.messages.ServerMessage;
 
 public interface ClientRecognizer extends GenericRecogniser {
+	
+	
 	public void execute(DefaultClientMessage command);
+	
+	
 	
 	@Override
 	public default void execute(ClientMessage<?> clientMessage){

@@ -14,7 +14,6 @@ public class Server implements Runnable {
 	private static final int PORT = 60000;
 	
 	private GamesManager gamesManager;
-	private ArrayList<Connection> connection = new ArrayList<>();
 	ServerSocket serverSocket;
 	
 	public Server() throws IOException {
@@ -28,15 +27,13 @@ public class Server implements Runnable {
 	  
 	  connection.on();
 	  System.out.println("New connection");
-	  DefaultServerMessage m = new DefaultServerMessage("Ciao");
-	  connection.send(m);
-	 // gamesManager.add(connection);
+	  gamesManager.add(connection);
 	}
 	
 	
 	@Override
 	public void run() {
-		System.out.println("Pos Server started");
+		System.out.println("Server started");
 		try {
 			while (true) {
 				listen();
