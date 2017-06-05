@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.network.client;
 
 import it.polimi.ingsw.ps11.mvc.view.View;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
 import it.polimi.ingsw.ps11.network.connection.Connection;
 

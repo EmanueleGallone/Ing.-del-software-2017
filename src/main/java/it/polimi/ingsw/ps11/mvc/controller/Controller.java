@@ -11,7 +11,6 @@ import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.mvc.model.Model;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponentGenerico;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.FloorView;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.PlayerView;
@@ -30,8 +29,6 @@ public class Controller {
 	
 	private TextualView textualView = new TextualView();
 	
-	private HashMap<Object, TextualComponentGenerico<?>> map = new HashMap<>();
-
 	
 // _______________ EVENT LISTENER _____________________
 

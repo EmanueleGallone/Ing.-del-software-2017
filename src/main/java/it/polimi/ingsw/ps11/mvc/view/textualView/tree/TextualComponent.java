@@ -2,6 +2,7 @@
 package it.polimi.ingsw.ps11.mvc.view.textualView.tree;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 import it.polimi.ingsw.ps11.cranio.Node;
 
@@ -31,7 +32,6 @@ public abstract class TextualComponent extends Node<TextualComponent> {
 	
 	public abstract void select();
 	public abstract void print();
-
 	
 // Searching method
 	
@@ -62,7 +62,6 @@ public abstract class TextualComponent extends Node<TextualComponent> {
 		}
 		return null;
 	}
-	
 
 // Setters
 

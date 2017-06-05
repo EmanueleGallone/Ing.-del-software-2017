@@ -4,7 +4,7 @@ import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
 public class FloorView extends TextualComponent{

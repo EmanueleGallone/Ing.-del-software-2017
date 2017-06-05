@@ -1,9 +1,8 @@
 package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.Console;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
-public class Container extends TextualComponent {
+public abstract class Container extends TextualComponent {
 
 	public Container() {
 		super();
@@ -11,12 +10,6 @@ public class Container extends TextualComponent {
 	
 	public Container(String id) {
 		super(id);
-	}
-	
-	
-	@Override
-	public void select() {
-		
 	}
 
 	@Override

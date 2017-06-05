@@ -41,9 +41,7 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.network.client.messages.DefaultClientMessage;
-import it.polimi.ingsw.ps11.network.connection.MessageBuilder;
-import it.polimi.ingsw.ps11.network.genericMessage.Message;
+import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
 
 public class MainTest {
 	
@@ -51,12 +49,7 @@ public class MainTest {
 	
 	public static void main(String[] args){
 
-		MessageBuilder messageBuilder = new MessageBuilder();
-		DefaultClientMessage message = new DefaultClientMessage();
-		String mess = messageBuilder.serialize(message);
 		
-		Message<?> m = messageBuilder.deserialize(mess);
-		System.out.println(m.getClass());
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class Node<T> implements Iterable<T>{
 
@@ -24,8 +25,10 @@ public class Node<T> implements Iterable<T>{
 // Setters
 	
 	public void add(Node<T> child){
-		child.setParent(this);
-		this.children.add(child);
+		if(child != this){
+			child.setParent(this);
+			this.children.add(child);	
+		}
 	}
 	
 	public void setData(T data) {
@@ -51,6 +54,26 @@ public class Node<T> implements Iterable<T>{
 	}
 
 // search _________________________________
+	
+	
+	public ArrayList<T> serchByClass(Class<? extends T> type){
+		return searchAll(n -> {return n.getClass() == type;});
+	}
+	
+	public T getByClass(Class<? extends T> type){
+		return get(n -> {return n.getClass() == type;});
+	}
+	
+	/**
+	 * Scorre tutto l'albero finchè non trova la prima occorrenza che soddisfa il predicato passatogli
+	 * Se non trova niente che lo soddisfi ritorna null
+	 */
+	public T get(Predicate<? super T> predicate){
+		ArrayList<T> result = searchAll(predicate,false);
+		if (result.size()>0)
+			return result.get(0);
+		return null;
+	}
 	
 	/***
 	 * Ritorna l'insieme degli elementi che soddisfano il predicato (Ricerca in profondita' nell'albero)
@@ -84,6 +107,8 @@ public class Node<T> implements Iterable<T>{
 		 }
 		return metch;
 	}
+	
+
 	
 // ForEach _________________________________
 	

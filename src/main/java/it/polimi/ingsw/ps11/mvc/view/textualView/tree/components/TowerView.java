@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.mvc.view.textualView.tree.components;
 
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.Console;
+import it.polimi.ingsw.ps11.mvc.view.textualView.Console;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualComponent;
 
 public class TowerView extends TextualComponent {
