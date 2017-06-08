@@ -7,8 +7,12 @@ import it.polimi.ingsw.ps11.mvc.view.viewGenerica.components.Console;
 public class TextualConsole extends Console{
 	
 	@Override
-	public void print(String message){
+	public void println(String message){
 		System.out.println(message);
+	}
+	@Override
+	public void print(String message) {
+		System.out.print(message);
 	}
 	@Override
 	public void printError(String message){
@@ -21,7 +25,7 @@ public class TextualConsole extends Console{
 	}
 	@Override
 	public String read(String message){
-		print(message);
+		println(message);
 		return read();
 	}
 }

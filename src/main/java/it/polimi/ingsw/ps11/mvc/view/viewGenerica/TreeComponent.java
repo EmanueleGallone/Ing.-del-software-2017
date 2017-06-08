@@ -2,23 +2,23 @@ package it.polimi.ingsw.ps11.mvc.view.viewGenerica;
 
 import it.polimi.ingsw.ps11.cranio.Node;
 
-public abstract class Component extends Node<Component> {
+public abstract class TreeComponent extends Node<TreeComponent> {
 	
 	private final static String DEFAULT_ID = "unknown";
 	private String id;
 	private String type;
 	
 	
-	public Component() {
+	public TreeComponent() {
 		this(DEFAULT_ID);
 	}
 	
-	public Component(String id) {
+	public TreeComponent(String id) {
 		this.id = id;
 		this.setData(this);
 	}
 	
-	public Component(String id,String type) {
+	public TreeComponent(String id,String type) {
 		this.id = id;
 		this.type = type;
 		this.setData(this);
@@ -37,7 +37,7 @@ public abstract class Component extends Node<Component> {
 	 * Cerca il TextualComponent in tutto l'albero sottostante (Ricerca in profondita')
 	 * @return Ritorna il TextualComponent cercato se presente, altrimenti ritorna null
 	 */
-	public Component searchById(String id){
+	public TreeComponent searchById(String id){
 		return get( c ->{return c.getId().equals(id);});
 	}
 	
@@ -46,9 +46,9 @@ public abstract class Component extends Node<Component> {
 	 *  Cerca il TextualComponent solo tra i suoi figli (Ricerca superficiale)
 	 * @return Ritorna il TextualComponent cercato se presente, altrimenti ritorna null
 	 */
-	public Component getById(String id){
+	public TreeComponent getById(String id){
 		
-		for(Node<Component> component : this.getChildren()){
+		for(Node<TreeComponent> component : this.getChildren()){
 			if (component.getData().getId().equals(id)){
 				return component.getData();
 			}

@@ -18,7 +18,7 @@ public class TowerView extends TextualComponent {
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		console.print("\n"+"\t   "+this.getId());
+		console.println("\n"+"\t   "+this.getId());
 		
 		for(TextualComponent component : this){
 			component.print();

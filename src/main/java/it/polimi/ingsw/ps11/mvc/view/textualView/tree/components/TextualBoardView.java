@@ -18,7 +18,7 @@ public class TextualBoardView extends TextualContainer{
 	@Override
 	public void print() {
 		super.print();
-		new TextualConsole().print("");
+		new TextualConsole().println("");
 	}
 
 	@Override

@@ -44,13 +44,13 @@ public abstract class View extends Thread implements ViewInterface {
 	@Override
 	public void run() {
 		
-		console.print("View started");
+		console.println("View started");
 		
 		String input;
 		while (!(input = console.read()).equals("quit")) {
 			inputChangeEvent.invoke(input);
 		}
-		console.print("\nQuit game\n");
+		console.println("\nQuit game\n");
 	}
 	
 	public void inputChangeEvent(EventListener<String> listener){
@@ -67,7 +67,7 @@ public abstract class View extends Thread implements ViewInterface {
 
 	@Override
 	public void out(String message) {
-		console.print(message);
+		console.println(message);
 	}
 	
 	// UPDATE ____________________________-

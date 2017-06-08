@@ -60,9 +60,9 @@ public class TextualFloorView extends TextualComponent{
 		//System.out.println(arr.length);
 		
 		if (arr.length > 1)
-			console.print("Piano: " + (whichFloor+1) + " Risorsa: " + arr[arr.length-1]+ " value: " + floor.getActionSpace().getActionCost());
+			console.println("Piano: " + (whichFloor+1) + " Risorsa: " + arr[arr.length-1]+ " value: " + floor.getActionSpace().getActionCost());
 		else {
-			console.print("Piano: " + (whichFloor+1) + "                     " + " value: " + floor.getActionSpace().getActionCost());	
+			console.println("Piano: " + (whichFloor+1) + "                     " + " value: " + floor.getActionSpace().getActionCost());	
 		}
 		
 	}
