@@ -6,12 +6,11 @@ import it.polimi.ingsw.ps11.mvc.view.viewGenerica.ViewComponent;
 public abstract class FloorView extends ViewComponent{
 
 	protected Floor floor;
+	protected int whichFloor;
 	
-	public FloorView(String id) {
-		super(id);
-	}
-
-	public void update(Floor floor){
+	
+	public void update(Floor floor, int whichFloor){
 		this.floor = floor;
+		this.whichFloor = whichFloor;
 	}
 }

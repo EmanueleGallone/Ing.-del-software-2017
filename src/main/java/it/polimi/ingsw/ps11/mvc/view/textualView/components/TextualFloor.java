@@ -5,13 +5,10 @@ import it.polimi.ingsw.ps11.mvc.view.viewGenerica.components.FloorView;
 
 public class TextualFloor extends FloorView {
 	
-	public TextualFloor(String id) {
-		super(id);
-	}
 
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		console.println("Card: " + floor.getCard().getName() +" ActionCost: " + floor.getActionSpace().getActionCost());
+		console.println( whichFloor + " Card: " + floor.getCard().getName() +" ActionCost: " + floor.getActionSpace().getActionCost());
 	}
 }

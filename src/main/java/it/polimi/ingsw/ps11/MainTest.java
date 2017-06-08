@@ -41,14 +41,12 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
 
 public class MainTest {
 	
 	
 	
 	public static void main(String[] args){
-
 		
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");

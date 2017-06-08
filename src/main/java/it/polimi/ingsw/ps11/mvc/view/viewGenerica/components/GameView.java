@@ -7,10 +7,6 @@ public abstract class GameView extends ViewComponent{
 	
 	private Game game;
 	
-	public GameView(String id) {
-		super(id);
-	}
-	
 	public void update(Game game){
 		this.game = game;
 	}

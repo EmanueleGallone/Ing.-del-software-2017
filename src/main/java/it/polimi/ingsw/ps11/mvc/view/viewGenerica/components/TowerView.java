@@ -2,18 +2,38 @@ package it.polimi.ingsw.ps11.mvc.view.viewGenerica.components;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.zones.Floor;
+import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 import it.polimi.ingsw.ps11.mvc.view.viewGenerica.ViewComponent;
 
 public abstract class TowerView extends ViewComponent {
 
-	protected ArrayList<FloorView> tower;
+	protected ArrayList<FloorView> floors = new ArrayList<>();
 	
-	public TowerView(String id) {
-		super(id);
+	public void update(Tower tower){
+		floors.clear();
+		int i = 0;
+		for(Floor f : tower.getFloors()){
+			FloorView fView = floors.get(i);
+			if (fView != null)
+				fView.update(f,i);
+			i++;
+		}
 	}
 	
-	public void update(ArrayList<FloorView> floors){
-	  this.tower = floors;
+	public FloorView getFloor(int index) {
+		if (index < floors.size()){
+			return floors.get(index);
+		}
+		return null;
+	}
+	
+	public void addFloor(FloorView floorView){
+		floors.add(floorView);
+	}
+	
+	public void setFloors(ArrayList<FloorView> floors) {
+		this.floors = floors;
 	}
 	
 }

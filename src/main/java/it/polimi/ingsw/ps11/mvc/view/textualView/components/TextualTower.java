@@ -6,18 +6,12 @@ import it.polimi.ingsw.ps11.mvc.view.viewGenerica.components.TowerView;
 
 public class TextualTower extends TowerView {
 
-	public TextualTower(String id) {
-		super(id);
-	}
 
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		int i = 1;
-		for(FloorView f : tower){
-			console.print(i + " ");
+		for(FloorView f : floors){
 			f.print();
-			i++;
 		}
 	}
 
