@@ -29,7 +29,7 @@ public class Tower {
 		}
 	}
 	
-	public Floor selectFloor(int index){
+	public Floor getFloor(int index){
 		if(index < floors.size()){
 			return floors.get(index);	
 		}

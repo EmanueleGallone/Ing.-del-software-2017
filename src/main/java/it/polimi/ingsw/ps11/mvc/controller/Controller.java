@@ -84,7 +84,7 @@ public class Controller {
 	
 	private <T extends Tower> Floor getFloor(Class<T> tType, int floor){
 		T tower = model.getBoard().getTower(tType);
-		return (Floor) tower.selectFloor(floor).clone();
+		return (Floor) tower.getFloor(floor).clone();
 	}
 	
 	
