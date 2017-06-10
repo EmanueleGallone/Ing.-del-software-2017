@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.cranio.zones.actionSpace.pos;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class SingleActionSpace extends ActionSpace {
@@ -26,14 +27,22 @@ public class SingleActionSpace extends ActionSpace {
 	}
 	
 	@Override
-	public boolean addFamilyMember(FamilyMember familyMember) {
+	public boolean addFamilyMember(FamilyMember familyMember, Player player) {
 		if(familyMembers.size() < DEFAULT_AVAILABLE_SPACE){
-			return super.addFamilyMember(familyMember);
+			return super.addFamilyMember(familyMember,player);
 		}
 		return false;
 	}
 	
-	public FamilyMember getFamilyMember() {
+	@Override
+	public boolean addFamilyMember(FamilyMemberSlot fSlot) {
+		if(familyMembers.size() < DEFAULT_AVAILABLE_SPACE){
+			return super.addFamilyMember(fSlot);
+		}
+		return false;
+	}
+	
+	public FamilyMemberSlot getFamilyMember() {
 		if(!familyMembers.isEmpty()){
 			return familyMembers.get(0);
 		}

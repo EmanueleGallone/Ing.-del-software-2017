@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ActionSpace implements Iterable<FamilyMember> {
+public class ActionSpace implements Iterable<FamilyMemberSlot> {
 	
 	protected static final int DEFAULT_COST = 1;
-	protected ArrayList<FamilyMember> familyMembers = new ArrayList<>();
+	protected ArrayList<FamilyMemberSlot> familyMembers = new ArrayList<>();
 	private int cost;
 	private ResourceList resources; //Sarebbe meglio un arrayList, poi vediamo
 	
@@ -46,7 +47,7 @@ public class ActionSpace implements Iterable<FamilyMember> {
 		return resources;
 	}
 	
-	public ArrayList<FamilyMember> getFamilyMembers() {
+	public ArrayList<FamilyMemberSlot> getFamilyMembers() {
 		return familyMembers;
 	}
 	
@@ -62,9 +63,14 @@ public class ActionSpace implements Iterable<FamilyMember> {
 	
 // Logics
 	
-	public boolean addFamilyMember(FamilyMember familyMember) {
-		return this.familyMembers.add(familyMember);
+	public boolean addFamilyMember(FamilyMember familyMember, Player player) {
+		return this.familyMembers.add(new FamilyMemberSlot(player, familyMember));
 	}
+	
+	public boolean addFamilyMember(FamilyMemberSlot fSlot) {
+		return this.familyMembers.add(fSlot);
+	}
+	
 	
 	public void clear(){
 		this.familyMembers.clear();
@@ -73,7 +79,7 @@ public class ActionSpace implements Iterable<FamilyMember> {
 // __________________________
 
 	@Override
-	public Iterator<FamilyMember> iterator() {
+	public Iterator<FamilyMemberSlot> iterator() {
 		return familyMembers.iterator();
 	}
 

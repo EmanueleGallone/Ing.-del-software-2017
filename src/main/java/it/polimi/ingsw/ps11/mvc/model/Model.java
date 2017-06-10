@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.mvc.model;
 
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.game.Game;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
@@ -33,9 +35,18 @@ public class Model {
 	}
 	
 	
-	public void familyInFloor(Class<Tower> tower, int i){
+	public void familyInFloor(FamilyMember familyMember, Player player,Class<Tower> tower, int i){
 		Floor floor = getFloor(tower, i);
 		//Piazza familiare 
+	}
+	
+	public void familyInMarket(FamilyMember familyMember, Player player, int index){
+		//new PiazzaInMarket
+	}
+	
+	public void finishRound(Player player){
+		//Azione concludi il turno 
+		// new ConcludiTurno(Player, RoundManager);
 	}
 	
 	
