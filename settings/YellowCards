@@ -1,1338 +1,1336 @@
-{
-  "mazzo": [
-    {
-      "activeValue": 5,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 4
-              }
+[
+  {
+    "activeValue": 5,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 9
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 9
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 2
-                  }
-                },
-                "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
           }
         }
-      ],
-      "name": "Castelletto",
-      "period": 3
-    },
-    {
-      "activeValue": 6,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 3
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 3
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 1
-              }
+      }
+    ],
+    "name": "Castelletto",
+    "period": 3
+  },
+  {
+    "activeValue": 6,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 9
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 1
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 9
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Palazzo",
-      "period": 3
-    },
-    {
-      "activeValue": 3,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Palazzo",
+    "period": 3
+  },
+  {
+    "activeValue": 3,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 7
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 7
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Accademia Militare",
-      "period": 3
-    },
-    {
-      "activeValue": 4,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 4
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 3
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Accademia Militare",
+    "period": 3
+  },
+  {
+    "activeValue": 4,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 8
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 8
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Fiera",
-      "period": 3
-    },
-    {
-      "activeValue": 2,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 4
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 4
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Fiera",
+    "period": 3
+  },
+  {
+    "activeValue": 2,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 4
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 7
-                  }
-                },
-                "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
-                  "INSTANCE": {
-                    "value": 3
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 7
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 3
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
           }
         }
-      ],
-      "name": "Cattedrale",
-      "period": 3
-    },
-    {
-      "activeValue": 1,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 4
-              }
+      }
+    ],
+    "name": "Cattedrale",
+    "period": 3
+  },
+  {
+    "activeValue": 1,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 5
-                  }
-                },
-                "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 5
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Basilica",
-      "period": 3
-    },
-    {
-      "activeValue": 2,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 3
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 3
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Basilica",
+    "period": 3
+  },
+  {
+    "activeValue": 2,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 7
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 1
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 7
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 5
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 5
                 }
               }
             }
           }
         }
-      ],
-      "name": "Banca",
-      "period": 3
-    },
-    {
-      "activeValue": 1,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 4
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "name": "Banca",
+    "period": 3
+  },
+  {
+    "activeValue": 1,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 10
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 10
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 3
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 3
                 }
               }
             }
           }
         }
-      ],
-      "name": "Giardino",
-      "period": 3
-    },
-    {
-      "activeValue": 1,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 1
-              }
+      }
+    ],
+    "name": "Giardino",
+    "period": 3
+  },
+  {
+    "activeValue": 1,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 3
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 1
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 3
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Caserma",
-      "period": 2
-    },
-    {
-      "activeValue": 3,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 3
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Caserma",
+    "period": 2
+  },
+  {
+    "activeValue": 3,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 3
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 4
-                  }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 4
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Tesoreria",
-      "period": 2
-    },
-    {
-      "activeValue": 6,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Tesoreria",
+    "period": 2
+  },
+  {
+    "activeValue": 6,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 8
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 8
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 2
-                  }
-                },
-                "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
-                  "INSTANCE": {
-                    "value": 2
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+                "INSTANCE": {
+                  "value": 2
                 }
               }
             }
           }
         }
-      ],
-      "name": "Fortezza",
-      "period": 2
-    },
-    {
-      "activeValue": 2,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 3
-              }
+      }
+    ],
+    "name": "Fortezza",
+    "period": 2
+  },
+  {
+    "activeValue": 2,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 3
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 2
-                  }
-                },
-                "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Battistero",
-      "period": 2
-    },
-    {
-      "activeValue": 3,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 1
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Battistero",
+    "period": 2
+  },
+  {
+    "activeValue": 3,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 3
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 1
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 3
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Mercato",
-      "period": 2
-    },
-    {
-      "activeValue": 4,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 4
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Mercato",
+    "period": 2
+  },
+  {
+    "activeValue": 4,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 4
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 5
-                  }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 5
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Gilda dei Pittori",
-      "period": 2
-    },
-    {
-      "activeValue": 4,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Gilda dei Pittori",
+    "period": 2
+  },
+  {
+    "activeValue": 4,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 4
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 4
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Gilda dei Costruttori",
-      "period": 2
-    },
-    {
-      "activeValue": 5,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 4
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Gilda dei Costruttori",
+    "period": 2
+  },
+  {
+    "activeValue": 5,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 4
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 6
-                  }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 6
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Gilda degli Scultori",
-      "period": 2
-    },
-    {
-      "activeValue": 1,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Gilda degli Scultori",
+    "period": 2
+  },
+  {
+    "activeValue": 1,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 2
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 2
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Tagliapietre",
-      "period": 1
-    },
-    {
-      "activeValue": 2,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Tagliapietre",
+    "period": 1
+  },
+  {
+    "activeValue": 2,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus",
-          "INSTANCE": {
-            "exchanger": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "exchangeable": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus",
+        "INSTANCE": {
+          "exchanger": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
-          }
-        }
-      ],
-      "name": "Cappella",
-      "period": 1
-    },
-    {
-      "activeValue": 4,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 3
-                  }
+          },
+          "exchangeable": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [],
-      "name": "Falegnameria",
-      "period": 1
-    },
-    {
-      "activeValue": 5,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 3
-              }
+      }
+    ],
+    "name": "Cappella",
+    "period": 1
+  },
+  {
+    "activeValue": 4,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 5
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 3
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.YellowCard"
-          }
-        }
-      ],
-      "name": "Zecca",
-      "period": 1
-    },
-    {
-      "activeValue": 6,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Falegnameria",
+    "period": 1
+  },
+  {
+    "activeValue": 5,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 6
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 5
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard"
-          }
-        }
-      ],
-      "name": "Arco di Trionfo",
-      "period": 1
-    },
-    {
-      "activeValue": 5,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 3
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 1
-              }
-            }
-          }
-        }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 5
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
-          }
+          },
+          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.YellowCard"
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.GreenCard"
-          }
-        }
-      ],
-      "name": "Esattoria",
-      "period": 1
-    },
-    {
-      "activeValue": 6,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        },
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-              "INSTANCE": {
-                "value": 2
-              }
+      }
+    ],
+    "name": "Zecca",
+    "period": 1
+  },
+  {
+    "activeValue": 6,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 6
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 6
                 }
               }
             }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.BlueCard"
-          }
-        }
-      ],
-      "name": "Teatro",
-      "period": 1
-    },
-    {
-      "activeValue": 1,
-      "DEFAULT_VALUE": 1,
-      "costs": [
-        {
-          "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        }
-      ],
-      "instantBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
-          "INSTANCE": {
-            "resourceList": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
+          },
+          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard"
+        }
+      }
+    ],
+    "name": "Arco di Trionfo",
+    "period": 1
+  },
+  {
+    "activeValue": 5,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 3
+            }
           }
         }
-      ],
-      "permanentBonus": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus",
-          "INSTANCE": {
-            "exchanger": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "exchangeable": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
-                  "INSTANCE": {
-                    "value": 1
-                  }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 1
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 5
                 }
               }
             }
           }
         }
-      ],
-      "name": "Residenza",
-      "period": 1
-    }
-  ]
-}
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          },
+          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.GreenCard"
+        }
+      }
+    ],
+    "name": "Esattoria",
+    "period": 1
+  },
+  {
+    "activeValue": 6,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      },
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 6
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          },
+          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.BlueCard"
+        }
+      }
+    ],
+    "name": "Teatro",
+    "period": 1
+  },
+  {
+    "activeValue": 1,
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus",
+        "INSTANCE": {
+          "exchanger": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          },
+          "exchangeable": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "name": "Residenza",
+    "period": 1
+  }
+]

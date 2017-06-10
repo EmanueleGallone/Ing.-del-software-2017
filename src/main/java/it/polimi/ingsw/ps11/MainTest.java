@@ -5,10 +5,12 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import com.google.gson.reflect.TypeToken;
+
 import it.polimi.ingsw.ps11.cranio.JsonAdapter;
-import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;
@@ -19,9 +21,6 @@ import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.cranio.loaders.GreenDeck;
-import it.polimi.ingsw.ps11.cranio.loaders.PurpleDeck;
-import it.polimi.ingsw.ps11.cranio.loaders.YellowDeck;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -48,6 +47,8 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		
+		//inizializzaCarte();
+	
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");
 
@@ -230,12 +231,8 @@ public class MainTest {
 	}
 	
 	public static void inizializzaCarte(){
-		ArrayList<Class<?>> list = new ArrayList<>();
-		list.add(DevelopmentCard.class);
-		list.add(Resource.class);
-		list.add(Bonus.class);
 		
-		JsonAdapter gAdapter = new JsonAdapter(list); //per la scrittura su file
+		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
 		
 		ResourceList resourceList = new ResourceList();
 		
@@ -506,7 +503,8 @@ public class MainTest {
 		resourceList.setResource(new Wood(2));
 		tenuta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
-		GreenDeck greenDeck = new GreenDeck(); 
+		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
+		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
 		greenDeck.add(tenuta); 
 		greenDeck.add(cittaMercantile); 
 		greenDeck.add(provincia);
@@ -532,7 +530,7 @@ public class MainTest {
 		greenDeck.add(bosco);
 		greenDeck.add(avampostoCommerciale);	
 		
-		writeFile("settings\\GreenCards", gAdapter.toJson(greenDeck));
+		writeFile("settings\\GreenCards", gAdapter.toJson(greenDeck, type));
 		
 		//FINE CARTE VERDI
 		
@@ -883,7 +881,9 @@ public class MainTest {
 		resourceList.setResource(new VictoryPoint(8));
 		guerraSanta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
-		PurpleDeck purpleDeck = new PurpleDeck();
+		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>();
+		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
+		
 		purpleDeck.add(guerraSanta);
 		purpleDeck.add(sostegnoPapa);
 		purpleDeck.add(conquistaMilitare);
@@ -910,7 +910,7 @@ public class MainTest {
 		purpleDeck.add(campagnaMilitare);
 		
 		
-		writeFile("settings\\PurpleCards", gAdapter.toJson(purpleDeck)); 
+		writeFile("settings\\PurpleCards", gAdapter.toJson(purpleDeck,type)); 
 		
 		//FINE CARTE VIOLA
 		
@@ -1316,7 +1316,9 @@ public class MainTest {
 		resourceList.setResource(new CouncilPrivilege(1));
 		castelletto.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
-		YellowDeck yellowDeck = new YellowDeck();
+		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>();
+		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
+		
 		yellowDeck.add(castelletto);
 		yellowDeck.add(palazzo);
 		yellowDeck.add(accademiaMilitare);
@@ -1342,7 +1344,7 @@ public class MainTest {
 		yellowDeck.add(teatro);
 		yellowDeck.add(residenza);
 		
-		writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck));
+		writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck,type));
 		
 		//FINE CARTE GIALLE
 		

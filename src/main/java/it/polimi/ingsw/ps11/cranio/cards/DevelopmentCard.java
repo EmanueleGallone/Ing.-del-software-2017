@@ -38,8 +38,9 @@ public abstract class DevelopmentCard extends Card {
 	
 	public boolean take(Player player, ResourceList cost){
 		if (checkCost(player.getResourceList(), cost)){
+			player.getResourceList().subtract(cost); //sottraggo le risorse spese per prendere la carta
 			if (player.getCardManager().addCard(this)){
-				setOwner(player);
+				//setOwner(player); come faccio a settare il giocatore del bonus?
 				return true;
 			}
 		}
@@ -72,15 +73,15 @@ public abstract class DevelopmentCard extends Card {
 
 	}
 	
-	private void setOwner(Player player){
+	/*private void setOwner(Player player){
 		for(Bonus bonus : permanentBonus){
 			
-			bonus.setOwner(player);
+			bonus.(player);
 		}
 		for(Bonus bonus : instantBonus){
 			bonus.setOwner(player);
 		}
-	}
+	}*/
 	
 	public void setInstantBonus(ArrayList<Bonus> istantBonus) {
 		this.instantBonus = istantBonus;

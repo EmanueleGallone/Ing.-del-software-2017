@@ -1,8 +1,9 @@
 package it.polimi.ingsw.ps11.cranio.bonus;
 
+import it.polimi.ingsw.ps11.cranio.game.actionsEma.IncrementResourceAction;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class IncrementResourceBonus extends Bonus {
+public class IncrementResourceBonus extends PlayerBonus {
 
 	private ResourceList resourceList;
 	
@@ -12,7 +13,7 @@ public class IncrementResourceBonus extends Bonus {
 
 	@Override
 	public void behavior() {
-		getOwner().getResourceList().sum(resourceList);
+		new IncrementResourceAction(getPlayer(), resourceList).perform();
 	}
 	
 	public ResourceList getResourceList() {

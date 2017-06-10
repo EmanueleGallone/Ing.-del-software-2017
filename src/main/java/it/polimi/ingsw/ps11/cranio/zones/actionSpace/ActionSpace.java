@@ -50,7 +50,7 @@ public class ActionSpace implements Iterable<FamilyMember> {
 	}
 	
 	public boolean addFamilyMember(FamilyMember familyMember) {
-		if (this.familyMembers.size() <= availableSpace)
+		if (isFree())
 			return this.familyMembers.add(familyMember);
 		return false;
 	}
@@ -68,6 +68,13 @@ public class ActionSpace implements Iterable<FamilyMember> {
 	
 	public ArrayList<FamilyMember> getFamilyMembers() {
 		return familyMembers;
+	}
+	
+	public boolean isFree(){
+		if(this.familyMembers.size() <= availableSpace)
+			return true;
+		
+		return false;
 	}
 	
 // Setters	

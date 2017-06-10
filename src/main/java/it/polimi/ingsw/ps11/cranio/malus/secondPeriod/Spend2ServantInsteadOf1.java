@@ -7,6 +7,7 @@ public class Spend2ServantInsteadOf1 extends Excommunication {
 	
 	public Spend2ServantInsteadOf1(Player player) {
 		this.owner = player;
+		setPeriod(2);
 	}
 
 	@Override

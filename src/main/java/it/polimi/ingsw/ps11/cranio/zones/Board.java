@@ -54,6 +54,14 @@ public class Board {
 		return councilPalace;
 	}
 	
+	public Production getProduction() {
+		return production;
+	}
+	
+	public Harvest getHarvest() {
+		return harvest;
+	}
+	
 	@Override
 	public String toString() {
 		return "Board [tempTowers=" + Arrays.asList(towers) + '\n'

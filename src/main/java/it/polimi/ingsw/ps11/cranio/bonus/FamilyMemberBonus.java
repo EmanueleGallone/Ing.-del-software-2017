@@ -1,9 +1,10 @@
 package it.polimi.ingsw.ps11.cranio.bonus;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.game.actionsEma.PlaceFamilyTowerAction;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
-public class FamilyMemberBonus extends Bonus {
+public class FamilyMemberBonus extends PlayerBonus {
 
 	private Tower tower;
 	private int value;
@@ -20,7 +21,15 @@ public class FamilyMemberBonus extends Bonus {
 	
 	@Override
 	public void behavior() {
-		familyMember.setModifier(value);
+		new PlaceFamilyTowerAction().perform(this);
+	}
+	
+	public Tower getTower() {
+		return tower;
+	}
+	
+	public int getValue() {
+		return value;
 	}
 	
 }

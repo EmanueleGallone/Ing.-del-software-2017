@@ -1,20 +1,13 @@
 package it.polimi.ingsw.ps11.cranio.player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.cranio.game.Colors;
+import it.polimi.ingsw.ps11.cranio.malus.Excommunication;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
 
 
@@ -29,13 +22,16 @@ public class Player{
 	private FamilyMemberManager familyManager;
 	private CardManager cardManager;
 	
+	private ArrayList<Excommunication> excommunication = new ArrayList<>();
+
+	
 // Start constructors
 	
 	public Player(){
 		name = DEFAULT_NAME;
 		this.resourceList = new ResourceList();
 		this.cardManager = new CardManager();
-		this.familyManager = new FamilyMemberManager(this);
+		this.familyManager = new FamilyMemberManager(this); //va tolto il this
 	}
 	
 	public Player( ArrayList<Resource> resources ) {
@@ -70,6 +66,10 @@ public class Player{
 		return color;
 	}
 	
+	public ArrayList<Excommunication> getExcommunication() {
+		return excommunication;
+	}
+	
 // End getters
 	
 	public void setName(String name) {
@@ -78,6 +78,10 @@ public class Player{
 	
 	public void setColor(Colors color) {
 		this.color = color;
+	}
+	
+	public void addExcommunication(Excommunication ex){
+		this.excommunication.add(ex);
 	}
 
 	

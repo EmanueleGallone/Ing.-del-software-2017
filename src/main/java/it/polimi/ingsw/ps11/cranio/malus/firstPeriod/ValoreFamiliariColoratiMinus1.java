@@ -4,12 +4,12 @@ import it.polimi.ingsw.ps11.cranio.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.cranio.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.cranio.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.cranio.malus.Excommunication;
-import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class ValoreFamiliariColoratiMinus1 extends Excommunication{
 	
+
 	public ValoreFamiliariColoratiMinus1() {
-		
+		setPeriod(1);
 	}
 
 	@Override

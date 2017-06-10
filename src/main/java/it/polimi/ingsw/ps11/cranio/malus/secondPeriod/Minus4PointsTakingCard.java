@@ -9,8 +9,9 @@ public class Minus4PointsTakingCard<T extends DevelopmentCard> extends Excommuni
 	private String cardType;
 	
 	public Minus4PointsTakingCard(Class<T> cardType,Player player) {
-		this.cardType = cardType.toString();
 		this.owner = player;
+		setPeriod(2);
+
 	}
 
 	@Override

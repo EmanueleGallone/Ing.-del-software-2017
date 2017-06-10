@@ -14,13 +14,14 @@ public class TakeNoVictoryPointsFromCard extends Excommunication {
 	public TakeNoVictoryPointsFromCard(Player player, Class<? extends DevelopmentCard> card) {
 		this.owner = player;
 		this.cardType = card.toString();
+		setPeriod(3);
 		
 	}
 	
 	
 	public void behaviour(){ //pare che funzioni
 		for(DevelopmentCard cards : getOwner().getCardManager().getCardList(cardType)){
-			// per ogni carta del tipo cardType, set victory point = 0; quindi la carta dovrebbe avere una resourceList?
+			
 			for(Bonus bonus : cards.getPermanentBonus())
 				if (bonus.getClass() == IncrementResourceBonus.class){
 					((IncrementResourceBonus) bonus).getResourceList().setResource(new VictoryPoint(0));

@@ -117,7 +117,7 @@ public class Game implements ActionVisitor {
 
 	
 	public void changeTurn(){
-		if(!roundManager.turnIsOver()){
+		if(!roundManager.roundIsOver()){
 			roundManager.next();
 		}
 		else if(!roundManager.gameIsOver()){

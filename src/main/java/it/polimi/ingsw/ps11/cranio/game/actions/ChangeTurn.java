@@ -20,7 +20,7 @@ public class ChangeTurn implements Action{
 	@Override
 	public void perform() {
 		RoundManager roundManager = game.getRoundManager();
-		if(!roundManager.turnIsOver()){
+		if(!roundManager.roundIsOver()){
 			roundManager.next();
 		}
 	}

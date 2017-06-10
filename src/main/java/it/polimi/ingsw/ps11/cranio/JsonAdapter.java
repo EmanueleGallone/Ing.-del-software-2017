@@ -16,6 +16,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
@@ -32,7 +33,8 @@ public class JsonAdapter {
 			Tower.class,
 			DevelopmentCard.class,
 			FamilyMember.class,
-			Message.class
+			Message.class,
+			Bonus.class
 			));
 	
 	public JsonAdapter() {
@@ -54,10 +56,15 @@ public class JsonAdapter {
 		}
 		
 		gson = gsonBuilder.create();
+		
 	}
 	
 	public String toJson(Object object) {
 		return gson.toJson(object);
+	}
+	
+	public String toJson(Object object, Type type) {
+		return gson.toJson(object, type);
 	}
 	
 	public <T extends Object> T fromJson(String json, Class<T> classOfT){
@@ -66,6 +73,10 @@ public class JsonAdapter {
 	
 	public <T extends Object> T fromJson(FileReader json, Class<T> classOfT){
 		return gson.fromJson(json, classOfT);
+	}
+	
+	public <T extends Object> T fromJson(String string, Type type) {
+		return gson.fromJson(string, type);
 	}
 	
 	protected class GsonAdapter implements JsonSerializer<Object>, JsonDeserializer<Object> {
@@ -102,4 +113,6 @@ public class JsonAdapter {
 	        return context.deserialize(jsonObject.get(INSTANCE), klass);
 	    }
   }
+
+	
 }

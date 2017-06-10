@@ -21,6 +21,8 @@ public class PlaceFamilyMember implements Action {
 		Player owner = familyMember.getOwner();
 		owner.getResourceList().sum(actionSpace.getResources());
 		
+		//resetta il modificatore del familiare
+		
 	}
 
 	@Override

@@ -1,15 +1,16 @@
 package it.polimi.ingsw.ps11.cranio.bonus;
 
+import it.polimi.ingsw.ps11.cranio.game.actionsEma.PlaceFamilyTowerAction;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
-public class DecrementCosts extends Bonus {
+public class DecrementCostBonus extends PlayerBonus {
 
 	private Tower tower;
 	private ResourceList resourceList;
 	private ResourceList result;
 	
-	public DecrementCosts(Tower tower, ResourceList resourceList) {
+	public DecrementCostBonus(Tower tower, ResourceList resourceList) {
 		this.tower = tower;
 		this.resourceList = resourceList;
 	}
@@ -20,6 +21,10 @@ public class DecrementCosts extends Bonus {
 	
 	@Override
 	public void behavior() {
-		result.sum(owner.getResourceList());
+		new PlaceFamilyTowerAction().perform(this);
+	}
+	
+	public Tower getTower() {
+		return tower;
 	}
 }

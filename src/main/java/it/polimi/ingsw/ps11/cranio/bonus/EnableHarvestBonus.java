@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.cranio.bonus;
 
-public class EnableHarvestBonus extends Bonus {
+import it.polimi.ingsw.ps11.cranio.game.actionsEma.EnableHarvestAction;
+
+public class EnableHarvestBonus extends PlayerBonus {
 	
 	private int harvestActivationValue;
 	
@@ -10,7 +12,11 @@ public class EnableHarvestBonus extends Bonus {
 
 	@Override
 	public void behavior() {
-		//DA DEFINIRE
+		new EnableHarvestAction(getPlayer(), this.harvestActivationValue).perform();
+	}
+	
+	public int getHarvestActivationValue() {
+		return harvestActivationValue;
 	}
 
 }

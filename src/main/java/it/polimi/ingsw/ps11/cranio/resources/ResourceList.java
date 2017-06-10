@@ -61,7 +61,7 @@ public class ResourceList implements Iterable<Resource>{
 		for(String key : otherResources.getResources().keySet()){
 			if (getResource(key) != null){
 				this.resources.get(key).increment(-otherResources.getValueOf(key));
-			}//manca il controllo sui valori negativi
+			}//manca il controllo sui valori negativi			
 		}
 	}
 	
@@ -106,7 +106,7 @@ public class ResourceList implements Iterable<Resource>{
 		return (T) resources.get(rType);
 	}
 	
-	public <T extends Resource> int getValueOf(String rType){
+	public int getValueOf(String rType){
 		Resource r = this.getResource(rType);
 		if (r == null)
 			return DEFAULT_VALUE; //Da decidere
@@ -128,7 +128,7 @@ public class ResourceList implements Iterable<Resource>{
 	public <T extends Resource> void setResource(T resource){
 		this.resources.put(resource.getClass().toString() , resource.clone());
 	}
-
+	
 	protected void setResources(HashMap<String, Resource> resources) {
 		this.resources = resources;
 	}

@@ -4,7 +4,16 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public abstract class Excommunication {
 	
-	protected Player owner;
+	//due soluzioni: o questi oggetti li tratto come "flag" e definisco il loro comportamento all'interno di Action
+	//oppure sono oggetti a loro stanti che devono conoscere il loro proprietario affinchè attivino il loro comportamento
+	//all'interno dell'Action
+	
+	protected transient Player owner;
+	protected int period;
+	
+	/*public Excommunication(Player player) {
+		this.owner = player;
+	}*/
 	
 	public abstract void behaviour();
 	
@@ -14,6 +23,14 @@ public abstract class Excommunication {
 	
 	public Player getOwner() {
 		return owner;
+	}
+	
+	public void setPeriod(int period) {
+		this.period = period;
+	}
+	
+	public int getPeriod() {
+		return period;
 	}
 
 }
