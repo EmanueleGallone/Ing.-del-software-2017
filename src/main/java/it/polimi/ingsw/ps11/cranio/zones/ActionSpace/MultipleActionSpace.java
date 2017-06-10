@@ -3,8 +3,8 @@ package it.polimi.ingsw.ps11.cranio.zones.ActionSpace;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import it.polimi.ingsw.ps11.cranio.actions.Action;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.cranio.game.actions.Action;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace> {
