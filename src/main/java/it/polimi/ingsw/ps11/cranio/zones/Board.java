@@ -5,16 +5,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Harvest;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
 public class Board {
 	
 	private HashMap<String, Tower> towers = new HashMap<>();
 	
-	private Harvest harvest = new Harvest();
+	private Production harvest = new Production();
 	private Production production = new Production();
 	private Market market;
 	private CardManager cards;
@@ -58,7 +57,7 @@ public class Board {
 		return production;
 	}
 	
-	public Harvest getHarvest() {
+	public Production getHarvest() {
 		return harvest;
 	}
 	

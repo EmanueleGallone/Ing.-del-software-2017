@@ -14,7 +14,6 @@ import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.game.actions.ActionVisitor;
 import it.polimi.ingsw.ps11.cranio.game.actions.ChangeTurn;
 import it.polimi.ingsw.ps11.cranio.game.actions.GetCard;
-import it.polimi.ingsw.ps11.cranio.game.actions.PlaceFamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
@@ -28,7 +27,7 @@ public class Game implements ActionVisitor {
 	
 	
 	EventHandler<GetCard> getCardEvent = new EventHandler<>();
-	EventHandler<PlaceFamilyMember> placeFamilyMemberEvent = new EventHandler<>();
+	//EventHandler<PlaceFamilyMember> placeFamilyMemberEvent = new EventHandler<>();
 	
 	
 	public Game(ArrayList<Player> players) {
@@ -100,12 +99,13 @@ public class Game implements ActionVisitor {
 		}
 	}
 
+	/*
 	@Override
 	public void visit(PlaceFamilyMember placeFamilyMember) {
 		placeFamilyMemberEvent.invoke(placeFamilyMember);
 		if(placeFamilyMember.isLegal())
 			placeFamilyMember.perform();
-	}
+	}*/
 	
 	@Override
 	public void visit(ChangeTurn changeTurn) {
@@ -117,6 +117,7 @@ public class Game implements ActionVisitor {
 
 	
 	public void changeTurn(){
+		/*
 		if(!roundManager.roundIsOver()){
 			roundManager.next();
 		}
@@ -131,7 +132,7 @@ public class Game implements ActionVisitor {
 		}
 		else {
 			endGame();
-		}
+		}*/
 	}
 	
 	public void endRound(){
@@ -147,8 +148,8 @@ public class Game implements ActionVisitor {
 		getCardEvent.attach(listener);
 	}
 	
-	public void placeFamilyMemberEvent(EventListener<PlaceFamilyMember> listener) {
-		placeFamilyMemberEvent.attach(listener);
+	public void placeFamilyMemberEvent(/*EventListener<PlaceFamilyMember> listener*/) {
+		//placeFamilyMemberEvent.attach(listener);
 	}
 
 }

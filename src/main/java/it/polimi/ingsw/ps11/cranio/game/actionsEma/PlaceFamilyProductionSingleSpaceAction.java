@@ -18,13 +18,13 @@ public class PlaceFamilyProductionSingleSpaceAction extends Action {
 
 	@Override
 	public void perform() {
-		this.production.activeCard(familiareScelto,player);
+		//this.production.activeCard(familiareScelto,player);
 
 	}
 
 	@Override
 	public boolean isLegal() {
-		return this.production.SingleActionSpaceisFree();		
+		return false;
 	}
 	
 	//start setters

@@ -1,10 +1,13 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.FamilyMemberSpace;
 
-public class Floor implements Cloneable {
+public class Floor implements FamilyMemberSpace,Cloneable {
 	
 	private DevelopmentCard card;
 	private ActionSpace actionSpace;
@@ -31,21 +34,10 @@ public class Floor implements Cloneable {
 // End constructors
 // Start logic
 	
-	/*
 	@Override
-	public boolean placeFamilyMember(FamilyMember familyMember) {
-		 if(actionSpace.placeFamilyMember(familyMember)){
-			 return true;
-		 }
-		 return false;
+	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
+		return actionSpace.placeFamilyMember(familyMember, player);
 	}
-	
-	public boolean getCard(FamilyMember familyMember, ResourceList cost){
-		if (placeFamilyMember(familyMember)){
-			return card.take(familyMember.getOwner(), cost);
-		}
-		return false;
-	}*/
 	
 // End logic
 // Start setters
@@ -61,8 +53,8 @@ public class Floor implements Cloneable {
 // End setters
 // Start getters
 	
-	public <T extends DevelopmentCard> T getCard() {
-		return (T) card;
+	public DevelopmentCard getCard() {
+		return card;
 	}
 	
 	public ActionSpace getActionSpace() {

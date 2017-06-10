@@ -1,47 +1,35 @@
-package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
-
-import java.util.ArrayList;
-import java.util.Iterator;
+package it.polimi.ingsw.ps11.cranio.zones.ActionSpace;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ActionSpace implements Iterable<FamilyMember> {
+public class ActionSpace implements FamilyMemberSpace{
 	
 	protected static final int DEFAULT_COST = 1;
-	protected static final int DEFAULT_AVAILABLE_SPACE = 1;
-	protected ArrayList<FamilyMember> familyMembers = new ArrayList<>();
+	protected FamilyMember familyMember;
+	protected Player owner;
 	private int cost;
-	private int availableSpace;
-	private ResourceList resources; //Sarebbe meglio un arrayList, poi vediamo
+	private ResourceList resources; 
 	
-	
-// Start Constructors
 	
 	public ActionSpace() {
 		this(DEFAULT_COST);
 	}
 	
 	public ActionSpace(int cost){
-		this(cost,DEFAULT_AVAILABLE_SPACE);
+		this(cost,new ResourceList());
 	}
 	
-	public ActionSpace(int cost,int availableSpace){
+	public ActionSpace(ResourceList resourceList){
+		this.cost = DEFAULT_COST;
+		this.resources = resourceList;
+	}
+	
+	public ActionSpace(int cost, ResourceList resourceList){
 		this.cost = cost;
-		this.availableSpace = availableSpace;
-		resources = new ResourceList();
+		this.resources = new ResourceList();
 	}
-	
-	public ActionSpace(ResourceList resources){
-		this();
-		this.resources = resources;
-	}
-	
-	public ActionSpace(int cost, ResourceList resources){
-		this(cost);
-		this.resources = resources;
-	}
-	
 
 //Start setters
 	
@@ -49,12 +37,15 @@ public class ActionSpace implements Iterable<FamilyMember> {
 		this.resources = resourceList;
 	}
 	
-	public boolean addFamilyMember(FamilyMember familyMember) {
-		if (isFree())
-			return this.familyMembers.add(familyMember);
+	@Override
+	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
+		if(isFree()){
+			this.familyMember = familyMember;
+			this.owner = player;
+			return true;
+		}
 		return false;
 	}
-	
 
 // Getters
 	
@@ -62,44 +53,23 @@ public class ActionSpace implements Iterable<FamilyMember> {
 		return cost;
 	}
 	
+	public Player getOwner() {
+		return owner;
+	}
 	public ResourceList getResources() {
 		return resources;
 	}
 	
-	public ArrayList<FamilyMember> getFamilyMembers() {
-		return familyMembers;
+	public FamilyMember getFamilyMember() {
+		return familyMember;
 	}
 	
 	public boolean isFree(){
-		if(this.familyMembers.size() <= availableSpace)
+		if (familyMember == null)
 			return true;
-		
 		return false;
 	}
-	
-// Setters	
 
-	public void setAvailableSpace(int availableSpace) {
-		this.availableSpace = availableSpace;
-	}
-	
-// Iterator
 
-	@Override
-	public Iterator<FamilyMember> iterator() {
-		return familyMembers.iterator();
-	}
 
-	@Override
-	public String toString() {
-		return "MultipleActionSpace [familyMembers=" + familyMembers 
-				+ ", cost=" + cost 
-				+ ", resources=" + resources
-				+ "]";
-	}
-	
-//End iterator
-	
-	
-	
 }

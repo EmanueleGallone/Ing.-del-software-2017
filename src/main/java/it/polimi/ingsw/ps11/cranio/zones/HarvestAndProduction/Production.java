@@ -1,45 +1,28 @@
 package it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction;
 
-import it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus;
-import it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus;
-import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.FamilyMemberSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.MultipleActionSpace;
 
-public class Production extends CardAttivator {
+public class Production implements FamilyMemberSpace {
+
+	private ActionSpace singleActionSpace = new ActionSpace();
+	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace();
 	
-	@Override
-	public void activeCard(FamilyMember familyMember, Player player) {
-		CardManager cardManager = player.getCardManager();
-		for(YellowCard card : cardManager.getCardList(YellowCard.class))
-			for(int i = 0; i < card.getPermanentBonus().size(); i++){
-				if (card.getActiveValue() <= familyMember.getValue()){
-					if(card.getPermanentBonus().get(i).getClass() == IncrementResourceBonus.class){
-					IncrementResourceBonus temp = (IncrementResourceBonus) card.getPermanentBonus().get(i);
-					player.getResourceList().sum(temp.getResourceList());
-					}
-					if(card.getPermanentBonus().get(i).getClass() == ResourceExchangeBonus.class){
-						//fai scegliere al giocatore la risorsa
-					}
-				}
-				
-			}
+	public Production() {
+	
 	}
 	
 	@Override
-	public void activeCard(int value, Player player){
-		CardManager cardManager = player.getCardManager();
-		for(YellowCard card : cardManager.getCardList(YellowCard.class))
-			for(int i = 0; i < card.getPermanentBonus().size(); i++)
-			if (card.getActiveValue() <= value){
-				if(card.getPermanentBonus().get(i).getClass() == IncrementResourceBonus.class){
-					IncrementResourceBonus temp = (IncrementResourceBonus) card.getPermanentBonus().get(i);
-					player.getResourceList().sum(temp.getResourceList());
-					}
-					if(card.getPermanentBonus().get(i).getClass() == ResourceExchangeBonus.class){
-						//fai scegliere al giocatore la risorsa
-					}
-			}
+	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
+		if(singleActionSpace.isFree())
+			return singleActionSpace.placeFamilyMember(familyMember, player);
+		else {
+			if(player.equals(singleActionSpace.getOwner()) || multipleActionSpace.contains(player))
+				return false;
+			return multipleActionSpace.placeFamilyMember(familyMember, player);
+		}
 	}
 }

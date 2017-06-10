@@ -34,7 +34,8 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 import it.polimi.ingsw.ps11.cranio.zones.Market;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.MultipleActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
@@ -189,21 +190,21 @@ public class MainTest {
 		
  // ________ MARKET ________________________________________________
 		
-		
-		ArrayList<ActionSpace> list2 = new ArrayList<>();
+		MultipleActionSpace market = new MultipleActionSpace();
+		//ArrayList<ActionSpace> list2 = new ArrayList<>();
 		
 		resource = new ResourceList();
 		resource.setResource(new Coin(5));
-		list2.add(new ActionSpace(resource.clone()));
+		market.addActionSpace(new ActionSpace(resource.clone()));
 		
 		resource = new ResourceList();
 		resource.setResource(new Servant(5));
-		list2.add(new ActionSpace(resource.clone()));
+		market.addActionSpace(new ActionSpace(resource.clone()));
 		
 		resource = new ResourceList();
 		resource.setResource(new Coin(2));
 		resource.setResource(new MilitaryPoint(3));
-		list2.add(new ActionSpace(resource.clone()));
+		market.addActionSpace(new ActionSpace(resource.clone()));
 		
 		/*
 		CouncilPrivilege councilPrivilege = new CouncilPrivilege();
@@ -218,15 +219,12 @@ public class MainTest {
 		list2.add(new ActionSpace(councilPrivilege));
 		*/
 		
-		Market market = new Market(list2);
-		
   // ___________________________________________________
 		
 		
+		//Board board = new Board(towers,market,new ActionSpace());
 		
-		Board board = new Board(towers,market,new ActionSpace());
-		
-		writeFile("settings\\board", gAdapter.toJson(board));
+		//writeFile("settings\\board", gAdapter.toJson(board));
 		
 	}
 	

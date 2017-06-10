@@ -1,19 +1,18 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-import java.util.ArrayList;
-
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.MultipleActionSpace;
 
 public class Market {
 	
-	private ArrayList<ActionSpace> market = new ArrayList<>();
+	private MultipleActionSpace space = new MultipleActionSpace();
 	
 	public Market() {
 		
 	}
 	
-	public Market(ArrayList<ActionSpace> market) {
-		this.market = market;
+	public void addActionSpace(ActionSpace actionSpace){
+		space.addActionSpace(actionSpace);
 	}
 	
 }
