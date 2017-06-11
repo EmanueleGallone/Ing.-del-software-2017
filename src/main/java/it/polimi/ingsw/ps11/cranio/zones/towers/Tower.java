@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
 
 public class Tower {
@@ -36,6 +37,14 @@ public class Tower {
 		throw new IllegalArgumentException("Non hai selezionato un piano corretto");
 	}
 	
+	public boolean contains(Player player){
+		for(Floor floor : floors){
+			if (floor.getActionSpace().getOwner().equals(player)){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 // End logic
 	

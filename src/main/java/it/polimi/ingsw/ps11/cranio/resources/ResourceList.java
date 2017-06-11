@@ -21,6 +21,11 @@ public class ResourceList implements Iterable<Resource>{
 			setResource(resource);
 		}
 	}
+	
+	public ResourceList(Resource resource) {
+		this();
+		this.setResource(resource);
+	}
 
 // end constructor
 // start logic
@@ -61,8 +66,12 @@ public class ResourceList implements Iterable<Resource>{
 		for(String key : otherResources.getResources().keySet()){
 			if (getResource(key) != null){
 				this.resources.get(key).increment(-otherResources.getValueOf(key));
-			}//manca il controllo sui valori negativi			
+			}	
 		}
+	}
+	
+	public boolean canSubtract(ResourceList resourceList){
+		return this.equals(resourceList) || !resourceList.greaterEquals(this);
 	}
 	
 	@Override
