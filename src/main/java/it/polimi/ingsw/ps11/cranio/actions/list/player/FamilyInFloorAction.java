@@ -1,6 +1,9 @@
 package it.polimi.ingsw.ps11.cranio.actions.list.player;
 
+import java.awt.Checkbox;
+
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -40,7 +43,7 @@ public class FamilyInFloorAction extends PlayerAction<FamilyInFloorAction> {
 	@Override
 	public void perform() {
 		floor.placeFamilyMember(familyMember, getSource());
-		if(tower.contains(getSource())){
+		if(!tower.isFree()){
 			DecrementResourceAction tax = new DecrementResourceAction(getSource(), new ResourceList(new Coin(3)));
 			tax.perform();
 		}
@@ -49,14 +52,33 @@ public class FamilyInFloorAction extends PlayerAction<FamilyInFloorAction> {
 
 	@Override
 	public boolean isLegal() {
+		ActionSpace actionSpace = floor.getActionSpace();
 		boolean result = observers.validationEvent(this);
-
-		if (tower.contains(getSource())){
-			ResourceList resourceList = new ResourceList(new Coin(3));
-			result = result && getSource().getResourceList().canSubtract(resourceList);
+		result = result && checkTower() && actionSpace.isFree();
+		return result && actionSpace.getActionCost() >= supportFamilyMember.getValue();
+	}
+	
+	public boolean checkTower(){
+		if (familyMember.getClass() != NeutralFamilyMember.class && contains(getSource())){
+			return false;
 		}
-		
-		return result && floor.getActionSpace().getActionCost() >= supportFamilyMember.getValue();
+		else if (!tower.isFree()) {
+			DecrementResourceAction action = getSource().getActionHandler().get(DecrementResourceAction.class);
+			action.newIstance(new ResourceList(new Coin(3)));
+			return action.isLegal();
+		}
+		return true;
+	}
+	
+	private boolean contains(Player player){
+		// Ritorna true se sulla torre c'e' un familyMember del giocatore passato che non sia il familiare neutro
+		for(Floor floor : tower.getFloors()){
+			ActionSpace aSpace = floor.getActionSpace();
+			if (aSpace.getOwner().equals(player) && aSpace.getFamilyMember().getClass() != NeutralFamilyMember.class){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 // Getters  _____________________________________

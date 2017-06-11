@@ -2,8 +2,10 @@ package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 
 public class Tower {
 	
@@ -37,13 +39,26 @@ public class Tower {
 		throw new IllegalArgumentException("Non hai selezionato un piano corretto");
 	}
 	
+	/*
 	public boolean contains(Player player){
+		// Ritorna true se c'e' un familyMember di un giocatore che non sia il familiare neutro
 		for(Floor floor : floors){
-			if (floor.getActionSpace().getOwner().equals(player)){
+			ActionSpace aSpace = floor.getActionSpace();
+			if (aSpace.getOwner().equals(player) && aSpace.getFamilyMember().getClass() != NeutralFamilyMember.class){
 				return true;
 			}
 		}
 		return false;
+	}
+	*/
+	
+	public boolean isFree(){
+		for(Floor floor : floors){
+			if (!floor.getActionSpace().isFree()){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 // End logic

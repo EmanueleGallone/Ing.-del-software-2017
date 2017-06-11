@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.cranio.player;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.actions.ActionHandler;
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.cranio.game.Colors;
@@ -22,8 +23,10 @@ public class Player{
 	private FamilyMemberManager familyManager;
 	private CardManager cardManager;
 	
+	//Da togliere
 	private ArrayList<Excommunication> excommunication = new ArrayList<>();
 
+	private ActionHandler actionHandler = new ActionHandler();
 	
 // Start constructors
 	
@@ -68,6 +71,10 @@ public class Player{
 	
 	public ArrayList<Excommunication> getExcommunication() {
 		return excommunication;
+	}
+	
+	public ActionHandler getActionHandler() {
+		return actionHandler;
 	}
 	
 // End getters
