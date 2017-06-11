@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
 public class Board {

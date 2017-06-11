@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.cranio.zones.ActionSpace;
+package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
 
 import java.util.ArrayList;
 import java.util.Iterator;

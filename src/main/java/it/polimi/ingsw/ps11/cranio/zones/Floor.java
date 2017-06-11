@@ -4,8 +4,8 @@ import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.FamilyMemberSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.FamilyMemberSpace;
 
 public class Floor implements FamilyMemberSpace,Cloneable {
 	

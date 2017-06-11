@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.cranio.zones;
 
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.MultipleActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
 
 public class Market {
 	

@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
 
 public class FamilyInFloorAction extends PlayerAction<FamilyInFloorAction> {

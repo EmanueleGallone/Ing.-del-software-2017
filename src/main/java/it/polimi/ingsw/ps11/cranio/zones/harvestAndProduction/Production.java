@@ -1,10 +1,10 @@
-package it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction;
+package it.polimi.ingsw.ps11.cranio.zones.harvestAndProduction;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.FamilyMemberSpace;
-import it.polimi.ingsw.ps11.cranio.zones.ActionSpace.MultipleActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.FamilyMemberSpace;
+import it.polimi.ingsw.ps11.cranio.zones.actionSpace.MultipleActionSpace;
 
 public class Production implements FamilyMemberSpace {
 

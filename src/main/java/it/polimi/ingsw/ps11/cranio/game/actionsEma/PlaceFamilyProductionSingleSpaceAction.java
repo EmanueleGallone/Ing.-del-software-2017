@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.cranio.game.actionsEma;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.HarvestAndProduction.Production;
+import it.polimi.ingsw.ps11.cranio.zones.harvestAndProduction.Production;
 
 public class PlaceFamilyProductionSingleSpaceAction extends Action {
 	
