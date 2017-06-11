@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.cranio.JsonAdapter;
-import it.polimi.ingsw.ps11.cranio.actions.Action;
-import it.polimi.ingsw.ps11.cranio.actions.ActionObserver;
-import it.polimi.ingsw.ps11.cranio.actions.list.ProvaAction;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;

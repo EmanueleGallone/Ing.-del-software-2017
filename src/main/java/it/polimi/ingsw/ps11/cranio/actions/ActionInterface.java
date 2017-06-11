@@ -4,5 +4,4 @@ public interface ActionInterface {
 	
 	public void perform();
 	public boolean isLegal();
-	
 }

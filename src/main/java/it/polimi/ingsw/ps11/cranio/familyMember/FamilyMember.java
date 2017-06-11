@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.cranio.familyMember;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
 
-public abstract class FamilyMember {
+public abstract class FamilyMember implements Cloneable {
 	
 	private final int DEFAULT_MODIFIER = 0;
 	private final int DEFAULT_VALUE = 0;
@@ -42,6 +42,15 @@ public abstract class FamilyMember {
 		this.value = value;
 	}
 	
+	@Override
+	public FamilyMember clone() {
+		try {
+			return (FamilyMember) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	@Override
 	public String toString() {

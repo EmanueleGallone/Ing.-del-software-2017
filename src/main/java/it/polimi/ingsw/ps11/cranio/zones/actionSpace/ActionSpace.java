@@ -4,7 +4,7 @@ import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ActionSpace implements FamilyMemberSpace{
+public class ActionSpace implements FamilyMemberSpace, Cloneable{
 	
 	protected static final int DEFAULT_COST = 1;
 	protected FamilyMember familyMember;
@@ -70,6 +70,16 @@ public class ActionSpace implements FamilyMemberSpace{
 		return false;
 	}
 
+	
+	@Override
+	public ActionSpace clone(){
+		try {
+			return (ActionSpace) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 
 }
