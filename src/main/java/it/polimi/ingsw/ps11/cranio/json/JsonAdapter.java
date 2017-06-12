@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.cranio;
+package it.polimi.ingsw.ps11.cranio.json;
 
 import java.io.FileReader;
 import java.lang.reflect.Type;

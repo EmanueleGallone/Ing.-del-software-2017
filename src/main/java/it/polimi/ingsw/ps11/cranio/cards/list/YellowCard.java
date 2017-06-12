@@ -1,8 +1,8 @@
 package it.polimi.ingsw.ps11.cranio.cards.list;
 
-import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class YellowCard extends DevelopmentCard {

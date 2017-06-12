@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.network.connection;
 
-import it.polimi.ingsw.ps11.cranio.JsonAdapter;
+import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 import it.polimi.ingsw.ps11.network.genericMessage.Message;
 public class MessageBuilder {
 	private JsonAdapter json = new JsonAdapter();
