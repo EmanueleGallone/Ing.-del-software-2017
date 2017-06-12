@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.cranio.zones.actionSpace.FamilyMemberSpace;
 
-public class Floor implements FamilyMemberSpace,Cloneable {
+public class Floor implements FamilyMemberSpace {
 	
 	private DevelopmentCard card;
 	private ActionSpace actionSpace;
@@ -29,6 +29,12 @@ public class Floor implements FamilyMemberSpace,Cloneable {
 	
 	public Floor(int cost, ResourceList resources){
 		actionSpace = new ActionSpace(cost,resources);
+	}
+	
+	private Floor(Floor toCopy){
+		//copy Constructor
+		this.card = toCopy.card.clone();
+		this.actionSpace = toCopy.actionSpace.clone();
 	}
 	
 // End constructors
@@ -69,12 +75,7 @@ public class Floor implements FamilyMemberSpace,Cloneable {
 	}
 	
 	@Override
-	public Object clone() {
-		try {
-			return super.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return null;
+	public Floor clone() {
+		return new Floor(this); 
 	}
 }

@@ -1,30 +1,28 @@
 package it.polimi.ingsw.ps11.cranio.familyMember;
 
-
-import it.polimi.ingsw.ps11.cranio.player.Player;
-
-public abstract class FamilyMember implements Cloneable {
+public abstract class FamilyMember {
 	
 	private final int DEFAULT_MODIFIER = 0;
 	private final int DEFAULT_VALUE = 0;
-	protected int value;
-	protected Player owner; 
-
+	
+	protected int value; 
 	protected int modifier;
 	
-	public FamilyMember(Player player){
-		owner = player;
+	
+	public FamilyMember(){
 		value = DEFAULT_VALUE;
 		modifier = DEFAULT_MODIFIER;
+	}
+	
+	protected FamilyMember(FamilyMember toCopy){
+		//copy constructor
+		this.value = toCopy.value;
+		this.modifier = toCopy.modifier;
 	}
 	
 //start logics
 	
 //end logics
-	
-	public Player getOwner(){
-		return this.owner; 
-	}
 
 	public int getValue(){
 		return this.value + this.modifier;
@@ -43,14 +41,7 @@ public abstract class FamilyMember implements Cloneable {
 	}
 	
 	@Override
-	public FamilyMember clone() {
-		try {
-			return (FamilyMember) super.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	public abstract FamilyMember clone();
 	
 	@Override
 	public String toString() {

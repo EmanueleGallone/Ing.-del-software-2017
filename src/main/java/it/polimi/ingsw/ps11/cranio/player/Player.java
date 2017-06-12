@@ -34,7 +34,7 @@ public class Player{
 		name = DEFAULT_NAME;
 		this.resourceList = new ResourceList();
 		this.cardManager = new CardManager();
-		this.familyManager = new FamilyMemberManager(this); //va tolto il this
+		this.familyManager = new FamilyMemberManager();
 	}
 	
 	public Player( ArrayList<Resource> resources ) {
@@ -43,7 +43,14 @@ public class Player{
 		
 		this.resourceList = new ResourceList(resources);
 		this.cardManager = new CardManager();
-		this.familyManager = new FamilyMemberManager(this);
+		this.familyManager = new FamilyMemberManager();
+	}
+	
+	private Player(Player toCopy){
+		//copy Constructor
+		this.resourceList = toCopy.resourceList.clone();
+		this.familyManager = toCopy.familyManager.clone();
+		this.cardManager = toCopy.cardManager.clone();
 	}
 
 	
@@ -94,12 +101,7 @@ public class Player{
 	
 	@Override
 	public Player clone(){
-		try {
-			return (Player) super.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return new Player(this);
 	}
 	
 	@Override

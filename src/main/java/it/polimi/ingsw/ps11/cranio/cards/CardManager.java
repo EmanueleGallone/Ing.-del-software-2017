@@ -20,6 +20,15 @@ public class CardManager {
 		
 	}
 	
+	private CardManager(CardManager toCopy){
+		//copy constructor;
+		
+		for(ArrayList<DevelopmentCard> a : toCopy.cards.values())
+			for(DevelopmentCard card : a)
+				this.addCard(card.clone());	
+		
+	}
+	
 	
 // Start logic
 	
@@ -62,6 +71,11 @@ public class CardManager {
 			}
 		}
 		return string;
+	}
+	
+	@Override
+	public CardManager clone(){
+		return new CardManager(this);
 	}
 	
 // End getters

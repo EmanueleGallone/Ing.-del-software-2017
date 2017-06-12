@@ -35,7 +35,7 @@ public class JsonAdapterTest {
 	public void FamilyManagerTest(){
 		JsonAdapter json = new JsonAdapter();
 		
-		FamilyMemberManager  fManager = new FamilyMemberManager(new Player());
+		FamilyMemberManager  fManager = new FamilyMemberManager();
 
 		String ser = json.toJson(fManager);
 		System.out.println(ser);

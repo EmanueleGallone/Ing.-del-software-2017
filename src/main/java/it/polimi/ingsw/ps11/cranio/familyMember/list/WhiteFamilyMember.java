@@ -1,20 +1,19 @@
 package it.polimi.ingsw.ps11.cranio.familyMember.list;
 
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class WhiteFamilyMember extends FamilyMember {
 
+	public WhiteFamilyMember(){
+		super();
+	}
 	
-	public WhiteFamilyMember(Player player){
-		super(player);
+	private WhiteFamilyMember(WhiteFamilyMember toCopy) {
+		super(toCopy);
 	}
 
 	@Override
 	public WhiteFamilyMember clone(){
-		WhiteFamilyMember familyMember = new WhiteFamilyMember(owner);
-		familyMember.setValue(value);
-		familyMember.setModifier(modifier);
-		return familyMember;
+		return new WhiteFamilyMember(this);
 	}
 }

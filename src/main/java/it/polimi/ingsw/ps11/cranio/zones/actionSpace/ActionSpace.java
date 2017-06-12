@@ -4,7 +4,7 @@ import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
-public class ActionSpace implements FamilyMemberSpace, Cloneable{
+public class ActionSpace implements FamilyMemberSpace{
 	
 	protected static final int DEFAULT_COST = 1;
 	protected FamilyMember familyMember;
@@ -29,6 +29,14 @@ public class ActionSpace implements FamilyMemberSpace, Cloneable{
 	public ActionSpace(int cost, ResourceList resourceList){
 		this.cost = cost;
 		this.resources = new ResourceList();
+	}
+	
+	private ActionSpace(ActionSpace toCopy){
+		//copyConstructor
+		this.familyMember = toCopy.familyMember.clone();
+		this.owner = toCopy.owner.clone();
+		this.cost = toCopy.cost;
+		this.resources = toCopy.resources.clone();
 	}
 
 //Start setters
@@ -73,12 +81,7 @@ public class ActionSpace implements FamilyMemberSpace, Cloneable{
 	
 	@Override
 	public ActionSpace clone(){
-		try {
-			return (ActionSpace) super.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return new ActionSpace(this);
 	}
 
 

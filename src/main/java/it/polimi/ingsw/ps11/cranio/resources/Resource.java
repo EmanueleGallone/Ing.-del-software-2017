@@ -29,7 +29,8 @@ public abstract class Resource {
 			this.value = 0;
 	}
 	
-	protected abstract Resource clone();
+	@Override
+	public abstract Resource clone();
 	
 	@Override
 	public boolean equals(Object obj) {

@@ -26,6 +26,14 @@ public class ResourceList implements Iterable<Resource>{
 		this();
 		this.setResource(resource);
 	}
+	
+	private ResourceList(ResourceList toCopy){
+		//copy constructor
+		//attenzione, bisogna fare così, ho già testato che in altri modi si passa semplicemente un riferimento invece che creare nuovi oggetti
+		for(Resource resource: toCopy.resources.values())
+			setResource(resource.clone()); // o si usa il setter, oppure si fa la put sulla map
+		
+	}
 
 // end constructor
 // start logic
@@ -76,9 +84,7 @@ public class ResourceList implements Iterable<Resource>{
 	
 	@Override
 	public ResourceList clone() {
-		ResourceList newList = new ResourceList();
-		newList.setResources((HashMap<String, Resource>)resources.clone());
-		return newList;
+		return new ResourceList(this);
 	}
 	
 

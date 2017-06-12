@@ -9,8 +9,7 @@ public abstract class Dice {
 	
 	public Dice(){
 		this.value = 0;
-	}
-	
+	}	
 	
 	public void rollDice(){
 		this.value = gen.nextInt(MAX_FACES) +1;
@@ -21,6 +20,8 @@ public abstract class Dice {
 	}
 	
 	
+	@Override
+	public abstract Dice clone();
 	
 	@Override
 	public abstract String toString();

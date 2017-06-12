@@ -11,9 +11,13 @@ public class MilitaryPoint extends Resource {
 	public MilitaryPoint(int value){
 		super(value);
 	}
+	
+	private MilitaryPoint(MilitaryPoint toCopy){
+		super(toCopy.value);
+	}
 
 	@Override
-	protected MilitaryPoint clone() {
-		return new MilitaryPoint(value);
+	public MilitaryPoint clone() {
+		return new MilitaryPoint(this);
 	}
 }

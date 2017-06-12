@@ -2,10 +2,7 @@ package it.polimi.ingsw.ps11.cranio.zones.towers;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Floor;
-import it.polimi.ingsw.ps11.cranio.zones.actionSpace.ActionSpace;
 
 public class Tower {
 	
@@ -21,6 +18,12 @@ public class Tower {
 	
 	public Tower(ArrayList<Floor> floors) {
 		this.floors = floors;
+	}
+	
+	private Tower(Tower toCopy){
+		//copy Constructor
+		for(Floor f : toCopy.floors)
+			this.addFloor(f.clone());
 	}
 	
 // End constructors
@@ -81,9 +84,8 @@ public class Tower {
 	}
 	
 	@Override
-	public Tower clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return (Tower) super.clone();
+	public Tower clone(){
+		return new Tower(this);
 	}
 	
 

@@ -14,6 +14,12 @@ public class LeaderCard extends Card {
 	public String toString() {
 		return "LeaderCard [name=" + name + "]";
 	}
+
+	@Override
+	public Card clone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

@@ -12,9 +12,13 @@ public class Stone extends Resource {
 		super(value);
 	}
 	
+	private Stone(Stone toCopy){
+		super(toCopy.value);
+	}
+	
 
 	@Override
-	protected Stone clone() {
-		return new Stone(value);
+	public Stone clone() {
+		return new Stone(this);
 	}
 }

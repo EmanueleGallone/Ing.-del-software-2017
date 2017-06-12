@@ -16,4 +16,16 @@ public class PurpleTower extends Tower {
 		resource.setResource(new Coin(2));
 		addFloor(new Floor(7,resource.clone()));
 	}
+	
+	private PurpleTower(PurpleTower toCopy){
+		//copy Constructor
+		for(Floor f : toCopy.getFloors())
+			this.addFloor(f.clone()); //aggiungo i piani
+	}
+	
+	@Override
+	public PurpleTower clone(){
+		return new PurpleTower(this);
+		
+	}
 }

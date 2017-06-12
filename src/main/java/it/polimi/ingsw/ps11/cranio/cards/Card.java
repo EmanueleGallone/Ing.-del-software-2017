@@ -34,4 +34,7 @@ public abstract class Card{
 	
 //End getters
 	
+	@Override
+	public abstract Card clone();
+	
 }

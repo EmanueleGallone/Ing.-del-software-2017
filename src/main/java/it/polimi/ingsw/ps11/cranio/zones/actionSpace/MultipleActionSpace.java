@@ -3,13 +3,22 @@ package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import it.polimi.ingsw.ps11.cranio.actions.Action;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace> {
 
 	private ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
+	
+	public MultipleActionSpace() {
+		
+	}
+	
+	private MultipleActionSpace(MultipleActionSpace toCopy) {
+		//copy Constructor
+		for(ActionSpace a : toCopy.multipleActionSpace)
+			this.addActionSpace(a.clone());
+	}
 	
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
@@ -44,6 +53,11 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 	@Override
 	public Iterator<ActionSpace> iterator() {
 		return multipleActionSpace.iterator();
+	}
+	
+	@Override
+	public MultipleActionSpace clone(){
+		return new MultipleActionSpace(this);
 	}
 
 }

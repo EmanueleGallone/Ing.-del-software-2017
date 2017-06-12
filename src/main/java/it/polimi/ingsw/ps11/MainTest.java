@@ -93,7 +93,7 @@ public class MainTest {
 	}
 	
 	
- public static String readFile(String fileName){
+	public static String readFile(String fileName){
 		
 		BufferedReader reader = null;
 		String testo = new String();
@@ -1346,8 +1346,45 @@ public class MainTest {
 		
 		//INIZIO CARTE BLU
 		
+		BlueCard badessa = new BlueCard();
+		badessa.setName("Badessa");
+		badessa.setPeriod(1);
+		resourceList = new ResourceList(new Coin(3));
+		badessa.addCost(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(1));
+		//va aggiunto il bonus take another Card tra gli instant bonus
 		
+		BlueCard predicatore = new BlueCard();
+		predicatore.setName("Predicatore");
+		predicatore.setPeriod(1);
+		resourceList = new ResourceList(new Coin(2));
+		predicatore.addCost(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(4));
+		predicatore.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//va aggiunto il malus che non prendi più le risorse dall'actionspace
 		
+		BlueCard dama = new BlueCard();
+		dama.setName("Dama");
+		dama.setPeriod(1);
+		resourceList = new ResourceList(new Coin(4));
+		dama.addCost(resourceList.clone());
+		//va aggiunto il bonus che per ogni carta blu hai +2 e paghi -1moneta
+		
+		BlueCard cavaliere = new BlueCard();
+		cavaliere.setName("Cavaliere");
+		cavaliere.setPeriod(1);
+		resourceList = new ResourceList(new Coin(2));
+		cavaliere.addCost(resourceList.clone());
+		resourceList = new ResourceList(new CouncilPrivilege(1));
+		cavaliere.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere il bonus che per le carte purple
+		
+		BlueCard contadino = new BlueCard();
+		contadino.setName("Contadino");
+		contadino.setPeriod(1);
+		resourceList = new ResourceList(new Coin(3));
+		contadino.addCost(resourceList.clone());
+		//il bonus permanente aumenta +2 quando attivi l'harvest
 		
 		
 	}

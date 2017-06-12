@@ -11,9 +11,13 @@ public class Coin extends Resource {
 	public Coin(int value){
 		super(value);
 	}
+	
+	private Coin(Coin toCopy){
+		super(toCopy.value);
+	}
 
 	@Override
-	protected Coin clone() {
-		return  new Coin(value);
+	public Coin clone() {
+		return  new Coin(this);
 	}
 }

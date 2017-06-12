@@ -12,6 +12,13 @@ public class DiceManager {
 		orangeDice = new OrangeDice();
 	}
 	
+	private DiceManager(DiceManager toCopy) {
+		//copy Constructor
+		blackDice = toCopy.getBlackDice().clone();
+		whiteDice = toCopy.getWhiteDice().clone();
+		orangeDice = toCopy.getOrangeDice().clone();
+	}
+	
 	public void rollDices(){
 		blackDice.rollDice();
 		whiteDice.rollDice();
@@ -28,6 +35,11 @@ public class DiceManager {
 	
 	public OrangeDice getOrangeDice() {
 		return orangeDice;
+	}
+	
+	@Override
+	public DiceManager clone(){
+		return new DiceManager(this);
 	}
 	
 }

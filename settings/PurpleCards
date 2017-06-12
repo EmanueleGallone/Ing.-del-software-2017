@@ -232,24 +232,6 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
         "INSTANCE": {
-          "production": {
-            "actionSpace": {
-              "familyMembers": [],
-              "cost": 1,
-              "availableSpace": 1,
-              "resources": {
-                "resources": {}
-              }
-            },
-            "multipleActionSpace": {
-              "familyMembers": [],
-              "cost": 3,
-              "availableSpace": 1,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
           "productionActiveValue": 3
         }
       }

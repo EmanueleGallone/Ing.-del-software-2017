@@ -16,4 +16,16 @@ public class YellowTower extends Tower {
 		resource.setResource(new MilitaryPoint(2));
 		addFloor(new Floor(7, resource.clone()));
 	}
+	
+	private YellowTower(YellowTower toCopy){
+		//copy Constructor
+		for(Floor f : toCopy.getFloors())
+			this.addFloor(f.clone()); //aggiungo i piani
+	}
+	
+	@Override
+	public YellowTower clone(){
+		return new YellowTower(this);
+		
+	}
 }

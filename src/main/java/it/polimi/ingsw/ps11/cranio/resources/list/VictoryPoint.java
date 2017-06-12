@@ -11,9 +11,14 @@ public class VictoryPoint extends Resource{
 	public VictoryPoint(int value){
 		super(value);
 	}
+	
+	private VictoryPoint(VictoryPoint toCopy){
+		//copy Constructor
+		super(toCopy.value);
+	}
 
 	@Override
-	protected VictoryPoint clone() {
-		return new VictoryPoint(value);
+	public VictoryPoint clone() {
+		return new VictoryPoint(this);
 	}
 }

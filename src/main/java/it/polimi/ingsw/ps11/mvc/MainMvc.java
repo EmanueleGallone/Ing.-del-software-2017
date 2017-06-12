@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.mvc;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.cranio.game.Colors;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.mvc.controller.Controller;
