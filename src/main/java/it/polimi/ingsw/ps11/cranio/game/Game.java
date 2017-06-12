@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.cranio.actions.ActionHandler;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.dices.DiceManager;
+import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
@@ -18,19 +20,19 @@ public class Game  {
 	private Board board;
 	private DiceManager diceManager = new DiceManager();
 	private RoundManager roundManager;
-	
 
+	private ActionHandler actions = new ActionHandler();
 	
 	public Game(ArrayList<Player> players) {
 		
 		roundManager = new RoundManager(players);
-		
+		roundManager.newTurn(newTurnListener);
+		roundManager.newPeriod(newPeriodListener);
 		try {
 			board = initializeBoard();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	private Board initializeBoard() throws IOException{
@@ -64,15 +66,6 @@ public class Game  {
 
 // ____________________________________GAME LOGICS_________________________________
 	
-	public void startGame(){
-		newTurn();
-	}
-	
-	public void newTurn(){
-		diceManager.rollDices();
-	}
-	
-	
 	public Tower selectTower(Integer choice) {
 		//Da cancellare
 		if (choice != null && choice < board.getTowers().size()){
@@ -82,23 +75,30 @@ public class Game  {
 	}
 	
 	
-	public void changeTurn(){
-		/*
-		if(!roundManager.roundIsOver()){
-			roundManager.next();
-		}
-		else if(!roundManager.gameIsOver()){
-			ArrayList<Player> newOrder = new ArrayList<>();
-			for(FamilyMember f : board.getCouncilPalace().getFamilyMembers()){
-				newOrder.add(f.getOwner());
+	private EventListener<RoundManager> newTurnListener = new EventListener<RoundManager>() {
+
+		@Override
+		public void handle(RoundManager e) {
+			ArrayList<Player> newOrder = getBoard().getCouncilPalace().getNewOrder();
+			if(newOrder != null){
+				e.setNewOrder(newOrder);
 			}
-			roundManager.setNewOrder(newOrder);
-			roundManager.nextRound();
-			endRound();
+			if(!e.gameIsOver())
+				diceManager.rollDices();
 		}
-		else {
-			endGame();
-		}*/
+	};
+	
+	private EventListener<RoundManager> newPeriodListener = new EventListener<RoundManager>() {
+
+		@Override
+		public void handle(RoundManager e) {
+			if(!e.gameIsOver())
+				refreshCard();
+		}
+	};
+	
+	public void refreshCard(){
+		// Qua aggiorna le carte sulla torre
 	}
 	
 	public void endRound(){

@@ -62,8 +62,17 @@ public class GameController implements ClientRecognizer,Runnable {
 		}
 	};
 	
+	
+	
 	@Override
 	public void run() {
+		Player player = game.getRoundManager().next();
+		
+		//Manda un messaggio al player per dirgli che è il suo turno
+		
+		//Aspetta 2 minuti e intanto ascolta i comandi 
+		//Dopo 2 minuti oppure quando il player fa il passaTurno fa di nuovo la roundManager.next();
+		
 		/*
 		System.out.println("Server puoi scrivere");
 		while(true){

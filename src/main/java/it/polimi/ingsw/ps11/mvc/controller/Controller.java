@@ -128,7 +128,7 @@ public class Controller {
 	
 	public void start(){
 		event();
-		model.startGame();
+		//model.startGame();
 		textualView.start();
 	}
 	
