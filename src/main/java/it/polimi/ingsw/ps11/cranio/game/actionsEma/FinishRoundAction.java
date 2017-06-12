@@ -24,13 +24,15 @@ public class FinishRoundAction extends PlayerAction {
 	@Override
 	public void perform() {
 		//potremmo usare il pattern state per evitare gli if
+		//occhio che basta fare roundManager.next() e fa tutto lui
 		RoundManager roundManager = game.getRoundManager();
 		
 		if( roundManager.roundIsOver() ){
-			roundManager.nextRound();
+			//roundManager.nextRound();
+			roundManager.next();
 		}
 		
-		if( roundManager.turnIsOver() && roundManager.getRound() == roundManager.getRefreshCardsTurn()){
+		if( roundManager.turnIsOver() && roundManager.getTurn() == roundManager.getRefreshCardsTurn()){
 			//refresh carte nelle torri
 			//togliere i familiari
 		}

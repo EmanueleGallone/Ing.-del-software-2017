@@ -1345,7 +1345,7 @@ public class MainTest {
 		//FINE CARTE GIALLE
 		
 		//INIZIO CARTE BLU
-		
+		//DA RIVEDERE
 		BlueCard badessa = new BlueCard();
 		badessa.setName("Badessa");
 		badessa.setPeriod(1);
