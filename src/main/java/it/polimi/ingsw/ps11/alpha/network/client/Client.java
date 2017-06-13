@@ -1,19 +1,18 @@
-package it.polimi.ingsw.ps11.alpha.client;
+package it.polimi.ingsw.ps11.alpha.network.client;
 
-import it.polimi.ingsw.ps11.alpha.server.RemoteServer;
+import it.polimi.ingsw.ps11.alpha.network.server.RemoteServer;
 import it.polimi.ingsw.ps11.mvc.view.View;
 
 public abstract class Client implements RemoteClient{
 	
 	protected static final int DEFAULT_PORT = 9999;
 	protected static final String DEFAULT_SERVER = "localhost";
-	private int port;
-	private String serverAddress;
-		
+	protected int port;
+	protected String serverAddress;
 	
-	protected RemoteServer server;
 	protected View view;
 
+	
 	public Client(){
 		this(DEFAULT_SERVER, DEFAULT_PORT);
 	}
@@ -26,19 +25,14 @@ public abstract class Client implements RemoteClient{
 		this.port = port;
 		this.serverAddress = serverAddress;
 	}
+	
+	public Client(RemoteServer server) {
+		//this.server = server;
+	}
 
 //_____________________________________
 	
-	public abstract void on();
+	public abstract void on() throws InternalError;
 //_____________________________________
 
-	
-// Getters ____________________________
-	
-	public int getPort() {
-		return port;
-	}
-	public String getServerAddress() {
-		return serverAddress;
-	}
 }

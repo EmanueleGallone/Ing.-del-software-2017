@@ -1,14 +1,16 @@
-package it.polimi.ingsw.ps11.alpha.server.rmi;
+package it.polimi.ingsw.ps11.alpha.rmi;
 
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.alpha.client.RemoteClient;
-import it.polimi.ingsw.ps11.alpha.server.Server;
+import it.polimi.ingsw.ps11.alpha.network.client.RemoteClient;
+import it.polimi.ingsw.ps11.alpha.network.server.Server;
 
 public class RMIServer extends Server{
+	
+	private RMIServer rmiServer;
 
 	public RMIServer() throws RemoteException {
 		this(DEFAULT_SERVER,DEFAULT_PORT);
@@ -28,8 +30,8 @@ public class RMIServer extends Server{
 	public void on() throws InternalError{
 		try {
 			//Non so bene come funziona questa parte dell'rmi
-			RMIServer server = new RMIServer();
-			Naming.rebind(getServerAddress(),server);
+			rmiServer = new RMIServer();
+			Naming.rebind(getServerAddress(),rmiServer);
 		} catch (RemoteException | MalformedURLException e) {
 			throw new InternalError(e);
 		} 
@@ -37,10 +39,8 @@ public class RMIServer extends Server{
 	
 //____________________________________
 	
-	@Override
-	public void connect(RemoteClient client) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+	public void connect(RMIClient client) throws RemoteException {
+		connectionHandler.handle(client);
 	}
 
 	@Override

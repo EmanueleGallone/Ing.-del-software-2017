@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.alpha.client;
+package it.polimi.ingsw.ps11.alpha.network.client;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

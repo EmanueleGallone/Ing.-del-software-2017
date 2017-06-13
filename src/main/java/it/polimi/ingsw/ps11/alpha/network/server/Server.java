@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.alpha.server;
+package it.polimi.ingsw.ps11.alpha.network.server;
 
 public abstract class Server implements RemoteServer {
 
@@ -26,7 +26,6 @@ public abstract class Server implements RemoteServer {
 	
 	
 	public abstract void on() throws InternalError;
-	
 	
 // Getters _________________________________
 	

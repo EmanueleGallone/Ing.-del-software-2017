@@ -1,16 +1,12 @@
-package it.polimi.ingsw.ps11.alpha.server;
+package it.polimi.ingsw.ps11.alpha.network.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.alpha.client.RemoteClient;
-
 public interface RemoteServer extends Remote {
 
 	
-	public void connect(RemoteClient client) throws RemoteException ;
 	public void endTurn(String id) throws RemoteException;
-	
 	
 	
 	

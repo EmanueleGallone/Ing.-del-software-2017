@@ -1,12 +1,11 @@
-package it.polimi.ingsw.ps11.alpha.server.socket;
+package it.polimi.ingsw.ps11.alpha.socket.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import it.polimi.ingsw.ps11.alpha.client.RemoteClient;
-import it.polimi.ingsw.ps11.alpha.client.socket.SocketClient;
-import it.polimi.ingsw.ps11.alpha.server.Server;
+import it.polimi.ingsw.ps11.alpha.network.server.Server;
+import it.polimi.ingsw.ps11.alpha.socket.client.SocketClient;
 
 public class SocketServer extends Server{
 
@@ -23,6 +22,7 @@ public class SocketServer extends Server{
 	public SocketServer(String serverAddress, int port) {
 		super(serverAddress,port);
 	}
+	
 // _________________________________
 	
 	@Override
@@ -39,25 +39,14 @@ public class SocketServer extends Server{
 	private void listen() throws IOException{
 		while (true) {
 			Socket socket = serverSocket.accept();
-			
-			RemoteClient client = new SocketClient();
-			
-			
-			//connectionHandler.handle();
+			SocketClient client = new SocketClient(socket);
+			client.on();
+			connectionHandler.handle(client);
 		}
 	}
 	
-	
-	private void handleNewConnection(){
-		
-	}
 //__________________________________
 
-	@Override
-	public void connect(RemoteClient client){
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void endTurn(String id) {
