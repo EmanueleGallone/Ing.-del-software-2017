@@ -1,18 +1,25 @@
 package it.polimi.ingsw.ps11.alpha.server;
 
-import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-public interface RemoteServer {
+import it.polimi.ingsw.ps11.alpha.client.RemoteClient;
 
-	//Si connette al server e ritorna l'id che da quel momento sara' associato al proprio client
-	public String connect();
+public interface RemoteServer extends Remote {
+
+	
+	public void connect(RemoteClient client) throws RemoteException ;
+	public void endTurn(String id) throws RemoteException;
+	
+	
+	
 	
 	//Se si potesse ottenere le informazioni della connessione nell'rmi non sarebbe necessario l'id...
-	public void familyInFloor(String id,FamilyMember familyMember, Tower tower , int floor);
-	public void familyInMarket(String id,FamilyMember familyMember);
-	public void familyInProduction(String id,FamilyMember familyMember);
-	public void familyInHarvest(String id,FamilyMember familyMember);
-	public void endTurn(String id);
+	//public void familyInFloor(String id,FamilyMember familyMember, Tower tower , int floor);
+	
+	//Per ora proseguiamo con poche funzioni
+	//public void familyInMarket(String id,FamilyMember familyMember);
+	//public void familyInProduction(String id,FamilyMember familyMember);
+	//public void familyInHarvest(String id,FamilyMember familyMember);
 	
 }
