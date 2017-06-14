@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import it.polimi.ingsw.ps11.alpha.network.server.Server;
-import it.polimi.ingsw.ps11.alpha.socket.client.SocketClient;
+import it.polimi.ingsw.ps11.alpha.socket.old.SocketClientSender;
 
 public class SocketServer extends Server{
 
@@ -39,8 +39,7 @@ public class SocketServer extends Server{
 	private void listen() throws IOException{
 		while (true) {
 			Socket socket = serverSocket.accept();
-			SocketClient client = new SocketClient(socket);
-			client.on();
+			SocketClientSender client = new SocketClientSender(socket);
 			connectionHandler.handle(client);
 		}
 	}

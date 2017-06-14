@@ -3,30 +3,30 @@ package it.polimi.ingsw.ps11.alpha.socket.connection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.Socket;
 
 import it.polimi.ingsw.ps11.alpha.socket.InputChangeEvent;
+import it.polimi.ingsw.ps11.alpha.socket.Message;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 
-public class MessageReceiver extends Thread{
+public class MessageReceiver<T extends Message<?>> extends Thread{
 	
-	private Socket connection;
+	private Connection<T,?> connection;
 	private BufferedReader reader;
 	
-	EventHandler<InputChangeEvent> inputChangeEvent = new EventHandler<>();
-	EventHandler<Socket> clientDisconnectEvent = new EventHandler<>();
+	EventHandler<InputChangeEvent<T>> inputChangeEvent = new EventHandler<>();
+	EventHandler<Connection<T,?>> clientDisconnectEvent = new EventHandler<>();
 	
 	
-	public MessageReceiver(Socket connection) throws IOException {
+	public MessageReceiver(Connection<T,?> connection) throws IOException {
 		this.connection = connection;
-		reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		reader = new BufferedReader(new InputStreamReader(connection.getSocket().getInputStream()));
 	}
 	
 	
-	public EventHandler<InputChangeEvent> getInputChangeEvent() {
+	public EventHandler<InputChangeEvent<T>> getInputChangeEvent() {
 		return inputChangeEvent;
 	}
-	public EventHandler<Socket> getClientDisconnectEvent() {
+	public EventHandler<Connection<T,?>> getClientDisconnectEvent() {
 		return clientDisconnectEvent;
 	}
 	
@@ -39,9 +39,9 @@ public class MessageReceiver extends Thread{
 				String message = reader.readLine();
 				System.out.println("message received: " + message);
 
-				//MessageBuilder messageBuilder = new MessageBuilder();
-				//Message<?> m = messageBuilder.deserialize(message);
-				//inputChangeEvent.invoke(new InputChangeEvent(connection, m));	
+				MessageBuilder<T> messageBuilder = new MessageBuilder<T>();
+				T m = messageBuilder.deserialize(message);
+				inputChangeEvent.invoke(new InputChangeEvent<T>(connection, m));	
 			}
 			
 		} catch (IOException e) {

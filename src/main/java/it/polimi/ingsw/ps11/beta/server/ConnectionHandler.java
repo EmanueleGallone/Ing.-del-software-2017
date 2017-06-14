@@ -1,11 +1,9 @@
-package it.polimi.ingsw.ps11.alpha.network.server;
+package it.polimi.ingsw.ps11.beta.server;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import it.polimi.ingsw.ps11.alpha.network.client.ClientInterface;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.network.connection.Connection;
 import it.polimi.ingsw.ps11.network.server.GameController;
@@ -21,22 +19,15 @@ public class ConnectionHandler {
 	private ArrayList<Connection> lobby = new ArrayList<>();
 	private ArrayList<GameController> games = new ArrayList<>();
 	
-	private ArrayList<ClientInterface> clients = new ArrayList<>();
+	private ArrayList<RemoteClient> clients = new ArrayList<>();
 	
 	
 	public ConnectionHandler() {
 	
 	}
 	
-	public void handle(ClientInterface client) {
-		try {
-			
-			client.out("Ciao");
-			
-			
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}	
+	public void handle(RemoteClient client) {
+
 	}
 	
 	public void add(Connection connection){

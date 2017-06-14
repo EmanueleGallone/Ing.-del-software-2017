@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.alpha.network.client.RemoteClient;
 import it.polimi.ingsw.ps11.alpha.network.server.Server;
 
 public class RMIServer extends Server{

@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
 
-public interface RemoteClient extends Remote{
+public interface ClientInterface extends Remote{
 	
 	public void out(String message) throws RemoteException;
 

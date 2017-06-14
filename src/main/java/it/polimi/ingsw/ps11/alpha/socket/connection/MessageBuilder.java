@@ -1,14 +1,18 @@
 package it.polimi.ingsw.ps11.alpha.socket.connection;
 
+import it.polimi.ingsw.ps11.alpha.socket.Message;
 import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
-import it.polimi.ingsw.ps11.network.genericMessage.Message;
-public class MessageBuilder {
+
+
+public class MessageBuilder<T extends Message<?>> {
+	
 	private JsonAdapter json = new JsonAdapter();
 	
-	public String serialize(Message<?> message){
+	public String serialize(T message){
 		String ser = new String();
 		try{
-			ser = json.toJson(new Wrapper(message));
+			Wrapper<T> wrapper = new Wrapper<T>(message);
+			ser = json.toJson(wrapper);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -17,25 +21,25 @@ public class MessageBuilder {
 	}
 	
 	
-	public Message<?> deserialize(String message){
-		Message<?> m = null;
+	public T deserialize(String message){
 		try{
-			m = json.fromJson(message, Wrapper.class).getMessage();
+			Wrapper<T> wrapper = json.fromJson(message, Wrapper.class);
+			return wrapper.getMessage();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return m;
+		return null;
 	}
 	
-	private class Wrapper {
+	private class Wrapper<K extends Message<?>> {
 
-		private Message<?> message;
+		private K message;
 		
-		public Wrapper(Message<?> message) {
+		public Wrapper(K message) {
 			this.message = message;
 		}
 		
-		public Message<?> getMessage() {
+		public K getMessage() {
 			return message;
 		}
 	}

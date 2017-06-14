@@ -1,11 +1,11 @@
-package it.polimi.ingsw.ps11.alpha.network.server;
+package it.polimi.ingsw.ps11.beta.server;
 
-public abstract class Server implements RemoteServer {
-
+public abstract class Server {
+	
 	protected static final int DEFAULT_PORT = 9999;
 	protected static final String DEFAULT_SERVER = "localhost";
-	private int port;
-	private String serverAddress;
+	protected int port;
+	protected String serverAddress;
 	
 	protected ConnectionHandler connectionHandler = new ConnectionHandler();
 	
@@ -22,20 +22,5 @@ public abstract class Server implements RemoteServer {
 		this.serverAddress = serverAddress;
 	}
 	
-// _________________________________________
-	
-	
 	public abstract void on() throws InternalError;
-	
-// Getters _________________________________
-	
-	public int getPort() {
-		return port;
-	}
-	
-	public String getServerAddress() {
-		return serverAddress;
-	}
-	
-	
 }

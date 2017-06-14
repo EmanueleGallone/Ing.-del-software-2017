@@ -1,22 +1,21 @@
 package it.polimi.ingsw.ps11.alpha.socket;
 
-import it.polimi.ingsw.ps11.network.connection.Connection;
-import it.polimi.ingsw.ps11.network.genericMessage.Message;
+import it.polimi.ingsw.ps11.alpha.socket.connection.Connection;
 
-public class InputChangeEvent {
+public class InputChangeEvent<T extends Message<?>> {
 
-	private Connection source;
-	private Message<?> message;
+	private Connection<T,?> source;
+	private T message;
 	
-	public InputChangeEvent(Connection connection, Message<?> message) {
+	public InputChangeEvent(Connection<T,?> connection, T message) {
 		this.source = connection;
 		this.message = message;
 	}
 	
-	public Connection getConnection() {
+	public Connection<T,?> getConnection() {
 		return source;
 	}
-	public Message<?> getMessage() {
+	public T getMessage() {
 		return message;
 	}
 }

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.alpha.socket.connection;
+package it.polimi.ingsw.ps11.beta.client.socket.connection;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -10,8 +10,8 @@ public class MessageSender extends Thread{
 	private PrintStream writer;
 	private String message;
 	
-	public MessageSender(Connection connection,String message) throws IOException {
-		this.socket = connection.getSocket();
+	public MessageSender(Socket socket,String message) throws IOException {
+		this.socket = socket;
 		this.message = message;
 		writer = new PrintStream(socket.getOutputStream());
 	}
