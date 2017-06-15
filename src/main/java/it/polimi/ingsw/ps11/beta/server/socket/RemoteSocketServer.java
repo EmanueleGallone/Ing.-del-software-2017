@@ -1,14 +1,67 @@
 package it.polimi.ingsw.ps11.beta.server.socket;
 
-import it.polimi.ingsw.ps11.beta.client.RemoteServer;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
-public class RemoteSocketServer extends RemoteServer {
+import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
+import it.polimi.ingsw.ps11.beta.client.socket.connection.Connection;
+import it.polimi.ingsw.ps11.beta.client.socket.connection.events.NewMessageEvent;
+import it.polimi.ingsw.ps11.beta.client.socket.messages.ClientMessage;
+import it.polimi.ingsw.ps11.beta.client.socket.messages.EndTurnMessage;
+import it.polimi.ingsw.ps11.beta.server.RemoteServer;
+import it.polimi.ingsw.ps11.beta.server.socket.messages.PrintMessage;
+import it.polimi.ingsw.ps11.beta.server.socket.messages.ServerMessage;
+import it.polimi.ingsw.ps11.beta.server.socket.messages.ServerRecognizer;
+import it.polimi.ingsw.ps11.cranio.events.EventListener;
+import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
+
+public class RemoteSocketServer extends RemoteServer implements ServerRecognizer {
 	
+	private Connection connection;
+
+	public RemoteSocketServer(String serverAddress, int port) throws UnknownHostException, IOException {
+		connection = new Connection(serverAddress, port);
+		connection.on();
+	}
 	
+// Invoke method on server _______________
+
+	@Override
+	public void endTurn() {
+		send(new EndTurnMessage());
+	}
 	
+	protected void send (ClientMessage message){
+		try {
+			connection.send(serialize(message));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	public RemoteSocketServer(String serverAddress, int port) {
+	protected String serialize(ClientMessage message){
+		JsonAdapter json = new JsonAdapter();
+		return json.toJson(message);
+	}
+	
+// Handle message from server ________________________
+	
+	private EventListener<NewMessageEvent> messageHandler = new EventListener<NewMessageEvent>() {
 		
+		@Override
+		public void handle(NewMessageEvent e) {
+			ServerMessage message = new JsonAdapter().fromJson(e.getMessage(), ServerMessage.class);
+			handleMessage(message);
+		}
+	};
+	
+	protected void handleMessage(ServerMessage message){
+		message.accept(this);
 	}
 
+	@Override
+	public void execute(PrintMessage printMessage) {
+		printEvent.invoke(new PrintEvent(printMessage.getContent()));
+	}
+	
 }

@@ -18,13 +18,20 @@ public class Connection {
 	MessageReceiver receiver;
 
 	
+	public Connection(Socket socket){
+		this.socket = socket;
+	}
+	
 	public Connection(String server, int port ) {
 		this.server = server;
 		this.port = port;
 	}
 	
 	public void on() throws UnknownHostException, IOException{
-		socket = new Socket(server,port);
+		if(socket == null)
+			socket = new Socket(server,port);
+		receiver = new MessageReceiver(socket);
+		new Thread(receiver).start();
 	}
 	
 	public void send(String message) throws IOException{

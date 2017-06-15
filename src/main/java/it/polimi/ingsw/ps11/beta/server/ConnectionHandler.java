@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import it.polimi.ingsw.ps11.beta.client.ClientInterface;
+import it.polimi.ingsw.ps11.beta.client.RemoteClient;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.network.connection.Connection;
 import it.polimi.ingsw.ps11.network.server.GameController;
@@ -19,7 +21,7 @@ public class ConnectionHandler {
 	private ArrayList<Connection> lobby = new ArrayList<>();
 	private ArrayList<GameController> games = new ArrayList<>();
 	
-	private ArrayList<RemoteClient> clients = new ArrayList<>();
+	private ArrayList<ClientInterface> clients = new ArrayList<>();
 	
 	
 	public ConnectionHandler() {
@@ -27,7 +29,7 @@ public class ConnectionHandler {
 	}
 	
 	public void handle(RemoteClient client) {
-
+		
 	}
 	
 	public void add(Connection connection){
