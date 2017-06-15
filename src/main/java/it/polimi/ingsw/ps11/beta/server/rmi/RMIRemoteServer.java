@@ -11,7 +11,11 @@ public class RMIRemoteServer extends RemoteServer implements RMIServerInterface{
 	private RMIRemoteClient client;
 
 	public RMIRemoteServer() {
-
+		
+	}
+	
+	public void setClient(RMIRemoteClient client) {
+		this.client = client;
 	}
 	
 // Comandi inviati 
@@ -32,6 +36,5 @@ public class RMIRemoteServer extends RemoteServer implements RMIServerInterface{
 	public void print(String message) throws RemoteException {
 		this.printEvent.invoke(new PrintEvent(message));
 	}
-
 	
 }

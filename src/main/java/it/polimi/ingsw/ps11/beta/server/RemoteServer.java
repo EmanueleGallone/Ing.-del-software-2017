@@ -7,7 +7,6 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 public abstract class RemoteServer  implements ServerInterface{
 
 	protected EventHandler<PrintEvent> printEvent = new EventHandler<>();
-
 	
 	public void printEvent(EventListener<PrintEvent> listener) {
 		printEvent.attach(listener);

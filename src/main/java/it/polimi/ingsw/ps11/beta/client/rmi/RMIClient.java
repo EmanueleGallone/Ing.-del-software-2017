@@ -7,7 +7,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import it.polimi.ingsw.ps11.beta.client.Client;
-import it.polimi.ingsw.ps11.beta.server.RemoteServer;
 import it.polimi.ingsw.ps11.beta.server.rmi.RMIRemoteServer;
 import it.polimi.ingsw.ps11.beta.server.rmi.RMIServer;
 import it.polimi.ingsw.ps11.mvc.view.View;
@@ -20,13 +19,14 @@ public class RMIClient extends Client {
 
 	@Override
 	public void start() throws InternalError{
-		/*try {
-			//UnicastRemoteObject.exportObject(this,port);
-		    //server = (RMIRemoteServer) Naming.lookup (serverAddress);
-		    //server.connect(this);
+		try {
+			RMIRemoteClient client = new RMIRemoteClient();
+			RMIServer serverMaster = (RMIServer) Naming.lookup(serverAddress);
+			UnicastRemoteObject.exportObject(client,port);
+			serverMaster.connect(client);
 		} catch (RemoteException | MalformedURLException | NotBoundException e) {
 			throw new InternalError(e);
-		}*/
+		}
 	}
 
 }

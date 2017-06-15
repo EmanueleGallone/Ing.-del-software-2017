@@ -11,7 +11,7 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface 
 	
 	private RMIRemoteServer server;
 	
-	protected RMIRemoteClient() throws RemoteException {
+	public RMIRemoteClient() throws RemoteException {
 		super();
 	}
 
@@ -32,5 +32,10 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface 
 	@Override
 	public void endTurn() throws RemoteException {
 		this.endTurnEvent.invoke(new EndTurnEvent());
+	}
+
+	@Override
+	public void setRemoteServer(RMIRemoteServer server) throws RemoteException {
+		this.server = server;
 	}
 }

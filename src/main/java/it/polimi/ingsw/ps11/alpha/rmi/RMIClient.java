@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import it.polimi.ingsw.ps11.alpha.network.client.Client;
+import it.polimi.ingsw.ps11.beta.client.rmi.RMIRemoteClient;
 
 public class RMIClient extends Client {
 
@@ -29,9 +30,10 @@ public class RMIClient extends Client {
 	@Override
 	public void on() throws InternalError {
 		try {
-			UnicastRemoteObject.exportObject(this, DEFAULT_PORT);
+			RMIRemoteClient client = new RMIRemoteClient();
+			UnicastRemoteObject.exportObject(client, DEFAULT_PORT);
 		    server = (RMIServer) Naming.lookup (serverAddress);
-		    server.connect(this);
+		   // server.connect(client);
 		} catch (RemoteException | MalformedURLException | NotBoundException e) {
 			throw new InternalError(e);
 		}
