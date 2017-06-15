@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.beta.server;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -10,7 +11,7 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.network.connection.Connection;
 import it.polimi.ingsw.ps11.network.server.GameController;
 
-public class ConnectionHandler {
+public class ConnectionHandler implements Serializable {
 	
 	private final int MAX_SIZE = 4; 
 	private final int START_SIZE = 2;
@@ -25,11 +26,12 @@ public class ConnectionHandler {
 	
 	
 	public ConnectionHandler() {
-	
+		
 	}
 	
 	public void handle(RemoteClient client) {
-		
+		System.out.println("Sono connection handler");
+		//client.print("Client scrivi ciao");
 	}
 	
 	public void add(Connection connection){

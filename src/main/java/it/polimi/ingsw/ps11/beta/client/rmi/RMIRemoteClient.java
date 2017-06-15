@@ -35,7 +35,8 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface 
 	}
 
 	@Override
-	public void setRemoteServer(RMIRemoteServer server) throws RemoteException {
+	public void setRemoteServer(RMIRemoteServer server) {
 		this.server = server;
+		System.out.println("Dajee");
 	}
 }

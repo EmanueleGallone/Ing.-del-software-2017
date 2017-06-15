@@ -1,33 +1,38 @@
 package it.polimi.ingsw.ps11.beta.server.rmi;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
+import it.polimi.ingsw.ps11.beta.client.ClientInterface;
 import it.polimi.ingsw.ps11.beta.client.rmi.RMIRemoteClient;
 import it.polimi.ingsw.ps11.beta.server.Server;
+import it.polimi.ingsw.ps11.beta.server.ServerInterface;
 
 public class RMIServer extends Server implements ConnectionServer {
 
-	private HashMap<RMIRemoteServer, RMIRemoteClient> clients = new HashMap<>();
-	
+	public RMIServer() throws RemoteException {
+		super();
+	}
+
 	@Override
 	public void on() throws InternalError {
 	  try {
-		
-		  Naming.rebind(serverAddress,this);
-		
-	  } catch (RemoteException | MalformedURLException e) {
+		  Registry registry = LocateRegistry.createRegistry(1099);
+		  registry.rebind("myServer", this);
+		  System.out.println("Server partito");
+	  } catch (RemoteException e) {
 			//e.printStackTrace();
 			throw new InternalError(e);
 	  }
 	}
 
 	@Override
-	public void connect(RMIRemoteClient client) throws RemoteException {
-		connectionHandler.handle(client);
+	public void connect(ClientInterface client) throws RemoteException {
+		System.out.println("c'e' una nuova connessione");
+		ServerInterface interface1 = new RMIRemoteServer();
+		client.setRemoteServer(interface1);
+		//connectionHandler.handle(client);
 	}
 
 }
