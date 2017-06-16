@@ -11,6 +11,9 @@ public class RMIRemoteServer extends RemoteServer implements RMIServerInterface,
 
 	private RMIClientInterface client;
 	
+	public RMIRemoteServer() {
+	}
+	
 	public RMIRemoteServer(RMIClientInterface client) {
 		this.client = client;
 	}
@@ -29,7 +32,11 @@ public class RMIRemoteServer extends RemoteServer implements RMIServerInterface,
 	@Override
 	public void invokePrintEvent(String message) throws RemoteException {
 		this.printEvent.invoke(new PrintEvent(message));
-		System.out.println("Dajeeeeeee");
+	}
+
+	@Override
+	public void setClient(RMIClientInterface client) throws RemoteException {
+		this.client = client;
 	}
 
 }

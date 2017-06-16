@@ -14,6 +14,11 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface,
 	public RMIRemoteClient() throws RemoteException {
 		super();
 	}
+	
+	public RMIRemoteClient(RMIServerInterface serverInterface) throws RemoteException {
+		super();
+		this.server = serverInterface;
+	}
 
 	@Override
 	public void print(String message){
@@ -29,7 +34,6 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface,
 	@Override
 	public void setRemoteServer(RMIServerInterface server) throws RemoteException {
 		this.server = server;
-		System.out.println("ok settato");
 	}
 
 	@Override

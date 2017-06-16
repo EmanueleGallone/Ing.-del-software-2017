@@ -27,13 +27,11 @@ public class RMIServer extends ServerMaster implements ConnectionServer{
 	}
 
 	@Override
-	public void connect(RMIClientInterface client) throws RemoteException {
+	public void connect(RMIServerInterface remoteServer) throws RemoteException {
 		System.out.println("nuova connessione");
-		RMIRemoteServer server = new RMIRemoteServer(client);
-		client.setRemoteServer(server);
-		RMIRemoteClient trueClient = new RMIRemoteClient();
-		//trueClient.setRemoteServer(server);
-		//this.connectionHandler.handle(trueClient);
+		RMIRemoteClient client = new RMIRemoteClient(remoteServer);	
+		remoteServer.setClient(client);
+		this.connectionHandler.handle(client);
 	}
 	
 	
