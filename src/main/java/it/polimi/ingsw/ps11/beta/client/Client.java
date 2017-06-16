@@ -28,11 +28,4 @@ public abstract class Client implements Runnable,Serializable {
 		this.start();
 	}
 	
-	public static void main(String[] args) {
-		RMIClient client = new RMIClient(null);
-		
-		new Thread(client).start();
-		
-	}
-	
 }

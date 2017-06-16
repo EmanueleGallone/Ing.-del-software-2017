@@ -19,20 +19,16 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface 
 	
 	@Override
 	public void print(String message) {
-		//C'e da decidere cosa fare con l'eccezione, se propagarla o meno
-		try {
-			server.print(message);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		//server.print(message);
 	}
 	
 // Comandi ricevuti 
-	
+	/*
 	@Override
 	public void endTurn() throws RemoteException {
 		this.endTurnEvent.invoke(new EndTurnEvent());
 	}
+	*/
 
 	@Override
 	public void setRemoteServer(RMIRemoteServer server) {

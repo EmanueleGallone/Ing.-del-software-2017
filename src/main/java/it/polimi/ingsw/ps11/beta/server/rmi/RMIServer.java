@@ -6,10 +6,10 @@ import java.rmi.registry.Registry;
 
 import it.polimi.ingsw.ps11.beta.client.ClientInterface;
 import it.polimi.ingsw.ps11.beta.client.rmi.RMIRemoteClient;
-import it.polimi.ingsw.ps11.beta.server.Server;
+import it.polimi.ingsw.ps11.beta.server.ServerMaster;
 import it.polimi.ingsw.ps11.beta.server.ServerInterface;
 
-public class RMIServer extends Server implements ConnectionServer {
+public class RMIServer extends ServerMaster implements ConnectionServer {
 
 	public RMIServer() throws RemoteException {
 		super();
@@ -31,7 +31,7 @@ public class RMIServer extends Server implements ConnectionServer {
 	public void connect(ClientInterface client) throws RemoteException {
 		System.out.println("c'e' una nuova connessione");
 		ServerInterface interface1 = new RMIRemoteServer();
-		client.setRemoteServer(interface1);
+		//client.setRemoteServer(interface1);
 		//connectionHandler.handle(client);
 	}
 

@@ -7,6 +7,6 @@ import it.polimi.ingsw.ps11.beta.server.rmi.RMIRemoteServer;
 
 public interface RMIClientInterface extends Remote {
 
-	public void endTurn() throws RemoteException;
+	public void print(String message) throws RemoteException;
 	public void setRemoteServer(RMIRemoteServer server) throws RemoteException;
 }

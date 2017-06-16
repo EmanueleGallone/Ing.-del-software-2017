@@ -11,6 +11,6 @@ public interface ClientInterface extends Remote{
 	// Method to call
 	public void print(String message) throws RemoteException;
 
-	public void setRemoteServer(ServerInterface interface1);
+	//public void setRemoteServer(ServerInterface interface1);
 
 }

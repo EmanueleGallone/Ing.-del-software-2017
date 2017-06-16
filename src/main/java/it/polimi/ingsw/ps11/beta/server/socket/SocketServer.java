@@ -6,9 +6,9 @@ import java.net.Socket;
 import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.beta.client.socket.RemoteSocketClient;
-import it.polimi.ingsw.ps11.beta.server.Server;
+import it.polimi.ingsw.ps11.beta.server.ServerMaster;
 
-public class SocketServer extends Server {
+public class SocketServer extends ServerMaster {
 
 	private ServerSocket serverSocket;
 	

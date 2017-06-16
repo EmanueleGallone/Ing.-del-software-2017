@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.beta.server;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +32,11 @@ public class ConnectionHandler implements Serializable {
 	
 	public void handle(RemoteClient client) {
 		System.out.println("Sono connection handler");
-		//client.print("Client scrivi ciao");
+		try {
+			client.print("Client scrivi ciao");
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void add(Connection connection){

@@ -4,13 +4,11 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 
 import it.polimi.ingsw.ps11.beta.client.Client;
 import it.polimi.ingsw.ps11.beta.client.ClientInterface;
 import it.polimi.ingsw.ps11.beta.server.rmi.ConnectionServer;
 import it.polimi.ingsw.ps11.beta.server.rmi.RMIRemoteServer;
-import it.polimi.ingsw.ps11.beta.server.rmi.RMIServer;
 import it.polimi.ingsw.ps11.mvc.view.View;
 
 public class RMIClient extends Client {
@@ -23,14 +21,13 @@ public class RMIClient extends Client {
 	public void start() throws InternalError{
 		try {
 			System.out.println("Sono il client");
-			ClientInterface client = new RMIRemoteClient();
+			RMIClientInterface client = new RMIRemoteClient();
 			ConnectionServer serverMaster = (ConnectionServer) Naming.lookup(serverAddress);
 			//UnicastRemoteObject.exportObject(client,0);
-			serverMaster.connect(client);
+			//serverMaster.connect(client);
 			System.out.println("Mi sono connesso");
 		} catch (RemoteException | MalformedURLException | NotBoundException e) {
 			throw new InternalError(e);
 		}
 	}
-
 }

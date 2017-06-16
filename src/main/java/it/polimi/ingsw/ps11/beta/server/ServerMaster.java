@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public abstract class Server extends UnicastRemoteObject implements Runnable, Serializable {
+public abstract class ServerMaster extends UnicastRemoteObject implements Runnable, Serializable {
 	
 	protected static final int DEFAULT_PORT = 9999;
 	protected static final String DEFAULT_SERVER = "localhost";
@@ -13,15 +13,15 @@ public abstract class Server extends UnicastRemoteObject implements Runnable, Se
 	
 	protected transient ConnectionHandler connectionHandler = new ConnectionHandler();
 	
-	public Server() throws RemoteException{
+	public ServerMaster() throws RemoteException{
 		this(DEFAULT_SERVER, DEFAULT_PORT);
 	}
 	
-	public Server(String serverAddress) throws RemoteException {
+	public ServerMaster(String serverAddress) throws RemoteException {
 		this(serverAddress,DEFAULT_PORT);
 	}
 	
-	public Server(String serverAddress, int port) throws RemoteException {
+	public ServerMaster(String serverAddress, int port) throws RemoteException {
 		this.port = port;
 		this.serverAddress = serverAddress;
 	}
