@@ -15,7 +15,7 @@ public class Connection {
 	
 	private Socket socket;
 	
-	MessageReceiver receiver;
+	MessageReceiver receiver = new MessageReceiver();
 
 	
 	public Connection(Socket socket){
@@ -30,7 +30,7 @@ public class Connection {
 	public void on() throws UnknownHostException, IOException{
 		if(socket == null)
 			socket = new Socket(server,port);
-		receiver = new MessageReceiver(socket);
+		receiver.setSocket(socket);
 		new Thread(receiver).start();
 	}
 	

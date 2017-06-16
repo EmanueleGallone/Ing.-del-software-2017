@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 public interface ServerInterface extends Remote {
 
-	// Method to call
+	// Method that client can call on the server
 	public void endTurn() throws RemoteException;
 	
 }

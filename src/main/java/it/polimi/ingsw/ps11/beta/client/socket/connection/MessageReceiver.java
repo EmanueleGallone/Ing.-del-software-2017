@@ -18,7 +18,15 @@ public class MessageReceiver implements Runnable {
 	private EventHandler<NewMessageEvent> newMessageEvent = new EventHandler<>();
 	private EventHandler<DisconnectEvent> disconnectEvent = new EventHandler<>();
 	
+	public MessageReceiver() {
+
+	}
+	
 	public MessageReceiver(Socket socket) {
+		this.socket = socket;
+	}
+	
+	public void setSocket(Socket socket) {
 		this.socket = socket;
 	}
 	
@@ -32,7 +40,7 @@ public class MessageReceiver implements Runnable {
 			while (true) {
 
 				String message = reader.readLine();
-				System.out.println("message received: " + message);
+				//System.out.println("message received: " + message);
 				newMessageEvent.invoke(new NewMessageEvent(message));
 			}
 			

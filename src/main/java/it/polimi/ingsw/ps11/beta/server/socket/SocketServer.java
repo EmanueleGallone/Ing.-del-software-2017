@@ -6,22 +6,23 @@ import java.net.Socket;
 import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.beta.client.socket.RemoteSocketClient;
-import it.polimi.ingsw.ps11.beta.server.ServerMaster;
+import it.polimi.ingsw.ps11.beta.server.Server;
 
-public class SocketServer extends ServerMaster {
+public class SocketServer extends Server {
 
+	private static final long serialVersionUID = 3650920835279416315L;
+	
 	private ServerSocket serverSocket;
+	protected int port = 2099;
 	
-	public SocketServer() throws RemoteException{
-		this(DEFAULT_SERVER, DEFAULT_PORT);
+	public SocketServer() throws RemoteException {
+		super();
 	}
+
 	
-	public SocketServer(String serverAddress) throws RemoteException {
-		super(serverAddress,DEFAULT_PORT);
-	}
-	
-	public SocketServer(String serverAddress, int port) throws RemoteException {
-		super(serverAddress,port);
+	public SocketServer(int port) throws RemoteException {
+		super();
+		this.port = port;
 	}
 	
 	
@@ -29,6 +30,7 @@ public class SocketServer extends ServerMaster {
 	public void on() throws InternalError {
 		try {
 			serverSocket = new ServerSocket(port);
+			consoleLog("SocketServer started");
 			listen();
 		} catch (IOException e) {
 			throw new InternalError(e);
@@ -40,7 +42,7 @@ public class SocketServer extends ServerMaster {
 		while (true) {
 			Socket socket = serverSocket.accept();
 			RemoteSocketClient client = new RemoteSocketClient(socket);
-			//Qua dovrebbe generare un thread e passargli il client
+			consoleLog("New Socket connection");
 			connectionHandler.handle(client);
 		}
 	}

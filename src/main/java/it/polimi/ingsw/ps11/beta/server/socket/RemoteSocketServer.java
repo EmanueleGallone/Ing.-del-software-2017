@@ -19,9 +19,9 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 	
 	private Connection connection;
 
-	public RemoteSocketServer(String serverAddress, int port) throws UnknownHostException, IOException {
+	public RemoteSocketServer(String serverAddress, int port)  {
 		connection = new Connection(serverAddress, port);
-		connection.on();
+		connection.newMessageEvent(messageHandler);
 	}
 	
 // Invoke method on server _______________
@@ -44,18 +44,23 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 		return json.toJson(message);
 	}
 	
+	public void connect() throws UnknownHostException, IOException{
+		connection.on();
+	}
+	
 // Handle message from server ________________________
 	
 	private EventListener<NewMessageEvent> messageHandler = new EventListener<NewMessageEvent>() {
 		
 		@Override
 		public void handle(NewMessageEvent e) {
+			System.out.println(e.getMessage());
 			ServerMessage message = new JsonAdapter().fromJson(e.getMessage(), ServerMessage.class);
 			handleMessage(message);
 		}
 	};
 	
-	protected void handleMessage(ServerMessage message){
+	private void handleMessage(ServerMessage message){
 		message.accept(this);
 	}
 

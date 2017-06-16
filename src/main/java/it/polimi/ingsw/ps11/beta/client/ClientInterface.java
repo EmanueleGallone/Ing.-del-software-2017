@@ -5,9 +5,7 @@ import java.rmi.RemoteException;
 
 public interface ClientInterface extends Remote{
 
-	// Method to call
+	// Method that server can call on the client
 	public void print(String message) throws RemoteException;
-
-	//public void setRemoteServer(ServerInterface interface1);
 
 }

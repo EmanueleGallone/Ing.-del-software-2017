@@ -4,22 +4,35 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import it.polimi.ingsw.ps11.beta.client.rmi.RMIClientInterface;
 import it.polimi.ingsw.ps11.beta.client.rmi.RMIRemoteClient;
-import it.polimi.ingsw.ps11.beta.server.ServerMaster;
+import it.polimi.ingsw.ps11.beta.server.Server;
 
-public class RMIServer extends ServerMaster implements ConnectionServer{
+public class RMIServer extends Server implements ConnectionServer{
 
+	protected int port = 1099;
+	protected String serverName = "myServer";
+	
 	public RMIServer() throws RemoteException {
 		super();
 	}
 
+	public RMIServer(String serverName) throws RemoteException {
+		super();
+		this.serverName = serverName;
+	}
+	
+	public RMIServer(String serverName, int port) throws RemoteException {
+		super();
+		this.serverName = serverName;
+		this.port = port;
+	}
+	
 	@Override
 	public void on() throws InternalError {
 		 try {
-			  Registry registry = LocateRegistry.createRegistry(1099);
-			  registry.rebind("myServer", this);
-			  System.out.println("Server partito");
+			  Registry registry = LocateRegistry.createRegistry(port);
+			  registry.rebind(serverName, this);
+			  consoleLog("RMIServer started");
 		  } catch (RemoteException e) {
 				//e.printStackTrace();
 				throw new InternalError(e);
@@ -28,15 +41,13 @@ public class RMIServer extends ServerMaster implements ConnectionServer{
 
 	@Override
 	public void connect(RMIServerInterface remoteServer) throws RemoteException {
-		System.out.println("nuova connessione");
 		RMIRemoteClient client = new RMIRemoteClient(remoteServer);	
 		remoteServer.setClient(client);
+		consoleLog("New RMI connection");
 		this.connectionHandler.handle(client);
 	}
 	
-	
-	
-	
+
 	public static void main(String[] args) throws RemoteException {
 		Object lockObject = new Object();
 		RMIServer server = new RMIServer();
