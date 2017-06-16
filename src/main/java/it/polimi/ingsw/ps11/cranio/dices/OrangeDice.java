@@ -6,11 +6,6 @@ public class OrangeDice extends Dice {
 		super();	
 	}
 	
-	private OrangeDice(OrangeDice toCopy){
-		//copy Constructor
-		this.value = toCopy.value;
-	}
-	
 	@Override
 	public String toString() {
 		return "YellowDice [value=" + value + "]";
@@ -18,7 +13,11 @@ public class OrangeDice extends Dice {
 	
 	@Override
 	public OrangeDice clone() {
-		return new OrangeDice(this);
+		OrangeDice clone = new OrangeDice();
+		
+		clone.value = this.value;
+		
+		return clone;
 	}
 	
 

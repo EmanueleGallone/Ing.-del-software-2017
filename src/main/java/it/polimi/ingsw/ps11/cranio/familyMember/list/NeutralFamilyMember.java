@@ -8,13 +8,13 @@ public class NeutralFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	private NeutralFamilyMember(NeutralFamilyMember toCopy) {
-		super(toCopy);
-	}
-	
 	@Override
 	public NeutralFamilyMember clone(){
-		return new NeutralFamilyMember(this);
+		NeutralFamilyMember clone = new NeutralFamilyMember();
+		clone.value = this.value;
+		clone.modifier = this.modifier;
+		
+		return clone;
 	}
 	
 	@Override

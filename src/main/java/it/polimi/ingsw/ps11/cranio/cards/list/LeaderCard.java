@@ -17,8 +17,19 @@ public class LeaderCard extends Card {
 
 	@Override
 	public Card clone() {
-		// TODO Auto-generated method stub
-		return null;
+		//LeaderCard clone = new LeaderCard(this.name);
+		return new LeaderCard(this.name);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		
+		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((YellowCard) obj).getName()))
+				return true;
+		
+		return false;
 	}
 	
 

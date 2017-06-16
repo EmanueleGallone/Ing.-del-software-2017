@@ -12,13 +12,9 @@ public class Wood extends Resource {
 		super(value);
 	}
 	
-	private Wood (Wood toCopy){
-		super(toCopy.value);
-	}
-	
 	@Override
 	public Wood clone() {
-		return new Wood(this);
+		return new Wood(this.value);
 	}
 
 }

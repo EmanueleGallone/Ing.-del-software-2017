@@ -5,11 +5,6 @@ public class WhiteDice extends Dice {
 	public WhiteDice(){
 		super();	
 	}
-	
-	private WhiteDice(WhiteDice toCopy){
-		//copy Constructor
-		this.value = toCopy.value;
-	}
 
 	@Override
 	public String toString() {
@@ -18,7 +13,11 @@ public class WhiteDice extends Dice {
 	
 	@Override
 	public WhiteDice clone() {
-		return new WhiteDice(this);
+		WhiteDice clone = new WhiteDice();
+		
+		clone.value = this.value;
+		
+		return clone;
 	}
 
 }

@@ -12,7 +12,6 @@ public class FamilyMemberManager {
 	private HashMap<String,FamilyMember> family = new HashMap<>();
 	
 	public FamilyMemberManager(){
-		//nuovo costruttore; togliamo il player dal familiare
 		
 		family.put(BlackFamilyMember.class.toString(), new BlackFamilyMember());
 		family.put(WhiteFamilyMember.class.toString(), new WhiteFamilyMember());
@@ -20,13 +19,7 @@ public class FamilyMemberManager {
 		family.put(NeutralFamilyMember.class.toString(), new NeutralFamilyMember());
 	}
 	
-	private FamilyMemberManager(FamilyMemberManager toCopy){
-		//copy constructor
-		//nota: vedi il costruttore privato di resourceList
-		for(FamilyMember f : toCopy.family.values())
-			setFamilyMember(f.clone());
-	}
-	
+	@SuppressWarnings("unchecked")
 	public <T extends FamilyMember> T getFamilyMember(Class<T> familyMember){
 		return (T) this.family.get(familyMember.toString());
 	}
@@ -37,7 +30,12 @@ public class FamilyMemberManager {
 	
 	@Override
 	public FamilyMemberManager clone(){
-		return new FamilyMemberManager(this);
+		FamilyMemberManager clone = new FamilyMemberManager();
+		
+		for(FamilyMember f : this.family.values())
+			clone.setFamilyMember(f.clone());
+		
+		return clone;
 		
 	}
 

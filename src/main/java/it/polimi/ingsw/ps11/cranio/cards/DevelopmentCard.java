@@ -114,4 +114,7 @@ public abstract class DevelopmentCard extends Card {
 	
 	@Override
 	public abstract DevelopmentCard clone();
+	
+	@Override
+	public abstract boolean equals(Object obj);
 }

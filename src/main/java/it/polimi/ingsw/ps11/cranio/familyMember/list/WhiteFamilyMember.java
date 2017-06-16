@@ -7,13 +7,13 @@ public class WhiteFamilyMember extends FamilyMember {
 	public WhiteFamilyMember(){
 		super();
 	}
-	
-	private WhiteFamilyMember(WhiteFamilyMember toCopy) {
-		super(toCopy);
-	}
 
 	@Override
 	public WhiteFamilyMember clone(){
-		return new WhiteFamilyMember(this);
+		WhiteFamilyMember clone = new WhiteFamilyMember();
+		clone.value = this.value;
+		clone.modifier = this.modifier;
+		
+		return clone;
 	}
 }

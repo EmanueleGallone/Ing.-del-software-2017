@@ -14,12 +14,6 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 		
 	}
 	
-	private MultipleActionSpace(MultipleActionSpace toCopy) {
-		//copy Constructor
-		for(ActionSpace a : toCopy.multipleActionSpace)
-			this.addActionSpace(a.clone());
-	}
-	
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		ActionSpace actionSpace = new ActionSpace(3);
@@ -57,7 +51,12 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 	
 	@Override
 	public MultipleActionSpace clone(){
-		return new MultipleActionSpace(this);
+		MultipleActionSpace clone = new MultipleActionSpace();
+		
+		for(ActionSpace a : this.multipleActionSpace)
+			clone.addActionSpace(a.clone());
+		
+		return clone;
 	}
 
 }

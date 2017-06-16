@@ -45,13 +45,6 @@ public class Player{
 		this.cardManager = new CardManager();
 		this.familyManager = new FamilyMemberManager();
 	}
-	
-	private Player(Player toCopy){
-		//copy Constructor
-		this.resourceList = toCopy.resourceList.clone();
-		this.familyManager = toCopy.familyManager.clone();
-		this.cardManager = toCopy.cardManager.clone();
-	}
 
 	
 // Start getters
@@ -101,14 +94,20 @@ public class Player{
 	
 	@Override
 	public Player clone(){
-		return new Player(this);
+		Player clone = new Player();
+		
+		clone.resourceList = this.resourceList.clone();
+		clone.familyManager = this.familyManager.clone();
+		clone.cardManager = this.cardManager.clone();
+		
+		return clone;
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
 		//Da decidere se basta solo il colore
 		if(obj.getClass() == this.getClass()){
-			return(((Player)obj).getColor() == this.getColor());
+			return((Player)obj).getColor() == this.getColor();
 		}
 		return false;
 	}

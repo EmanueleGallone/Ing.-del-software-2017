@@ -9,12 +9,12 @@ public class OrangeFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	private OrangeFamilyMember(OrangeFamilyMember toCopy) {
-		super(toCopy);
-	}
-	
 	@Override
 	public OrangeFamilyMember clone(){
-		return new OrangeFamilyMember(this);
+		OrangeFamilyMember clone = new OrangeFamilyMember();
+		clone.value = this.value;
+		clone.modifier = this.modifier;
+		
+		return clone;
 	}
 }

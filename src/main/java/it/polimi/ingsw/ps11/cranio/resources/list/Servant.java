@@ -11,13 +11,9 @@ public class Servant extends Resource {
 	public Servant(int value){
 		super(value);
 	}
-	
-	private Servant(Servant toCopy){
-		super(toCopy.value);
-	}
 
 	@Override
 	public Servant clone() {
-		return new Servant(this);
+		return new Servant(this.value);
 	}
 }

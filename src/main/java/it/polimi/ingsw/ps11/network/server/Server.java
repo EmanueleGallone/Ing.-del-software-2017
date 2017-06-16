@@ -3,10 +3,8 @@ package it.polimi.ingsw.ps11.network.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.network.connection.Connection;
-import it.polimi.ingsw.ps11.network.server.messages.DefaultServerMessage;
 
 
 public class Server implements Runnable {	

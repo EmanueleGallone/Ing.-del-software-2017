@@ -15,5 +15,8 @@ public abstract class PlayerBonus extends Bonus {
 	public Player getPlayer() {
 		return player;
 	}
+	
+	//@Override
+	//public abstract PlayerBonus clone();
 
 }

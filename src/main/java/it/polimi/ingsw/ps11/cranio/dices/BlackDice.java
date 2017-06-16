@@ -5,11 +5,6 @@ public class BlackDice extends Dice {
 	public BlackDice(){
 		super();		
 	}
-	
-	private BlackDice(BlackDice toCopy){
-		//copy Constructor
-		this.value = toCopy.value;
-	}
 
 	@Override
 	public String toString() {
@@ -18,7 +13,10 @@ public class BlackDice extends Dice {
 	
 	@Override
 	public BlackDice clone() {
-		return new BlackDice(this);
+		BlackDice clone = new BlackDice();
+		clone.value = this.value;
+		
+		return clone;
 	}
 
 }

@@ -31,12 +31,6 @@ public class Floor implements FamilyMemberSpace {
 		actionSpace = new ActionSpace(cost,resources);
 	}
 	
-	private Floor(Floor toCopy){
-		//copy Constructor
-		this.card = toCopy.card.clone();
-		this.actionSpace = toCopy.actionSpace.clone();
-	}
-	
 // End constructors
 // Start logic
 	
@@ -75,7 +69,12 @@ public class Floor implements FamilyMemberSpace {
 	}
 	
 	@Override
-	public Floor clone() {
-		return new Floor(this); 
+	public Floor clone() {		
+		Floor clone = new Floor();
+		
+		clone.card = this.card.clone();
+		clone.actionSpace = this.actionSpace.clone();
+		
+		return clone; 
 	}
 }

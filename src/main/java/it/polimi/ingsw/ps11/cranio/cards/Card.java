@@ -37,4 +37,7 @@ public abstract class Card{
 	@Override
 	public abstract Card clone();
 	
+	@Override
+	public abstract boolean equals(Object obj);
+	
 }

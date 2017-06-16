@@ -154,7 +154,7 @@ public class RoundManagerTest {
 		Assert.assertTrue(roundManager.getTurn() == 1);
 		Assert.assertEquals(player3, roundManager.getCurrentPlayer());
 
-		roundManager.next(); //giocatore 3 fa la mossa, termina il turno
+		roundManager.next(); //giocatore 3 fa la mossa, termina il round
 		
 		Assert.assertTrue(roundManager.getRound() == 2);
 		Assert.assertTrue(roundManager.getTurn() == 1);

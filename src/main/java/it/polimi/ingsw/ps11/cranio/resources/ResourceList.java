@@ -27,13 +27,6 @@ public class ResourceList implements Iterable<Resource>{
 		this.setResource(resource);
 	}
 	
-	private ResourceList(ResourceList toCopy){
-		//copy constructor
-		//attenzione, bisogna fare così, ho già testato che in altri modi si passa semplicemente un riferimento invece che creare nuovi oggetti
-		for(Resource resource: toCopy.resources.values())
-			setResource(resource.clone()); // o si usa il setter, oppure si fa la put sulla map
-		
-	}
 
 // end constructor
 // start logic
@@ -84,7 +77,12 @@ public class ResourceList implements Iterable<Resource>{
 	
 	@Override
 	public ResourceList clone() {
-		return new ResourceList(this);
+		ResourceList clone = new ResourceList();
+		
+		for(Resource resource : this.resources.values())
+			clone.setResource(resource.clone());
+		
+		return clone;
 	}
 	
 

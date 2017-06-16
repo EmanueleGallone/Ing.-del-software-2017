@@ -12,14 +12,10 @@ public class CouncilPrivilege extends Resource {
 	public CouncilPrivilege() {
 		super(DEFAULT);
 	}
-	
-	private CouncilPrivilege(CouncilPrivilege toCopy){
-		super(toCopy.value);
-	}
 
 	@Override
 	public CouncilPrivilege clone() {
-		return new CouncilPrivilege(this);
+		return new CouncilPrivilege(this.value);
 	}
 	
 

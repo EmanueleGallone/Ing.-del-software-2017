@@ -8,12 +8,12 @@ public class BlackFamilyMember extends FamilyMember {
 		super();
 	}
 	
-	private BlackFamilyMember(BlackFamilyMember toCopy) {
-		super(toCopy);
-	}
-	
 	@Override
 	public BlackFamilyMember clone(){
-		return new BlackFamilyMember(this);
+		BlackFamilyMember clone = new BlackFamilyMember();
+		clone.value = this.value;
+		clone.modifier = this.modifier;
+		
+		return clone;
 	}
 }

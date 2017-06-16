@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.network.client;
 
 import it.polimi.ingsw.ps11.mvc.view.View;
 import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
-import it.polimi.ingsw.ps11.mvc.view.textualView.tree.TextualView;
 import it.polimi.ingsw.ps11.network.connection.Connection;
 
 public class Client extends Thread {

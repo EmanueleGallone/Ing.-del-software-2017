@@ -20,12 +20,6 @@ public class Tower {
 		this.floors = floors;
 	}
 	
-	private Tower(Tower toCopy){
-		//copy Constructor
-		for(Floor f : toCopy.floors)
-			this.addFloor(f.clone());
-	}
-	
 // End constructors
 // Start logic
 	
@@ -85,7 +79,11 @@ public class Tower {
 	
 	@Override
 	public Tower clone(){
-		return new Tower(this);
+		Tower clone = new Tower();
+		for(Floor f : this.floors)
+			clone.addFloor(f.clone());
+		
+		return clone;
 	}
 	
 

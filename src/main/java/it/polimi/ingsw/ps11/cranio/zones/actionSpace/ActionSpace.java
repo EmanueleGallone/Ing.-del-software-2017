@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.cranio.zones.actionSpace;
 
+import java.nio.channels.NonWritableChannelException;
+
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
@@ -29,14 +31,6 @@ public class ActionSpace implements FamilyMemberSpace{
 	public ActionSpace(int cost, ResourceList resourceList){
 		this.cost = cost;
 		this.resources = new ResourceList();
-	}
-	
-	private ActionSpace(ActionSpace toCopy){
-		//copyConstructor
-		this.familyMember = toCopy.familyMember.clone();
-		this.owner = toCopy.owner.clone();
-		this.cost = toCopy.cost;
-		this.resources = toCopy.resources.clone();
 	}
 
 //Start setters
@@ -81,7 +75,14 @@ public class ActionSpace implements FamilyMemberSpace{
 	
 	@Override
 	public ActionSpace clone(){
-		return new ActionSpace(this);
+		ActionSpace clone = new ActionSpace();
+		
+		clone.familyMember = this.familyMember.clone();
+		clone.owner = this.owner.clone();
+		clone.cost = this.cost;
+		clone.resources = this.resources.clone();
+		
+		return clone;
 	}
 
 

@@ -14,12 +14,6 @@ public abstract class FamilyMember {
 		modifier = DEFAULT_MODIFIER;
 	}
 	
-	protected FamilyMember(FamilyMember toCopy){
-		//copy constructor
-		this.value = toCopy.value;
-		this.modifier = toCopy.modifier;
-	}
-	
 //start logics
 	
 //end logics
