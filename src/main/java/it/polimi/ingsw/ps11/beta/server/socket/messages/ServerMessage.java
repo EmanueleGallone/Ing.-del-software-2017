@@ -1,7 +1,8 @@
 package it.polimi.ingsw.ps11.beta.server.socket.messages;
 
-public interface ServerMessage {
+import it.polimi.ingsw.ps11.beta.client.socket.connection.Message;
 
-	public void accept(ServerRecognizer serverRecognizer);
-	
+public abstract class ServerMessage extends Message implements ServerMessageInterface {
+
+
 }

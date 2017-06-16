@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.beta.client.socket.messages;
 
-public interface ClientMessage {
+import it.polimi.ingsw.ps11.beta.client.socket.connection.Message;
 
-	public void accept(ClientRecognizer clientRecognizer);
+public abstract class ClientMessage extends Message implements ClientMessageInterface{
+
 }

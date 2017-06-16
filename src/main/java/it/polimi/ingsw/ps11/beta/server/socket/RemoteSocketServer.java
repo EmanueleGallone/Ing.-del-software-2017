@@ -7,10 +7,12 @@ import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
 import it.polimi.ingsw.ps11.beta.client.socket.connection.Connection;
 import it.polimi.ingsw.ps11.beta.client.socket.connection.events.NewMessageEvent;
 import it.polimi.ingsw.ps11.beta.client.socket.messages.ClientMessage;
+import it.polimi.ingsw.ps11.beta.client.socket.messages.ClientMessageWrapper;
 import it.polimi.ingsw.ps11.beta.client.socket.messages.EndTurnMessage;
 import it.polimi.ingsw.ps11.beta.server.RemoteServer;
 import it.polimi.ingsw.ps11.beta.server.socket.messages.PrintMessage;
 import it.polimi.ingsw.ps11.beta.server.socket.messages.ServerMessage;
+import it.polimi.ingsw.ps11.beta.server.socket.messages.ServerMessageWrapper;
 import it.polimi.ingsw.ps11.beta.server.socket.messages.ServerRecognizer;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
@@ -41,7 +43,8 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 	
 	protected String serialize(ClientMessage message){
 		JsonAdapter json = new JsonAdapter();
-		return json.toJson(message);
+		ClientMessageWrapper wrapper = new ClientMessageWrapper(message);
+		return json.toJson(wrapper);
 	}
 	
 	public void connect() throws UnknownHostException, IOException{
@@ -54,8 +57,10 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 		
 		@Override
 		public void handle(NewMessageEvent e) {
-			System.out.println(e.getMessage());
-			ServerMessage message = new JsonAdapter().fromJson(e.getMessage(), ServerMessage.class);
+
+			JsonAdapter jsonAdapter = new JsonAdapter();
+			ServerMessageWrapper wrapper = jsonAdapter.fromJson(e.getMessage(), ServerMessageWrapper.class);
+			ServerMessage message = wrapper.getMessage();
 			handleMessage(message);
 		}
 	};

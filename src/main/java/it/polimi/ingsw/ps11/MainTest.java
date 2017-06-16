@@ -42,10 +42,8 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
 
 public class MainTest {
 	
-	
-	
 	public static void main(String[] args){
-		
+	
 		//inizializzaCarte();
 	
 		//inizializzatore();		

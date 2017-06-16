@@ -35,8 +35,8 @@ public class JsonAdapter {
 			DevelopmentCard.class,
 			FamilyMember.class,
 			Bonus.class,
-			ClientMessage.class,
-			ServerMessage.class
+			ServerMessage.class,
+			ClientMessage.class
 			));
 	
 	public JsonAdapter() {
@@ -58,7 +58,6 @@ public class JsonAdapter {
 		}
 		
 		gson = gsonBuilder.create();
-		
 	}
 	
 	public String toJson(Object object) {

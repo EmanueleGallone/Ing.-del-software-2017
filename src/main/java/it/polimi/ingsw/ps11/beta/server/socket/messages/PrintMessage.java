@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.beta.server.socket.messages;
 
-public class PrintMessage implements ServerMessage {
+public class PrintMessage extends ServerMessage{
 
 	private String message;
 	
