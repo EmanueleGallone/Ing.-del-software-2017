@@ -1,37 +1,42 @@
 package it.polimi.ingsw.ps11.beta.server.rmi;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
-import it.polimi.ingsw.ps11.beta.client.rmi.RMIRemoteClient;
+import it.polimi.ingsw.ps11.beta.client.rmi.RMIClientInterface;
 import it.polimi.ingsw.ps11.beta.server.RemoteServer;
 
-public class RMIRemoteServer extends RemoteServer implements RMIServerInterface{
+public class RMIRemoteServer extends RemoteServer implements RMIServerInterface, Serializable{
 
-	private RMIRemoteClient client;
-
+	private RMIClientInterface client;
+	
 	public RMIRemoteServer() {
-		
 	}
 	
-	public void setClient(RMIRemoteClient client) {
+	public RMIRemoteServer(RMIClientInterface client) {
 		this.client = client;
 	}
 	
-// Comandi inviati 
-	
 	@Override
 	public void endTurn(){
-		//client.endTurn();
+		try {
+			
+			client.invokeEndTurnEvent();
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
-// Comandi ricevuti 
-	
-	/*
 	@Override
-	public void print(String message) throws RemoteException {
+	public void invokePrintEvent(String message) throws RemoteException {
 		this.printEvent.invoke(new PrintEvent(message));
 	}
-	*/
-	
+
+	@Override
+	public void setClient(RMIClientInterface client) throws RemoteException {
+		this.client = client;
+	}
+
 }

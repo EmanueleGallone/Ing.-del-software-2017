@@ -8,9 +8,8 @@ import java.util.TimerTask;
 
 import it.polimi.ingsw.ps11.beta.client.ClientInterface;
 import it.polimi.ingsw.ps11.beta.client.RemoteClient;
+import it.polimi.ingsw.ps11.beta.client.socket.connection.Connection;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
-import it.polimi.ingsw.ps11.network.connection.Connection;
-import it.polimi.ingsw.ps11.network.server.GameController;
 
 public class ConnectionHandler implements Serializable {
 	
@@ -21,7 +20,7 @@ public class ConnectionHandler implements Serializable {
 	
 	
 	private ArrayList<Connection> lobby = new ArrayList<>();
-	private ArrayList<GameController> games = new ArrayList<>();
+	//private ArrayList<GameController> games = new ArrayList<>();
 	
 	private ArrayList<ClientInterface> clients = new ArrayList<>();
 	
@@ -42,7 +41,7 @@ public class ConnectionHandler implements Serializable {
 	public void add(Connection connection){
 		
 		lobby.add(connection);
-		connection.clientDisconnectEvent(disconnectionListener);
+		//connection.clientDisconnectEvent(disconnectionListener);
 		System.out.println(lobby.size() + " client nella lobby");
 		if(lobby.size() == START_SIZE){
 			timer = new Timer();
@@ -71,10 +70,10 @@ public class ConnectionHandler implements Serializable {
 	};
 	
 	private void newMatch() {
-		GameController game = new GameController(lobby);
+		/*GameController game = new GameController(lobby);
 		lobby = new ArrayList<>();
 		this.games.add(game);
-		new Thread(game).start(); 
+		new Thread(game).start(); */
 	}
 	
 	class StartingMatch extends TimerTask{

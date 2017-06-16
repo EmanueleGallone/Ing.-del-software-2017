@@ -4,30 +4,40 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import it.polimi.ingsw.ps11.beta.client.Client;
-import it.polimi.ingsw.ps11.beta.client.ClientInterface;
 import it.polimi.ingsw.ps11.beta.server.rmi.ConnectionServer;
 import it.polimi.ingsw.ps11.beta.server.rmi.RMIRemoteServer;
 import it.polimi.ingsw.ps11.mvc.view.View;
 
 public class RMIClient extends Client {
-
+	
+	
 	public RMIClient(View view) {
-		super(view, new RMIRemoteServer());
+		super(view,null);
 	}
 
 	@Override
-	public void start() throws InternalError{
+	public void start() {
+		System.out.println("Sono il client");
+		
 		try {
-			System.out.println("Sono il client");
-			RMIClientInterface client = new RMIRemoteClient();
-			ConnectionServer serverMaster = (ConnectionServer) Naming.lookup(serverAddress);
-			//UnicastRemoteObject.exportObject(client,0);
-			//serverMaster.connect(client);
-			System.out.println("Mi sono connesso");
-		} catch (RemoteException | MalformedURLException | NotBoundException e) {
-			throw new InternalError(e);
+			ConnectionServer server = (ConnectionServer) Naming.lookup(serverAddress);
+			RMIRemoteServer	s = new RMIRemoteServer();
+			UnicastRemoteObject.exportObject(s,5263);
+			server.connect(s);
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			e.printStackTrace();
 		}
+		System.out.println("Mi sono connesso");
 	}
+	
+	public static void main(String[] args) {
+		RMIClient client = new RMIClient(null);
+		
+		new Thread(client).start();
+		
+	}
+
 }
