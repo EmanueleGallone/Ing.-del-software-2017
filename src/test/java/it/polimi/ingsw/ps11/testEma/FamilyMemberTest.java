@@ -3,13 +3,13 @@ package it.polimi.ingsw.ps11.testEma;
 import org.junit.Assert;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.dices.DiceManager;
-import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.WhiteFamilyMember;
-import junit.framework.TestCase;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
+
 
 public class FamilyMemberTest {
 

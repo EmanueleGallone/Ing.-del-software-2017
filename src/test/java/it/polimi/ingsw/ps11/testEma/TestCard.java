@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus;
-import it.polimi.ingsw.ps11.cranio.cards.Card;
-import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
+import it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus;
+import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
+
 
 public class TestCard {
 

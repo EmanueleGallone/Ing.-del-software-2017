@@ -3,13 +3,14 @@ package it.polimi.ingsw.ps11.testEma;
 import org.junit.Assert;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
+
 
 public class ResourceListTest {
 

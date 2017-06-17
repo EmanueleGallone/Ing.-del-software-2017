@@ -6,8 +6,8 @@ import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.game.RoundManager;
-import it.polimi.ingsw.ps11.cranio.player.Player;
+import it.polimi.ingsw.ps11.model.game.RoundManager;
+import it.polimi.ingsw.ps11.model.player.Player;
 
 public class RoundManagerTest {
 
