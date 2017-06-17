@@ -5,18 +5,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
-import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class Board {
 	
 	private HashMap<String, Tower> towers = new HashMap<>();
+	private DiceManager diceManager = new DiceManager();
+	private CardManager cards;
 	
 	private Production harvest = new Production();
 	private Production production = new Production();
 	private Market market;
-	private CardManager cards;
 	private CouncilPalace councilPalace;
 	
 	
@@ -50,6 +51,10 @@ public class Board {
 		return (T) this.towers.get(tower.toString());
 	}
 	
+	public Tower getTower(String tower){
+		return this.towers.get(tower);
+	}
+	
 	public CouncilPalace getCouncilPalace() {
 		return councilPalace;
 	}
@@ -60,6 +65,10 @@ public class Board {
 	
 	public Production getHarvest() {
 		return harvest;
+	}
+	
+	public DiceManager getDices() {
+		return diceManager;
 	}
 	
 	@Override

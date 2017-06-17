@@ -43,7 +43,8 @@ public abstract class Client implements Runnable {
 		
 		@Override
 		public void handle(StartGameEvent e) {
-			
+			view.update(e.getPlayer());
+			view.update(e.getGame());
 		}
 	};
 	

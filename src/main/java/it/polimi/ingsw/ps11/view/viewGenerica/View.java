@@ -6,17 +6,16 @@ import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.view.ViewInterface;
-import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
-import it.polimi.ingsw.ps11.view.textualView.tree.components.TextualBoardView;
-import it.polimi.ingsw.ps11.view.textualView.tree.components.TextualDocument;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 
 public abstract class View extends Thread implements ViewInterface {
 	
-	private Game game;
-
-	private TextualConsole console;
+	private Console console;
 	private EventHandler<String> inputChangeEvent = new EventHandler<>();
-	private TextualDocument document = new TextualDocument();
+	private PlayerView you;
+	private BoardView boardView;
 	
 	public View() {
 
@@ -39,12 +38,9 @@ public abstract class View extends Thread implements ViewInterface {
 	}
 
 	public void print(){
-		document.print();
+		
 	}
 	
-	public TextualDocument getDocument() {
-		return document;
-	}
 
 	@Override
 	public void out(String message) {
@@ -56,18 +52,16 @@ public abstract class View extends Thread implements ViewInterface {
 
 	@Override
 	public void update(Game game) {
-		update(game.getBoard());
+		boardView.update(game.getBoard());
 	}
 
 	@Override
 	public void update(Board board) {
-		TextualBoardView boardView = document.getByClass(TextualBoardView.class);
 		
 	}
 
 	@Override
 	public void update(Player player) {
-		// TODO Auto-generated method stub
-		
+		you.update(player);
 	}
 }

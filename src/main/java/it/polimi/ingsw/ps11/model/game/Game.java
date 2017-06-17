@@ -18,7 +18,6 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 public class Game  {
 	
 	private Board board;
-	private DiceManager diceManager = new DiceManager();
 	private RoundManager roundManager;
 
 	private ActionHandler actions = new ActionHandler();
@@ -60,9 +59,6 @@ public class Game  {
 	public RoundManager getRoundManager() {
 		return roundManager;
 	}
-	public DiceManager getDiceManager() {
-		return diceManager;
-	}
 
 // ____________________________________GAME LOGICS_________________________________
 	
@@ -84,7 +80,7 @@ public class Game  {
 				e.setNewOrder(newOrder);
 			}
 			if(!e.gameIsOver())
-				diceManager.rollDices();
+				board.getDices().rollDices();
 		}
 	};
 	
