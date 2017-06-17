@@ -3,9 +3,9 @@ package it.polimi.ingsw.ps11.testEma;
 import org.junit.Assert;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 public class ResourceListTest {
 

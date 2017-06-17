@@ -7,15 +7,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import it.polimi.ingsw.ps11.cranio.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.Floor;
-import it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.Tower;
-import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.zones.Floor;
+import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
+import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
+import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
 public class BlueTowerTest {
 	

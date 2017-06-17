@@ -5,10 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.dices.BlackDice;
-import it.polimi.ingsw.ps11.cranio.dices.Dice;
-import it.polimi.ingsw.ps11.cranio.dices.DiceManager;
-import it.polimi.ingsw.ps11.cranio.dices.DiceManagerGab;
+import it.polimi.ingsw.ps11.model.dices.BlackDice;
+import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.dices.DiceManagerGab;
 
 public class DiceTest {
 		

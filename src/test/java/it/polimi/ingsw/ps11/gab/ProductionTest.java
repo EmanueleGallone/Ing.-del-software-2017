@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.cranio.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.zones.harvestAndProduction.Production;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 
 public class ProductionTest {
 

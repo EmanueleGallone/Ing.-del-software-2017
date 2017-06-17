@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
-import it.polimi.ingsw.ps11.cranio.resources.list.Servant;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.Servant;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 public class ResourceListTest {
 

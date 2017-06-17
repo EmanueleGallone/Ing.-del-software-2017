@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.cranio.cards.CardManager;
-import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
-import it.polimi.ingsw.ps11.cranio.player.Player;
-import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
-import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
-import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 
 public class JsonAdapterTest {
