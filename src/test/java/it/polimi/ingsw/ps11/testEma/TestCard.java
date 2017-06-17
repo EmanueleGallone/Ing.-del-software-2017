@@ -1,10 +1,15 @@
 package it.polimi.ingsw.ps11.testEma;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;
 import it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus;
+import it.polimi.ingsw.ps11.cranio.cards.Card;
+import it.polimi.ingsw.ps11.cranio.cards.CardManager;
+import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
@@ -14,10 +19,11 @@ import it.polimi.ingsw.ps11.cranio.resources.list.Stone;
 import it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.cranio.resources.list.Wood;
 
-public class TestEqualsCard {
+public class TestCard {
 
 	@Test
-	public void test() {
+	public void equalsTest() {
+		//anche clone
 		ResourceList resourceList = new ResourceList();
 		
 		YellowCard esattoria = new YellowCard();
@@ -60,7 +66,27 @@ public class TestEqualsCard {
 		
 		YellowCard clone = esattoria.clone();
 		
-		Assert.assertTrue(esattoria.equals(clone));
+		Assert.assertTrue("should be true after the clone",esattoria.equals(clone));
+		Assert.assertEquals(1, clone.getPeriod());
+		
+	}
+	
+	@Test
+	public void cardManagerTest(){
+		ArrayList<DevelopmentCard> cards = new ArrayList<>();
+		GreenCard card1 = new GreenCard();
+		card1.setName("TestGreenCard1");
+		card1.setPeriod(1);
+		cards.add(card1);
+		PurpleCard card2 = new PurpleCard();
+		card2.setName("TestPurpleCard2");
+		card2.setPeriod(3);
+		cards.add(card2);
+		
+		CardManager manager = new CardManager(cards); //gli passo un arraylis
+		
+		Assert.assertTrue(manager.getCardList(GreenCard.class).get(0).getPeriod() == 1);
+		Assert.assertTrue(manager.getCardList(PurpleCard.class).get(0).getPeriod() == 3);
 	}
 
 }
