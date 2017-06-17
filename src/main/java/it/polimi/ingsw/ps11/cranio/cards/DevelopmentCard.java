@@ -19,6 +19,10 @@ public abstract class DevelopmentCard extends Card {
 		
 	}
 	
+	public DevelopmentCard(String name) {
+		super(name);
+	}
+	
 	public DevelopmentCard(ResourceList cost){
 		this.costs.add(cost);
 	}

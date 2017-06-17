@@ -7,7 +7,10 @@ public abstract class Card{
 	protected int period;
 	
 	public Card() {
-		//E i vari parametri, periodo,colore, ecc..
+	}
+	
+	public Card(String name) {
+		this.name = name;
 	}
 	
 //Start setters

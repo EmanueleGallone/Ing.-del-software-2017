@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11.cranio.cards.list;
 
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 
 public class BlueCard extends DevelopmentCard {
@@ -9,6 +8,11 @@ public class BlueCard extends DevelopmentCard {
 
 	public BlueCard(){
 		
+	}
+	
+	
+	public BlueCard(String name){
+		super(name);
 	}
 
 	@Override

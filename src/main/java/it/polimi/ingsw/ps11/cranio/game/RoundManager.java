@@ -45,7 +45,7 @@ public class RoundManager {
 	
 	
 	public void setNewOrder(ArrayList<Player> players){
-		this.players = players; //immagino che sia il palazzo del consiglio a fare il sorting e a passarmi l'arraylist già sorted
+		this.players = players;
 	}
 	
 	public ArrayList<Player> getCurrentOrder() {
