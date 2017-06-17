@@ -1,4 +1,7 @@
-package it.polimi.ingsw.ps11.beta.server.network.socket.messages;
+package it.polimi.ingsw.ps11.beta.server.network.socket.messages.list;
+
+import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerMessage;
+import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerRecognizer;
 
 public class PrintMessage extends ServerMessage{
 

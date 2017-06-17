@@ -43,7 +43,7 @@ public class SocketServer extends Server {
 			Socket socket = serverSocket.accept();
 			RemoteSocketClient client = new RemoteSocketClient(socket);
 			consoleLog("New Socket connection");
-			connectionHandler.handle(client);
+			this.handleConnection(client);
 		}
 	}
 

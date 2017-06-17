@@ -4,6 +4,7 @@ package it.polimi.ingsw.ps11.beta.server.game;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import it.polimi.ingsw.ps11.cranio.player.Colors;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
@@ -26,7 +27,12 @@ public class PlayerFactory {
 	
 	
 	public Player newPlayer(int position){
+		Colors[] colors = Colors.values();
+		
 		Player player = new Player(DEFAULT_RESOURCE);
+		player.setColor(colors[position]);
+		
+		//Incremento coin in base alla posizione
 		ResourceList temp = new ResourceList();
 		temp.setResource(new Coin(position));
 		player.getResourceList().sum(temp);

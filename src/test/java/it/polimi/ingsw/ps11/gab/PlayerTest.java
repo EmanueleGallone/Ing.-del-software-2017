@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.cranio.game.Colors;
+import it.polimi.ingsw.ps11.cranio.player.Colors;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;

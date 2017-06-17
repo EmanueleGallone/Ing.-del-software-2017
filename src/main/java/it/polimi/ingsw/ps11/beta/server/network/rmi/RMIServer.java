@@ -44,7 +44,7 @@ public class RMIServer extends Server implements ConnectionServer{
 		RMIRemoteClient client = new RMIRemoteClient(remoteServer);	
 		remoteServer.setClient(client);
 		consoleLog("New RMI connection");
-		this.connectionHandler.handle(client);
+		this.handleConnection(client);
 	}
 	
 

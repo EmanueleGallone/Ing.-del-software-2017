@@ -36,7 +36,7 @@ public class ConnectionHandler {
 		add(client);
 	}
 	
-	public void add(RemoteClient client){
+	public synchronized void add(RemoteClient client){
 		
 		lobby.add(client);
 		System.out.println(lobby.size() + " client in lobby");
@@ -54,7 +54,7 @@ public class ConnectionHandler {
 	}
 	
 	
-	private void newMatch() {
+	private synchronized void newMatch() {
 		GameController game = new GameController(lobby);
 		lobby = new ArrayList<>();
 		this.games.add(game);

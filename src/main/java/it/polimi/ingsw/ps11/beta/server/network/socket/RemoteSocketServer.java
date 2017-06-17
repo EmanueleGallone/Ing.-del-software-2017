@@ -4,16 +4,20 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 
 import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
+import it.polimi.ingsw.ps11.beta.client.events.StartGameEvent;
+import it.polimi.ingsw.ps11.beta.client.events.UpdatePlayerEvent;
 import it.polimi.ingsw.ps11.beta.client.network.socket.connection.Connection;
 import it.polimi.ingsw.ps11.beta.client.network.socket.connection.events.NewMessageEvent;
 import it.polimi.ingsw.ps11.beta.client.network.socket.messages.ClientMessage;
 import it.polimi.ingsw.ps11.beta.client.network.socket.messages.ClientMessageWrapper;
-import it.polimi.ingsw.ps11.beta.client.network.socket.messages.EndTurnMessage;
+import it.polimi.ingsw.ps11.beta.client.network.socket.messages.list.EndTurnMessage;
 import it.polimi.ingsw.ps11.beta.server.masterServer.RemoteServer;
-import it.polimi.ingsw.ps11.beta.server.network.socket.messages.PrintMessage;
 import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerMessage;
 import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerMessageWrapper;
 import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerRecognizer;
+import it.polimi.ingsw.ps11.beta.server.network.socket.messages.list.PrintMessage;
+import it.polimi.ingsw.ps11.beta.server.network.socket.messages.list.StartGameMessage;
+import it.polimi.ingsw.ps11.beta.server.network.socket.messages.list.UpdatePlayerMessage;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 
@@ -72,6 +76,16 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 	@Override
 	public void execute(PrintMessage printMessage) {
 		printEvent.invoke(new PrintEvent(printMessage.getContent()));
+	}
+
+	@Override
+	public void execute(UpdatePlayerMessage updatePlayerMessage) {
+		this.updatePlayerEvent.invoke(new UpdatePlayerEvent(updatePlayerMessage.getPlayer()));
+	}
+
+	@Override
+	public void execute(StartGameMessage startGameMessage) {
+		startGameEvent.invoke(new StartGameEvent(startGameMessage.getGame(), startGameMessage.getPlayer()));
 	}
 	
 }
