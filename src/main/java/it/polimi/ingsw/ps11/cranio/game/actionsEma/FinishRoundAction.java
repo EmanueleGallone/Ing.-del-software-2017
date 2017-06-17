@@ -31,12 +31,14 @@ public class FinishRoundAction extends PlayerAction {
 			//roundManager.nextRound();
 			roundManager.next();
 		}
-		
+
+		/*
+>>>>>>> Pos
 		if( roundManager.turnIsOver() && roundManager.getTurn() == roundManager.getRefreshCardsTurn()){
 			//refresh carte nelle torri
 			//togliere i familiari
 		}
-		
+		*/
 		//gestire le scomuniche
 		
 	}

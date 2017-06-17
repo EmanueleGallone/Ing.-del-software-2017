@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace> {
 
-	private ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
+	protected ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
 	
 	public MultipleActionSpace() {
 		

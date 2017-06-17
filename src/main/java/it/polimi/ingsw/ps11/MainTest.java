@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import com.google.gson.reflect.TypeToken;
 
-import it.polimi.ingsw.ps11.cranio.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave;
@@ -21,6 +20,7 @@ import it.polimi.ingsw.ps11.cranio.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.cranio.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.resources.Resource;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Coin;
@@ -42,10 +42,8 @@ import it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower;
 
 public class MainTest {
 	
-	
-	
 	public static void main(String[] args){
-		
+	
 		//inizializzaCarte();
 	
 		//inizializzatore();		

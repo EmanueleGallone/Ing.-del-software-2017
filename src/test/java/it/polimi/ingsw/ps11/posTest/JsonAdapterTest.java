@@ -3,9 +3,10 @@ package it.polimi.ingsw.ps11.posTest;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import it.polimi.ingsw.ps11.cranio.JsonAdapter;
+
 import it.polimi.ingsw.ps11.cranio.cards.CardManager;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.cranio.json.JsonAdapter;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.resources.ResourceList;
 import it.polimi.ingsw.ps11.cranio.resources.list.Stone;

@@ -17,13 +17,14 @@ public class Board {
 	private Production production = new Production();
 	private Market market;
 	private CardManager cards;
-	private ActionSpace councilPalace;
+	private CouncilPalace councilPalace;
+	
 	
 	public Board(){
 	
 	}
 	
-	public Board(ArrayList<Tower> towers, Market market, ActionSpace councilPalace){
+	public Board(ArrayList<Tower> towers, Market market, CouncilPalace councilPalace){
 		this.market = market;
 		this.councilPalace = councilPalace;
 		
@@ -49,7 +50,7 @@ public class Board {
 		return (T) this.towers.get(tower.toString());
 	}
 	
-	public ActionSpace getCouncilPalace() {
+	public CouncilPalace getCouncilPalace() {
 		return councilPalace;
 	}
 	
