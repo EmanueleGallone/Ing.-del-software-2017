@@ -132,16 +132,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                "INSTANCE": {
-                  "value": 4
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
                 "INSTANCE": {
                   "value": 1
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 4
                 }
               }
             }
@@ -303,16 +303,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
@@ -326,16 +326,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
-                "INSTANCE": {
-                  "value": 2
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 1
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+                "INSTANCE": {
+                  "value": 2
                 }
               }
             }
@@ -379,16 +379,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 3
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
@@ -561,16 +561,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
                 "INSTANCE": {
                   "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
@@ -592,14 +592,14 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 2
                 }
               },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
                 "INSTANCE": {
                   "value": 2
                 }
@@ -639,12 +639,6 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
                 "INSTANCE": {
@@ -655,6 +649,12 @@
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
                 "INSTANCE": {
                   "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
@@ -923,16 +923,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 2
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+                "INSTANCE": {
+                  "value": 1
                 }
               }
             }
@@ -946,14 +946,14 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
                 "INSTANCE": {
                   "value": 1
                 }
               },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 1
                 }

@@ -65,12 +65,6 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 4
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -81,18 +75,18 @@
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
             "INSTANCE": {
               "value": 3
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
             }
           }
         }
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 4
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -103,6 +97,12 @@
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
             "INSTANCE": {
               "value": 3
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
             }
           }
         }
@@ -165,12 +165,6 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                "INSTANCE": {
-                  "value": 3
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
                 "INSTANCE": {
@@ -179,6 +173,12 @@
               },
               "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+                "INSTANCE": {
+                  "value": 3
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -420,12 +420,6 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 3
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -434,6 +428,12 @@
           },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 3
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -658,12 +658,6 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 3
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -674,6 +668,12 @@
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
             "INSTANCE": {
               "value": 2
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
             }
           }
         }
@@ -736,16 +736,16 @@
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                "INSTANCE": {
-                  "value": 5
-                }
-              },
               "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 1
+                }
+              },
+              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+                "INSTANCE": {
+                  "value": 5
                 }
               }
             }
@@ -778,12 +778,6 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 2
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -792,6 +786,12 @@
           },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 2
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -1064,12 +1064,6 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 2
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -1080,6 +1074,12 @@
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
             "INSTANCE": {
               "value": 1
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
             }
           }
         }
@@ -1229,12 +1229,6 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-            "INSTANCE": {
-              "value": 1
-            }
-          },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
             "INSTANCE": {
@@ -1243,6 +1237,12 @@
           },
           "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
             "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+            "INSTANCE": {
+              "value": 1
+            }
+          },
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
             "INSTANCE": {
               "value": 1
             }

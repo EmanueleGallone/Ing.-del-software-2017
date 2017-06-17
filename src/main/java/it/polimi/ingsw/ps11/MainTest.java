@@ -610,25 +610,20 @@ public class MainTest {
 		resourceList.setResource(new Stone(1));
 		resourceList.setResource(new Wood(1));
 		sostegnoVaticano.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new FaithPoint(3));
+		resourceList = new ResourceList(new FaithPoint(3));
 		sostegnoVaticano.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(1));
+		resourceList = new ResourceList(new VictoryPoint(1));
 		sostegnoVaticano.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
 		PurpleCard costruireMura = new PurpleCard();
 		costruireMura.setName("Costruire le Mura");
 		costruireMura.setPeriod(1);
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(3));
+		resourceList = new ResourceList(new Stone(3));
 		costruireMura.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(2));
+		resourceList = new ResourceList(new MilitaryPoint(2));
 		resourceList.setResource(new CouncilPrivilege(1));
 		costruireMura.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(3));
+		resourceList = new ResourceList(new VictoryPoint(3));
 		costruireMura.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
 		PurpleCard innalzareStatua = new PurpleCard();
@@ -641,8 +636,7 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new CouncilPrivilege(2)); //ATTENZIONE; questa carta prevede che i 2 favori del consiglio siano DIVERSI
 		innalzareStatua.addInstantBonus( new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(4));
+		resourceList = new ResourceList(new VictoryPoint(4));
 		innalzareStatua.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
 		//INIZIO SECONDO PERIODO
@@ -867,14 +861,11 @@ public class MainTest {
 		PurpleCard guerraSanta = new PurpleCard();
 		guerraSanta.setPeriod(3);
 		guerraSanta.setName("Guerra Santa");
-		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(15));// player deve avere 15 MP e spenderne 8
+		resourceList = new ResourceList(new MilitaryPoint(15));// player deve avere 15 MP e spenderne 8
 		guerraSanta.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new FaithPoint(4));
+		resourceList = new ResourceList(new FaithPoint(4));
 		guerraSanta.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(8));
+		resourceList = new ResourceList(new VictoryPoint(8));
 		guerraSanta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
 		
 		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>();
@@ -921,10 +912,8 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(2));
 		residenza.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(1));
+		resourceList = new ResourceList(new VictoryPoint(1));
 		residenza.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
 		exchange.setResource(new Coin(1));
 		exchangeable.setResource(new CouncilPrivilege(1));
 		residenza.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone()));
@@ -952,65 +941,50 @@ public class MainTest {
 		esattoria.setActiveValue(5);
 		esattoria.setPeriod(1);
 		esattoria.setName("Esattoria");
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(3));
+		resourceList = new ResourceList(new Wood(3));
 		esattoria.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(1));
+		resourceList = new ResourceList(new Stone(1));
 		esattoria.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource( new VictoryPoint(5));
+		resourceList = new ResourceList(new VictoryPoint(5));
 		esattoria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(1));
+		resourceList = new ResourceList(new Coin(1));
 		esattoria.addPermanentBonus(new GainResourceForEveryCardYouHave(GreenCard.class, resourceList.clone()));
 		
 		YellowCard arcoTrionfo = new YellowCard();
 		arcoTrionfo.setActiveValue(6);
 		arcoTrionfo.setPeriod(1);
 		arcoTrionfo.setName("Arco di Trionfo");
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(2));
+		resourceList = new ResourceList(new Coin(2));
 		arcoTrionfo.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(2));
+		resourceList = new ResourceList(new Stone(2));
 		arcoTrionfo.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(6));
+		resourceList = new ResourceList(new VictoryPoint(6));
 		arcoTrionfo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(1));
+		resourceList = new ResourceList(new VictoryPoint(1));
 		arcoTrionfo.addPermanentBonus(new GainResourceForEveryCardYouHave(PurpleCard.class, resourceList));
 		
 		YellowCard zecca = new YellowCard();
 		zecca.setActiveValue(5);
 		zecca.setName("Zecca");
 		zecca.setPeriod(1);
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(1));
+		resourceList = new ResourceList(new Wood(1));
 		zecca.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(3));
+		resourceList = new ResourceList(new Stone(3));
 		zecca.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(5));
+		resourceList = new ResourceList(new VictoryPoint(5));
 		zecca.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(1));
+		resourceList = new ResourceList(new Coin(1));
 		zecca.addPermanentBonus(new GainResourceForEveryCardYouHave(YellowCard.class, resourceList.clone()));
 		
 		YellowCard falegnameria = new YellowCard();
 		falegnameria.setActiveValue(4);
 		falegnameria.setPeriod(1);
 		falegnameria.setName("Falegnameria");
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(1));
+		resourceList = new ResourceList(new Coin(1));
 		falegnameria.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(2));
+		resourceList = new ResourceList(new Wood(2));
 		falegnameria.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource( new VictoryPoint(3));
+		resourceList = new ResourceList(new VictoryPoint(3));
 		falegnameria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
 		//va settato il bonus permanente
 		
@@ -1018,18 +992,16 @@ public class MainTest {
 		cappella.setPeriod(1);
 		cappella.setName("Cappella");
 		cappella.setActiveValue(2);
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(2));
+		resourceList = new ResourceList(new Wood(2));
 		cappella.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new FaithPoint(1));
+		resourceList = new ResourceList(new FaithPoint(1));
 		cappella.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
 		resourceList = new ResourceList();
 		exchange = new ResourceList();
 		exchangeable = new ResourceList();
 		exchange.setResource(new Coin(1));
 		exchangeable.setResource(new FaithPoint(1));
-		cappella.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone()));
+		cappella.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone())); //da cambiare
 		
 		YellowCard tagliapietre = new YellowCard();
 		tagliapietre.setPeriod(1);
@@ -1377,14 +1349,199 @@ public class MainTest {
 		cavaliere.addCost(resourceList.clone());
 		resourceList = new ResourceList(new CouncilPrivilege(1));
 		cavaliere.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere il bonus che per le carte purple
+		//aggiungere il bonus che per le carte purple hanno +2 quando le prendi
 		
 		BlueCard contadino = new BlueCard();
 		contadino.setName("Contadino");
 		contadino.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		contadino.addCost(resourceList.clone());
+		contadino.addPermanentBonus(new EnableHarvestBonus(2));
 		//il bonus permanente aumenta +2 quando attivi l'harvest
+		
+		BlueCard artigiano = new BlueCard();
+		artigiano.setName("Artigiano");
+		artigiano.setPeriod(1);
+		resourceList = new ResourceList(new Coin(3));
+		artigiano.addCost(resourceList.clone());
+		artigiano.addPermanentBonus(new EnableProductionBonus(2));
+		
+		BlueCard costruttore = new BlueCard();
+		costruttore.setName("Costruttore");
+		costruttore.setPeriod(1);
+		resourceList = new ResourceList(new Coin(4));
+		costruttore.addCost(resourceList.clone());
+		//aggiungere il bonus che per ogni carta gialla hai +2 e paghi -1 stone/wood
+		
+		BlueCard condottiero = new BlueCard();
+		condottiero.setName("Condottiero");
+		condottiero.setPeriod(1);
+		resourceList = new ResourceList(new Coin(2));
+		condottiero.addCost(resourceList.clone());
+		resourceList = new ResourceList(new MilitaryPoint(3));
+		condottiero.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere il bonus che per le carte verdi hai +2
+		
+		//FINE PRIMO PERIODO
+		
+		BlueCard messoPapale = new BlueCard();
+		messoPapale.setName("Messo Papale");
+		messoPapale.setPeriod(2);
+		resourceList = new ResourceList(new Coin(5));
+		messoPapale.addCost(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(3));
+		messoPapale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		BlueCard fattore = new BlueCard();
+		fattore.setName("Fattore");
+		fattore.setPeriod(2);
+		resourceList = new ResourceList(new Coin(4));
+		fattore.addCost(resourceList.clone());
+		fattore.addPermanentBonus(new EnableHarvestBonus(3));
+		
+		BlueCard messoReale = new BlueCard();
+		messoReale.setName("Messo Reale");
+		messoReale.setPeriod(2);
+		resourceList = new ResourceList(new Coin(5));
+		messoReale.addCost(resourceList.clone());
+		resourceList = new ResourceList(new CouncilPrivilege(3)); //sulla carta c'è scritto che le 3 scelte devono essere diverse
+		messoReale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		BlueCard mecenate = new BlueCard();
+		mecenate.setName("Mecenate");
+		mecenate.setPeriod(2);
+		resourceList = new ResourceList(new Coin(3));
+		mecenate.addCost(resourceList.clone());
+		//aggiungere come instant il bonus che puoi prendere una carta blu con valore 6 e pagare -2 monete
+		
+		BlueCard capitano = new BlueCard();
+		capitano.setName("Capitano");
+		capitano.setPeriod(2);
+		resourceList = new ResourceList(new Coin(4));
+		capitano.addCost(resourceList.clone());
+		//aggiungere tra gli instant bonus che puoi prendere un carta verde con valore 6
+		resourceList = new ResourceList(new MilitaryPoint(2));
+		capitano.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		BlueCard studioso = new BlueCard();
+		studioso.setName("Studioso");
+		studioso.setPeriod(2);
+		resourceList = new ResourceList(new Coin(4));
+		studioso.addCost(resourceList.clone());
+		studioso.addPermanentBonus(new EnableProductionBonus(3));
+		
+		BlueCard architetto = new BlueCard();
+		architetto.setName("Architetto");
+		architetto.setPeriod(2);
+		resourceList = new ResourceList(new Coin(4));
+		architetto.addCost(resourceList.clone());
+		//aggiungere bonus che ti fa pescare carta gialla con valore 6 e paghi -1 stone/wood
+		
+		BlueCard eroe = new BlueCard();
+		eroe.setName("Eroe");
+		eroe.setPeriod(2);
+		resourceList = new ResourceList(new Coin(4));
+		eroe.addCost(resourceList.clone());
+		resourceList = new ResourceList(new CouncilPrivilege(1));
+		eroe.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere il bonus che ti fa prendere una carta viola con valore 6
+		
+		//FINE SECONDO PERIODO
+		
+		BlueCard cardinale = new BlueCard();
+		cardinale.setName("Cardinale");
+		cardinale.setPeriod(3);
+		resourceList = new ResourceList(new Coin(4));
+		cardinale.addCost(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(2));
+		cardinale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		cardinale.addInstantBonus(new EnableHarvestBonus(4));
+		
+		BlueCard araldo = new BlueCard();
+		araldo.setName("Araldo");
+		araldo.setPeriod(3);
+		resourceList = new ResourceList(new Coin(6));
+		araldo.addCost(resourceList.clone());
+		//aggiungere il bonus instantaneo che per ogni carta viola hai +2 VP
+		
+		BlueCard vescovo = new BlueCard();
+		vescovo.setName("Vescovo");
+		vescovo.setPeriod(3);
+		resourceList = new ResourceList(new Coin(5));
+		vescovo.addCost(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(1));
+		vescovo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		vescovo.addInstantBonus(new EnableProductionBonus(4));
+		
+		BlueCard ambasciatore = new BlueCard();
+		ambasciatore.setName("Ambasciatore");
+		ambasciatore.setPeriod(3);
+		resourceList = new ResourceList(new Coin(6));
+		ambasciatore.addCost(resourceList.clone());
+		resourceList = new ResourceList(new CouncilPrivilege(1));
+		ambasciatore.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//aggiungere che puoi pescare una qualsiasi carta con valore 7
+		
+		BlueCard cortigiana = new BlueCard();
+		cortigiana.setName("Cortigiana");
+		cortigiana.setPeriod(3);
+		resourceList = new ResourceList(new Coin(7));
+		cortigiana.addCost(resourceList.clone());
+		//aggiungere bonus che per ogni carta blu hai +2 VP
+		
+		BlueCard generale = new BlueCard();
+		generale.setName("Generale");
+		generale.setPeriod(3);
+		resourceList = new ResourceList(new Coin(5));
+		generale.addCost(resourceList.clone());
+		//aggiungere bonus che ogni 2 MP hai +1 VP
+		
+		BlueCard nobile = new BlueCard();
+		nobile.setName("Nobile");
+		nobile.setPeriod(3);
+		resourceList = new ResourceList(new Coin(6));
+		nobile.addCost(resourceList.clone());
+		//bonus instantaneo che per ogni carta verde hai +2 VP
+		
+		BlueCard governatore = new BlueCard();
+		governatore.setName("Governatore");
+		governatore.setPeriod(3);
+		resourceList = new ResourceList(new Coin(6));
+		governatore.addCost(resourceList.clone());
+		//bonus instantaneo che per ogni carta gialla hai +2 VP
+		
+		ArrayList<BlueCard> bluDeck = new ArrayList<BlueCard>();
+		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
+		
+		bluDeck.add(badessa);
+		bluDeck.add(predicatore);
+		bluDeck.add(dama);
+		bluDeck.add(cavaliere);
+		bluDeck.add(contadino);
+		bluDeck.add(artigiano);
+		bluDeck.add(costruttore);
+		bluDeck.add(condottiero); //fine primo periodo
+		bluDeck.add(messoPapale);
+		bluDeck.add(fattore);
+		bluDeck.add(messoReale);
+		bluDeck.add(mecenate);
+		bluDeck.add(capitano);
+		bluDeck.add(studioso);
+		bluDeck.add(architetto);
+		bluDeck.add(eroe); //fine secondo periodo
+		bluDeck.add(cardinale);
+		bluDeck.add(araldo);
+		bluDeck.add(vescovo);
+		bluDeck.add(ambasciatore);
+		bluDeck.add(cortigiana);
+		bluDeck.add(generale);
+		bluDeck.add(nobile);
+		bluDeck.add(governatore);
+		
+		writeFile("settings//BluCards", gAdapter.toJson(bluDeck, type));
+		
+		
+		//FINE CARTE BLU
 		
 		
 	}

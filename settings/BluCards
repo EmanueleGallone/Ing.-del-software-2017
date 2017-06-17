@@ -1,0 +1,658 @@
+[
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Badessa",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 4
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Predicatore",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Dama",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Cavaliere",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus",
+        "INSTANCE": {
+          "harvestActivationValue": 2
+        }
+      }
+    ],
+    "name": "Contadino",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
+        "INSTANCE": {
+          "productionActiveValue": 2
+        }
+      }
+    ],
+    "name": "Artigiano",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Costruttore",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 2
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+                "INSTANCE": {
+                  "value": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Condottiero",
+    "period": 1
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 5
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Messo Papale",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus",
+        "INSTANCE": {
+          "harvestActivationValue": 3
+        }
+      }
+    ],
+    "name": "Fattore",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 5
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+                "INSTANCE": {
+                  "value": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Messo Reale",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Mecenate",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+                "INSTANCE": {
+                  "value": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Capitano",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
+        "INSTANCE": {
+          "productionActiveValue": 3
+        }
+      }
+    ],
+    "name": "Studioso",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Architetto",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Eroe",
+    "period": 2
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 4
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus",
+        "INSTANCE": {
+          "harvestActivationValue": 4
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Cardinale",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 6
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Araldo",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 5
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
+        "INSTANCE": {
+          "productionActiveValue": 4
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Vescovo",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 6
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "INSTANCE": {
+          "resourceList": {
+            "resources": {
+              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+                "INSTANCE": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "permanentBonus": [],
+    "name": "Ambasciatore",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 7
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Cortigiana",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 5
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Generale",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 6
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Nobile",
+    "period": 3
+  },
+  {
+    "DEFAULT_VALUE": 1,
+    "costs": [
+      {
+        "resources": {
+          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "INSTANCE": {
+              "value": 6
+            }
+          }
+        }
+      }
+    ],
+    "instantBonus": [],
+    "permanentBonus": [],
+    "name": "Governatore",
+    "period": 3
+  }
+]
