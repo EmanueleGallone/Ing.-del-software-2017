@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.beta.client.RemoteClient;
-import it.polimi.ingsw.ps11.cranio.actions.test.Player;
+import it.polimi.ingsw.ps11.cranio.player.Player;
 
 public class GameController implements Runnable {
 
@@ -12,8 +12,14 @@ public class GameController implements Runnable {
 	
 	public GameController(ArrayList<RemoteClient> clients) {
 		ArrayList<RemoteClient> players = (ArrayList<RemoteClient>) clients.clone();
+		int i = 0;
+		PlayerFactory pFactory = new PlayerFactory();
+		
 		for(RemoteClient client : players){
-			//this.players.put(client, value);
+			Player player = pFactory.newPlayer(i);
+			this.players.put(client, player);
+			//client.update(player);
+			i++;
 		}
 	}
 
