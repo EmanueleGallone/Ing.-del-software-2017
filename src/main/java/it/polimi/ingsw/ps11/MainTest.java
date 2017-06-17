@@ -1536,7 +1536,7 @@ public class MainTest {
 		bluDeck.add(nobile);
 		bluDeck.add(governatore);
 		
-		writeFile("settings//BluCards", gAdapter.toJson(bluDeck, type));
+		writeFile("settings//BlueCards", gAdapter.toJson(bluDeck, type));
 		
 		
 		//FINE CARTE BLU

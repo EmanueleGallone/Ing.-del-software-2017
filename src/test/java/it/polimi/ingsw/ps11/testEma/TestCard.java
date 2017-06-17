@@ -1,17 +1,23 @@
 package it.polimi.ingsw.ps11.testEma;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.google.gson.reflect.TypeToken;
+
+import it.polimi.ingsw.ps11.MainTest;
 import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
 import it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
@@ -61,6 +67,7 @@ public class TestCard {
 		arcoTrionfo.addPermanentBonus(new GainResourceForEveryCardYouHave(PurpleCard.class, resourceList));
 		
 		Assert.assertFalse(esattoria.equals(arcoTrionfo));
+		Assert.assertFalse(esattoria.equals(null));
 		
 		Assert.assertTrue(esattoria.equals(esattoria));
 		
@@ -73,20 +80,53 @@ public class TestCard {
 	
 	@Test
 	public void cardManagerTest(){
+		ResourceList costs = new ResourceList(new Coin(8));
 		ArrayList<DevelopmentCard> cards = new ArrayList<>();
 		GreenCard card1 = new GreenCard();
 		card1.setName("TestGreenCard1");
 		card1.setPeriod(1);
+		card1.setActiveValue(1);
+		card1.addCost(costs.clone());
 		cards.add(card1);
 		PurpleCard card2 = new PurpleCard();
 		card2.setName("TestPurpleCard2");
 		card2.setPeriod(3);
 		cards.add(card2);
+		BlueCard blueCard = new BlueCard("TestBluCard");
+		blueCard.setPeriod(2);
+		blueCard.setName("TestBlueCard");
+		blueCard.addInstantBonus(new IncrementResourceBonus(costs.clone()));
 		
-		CardManager manager = new CardManager(cards); //gli passo un arraylis
+		CardManager manager = new CardManager(cards); //gli passo un arraylist con più carte dentro per vedere come si comporta
 		
 		Assert.assertTrue(manager.getCardList(GreenCard.class).get(0).getPeriod() == 1);
 		Assert.assertTrue(manager.getCardList(PurpleCard.class).get(0).getPeriod() == 3);
+		Assert.assertTrue(manager.getCardList(GreenCard.class).get(0).getActiveValue() == 1);
+		
+		CardManager clone = manager.clone();
+		
+		Assert.assertTrue(clone.getCardList(GreenCard.class).get(0).getPeriod() == 1);
+		Assert.assertTrue(clone.getCardList(PurpleCard.class.toString()).get(0).getPeriod() == 3);
+	}
+	
+	@Test
+	public void createFileTest(){
+		
+		MainTest.inizializzaCarte();
+		MainTest.inizializzatore();
+	}
+	
+	@Test
+	public void readCardsFileTest(){
+		JsonAdapter adapter = new JsonAdapter();
+		String read = MainTest.readFile("settings//BlueCards");
+		
+		Type type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
+		
+		ArrayList<BlueCard> cards = adapter.fromJson(read, type);
+		
+		Assert.assertEquals("Badessa", cards.get(0).getName()); //leggo la prima carta
+		Assert.assertEquals("Governatore", cards.get(23).getName()); //leggo ultima carta
 	}
 
 }

@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.testEma;
 import org.junit.Assert;
 import org.junit.Test;
 
+import it.polimi.ingsw.ps11.model.dices.BlackDice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
@@ -35,6 +36,11 @@ public class FamilyMemberTest {
 		black.setValue(dice.getBlackDice().getValue());
 		white.setValue(dice.getWhiteDice().getValue());
 		orange.setValue(dice.getOrangeDice().getValue());
+		
+		BlackDice blackDice = dice.getBlackDice();
+		BlackDice blackClone = blackDice.clone();
+		
+		Assert.assertTrue(blackClone.getValue() == blackDice.getValue());
 		
 		Assert.assertFalse(black.getValue() == 0);
 		Assert.assertTrue(white.getValue() > 0 && white.getValue() <= 6);

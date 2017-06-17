@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.model.zones.actionSpace;
 
-import java.nio.channels.NonWritableChannelException;
-
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -77,8 +75,16 @@ public class ActionSpace implements FamilyMemberSpace{
 	public ActionSpace clone(){
 		ActionSpace clone = new ActionSpace();
 		
-		clone.familyMember = this.familyMember.clone();
-		clone.owner = this.owner.clone();
+		if(this.familyMember == null) //necessario, altrimenti se l'actionspace non ha il familiare, la clone lancia eccezione
+			clone.familyMember = null;
+		else 
+			clone.familyMember = this.familyMember.clone();
+		
+		if(this.owner == null)
+			clone.owner = null;
+		else
+			clone.owner = this.owner.clone();
+		
 		clone.cost = this.cost;
 		clone.resources = this.resources.clone();
 		

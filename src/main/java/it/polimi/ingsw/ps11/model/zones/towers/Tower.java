@@ -80,8 +80,11 @@ public class Tower {
 	@Override
 	public Tower clone(){
 		Tower clone = new Tower();
-		for(Floor f : this.floors)
+		
+		for(Floor f : this.floors){
+			System.out.println("ho clonato");
 			clone.addFloor(f.clone());
+		}
 		
 		return clone;
 	}

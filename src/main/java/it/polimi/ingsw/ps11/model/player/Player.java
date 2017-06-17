@@ -104,8 +104,11 @@ public class Player{
 	
 	@Override
 	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		
 		//Da decidere se basta solo il colore
-		if(obj.getClass() == this.getClass()){
+		if(this.getClass() == obj.getClass()){
 			return((Player)obj).getColor() == this.getColor();
 		}
 		return false;
