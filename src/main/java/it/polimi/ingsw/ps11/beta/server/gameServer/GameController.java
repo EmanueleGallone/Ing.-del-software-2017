@@ -1,10 +1,10 @@
-package it.polimi.ingsw.ps11.beta.server.game;
+package it.polimi.ingsw.ps11.beta.server.gameServer;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.beta.client.RemoteClient;
+import it.polimi.ingsw.ps11.beta.client.network.RemoteClient;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 

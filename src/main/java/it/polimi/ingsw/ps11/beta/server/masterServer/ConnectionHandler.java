@@ -6,8 +6,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import it.polimi.ingsw.ps11.beta.client.ClientInterface;
-import it.polimi.ingsw.ps11.beta.client.RemoteClient;
-import it.polimi.ingsw.ps11.beta.server.game.GameController;
+import it.polimi.ingsw.ps11.beta.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.beta.server.gameServer.GameController;
 
 public class ConnectionHandler {
 	

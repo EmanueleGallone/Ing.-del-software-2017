@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.beta.server.game;
+package it.polimi.ingsw.ps11.beta.server.gameServer;
 
 
 import java.util.ArrayList;

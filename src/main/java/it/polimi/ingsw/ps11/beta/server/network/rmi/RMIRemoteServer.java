@@ -3,11 +3,11 @@ package it.polimi.ingsw.ps11.beta.server.network.rmi;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
-import it.polimi.ingsw.ps11.beta.client.events.StartGameEvent;
-import it.polimi.ingsw.ps11.beta.client.events.UpdatePlayerEvent;
 import it.polimi.ingsw.ps11.beta.client.network.rmi.RMIClientInterface;
-import it.polimi.ingsw.ps11.beta.server.masterServer.RemoteServer;
+import it.polimi.ingsw.ps11.beta.server.events.PrintEvent;
+import it.polimi.ingsw.ps11.beta.server.events.StartGameEvent;
+import it.polimi.ingsw.ps11.beta.server.events.UpdatePlayerEvent;
+import it.polimi.ingsw.ps11.beta.server.network.RemoteServer;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 

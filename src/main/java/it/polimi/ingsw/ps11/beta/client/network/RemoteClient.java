@@ -1,8 +1,9 @@
-package it.polimi.ingsw.ps11.beta.client;
+package it.polimi.ingsw.ps11.beta.client.network;
 
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.beta.server.events.EndTurnEvent;
+import it.polimi.ingsw.ps11.beta.client.ClientInterface;
+import it.polimi.ingsw.ps11.beta.client.events.EndTurnEvent;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 

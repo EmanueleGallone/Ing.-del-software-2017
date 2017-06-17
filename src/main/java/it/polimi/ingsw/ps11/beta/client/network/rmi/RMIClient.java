@@ -9,7 +9,8 @@ import java.rmi.server.UnicastRemoteObject;
 import it.polimi.ingsw.ps11.beta.client.Client;
 import it.polimi.ingsw.ps11.beta.server.network.rmi.ConnectionServer;
 import it.polimi.ingsw.ps11.beta.server.network.rmi.RMIRemoteServer;
-import it.polimi.ingsw.ps11.mvc.view.View;
+import it.polimi.ingsw.ps11.mvc.view.viewGenerica.View;
+
 
 public class RMIClient extends Client {
 	

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import it.polimi.ingsw.ps11.beta.client.Client;
 import it.polimi.ingsw.ps11.beta.server.network.socket.RemoteSocketServer;
-import it.polimi.ingsw.ps11.mvc.view.View;
+import it.polimi.ingsw.ps11.mvc.view.viewGenerica.View;
 
 public class SocketClient extends Client {
 	

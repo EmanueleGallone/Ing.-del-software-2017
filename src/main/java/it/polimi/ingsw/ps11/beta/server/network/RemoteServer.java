@@ -1,8 +1,9 @@
-package it.polimi.ingsw.ps11.beta.server.masterServer;
+package it.polimi.ingsw.ps11.beta.server.network;
 
-import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
-import it.polimi.ingsw.ps11.beta.client.events.StartGameEvent;
-import it.polimi.ingsw.ps11.beta.client.events.UpdatePlayerEvent;
+import it.polimi.ingsw.ps11.beta.server.events.PrintEvent;
+import it.polimi.ingsw.ps11.beta.server.events.StartGameEvent;
+import it.polimi.ingsw.ps11.beta.server.events.UpdatePlayerEvent;
+import it.polimi.ingsw.ps11.beta.server.masterServer.ServerInterface;
 import it.polimi.ingsw.ps11.cranio.events.EventHandler;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 

@@ -5,14 +5,14 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.beta.client.RemoteClient;
+import it.polimi.ingsw.ps11.beta.client.events.EndTurnEvent;
+import it.polimi.ingsw.ps11.beta.client.network.RemoteClient;
 import it.polimi.ingsw.ps11.beta.client.network.socket.connection.Connection;
 import it.polimi.ingsw.ps11.beta.client.network.socket.connection.events.NewMessageEvent;
 import it.polimi.ingsw.ps11.beta.client.network.socket.messages.ClientMessage;
 import it.polimi.ingsw.ps11.beta.client.network.socket.messages.ClientMessageWrapper;
 import it.polimi.ingsw.ps11.beta.client.network.socket.messages.ClientRecognizer;
 import it.polimi.ingsw.ps11.beta.client.network.socket.messages.list.EndTurnMessage;
-import it.polimi.ingsw.ps11.beta.server.events.EndTurnEvent;
 import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerMessage;
 import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerMessageWrapper;
 import it.polimi.ingsw.ps11.beta.server.network.socket.messages.list.PrintMessage;

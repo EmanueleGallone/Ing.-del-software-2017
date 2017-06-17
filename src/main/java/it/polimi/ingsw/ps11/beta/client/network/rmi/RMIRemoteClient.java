@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.function.Consumer;
 
-import it.polimi.ingsw.ps11.beta.client.RemoteClient;
-import it.polimi.ingsw.ps11.beta.server.events.EndTurnEvent;
+import it.polimi.ingsw.ps11.beta.client.events.EndTurnEvent;
+import it.polimi.ingsw.ps11.beta.client.network.RemoteClient;
 import it.polimi.ingsw.ps11.beta.server.network.rmi.RMIServerInterface;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;

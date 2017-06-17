@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.beta.client.events;
+package it.polimi.ingsw.ps11.beta.server.events;
 
 import it.polimi.ingsw.ps11.cranio.player.Player;
 

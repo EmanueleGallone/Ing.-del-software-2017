@@ -5,10 +5,10 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
-import it.polimi.ingsw.ps11.mvc.view.View;
 import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualBoardView;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualDocument;
+import it.polimi.ingsw.ps11.mvc.view.viewGenerica.View;
 
 
 public class TextualView extends View {

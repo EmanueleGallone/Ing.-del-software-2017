@@ -5,6 +5,7 @@ import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.cranio.game.Game;
 import it.polimi.ingsw.ps11.cranio.player.Player;
 import it.polimi.ingsw.ps11.cranio.zones.Board;
+import it.polimi.ingsw.ps11.mvc.view.ViewInterface;
 import it.polimi.ingsw.ps11.mvc.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualBoardView;
 import it.polimi.ingsw.ps11.mvc.view.textualView.tree.components.TextualDocument;
@@ -19,27 +20,7 @@ public abstract class View extends Thread implements ViewInterface {
 	
 	public View() {
 
-		TextualBoardView boardView = new TextualBoardView("board");
-		
-		/*boardView.add(createTower("greenTower",GreenTower.class));
-		boardView.add(createTower("blueTower",BlueTower.class));
-		boardView.add(createTower("yellowTower",YellowTower.class));
-		boardView.add(createTower("purpleTower",PurpleTower.class));
-		*/
-		document.add(boardView);
 	}
-	
-	/*
-	private <T extends Tower> TextualComponent createTower(String name,Class<T> color){
-		TowerView towerView = new TowerView(name);
-		
-		for(int i = 0; i<4 ; i++){
-			towerView.add(new FloorView(name + " " + (i+1), color, i));
-		}
-		
-		return towerView;
-	}
-	*/
 	
 	@Override
 	public void run() {

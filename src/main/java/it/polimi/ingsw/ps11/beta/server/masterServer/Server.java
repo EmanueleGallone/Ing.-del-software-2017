@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.beta.server.masterServer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import it.polimi.ingsw.ps11.beta.client.RemoteClient;
+import it.polimi.ingsw.ps11.beta.client.network.RemoteClient;
 
 public abstract class Server extends UnicastRemoteObject implements Runnable {
 	

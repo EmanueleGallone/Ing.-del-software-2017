@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.beta.client.events;
+package it.polimi.ingsw.ps11.beta.server.events;
 
 public class PrintEvent {
 
