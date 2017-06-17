@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.beta.client;
 
 import it.polimi.ingsw.ps11.beta.client.events.PrintEvent;
-import it.polimi.ingsw.ps11.beta.server.RemoteServer;
+import it.polimi.ingsw.ps11.beta.server.masterServer.RemoteServer;
 import it.polimi.ingsw.ps11.cranio.events.EventListener;
 import it.polimi.ingsw.ps11.mvc.view.View;
 

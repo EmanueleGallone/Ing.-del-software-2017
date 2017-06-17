@@ -16,8 +16,8 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import it.polimi.ingsw.ps11.beta.client.socket.messages.ClientMessage;
-import it.polimi.ingsw.ps11.beta.server.socket.messages.ServerMessage;
+import it.polimi.ingsw.ps11.beta.client.network.socket.messages.ClientMessage;
+import it.polimi.ingsw.ps11.beta.server.network.socket.messages.ServerMessage;
 import it.polimi.ingsw.ps11.cranio.bonus.Bonus;
 import it.polimi.ingsw.ps11.cranio.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.cranio.familyMember.FamilyMember;

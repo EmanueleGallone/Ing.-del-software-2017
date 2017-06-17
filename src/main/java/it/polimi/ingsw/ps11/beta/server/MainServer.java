@@ -2,8 +2,8 @@ package it.polimi.ingsw.ps11.beta.server;
 
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.beta.server.rmi.RMIServer;
-import it.polimi.ingsw.ps11.beta.server.socket.SocketServer;
+import it.polimi.ingsw.ps11.beta.server.network.rmi.RMIServer;
+import it.polimi.ingsw.ps11.beta.server.network.socket.SocketServer;
 
 public class MainServer {
 	
