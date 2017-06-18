@@ -1,12 +1,12 @@
 package it.polimi.ingsw.ps11.model.zones.actionSpace;
 
-import java.nio.channels.NonWritableChannelException;
+import java.io.Serializable;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class ActionSpace implements FamilyMemberSpace{
+public class ActionSpace implements FamilyMemberSpace, Serializable{
 	
 	protected static final int DEFAULT_COST = 1;
 	protected FamilyMember familyMember;

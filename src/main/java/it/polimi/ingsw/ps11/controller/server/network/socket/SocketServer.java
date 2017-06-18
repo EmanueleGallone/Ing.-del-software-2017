@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.controller.client.network.socket.RemoteSocketClient;
+import it.polimi.ingsw.ps11.controller.server.masterServer.ConnectionHandler;
 import it.polimi.ingsw.ps11.controller.server.masterServer.Server;
 
 public class SocketServer extends Server {
@@ -19,6 +20,9 @@ public class SocketServer extends Server {
 		super();
 	}
 
+	public SocketServer(ConnectionHandler connectionHandler) throws RemoteException {
+		super(connectionHandler);
+	}
 	
 	public SocketServer(int port) throws RemoteException {
 		super();
@@ -42,7 +46,6 @@ public class SocketServer extends Server {
 		while (true) {
 			Socket socket = serverSocket.accept();
 			RemoteSocketClient client = new RemoteSocketClient(socket);
-			consoleLog("New Socket connection");
 			this.handleConnection(client);
 		}
 	}

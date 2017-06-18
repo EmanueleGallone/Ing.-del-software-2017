@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.model.resources;
 
-public abstract class Resource {
+import java.io.Serializable;
+
+public abstract class Resource implements Serializable {
 	protected static final int DEFAULT = 0;
 	protected int value;
 	

@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.actions.ActionHandler;
@@ -11,7 +12,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 
 
-public class Player{
+public class Player implements Serializable{
 	
 	private static final String DEFAULT_NAME = "Predefinito";
 	

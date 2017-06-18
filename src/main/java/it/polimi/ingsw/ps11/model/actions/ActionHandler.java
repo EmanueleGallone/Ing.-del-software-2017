@@ -1,8 +1,9 @@
 package it.polimi.ingsw.ps11.model.actions;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class ActionHandler {
+public class ActionHandler implements Serializable{
 
 	private HashMap<String, Action> actions = new HashMap<>();
 	

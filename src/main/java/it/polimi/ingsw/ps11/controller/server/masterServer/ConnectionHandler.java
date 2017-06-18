@@ -13,7 +13,7 @@ public class ConnectionHandler {
 	
 	private final int MAX_SIZE = 4; 
 	private final int START_SIZE = 2;
-	private long delay = 10000; //60000; //va caricato da file
+	private long delay = 2000; //60000; //va caricato da file
 	Timer timer;
 	
 	
@@ -39,12 +39,12 @@ public class ConnectionHandler {
 	public synchronized void add(RemoteClient client){
 		
 		lobby.add(client);
-		System.out.println(lobby.size() + " client in lobby");
+		System.out.println("  -> Nuovo " + client.getClass().getSimpleName() + "  ci sono:   " + lobby.size() + " client nella lobby");
 		if(lobby.size() == START_SIZE){
 			timer = new Timer();
 			TimerTask task = new StartingMatch();
 			timer.schedule(task, delay);
-			System.out.println("Timer avviato");
+			System.out.println("Timer avviato, la partita iniziera' fra " + delay/1000 + " secondi ");
 		}
 		
 		if(lobby.size() == MAX_SIZE){
@@ -55,6 +55,7 @@ public class ConnectionHandler {
 	
 	
 	private synchronized void newMatch() {
+		System.out.println("Avvio una nuova partita");
 		GameController game = new GameController(lobby);
 		lobby = new ArrayList<>();
 		this.games.add(game);

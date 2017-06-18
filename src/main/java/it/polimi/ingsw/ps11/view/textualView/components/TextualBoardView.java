@@ -32,13 +32,13 @@ public class TextualBoardView extends BoardView {
 			towerView.print();
 			console.print("\n");
 		}
+		diceView.print();
+		console.print("\n");
 		harvestView.print();
 		console.print("\n");
 		productionView.print();
 		console.print("\n");
 		councilPalaceView.print();
-		console.print("\n");
-		diceView.print();
 		console.print("\n");
 	}
 

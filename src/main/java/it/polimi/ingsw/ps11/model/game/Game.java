@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.game;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.actions.ActionHandler;
@@ -15,7 +16,7 @@ import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class Game  {
+public class Game implements Serializable  {
 	
 	private Board board;
 	private RoundManager roundManager;

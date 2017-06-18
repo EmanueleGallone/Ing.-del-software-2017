@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.zones;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -7,7 +9,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
 
-public class Floor implements FamilyMemberSpace {
+public class Floor implements FamilyMemberSpace, Serializable {
 	
 	private DevelopmentCard card;
 	private ActionSpace actionSpace;

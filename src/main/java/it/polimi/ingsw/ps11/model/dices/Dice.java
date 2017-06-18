@@ -1,8 +1,9 @@
 package it.polimi.ingsw.ps11.model.dices;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public abstract class Dice {
+public abstract class Dice implements Serializable{
 	protected static final int MAX_FACES = 6;
 	protected int value;
 	private Random gen = new Random();

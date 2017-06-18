@@ -9,10 +9,14 @@ public abstract class Server extends UnicastRemoteObject implements Runnable {
 	
 	private static final long serialVersionUID = -4802806597261913213L;
 	
-	private transient ConnectionHandler connectionHandler = new ConnectionHandler();
+	private ConnectionHandler connectionHandler = new ConnectionHandler();
 	
 	public Server() throws RemoteException{
 		
+	}
+	
+	public Server(ConnectionHandler connectionHandler) throws RemoteException{
+		this.connectionHandler = connectionHandler;
 	}
 	
 	public abstract void on() throws InternalError;

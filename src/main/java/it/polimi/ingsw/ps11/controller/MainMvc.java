@@ -1,18 +1,19 @@
 package it.polimi.ingsw.ps11.controller;
 
-import java.util.ArrayList;
-
-import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.view.old.controller.Controller;
-import it.polimi.ingsw.ps11.view.old.model.Model;
-import it.polimi.ingsw.ps11.view.textualView.tree.TextualView;
+import it.polimi.ingsw.ps11.controller.client.network.rmi.RMIClient;
+import it.polimi.ingsw.ps11.controller.client.network.socket.SocketClient;
 
 public class MainMvc {
 	
 	
 		public static void main(String[] args){
 			
+			
+			//Avvia due client
+			SocketClient.main(null);
+			RMIClient.main(null);
+			
+			/*
 			TextualView textualView = new TextualView();
 			ArrayList<Player> players = new ArrayList<>();
 			
@@ -31,5 +32,6 @@ public class MainMvc {
 			
 			Controller controller = new Controller(new Model(game), textualView);
 			controller.start();
+			*/
 		}
 }

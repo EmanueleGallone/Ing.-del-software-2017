@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.model.dices;
 
-public class DiceManager {
+import java.io.Serializable;
+
+public class DiceManager implements Serializable {
 	
 	private BlackDice blackDice;
 	private WhiteDice whiteDice;

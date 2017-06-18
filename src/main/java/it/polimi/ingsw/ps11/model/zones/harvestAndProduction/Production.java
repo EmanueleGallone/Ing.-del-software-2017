@@ -1,12 +1,14 @@
 package it.polimi.ingsw.ps11.model.zones.harvestAndProduction;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 
-public class Production implements FamilyMemberSpace {
+public class Production implements FamilyMemberSpace, Serializable {
 
 	private ActionSpace singleActionSpace = new ActionSpace();
 	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace();

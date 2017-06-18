@@ -33,6 +33,7 @@ public abstract class Client implements Runnable {
 	}
 	
 	public void temp (Game game, Player player){
+		//Questa funzione serve solo per fare qualche test senza il network
 		startGameListener.handle(new StartGameEvent(game, player));
 	}
 	

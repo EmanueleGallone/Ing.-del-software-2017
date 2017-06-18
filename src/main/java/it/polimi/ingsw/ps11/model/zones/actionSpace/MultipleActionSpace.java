@@ -1,12 +1,13 @@
 package it.polimi.ingsw.ps11.model.zones.actionSpace;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace> {
+public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace>, Serializable {
 
 	protected ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
 	

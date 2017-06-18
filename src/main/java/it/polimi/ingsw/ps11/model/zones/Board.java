@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.zones;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class Board {
+public class Board implements Serializable{
 	
 	private HashMap<String, Tower> towers = new HashMap<>();
 	private DiceManager diceManager = new DiceManager();

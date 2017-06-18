@@ -68,7 +68,9 @@ public class MainTest {
 		
 		Game game = new Game(players);
 		View view = new TextualView();
-		
+		YellowCard card = new YellowCard();
+		card.setName("Funziona");
+		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(card);
 		Client client = new SocketClient(view);
 		
 		client.temp(game, player2);

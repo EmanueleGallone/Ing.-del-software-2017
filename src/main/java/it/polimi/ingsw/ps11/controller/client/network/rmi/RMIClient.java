@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.server.network.rmi.ConnectionServer;
 import it.polimi.ingsw.ps11.controller.server.network.rmi.RMIRemoteServer;
+import it.polimi.ingsw.ps11.view.textualView.tree.TextualView;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 
@@ -44,8 +45,8 @@ public class RMIClient extends Client {
 	}
 	
 	public static void main(String[] args) {
-		RMIClient client = new RMIClient(null);	
-		client.start();
+		RMIClient client = new RMIClient(new TextualView());	
+		new Thread(client).start();
 	}
 
 }

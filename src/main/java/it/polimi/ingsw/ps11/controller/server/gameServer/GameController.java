@@ -23,6 +23,8 @@ public class GameController implements Runnable {
 			this.players.put(client, player);
 			i++;
 		}
+		
+		game = new Game(new ArrayList<>(this.players.values()));
 	}
 	
 	

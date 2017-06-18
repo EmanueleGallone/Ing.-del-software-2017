@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.familyMember;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
@@ -7,7 +8,7 @@ import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 
-public class FamilyMemberManager {
+public class FamilyMemberManager implements Serializable {
 	
 	private HashMap<String,FamilyMember> family = new HashMap<>();
 	

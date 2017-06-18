@@ -1,11 +1,12 @@
 package it.polimi.ingsw.ps11.model.resources;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 
-public class ResourceList implements Iterable<Resource>{
+public class ResourceList implements Iterable<Resource>, Serializable{
 	
 	private static final int DEFAULT_VALUE = 0;
 	private HashMap<String, Resource> resources = new HashMap<>();

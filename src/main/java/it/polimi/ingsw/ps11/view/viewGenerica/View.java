@@ -18,7 +18,7 @@ public abstract class View extends Thread implements ViewInterface {
 	protected BoardView boardView;
 	
 	public View() {
-
+		
 	}
 	
 	@Override

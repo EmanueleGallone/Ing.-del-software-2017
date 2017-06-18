@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.model.familyMember;
 
-public abstract class FamilyMember {
+import java.io.Serializable;
+
+public abstract class FamilyMember implements Serializable{
 	
 	private final int DEFAULT_MODIFIER = 0;
 	private final int DEFAULT_VALUE = 0;

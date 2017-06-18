@@ -1,10 +1,11 @@
 package it.polimi.ingsw.ps11.model.zones.towers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.zones.Floor;
 
-public class Tower {
+public class Tower implements Serializable{
 	
 	private static final int MAX_FLOORS = 4;
 	private ArrayList<Floor> floors = new ArrayList<>();
