@@ -1,12 +1,13 @@
 package it.polimi.ingsw.ps11.model.game;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public class RoundManager {
+public class RoundManager implements Serializable{
 
 	private static final int MAX_ROUND_PER_TURN = 4;
 	private static final int MAX_PERIOD = 3;

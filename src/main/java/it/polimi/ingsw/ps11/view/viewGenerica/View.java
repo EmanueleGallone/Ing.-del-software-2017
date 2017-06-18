@@ -53,7 +53,7 @@ public abstract class View extends Thread implements ViewInterface {
 
 	@Override
 	public void update(Board board) {
-		
+		boardView.update(board);
 	}
 
 	@Override

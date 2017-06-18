@@ -1,8 +1,9 @@
 package it.polimi.ingsw.ps11.model.events;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EventHandler<PARAMETER_TYPE> {
+public class EventHandler<PARAMETER_TYPE> implements Serializable {
 	
 	private ArrayList<EventListener<PARAMETER_TYPE>> eventListeners = new ArrayList<>();
 
