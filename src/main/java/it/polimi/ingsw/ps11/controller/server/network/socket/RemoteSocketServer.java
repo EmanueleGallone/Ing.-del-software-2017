@@ -55,10 +55,11 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 		connection.on();
 	}
 	
+	
 // Handle message from server ________________________
 	
 	private EventListener<NewMessageEvent> messageHandler = new EventListener<NewMessageEvent>() {
-		
+
 		@Override
 		public void handle(NewMessageEvent e) {
 

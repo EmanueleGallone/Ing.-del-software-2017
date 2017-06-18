@@ -14,6 +14,7 @@ import it.polimi.ingsw.ps11.controller.client.network.socket.messages.ClientMess
 import it.polimi.ingsw.ps11.controller.client.network.socket.messages.ClientMessageWrapper;
 import it.polimi.ingsw.ps11.controller.client.network.socket.messages.ClientRecognizer;
 import it.polimi.ingsw.ps11.controller.server.network.socket.messageList.PrintMessage;
+import it.polimi.ingsw.ps11.controller.server.network.socket.messageList.StartGameMessage;
 import it.polimi.ingsw.ps11.controller.server.network.socket.messageList.UpdatePlayerMessage;
 import it.polimi.ingsw.ps11.controller.server.network.socket.messages.ServerMessage;
 import it.polimi.ingsw.ps11.controller.server.network.socket.messages.ServerMessageWrapper;
@@ -46,7 +47,7 @@ public class RemoteSocketClient extends RemoteClient implements ClientRecognizer
 	
 	@Override
 	public void startGame(Game game, Player player) throws RemoteException {
-		
+		send(new StartGameMessage(game, player));
 	}
 	
 // Handle message from client

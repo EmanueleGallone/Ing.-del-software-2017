@@ -52,8 +52,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 public class MainTest {
 	
 	public static void main(String[] args){
-		
-		
+
 		Player player = new Player();
 		player.setName("Giocatore 1");
 		player.setColor(Colors.RED);
@@ -67,6 +66,14 @@ public class MainTest {
 		players.add(player2);
 		
 		Game game = new Game(players);
+		
+		JsonAdapter adapter = new JsonAdapter();
+		
+		String gString = adapter.toJson(game);
+		//System.out.println(gString);
+		
+		Game game2 = adapter.fromJson(gString, Game.class);
+		/*
 		View view = new TextualView();
 		YellowCard card = new YellowCard();
 		card.setName("Funziona");
@@ -74,6 +81,9 @@ public class MainTest {
 		Client client = new SocketClient(view);
 		
 		client.temp(game, player2);
+		
+		*/
+		
 		
 		//inizializzaCarte();
 	

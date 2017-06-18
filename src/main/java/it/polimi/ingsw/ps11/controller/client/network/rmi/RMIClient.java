@@ -9,7 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.server.network.rmi.ConnectionServer;
 import it.polimi.ingsw.ps11.controller.server.network.rmi.RMIRemoteServer;
-import it.polimi.ingsw.ps11.view.textualView.tree.TextualView;
+import it.polimi.ingsw.ps11.view.textualView.TextualView;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 

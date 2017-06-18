@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.actions.ActionHandler;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -22,6 +21,10 @@ public class Game implements Serializable  {
 	private RoundManager roundManager;
 
 	private ActionHandler actions = new ActionHandler();
+	
+	public Game() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Game(ArrayList<Player> players) {
 		

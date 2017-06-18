@@ -9,6 +9,7 @@ public class TextualView extends View {
 	public TextualView() {
 		you = new TextualPlayerView();
 		boardView = new TextualBoardView();
+		console = new TextualConsole();
 	}
 
 	@Override
