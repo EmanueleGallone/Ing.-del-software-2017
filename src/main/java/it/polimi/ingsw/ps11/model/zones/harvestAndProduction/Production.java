@@ -25,4 +25,11 @@ public class Production implements FamilyMemberSpace {
 			return multipleActionSpace.placeFamilyMember(familyMember, player);
 		}
 	}
+	
+	public ActionSpace getSingleActionSpace() {
+		return singleActionSpace;
+	}
+	public MultipleActionSpace getMultipleActionSpace() {
+		return multipleActionSpace;
+	}
 }

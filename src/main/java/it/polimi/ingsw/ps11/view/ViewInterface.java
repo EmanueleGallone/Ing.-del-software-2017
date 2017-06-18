@@ -6,6 +6,7 @@ import it.polimi.ingsw.ps11.model.zones.Board;
 
 public interface ViewInterface {
 	
+	public void print();
 	public abstract void out(String message);
 
 	public void update(Game game);

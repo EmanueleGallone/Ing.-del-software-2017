@@ -3,21 +3,17 @@ package it.polimi.ingsw.ps11.view.textualView.components;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
-import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
-public class TextualTower extends TowerView {
+public class TextualFloorView extends FloorView {
 
-
-	public TextualTower(Class<? extends Tower> towerColor) {
-		super(towerColor);
+	public TextualFloorView(Class<? extends Tower> tower, int whichFloor) {
+		super(tower, whichFloor);
+		this.cardView = new TextualCardView();
 	}
 
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		for(FloorView f : floors){
-			f.print();
-		}
+		console.println( whichFloor + " Card: " + floor.getCard().getName() +" ActionCost: " + floor.getActionSpace().getActionCost());
 	}
-
 }

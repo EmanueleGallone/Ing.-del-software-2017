@@ -53,6 +53,10 @@ public class CardManager {
 	}
 	
 	
+	public HashMap<String, ArrayList<DevelopmentCard>> getAllCards() {
+		return (HashMap<String, ArrayList<DevelopmentCard>>) cards.clone();
+	}
+	
 	@Override
 	public String toString() {
 		String string = "";

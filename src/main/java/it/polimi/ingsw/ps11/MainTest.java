@@ -31,6 +31,7 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
@@ -39,11 +40,17 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.view.textualView.TextualView;
+import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class MainTest {
 	
 	public static void main(String[] args){
-	
+		
+		View view = new TextualView();
+		
+		Board board = new Board();
+		
 		//inizializzaCarte();
 	
 		//inizializzatore();		

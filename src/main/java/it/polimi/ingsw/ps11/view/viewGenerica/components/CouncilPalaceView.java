@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class CouncilPalaceView  extends ViewComponent{
 
-	private CouncilPalace councilPalace;
+	protected CouncilPalace councilPalace;
 	
 	public void update(CouncilPalace councilPalace) {
 		this.councilPalace = councilPalace;

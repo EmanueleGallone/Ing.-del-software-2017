@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class HarvestView extends ViewComponent{
 	
-	private Production harvest;
+	protected Production harvest;
 	
 	public void update(Production harvest){
 		this.harvest = harvest;

@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class DiceView extends ViewComponent {
 
-	private DiceManager dices;
+	protected DiceManager dices;
 	
 	public void update(DiceManager dices) {
 		this.dices = dices;

@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class ProductionView extends ViewComponent{
 
-	private Production production;
+	protected Production production;
 	
 	public void update(Production production){
 		this.production = production;

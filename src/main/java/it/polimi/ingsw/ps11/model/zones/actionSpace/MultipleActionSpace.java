@@ -27,10 +27,10 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 	public boolean contains(Player player){
 		for(ActionSpace a: multipleActionSpace){
 			if(a.getOwner().equals(player)){
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public void addActionSpace(ActionSpace actionSpace){
@@ -42,6 +42,10 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 			return multipleActionSpace.get(index);
 		}
 		return null;
+	}
+	
+	public ArrayList<ActionSpace> getAllSpace() {
+		return multipleActionSpace;
 	}
 	
 	@Override

@@ -7,14 +7,14 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class BoardView extends ViewComponent {
 
-	private ArrayList<TowerView> towerViews;
-	private HarvestView harvestView;
-	private ProductionView productionView;
-	private DiceView diceView;
-	private CouncilPalaceView councilPalaceView;
+	protected ArrayList<TowerView> towerViews = new ArrayList<>(); 
+	protected HarvestView harvestView;
+	protected ProductionView productionView;
+	protected DiceView diceView;
+	protected CouncilPalaceView councilPalaceView;
 	
 	public BoardView() {
-		
+	
 	}
 	
 	public void update(Board board) {

@@ -12,10 +12,10 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 
 public abstract class View extends Thread implements ViewInterface {
 	
-	private Console console;
-	private EventHandler<String> inputChangeEvent = new EventHandler<>();
-	private PlayerView you;
-	private BoardView boardView;
+	protected Console console;
+	protected EventHandler<String> inputChangeEvent = new EventHandler<>();
+	protected PlayerView you;
+	protected BoardView boardView;
 	
 	public View() {
 
@@ -35,10 +35,6 @@ public abstract class View extends Thread implements ViewInterface {
 	
 	public void inputChangeEvent(EventListener<String> listener){
 		this.inputChangeEvent.attach(listener);
-	}
-
-	public void print(){
-		
 	}
 	
 

@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class CardView extends ViewComponent {
 
-	private Card card;
+	protected Card card;
 	
 	public void update(Card card){
 		this.card = card;
