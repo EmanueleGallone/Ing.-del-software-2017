@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gab;
+package it.polimi.ingsw.ps11.gab.modelTest;
 
 import it.polimi.ingsw.ps11.model.game.Game;
 

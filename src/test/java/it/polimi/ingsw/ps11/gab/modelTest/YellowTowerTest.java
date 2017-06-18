@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gab;
+package it.polimi.ingsw.ps11.gab.modelTest;
 
 import static org.junit.Assert.*;
 
@@ -17,10 +17,10 @@ import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
-public class PurpleTowerTest {
+public class YellowTowerTest {
 	
 	NeutralFamilyMember NfamilyMember;
-	PurpleTower pTower;
+	YellowTower yTower;
 	
 	BlackFamilyMember BfamilyMember;
 	Floor floor;
@@ -33,7 +33,7 @@ public class PurpleTowerTest {
 	public void setting(){
 		//se creo un arraylist con 5 floors e poi li passo al costruttore della torre, questo non fa il check. DA AGGIUNGERE
 		NfamilyMember = new NeutralFamilyMember();
-		pTower = new PurpleTower();
+		yTower = new YellowTower();
 		BfamilyMember = new BlackFamilyMember();
 		floor = new Floor();
 		
@@ -42,20 +42,20 @@ public class PurpleTowerTest {
 	@Test
 	public void FloorTest(){
 		
-		assertEquals(4, pTower.getMaxFloors());
+		assertEquals(4, yTower.getMaxFloors());
 		
 		exception.expectMessage("Non hai selezionato un piano corretto");
-		pTower.getFloor(4);
+		yTower.getFloor(4);
 		
-		assertEquals(pTower.getMaxFloors(), pTower.getFloors().size());
-		assertEquals(4, pTower.getFloors().size());
-		pTower.addFloor(floor);
-		assertEquals(4, pTower.getFloors().size());
+		assertEquals(yTower.getMaxFloors(), yTower.getFloors().size());
+		assertEquals(4, yTower.getFloors().size());
+		yTower.addFloor(floor);
+		assertEquals(4, yTower.getFloors().size());
 		
-		assertTrue(pTower.isFree());
-		pTower.getFloor(3).placeFamilyMember(new BlackFamilyMember(), new Player());
-		assertFalse(pTower.getFloor(3).getActionSpace().isFree());
-		assertFalse(pTower.isFree());
+		assertTrue(yTower.isFree());
+		yTower.getFloor(3).placeFamilyMember(new BlackFamilyMember(), new Player());
+		assertFalse(yTower.getFloor(3).getActionSpace().isFree());
+		assertFalse(yTower.isFree());
 	}
 	
 }

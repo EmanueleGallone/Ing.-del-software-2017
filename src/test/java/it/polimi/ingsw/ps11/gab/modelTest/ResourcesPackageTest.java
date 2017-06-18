@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gab;
+package it.polimi.ingsw.ps11.gab.modelTest;
 
 import static org.junit.Assert.*;
 
@@ -19,7 +19,10 @@ import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 public class ResourcesPackageTest {
-
+	
+	/* UNA RESOURCLIST CON SOLO 1 COIN è GREATEREQUALS DI UNA CON 1 COIN E ALTRE RISORSE? 
+	 */
+	
 	ResourceList emptyResourceList;
 	ResourceList resourceListCoin;
 	ResourceList resourceListServant;
@@ -130,6 +133,10 @@ public class ResourcesPackageTest {
 		assertTrue(resourceListWood.greaterEquals(resourceListCoin));
 		assertTrue(mixed1.greaterEquals(mixed2));
 		assertTrue(mixed2.greaterEquals(mixed1));
+		assertTrue(mixed1.greaterEquals(resourceListCoin));
+		System.out.println(resourceListCoin.toString());
+		System.out.println(mixed1.toString());
+		assertTrue(resourceListCoin.greaterEquals(mixed1));
 		
 		assertTrue(resourceListCoin.greaterEquals(resourceListCoin));		//OGNI RESOURCELIST è >= A SE STESSA
 		assertTrue(emptyResourceList.greaterEquals(emptyResourceList));
@@ -204,6 +211,8 @@ public class ResourcesPackageTest {
 		emptyResourceList.sum(resourceListCoin);
 		emptyResourceList.sum(resourceListWood);
 		assertTrue(emptyResourceList.equals(mixed1));
+		
+		assertFalse(mixed1.equals(mixed2));
 
 	}
 }
