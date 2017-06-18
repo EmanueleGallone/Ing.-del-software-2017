@@ -8,10 +8,12 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 public abstract class TowerView extends ViewComponent {
 
 	private String tower;
+	protected String towerName;
 	protected ArrayList<FloorView> floors = new ArrayList<>();
 	
 	public TowerView(Class<? extends Tower> towerColor) {
 		this.tower = towerColor.toString();
+		towerName = towerColor.getSimpleName();
 	}
 	
 	public String getTower() {

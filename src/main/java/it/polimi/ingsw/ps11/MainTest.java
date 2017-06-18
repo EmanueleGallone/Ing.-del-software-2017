@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 import com.google.gson.reflect.TypeToken;
 
+import it.polimi.ingsw.ps11.controller.client.Client;
+import it.polimi.ingsw.ps11.controller.client.network.socket.SocketClient;
 import it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
@@ -20,7 +22,10 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.player.Colors;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -32,9 +37,10 @@ import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Floor;
+import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
@@ -47,9 +53,25 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		
+		
+		Player player = new Player();
+		player.setName("Giocatore 1");
+		player.setColor(Colors.RED);
+		
+		Player player2 = new Player();
+		player2.setName("Giocatore 2");
+		player2.setColor(Colors.GREEN);
+		
+		ArrayList<Player> players = new ArrayList<>();
+		players.add(player);
+		players.add(player2);
+		
+		Game game = new Game(players);
 		View view = new TextualView();
 		
-		Board board = new Board();
+		Client client = new SocketClient(view);
+		
+		client.temp(game, player2);
 		
 		//inizializzaCarte();
 	
@@ -126,7 +148,7 @@ public class MainTest {
 	
  
  
-	public static void inizializzatore(){
+	public static Board inizializzatore(){
 		
 		ArrayList<Class<?>> list = new ArrayList<>();
 		list.add(DevelopmentCard.class);
@@ -193,7 +215,7 @@ public class MainTest {
 		
  // ________ MARKET ________________________________________________
 		
-		MultipleActionSpace market = new MultipleActionSpace();
+		Market market = new Market(2);
 		//ArrayList<ActionSpace> list2 = new ArrayList<>();
 		
 		resource = new ResourceList();
@@ -225,10 +247,9 @@ public class MainTest {
   // ___________________________________________________
 		
 		
-		//Board board = new Board(towers,market,new ActionSpace());
-		
+		Board board = new Board(towers, market, new CouncilPalace());
 		//writeFile("settings\\board", gAdapter.toJson(board));
-		
+		return board;
 	}
 	
 	public static void inizializzaCarte(){

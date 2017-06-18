@@ -18,6 +18,7 @@ public class TextualTowerView extends TowerView {
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
+		console.println(towerName + "\n");
 		for(FloorView f : floors){
 			f.print();
 		}

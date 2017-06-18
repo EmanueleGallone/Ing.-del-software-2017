@@ -14,6 +14,9 @@ public class TextualFloorView extends FloorView {
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		console.println( whichFloor + " Card: " + floor.getCard().getName() +" ActionCost: " + floor.getActionSpace().getActionCost());
+		String card = "None";
+		if (floor.getCard() != null)
+			card = floor.getCard().getName();
+		console.println( "Floor " + (whichFloor + 1) + "           Card: " + card +"           ActionCost: " + floor.getActionSpace().getActionCost());
 	}
 }

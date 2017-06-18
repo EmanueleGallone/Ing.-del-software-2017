@@ -5,6 +5,8 @@ import it.polimi.ingsw.ps11.controller.server.events.StartGameEvent;
 import it.polimi.ingsw.ps11.controller.server.events.UpdatePlayerEvent;
 import it.polimi.ingsw.ps11.controller.server.network.RemoteServer;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public abstract class Client implements Runnable {
@@ -30,6 +32,9 @@ public abstract class Client implements Runnable {
 		server.startGameEvent(startGameListener);
 	}
 	
+	public void temp (Game game, Player player){
+		startGameListener.handle(new StartGameEvent(game, player));
+	}
 	
 	private EventListener<PrintEvent> printListener = new EventListener<PrintEvent>() {
 		
@@ -45,6 +50,7 @@ public abstract class Client implements Runnable {
 		public void handle(StartGameEvent e) {
 			view.update(e.getPlayer());
 			view.update(e.getGame());
+			view.print();
 		}
 	};
 	

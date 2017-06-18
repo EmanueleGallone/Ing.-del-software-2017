@@ -9,9 +9,10 @@ public class TextualDiceView extends DiceView {
 	public void print() {
 		TextualConsole console = new TextualConsole();
 		console.println("Dices");
-		console.print("Black: " + dices.getBlackDice().getValue() + " White" + dices.getWhiteDice().getValue() +
-				" Orange: " + dices.getOrangeDice().getValue()
+		console.print("Black: " + dices.getBlackDice().getValue() + "\t White " + dices.getWhiteDice().getValue() +
+				"\t Orange: " + dices.getOrangeDice().getValue()
 				);
+		console.print("\n");
 	}
 
 }

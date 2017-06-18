@@ -13,6 +13,10 @@ public class Market extends MultipleActionSpace  {
 		this.playerNumber = playerNumber;
 	}
 	
+	public void setPlayerNumber(int playerNumber) {
+		this.playerNumber = playerNumber;
+	}
+	
 	@Override
 	public ActionSpace getActionSpace(int index) throws IllegalArgumentException {
 	

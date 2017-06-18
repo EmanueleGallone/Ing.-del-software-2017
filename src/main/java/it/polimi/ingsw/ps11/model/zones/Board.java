@@ -59,6 +59,10 @@ public class Board {
 		return councilPalace;
 	}
 	
+	public Market getMarket() {
+		return market;
+	}
+	
 	public Production getProduction() {
 		return production;
 	}

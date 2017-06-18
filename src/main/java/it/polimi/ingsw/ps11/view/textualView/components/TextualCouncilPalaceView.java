@@ -11,9 +11,11 @@ public class TextualCouncilPalaceView extends CouncilPalaceView{
 		TextualConsole console = new TextualConsole();
 		
 		console.println("Council Palace");
+		console.print( "Player: ");
 		for(ActionSpace space : councilPalace.getAllSpace()){
 			console.print( space.getOwner().getName() + "   ");
 		}
+		console.print("\n");
 	}
 
 }

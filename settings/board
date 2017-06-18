@@ -1,14 +1,11 @@
 {
   "towers": {
-    "class it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.YellowTower",
+    "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
       "INSTANCE": {
-        "MAX_FLOORS": 4,
         "floors": [
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 1,
               "resources": {
                 "resources": {}
@@ -17,8 +14,6 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 3,
               "resources": {
                 "resources": {}
@@ -27,50 +22,29 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 5,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
-                    "INSTANCE": {
-                      "value": 1
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 7,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
-                    "INSTANCE": {
-                      "value": 2
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           }
         ]
       }
     },
-    "class it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.PurpleTower",
+    "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
       "INSTANCE": {
-        "MAX_FLOORS": 4,
         "floors": [
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 1,
               "resources": {
                 "resources": {}
@@ -79,8 +53,6 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 3,
               "resources": {
                 "resources": {}
@@ -89,50 +61,29 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 5,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                    "INSTANCE": {
-                      "value": 1
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 7,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
-                    "INSTANCE": {
-                      "value": 2
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           }
         ]
       }
     },
-    "class it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.GreenTower",
+    "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
       "INSTANCE": {
-        "MAX_FLOORS": 4,
         "floors": [
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 1,
               "resources": {
                 "resources": {}
@@ -141,8 +92,6 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 3,
               "resources": {
                 "resources": {}
@@ -151,50 +100,29 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 5,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-                    "INSTANCE": {
-                      "value": 1
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 7,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
-                    "INSTANCE": {
-                      "value": 2
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           }
         ]
       }
     },
-    "class it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.cranio.zones.towers.BlueTower",
+    "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
       "INSTANCE": {
-        "MAX_FLOORS": 4,
         "floors": [
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 1,
               "resources": {
                 "resources": {}
@@ -203,8 +131,6 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 3,
               "resources": {
                 "resources": {}
@@ -213,86 +139,89 @@
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 5,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-                    "INSTANCE": {
-                      "value": 1
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           },
           {
             "actionSpace": {
-              "MAX_AVAILABLE_SPACE": 1,
-              "familyMembers": [],
               "cost": 7,
               "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
-                    "INSTANCE": {
-                      "value": 2
-                    }
-                  }
-                }
+                "resources": {}
               }
             }
           }
         ]
+      }
+    }
+  },
+  "diceManager": {
+    "blackDice": {
+      "value": 0,
+      "gen": {
+        "seed": {
+          "value": 73827874730890
+        },
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
+      }
+    },
+    "whiteDice": {
+      "value": 0,
+      "gen": {
+        "seed": {
+          "value": 270809145603072
+        },
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
+      }
+    },
+    "orangeDice": {
+      "value": 0,
+      "gen": {
+        "seed": {
+          "value": 82083503437089
+        },
+        "nextNextGaussian": 0.0,
+        "haveNextNextGaussian": false
       }
     }
   },
   "harvest": {
-    "actionSpace": {
-      "MAX_AVAILABLE_SPACE": 1,
-      "familyMembers": [],
+    "singleActionSpace": {
       "cost": 1,
       "resources": {
         "resources": {}
       }
     },
     "multipleActionSpace": {
-      "familyMembers": [],
-      "cost": 3,
-      "resources": {
-        "resources": {}
-      }
+      "multipleActionSpace": []
     }
   },
   "production": {
-    "actionSpace": {
-      "MAX_AVAILABLE_SPACE": 1,
-      "familyMembers": [],
+    "singleActionSpace": {
       "cost": 1,
       "resources": {
         "resources": {}
       }
     },
     "multipleActionSpace": {
-      "familyMembers": [],
-      "cost": 3,
-      "resources": {
-        "resources": {}
-      }
+      "multipleActionSpace": []
     }
   },
   "market": {
-    "market": [
+    "THRESHOLD": 2,
+    "MAX_NUMBER": 4,
+    "playerNumber": 2,
+    "multipleActionSpace": [
       {
-        "MAX_AVAILABLE_SPACE": 1,
-        "familyMembers": [],
         "cost": 1,
         "resources": {
           "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
               "INSTANCE": {
                 "value": 5
               }
@@ -301,13 +230,11 @@
         }
       },
       {
-        "MAX_AVAILABLE_SPACE": 1,
-        "familyMembers": [],
         "cost": 1,
         "resources": {
           "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+            "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
               "INSTANCE": {
                 "value": 5
               }
@@ -316,19 +243,17 @@
         }
       },
       {
-        "MAX_AVAILABLE_SPACE": 1,
-        "familyMembers": [],
         "cost": 1,
         "resources": {
           "resources": {
-            "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+            "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
               "INSTANCE": {
                 "value": 2
               }
             },
-            "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+            "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
               "INSTANCE": {
                 "value": 3
               }
@@ -339,10 +264,6 @@
     ]
   },
   "councilPalace": {
-    "familyMembers": [],
-    "cost": 1,
-    "resources": {
-      "resources": {}
-    }
+    "multipleActionSpace": []
   }
 }

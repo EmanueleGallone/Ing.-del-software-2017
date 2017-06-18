@@ -27,14 +27,19 @@ public class TextualBoardView extends BoardView {
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		console.println("Board: ");
+		console.println("\t\t\tBoard \n");
 		for(TowerView towerView : towerViews){
 			towerView.print();
+			console.print("\n");
 		}
 		harvestView.print();
+		console.print("\n");
 		productionView.print();
+		console.print("\n");
 		councilPalaceView.print();
+		console.print("\n");
 		diceView.print();
+		console.print("\n");
 	}
 
 }

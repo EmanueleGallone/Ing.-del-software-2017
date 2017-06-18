@@ -13,9 +13,11 @@ public class TextualProductionView extends ProductionView {
 		
 		console.println("Production");
 		Player player = production.getSingleActionSpace().getOwner();
-		if (player == null)
-			player.setName("nobody");
-		console.print("Single space: " + player.getName()+ " " + "Multiple space: ");
+		String pString = "Nobody";
+		if (player != null){
+			pString = player.getName();
+		}
+		console.println("Single space: " + pString + " " + "\tMultiple space: ");
 		for(ActionSpace space : production.getMultipleActionSpace().getAllSpace()){
 			console.print(space.getOwner().getName() + " ");
 		}
