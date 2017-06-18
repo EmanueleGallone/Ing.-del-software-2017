@@ -18,13 +18,9 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 public class Game implements Serializable  {
 	
 	private Board board;
-	private RoundManager roundManager;
+	private transient RoundManager roundManager;
 
-	private ActionHandler actions = new ActionHandler();
-	
-	public Game() {
-		// TODO Auto-generated constructor stub
-	}
+	private transient ActionHandler actions = new ActionHandler();
 	
 	public Game(ArrayList<Player> players) {
 		
@@ -76,7 +72,7 @@ public class Game implements Serializable  {
 	}
 	
 	
-	private EventListener<RoundManager> newTurnListener = new EventListener<RoundManager>() {
+	private transient EventListener<RoundManager> newTurnListener = new EventListener<RoundManager>() {
 
 		@Override
 		public void handle(RoundManager e) {
@@ -89,7 +85,7 @@ public class Game implements Serializable  {
 		}
 	};
 	
-	private EventListener<RoundManager> newPeriodListener = new EventListener<RoundManager>() {
+	private transient EventListener<RoundManager> newPeriodListener = new EventListener<RoundManager>() {
 
 		@Override
 		public void handle(RoundManager e) {

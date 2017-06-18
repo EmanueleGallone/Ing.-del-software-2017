@@ -73,6 +73,7 @@ public class MainTest {
 		//System.out.println(gString);
 		
 		Game game2 = adapter.fromJson(gString, Game.class);
+		System.out.println(game2.getBoard());
 		/*
 		View view = new TextualView();
 		YellowCard card = new YellowCard();
