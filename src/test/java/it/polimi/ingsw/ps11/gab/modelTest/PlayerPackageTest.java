@@ -12,8 +12,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
 
 public class PlayerPackageTest {
 
-	/* LA CLONE DEVE COPIARE ANCHE IL COLORE DEL GIOCATORE
-	 * 
+	/* 1) LA CLONE DEVE COPIARE ANCHE IL COLORE DEL GIOCATORE
 	 */
 	
 	public Player player1;

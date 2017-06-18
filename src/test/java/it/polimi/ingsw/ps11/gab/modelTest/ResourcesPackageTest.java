@@ -20,7 +20,7 @@ import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 public class ResourcesPackageTest {
 	
-	/* UNA RESOURCLIST CON SOLO 1 COIN è GREATEREQUALS DI UNA CON 1 COIN E ALTRE RISORSE? 
+	/* 1) UNA RESOURCLIST CON SOLO 1 COIN è GREATEREQUALS DI UNA CON 1 COIN E ALTRE RISORSE? 
 	 */
 	
 	ResourceList emptyResourceList;
