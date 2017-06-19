@@ -17,5 +17,17 @@ public class TextualView extends View {
 		boardView.print();
 		you.print();
 	}
+
+	@Override
+	public void run() {
+		String input;
+		while (!(input = console.read()).equals("q")){
+			selectComponent(input);
+		}
+	}
+	
+	public void selectComponent(String input){
+		
+	}
 	
 }

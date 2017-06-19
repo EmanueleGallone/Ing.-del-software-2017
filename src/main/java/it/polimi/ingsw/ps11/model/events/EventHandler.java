@@ -20,4 +20,11 @@ public class EventHandler<PARAMETER_TYPE> implements Serializable {
 			listener.handle(parameter);
 		}
 	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		EventHandler<PARAMETER_TYPE> clone = new EventHandler<>();
+		clone.eventListeners = (ArrayList<EventListener<PARAMETER_TYPE>>) this.eventListeners.clone();
+		return clone;
+	}
 }

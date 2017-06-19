@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.view.viewGenerica;
 
-import it.polimi.ingsw.ps11.model.events.EventHandler;
-import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
@@ -10,33 +8,16 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 
-public abstract class View extends Thread implements ViewInterface {
+public abstract class View implements ViewInterface, Runnable {
 	
 	protected Console console;
-	protected EventHandler<String> inputChangeEvent = new EventHandler<>();
 	protected PlayerView you;
 	protected BoardView boardView;
 	
 	public View() {
 		
 	}
-	
-	@Override
-	public void run() {
-		
-		console.println("View started");
-		
-		String input;
-		while (!(input = console.read()).equals("quit")) {
-			inputChangeEvent.invoke(input);
-		}
-		console.println("\nQuit game\n");
-	}
-	
-	public void inputChangeEvent(EventListener<String> listener){
-		this.inputChangeEvent.attach(listener);
-	}
-	
+
 
 	@Override
 	public void out(String message) {
