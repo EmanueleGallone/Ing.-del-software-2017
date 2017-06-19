@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 public class SocketClient extends Client {
 	
 	protected int port = 2099;
-	protected String serverAddress = "192.168.1.67";
+	protected String serverAddress = "localhost";
 	
 	public SocketClient(View view){
 		super(view);

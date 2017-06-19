@@ -15,7 +15,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class RMIClient extends Client {
 	
-	private final static String DEFAULT_SERVER =  "//192.168.1.67/myServer";
+	private final static String DEFAULT_SERVER =  "//localhost/myServer";
 	
 	protected String serverName;
 	

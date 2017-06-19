@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.view.Swing;
+package it.polimi.ingsw.ps11.view.graphicView;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;

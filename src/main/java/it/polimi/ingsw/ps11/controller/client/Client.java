@@ -5,6 +5,7 @@ import it.polimi.ingsw.ps11.controller.server.events.StartGameEvent;
 import it.polimi.ingsw.ps11.controller.server.events.UpdatePlayerEvent;
 import it.polimi.ingsw.ps11.controller.server.network.RemoteServer;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
@@ -14,10 +15,11 @@ public abstract class Client implements Runnable {
 	private View view;
 	protected RemoteServer server;
 	
+	EventManager manager = new EventManager();
+	
 	public Client(View view) {
 		this.view = view;
 	}
-
 	
 	public abstract void start() throws InternalError;
 	
