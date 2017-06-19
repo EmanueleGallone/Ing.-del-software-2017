@@ -76,16 +76,6 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		return this.equals(resourceList) || !resourceList.greaterEquals(this);
 	}
 	
-	@Override
-	public ResourceList clone() {
-		ResourceList clone = new ResourceList();
-		
-		for(Resource resource : this.resources.values())
-			clone.setResource(resource.clone());
-		
-		return clone;
-	}
-	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -156,6 +146,16 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 			stringa = stringa + r + " : " +  resources.get(r).getValue() + " | ";
 		}
 		return stringa;
+	}
+	
+	@Override
+	public ResourceList clone() {
+		ResourceList clone = new ResourceList();
+		
+		for(Resource resource : this.resources.values())
+			clone.setResource(resource.clone());
+		
+		return clone;
 	}
 	
 }
