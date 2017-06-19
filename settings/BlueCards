@@ -4,8 +4,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -23,8 +23,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -34,12 +34,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 4
                 }
@@ -58,8 +58,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -77,8 +77,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -88,12 +88,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -112,8 +112,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -124,7 +124,7 @@
     "instantBonus": [],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus",
         "INSTANCE": {
           "harvestActivationValue": 2
         }
@@ -138,8 +138,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -150,7 +150,7 @@
     "instantBonus": [],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus",
         "INSTANCE": {
           "productionActiveValue": 2
         }
@@ -164,8 +164,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -183,8 +183,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -194,12 +194,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -218,8 +218,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 5
             }
@@ -229,12 +229,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -253,8 +253,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -265,7 +265,7 @@
     "instantBonus": [],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus",
         "INSTANCE": {
           "harvestActivationValue": 3
         }
@@ -279,8 +279,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 5
             }
@@ -290,12 +290,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -314,8 +314,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -333,8 +333,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -344,12 +344,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 2
                 }
@@ -368,8 +368,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -380,7 +380,7 @@
     "instantBonus": [],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus",
         "INSTANCE": {
           "productionActiveValue": 3
         }
@@ -394,8 +394,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -413,8 +413,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -424,12 +424,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -448,8 +448,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -459,12 +459,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 2
                 }
@@ -474,7 +474,7 @@
         }
       },
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableHarvestBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus",
         "INSTANCE": {
           "harvestActivationValue": 4
         }
@@ -489,8 +489,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 6
             }
@@ -508,8 +508,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 5
             }
@@ -519,12 +519,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -534,7 +534,7 @@
         }
       },
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.EnableProductionBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus",
         "INSTANCE": {
           "productionActiveValue": 4
         }
@@ -549,8 +549,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 6
             }
@@ -560,12 +560,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -584,8 +584,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 7
             }
@@ -603,8 +603,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 5
             }
@@ -622,8 +622,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 6
             }
@@ -641,8 +641,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 6
             }

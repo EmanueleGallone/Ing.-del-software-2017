@@ -5,8 +5,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -15,8 +15,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -25,8 +25,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 4
             }
@@ -36,12 +36,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 9
                 }
@@ -53,20 +53,20 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
-                "INSTANCE": {
-                  "value": 2
-                }
-              },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 1
+                }
+              },
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+                "INSTANCE": {
+                  "value": 2
                 }
               }
             }
@@ -83,8 +83,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -93,8 +93,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 3
             }
@@ -103,8 +103,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 1
             }
@@ -114,12 +114,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 9
                 }
@@ -139,8 +139,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+          "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
             "INSTANCE": {
               "value": 1
             }
@@ -149,8 +149,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -159,8 +159,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -170,12 +170,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 7
                 }
@@ -195,8 +195,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 4
             }
@@ -205,8 +205,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 3
             }
@@ -216,12 +216,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 8
                 }
@@ -241,8 +241,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 4
             }
@@ -251,8 +251,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 4
             }
@@ -262,18 +262,18 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 7
                 }
               },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -285,12 +285,12 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -309,8 +309,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 1
             }
@@ -319,8 +319,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 4
             }
@@ -330,18 +330,18 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 5
                 }
               },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -361,8 +361,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 3
             }
@@ -371,8 +371,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 1
             }
@@ -381,8 +381,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 3
             }
@@ -392,12 +392,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 7
                 }
@@ -409,12 +409,12 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
                   "value": 5
                 }
@@ -433,8 +433,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Servant": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Servant",
+          "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
             "INSTANCE": {
               "value": 2
             }
@@ -443,8 +443,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 4
             }
@@ -453,8 +453,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -464,12 +464,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 10
                 }
@@ -481,12 +481,12 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -505,8 +505,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 1
             }
@@ -515,8 +515,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 1
             }
@@ -526,12 +526,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -551,8 +551,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 3
             }
@@ -562,12 +562,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 4
                 }
@@ -587,8 +587,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -597,8 +597,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -607,8 +607,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -618,12 +618,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 8
                 }
@@ -635,18 +635,18 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 2
                 }
               },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.MilitaryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
                   "value": 2
                 }
@@ -665,8 +665,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 3
             }
@@ -676,18 +676,18 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 2
                 }
               },
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -707,8 +707,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -717,8 +717,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 1
             }
@@ -728,12 +728,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -753,8 +753,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 4
             }
@@ -764,12 +764,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 5
                 }
@@ -789,8 +789,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 1
             }
@@ -799,8 +799,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -810,12 +810,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 4
                 }
@@ -835,8 +835,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 4
             }
@@ -846,12 +846,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 6
                 }
@@ -871,8 +871,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 1
             }
@@ -881,8 +881,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -892,12 +892,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 2
                 }
@@ -917,8 +917,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -928,12 +928,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -945,12 +945,12 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.ResourceExchangeBonus",
         "INSTANCE": {
           "exchanger": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -959,8 +959,8 @@
           },
           "exchangeable": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.FaithPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -979,8 +979,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 1
             }
@@ -989,8 +989,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -1000,12 +1000,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 3
                 }
@@ -1025,8 +1025,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 1
             }
@@ -1035,8 +1035,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 3
             }
@@ -1046,12 +1046,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 5
                 }
@@ -1063,19 +1063,19 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
                   "value": 1
                 }
               }
             }
           },
-          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.YellowCard"
+          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard"
         }
       }
     ],
@@ -1088,8 +1088,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -1098,8 +1098,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -1109,12 +1109,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 6
                 }
@@ -1126,19 +1126,19 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 1
                 }
               }
             }
           },
-          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.PurpleCard"
+          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard"
         }
       }
     ],
@@ -1151,8 +1151,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 3
             }
@@ -1161,8 +1161,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 1
             }
@@ -1172,12 +1172,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 5
                 }
@@ -1189,19 +1189,19 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
                   "value": 1
                 }
               }
             }
           },
-          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.GreenCard"
+          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard"
         }
       }
     ],
@@ -1214,8 +1214,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
             "INSTANCE": {
               "value": 2
             }
@@ -1224,8 +1224,8 @@
       },
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Wood",
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
             "INSTANCE": {
               "value": 2
             }
@@ -1235,12 +1235,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 6
                 }
@@ -1252,19 +1252,19 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.GainResourceForEveryCardYouHave",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 1
                 }
               }
             }
           },
-          "cardType": "class it.polimi.ingsw.ps11.cranio.cards.list.BlueCard"
+          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard"
         }
       }
     ],
@@ -1277,8 +1277,8 @@
     "costs": [
       {
         "resources": {
-          "class it.polimi.ingsw.ps11.cranio.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Stone",
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
             "INSTANCE": {
               "value": 2
             }
@@ -1288,12 +1288,12 @@
     ],
     "instantBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
         "INSTANCE": {
           "resourceList": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.VictoryPoint",
+              "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -1305,12 +1305,12 @@
     ],
     "permanentBonus": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.cranio.bonus.ResourceExchangeBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.ResourceExchangeBonus",
         "INSTANCE": {
           "exchanger": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.Coin": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.Coin",
+              "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
                   "value": 1
                 }
@@ -1319,8 +1319,8 @@
           },
           "exchangeable": {
             "resources": {
-              "class it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.cranio.resources.list.CouncilPrivilege",
+              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
                 "INSTANCE": {
                   "value": 1
                 }

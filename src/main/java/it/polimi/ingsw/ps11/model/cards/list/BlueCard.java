@@ -46,7 +46,7 @@ public class BlueCard extends DevelopmentCard {
 		if(obj == null)
 			return false;
 		
-		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((YellowCard) obj).getName()))
+		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((BlueCard) obj).getName()))
 				return true;
 		
 		return false;

@@ -27,7 +27,7 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 	
 	public boolean contains(Player player){
 		for(ActionSpace a: multipleActionSpace){
-			if(a.getOwner().equals(player)){
+			if(a.getOwner() != null && a.getOwner().equals(player) ){
 				return true;
 			}
 		}
