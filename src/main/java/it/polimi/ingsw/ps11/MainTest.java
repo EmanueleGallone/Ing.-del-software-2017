@@ -20,6 +20,7 @@ import it.polimi.ingsw.ps11.model.bonus.ResourceExchangeBonus;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.game.Game;
@@ -1582,7 +1583,145 @@ public class MainTest {
 		
 		//FINE CARTE BLU
 		
+		//INIZIO CARTE LEADER
 		
+		LeaderCard francescoSforza = new LeaderCard("Francesco Sforza");
+		francescoSforza.setCounter(5);
+		francescoSforza.setCardClass(PurpleCard.class.toString());
+		//effetto: effettua una azione raccolto con valore 1 una volta per turno;
+		
+		LeaderCard ludovicoAriosto = new LeaderCard("Ludovico Ariosto"); //io questa carta non la includerei proprio nel gioco
+		ludovicoAriosto.setCounter(5);
+		ludovicoAriosto.setCardClass(BlueCard.class.toString());
+		//effetti: puoi posizionare in uno spazio azione già occupato; permanente
+		
+		LeaderCard filippoBrunelleschi = new LeaderCard("Filippo Brunelleschi");
+		filippoBrunelleschi.setCounter(5);
+		filippoBrunelleschi.setCardClass(YellowCard.class.toString());
+		//effetti: non paghi più le 3 monete se posizioni il familiare in una torre già occupata; permanente
+		
+		LeaderCard federicoDaMontefeltro = new LeaderCard("Federico Da Montefeltro");
+		federicoDaMontefeltro.setCounter(5);
+		federicoDaMontefeltro.setCardClass(GreenCard.class.toString());
+		//effetto : un familiare ha valore 6 una volta per turno
+		
+		LeaderCard girolamoSavonarola = new LeaderCard("Girolamo Savonarola");
+		resourceList = new ResourceList(new Coin(18));
+		girolamoSavonarola.setRequirement(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(1));
+		girolamoSavonarola.setBonus(new IncrementResourceBonus(resourceList.clone())); //effetto : guadagni 1 punto fede
+		
+		LeaderCard giovanniDalleBandeNere = new LeaderCard("Giovanni Dalle Bande Nere");
+		resourceList = new ResourceList(new MilitaryPoint(12));
+		giovanniDalleBandeNere.setRequirement(resourceList.clone());
+		resourceList = new ResourceList(new Stone(1));
+		resourceList.setResource(new Wood(1));
+		resourceList.setResource(new Coin(1));
+		giovanniDalleBandeNere.setBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		LeaderCard sandroBotticelli = new LeaderCard("Sandro Botticelli");
+		resourceList = new ResourceList(new Wood(10));
+		sandroBotticelli.setRequirement(resourceList.clone());
+		resourceList = new ResourceList(new MilitaryPoint(2));
+		resourceList.setResource(new VictoryPoint(1));
+		sandroBotticelli.setBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		LeaderCard michelangeloBuonarroti = new LeaderCard("Michelangelo Buonarroti");
+		resourceList = new ResourceList(new Stone(10));
+		michelangeloBuonarroti.setRequirement(resourceList.clone());
+		resourceList = new ResourceList(new Coin(3));
+		michelangeloBuonarroti.setBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		LeaderCard ludovicoIIIGonzaga = new LeaderCard("Ludovico III Gonzaga");
+		resourceList = new ResourceList(new Servant(15));
+		ludovicoIIIGonzaga.setRequirement(resourceList.clone());
+		resourceList = new ResourceList(new CouncilPrivilege(1));
+		ludovicoAriosto.setBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		LeaderCard leonardoDaVinci = new LeaderCard("Leonardo Da Vinci");
+		//PARTICOLARE. vuole 2 carte verdi e 4 gialle.
+		//effetto: attiva produzione di livello 0
+		
+		LeaderCard picoDellaMirandola = new LeaderCard("Pico Della Mirandola");
+		//Anche lui particolare. vuole 4 viola e 2 gialle.
+		//effetto : quando prendi carte hai uno sconto di 3 monete se devi pagarne
+		
+		LeaderCard sistoIV = new LeaderCard("Sisto IV");
+		resourceList = new ResourceList(new Wood(6));
+		resourceList.setResource(new Stone(6));
+		resourceList.setResource(new Servant(6));
+		resourceList.setResource(new Coin(6));
+		sistoIV.setRequirement(resourceList.clone());
+		//guadagni 5 punti vittoria ogni volta che mostri sostegno alla chiesa
+		
+		LeaderCard lucreziaBorgia = new LeaderCard("Lucrezia Borgia");
+		//richiede 6 carte dello stesso tipo
+		//ensures +2 sui dadi
+		
+		LeaderCard sigismondoMalatesta = new LeaderCard("Sigismondo Malatesta");
+		resourceList = new ResourceList(new MilitaryPoint(7));
+		resourceList.setResource(new FaithPoint(3));
+		sigismondoMalatesta.setRequirement(resourceList.clone());
+		//il neutrale ha permanentemente +3
+		
+		LeaderCard lorenzoDeMedici = new LeaderCard("Lorenzo de' Medici");
+		resourceList = new ResourceList(new VictoryPoint(35));
+		//copia l'abilita' di un altro leader
+		
+		LeaderCard ludovicoIlMoro = new LeaderCard("Ludovico Il Moro");
+		//vuole 2 carte per tipo
+		//setta i familiari colorati permanentemente a 5
+		
+		LeaderCard cesareBorgia = new LeaderCard("Cesare Borgia");
+		resourceList.setResource(new Coin(12));
+		resourceList.setResource(new FaithPoint(2));
+		cesareBorgia.setRequirement(resourceList.clone());
+		cesareBorgia.setCounter(3);
+		cesareBorgia.setCardClass(YellowCard.class.toString()); //vuole 3 carte gialle
+		//ensures quando prendi le carte verdi non devi soddisfare il requisito sui MilitaryPoints
+		
+		LeaderCard santaRita = new LeaderCard("Santa Rita");
+		resourceList = new ResourceList(new FaithPoint(8));
+		santaRita.setRequirement(resourceList.clone());
+		//ensures ogni volta che prendi instantBonus ricevi il bonus 2 volte
+		
+		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de' Medici");
+		//requires 2 carte blue e 4 gialle
+		resourceList = new ResourceList(new Servant(3));
+		resourceList.setResource(new VictoryPoint(1));
+		cosimoDeMedici.setBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		LeaderCard bartolomeoColleoni = new LeaderCard("Bartolomeo Colleoni");
+		//richiede 2 carte viola e 4 verdi;
+		resourceList = new ResourceList(new VictoryPoint(4));
+		bartolomeoColleoni.setBonus(new IncrementResourceBonus(resourceList.clone()));
+		
+		ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
+		type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
+		
+		leaderCards.add(francescoSforza);
+		leaderCards.add(ludovicoAriosto);
+		leaderCards.add(filippoBrunelleschi);
+		leaderCards.add(federicoDaMontefeltro);
+		leaderCards.add(girolamoSavonarola);
+		leaderCards.add(giovanniDalleBandeNere);
+		leaderCards.add(sandroBotticelli);
+		leaderCards.add(michelangeloBuonarroti);
+		leaderCards.add(ludovicoIIIGonzaga);
+		leaderCards.add(leonardoDaVinci);
+		leaderCards.add(picoDellaMirandola);
+		leaderCards.add(sistoIV);
+		leaderCards.add(lucreziaBorgia);
+		leaderCards.add(sigismondoMalatesta);
+		leaderCards.add(lorenzoDeMedici);
+		leaderCards.add(ludovicoIlMoro);
+		leaderCards.add(cesareBorgia);
+		leaderCards.add(santaRita);
+		leaderCards.add(cosimoDeMedici);
+		leaderCards.add(bartolomeoColleoni);
+		
+		writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
+		//FINE LEADER CARDS
 	}
 	
 }

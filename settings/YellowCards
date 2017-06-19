@@ -2,6 +2,7 @@
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -74,12 +75,12 @@
         }
       }
     ],
-    "name": "Castelletto",
-    "period": 3
+    "name": "Castelletto"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -130,12 +131,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Palazzo",
-    "period": 3
+    "name": "Palazzo"
   },
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -186,12 +187,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Accademia Militare",
-    "period": 3
+    "name": "Accademia Militare"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -232,12 +233,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Fiera",
-    "period": 3
+    "name": "Fiera"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -300,12 +301,12 @@
         }
       }
     ],
-    "name": "Cattedrale",
-    "period": 3
+    "name": "Cattedrale"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -352,12 +353,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Basilica",
-    "period": 3
+    "name": "Basilica"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -424,12 +425,12 @@
         }
       }
     ],
-    "name": "Banca",
-    "period": 3
+    "name": "Banca"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -496,12 +497,12 @@
         }
       }
     ],
-    "name": "Giardino",
-    "period": 3
+    "name": "Giardino"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -542,12 +543,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Caserma",
-    "period": 2
+    "name": "Caserma"
   },
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -578,12 +579,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Tesoreria",
-    "period": 2
+    "name": "Tesoreria"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -656,12 +657,12 @@
         }
       }
     ],
-    "name": "Fortezza",
-    "period": 2
+    "name": "Fortezza"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -698,12 +699,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Battistero",
-    "period": 2
+    "name": "Battistero"
   },
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -744,12 +745,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Mercato",
-    "period": 2
+    "name": "Mercato"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -780,12 +781,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Gilda dei Pittori",
-    "period": 2
+    "name": "Gilda dei Pittori"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -826,12 +827,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Gilda dei Costruttori",
-    "period": 2
+    "name": "Gilda dei Costruttori"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -862,12 +863,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Gilda degli Scultori",
-    "period": 2
+    "name": "Gilda degli Scultori"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -908,12 +909,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Tagliapietre",
-    "period": 1
+    "name": "Tagliapietre"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -970,12 +971,12 @@
         }
       }
     ],
-    "name": "Cappella",
-    "period": 1
+    "name": "Cappella"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1016,12 +1017,12 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Falegnameria",
-    "period": 1
+    "name": "Falegnameria"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1079,12 +1080,12 @@
         }
       }
     ],
-    "name": "Zecca",
-    "period": 1
+    "name": "Zecca"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1142,12 +1143,12 @@
         }
       }
     ],
-    "name": "Arco di Trionfo",
-    "period": 1
+    "name": "Arco di Trionfo"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1205,12 +1206,12 @@
         }
       }
     ],
-    "name": "Esattoria",
-    "period": 1
+    "name": "Esattoria"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1268,12 +1269,12 @@
         }
       }
     ],
-    "name": "Teatro",
-    "period": 1
+    "name": "Teatro"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1330,7 +1331,6 @@
         }
       }
     ],
-    "name": "Residenza",
-    "period": 1
+    "name": "Residenza"
   }
 ]

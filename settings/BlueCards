@@ -1,6 +1,7 @@
 [
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -15,11 +16,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Badessa",
-    "period": 1
+    "name": "Badessa"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -50,11 +51,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Predicatore",
-    "period": 1
+    "name": "Predicatore"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -69,11 +70,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Dama",
-    "period": 1
+    "name": "Dama"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -104,11 +105,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Cavaliere",
-    "period": 1
+    "name": "Cavaliere"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -130,11 +131,11 @@
         }
       }
     ],
-    "name": "Contadino",
-    "period": 1
+    "name": "Contadino"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -156,11 +157,11 @@
         }
       }
     ],
-    "name": "Artigiano",
-    "period": 1
+    "name": "Artigiano"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -175,11 +176,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Costruttore",
-    "period": 1
+    "name": "Costruttore"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -210,11 +211,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Condottiero",
-    "period": 1
+    "name": "Condottiero"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -245,11 +246,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Messo Papale",
-    "period": 2
+    "name": "Messo Papale"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -271,11 +272,11 @@
         }
       }
     ],
-    "name": "Fattore",
-    "period": 2
+    "name": "Fattore"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -306,11 +307,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Messo Reale",
-    "period": 2
+    "name": "Messo Reale"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -325,11 +326,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Mecenate",
-    "period": 2
+    "name": "Mecenate"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -360,11 +361,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Capitano",
-    "period": 2
+    "name": "Capitano"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -386,11 +387,11 @@
         }
       }
     ],
-    "name": "Studioso",
-    "period": 2
+    "name": "Studioso"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -405,11 +406,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Architetto",
-    "period": 2
+    "name": "Architetto"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -440,11 +441,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Eroe",
-    "period": 2
+    "name": "Eroe"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -481,11 +482,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Cardinale",
-    "period": 3
+    "name": "Cardinale"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -500,11 +501,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Araldo",
-    "period": 3
+    "name": "Araldo"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -541,11 +542,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Vescovo",
-    "period": 3
+    "name": "Vescovo"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -576,11 +577,11 @@
       }
     ],
     "permanentBonus": [],
-    "name": "Ambasciatore",
-    "period": 3
+    "name": "Ambasciatore"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -595,11 +596,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Cortigiana",
-    "period": 3
+    "name": "Cortigiana"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -614,11 +615,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Generale",
-    "period": 3
+    "name": "Generale"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -633,11 +634,11 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Nobile",
-    "period": 3
+    "name": "Nobile"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -652,7 +653,6 @@
     ],
     "instantBonus": [],
     "permanentBonus": [],
-    "name": "Governatore",
-    "period": 3
+    "name": "Governatore"
   }
 ]

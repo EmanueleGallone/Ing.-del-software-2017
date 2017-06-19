@@ -20,7 +20,11 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	public ResourceList() {
 
 	}
-	
+	/**
+	 * <h3>public ResourceList(ArrayList<Resource> resources)</h3>
+	 * <p> Costruttore che accetta un ArrayList di risorse. ogni risorsa all'interno dell'Arraylist verra' aggiunta alla resourceList creata.
+	 * @param resources
+	 */
 	public ResourceList(ArrayList<Resource> resources){
 		for(Resource resource: resources){
 			setResource(resource);

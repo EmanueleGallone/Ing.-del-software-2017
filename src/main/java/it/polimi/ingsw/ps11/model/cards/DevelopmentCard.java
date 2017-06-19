@@ -5,18 +5,23 @@ import java.util.ArrayList;
 import it.polimi.ingsw.ps11.model.bonus.Bonus;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3>Development Card</h3>
+ * <p> Classe astratta che rappresenta le carte sviluppo. Estensione della classe Card. </p> 
+ *
+ */
 public abstract class DevelopmentCard extends Card {
 	
 	protected final int DEFAULT_VALUE = 1;
+	protected int period;
 	
 	protected ArrayList<ResourceList> costs = new ArrayList<>();
 
 	protected ArrayList<Bonus> instantBonus = new ArrayList<>(); 
 	protected ArrayList<Bonus> permanentBonus = new ArrayList<>();
-
+	
 	public DevelopmentCard() {
-		
+	
 	}
 	
 	public DevelopmentCard(String name) {
@@ -95,6 +100,10 @@ public abstract class DevelopmentCard extends Card {
 		this.permanentBonus = permanentBonus;
 	}
 	
+	public void setPeriod(int period) {
+		this.period = period;
+	}
+	
 	public void addCost(ResourceList cost){
 		this.costs.add(cost);
 	}
@@ -113,6 +122,10 @@ public abstract class DevelopmentCard extends Card {
 	
 	
 // End setters
+	
+	public int getPeriod() {
+		return period;
+	}
 	
 	
 	

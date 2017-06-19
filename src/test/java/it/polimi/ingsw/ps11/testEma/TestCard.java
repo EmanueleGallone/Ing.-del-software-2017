@@ -107,6 +107,8 @@ public class TestCard {
 		
 		Assert.assertTrue(clone.getCardList(GreenCard.class).get(0).getPeriod() == 1);
 		Assert.assertTrue(clone.getCardList(PurpleCard.class.toString()).get(0).getPeriod() == 3);
+		String Class = GreenCard.class.toString();
+		System.out.println(manager.getCardList(Class).get(0).getName()); //testo il getCardList passando una stringa
 	}
 	
 	@Test
