@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.actions.list.player;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.list.player;
 
 import java.awt.Checkbox;
 

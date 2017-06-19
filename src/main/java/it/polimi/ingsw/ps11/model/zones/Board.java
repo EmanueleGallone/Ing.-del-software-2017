@@ -12,7 +12,8 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class Board implements Serializable{
 	
-	private HashMap<String, Tower> towers = new HashMap<>();
+	//private HashMap<String, Tower> towers = new HashMap<>();
+	ArrayList<Tower> towers = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
 	private CardManager cards;
 	
@@ -30,9 +31,12 @@ public class Board implements Serializable{
 		this.market = market;
 		this.councilPalace = councilPalace;
 		
-		for(Tower t : towers){
-			this.towers.put(t.getClass().toString(), t);
+		this.towers = towers;
+		/*for(Tower t : towers){
+			//this.towers.put(t.getClass().toString(), t);
+			
 		}
+		*/
 	}
 	
 // End constructors
@@ -44,15 +48,17 @@ public class Board implements Serializable{
 	
 	public ArrayList<Tower> getTowers() {
 		
-		ArrayList<Tower> t = new ArrayList<>(this.towers.values());
-		return t;
+		//ArrayList<Tower> t = new ArrayList<>(this.towers.values());
+		return towers;
 	}
 	
+	/*
 	public <T extends Tower> T getTower(Class<T> tower){
 		return (T) this.towers.get(tower.toString());
 	}
+	*/
 	
-	public Tower getTower(String tower){
+	public Tower getTower(int tower){
 		return this.towers.get(tower);
 	}
 	

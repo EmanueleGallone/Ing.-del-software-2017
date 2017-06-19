@@ -8,7 +8,7 @@ public class GraphicTowerView extends TowerView{
 	//pannello Tower
 	
 	public GraphicTowerView(Class<? extends Tower> towerColor) {
-		super(towerColor);
+		super(0);
 		
 		/*floors.add(new GraphicFloorView(towerColor, 0));
 		floors.add(new TextualFloorView(towerColor, 1));

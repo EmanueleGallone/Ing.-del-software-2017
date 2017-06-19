@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.actions.list.player;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.list.player;
 
-import it.polimi.ingsw.ps11.model.actions.ActionObservable;
-import it.polimi.ingsw.ps11.model.actions.ActionObserver;
-import it.polimi.ingsw.ps11.model.actions.list.SourcedAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObservable;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.list.SourcedAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public abstract class PlayerAction<T> extends SourcedAction<Player> {

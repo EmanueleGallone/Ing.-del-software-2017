@@ -9,5 +9,7 @@ public class DaChiedere {
 	 * 
 	 * Nel textualTower, cosi come nella TextualBoard c'è una serie di add floor, è scorretto? Va fatto diversamente?
 	 * (Domanda nella textualBoardView)
+	 * 
+	 * (Domanda nel Cliet dentro il floorEventListener)
 	 */
 }

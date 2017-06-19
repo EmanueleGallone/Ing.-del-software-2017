@@ -20,4 +20,10 @@ public abstract class RemoteClient implements ClientInterface {
 		endTurnEvent.attach(listener);
 	}
 	
+	/*
+	 * Vorrei fare in modo che qualsiasi evento venga invocato, il gameController lo passa 
+	 * al gameLogics e quest'ultimo tramite il pattern Visitor seleziona il listener che andrà
+	 * a creare ed eseguire l'azione corretta
+	 */
+	
 }

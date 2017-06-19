@@ -1,6 +1,6 @@
-package it.polimi.ingsw.ps11.model.actions.list;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.list;
 
-import it.polimi.ingsw.ps11.model.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 
 public abstract class SourcedAction<T> extends Action {
 	

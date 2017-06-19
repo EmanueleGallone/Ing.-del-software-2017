@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.actions;
+package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
 import java.util.ArrayList;
 

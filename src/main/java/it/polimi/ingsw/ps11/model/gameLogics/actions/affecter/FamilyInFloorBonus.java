@@ -1,7 +1,7 @@
-package it.polimi.ingsw.ps11.model.actions.affecter;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.actions.ActionObserver;
-import it.polimi.ingsw.ps11.model.actions.list.player.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.list.player.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class FamilyInFloorBonus implements ActionObserver<FamilyInFloorAction> {

@@ -3,9 +3,9 @@ package it.polimi.ingsw.ps11.model.player;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.actions.ActionHandler;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionHandler;
 import it.polimi.ingsw.ps11.model.malus.Excommunication;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

@@ -8,6 +8,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.view.events.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public abstract class Client implements Runnable {
@@ -39,6 +40,22 @@ public abstract class Client implements Runnable {
 		startGameListener.handle(new StartGameEvent(game, player));
 	}
 	
+// View events ____________________________________________________
+	
+	private transient EventListener<FloorSelectedEvent> floorEventListener = new EventListener<FloorSelectedEvent>() {
+
+		@Override
+		public void handle(FloorSelectedEvent e) {
+			//Bisognerebbe mandare l'evento al server e quest'ultimo dovrebbe chiederti
+			//Di scegliere un familyMember, va bene lo stesso se lo facciamo subito?
+			
+			
+		}
+	};
+	
+	
+// Server events __________________________________________________
+	
 	private EventListener<PrintEvent> printListener = new EventListener<PrintEvent>() {
 		
 		@Override
@@ -53,7 +70,7 @@ public abstract class Client implements Runnable {
 		public void handle(StartGameEvent e) {
 			view.update(e.getPlayer());
 			view.update(e.getGame());
-			view.print();
+			new Thread(view).start();
 		}
 	};
 	
