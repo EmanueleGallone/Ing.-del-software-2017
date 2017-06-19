@@ -11,7 +11,9 @@ import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 
-
+/**<h3>Player</h3>
+ * <p>Classe che rappresenta il giocatore. </p>
+ */
 public class Player implements Serializable{
 	
 	private static final String DEFAULT_NAME = "Predefinito";

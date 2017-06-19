@@ -17,15 +17,14 @@ public class PurpleTower extends Tower {
 		addFloor(new Floor(7,resource.clone()));
 	}
 	
-	private PurpleTower(PurpleTower toCopy){
-		//copy Constructor
-		for(Floor f : toCopy.getFloors())
-			this.addFloor(f.clone()); //aggiungo i piani
-	}
-	
 	@Override
 	public PurpleTower clone(){
-		return new PurpleTower(this);
+		PurpleTower clone = new PurpleTower();
 		
+		for(Floor f : this.getFloors()){
+			if (f != null)
+				clone.addFloor(f.clone());
+		}	
+		return clone;
 	}
 }

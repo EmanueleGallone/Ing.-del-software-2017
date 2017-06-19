@@ -14,7 +14,9 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	private int cost;
 	private ResourceList resources; 
 	
-	
+	/**
+	 * Costruttore per costruire un ActionSpace senza risorse e con costo = DEFAULT (1).
+	 */
 	public ActionSpace() {
 		this(DEFAULT_COST);
 	}
@@ -32,11 +34,16 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		this.cost = cost;
 		this.resources = new ResourceList();
 	}
-
-//Start setters
 	
-	public void setResources(ResourceList resourceList){
-		this.resources = resourceList;
+	/**
+	 * <h3>isFree()</h3>
+	 * <p> Permette di stabilire se è possibile piazzare un familiare o meno.</p>
+	 * @return true se lo spazio azione è vuoto, false altrimenti.
+	 */
+	public boolean isFree(){
+		if (familyMember == null)
+			return true;
+		return false;
 	}
 	
 	@Override
@@ -47,6 +54,12 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 			return true;
 		}
 		return false;
+	}
+
+//Start setters
+	
+	public void setResources(ResourceList resourceList){
+		this.resources = resourceList;
 	}
 
 // Getters
@@ -66,11 +79,6 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		return familyMember;
 	}
 	
-	public boolean isFree(){
-		if (familyMember == null)
-			return true;
-		return false;
-	}
 
 	
 	@Override

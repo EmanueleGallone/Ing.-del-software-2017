@@ -8,7 +8,11 @@ import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
-
+/**
+ *<h3>Floor</h3>
+ *<p> Classe che contiene al suo interno una DevelopmentCard ed un ActionSpace.
+ *@see DevelopmentCard, ActionSpace.
+ */
 public class Floor implements FamilyMemberSpace, Serializable {
 	
 	private DevelopmentCard card;

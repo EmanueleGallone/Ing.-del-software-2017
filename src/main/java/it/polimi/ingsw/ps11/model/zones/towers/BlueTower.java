@@ -17,15 +17,15 @@ public class BlueTower extends Tower {
 		addFloor(new Floor(7,resource.clone()));
 	}
 	
-	private BlueTower(BlueTower toCopy){
-		//copy Constructor
-		for(Floor f : toCopy.getFloors())
-			this.addFloor(f.clone()); //aggiungo i piani
-	}
-	
 	@Override
 	public BlueTower clone(){
-		return new BlueTower(this);
+		BlueTower clone = new BlueTower();
+		
+		for(Floor f : this.getFloors()){
+			if (f != null)
+				clone.addFloor(f.clone());
+		}
+		return clone;
 		
 	}
 	

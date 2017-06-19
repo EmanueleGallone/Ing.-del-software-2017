@@ -20,7 +20,9 @@ public class DiceManager implements Serializable {
 		whiteDice = toCopy.getWhiteDice().clone();
 		orangeDice = toCopy.getOrangeDice().clone();
 	}
-	
+	/**
+	 * Metodo che salva nei campi value dei singoli dadi un valore Random tra 1 e 6;
+	 */
 	public void rollDices(){
 		blackDice.rollDice();
 		whiteDice.rollDice();

@@ -4,7 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
+/**
+ * <h3>Tower</h3>
+ * <p> contiene al suo interno una List di Floor. Ogni torre avrà esattamente 4 Floor all'interno. </p>
+ * @see Floor
+ *
+ */
 public class Tower implements Serializable{
 	
 	private static final int MAX_FLOORS = 4;
@@ -23,7 +28,12 @@ public class Tower implements Serializable{
 	
 // End constructors
 // Start logic
-	
+	/**<h3>addFloor</h3>
+	 * <p>
+	 * Metodo che permette l'aggiunta di un Floor. Nel caso la torre avesse già 4 Floor, la chiamata di questa funziona non apporta cambiamenti.
+	 * </p>
+	 * @param floor è l'oggetto Floor da inserire nella Tower
+	 */
 	public void addFloor(Floor floor){
 		if (floors.size() < MAX_FLOORS ){
 			floors.add(floor);

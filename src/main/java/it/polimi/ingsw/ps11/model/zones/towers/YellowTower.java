@@ -17,15 +17,16 @@ public class YellowTower extends Tower {
 		addFloor(new Floor(7, resource.clone()));
 	}
 	
-	private YellowTower(YellowTower toCopy){
-		//copy Constructor
-		for(Floor f : toCopy.getFloors())
-			this.addFloor(f.clone()); //aggiungo i piani
-	}
-	
 	@Override
 	public YellowTower clone(){
-		return new YellowTower(this);
+		YellowTower clone = new YellowTower();
+		
+		for(Floor f : this.getFloors()){
+			if (f != null)
+				clone.addFloor(f.clone());
+		}
+		
+		return clone;
 		
 	}
 }
