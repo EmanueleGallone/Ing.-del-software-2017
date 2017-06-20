@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
 
 public class ConnectionHandler {
 	
 	private final int MAX_SIZE = 4; 
-	private final int START_SIZE = 2;
+	private final int START_SIZE = 1;
 	private long delay = 2000; //60000; //va caricato da file
 	Timer timer;
 	
@@ -24,15 +23,13 @@ public class ConnectionHandler {
 	}
 	
 	public void handle(Connection client) {
-		System.out.println("Nuova " + client.getClass().getSimpleName());
-		
 		try {
-			client.send(new Message("Connesso, in attesa di altri giocatori"));
+			client.send("Connesso, in attesa di altri giocatori");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		//add(client);
+		add(client);
 	}
 	
 	public synchronized void add(Connection client){

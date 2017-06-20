@@ -1,5 +1,8 @@
 package it.polimi.ingsw.ps11.controller.network;
 
+import java.io.IOException;
+
+import it.polimi.ingsw.ps11.controller.message.TextualMessage;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
@@ -25,6 +28,10 @@ public abstract class Connection implements ConnectionInterface {
 	public Connection(String serverAddress, int port) {
 		this.serverAddress = serverAddress;
 		this.port = port;
+	}
+	
+	public void send(String message) throws IOException{
+		send(new TextualMessage(message));
 	}
 	
 	public String getServerAddress() {

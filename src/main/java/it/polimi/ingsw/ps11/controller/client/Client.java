@@ -26,6 +26,7 @@ public class Client implements Runnable {
 		try {
 			connection.attachMessageListener(serverListener);
 			connection.on();
+			//new TextualConsole().read();
 			//new Thread(view).start();
 		} catch (IOException e) {
 			e.printStackTrace();

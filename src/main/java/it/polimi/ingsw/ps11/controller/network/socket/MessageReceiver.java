@@ -32,13 +32,11 @@ public class MessageReceiver implements Runnable {
 	@Override
 	public void run() {
 		
-		ObjectInputStream reader;
-		
 		try {
-			reader = new ObjectInputStream(socket.getInputStream());
 			while (true) {
-
+				ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
 				Message message = (Message) reader.readObject();
+				System.out.println("nuovo messaggio");
 				//La notify andrebbe resa asincrona
 				newMessageEvent.invoke(new MessageArrivedEvent(message));
 			}

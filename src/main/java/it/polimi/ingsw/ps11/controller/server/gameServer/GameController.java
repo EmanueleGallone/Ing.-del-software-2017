@@ -1,8 +1,10 @@
 package it.polimi.ingsw.ps11.controller.server.gameServer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.controller.messageList.StartGameMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -13,11 +15,11 @@ public class GameController implements Runnable {
 	private Game game;
 	
 	public GameController(ArrayList<Connection> clients) {
-		ArrayList<Connection> players = (ArrayList<Connection>) clients.clone();
+		
 		int i = 0;
 		PlayerFactory pFactory = new PlayerFactory();
 		
-		for(Connection client : players){
+		for(Connection client : clients){
 			Player player = pFactory.newPlayer(i);
 			this.players.put(client, player);
 			i++;
@@ -36,26 +38,15 @@ public class GameController implements Runnable {
 		throw new IllegalArgumentException();
 	}
 	
-	public void updatePlayer(Player player){
-		/*
-		try {
-			getClient(player).update(player);
-		} catch (RemoteException | IllegalArgumentException e) {
-			e.printStackTrace();
-		}
-		*/
-	}
 
 	@Override
 	public void run() {
-		/*
-		for(RemoteClient client : players.keySet()){
+		for(Connection client : players.keySet()){
 			try {
-				client.startGame(game,players.get(client));
-			} catch (RemoteException e) {
+				client.send(new StartGameMessage(game, players.get(client)));
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		*/
 	}
 }
