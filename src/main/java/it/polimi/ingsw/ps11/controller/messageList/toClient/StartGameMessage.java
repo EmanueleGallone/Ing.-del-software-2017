@@ -1,12 +1,11 @@
-package it.polimi.ingsw.ps11.controller.messageList;
+package it.polimi.ingsw.ps11.controller.messageList.toClient;
 
-import it.polimi.ingsw.ps11.controller.message.TextualMessage;
-import it.polimi.ingsw.ps11.controller.message.Message;
-import it.polimi.ingsw.ps11.controller.message.MessageRecognizer;
+import it.polimi.ingsw.ps11.controller.message.ClientMessage;
+import it.polimi.ingsw.ps11.controller.message.ClientMessageRecognizer;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public class StartGameMessage implements Message{
+public class StartGameMessage implements ClientMessage{
 
 	private Game game;
 	private Player player;
@@ -23,7 +22,7 @@ public class StartGameMessage implements Message{
 	}
 	
 	@Override
-	public void accept(MessageRecognizer recognizer) {
+	public void accept(ClientMessageRecognizer recognizer) {
 		recognizer.handle(this);
 	}
 }

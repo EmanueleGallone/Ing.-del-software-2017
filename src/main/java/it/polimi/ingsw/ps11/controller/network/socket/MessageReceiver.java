@@ -36,7 +36,7 @@ public class MessageReceiver implements Runnable {
 			while (true) {
 				ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
 				Message message = (Message) reader.readObject();
-				System.out.println("nuovo messaggio");
+
 				//La notify andrebbe resa asincrona
 				newMessageEvent.invoke(new MessageArrivedEvent(message));
 			}

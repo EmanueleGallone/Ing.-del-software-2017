@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 import it.polimi.ingsw.ps11.controller.message.Message;
-import it.polimi.ingsw.ps11.controller.message.TextualMessage;
+import it.polimi.ingsw.ps11.controller.messageList.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.network.MessageArrivedEvent;
 import it.polimi.ingsw.ps11.model.events.EventListener;
