@@ -5,6 +5,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import it.polimi.ingsw.ps11.controller.client.network.rmi.RMIRemoteClient;
+import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
+import it.polimi.ingsw.ps11.controller.network.rmi.RMIReceiver;
 import it.polimi.ingsw.ps11.controller.server.masterServer.ConnectionHandler;
 import it.polimi.ingsw.ps11.controller.server.masterServer.Server;
 
@@ -45,10 +47,10 @@ public class RMIServer extends Server implements ConnectionServer{
 	}
 
 	@Override
-	public void connect(RMIServerInterface remoteServer) throws RemoteException {
-		RMIRemoteClient client = new RMIRemoteClient(remoteServer);	
-		remoteServer.setClient(client);
-		this.handleConnection(client);
+	public void connect(RMIReceiver connection) throws RemoteException {
+		RMIConnection client = new RMIConnection(connection);	
+		connection.setConnection(client);
+		//this.handleConnection(client);
 	}
 	
 

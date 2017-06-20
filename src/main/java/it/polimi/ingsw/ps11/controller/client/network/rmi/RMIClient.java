@@ -37,7 +37,7 @@ public class RMIClient extends Client {
 			UnicastRemoteObject.exportObject(remoteServer,5263);
 			this.server = remoteServer;
 			this.attachListener();
-			connectionServer.connect(remoteServer);
+			//connectionServer.connect(remoteServer);
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();
 		}

@@ -1,11 +1,12 @@
 package it.polimi.ingsw.ps11.controller.server.masterServer;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 
 import it.polimi.ingsw.ps11.controller.client.RemoteClient;
+import it.polimi.ingsw.ps11.controller.network.rmi.RMIReceiver;
+import it.polimi.ingsw.ps11.controller.server.network.rmi.ConnectionServer;
 
-public abstract class Server extends UnicastRemoteObject implements Runnable {
+public class Server implements ConnectionServer,Runnable {
 	
 	private static final long serialVersionUID = -4802806597261913213L;
 	
@@ -19,7 +20,7 @@ public abstract class Server extends UnicastRemoteObject implements Runnable {
 		this.connectionHandler = connectionHandler;
 	}
 	
-	public abstract void on() throws InternalError;
+	//public abstract void on() throws InternalError;
 	
 	protected void handleConnection(RemoteClient client){
 		connectionHandler.handle(client);
@@ -27,10 +28,15 @@ public abstract class Server extends UnicastRemoteObject implements Runnable {
 	
 	@Override
 	public void run() {
-		on();
+		//on();
 	}
 
 	protected void consoleLog(String message){
 		System.out.println(message);
+	}
+
+	@Override
+	public void connect(RMIReceiver remoteServer) throws RemoteException {
+		
 	}
 }
