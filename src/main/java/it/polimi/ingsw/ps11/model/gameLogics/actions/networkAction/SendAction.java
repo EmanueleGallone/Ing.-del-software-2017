@@ -1,15 +1,15 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.networkAction;
 
-import it.polimi.ingsw.ps11.controller.client.RemoteClient;
 import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 
 public class SendAction implements Action {
 
-	private RemoteClient client;
+	private Connection client;
 	private Message message;
 	
-	public SendAction(RemoteClient client, Message message) {
+	public SendAction(Connection client, Message message) {
 		this.client = client;
 		this.message = message;
 	}

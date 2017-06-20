@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 import com.google.gson.reflect.TypeToken;
 
-import it.polimi.ingsw.ps11.controller.client.Client;
-import it.polimi.ingsw.ps11.controller.client.network.socket.SocketClient;
 import it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
@@ -46,8 +44,6 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.view.textualView.TextualView;
-import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class MainTest {
 	

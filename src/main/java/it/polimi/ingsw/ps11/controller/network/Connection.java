@@ -1,13 +1,12 @@
 package it.polimi.ingsw.ps11.controller.network;
 
-import it.polimi.ingsw.ps11.controller.network.socket.MessageArrivedEvent;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
 public abstract class Connection implements ConnectionInterface {
 
 	private String serverAddress = "localhost";
-	private int port = 9999;
+	private int port = 4099;
 	
 	protected EventHandler<MessageArrivedEvent> messageListener = new EventHandler<>();
 

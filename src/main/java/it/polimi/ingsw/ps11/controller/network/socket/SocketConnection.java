@@ -5,6 +5,7 @@ import java.net.Socket;
 
 import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.network.Connection;
+import it.polimi.ingsw.ps11.controller.network.MessageArrivedEvent;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
 public class SocketConnection extends Connection{

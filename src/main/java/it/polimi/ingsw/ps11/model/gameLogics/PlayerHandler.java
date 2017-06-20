@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics;
 
-import it.polimi.ingsw.ps11.controller.client.RemoteClient;
+import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.event.ViewEvent;
@@ -9,7 +9,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
 public class PlayerHandler {
 	
 	private State state;
-	private RemoteClient client;
+	private Connection client;
 	private Player player;
 	private Game game;
 	
@@ -34,7 +34,7 @@ public class PlayerHandler {
 	public Game getGame() {
 		return game;
 	}
-	public RemoteClient getClient() {
+	public Connection getClient() {
 		return client;
 	}
 	

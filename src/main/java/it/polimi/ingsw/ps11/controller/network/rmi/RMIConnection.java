@@ -9,8 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.network.Connection;
-import it.polimi.ingsw.ps11.controller.network.socket.MessageArrivedEvent;
-import it.polimi.ingsw.ps11.controller.server.network.rmi.ConnectionServer;
+import it.polimi.ingsw.ps11.controller.network.MessageArrivedEvent;
 
 public class RMIConnection extends Connection implements RMIReceiver{
 
@@ -36,9 +35,10 @@ public class RMIConnection extends Connection implements RMIReceiver{
 	@Override
 	public void on() throws IOException {
 		try {
-			ConnectionServer connectionServer = (ConnectionServer) Naming.lookup(getServerAddress());
-			UnicastRemoteObject.exportObject(this,getPort());
-			connectionServer.connect(this);
+			RMIReceiver connectionServer = (RMIReceiver) Naming.lookup(getServerAddress());
+			//UnicastRemoteObject.exportObject(this,getPort());
+			//connectionServer.connect(this);
+			System.out.println("ok");
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			//e.printStackTrace();
 			throw new IOException(e);
@@ -57,7 +57,7 @@ public class RMIConnection extends Connection implements RMIReceiver{
 	}
 
 	@Override
-	public void setConnection(RMIReceiver connection) throws RemoteException {
+	public void connect(RMIReceiver connection) throws RemoteException {
 		this.connection = connection;
 	}
 

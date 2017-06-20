@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 
 import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.network.MessageArrivedEvent;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
@@ -44,7 +45,7 @@ public class MessageReceiver implements Runnable {
 			
 		} catch (IOException e) {
 			//e.printStackTrace();
-			System.err.println("Client disconnesso");
+			System.err.println("Connessione chiusa");
 			disconnectEvent.invoke(new DisconnectEvent());
 		} catch (ClassNotFoundException e) {
 			//e.printStackTrace();

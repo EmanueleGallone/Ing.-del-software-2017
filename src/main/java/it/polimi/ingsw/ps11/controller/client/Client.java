@@ -1,87 +1,31 @@
 package it.polimi.ingsw.ps11.controller.client;
 
-import it.polimi.ingsw.ps11.controller.server.events.PrintEvent;
-import it.polimi.ingsw.ps11.controller.server.events.StartGameEvent;
-import it.polimi.ingsw.ps11.controller.server.events.UpdatePlayerEvent;
-import it.polimi.ingsw.ps11.controller.server.network.RemoteServer;
-import it.polimi.ingsw.ps11.model.events.EventListener;
+import java.io.IOException;
+
+import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.events.EventManager;
-import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.view.events.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
-public abstract class Client implements Runnable {
+public class Client implements Runnable {
 	
 	private View view;
-	protected RemoteServer server;
+	protected Connection connection;
 	
 	EventManager manager = new EventManager();
 	
-	public Client(View view) {
+	public Client(View view, Connection connection) {
 		this.view = view;
+		this.connection = connection;
 	}
-	
-	public abstract void start() throws InternalError;
-	
+
 	@Override
 	public void run() {
-		this.start();
+		try {
+			connection.on();
+			//new Thread(view).start();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
-	protected void attachListener(){
-		//server.printEvent(printListener);
-		//server.updatePlayerEvent(updatePlayerListener);
-		//server.startGameEvent(startGameListener);
-	}
-	
-	public void temp (Game game, Player player){
-		//Questa funzione serve solo per fare qualche test senza il network
-		startGameListener.handle(new StartGameEvent(game, player));
-	}
-	
-// View events ____________________________________________________
-	
-	private transient EventListener<FloorSelectedEvent> floorEventListener = new EventListener<FloorSelectedEvent>() {
-
-		@Override
-		public void handle(FloorSelectedEvent e) {
-			//Bisognerebbe mandare l'evento al server e quest'ultimo dovrebbe chiederti
-			//Di scegliere un familyMember, va bene lo stesso se lo facciamo subito?
-			
-			
-		}
-	};
-	
-	
-// Server events __________________________________________________
-	
-	private EventListener<PrintEvent> printListener = new EventListener<PrintEvent>() {
-		
-		@Override
-		public void handle(PrintEvent e) {
-			view.out(e.getMessage());
-		}
-	};
-	
-	private EventListener<StartGameEvent> startGameListener = new EventListener<StartGameEvent>() {
-		
-		@Override
-		public void handle(StartGameEvent e) {
-			view.update(e.getPlayer());
-			view.update(e.getGame());
-			new Thread(view).start();
-		}
-	};
-	
-	
-	private EventListener<UpdatePlayerEvent> updatePlayerListener = new EventListener<UpdatePlayerEvent>() {
-		
-		@Override
-		public void handle(UpdatePlayerEvent e) {
-			
-		}
-	};
-	
 	
 }

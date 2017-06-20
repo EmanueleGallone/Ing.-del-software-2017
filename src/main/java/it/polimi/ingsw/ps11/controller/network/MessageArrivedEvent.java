@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.controller.network.socket;
+package it.polimi.ingsw.ps11.controller.network;
 
 import it.polimi.ingsw.ps11.controller.message.Message;
 
