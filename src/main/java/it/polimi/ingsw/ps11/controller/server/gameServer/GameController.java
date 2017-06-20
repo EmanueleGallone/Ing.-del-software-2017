@@ -6,14 +6,12 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
 import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.gameLogics.GameLogics;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class GameController implements Runnable {
 
 	private HashMap<RemoteClient, Player> players = new HashMap<>();
 	private Game game;
-	private GameLogics gameLogics;
 	
 	public GameController(ArrayList<RemoteClient> clients) {
 		ArrayList<RemoteClient> players = (ArrayList<RemoteClient>) clients.clone();

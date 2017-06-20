@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
-public abstract class Action implements ActionInterface {
-	
+public interface Action {
+
+	public boolean isLegal();
+	public void perform();
 }
