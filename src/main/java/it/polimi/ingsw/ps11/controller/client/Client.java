@@ -30,9 +30,9 @@ public abstract class Client implements Runnable {
 	}
 	
 	protected void attachListener(){
-		server.printEvent(printListener);
-		server.updatePlayerEvent(updatePlayerListener);
-		server.startGameEvent(startGameListener);
+		//server.printEvent(printListener);
+		//server.updatePlayerEvent(updatePlayerListener);
+		//server.startGameEvent(startGameListener);
 	}
 	
 	public void temp (Game game, Player player){

@@ -1,10 +1,10 @@
 package it.polimi.ingsw.ps11.controller.client.network.socket.connection;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
+import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
@@ -13,7 +13,7 @@ public class MessageReceiver implements Runnable {
 	
 	private Socket socket;
 	
-	private EventHandler<NewMessageEvent> newMessageEvent = new EventHandler<>();
+	private EventHandler<MessageArrivedEvent> newMessageEvent = new EventHandler<>();
 	private EventHandler<DisconnectEvent> disconnectEvent = new EventHandler<>();
 	
 	public MessageReceiver() {
@@ -31,26 +31,29 @@ public class MessageReceiver implements Runnable {
 	@Override
 	public void run() {
 		
-		BufferedReader reader;
+		ObjectInputStream reader;
 		
 		try {
-			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			reader = new ObjectInputStream(socket.getInputStream());
 			while (true) {
 
-				String message = reader.readLine();
+				Message message = (Message) reader.readObject();
 				//System.out.println("message received: " + message);
-				newMessageEvent.invoke(new NewMessageEvent(message));
+				newMessageEvent.invoke(new MessageArrivedEvent(message));
 			}
 			
 		} catch (IOException e) {
 			//e.printStackTrace();
 			System.err.println("Client disconnesso");
 			disconnectEvent.invoke(new DisconnectEvent());
+		} catch (ClassNotFoundException e) {
+			//e.printStackTrace();
+			System.err.println("Messaggio non valido");
 		}
 	}
 	
 
-	public void newMessageEvent(EventListener<NewMessageEvent> newMessageListener){
+	public void attachMessageListener(EventListener<MessageArrivedEvent> newMessageListener){
 		newMessageEvent.attach(newMessageListener);
 	}
 	

@@ -4,14 +4,9 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.controller.client.network.rmi.RMIClientInterface;
-import it.polimi.ingsw.ps11.controller.server.events.PrintEvent;
-import it.polimi.ingsw.ps11.controller.server.events.StartGameEvent;
-import it.polimi.ingsw.ps11.controller.server.events.UpdatePlayerEvent;
-import it.polimi.ingsw.ps11.controller.server.network.RemoteServer;
-import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.controller.message.Message;
 
-public class RMIRemoteServer extends RemoteServer implements RMIServerInterface, Serializable{
+public class RMIRemoteServer implements RMIServerInterface, Serializable{
 
 	private RMIClientInterface client;
 	
@@ -21,6 +16,25 @@ public class RMIRemoteServer extends RemoteServer implements RMIServerInterface,
 	public RMIRemoteServer(RMIClientInterface client) {
 		this.client = client;
 	}
+
+	@Override
+	public void send(Message message) throws RemoteException {
+		client.receive(message);
+	}
+
+	@Override
+	public void setClient(RMIClientInterface client) throws RemoteException {
+		this.client = client;
+	}
+
+	@Override
+	public void receive(Message message) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+/*
 // Metodi che il client puo' chiamare sul server
 	
 	@Override
@@ -54,5 +68,6 @@ public class RMIRemoteServer extends RemoteServer implements RMIServerInterface,
 	public void invokeStartGame(Game game, Player player) throws RemoteException {
 		this.startGameEvent.invoke(new StartGameEvent(game, player));
 	}
+	*/
 
 }

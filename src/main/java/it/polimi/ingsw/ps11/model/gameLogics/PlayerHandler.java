@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics;
 
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.client.RemoteClient;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.event.ViewEvent;

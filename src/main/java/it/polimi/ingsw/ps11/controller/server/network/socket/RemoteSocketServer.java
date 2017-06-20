@@ -2,34 +2,52 @@ package it.polimi.ingsw.ps11.controller.server.network.socket;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.controller.client.network.socket.connection.Connection;
-import it.polimi.ingsw.ps11.controller.client.network.socket.connection.NewMessageEvent;
-import it.polimi.ingsw.ps11.controller.client.network.socket.messageList.EndTurnMessage;
-import it.polimi.ingsw.ps11.controller.client.network.socket.messages.ClientMessage;
-import it.polimi.ingsw.ps11.controller.client.network.socket.messages.ClientMessageWrapper;
-import it.polimi.ingsw.ps11.controller.server.events.PrintEvent;
-import it.polimi.ingsw.ps11.controller.server.events.StartGameEvent;
-import it.polimi.ingsw.ps11.controller.server.events.UpdatePlayerEvent;
+import it.polimi.ingsw.ps11.controller.client.network.socket.connection.MessageArrivedEvent;
+import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.server.network.RemoteServer;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messageList.PrintMessage;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messageList.StartGameMessage;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messageList.UpdatePlayerMessage;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messages.ServerMessage;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messages.ServerMessageWrapper;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messages.ServerRecognizer;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 
-public class RemoteSocketServer extends RemoteServer implements ServerRecognizer {
+public class RemoteSocketServer implements RemoteServer {
 	
 	private Connection connection;
-
+	private EventHandler<MessageArrivedEvent> messageListener = new EventHandler<>();
+	
 	public RemoteSocketServer(String serverAddress, int port)  {
 		connection = new Connection(serverAddress, port);
-		connection.newMessageEvent(messageHandler);
+		connection.attachMessageListener(messageHandler);
 	}
 	
+	public void connect() throws UnknownHostException, IOException{
+		connection.on();
+	}
+
+	@Override
+	public void send(Message message) throws RemoteException {
+		try {
+			connection.send(message);
+		} catch (IOException e) {
+			//e.printStackTrace();
+			throw new RemoteException();
+		}
+	}
+	
+	private EventListener<MessageArrivedEvent> messageHandler = new EventListener<MessageArrivedEvent>() {
+		
+		@Override
+		public void handle(MessageArrivedEvent e) {
+			messageListener.invoke(e);
+		}
+	};
+	
+	public void attachMessageListener(EventListener<MessageArrivedEvent> newMessageListener){
+		messageListener.attach(newMessageListener);
+	}
+	
+/*
 // Invoke method on server _______________
 
 	@Override
@@ -58,10 +76,10 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 	
 // Handle message from server ________________________
 	
-	private EventListener<NewMessageEvent> messageHandler = new EventListener<NewMessageEvent>() {
+	private EventListener<MessageArrivedEvent> messageHandler = new EventListener<MessageArrivedEvent>() {
 
 		@Override
-		public void handle(NewMessageEvent e) {
+		public void handle(MessageArrivedEvent e) {
 
 			JsonAdapter jsonAdapter = new JsonAdapter();
 			ServerMessageWrapper wrapper = jsonAdapter.fromJson(e.getMessage(), ServerMessageWrapper.class);
@@ -88,5 +106,6 @@ public class RemoteSocketServer extends RemoteServer implements ServerRecognizer
 	public void execute(StartGameMessage startGameMessage) {
 		startGameEvent.invoke(new StartGameEvent(startGameMessage.getGame(), startGameMessage.getPlayer()));
 	}
+	*/
 	
 }

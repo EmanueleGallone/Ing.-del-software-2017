@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.controller.server.masterServer;
 
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.client.RemoteClient;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class Utente {

@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.networkAction;
 
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.client.RemoteClient;
 import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 

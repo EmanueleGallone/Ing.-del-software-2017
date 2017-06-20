@@ -4,15 +4,13 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import it.polimi.ingsw.ps11.controller.client.network.rmi.RMIClientInterface;
-import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.server.network.RemoteServer;
 
-public interface RMIServerInterface extends Remote {
+public interface RMIServerInterface extends RemoteServer {
 
 	//Metodi che ha solo l'RMIServer
-	
+
 	public void setClient(RMIClientInterface client) throws RemoteException;
-	public void invokePrintEvent(String message) throws RemoteException;
-	public void invokeUpdate(Player player) throws RemoteException;
-	public void invokeStartGame(Game game, Player player) throws RemoteException;
+	public void receive(Message message) throws RemoteException;
 }

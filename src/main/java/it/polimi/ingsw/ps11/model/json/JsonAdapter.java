@@ -16,8 +16,6 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import it.polimi.ingsw.ps11.controller.client.network.socket.messages.ClientMessage;
-import it.polimi.ingsw.ps11.controller.server.network.socket.messages.ServerMessage;
 import it.polimi.ingsw.ps11.model.bonus.Bonus;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
@@ -34,9 +32,7 @@ public class JsonAdapter {
 			Tower.class,
 			DevelopmentCard.class,
 			FamilyMember.class,
-			Bonus.class,
-			ServerMessage.class,
-			ClientMessage.class
+			Bonus.class
 			));
 	
 	public JsonAdapter() {

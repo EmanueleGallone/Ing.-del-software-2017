@@ -2,15 +2,11 @@ package it.polimi.ingsw.ps11.controller.client.network.rmi;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.util.function.Consumer;
 
-import it.polimi.ingsw.ps11.controller.client.events.EndTurnEvent;
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.server.network.rmi.RMIServerInterface;
-import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.player.Player;
 
-public class RMIRemoteClient extends RemoteClient implements RMIClientInterface, Serializable {
+public class RMIRemoteClient implements RMIClientInterface, Serializable {
 
 	private RMIServerInterface server;
 	
@@ -23,6 +19,24 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface,
 		this.server = serverInterface;
 	}
 
+	@Override
+	public void send(Message message) throws RemoteException {
+		//Andra resa asincrona
+		server.receive(message);
+	}
+
+	@Override
+	public void setRemoteServer(RMIServerInterface server) throws RemoteException {
+		this.server = server;
+	}
+
+	@Override
+	public void receive(Message message) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+/*
 // Metodi che il server puo' chiamare sul client
 	
 	@Override
@@ -91,4 +105,5 @@ public class RMIRemoteClient extends RemoteClient implements RMIClientInterface,
 			action.accept(server);
 		}
 	}
+*/
 }

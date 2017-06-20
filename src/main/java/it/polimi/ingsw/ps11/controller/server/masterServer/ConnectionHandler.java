@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import it.polimi.ingsw.ps11.controller.client.ClientInterface;
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.client.RemoteClient;
+import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
 
 public class ConnectionHandler {
@@ -20,16 +20,13 @@ public class ConnectionHandler {
 	private ArrayList<RemoteClient> lobby = new ArrayList<>();
 	private ArrayList<GameController> games = new ArrayList<>();
 	
-	private ArrayList<ClientInterface> clients = new ArrayList<>();
-	
-	
 	public ConnectionHandler() {
 		
 	}
 	
 	public void handle(RemoteClient client) {
 		try {
-			client.print("Connesso, in attesa di altri giocatori");
+			client.send(new Message("Connesso, in attesa di giocatori"));
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

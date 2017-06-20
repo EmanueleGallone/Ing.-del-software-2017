@@ -32,13 +32,12 @@ public class Connection {
 		new Thread(receiver).start();
 	}
 	
-	public void send(String message) throws IOException{
+	public void send(Object message) throws IOException{
 		new MessageSender(socket, message).run();
 	}
 	
-	
-	public void newMessageEvent(EventListener<NewMessageEvent> newMessageListener){
-		receiver.newMessageEvent(newMessageListener);
+	public void attachMessageListener(EventListener<MessageArrivedEvent> newMessageListener){
+		receiver.attachMessageListener(newMessageListener);
 	}
 	
 	public void disconnectEvent(EventListener<DisconnectEvent> disconnectListener){

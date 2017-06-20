@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.client.RemoteClient;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 
@@ -38,15 +38,18 @@ public class GameController implements Runnable {
 	}
 	
 	public void updatePlayer(Player player){
+		/*
 		try {
 			getClient(player).update(player);
 		} catch (RemoteException | IllegalArgumentException e) {
 			e.printStackTrace();
 		}
+		*/
 	}
 
 	@Override
 	public void run() {
+		/*
 		for(RemoteClient client : players.keySet()){
 			try {
 				client.startGame(game,players.get(client));
@@ -54,5 +57,6 @@ public class GameController implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		*/
 	}
 }
