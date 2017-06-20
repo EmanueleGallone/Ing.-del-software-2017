@@ -14,6 +14,10 @@ public abstract class Connection implements ConnectionInterface {
 		
 	}
 	
+	public Connection(int port) {
+		this.port = port;
+	}
+	
 	public Connection(String serverAddress) {
 		this.serverAddress = serverAddress;
 	}

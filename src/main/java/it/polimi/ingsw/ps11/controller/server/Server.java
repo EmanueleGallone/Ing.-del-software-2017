@@ -17,7 +17,7 @@ public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable 
 	
 	private ConnectionHandler connectionHandler = new ConnectionHandler();
 	private String serverName = "myServer";
-	private int rmiPort = 3099;
+	private int rmiPort = 1099;
 	private int socketPort = 4099;
 	
 	public Server() throws RemoteException{
@@ -46,7 +46,6 @@ public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		consoleLog("RMIServer started");
 	}
 	
 	private void socketListen(ServerSocket server) throws IOException{

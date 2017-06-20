@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.controller.network.rmi;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -11,13 +12,17 @@ import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.network.MessageArrivedEvent;
 
-public class RMIConnection extends Connection implements RMIReceiver{
+public class RMIConnection extends Connection implements RMIReceiver,Serializable{
 
-	private static String DEFAULT_ADDRESS = "//localhost/myServer";
+	private static String DEFAULT_ADDRESS = "//192.168.1.67/myServer";
 	private RMIReceiver connection;
 	
 	public RMIConnection() {
 		this(DEFAULT_ADDRESS);
+	}
+	
+	public RMIConnection(int port) {
+		super(DEFAULT_ADDRESS,port);
 	}
 	
 	public RMIConnection(RMIReceiver connection) {
@@ -36,9 +41,8 @@ public class RMIConnection extends Connection implements RMIReceiver{
 	public void on() throws IOException {
 		try {
 			RMIReceiver connectionServer = (RMIReceiver) Naming.lookup(getServerAddress());
-			//UnicastRemoteObject.exportObject(this,getPort());
-			//connectionServer.connect(this);
-			System.out.println("ok");
+			UnicastRemoteObject.exportObject(this,getPort());
+			connectionServer.connect(this);
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			//e.printStackTrace();
 			throw new IOException(e);

@@ -30,6 +30,10 @@ public class SocketConnection extends Connection{
 		super(serverAddress);
 	}
 	
+	public SocketConnection(int port) {
+		super(port);
+	}
+	
 	public SocketConnection(String serverAddress, int port) {
 		super(serverAddress,port);
 	}

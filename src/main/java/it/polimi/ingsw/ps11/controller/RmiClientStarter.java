@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 public class RmiClientStarter {
 	
 	public static void main(String[] args) {
-		new Client(null, new RMIConnection()).run();
+		new Client(null, new RMIConnection(3099)).run();
 	}
 	
 }

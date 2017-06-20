@@ -1,9 +1,11 @@
 package it.polimi.ingsw.ps11.controller.server;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
 
@@ -14,7 +16,6 @@ public class ConnectionHandler {
 	private long delay = 2000; //60000; //va caricato da file
 	Timer timer;
 	
-	
 	private ArrayList<Connection> lobby = new ArrayList<>();
 	private ArrayList<GameController> games = new ArrayList<>();
 	
@@ -24,6 +25,14 @@ public class ConnectionHandler {
 	
 	public void handle(Connection client) {
 		System.out.println("Nuova " + client.getClass().getSimpleName());
+		
+		try {
+			client.send(new Message("Connesso, in attesa di altri giocatori"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		//add(client);
 	}
 	
 	public synchronized void add(Connection client){
