@@ -1,8 +1,8 @@
 package it.polimi.ingsw.ps11.controller.client;
 
-import it.polimi.ingsw.ps11.controller.message.ClientMessageRecognizer;
-import it.polimi.ingsw.ps11.controller.messageList.message.TextualMessage;
-import it.polimi.ingsw.ps11.controller.messageList.toClient.StartGameMessage;
+import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
+import it.polimi.ingsw.ps11.controller.message.toClient.ClientMessageRecognizer;
+import it.polimi.ingsw.ps11.controller.message.toClient.StartGameMessage;
 
 public class ClientLogic implements ClientMessageRecognizer {
 

@@ -8,8 +8,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import it.polimi.ingsw.ps11.controller.message.Message;
-import it.polimi.ingsw.ps11.controller.messageList.message.TextualMessage;
+import it.polimi.ingsw.ps11.controller.message.generic.Message;
+import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIReceiver;
 import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;

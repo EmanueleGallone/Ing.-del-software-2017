@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.controller.message;
+package it.polimi.ingsw.ps11.controller.message.generic;
 
 import java.io.Serializable;
 

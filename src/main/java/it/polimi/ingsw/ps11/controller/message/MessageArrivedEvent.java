@@ -1,6 +1,6 @@
-package it.polimi.ingsw.ps11.controller.network;
+package it.polimi.ingsw.ps11.controller.message;
 
-import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.message.generic.Message;
 
 public class MessageArrivedEvent {
 

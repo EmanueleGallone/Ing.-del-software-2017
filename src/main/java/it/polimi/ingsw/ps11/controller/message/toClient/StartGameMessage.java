@@ -1,11 +1,9 @@
-package it.polimi.ingsw.ps11.controller.messageList.toClient;
+package it.polimi.ingsw.ps11.controller.message.toClient;
 
-import it.polimi.ingsw.ps11.controller.message.ClientMessage;
-import it.polimi.ingsw.ps11.controller.message.ClientMessageRecognizer;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public class StartGameMessage implements ClientMessage{
+public class StartGameMessage implements ServerMessage{
 
 	private Game game;
 	private Player player;

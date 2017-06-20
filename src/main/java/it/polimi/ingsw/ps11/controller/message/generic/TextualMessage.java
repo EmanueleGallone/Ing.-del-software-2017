@@ -1,7 +1,4 @@
-package it.polimi.ingsw.ps11.controller.messageList.message;
-
-import it.polimi.ingsw.ps11.controller.message.Message;
-import it.polimi.ingsw.ps11.controller.message.MessageRecognizer;
+package it.polimi.ingsw.ps11.controller.message.generic;
 
 public class TextualMessage implements Message {
 

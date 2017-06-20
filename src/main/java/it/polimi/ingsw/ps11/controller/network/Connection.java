@@ -2,7 +2,8 @@ package it.polimi.ingsw.ps11.controller.network;
 
 import java.io.IOException;
 
-import it.polimi.ingsw.ps11.controller.messageList.message.TextualMessage;
+import it.polimi.ingsw.ps11.controller.message.MessageArrivedEvent;
+import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
