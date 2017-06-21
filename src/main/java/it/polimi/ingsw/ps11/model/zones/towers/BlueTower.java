@@ -20,6 +20,7 @@ public class BlueTower extends Tower {
 	@Override
 	public BlueTower clone(){
 		BlueTower clone = new BlueTower();
+		clone.getFloors().clear();
 		
 		for(Floor f : this.getFloors()){
 			if (f != null)

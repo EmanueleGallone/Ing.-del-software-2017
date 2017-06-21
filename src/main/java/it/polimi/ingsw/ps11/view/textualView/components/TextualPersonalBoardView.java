@@ -12,12 +12,18 @@ public class TextualPersonalBoardView extends PersonalBoardView{
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
+		TextualDevelopmentCardView developmentCardView = new TextualDevelopmentCardView();
+		
 		for(ArrayList<DevelopmentCard> deck : cardManager.getAllCards().values()){
 			int i = 0;
 			for(DevelopmentCard card : deck){
-				if (i == 0)
+				if (i == 0){
 					console.print(card.getClass().getSimpleName() + " : ");
-				console.print(card.getName() + "   ");
+					i++;
+				}
+				//console.print(card.getName() + "   ");
+				developmentCardView.update(card);
+				developmentCardView.print();
 			}
 			console.print("\n");
 		}

@@ -1,8 +1,8 @@
 package it.polimi.ingsw.ps11.model.cards;
 /**
  * <h3>Card</h3>
- * <p> Classe che modella qualsiasi tipo di carta </p>
- *
+ * <p> Classe astratta che modella qualsiasi tipo di carta </p>
+ * @see DevelopmentCard
  */
 public abstract class Card{
 	

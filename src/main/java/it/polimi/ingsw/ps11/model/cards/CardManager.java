@@ -4,7 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ * <h3>CardManager</h3>
+ * <p> Classe container per le carte. Rappresenta una raccolta di carte. Ogni giocatore ne possiede uno.
+ * </p>
+ * @version 1.0
+ * @see it.polimi.ingsw.ps11.model.cards.DevelopmentCard DevelopmentCard
+ *
+ */
 public class CardManager implements Serializable {
 	
 	

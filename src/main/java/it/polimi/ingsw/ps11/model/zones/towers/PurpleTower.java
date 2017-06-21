@@ -20,6 +20,8 @@ public class PurpleTower extends Tower {
 	@Override
 	public PurpleTower clone(){
 		PurpleTower clone = new PurpleTower();
+		clone.getFloors().clear();
+		
 		
 		for(Floor f : this.getFloors()){
 			if (f != null)

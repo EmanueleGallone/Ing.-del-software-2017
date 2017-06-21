@@ -12,7 +12,15 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 
 /**<h3>Player</h3>
- * <p>Classe che rappresenta il giocatore. </p>
+ * <p>Classe che rappresenta il giocatore. Esso è composito da piu' oggetti in modo da suddividere la complessita':<ul>
+ * <code><b>CardManager</b></code>: permette di raccogliere in un'unica classe tutte le carte che il giocatore possiede.
+ * <br><code><b>ResourceList</b></code>: container di tutte le risorse del giocatore.
+ * <br><code><b>FamilyMemberManager</b></code>: container dei familiare che possono essere usati dal giocatore.</ul> 
+ * </p>
+ * @version 1.0
+ * @see it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager FamilyMemberManager
+ * @see it.polimi.ingsw.ps11.model.resources.ResourceList ResourceList
+ * @see it.polimi.ingsw.ps11.model.cards.CardManager CardManager
  */
 public class Player implements Serializable{
 	

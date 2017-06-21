@@ -7,7 +7,8 @@ import java.util.Iterator;
 
 /**
  * <h3>ResourceList</h3>
- * <p> Classe container per tutti i tipi di Resource utilizzabile in qualsiasi parte del gioco.
+ * <p> Classe container per tutti i tipi di <code>Resource</code> utilizzabile in qualsiasi parte del gioco.
+ * </p>
  * @see Resource
  */
 public class ResourceList implements Iterable<Resource>, Serializable{
@@ -21,8 +22,9 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 
 	}
 	/**
-	 * <h3>public ResourceList(ArrayList<Resource> resources)</h3>
+	 * <h3><code>public ResourceList(ArrayList<Resource> resources)</code></h3>
 	 * <p> Costruttore che accetta un ArrayList di risorse. ogni risorsa all'interno dell'Arraylist verra' aggiunta alla resourceList creata.
+	 * </p>
 	 * @param resources
 	 */
 	public ResourceList(ArrayList<Resource> resources){

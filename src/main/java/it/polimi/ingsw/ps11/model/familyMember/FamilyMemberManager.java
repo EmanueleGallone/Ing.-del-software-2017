@@ -7,7 +7,13 @@ import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
-
+/**
+ * <h3>FamilyMemberManager</h3>
+ * <p> Classe container per i vari <code>FamilyMember</code>
+ * </p>
+ * @see FamilyMember
+ * @version 1.0
+ */
 public class FamilyMemberManager implements Serializable {
 	
 	private HashMap<String,FamilyMember> family = new HashMap<>();

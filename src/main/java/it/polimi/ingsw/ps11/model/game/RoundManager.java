@@ -13,8 +13,8 @@ public class RoundManager implements Serializable{
 	private static final int MAX_PERIOD = 3;
 	
 	private ArrayList<Player> players = new ArrayList<>();
-	private int round = 1;
-	private int turn = 1;
+	private int round = 1; //il round finisce quando i giocatori hanno tutti fatto 1 mossa. Quando i giocatori hanno fatto 4 mosse, allora vuol dire che siamo alla fine del round 4
+	private int turn = 1; //dopo che è finito il round 4, vuol dire che e' terminato il turno
 	private int period = 1; 
 	private int actualPlayer = 0;
 	
@@ -26,7 +26,6 @@ public class RoundManager implements Serializable{
 	}
 	
 	private void nextRound(){
-		//faccio un controllo sulla variabile gameFinished?
 		if(round == MAX_ROUND_PER_TURN){
 			round = 1; //resetto il round
 			turn++; //incremento il turno

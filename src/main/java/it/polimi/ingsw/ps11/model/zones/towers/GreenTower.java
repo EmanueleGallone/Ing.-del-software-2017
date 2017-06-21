@@ -22,6 +22,7 @@ public class GreenTower extends Tower {
 	@Override
 	public GreenTower clone(){
 		GreenTower clone = new GreenTower();
+		clone.getFloors().clear();
 		
 		for(Floor f : this.getFloors()){
 			if (f != null)

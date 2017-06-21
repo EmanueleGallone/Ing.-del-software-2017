@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 /**
  *<h3>MultipleActionSpace</h3>
- *<p> Oggetto che permette il posizionamento di più FamilyMember all'interno. Esso contiene una List di ActionSpace. </p>
+ *<p> Oggetto che permette il posizionamento di più FamilyMember all'interno. </p>
  */
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace>, Serializable {
 

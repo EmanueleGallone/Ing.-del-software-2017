@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.client.network.socket.SocketClient;
+import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
@@ -53,12 +54,13 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 public class MainTest {
 	
 	public static void main(String[] args){
+		PlayerFactory factory = new PlayerFactory();
 
-		Player player = new Player();
+		Player player =factory.newPlayer(0);
 		player.setName("Giocatore 1");
 		player.setColor(Colors.RED);
 		
-		Player player2 = new Player();
+		Player player2 = factory.newPlayer(1);
 		player2.setName("Giocatore 2");
 		player2.setColor(Colors.GREEN);
 		
@@ -75,16 +77,19 @@ public class MainTest {
 		
 		Game game2 = adapter.fromJson(gString, Game.class);
 		System.out.println(game2.getBoard());
-		/*
+		
 		View view = new TextualView();
 		YellowCard card = new YellowCard();
 		card.setName("Funziona");
-		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(card);
+		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(card.clone());
 		Client client = new SocketClient(view);
+		player2.getCardManager().addCard(card.clone());
+		card.addCost(new ResourceList(new Coin(10)));
+		player2.getCardManager().addCard(card.clone());
 		
 		client.temp(game, player2);
 		
-		*/
+		
 		
 		
 		//inizializzaCarte();

@@ -10,8 +10,9 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
 /**
  *<h3>Floor</h3>
- *<p> Classe che contiene al suo interno una DevelopmentCard ed un ActionSpace.
- *@see DevelopmentCard, ActionSpace.
+ *<p> Classe che contiene al suo interno una DevelopmentCard ed un ActionSpace. </p>
+ *@see it.polimi.ingsw.ps11.model.cards.DevelopmentCard DevelopmentCard
+ *@see it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace ActionSpace.
  */
 public class Floor implements FamilyMemberSpace, Serializable {
 	
@@ -78,7 +79,9 @@ public class Floor implements FamilyMemberSpace, Serializable {
 	public Floor clone() {		
 		Floor clone = new Floor();
 		
-		clone.card = this.card.clone();
+		if(this.card != null)
+			clone.card = this.card.clone();
+		
 		clone.actionSpace = this.actionSpace.clone();
 		
 		return clone; 
