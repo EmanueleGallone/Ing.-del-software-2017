@@ -1,89 +1,107 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicMainBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicSlideBoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
-public class GraphicView extends View{
+public class GraphicView extends View implements ActionListener{
 
-	JFrame window = new JFrame();
-	protected GraphicPlayerView you;
-	protected GraphicBoardView boardView;
-	protected GraphicConsole console;
-	private JOptionPane exit;
-
+	JFrame window = new JFrame();							//Finestra Generale
+	protected GraphicPlayerView you;						//Board Personale	
+	protected GraphicMainBoardView mainBoardView;			//Parte fissa della Board
+	protected GraphicSlideBoardView slideBoardView;			//Parte della Board che compare e scompare
+	protected GraphicConsole console;						//Console per la gestione dei messaggi
+	protected JOptionPane exit;								//Finestra che si apre quando si vuole chiudere il gioco
+	protected JDialog slidePanel;							//Pannello internno alla slideBoardView
 	
 	public GraphicView() {
 		you = new GraphicPlayerView();
-		boardView = new GraphicBoardView();
+		mainBoardView = new GraphicMainBoardView();
+		slideBoardView = new GraphicSlideBoardView();
 		console = new GraphicConsole();
 	}
 
 	@Override
 	public void print() {
 		
-		window.setTitle("Game Window");							//Setta la finestra
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setTitle("Game Window");							//Setta la finestra principale del gioco
         window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
         window.pack();
-        window.setVisible(true);
         
-        window.addKeyListener(listener);
-        
+        mainBoardView.attachListener(this);						//listener per il bottone che fa entrare il pannello della slideBoardView
+                
         window.setLayout(new GridBagLayout());
                
-        JPanel boardPanel = boardView.getComponent();
+        JPanel boardPanel = mainBoardView.getComponent();
+        slidePanel = slideBoardView.getComponent();
         JPanel playerlPanel = you.getComponent();
         JPanel consolePanel = console.getComponent();
+       
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
+        slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.7166), 
+        					(int)Math.round(screenSize.getWidth()*0.498), (int)Math.round(screenSize.getHeight()*0.285));
         
-		GridBagConstraints gbcBoard = new GridBagConstraints();
+		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayer = new GridBagConstraints();
 		GridBagConstraints gbcConsole = new GridBagConstraints();
         
-		gbcBoard.gridx = 0;
-		gbcBoard.gridy = 0;
-		gbcBoard.gridheight = 2;
-		gbcBoard.weightx = 0.384275;
-		gbcBoard.fill = GridBagConstraints.BOTH;
-		window.add(boardPanel, gbcBoard);
+		gbcMainBoard.gridx = 0;
+		gbcMainBoard.gridy = 0;
+		gbcMainBoard.gridheight = 2;
+		gbcMainBoard.weightx = 0.493229;
+		gbcMainBoard.fill = GridBagConstraints.BOTH;
+		window.add(boardPanel, gbcMainBoard);
 		
 		gbcPlayer.gridx = 1;
 		gbcPlayer.gridy = 1;
 		gbcPlayer.gridwidth = 2;
-		gbcPlayer.weightx = 0.615625;
+		gbcPlayer.weightx = 0.506771;
 		gbcPlayer.weighty = 0.703703;
 		gbcPlayer.fill = GridBagConstraints.BOTH;
 		window.add(playerlPanel, gbcPlayer);
 		
-		gbcConsole.gridx = 2;
+		gbcConsole.gridx = 1;
 		gbcConsole.gridy = 0;
-		gbcConsole.weightx = 0.234375;
+		gbcConsole.weightx = 0.192933;
 		gbcConsole.weighty = 0.296296;
 		gbcConsole.fill = GridBagConstraints.BOTH;
 		window.add(consolePanel, gbcConsole);
 		
 		JPanel playersTurn = new JPanel();
 		GridBagConstraints gbcTurn = new GridBagConstraints();
-		gbcTurn.gridx = 1;
+		gbcTurn.gridx = 2;
 		gbcTurn.gridy = 0;
-		gbcTurn.weightx = 0.381250;
+		gbcTurn.weightx = 0.313838;
 		gbcTurn.weighty = 0.296296;
 		gbcTurn.fill = GridBagConstraints.BOTH;
 		window.add(playersTurn, gbcTurn);
-		        
-        boardView.print();
+		
+		JButton exitButton = new JButton("X");
+		playersTurn.add(exitButton);
+		exitButton.addActionListener(new Close());
+				        
+        mainBoardView.print();
         you.print();
         console.print("Benvenuto ne \"Lorenzo il Magnifico\" ");
+        
+        window.setVisible(true);
+
 	}
 
 	@Override
@@ -98,23 +116,32 @@ public class GraphicView extends View{
 		
 	}
 	
-	KeyAdapter listener = new KeyAdapter() {         
-		@Override public void keyPressed(KeyEvent e){
-			if(e.getKeyChar() == KeyEvent.VK_ESCAPE){
+	private class Close implements ActionListener {			
+		@Override
+		public void actionPerformed(ActionEvent e) {
+						
 			try{
 				exit = new JOptionPane();
+				exit.setVisible(true);
 				
 				if (JOptionPane.showOptionDialog(null, "Are you sure?", "Closing Game", JOptionPane.OK_CANCEL_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) 
+					{
 					window.dispose();
-				exit.setVisible(true);
-		} catch (Exception err){
-			System.err.println("Errore nello zoom");
+					slidePanel.dispose();
+					}
+				
+			} catch (Exception err){
+				System.err.println("Errore nello zoom");
 			}
 			}
-        }
-		};
-		
+		}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		slidePanel.setVisible(true);
+	}
+	
 	public static void main(String[] args) {
 		GraphicView tryout = new GraphicView();
 		tryout.print();
