@@ -1,108 +1,122 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
-import javax.swing.border.Border;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
-public class GraphicView extends JFrame {
+public class GraphicView extends View{
+
+	JFrame window = new JFrame();
+	protected GraphicPlayerView you;
+	protected GraphicBoardView boardView;
+	protected GraphicConsole console;
+	private JOptionPane exit;
+
 	
-	private static final long serialVersionUID = -8755577984729829880L;
-	protected String[]	types = { "Territories", "Buildings", "Characters", "Ventures"},
-						familyMembers = {"black", "white", "orange", "neutral"},
-						resources = {"Coin", "Wood", "Stone", "Servant"};
-	private Color[] colors = { Color.GREEN, Color.YELLOW, Color.BLUE, Color.PINK};
-	
-	private static HashMap<String, PlayerBoard> playersAndBoards = new HashMap<>();	
-	private static final int cardtypes = 4, floors = 4, maxCards = 6;
-	
-	GridBagConstraints gbc = new GridBagConstraints();
-	
-    public GraphicView(ArrayList<String> players) {
-    	
-        setLayout(new GridBagLayout());// set LayoutManager
-        Border eBorder = BorderFactory.createEtchedBorder();
-                             
-        MainBoard panel1 = new MainBoard(floors, cardtypes);
-        panel1.setBorder(BorderFactory.createTitledBorder(eBorder, "Main Board"));
-        gbc.gridx = 0;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 2;
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.anchor = GridBagConstraints.NORTHWEST;
-        gbc.weightx = 39;
-        add(panel1, gbc); // add component to the ContentPane
-        
-        PlayerTurn playerTurn = new PlayerTurn();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.gridheight = 1;
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.anchor = GridBagConstraints.NORTHEAST;
-        playerTurn.setPreferredSize(new Dimension(10, 10));
-        gbc.weightx = 50;
-        gbc.weighty = 1;
-        add(playerTurn, gbc);
+	public GraphicView() {
+		you = new GraphicPlayerView();
+		boardView = new GraphicBoardView();
+		console = new GraphicConsole();
+	}
 
-        JTabbedPane playersBoards = createTabs(maxCards, cardtypes,players, types, colors);
-        playersBoards.setBorder(BorderFactory.createEmptyBorder());
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        playersBoards.setPreferredSize(new Dimension(10, 200));
-        gbc.weightx = 50;
-        gbc.weighty = 4;
-        add(playersBoards, gbc); // add component to the ContentPane
-
-        setTitle("Game Window");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // important
-        setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        setVisible(true); // important
-    }
-    
-    public JTabbedPane createTabs(int maxcards,  int cardtypes, ArrayList<String> players, String[] types, Color[] colors){
-    	
-    	JTabbedPane tabbedPane = new JTabbedPane();
-        
-        for (String playersName : players) {
-        	
-            PlayerBoard panel = new PlayerBoard(playersName, maxcards, types, colors, familyMembers, resources);
-        	tabbedPane.add("<html><body><table width='200'><tr><td>" + playersName + "</td></tr></table></body></html>", panel);
-            tabbedPane.setMnemonicAt(players.indexOf(playersName), KeyEvent.VK_1);
-            playersAndBoards.put(playersName, panel);
-        }
-
-        add(tabbedPane);
-        tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-		return tabbedPane;
-    	
-    }
-    
-    public static PlayerBoard getPlayerPanel(String name){
-    	return playersAndBoards.get(name);
-    }
-    
-    
-	public static void main(String[] args) {
+	@Override
+	public void print() {
 		
-		ArrayList<String> players = new ArrayList<String>(Arrays.asList("Luca", "Paolo", "Francesco", "Marta"));
-        javax.swing.SwingUtilities.invokeLater(new Runnable() { // important
+		window.setTitle("Game Window");							//Setta la finestra
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        window.setUndecorated(true);
+        window.pack();
+        window.setVisible(true);
+        
+        window.addKeyListener(listener);
+        
+        window.setLayout(new GridBagLayout());
+               
+        JPanel boardPanel = boardView.getComponent();
+        JPanel playerlPanel = you.getComponent();
+        JPanel consolePanel = console.getComponent();
+        
+		GridBagConstraints gbcBoard = new GridBagConstraints();
+		GridBagConstraints gbcPlayer = new GridBagConstraints();
+		GridBagConstraints gbcConsole = new GridBagConstraints();
+        
+		gbcBoard.gridx = 0;
+		gbcBoard.gridy = 0;
+		gbcBoard.gridheight = 2;
+		gbcBoard.weightx = 0.384275;
+		gbcBoard.fill = GridBagConstraints.BOTH;
+		window.add(boardPanel, gbcBoard);
+		
+		gbcPlayer.gridx = 1;
+		gbcPlayer.gridy = 1;
+		gbcPlayer.gridwidth = 2;
+		gbcPlayer.weightx = 0.615625;
+		gbcPlayer.weighty = 0.703703;
+		gbcPlayer.fill = GridBagConstraints.BOTH;
+		window.add(playerlPanel, gbcPlayer);
+		
+		gbcConsole.gridx = 2;
+		gbcConsole.gridy = 0;
+		gbcConsole.weightx = 0.234375;
+		gbcConsole.weighty = 0.296296;
+		gbcConsole.fill = GridBagConstraints.BOTH;
+		window.add(consolePanel, gbcConsole);
+		
+		JPanel playersTurn = new JPanel();
+		GridBagConstraints gbcTurn = new GridBagConstraints();
+		gbcTurn.gridx = 1;
+		gbcTurn.gridy = 0;
+		gbcTurn.weightx = 0.381250;
+		gbcTurn.weighty = 0.296296;
+		gbcTurn.fill = GridBagConstraints.BOTH;
+		window.add(playersTurn, gbcTurn);
+		        
+        boardView.print();
+        you.print();
+        console.print("Benvenuto ne \"Lorenzo il Magnifico\" ");
+	}
 
-            public void run() {
-            	GraphicView newGame = new GraphicView(players);
-            }
-        });
-    }
+	@Override
+	public void run() {
+		String input;
+		while (!(input = console.read()).equals("q")){
+			selectComponent(input);
+		}
+	}
+	
+	public void selectComponent(String input){
+		
+	}
+	
+	KeyAdapter listener = new KeyAdapter() {         
+		@Override public void keyPressed(KeyEvent e){
+			if(e.getKeyChar() == KeyEvent.VK_ESCAPE){
+			try{
+				exit = new JOptionPane();
+				
+				if (JOptionPane.showOptionDialog(null, "Are you sure?", "Closing Game", JOptionPane.OK_CANCEL_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) 
+					window.dispose();
+				exit.setVisible(true);
+		} catch (Exception err){
+			System.err.println("Errore nello zoom");
+			}
+			}
+        }
+		};
+		
+	public static void main(String[] args) {
+		GraphicView tryout = new GraphicView();
+		tryout.print();
+	}
 }
