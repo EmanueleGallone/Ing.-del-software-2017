@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.gameLogics.PlayerHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
-import it.polimi.ingsw.ps11.model.gameLogics.event.viewEvent.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent;
 
 public class WaitFamilyMember extends State{
 
@@ -11,7 +11,8 @@ public class WaitFamilyMember extends State{
 	}
 
 	@Override
-	public void visit(FloorSelectedEvent floorSelectedEvent) {
+	public void handle(FloorSelectedEvent floorSelectedEvent) {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -18,18 +18,18 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 public class Game implements Serializable  {
 	
 	private Board board;
-	private transient RoundManager roundManager;
 
 	private transient ActionHandler actions = new ActionHandler();
 	
-	public Game(ArrayList<Player> players) {
-		
+	public Game(int playerNumber) {
+		/*
 		roundManager = new RoundManager(players);
 		roundManager.newTurn(newTurnListener);
 		roundManager.newPeriod(newPeriodListener);
+		*/
 		try {
 			board = initializeBoard();
-			board.getMarket().setPlayerNumber(players.size());
+			board.getMarket().setPlayerNumber(playerNumber);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -56,10 +56,6 @@ public class Game implements Serializable  {
 	public Board getBoard() {
 		return board;
 	}
-	public RoundManager getRoundManager() {
-		return roundManager;
-	}
-
 	
 // ____________________________________GAME LOGICS_________________________________
 	

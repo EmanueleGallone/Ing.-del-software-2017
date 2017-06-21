@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.view.ViewInterface;
-import it.polimi.ingsw.ps11.view.events.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
