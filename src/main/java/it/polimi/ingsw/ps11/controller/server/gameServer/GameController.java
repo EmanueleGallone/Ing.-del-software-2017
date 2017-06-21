@@ -1,24 +1,25 @@
 package it.polimi.ingsw.ps11.controller.server.gameServer;
 
-import java.rmi.RemoteException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.controller.client.network.RemoteClient;
+import it.polimi.ingsw.ps11.controller.message.toClient.StartGameMessage;
+import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class GameController implements Runnable {
 
-	private HashMap<RemoteClient, Player> players = new HashMap<>();
+	private HashMap<Connection, Player> players = new HashMap<>();
 	private Game game;
 	
-	public GameController(ArrayList<RemoteClient> clients) {
-		ArrayList<RemoteClient> players = (ArrayList<RemoteClient>) clients.clone();
+	public GameController(ArrayList<Connection> clients) {
+		
 		int i = 0;
 		PlayerFactory pFactory = new PlayerFactory();
 		
-		for(RemoteClient client : players){
+		for(Connection client : clients){
 			Player player = pFactory.newPlayer(i);
 			this.players.put(client, player);
 			i++;
@@ -28,8 +29,8 @@ public class GameController implements Runnable {
 	}
 	
 	
-	public RemoteClient getClient(Player player) throws IllegalArgumentException{
-		for (RemoteClient client : players.keySet()){
+	public Connection getClient(Player player) throws IllegalArgumentException{
+		for (Connection client : players.keySet()){
 			if(player.equals(players.get(client))){
 				return client;
 			}
@@ -37,20 +38,13 @@ public class GameController implements Runnable {
 		throw new IllegalArgumentException();
 	}
 	
-	public void updatePlayer(Player player){
-		try {
-			getClient(player).update(player);
-		} catch (RemoteException | IllegalArgumentException e) {
-			e.printStackTrace();
-		}
-	}
 
 	@Override
 	public void run() {
-		for(RemoteClient client : players.keySet()){
+		for(Connection client : players.keySet()){
 			try {
-				client.startGame(game,players.get(client));
-			} catch (RemoteException e) {
+				client.send(new StartGameMessage(game, players.get(client)));
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}

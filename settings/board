@@ -1,45 +1,6 @@
 {
-  "towers": {
-    "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
-      "INSTANCE": {
-        "floors": [
-          {
-            "actionSpace": {
-              "cost": 1,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 3,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 5,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 7,
-              "resources": {
-                "resources": {}
-              }
-            }
-          }
-        ]
-      }
-    },
-    "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower": {
+  "towers": [
+    {
       "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
       "INSTANCE": {
         "floors": [
@@ -78,46 +39,7 @@
         ]
       }
     },
-    "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
-      "INSTANCE": {
-        "floors": [
-          {
-            "actionSpace": {
-              "cost": 1,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 3,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 5,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 7,
-              "resources": {
-                "resources": {}
-              }
-            }
-          }
-        ]
-      }
-    },
-    "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower": {
+    {
       "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
       "INSTANCE": {
         "floors": [
@@ -155,14 +77,92 @@
           }
         ]
       }
+    },
+    {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+      "INSTANCE": {
+        "floors": [
+          {
+            "actionSpace": {
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 5,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 7,
+              "resources": {
+                "resources": {}
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+      "INSTANCE": {
+        "floors": [
+          {
+            "actionSpace": {
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 5,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 7,
+              "resources": {
+                "resources": {}
+              }
+            }
+          }
+        ]
+      }
     }
-  },
+  ],
   "diceManager": {
     "blackDice": {
       "value": 0,
       "gen": {
         "seed": {
-          "value": 73827874730890
+          "value": 128128575296982
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -172,7 +172,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 270809145603072
+          "value": 213174445466156
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -182,7 +182,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 82083503437089
+          "value": 137484789517341
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false

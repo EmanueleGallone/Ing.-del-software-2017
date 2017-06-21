@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 import com.google.gson.reflect.TypeToken;
 
-import it.polimi.ingsw.ps11.controller.client.Client;
-import it.polimi.ingsw.ps11.controller.client.network.socket.SocketClient;
 import it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus;
 import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
@@ -22,10 +20,7 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.player.Colors;
-import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -46,48 +41,12 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.view.textualView.TextualView;
-import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class MainTest {
 	
 	public static void main(String[] args){
 
-		Player player = new Player();
-		player.setName("Giocatore 1");
-		player.setColor(Colors.RED);
-		
-		Player player2 = new Player();
-		player2.setName("Giocatore 2");
-		player2.setColor(Colors.GREEN);
-		
-		ArrayList<Player> players = new ArrayList<>();
-		players.add(player);
-		players.add(player2);
-		
-		Game game = new Game(players);
-		
-		JsonAdapter adapter = new JsonAdapter();
-		
-		String gString = adapter.toJson(game);
-		//System.out.println(gString);
-		
-		Game game2 = adapter.fromJson(gString, Game.class);
-		System.out.println(game2.getBoard());
-		/*
-		View view = new TextualView();
-		YellowCard card = new YellowCard();
-		card.setName("Funziona");
-		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(card);
-		Client client = new SocketClient(view);
-		
-		client.temp(game, player2);
-		
-		*/
-		
-		
 		//inizializzaCarte();
-	
 		//inizializzatore();		
 		/*String string = readFile("settings\\board");
 

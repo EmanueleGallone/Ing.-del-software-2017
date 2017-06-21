@@ -1,18 +1,13 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.Color;
-import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
-import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
-import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
-import java.awt.GridBagLayout;
 
 public class GraphicBoardView extends BoardView{
 	
@@ -36,10 +31,10 @@ public class GraphicBoardView extends BoardView{
 		board.setLayout(gbl_board);
 		
 		towerViews = new ArrayList<>();
-		towerViews.add(new GraphicTowerView(GreenTower.class));
-		towerViews.add(new GraphicTowerView(BlueTower.class));
-		towerViews.add(new GraphicTowerView(YellowTower.class));
-		towerViews.add(new GraphicTowerView(PurpleTower.class));
+		towerViews.add(new GraphicTowerView(0,"GreenTower"));
+		towerViews.add(new GraphicTowerView(1,"BlueTower"));
+		towerViews.add(new GraphicTowerView(2,"YellowTower"));
+		towerViews.add(new GraphicTowerView(3,"PurpleTower"));
 		
 		diceView = new GraphicDiceView();
 		marketView = new GraphicMarketView();

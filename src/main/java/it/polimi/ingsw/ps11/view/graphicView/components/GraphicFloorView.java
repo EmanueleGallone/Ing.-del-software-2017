@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualCardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 
 public class GraphicFloorView extends FloorView {
@@ -15,9 +16,9 @@ public class GraphicFloorView extends FloorView {
 	protected JPanel floor = new JPanel();
 	protected BufferedImage background;
 	
-	public GraphicFloorView(Class<? extends Tower> tower, int whichFloor) {
-		super(tower, whichFloor);
-		this.cardView = new GraphicCardView();
+	public GraphicFloorView(int whichTower, int whichFloor) {
+		super(whichTower, whichFloor);
+		this.cardView = new TextualCardView();
 	}
 
 	@Override

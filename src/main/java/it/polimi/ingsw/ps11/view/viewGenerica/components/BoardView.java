@@ -26,6 +26,10 @@ public abstract class BoardView extends ViewComponent {
 			t.update(board.getTower(t.getTower()));
 		}
 	}
+	
+	public ArrayList<TowerView> getTowers() {
+		return towerViews;
+	}
 
 
 }

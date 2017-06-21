@@ -15,20 +15,14 @@ public class GraphicTowerView extends TowerView{
 
 	protected JPanel tower = new JPanel();
 	protected BufferedImage background;
-	Class<? extends Tower> color;
-
 	//pannello Tower
 	
-	public GraphicTowerView(Class<? extends Tower> towerColor) {
-		super(towerColor);
-		this.color = towerColor;
-		
+	public GraphicTowerView(int whichTower, String towerName) {
+		super(whichTower,towerName);		
 		tower = new JPanel();
-		
-		floors.add(new GraphicFloorView(towerColor, 0));
-		floors.add(new GraphicFloorView(towerColor, 1));
-		floors.add(new GraphicFloorView(towerColor, 2));
-		floors.add(new GraphicFloorView(towerColor, 3));
+		for(int i = 0; i< TOWERNUMBER; i++){
+			floors.add(new GraphicFloorView(whichTower, i));
+		}
 	}
 
 	@Override
@@ -38,8 +32,7 @@ public class GraphicTowerView extends TowerView{
 	}
 	
 	private BufferedImage loadImage(){
-		URL imagePath = getClass().getResource("BoardComponentsImages/" + color.getClass().getSimpleName() + ".png");
-		System.out.println(color.getClass().getSimpleName());
+		URL imagePath = getClass().getResource("BoardComponentsImages/" + towerName + ".png");
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(imagePath);
