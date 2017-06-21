@@ -9,7 +9,17 @@ import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-
+/**
+ * <h3>Board</h3>
+ * <p> Classe che rappresenta il tabellone. e' composto da vari oggetti quali: <ul>
+ * <code><b>DiceManager:</b></code> Classe contenente i dadi.
+ * <br><code><b>Production:</b></code> Classe rappresentante la zona produzione.
+ * </p></ul>
+ * 
+ * @version 1.0
+ * @see it.polimi.ingsw.ps11.model.dices.DiceManager DiceManager
+ *
+ */
 public class Board implements Serializable{
 	
 	//private HashMap<String, Tower> towers = new HashMap<>();

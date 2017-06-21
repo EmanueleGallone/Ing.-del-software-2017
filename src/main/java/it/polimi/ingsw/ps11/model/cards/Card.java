@@ -1,10 +1,14 @@
 package it.polimi.ingsw.ps11.model.cards;
-
+/**
+ * <h3>Card</h3>
+ * <p> Classe astratta che modella qualsiasi tipo di carta </p>
+ * @see DevelopmentCard
+ */
 public abstract class Card{
 	
 	protected String name; //Va visto come un identificatore unico
 	
-	protected int period;
+	
 	
 	public Card() {
 	}
@@ -19,19 +23,13 @@ public abstract class Card{
 		this.name = name;
 	}
 	
-	public void setPeriod(int period) {
-		this.period = period;
-	}
+	
 	
 	
 //End setters
 //Start getters
 	public String getName() {
 		return name;
-	}
-	
-	public int getPeriod() {
-		return period;
 	}
 	
 	

@@ -13,7 +13,7 @@ public class TextualPlayerView extends PlayerView{
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		console.print("Player \n Name: "  + player.getName() + "\n Resources: ");
+		console.print("Player \nName: "  + player.getName() + "\nResources: ");
 		resourceView.print();
 		console.println("Cards: ");
 		personalBoard.print();

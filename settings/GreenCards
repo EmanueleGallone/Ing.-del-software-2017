@@ -2,6 +2,7 @@
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -49,12 +50,12 @@
         }
       }
     ],
-    "name": "Tenuta",
-    "period": 3
+    "name": "Tenuta"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -96,12 +97,12 @@
         }
       }
     ],
-    "name": "Citta\u0027 Mercantile",
-    "period": 3
+    "name": "Citta\u0027 Mercantile"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -149,12 +150,12 @@
         }
       }
     ],
-    "name": "Provincia",
-    "period": 3
+    "name": "Provincia"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -196,12 +197,12 @@
         }
       }
     ],
-    "name": "Cava di Marmo",
-    "period": 3
+    "name": "Cava di Marmo"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -243,12 +244,12 @@
         }
       }
     ],
-    "name": "Santuario",
-    "period": 3
+    "name": "Santuario"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -290,12 +291,12 @@
         }
       }
     ],
-    "name": "Colonia",
-    "period": 3
+    "name": "Colonia"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -343,12 +344,12 @@
         }
       }
     ],
-    "name": "Citta\u0027 Fortificata",
-    "period": 3
+    "name": "Citta\u0027 Fortificata"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [],
     "instantBonus": [
       {
@@ -396,12 +397,12 @@
         }
       }
     ],
-    "name": "Castello",
-    "period": 3
+    "name": "Castello"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -437,12 +438,12 @@
         }
       }
     ],
-    "name": "Miniera d\u0027oro",
-    "period": 2
+    "name": "Miniera d\u0027oro"
   },
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -478,12 +479,12 @@
         }
       }
     ],
-    "name": "Cava Di Pietra",
-    "period": 2
+    "name": "Cava Di Pietra"
   },
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -525,12 +526,12 @@
         }
       }
     ],
-    "name": "Villaggio Montano",
-    "period": 2
+    "name": "Villaggio Montano"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -578,12 +579,12 @@
         }
       }
     ],
-    "name": "Possedimento",
-    "period": 2
+    "name": "Possedimento"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [],
     "permanentBonus": [
@@ -609,12 +610,12 @@
         }
       }
     ],
-    "name": "Maniero",
-    "period": 2
+    "name": "Maniero"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -662,12 +663,12 @@
         }
       }
     ],
-    "name": "Ducato",
-    "period": 2
+    "name": "Ducato"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -715,12 +716,12 @@
         }
       }
     ],
-    "name": "Villaggio Minerario",
-    "period": 2
+    "name": "Villaggio Minerario"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [],
     "instantBonus": [
       {
@@ -756,12 +757,12 @@
         }
       }
     ],
-    "name": "Eremo",
-    "period": 2
+    "name": "Eremo"
   },
   {
     "activeValue": 4,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [
       {
@@ -797,12 +798,12 @@
         }
       }
     ],
-    "name": "Cava Di Ghiaia",
-    "period": 1
+    "name": "Cava Di Ghiaia"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [
       {
@@ -838,12 +839,12 @@
         }
       }
     ],
-    "name": "Citta\u0027",
-    "period": 1
+    "name": "Citta\u0027"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [],
     "permanentBonus": [
@@ -869,12 +870,12 @@
         }
       }
     ],
-    "name": "Rocca",
-    "period": 1
+    "name": "Rocca"
   },
   {
     "activeValue": 5,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [
       {
@@ -910,12 +911,12 @@
         }
       }
     ],
-    "name": "Foresta",
-    "period": 1
+    "name": "Foresta"
   },
   {
     "activeValue": 6,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [
       {
@@ -963,12 +964,12 @@
         }
       }
     ],
-    "name": "Monastero",
-    "period": 1
+    "name": "Monastero"
   },
   {
     "activeValue": 3,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [],
     "permanentBonus": [
@@ -994,12 +995,12 @@
         }
       }
     ],
-    "name": "Borgo",
-    "period": 1
+    "name": "Borgo"
   },
   {
     "activeValue": 2,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [
       {
@@ -1035,12 +1036,12 @@
         }
       }
     ],
-    "name": "Bosco",
-    "period": 1
+    "name": "Bosco"
   },
   {
     "activeValue": 1,
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [],
     "instantBonus": [],
     "permanentBonus": [
@@ -1060,7 +1061,6 @@
         }
       }
     ],
-    "name": "Avamposto Commerciale",
-    "period": 1
+    "name": "Avamposto Commerciale"
   }
 ]

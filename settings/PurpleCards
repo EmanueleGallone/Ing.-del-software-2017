@@ -1,6 +1,7 @@
 [
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -47,11 +48,11 @@
         }
       }
     ],
-    "name": "Guerra Santa",
-    "period": 3
+    "name": "Guerra Santa"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -142,11 +143,11 @@
         }
       }
     ],
-    "name": "Sostegno al Papa",
-    "period": 3
+    "name": "Sostegno al Papa"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -205,11 +206,11 @@
         }
       }
     ],
-    "name": "Conquista Militare",
-    "period": 3
+    "name": "Conquista Militare"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -253,11 +254,11 @@
         }
       }
     ],
-    "name": "Migliorare le Strade",
-    "period": 3
+    "name": "Migliorare le Strade"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -304,11 +305,11 @@
         }
       }
     ],
-    "name": "Ingaggiare Mercenari",
-    "period": 3
+    "name": "Ingaggiare Mercenari"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -361,11 +362,11 @@
         }
       }
     ],
-    "name": "Costruire le Torri",
-    "period": 3
+    "name": "Costruire le Torri"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -412,11 +413,11 @@
         }
       }
     ],
-    "name": "Commissionare Arte Sacra",
-    "period": 3
+    "name": "Commissionare Arte Sacra"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 3,
     "costs": [
       {
         "resources": {
@@ -475,11 +476,11 @@
         }
       }
     ],
-    "name": "Riparare la Cattedrale",
-    "period": 3
+    "name": "Riparare la Cattedrale"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -526,11 +527,11 @@
         }
       }
     ],
-    "name": "Accogliere gli Stranieri",
-    "period": 2
+    "name": "Accogliere gli Stranieri"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -583,11 +584,11 @@
         }
       }
     ],
-    "name": "Costruire i Bastioni",
-    "period": 2
+    "name": "Costruire i Bastioni"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -640,11 +641,11 @@
         }
       }
     ],
-    "name": "Crociata",
-    "period": 2
+    "name": "Crociata"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -713,11 +714,11 @@
         }
       }
     ],
-    "name": "Sostegno al Cardinale",
-    "period": 2
+    "name": "Sostegno al Cardinale"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -770,11 +771,11 @@
         }
       }
     ],
-    "name": "Supporto al Re",
-    "period": 2
+    "name": "Supporto al Re"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -833,11 +834,11 @@
         }
       }
     ],
-    "name": "Riparare l\u0027Abbazia",
-    "period": 2
+    "name": "Riparare l\u0027Abbazia"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -881,11 +882,11 @@
         }
       }
     ],
-    "name": "Scavare Canalizzazioni",
-    "period": 2
+    "name": "Scavare Canalizzazioni"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 2,
     "costs": [
       {
         "resources": {
@@ -932,11 +933,11 @@
         }
       }
     ],
-    "name": "Ingaggiare Soldati",
-    "period": 2
+    "name": "Ingaggiare Soldati"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -989,11 +990,11 @@
         }
       }
     ],
-    "name": "Innalzare una Statua",
-    "period": 1
+    "name": "Innalzare una Statua"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1046,11 +1047,11 @@
         }
       }
     ],
-    "name": "Costruire le Mura",
-    "period": 1
+    "name": "Costruire le Mura"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1119,11 +1120,11 @@
         }
       }
     ],
-    "name": "Sostegno al Vaticano",
-    "period": 1
+    "name": "Sostegno al Vaticano"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1170,11 +1171,11 @@
         }
       }
     ],
-    "name": "Combattere le Eresie",
-    "period": 1
+    "name": "Combattere le Eresie"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1221,11 +1222,11 @@
         }
       }
     ],
-    "name": "Ingaggiare Reclute",
-    "period": 1
+    "name": "Ingaggiare Reclute"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1284,11 +1285,11 @@
         }
       }
     ],
-    "name": "Riparare la Chiesa",
-    "period": 1
+    "name": "Riparare la Chiesa"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1335,11 +1336,11 @@
         }
       }
     ],
-    "name": "Ospitare i Mendicanti",
-    "period": 1
+    "name": "Ospitare i Mendicanti"
   },
   {
     "DEFAULT_VALUE": 1,
+    "period": 1,
     "costs": [
       {
         "resources": {
@@ -1386,7 +1387,6 @@
         }
       }
     ],
-    "name": "Campagna Militare",
-    "period": 1
+    "name": "Campagna Militare"
   }
 ]

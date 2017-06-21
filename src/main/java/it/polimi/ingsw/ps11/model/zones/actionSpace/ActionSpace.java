@@ -5,7 +5,14 @@ import java.io.Serializable;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3>ActionSpace</h3>
+ * <p> Classe che rappresenta lo spazio azione del gioco dove e' possibile posizionare il familiare. Puo' avere delle risorse o meno. </p>
+ * @see it.polimi.ingsw.ps11.model.familyMember.FamilyMember FamilyMember
+ * @see it.polimi.ingsw.ps11.model.player.Player Player
+ * @see it.polimi.ingsw.ps11.model.resources.ResourceList ResourceList
+ *
+ */
 public class ActionSpace implements FamilyMemberSpace, Serializable{
 	
 	protected static final int DEFAULT_COST = 1;
@@ -14,7 +21,9 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	private int cost;
 	private ResourceList resources; 
 	
-	
+	/**
+	 * Costruttore per costruire un ActionSpace senza risorse e con costo = DEFAULT (1).
+	 */
 	public ActionSpace() {
 		this(DEFAULT_COST);
 	}
@@ -30,23 +39,34 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	
 	public ActionSpace(int cost, ResourceList resourceList){
 		this.cost = cost;
-		this.resources = new ResourceList();
+		this.resources = resourceList;
+	}
+	
+	/**
+	 * <h3>public boolean isFree()</h3>
+	 * <p> Permette di stabilire se è possibile piazzare un familiare o meno.</p>
+	 * @return true se lo spazio azione è vuoto, false altrimenti.
+	 */
+	public boolean isFree(){
+		if (familyMember == null)
+			return true;
+		return false;
+	}
+	
+	@Override
+	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
+		if(isFree()){ //non viene fatto il controllo sul valore del familiare ed il cost dello spazio azione
+			this.familyMember = familyMember;
+			this.owner = player;
+			return true; //manca poi l'assegnamento delle risorse al giocatore che ha piazzato
+		}
+		return false;
 	}
 
 //Start setters
 	
 	public void setResources(ResourceList resourceList){
 		this.resources = resourceList;
-	}
-	
-	@Override
-	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-		if(isFree()){
-			this.familyMember = familyMember;
-			this.owner = player;
-			return true;
-		}
-		return false;
 	}
 
 // Getters
@@ -66,11 +86,6 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		return familyMember;
 	}
 	
-	public boolean isFree(){
-		if (familyMember == null)
-			return true;
-		return false;
-	}
 
 	
 	@Override

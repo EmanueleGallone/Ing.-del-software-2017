@@ -17,7 +17,6 @@ public class BlueCard extends DevelopmentCard {
 
 	@Override
 	public void enablePermanentBonus() {
-		// TODO Auto-generated method stub
 		
 	}
 

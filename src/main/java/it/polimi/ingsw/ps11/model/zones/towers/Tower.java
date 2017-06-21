@@ -4,7 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
+/**
+ * <h3>Tower</h3>
+ * <p> Classe rappresentante le torri del gioco. Ogni torre avra' una classe a se' stante le quali avranno tutte esattamente 4 Floor all'interno. </p>
+ * @see YellowTower
+ * @see BlueTower
+ * @see GreenTower
+ * @see PurpleTower
+ *
+ */
 public class Tower implements Serializable{
 	
 	private static final int MAX_FLOORS = 4;
@@ -23,7 +31,12 @@ public class Tower implements Serializable{
 	
 // End constructors
 // Start logic
-	
+	/**<h3>addFloor</h3>
+	 * <p>
+	 * Metodo che permette l'aggiunta di un Floor. Nel caso la torre avesse già 4 Floor, la chiamata di questa funziona non apporta cambiamenti.
+	 * </p>
+	 * @param floor è l'oggetto Floor da inserire nella Tower
+	 */
 	public void addFloor(Floor floor){
 		if (floors.size() < MAX_FLOORS ){
 			floors.add(floor);
@@ -81,11 +94,13 @@ public class Tower implements Serializable{
 	@Override
 	public Tower clone(){
 		Tower clone = new Tower();
+		clone.getFloors().clear();
 		
 		for(Floor f : this.floors){
-			System.out.println("ho clonato");
-			clone.addFloor(f.clone());
+			if(f != null)
+				clone.addFloor(f.clone());
 		}
+		
 		
 		return clone;
 	}

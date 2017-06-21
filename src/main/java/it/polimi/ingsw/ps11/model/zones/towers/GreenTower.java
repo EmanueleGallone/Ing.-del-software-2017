@@ -19,16 +19,16 @@ public class GreenTower extends Tower {
 		
 	}
 	
-	private GreenTower(GreenTower toCopy){
-		//copy Constructor
-		for(Floor f : toCopy.getFloors())
-			this.addFloor(f.clone()); //aggiungo i piani
-	}
-	
 	@Override
 	public GreenTower clone(){
-		return new GreenTower(this);
+		GreenTower clone = new GreenTower();
+		clone.getFloors().clear();
 		
+		for(Floor f : this.getFloors()){
+			if (f != null)
+				clone.addFloor(f.clone());
+		}
+		return clone;
 	}
 	
 	

@@ -12,6 +12,7 @@ public class GreenCard extends DevelopmentCard {
 	public GreenCard() {
 		super();
 		this.activeValue = DEFAULT_VALUE;
+		this.period = DEFAULT_VALUE;
 	}
 	
 	public int getActiveValue() {

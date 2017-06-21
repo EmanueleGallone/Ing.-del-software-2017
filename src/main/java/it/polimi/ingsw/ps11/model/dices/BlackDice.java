@@ -1,5 +1,8 @@
 package it.polimi.ingsw.ps11.model.dices;
-
+/**
+ * Classe concreta che rappresenta il dado nero.
+ *
+ */
 public class BlackDice extends Dice {
 	
 	public BlackDice(){

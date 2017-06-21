@@ -1,7 +1,14 @@
 package it.polimi.ingsw.ps11.model.dices;
 
 import java.io.Serializable;
-
+/**
+ * <h3>DiceManager</h3>
+ * <p> Classe container per i dadi.
+ * </p>
+ * @version 1.0
+ * @see it.polimi.ingsw.ps11.model.dices.Dice Dice
+ *
+ */
 public class DiceManager implements Serializable {
 	
 	private BlackDice blackDice;
@@ -14,13 +21,11 @@ public class DiceManager implements Serializable {
 		orangeDice = new OrangeDice();
 	}
 	
-	private DiceManager(DiceManager toCopy) {
-		//copy Constructor
-		blackDice = toCopy.getBlackDice().clone();
-		whiteDice = toCopy.getWhiteDice().clone();
-		orangeDice = toCopy.getOrangeDice().clone();
-	}
-	
+	/**<h3>public void rollDices()</h3>
+	 * <p>
+	 * Metodo che emula il lancio dei dadi. Nei campi value dei singoli dadi viene assegnato un valore Random tra 1 e 6;
+	 * </p>
+	 */
 	public void rollDices(){
 		blackDice.rollDice();
 		whiteDice.rollDice();
@@ -45,7 +50,13 @@ public class DiceManager implements Serializable {
 	
 	@Override
 	public DiceManager clone(){
-		return new DiceManager(this);
+		DiceManager clone = new DiceManager();
+		
+		clone.blackDice = this.blackDice.clone();
+		clone.whiteDice = this.whiteDice.clone();
+		clone.orangeDice = this.orangeDice.clone();
+		
+		return clone;
 	}
 	
 }

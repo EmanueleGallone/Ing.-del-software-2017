@@ -1,8 +1,11 @@
 package it.polimi.ingsw.ps11.model.familyMember.list;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.player.Player;
-
+/**
+ * <h3>OrangeFamilyMember</h3>
+ * <p> Classe concreta che rappresenta il familiare arancione. </p>
+ * @version 1.0
+ */
 public class OrangeFamilyMember extends FamilyMember {
 	
 	public OrangeFamilyMember(){

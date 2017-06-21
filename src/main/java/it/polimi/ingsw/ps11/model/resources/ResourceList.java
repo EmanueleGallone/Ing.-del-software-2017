@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
+/**
+ * <h3>ResourceList</h3>
+ * <p> Classe container per tutti i tipi di <code>Resource</code> utilizzabile in qualsiasi parte del gioco.
+ * </p>
+ * @see Resource
+ */
 public class ResourceList implements Iterable<Resource>, Serializable{
 	
 	private static final int DEFAULT_VALUE = 0;
@@ -16,13 +21,24 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	public ResourceList() {
 
 	}
-	
+	/**
+	 * <h3><code>public ResourceList(ArrayList<Resource> resources)</code></h3>
+	 * <p> Costruttore che accetta un ArrayList di risorse. ogni risorsa all'interno dell'Arraylist verra' aggiunta alla resourceList creata.
+	 * </p>
+	 * @param resources
+	 */
 	public ResourceList(ArrayList<Resource> resources){
 		for(Resource resource: resources){
 			setResource(resource);
 		}
 	}
 	
+	/**<h3>public ResourceList(Resource resource)</h3>
+	 * <p>
+	 * Costruttore che accetta come parametro una singola Resource. Nel caso si volessero aggiungere altre risorse, si utilizza il setResource().
+	 * </p>
+	 * @param resource risorsa singola da aggiungere nella ResourceList
+	 */
 	public ResourceList(Resource resource) {
 		this();
 		this.setResource(resource);
@@ -32,9 +48,12 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 // end constructor
 // start logic
 	
-	/**
-	 * Ritorna true se tutti i campi della resourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'othoerList.
-	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di defaul (zero)
+	/**<h3>greaterEquals(ResourceList otherList)</h3>
+	 * <p>
+	 * Metodo che ritorna <code>true</code> se tutti i campi della ResourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'otherList.
+	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di default (zero).
+	 * </p>
+	 * @param otherList ResourceList da comparare
 	 */
 	public boolean greaterEquals(ResourceList otherList){
 		
@@ -49,9 +68,13 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		return true;			
 	}
 	
-	/**
-	 * Fa la somma tra questa resource list e la resource list del giocatore che gli viene passata.
-	 * Il risultato lo assegna alla resourceList che gli viene passata
+	/**<h3>public void sum(ResourceList otherResources)</h3>
+	 * <p>
+	 * Metodo che somma alla ResourceList chiamante la ResourceList passata come parametro.
+	 * se <code>otherResources</code> contiene risorse che il chiamante non ha, viene creato il nuovo oggetto
+	 * che ha come valore quello della risorsa specifica all'interno di <code>otherResources</code> 
+	 * </p>
+	 * @param otherResources è la resourceList da sommare al chiamante della sum
 	 */
 	public void sum(ResourceList otherResources){
 		for(String key : otherResources.getResources().keySet()){
@@ -64,6 +87,15 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		}
 	}
 	
+	/**<h3>public void subtract(ResourceList otherResources)</h3>
+	 * <p>
+	 * Metodo che sottrae alla ResourceList chiamante la ResourceList passata come parametro.
+	 * se <code>otherResources</code> contiene risorse che il chiamante non ha, semplicemente non si effettua alcuna sottrazione.
+	 * Se vengono sottratte risorse in quantità maggiore di quelle in possesso della ResourceList chiamante, semplicemente si setta il valore a 0.
+	 * </p>
+	 * @see Increment
+	 * @param otherResources è la resourceList da sommare al chiamante della sum
+	 */
 	public void subtract(ResourceList otherResources){
 		for(String key : otherResources.getResources().keySet()){
 			if (getResource(key) != null){
