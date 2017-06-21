@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
-import it.polimi.ingsw.ps11.view.events.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
@@ -31,7 +31,6 @@ public class TextualView extends View {
 
 	@Override
 	public void run() {
-		this.print();
 		String input;
 		while (!(input = console.read()).equals("q")){
 			selectComponent(input);
@@ -47,8 +46,9 @@ public class TextualView extends View {
 				TowerView towerView = boardView.getTowers().get(Integer.parseInt(parts[1])-1);
 				try {
 					FloorView floorView = towerView.getFloors().get(Integer.parseInt(parts[2])-1);
-					FloorSelectedEvent event = new FloorSelectedEvent(floorView.getTower(), floorView.getWhichFloor());
-					events.invoke(FloorSelectedEvent.class, event);
+					//FloorSelectedEvent event = new FloorSelectedEvent(floorView.getTower(), floorView.getWhichFloor());
+					//events.invoke(FloorSelectedEvent.class, event);
+					viewEvent.invoke(new it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent(GreenTower.class, floorView.getWhichFloor()));
 				} catch (Exception e) {
 					console.printError("L'indice del piano non e' valido");
 				}

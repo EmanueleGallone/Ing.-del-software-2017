@@ -52,8 +52,7 @@ public class Game implements Serializable  {
 		return jsonAdapter.fromJson(strBoard, Board.class);
 	}
 	
-// Start getters
-	
+
 	public Board getBoard() {
 		return board;
 	}
@@ -61,6 +60,7 @@ public class Game implements Serializable  {
 		return roundManager;
 	}
 
+	
 // ____________________________________GAME LOGICS_________________________________
 	
 	public Tower selectTower(Integer choice) {

@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 
-import it.polimi.ingsw.ps11.controller.message.MessageArrivedEvent;
-import it.polimi.ingsw.ps11.controller.message.generic.Message;
+import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.message.MessageEvent;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
@@ -14,7 +14,7 @@ public class MessageReceiver implements Runnable {
 	
 	private Socket socket;
 	
-	private EventHandler<MessageArrivedEvent> newMessageEvent = new EventHandler<>();
+	private EventHandler<Message> newMessage = new EventHandler<>();
 	private EventHandler<DisconnectEvent> disconnectEvent = new EventHandler<>();
 	
 	public MessageReceiver() {
@@ -36,9 +36,7 @@ public class MessageReceiver implements Runnable {
 			while (true) {
 				ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
 				Message message = (Message) reader.readObject();
-
-				//La notify andrebbe resa asincrona
-				newMessageEvent.invoke(new MessageArrivedEvent(message));
+				newMessage.invoke(message);
 			}
 			
 		} catch (IOException e) {
@@ -52,8 +50,8 @@ public class MessageReceiver implements Runnable {
 	}
 	
 
-	public void attachMessageListener(EventListener<MessageArrivedEvent> newMessageListener){
-		newMessageEvent.attach(newMessageListener);
+	public void attachMessageListener(EventListener<Message> newMessageListener){
+		newMessage.attach(newMessageListener);
 	}
 	
 	public void disconnectEvent(EventListener<DisconnectEvent> disconnectListener){

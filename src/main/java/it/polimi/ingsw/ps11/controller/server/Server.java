@@ -8,8 +8,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import it.polimi.ingsw.ps11.controller.message.generic.Message;
-import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
+import it.polimi.ingsw.ps11.controller.message.Message;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIReceiver;
 import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
@@ -59,7 +58,8 @@ public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable 
 
 	@Override
 	public void connect(RMIReceiver connection) throws RemoteException {
-		RMIConnection client = new RMIConnection(connection);	
+		RMIConnection client = new RMIConnection(connection);
+		UnicastRemoteObject.exportObject(client, rmiPort );
 		connection.connect(client);
 		connectionHandler.handle(client);
 	}

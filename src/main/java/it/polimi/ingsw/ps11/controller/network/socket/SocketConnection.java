@@ -3,13 +3,13 @@ package it.polimi.ingsw.ps11.controller.network.socket;
 import java.io.IOException;
 import java.net.Socket;
 
-import it.polimi.ingsw.ps11.controller.message.MessageArrivedEvent;
-import it.polimi.ingsw.ps11.controller.message.generic.Message;
-import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
+import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.message.MessageEvent;
+import it.polimi.ingsw.ps11.controller.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
-public class SocketConnection extends Connection{
+public class SocketConnection extends Connection implements EventListener<Message>{
 
 	private Socket socket;
 	MessageReceiver receiver = new MessageReceiver();
@@ -44,6 +44,7 @@ public class SocketConnection extends Connection{
 		if(socket == null)
 			socket = new Socket(getServerAddress(),getPort());
 		receiver.setSocket(socket);
+		receiver.attachMessageListener(this);
 		new Thread(receiver).start();
 	}
 	
@@ -53,7 +54,8 @@ public class SocketConnection extends Connection{
 	}
 
 	@Override
-	public void attachMessageListener(EventListener<MessageArrivedEvent> listener) {
-		receiver.attachMessageListener(listener);		
+	public void handle(Message e) {
+		invokeMessageEvent(e);
 	}
+
 }

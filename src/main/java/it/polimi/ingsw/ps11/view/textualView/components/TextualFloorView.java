@@ -14,7 +14,7 @@ public class TextualFloorView extends FloorView {
 	public void print() {
 		TextualConsole console = new TextualConsole();
 		String card = "None";
-		if (floor.getCard() != null)
+		if (floor != null && floor.getCard() != null)
 			card = floor.getCard().getName();
 		console.println( "Floor " + (whichFloor + 1) + "           Card: " + card +"           ActionCost: " + floor.getActionSpace().getActionCost());
 	}

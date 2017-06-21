@@ -8,9 +8,9 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import it.polimi.ingsw.ps11.controller.message.MessageArrivedEvent;
-import it.polimi.ingsw.ps11.controller.message.generic.Message;
-import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
+import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.message.MessageReceiver;
+import it.polimi.ingsw.ps11.controller.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 
 public class RMIConnection extends Connection implements RMIReceiver,Serializable{
@@ -57,7 +57,7 @@ public class RMIConnection extends Connection implements RMIReceiver,Serializabl
 
 	@Override
 	public void receive(Message message) throws RemoteException {
-		messageListener.invoke(new MessageArrivedEvent(message));
+		invokeMessageEvent(message);
 	}
 
 	@Override
