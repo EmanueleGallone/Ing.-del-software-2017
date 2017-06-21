@@ -86,7 +86,7 @@ public class Client implements MessageReceiver,ModelListener,Runnable {
 
 	@Override
 	public void handle(GameStartedEvent gameStartedEvent) {
-		view.update(gameStartedEvent.getGame());
+		view.update(gameStartedEvent.getBoard());
 		view.update(gameStartedEvent.getPlayer());
 		view.print();
 	}

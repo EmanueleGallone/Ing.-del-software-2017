@@ -35,4 +35,9 @@ public class FloorSelectedEvent implements ViewEvent {
 		this.player = player;
 	}
 
+	@Override
+	public Player getSource() {
+		return player;
+	}
+
 }

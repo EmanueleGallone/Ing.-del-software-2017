@@ -1,21 +1,22 @@
 package it.polimi.ingsw.ps11.model.modelEvents;
 
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.zones.Board;
 
 public class GameStartedEvent implements ModelEvent{
 
-	private Game game;
+	private Board board;
 	private Player player;
 	
-	public GameStartedEvent(Game game, Player player) {
-		this.game = game;
+	public GameStartedEvent(Board board, Player player) {
+		this.board = board;
 		this.player = player;
 	}
 	
-	public Game getGame() {
-		return game;
+	public Board getBoard() {
+		return board;
 	}
+	
 	public Player getPlayer() {
 		return player;
 	}

@@ -7,5 +7,6 @@ import it.polimi.ingsw.ps11.model.player.Player;
 public interface ViewEvent extends Serializable {
 
 	public void setSource(Player player);
+	public Player getSource();
 	public void accept(ViewListener listener);
 }

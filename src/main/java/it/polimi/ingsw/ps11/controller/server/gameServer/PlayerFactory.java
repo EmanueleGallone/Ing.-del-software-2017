@@ -4,7 +4,7 @@ package it.polimi.ingsw.ps11.controller.server.gameServer;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import it.polimi.ingsw.ps11.model.player.Colors;
+import it.polimi.ingsw.ps11.model.game.Colors;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

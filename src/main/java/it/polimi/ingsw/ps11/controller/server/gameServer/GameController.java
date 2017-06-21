@@ -97,6 +97,7 @@ public class GameController implements MessageReceiver,Runnable {
 	public void receive(ViewMessage viewMessage) {
 		ViewEvent event =  viewMessage.getEvent();
 		event.setSource(clients.get(viewMessage));
-		event.accept(gameLogic);
+		//event.accept(gameLogic);
+		gameLogic.handle(event);
 	}
 }

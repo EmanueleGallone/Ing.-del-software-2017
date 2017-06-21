@@ -4,10 +4,10 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewListener;
 
 public abstract class State implements ViewListener{
 
-	protected PlayerHandler playerHandler;
+	protected PlayerStatus playerStatus;
 	
-	public State(PlayerHandler playerHandler) {
-		this.playerHandler = playerHandler;
+	public State(PlayerStatus playerStatus) {
+		this.playerStatus = playerStatus;
 	}
 
 }

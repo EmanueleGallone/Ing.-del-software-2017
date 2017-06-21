@@ -23,9 +23,9 @@ import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.game.Colors;
+import it.polimi.ingsw.ps11.model.game.GameLoader;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.player.Colors;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -67,14 +67,14 @@ public class MainTest {
 		players.add(player);
 		players.add(player2);
 		
-		Game game = new Game(players);
+		GameLoader game = new GameLoader(players.size());
 		
 		JsonAdapter adapter = new JsonAdapter();
 		
 		String gString = adapter.toJson(game);
 		//System.out.println(gString);
 		
-		Game game2 = adapter.fromJson(gString, Game.class);
+		GameLoader game2 = adapter.fromJson(gString, GameLoader.class);
 		System.out.println(game2.getBoard());
 		
 //		View view = new TextualView();

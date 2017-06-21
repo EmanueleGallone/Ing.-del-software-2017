@@ -4,29 +4,38 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.game.GameLoader;
 import it.polimi.ingsw.ps11.model.game.RoundManager;
+import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewListener;
+import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 
-public class GameLogic implements Runnable,ViewListener{
+public class GameLogic implements Runnable{
 
-	private Game game;
+	private Board board;
 	private RoundManager roundManager;
-
+	
+	ArrayList<PlayerStatus> playerHandlers = new ArrayList<>();
+	
+	
 	EventHandler<ModelEvent> modelEvent = new EventHandler<>();
 	
 	public GameLogic(ArrayList<Player> players) {
 		roundManager = new RoundManager(players);
-		game = new Game(players.size());
+		board = new GameLoader(players.size()).getBoard();
+		for(Player player : players){
+			PlayerStatus startStatus = new PlayerStatus(player);
+			startStatus.setState(new DefaultState(startStatus));
+			playerHandlers.add(startStatus);
+		}
 	}
 
-	
-	public Game getGame() {
-		return game;
+
+	public Board getBoard() {
+		return board;
 	}
 	
 	public void attach(EventListener<ModelEvent> listener){
@@ -36,15 +45,17 @@ public class GameLogic implements Runnable,ViewListener{
 	@Override
 	public void run() {
 		for(Player player: roundManager.getCurrentOrder()){
-			modelEvent.invoke(new GameStartedEvent(game, player));
+			modelEvent.invoke(new GameStartedEvent(board, player));
 		}
 	}
 
 // Handle events from view
 	
-	@Override
-	public void handle(FloorSelectedEvent floorSelectedEvent) {
-		System.out.println("Un floor e' stato selezionato da " + floorSelectedEvent.getPlayer().getName());
+	public void handle(ViewEvent viewEvent){
+		for(PlayerStatus pHandler : playerHandlers){
+			if(pHandler.getPlayer().equals(viewEvent.getSource())){
+				viewEvent.accept(pHandler.getState());
+			}
+		}
 	}
-
 }
