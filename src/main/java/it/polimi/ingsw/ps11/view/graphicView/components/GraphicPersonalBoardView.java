@@ -7,9 +7,9 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.view.viewGenerica.components.PersonalBoardView;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 
-public class GraphicPersonalBoardView extends PersonalBoardView {
+public class GraphicPersonalBoardView extends CardManagerView {
 
 	protected JPanel personalBoard = new JPanel();
 	protected BufferedImage background;

@@ -44,4 +44,6 @@ public abstract class TowerView extends ViewComponent {
 		return floors;
 	}
 	
+	public abstract void selected();
+	
 }

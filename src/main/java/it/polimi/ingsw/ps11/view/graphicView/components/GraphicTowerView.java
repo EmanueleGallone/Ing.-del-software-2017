@@ -47,4 +47,13 @@ public class GraphicTowerView extends TowerView{
 		return tower;
 	}
 
+	@Override
+	public void selected() {
+		// TODO Auto-generated method stub
+		//occhio gab, sto facendo in modo che ogni componente chieda poi cosa fare.
+		//per esempio se sei nella selected della torre, qui ti chiedo di scegliere il piano, poi invocherò la selected del Floor e così via..
+		//l'idea e' quella, per ora non cambio
+		
+	}
+
 }
