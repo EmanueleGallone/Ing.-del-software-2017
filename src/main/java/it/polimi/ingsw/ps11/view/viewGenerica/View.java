@@ -10,7 +10,11 @@ import it.polimi.ingsw.ps11.view.events.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
-
+/**
+ * <h3>View</h3>
+ * <p> Classe astratta rappresentante la view che il giocatore puo' scegliere, ovvero CLI o GUI. e' stata portata avanti
+ * una struttura ad albero utilizzando i "components". Ogni oggetto che ha bisogno di essere stampato a video fa parte dei components. </p>
+ */
 public abstract class View implements ViewInterface, Runnable {
 	
 	protected Console console;

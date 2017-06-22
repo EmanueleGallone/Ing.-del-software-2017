@@ -24,7 +24,14 @@
             "actionSpace": {
               "cost": 5,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
               }
             }
           },
@@ -32,7 +39,14 @@
             "actionSpace": {
               "cost": 7,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
               }
             }
           }
@@ -63,7 +77,14 @@
             "actionSpace": {
               "cost": 5,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
               }
             }
           },
@@ -71,7 +92,14 @@
             "actionSpace": {
               "cost": 7,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
               }
             }
           }
@@ -102,7 +130,14 @@
             "actionSpace": {
               "cost": 5,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
               }
             }
           },
@@ -110,7 +145,14 @@
             "actionSpace": {
               "cost": 7,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
               }
             }
           }
@@ -141,7 +183,14 @@
             "actionSpace": {
               "cost": 5,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
               }
             }
           },
@@ -149,7 +198,14 @@
             "actionSpace": {
               "cost": 7,
               "resources": {
-                "resources": {}
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
               }
             }
           }
@@ -162,7 +218,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 128128575296982
+          "value": 52800969566986
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -172,7 +228,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 213174445466156
+          "value": 168641233209143
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -182,7 +238,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 137484789517341
+          "value": 127203261637483
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -256,6 +312,19 @@
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
               "INSTANCE": {
                 "value": 3
+              }
+            }
+          }
+        }
+      },
+      {
+        "cost": 1,
+        "resources": {
+          "resources": {
+            "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
+              "INSTANCE": {
+                "value": 2
               }
             }
           }

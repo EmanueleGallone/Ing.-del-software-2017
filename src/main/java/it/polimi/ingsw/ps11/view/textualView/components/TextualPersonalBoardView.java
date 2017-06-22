@@ -18,7 +18,7 @@ public class TextualPersonalBoardView extends PersonalBoardView{
 			int i = 0;
 			for(DevelopmentCard card : deck){
 				if (i == 0){
-					console.print(card.getClass().getSimpleName() + " : ");
+					console.println(card.getClass().getSimpleName() + "s : ");
 					i++;
 				}
 				//console.print(card.getName() + "   ");

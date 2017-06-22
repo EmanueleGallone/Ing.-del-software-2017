@@ -1,9 +1,8 @@
 package it.polimi.ingsw.ps11.view.viewGenerica.components;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
-public abstract class DevelopmentCardView extends ViewComponent{
+public abstract class DevelopmentCardView extends CardView{
 
 	protected DevelopmentCard card;
 	

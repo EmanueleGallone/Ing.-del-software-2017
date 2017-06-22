@@ -18,6 +18,8 @@ public class TextualBoardView extends BoardView {
 		harvestView = new TextualHarvestView();
 		productionView = new TextualProductionView();
 		councilPalaceView = new TextualCouncilPalaceView();
+		marketView = new TextualMarketView();
+		//churchView = new TextualChurchView();
 	}
 	
 	@Override
@@ -36,6 +38,10 @@ public class TextualBoardView extends BoardView {
 		console.print("\n");
 		councilPalaceView.print();
 		console.print("\n");
+		marketView.print();
+		console.print("\n");
+		//churchView.print();
+		//console.print("\n");
 	}
 
 }

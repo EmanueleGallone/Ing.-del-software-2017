@@ -14,6 +14,8 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
  * <p> Classe che rappresenta il tabellone. e' composto da vari oggetti quali: <ul>
  * <code><b>DiceManager:</b></code> Classe contenente i dadi.
  * <br><code><b>Production:</b></code> Classe rappresentante la zona produzione.
+ * <br><code><b>Harvest:</b></code> Classe rappresentante la zona raccolta.
+ * <br><code><b>market:</b></code> Classe rappresentante la zona mercato.
  * </p></ul>
  * 
  * @version 1.0
@@ -25,12 +27,12 @@ public class Board implements Serializable{
 	//private HashMap<String, Tower> towers = new HashMap<>();
 	ArrayList<Tower> towers = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
-	private CardManager cards;
 	
 	private Production harvest = new Production();
 	private Production production = new Production();
 	private Market market;
 	private CouncilPalace councilPalace;
+	//manca la church
 	
 	
 	public Board(){
@@ -73,15 +75,15 @@ public class Board implements Serializable{
 	}
 	
 	public CouncilPalace getCouncilPalace() {
-		return councilPalace;
+		return this.councilPalace;
 	}
 	
 	public Market getMarket() {
-		return market;
+		return this.market;
 	}
 	
 	public Production getProduction() {
-		return production;
+		return this.production;
 	}
 	
 	public Production getHarvest() {
