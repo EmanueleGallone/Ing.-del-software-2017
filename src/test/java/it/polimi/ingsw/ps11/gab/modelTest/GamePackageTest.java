@@ -1,10 +1,10 @@
 package it.polimi.ingsw.ps11.gab.modelTest;
 
-import it.polimi.ingsw.ps11.model.game.GameLoader;
+import it.polimi.ingsw.ps11.model.game.Game;
 
 public class GamePackageTest {
 
-	public GameLoader game;
+	public Game game;
 	
 	
 	

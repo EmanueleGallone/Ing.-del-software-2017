@@ -1,12 +1,12 @@
 package it.polimi.ingsw.ps11.model.oldGameLogics;
 
-import it.polimi.ingsw.ps11.model.game.GameLoader;
+import it.polimi.ingsw.ps11.model.game.Game;
 
 public class GameLogics {
 	
-	private GameLoader game;
+	private Game game;
 	
-	public GameLoader getGame() {
+	public Game getGame() {
 		return game;
 	}
 	

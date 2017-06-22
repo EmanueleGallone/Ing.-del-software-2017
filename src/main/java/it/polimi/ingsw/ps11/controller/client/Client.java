@@ -12,6 +12,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
@@ -68,12 +69,6 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	@Override
 	public void receive(TextualMessage message) {
 		view.out(message.getMessage());
-		try {
-			connection.send("Grazie");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	@Override
@@ -86,8 +81,13 @@ public class Client implements MessageListener,ModelListener,Runnable {
 
 	@Override
 	public void handle(GameStartedEvent gameStartedEvent) {
-		view.update(gameStartedEvent.getBoard());
-		view.update(gameStartedEvent.getPlayer());
+		view.update(gameStartedEvent.getGame());
+		view.update(gameStartedEvent.getReceiver());
 		view.print();
+	}
+
+	@Override
+	public void handle(TextualEvent textualEvent) {
+		view.out(textualEvent.getMessage());
 	}
 }

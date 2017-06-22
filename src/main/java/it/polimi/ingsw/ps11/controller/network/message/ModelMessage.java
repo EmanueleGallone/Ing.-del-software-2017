@@ -1,18 +1,18 @@
 package it.polimi.ingsw.ps11.controller.network.message;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
-import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 
 public class ModelMessage implements Message {
 	
 	private Connection connection;
-	private ModelEvent event;
+	private ModelEventInterface event;
 	
-	public ModelMessage(ModelEvent event) {
+	public ModelMessage(ModelEventInterface event) {
 		this.event = event;
 	}
 	
-	public ModelEvent getEvent() {
+	public ModelEventInterface getEvent() {
 		return event;
 	}
 

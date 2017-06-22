@@ -1,13 +1,13 @@
 package it.polimi.ingsw.ps11.model.game.actionsEma;
 
-import it.polimi.ingsw.ps11.model.game.GameLoader;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class FinishRoundAction extends PlayerAction {
 
-	private GameLoader game;
+	private Game game;
 	
-	public FinishRoundAction(Player player, GameLoader game) {
+	public FinishRoundAction(Player player, Game game) {
 		super(player);
 		this.game = game;
 	}

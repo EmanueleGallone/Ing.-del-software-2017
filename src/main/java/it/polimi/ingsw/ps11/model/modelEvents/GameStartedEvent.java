@@ -1,39 +1,28 @@
 package it.polimi.ingsw.ps11.model.modelEvents;
 
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.Board;
 
-public class GameStartedEvent implements ModelEvent{
+public class GameStartedEvent extends ModelEvent{
 
-	private Board board;
-	private Player player;
+	private Game game;
 	
-	public GameStartedEvent(Board board, Player player) {
-		this.board = board;
-		this.player = player;
+	public GameStartedEvent(Game game) {
+		this.game = game;
 	}
 	
-	public Board getBoard() {
-		return board;
+	public GameStartedEvent(Game game, Player player) {
+		super(player);
+		this.game = game;
 	}
 	
-	public Player getPlayer() {
-		return player;
+	public Game getGame() {
+		return game;
 	}
 	
 	@Override
 	public void accept(ModelListener listener) {
 		listener.handle(this);
-	}
-
-	@Override
-	public void setReceiver(Player player) {
-		this.player = player;
-	}
-
-	@Override
-	public Player getReceiver() {
-		return player;
 	}
 
 }

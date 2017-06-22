@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.model.oldGameLogics.actions.list.player;
 
-import java.awt.Checkbox;
-
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;

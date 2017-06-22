@@ -13,7 +13,7 @@ import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
-import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
@@ -54,10 +54,10 @@ public class GameController implements MessageListener,Runnable {
 	}
 	
 	
-	private transient EventListener<ModelEvent> modelListener = new EventListener<ModelEvent>() {
+	private transient EventListener<ModelEventInterface> modelListener = new EventListener<ModelEventInterface>() {
 
 		@Override
-		public void handle(ModelEvent e) {
+		public void handle(ModelEventInterface e) {
 			Connection connection = getClient(e.getReceiver());
 			try {
 				connection.send(new ModelMessage(e));
@@ -96,7 +96,7 @@ public class GameController implements MessageListener,Runnable {
 	@Override
 	public void receive(ViewMessage viewMessage) {
 		ViewEventInterface event =  viewMessage.getEvent();
-		event.setSource(clients.get(viewMessage));
+		event.setSource(clients.get(viewMessage.getSource()));
 		//event.accept(gameLogic);
 		gameLogic.handle(event);
 	}

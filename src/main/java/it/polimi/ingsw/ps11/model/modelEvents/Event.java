@@ -1,27 +1,24 @@
-package it.polimi.ingsw.ps11.view.viewEvents;
+package it.polimi.ingsw.ps11.model.modelEvents;
 
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public abstract class ViewEvent implements ViewEventInterface{
+public class Event {
 
 	private Player player;
 	
-	public ViewEvent() {
+	public Event() {
 	
 	}
 	
-	public ViewEvent(Player player) {
+	public Event(Player player) {
 		setSource(player);
 	}
 	
-	@Override
 	public void setSource(Player player) {
 		this.player = player;
 	}
 
-	@Override
 	public Player getSource() {
 		return player;
 	}
-
 }

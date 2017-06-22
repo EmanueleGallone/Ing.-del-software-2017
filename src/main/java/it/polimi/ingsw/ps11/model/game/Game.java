@@ -8,18 +8,21 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class GameLoader implements Serializable  {
+public class Game implements Serializable  {
 	
 	private Board board;
+	private RoundManager roundManager;
 	
-	public GameLoader(int playerNumber) {
+	public Game(ArrayList<Player> players) {
 		try {
+			roundManager = new RoundManager(players);
 			board = initializeBoard();
-			board.getMarket().setPlayerNumber(playerNumber);
+			board.getMarket().setPlayerNumber(players.size());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -45,6 +48,10 @@ public class GameLoader implements Serializable  {
 
 	public Board getBoard() {
 		return board;
+	}
+	
+	public RoundManager getRoundManager() {
+		return roundManager;
 	}
 
 }
