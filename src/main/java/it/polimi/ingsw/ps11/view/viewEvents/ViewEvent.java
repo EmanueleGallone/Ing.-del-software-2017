@@ -1,12 +1,23 @@
 package it.polimi.ingsw.ps11.view.viewEvents;
 
-import java.io.Serializable;
-
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public interface ViewEvent extends Serializable {
+public abstract class ViewEvent implements ViewEventInterface{
 
-	public void setSource(Player player);
-	public Player getSource();
-	public void accept(ViewListener listener);
+	private Player player;
+	
+	public ViewEvent(Player player) {
+		setSource(player);
+	}
+	
+	@Override
+	public void setSource(Player player) {
+		this.player = player;
+	}
+
+	@Override
+	public Player getSource() {
+		return player;
+	}
+
 }

@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.controller.network.rmi;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import it.polimi.ingsw.ps11.controller.message.Message;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
 
 public interface RMIReceiver extends Remote {
 

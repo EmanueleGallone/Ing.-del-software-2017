@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.controller.message;
+package it.polimi.ingsw.ps11.controller.network.message;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
@@ -17,7 +17,7 @@ public class ModelMessage implements Message {
 	}
 
 	@Override
-	public void accept(MessageReceiver receiver) {
+	public void accept(MessageListener receiver) {
 		receiver.receive(this);
 	}
 

@@ -3,10 +3,10 @@ package it.polimi.ingsw.ps11.controller.network.socket;
 import java.io.IOException;
 import java.net.Socket;
 
-import it.polimi.ingsw.ps11.controller.message.Message;
-import it.polimi.ingsw.ps11.controller.message.MessageEvent;
-import it.polimi.ingsw.ps11.controller.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
+import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
+import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
 public class SocketConnection extends Connection implements EventListener<Message>{

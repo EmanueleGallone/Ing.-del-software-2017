@@ -3,13 +3,13 @@ package it.polimi.ingsw.ps11.view.viewEvents;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class FloorSelectedEvent implements ViewEvent {
+public class FloorSelectedEvent extends ViewEvent {
 
-	private Player player;
 	private String tower;
 	private int floor;
 	
-	public FloorSelectedEvent(Class<? extends Tower> tower , int floor) {
+	public FloorSelectedEvent(Player player,Class<? extends Tower> tower , int floor) {
+		super(player);
 		this.tower = tower.toString();
 		this.floor = floor;
 	}
@@ -20,24 +20,10 @@ public class FloorSelectedEvent implements ViewEvent {
 	public int getFloor() {
 		return floor;
 	}
-	
-	public Player getPlayer() {
-		return player;
-	}
-	
+
 	@Override
 	public void accept(ViewListener listener) {
 		listener.handle(this);
-	}
-
-	@Override
-	public void setSource(Player player) {
-		this.player = player;
-	}
-
-	@Override
-	public Player getSource() {
-		return player;
 	}
 
 }

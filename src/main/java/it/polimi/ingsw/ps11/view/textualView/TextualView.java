@@ -48,7 +48,7 @@ public class TextualView extends View {
 					FloorView floorView = towerView.getFloors().get(Integer.parseInt(parts[2])-1);
 					//FloorSelectedEvent event = new FloorSelectedEvent(floorView.getTower(), floorView.getWhichFloor());
 					//events.invoke(FloorSelectedEvent.class, event);
-					viewEvent.invoke(new it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent(GreenTower.class, floorView.getWhichFloor()));
+					//viewEvent.invoke(new it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent(GreenTower.class, floorView.getWhichFloor()));
 				} catch (Exception e) {
 					console.printError("L'indice del piano non e' valido");
 				}

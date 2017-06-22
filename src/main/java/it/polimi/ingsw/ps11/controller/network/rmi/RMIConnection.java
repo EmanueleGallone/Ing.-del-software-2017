@@ -8,10 +8,10 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import it.polimi.ingsw.ps11.controller.message.Message;
-import it.polimi.ingsw.ps11.controller.message.MessageReceiver;
-import it.polimi.ingsw.ps11.controller.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
+import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
+import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 
 public class RMIConnection extends Connection implements RMIReceiver,Serializable{
 

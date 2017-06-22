@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.view.ViewInterface;
 import it.polimi.ingsw.ps11.view.viewEvents.FloorSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
@@ -20,7 +20,7 @@ public abstract class View implements ViewInterface, Runnable {
 	protected BoardView boardView;
 	
 	protected EventManager events = new EventManager();
-	protected EventHandler<ViewEvent> viewEvent = new EventHandler<>();
+	protected EventHandler<ViewEventInterface> viewEvent = new EventHandler<>();
 	
 	public View() {
 		
@@ -38,7 +38,7 @@ public abstract class View implements ViewInterface, Runnable {
 		events.attach(FloorSelectedEvent.class, listener);
 	}
 	
-	public void attach(EventListener<ViewEvent> listener){
+	public void attach(EventListener<ViewEventInterface> listener){
 		this.viewEvent.attach(listener);
 	}
 	

@@ -2,20 +2,20 @@ package it.polimi.ingsw.ps11.controller.client;
 
 import java.io.IOException;
 
-import it.polimi.ingsw.ps11.controller.message.MessageEvent;
-import it.polimi.ingsw.ps11.controller.message.MessageReceiver;
-import it.polimi.ingsw.ps11.controller.message.ModelMessage;
-import it.polimi.ingsw.ps11.controller.message.TextualMessage;
-import it.polimi.ingsw.ps11.controller.message.ViewMessage;
 import it.polimi.ingsw.ps11.controller.network.Connection;
+import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
+import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
+import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
+import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
+import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
-public class Client implements MessageReceiver,ModelListener,Runnable {
+public class Client implements MessageListener,ModelListener,Runnable {
 	
 	private View view;
 	protected Connection connection;
@@ -47,10 +47,10 @@ public class Client implements MessageReceiver,ModelListener,Runnable {
 		}
 	};
 	
-	private transient EventListener<ViewEvent> viewListener = new EventListener<ViewEvent>() {
+	private transient EventListener<ViewEventInterface> viewListener = new EventListener<ViewEventInterface>() {
 
 		@Override
-		public void handle(ViewEvent e) {
+		public void handle(ViewEventInterface e) {
 			try {
 				connection.send(new ViewMessage(e));
 			} catch (IOException e1) {
