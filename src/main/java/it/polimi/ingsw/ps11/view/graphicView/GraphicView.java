@@ -12,6 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicMainBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
@@ -43,38 +44,39 @@ public class GraphicView extends View implements ActionListener{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
         window.pack();
-        
-        mainBoardView.attachListener(this);						//listener per il bottone che fa entrare il pannello della slideBoardView
-                
+                        
         window.setLayout(new GridBagLayout());
                
         JPanel boardPanel = mainBoardView.getComponent();
         slidePanel = slideBoardView.getComponent();
         JPanel playerlPanel = you.getComponent();
         JPanel consolePanel = console.getComponent();
+		JTabbedPane allPlayers = new JTabbedPane();
+		allPlayers.add("<html><body><table width='200'><tr><td>" + "YOU" + "</td></tr></table></body></html>", playerlPanel);
        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
-        slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.7166), 
-        					(int)Math.round(screenSize.getWidth()*0.498), (int)Math.round(screenSize.getHeight()*0.285));
+        slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.689815), 
+        					(int)Math.round(screenSize.getWidth()*0.475), (int)Math.round(screenSize.getHeight()*0.310185));
         
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
-		GridBagConstraints gbcPlayer = new GridBagConstraints();
+		GridBagConstraints gbcPlayers = new GridBagConstraints();
 		GridBagConstraints gbcConsole = new GridBagConstraints();
         
 		gbcMainBoard.gridx = 0;
 		gbcMainBoard.gridy = 0;
 		gbcMainBoard.gridheight = 2;
-		gbcMainBoard.weightx = 0.493229;
+		gbcMainBoard.weightx = 0.477604;
 		gbcMainBoard.fill = GridBagConstraints.BOTH;
 		window.add(boardPanel, gbcMainBoard);
-		
-		gbcPlayer.gridx = 1;
-		gbcPlayer.gridy = 1;
-		gbcPlayer.gridwidth = 2;
-		gbcPlayer.weightx = 0.506771;
-		gbcPlayer.weighty = 0.703703;
-		gbcPlayer.fill = GridBagConstraints.BOTH;
-		window.add(playerlPanel, gbcPlayer);
+			
+		gbcPlayers.gridx = 1;
+		gbcPlayers.gridy = 1;
+		gbcPlayers.gridwidth = 2;
+		gbcPlayers.weightx = 0.522396;
+		gbcPlayers.weighty = 0.703703;
+		gbcPlayers.fill = GridBagConstraints.BOTH;
+		allPlayers.setPreferredSize(new Dimension(10, 10));
+		window.add(allPlayers, gbcPlayers);
 		
 		gbcConsole.gridx = 1;
 		gbcConsole.gridy = 0;
@@ -98,8 +100,10 @@ public class GraphicView extends View implements ActionListener{
 				        
         mainBoardView.print();
         you.print();
+        slideBoardView.print();
         console.print("Benvenuto ne \"Lorenzo il Magnifico\" ");
         
+        mainBoardView.attachListener(this);						//listener per il bottone che fa entrare il pannello della slideBoardView
         window.setVisible(true);
 
 	}

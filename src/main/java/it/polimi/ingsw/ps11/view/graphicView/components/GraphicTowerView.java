@@ -1,49 +1,28 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
 public class GraphicTowerView extends TowerView{
 
-	protected JPanel tower = new JPanel();
-	protected BufferedImage background;
-	//pannello Tower
+	protected GraphicBackground tower = new GraphicBackground();
+	protected String towerName;
 	
 	public GraphicTowerView(int whichTower, String towerName) {
 		super(whichTower,towerName);		
-		tower = new JPanel();
 		for(int i = 0; i< TOWERNUMBER; i++){
 			floors.add(new GraphicFloorView(whichTower, i));
 		}
+		this.towerName = towerName;
+	}
+	
+	@Override
+	public void print(){
+		tower.loadImage("boardImages/" + towerName + ".png");
 	}
 
-	@Override
-	public void print() {
-		tower.setBorder(BorderFactory.createLoweredBevelBorder());
-		//background = loadImage();
-	}
-	
-	private BufferedImage loadImage(){
-		URL imagePath = getClass().getResource("BoardComponentsImages/" + towerName + ".png");
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(imagePath);
-		} catch (IOException e) {
-			System.err.println("Errore, immagine non trovata");
-		}
-		
-		return result;
-	}
-	
-	public JPanel getComponent(){
+	public JPanel getComponent() {
 		return tower;
 	}
 

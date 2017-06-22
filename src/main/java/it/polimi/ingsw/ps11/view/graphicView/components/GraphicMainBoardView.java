@@ -1,45 +1,133 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 
 public class GraphicMainBoardView extends BoardView{
 	
 	protected JPanel mainBoard = new JPanel();
-	protected JDialog slideBoard;
 	protected JButton slideInButton;
 	protected ArrayList<GraphicTowerView> towerViews;
-	protected GraphicHarvestView harvestView;
-	protected GraphicProductionView productionView;
-	protected GraphicDiceView diceView;
-	protected GraphicCouncilPalaceView councilPalaceView;
 	protected GraphicChurchView churchView;
-	protected GraphicMarketView marketView;
+	protected GraphicCouncilPalaceView councilPalaceView;
 	protected GraphicFaithPointsView faithPointsView;
 	protected GraphicMilitaryPointsView militaryPointsView;
 	
 	public GraphicMainBoardView() {
 		
-		slideInButton = new JButton("SlideIn");
-		mainBoard.add(slideInButton);
+		GridBagLayout gblMainBoard = new GridBagLayout();
+		gblMainBoard.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gblMainBoard.rowHeights = new int[]{0, 0, 0, 0};
+		gblMainBoard.columnWeights = new double[]{0.022639, 0.216556, 0.177224, 0.039332, 0.216556, 0.216556, 0.024926, 0.086211, Double.MIN_VALUE};
+		gblMainBoard.rowWeights = new double[]{0.7086, 0.221122, 0.070278, Double.MIN_VALUE};
+		mainBoard.setLayout(gblMainBoard);
 
-	}
-	
-	public JPanel getComponent() {
-		mainBoard.setBorder(BorderFactory.createLineBorder(Color.RED));
-		return mainBoard;
+		towerViews = new ArrayList<>();
+		towerViews.add(new GraphicTowerView(0,"GreenTower"));
+		towerViews.add(new GraphicTowerView(1,"BlueTower"));
+		towerViews.add(new GraphicTowerView(2,"YellowTower"));
+		towerViews.add(new GraphicTowerView(3,"PurpleTower"));
+		
+		churchView = new GraphicChurchView();
+		councilPalaceView = new GraphicCouncilPalaceView();
+		faithPointsView = new GraphicFaithPointsView();
+		militaryPointsView = new GraphicMilitaryPointsView();
+
 	}
 	
 	@Override
 	public void print() {
+		
+		towerViews.get(0).print();
+		towerViews.get(1).print();
+		towerViews.get(2).print();
+		towerViews.get(3).print();
+		churchView.print();
+		councilPalaceView.print();
+		faithPointsView.print();
+		militaryPointsView.print();
+		
+		JPanel greenTowerPanel = towerViews.get(0).getComponent();
+		JPanel blueTowerPanel = towerViews.get(1).getComponent();
+		JPanel yellowTowerPanel = towerViews.get(2).getComponent();
+		JPanel purpleTowerPanel = towerViews.get(3).getComponent();
+		JPanel churchPanel = churchView.getComponent();
+		JPanel councilPalacePanel = councilPalaceView.getComponent();
+		JPanel faithPointsPanel = faithPointsView.getComponent();
+		JPanel militaryPointsPanel = militaryPointsView.getComponent();
+		slideInButton = new JButton("SlideIn");		
+		
+		GridBagConstraints gbcGreenTower = new GridBagConstraints();
+		GridBagConstraints gbcBlueTower = new GridBagConstraints();
+		GridBagConstraints gbcYellowTower = new GridBagConstraints();
+		GridBagConstraints gbcPurpleTower = new GridBagConstraints();
+		GridBagConstraints gbcChurch = new GridBagConstraints();
+		GridBagConstraints gbcCouncilPalace = new GridBagConstraints();
+		GridBagConstraints gbcFaithPoints = new GridBagConstraints();
+		GridBagConstraints gbcMilitaryPoints = new GridBagConstraints();
+		GridBagConstraints gbcSlideIn = new GridBagConstraints();
+
+		gbcGreenTower.gridx = 1;
+		gbcGreenTower.gridy = 0;
+		gbcGreenTower.fill = GridBagConstraints.BOTH;
+		mainBoard.add(greenTowerPanel, gbcGreenTower);
+		
+		gbcBlueTower.gridx = 2;
+		gbcBlueTower.gridy = 0;
+		gbcBlueTower.gridwidth = 2;
+		gbcBlueTower.fill = GridBagConstraints.BOTH;
+		mainBoard.add(blueTowerPanel, gbcBlueTower);
+		
+		gbcYellowTower.gridx = 4;
+		gbcYellowTower.gridy = 0;
+		gbcYellowTower.fill = GridBagConstraints.BOTH;
+		mainBoard.add(yellowTowerPanel, gbcYellowTower);
+		
+		gbcPurpleTower.gridx = 5;
+		gbcPurpleTower.gridy = 0;
+		gbcPurpleTower.fill = GridBagConstraints.BOTH;
+		mainBoard.add(purpleTowerPanel, gbcPurpleTower);
+		
+		gbcChurch.gridx = 0;
+		gbcChurch.gridy = 1;
+		gbcChurch.gridwidth = 3;
+		gbcChurch.fill = GridBagConstraints.BOTH;
+		mainBoard.add(churchPanel, gbcChurch);
+		
+		gbcCouncilPalace.gridx = 3;
+		gbcCouncilPalace.gridy = 1;
+		gbcCouncilPalace.gridwidth = 4;
+		gbcCouncilPalace.fill = GridBagConstraints.BOTH;
+		mainBoard.add(councilPalacePanel, gbcCouncilPalace);
+		
+		gbcFaithPoints.gridx = 0;
+		gbcFaithPoints.gridy = 2;
+		gbcFaithPoints.gridwidth = 7;
+		gbcFaithPoints.fill = GridBagConstraints.BOTH;
+		mainBoard.add(faithPointsPanel, gbcFaithPoints);
+		
+		gbcMilitaryPoints.gridx = 7;
+		gbcMilitaryPoints.gridy = 0;
+		gbcMilitaryPoints.gridheight = 2;
+		gbcMilitaryPoints.fill = GridBagConstraints.BOTH;
+		militaryPointsPanel.setPreferredSize(new Dimension(10, 10));
+		mainBoard.add(militaryPointsPanel, gbcMilitaryPoints);
+		
+		gbcSlideIn.gridx = 7;
+		gbcSlideIn.gridy = 2;
+		gbcSlideIn.fill = GridBagConstraints.BOTH;
+		slideInButton.setPreferredSize(new Dimension(5, 5));
+		mainBoard.add(slideInButton, gbcSlideIn);
 		
 	}
 
@@ -47,6 +135,10 @@ public class GraphicMainBoardView extends BoardView{
 		slideInButton.addActionListener(graphicView);
 	}
 
+	public JPanel getComponent() {
+		mainBoard.setBorder(BorderFactory.createLineBorder(Color.RED));
+		return mainBoard;
+	}
 
 }
 
