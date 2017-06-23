@@ -26,14 +26,6 @@ public class TextualView extends View {
 			+ "\n0: Cancel"
 			+ "\n";
 	
-	private String familyChoice = "Choose a Familiar: " 
-			+ "\n1: White "
-			+ "\n2: Orange"
-			+ "\n3: Black"
-			+ "\n4: Neutral"
-			+ "\n"
-			;
-	
 	public TextualView() {
 		you = new TextualPlayerView();
 		boardView = new TextualBoardView();
@@ -60,7 +52,7 @@ public class TextualView extends View {
 	}
 	
 	public void selectComponent(String input){
-		//se definissi la select, allora farei semplicemente ad esempio boardview.gettowerchoice.select()? dove towerchoice è un towerView
+		
 		switch (input) {
 		case "1":
 			you.print();
@@ -94,21 +86,22 @@ public class TextualView extends View {
 		String choice = console.read();
 		
 		switch (choice) {
-		case "1": //blueTower
-			boardView.getTowers().get(0).selected();
-			//floorChoice(1);
+		case "1": //GreenTower
+			//il numero nel Selected rappresenta la torre scelta. se si scegliesse di tornare sulla map, bisogna cambiare su Towerview il parametro di selected()
+			boardView.getTowerViews().get(0).selected();
+			
 			break;
-		case "2": //greenTower
-			boardView.getTowers().get(1).selected();
-			//floorChoice(2);
+		case "2": //BlueTower
+			boardView.getTowerViews().get(1).selected();
+
 			break;
 		case "3": // yellowTower
-			boardView.getTowers().get(2).selected();
-			//floorChoice(3);	
+			boardView.getTowerViews().get(2).selected();
+
 			break;
 		case "4": //PurpleTower
-			boardView.getTowers().get(3).selected();
-			//floorChoice(4);
+			boardView.getTowerViews().get(3).selected();
+
 			break;
 		case "0":
 			return;
@@ -118,36 +111,6 @@ public class TextualView extends View {
 			break;
 		}
 	}
-	
-	/*private void floorChoice(int tower){
-	 * spostata all'interno di textualTowerView
-		console.println("(Presso 0 to Cancel)");
-		console.print("Select the Floor : ");
-		String whichFloor = console.read();
-		
-		switch (whichFloor) {
-		case "1":
-			// new FloorSelectedEvent(tower, 1);
-			break;
-		case "2":
-			// new FloorSelectedEvent(tower, 2);
-			break;
-		case "3":
-			// new FloorSelectedEvent(tower, 3);
-			break;
-		case "4":
-			// new FloorSelectedEvent(tower, 4);
-			break;
-
-		case "0":
-			return;
-			
-		default:
-			console.printError("Unknown command");
-			break;
-		}
-		
-	}*/
 	
 	private void productionChoice(){
 		console.print("Production Zone\n");
@@ -164,36 +127,14 @@ public class TextualView extends View {
 	}
 	
 	private void familyChoice(){
-		//la scelta nel familiare? dove la si mette? ad esempio in FloorSelectedEvent?
-		console.print(familyChoice + "(Press 0 to Cancel the action)\n");
-		String choice = console.read();
-		
-		switch (choice) {
-		case "1":
-			//lancia il FamilySelectedEvent?
-			break;
-		case "2":
-			//lancia il FamilySelectedEvent?
-			break;
-		case "3":
-			//lancia il FamilySelectedEvent?
-			break;
-		case "4":
-			//lancia il FamilySelectedEvent?
-			break;
-			
-		case "0":
-			return;
-
-		default:
-			System.err.println("Unknown command.");
-			break;
-		}
+		//da spostare
+	
 		
 		
 	}
 	
 	private void counsilChoice(){
+		//da spostare
 		console.print("Council Palace");
 		familyChoice();
 		//lancia CouncilSelectedEvent

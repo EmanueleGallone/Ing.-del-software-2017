@@ -22,6 +22,7 @@ public class TextualMarketView extends MarketView{
 			if(space.getResources() != null){
 				resourceView.update(space.getResources());
 				resourceView.print();
+				console.println("");
 			}
 			
 			

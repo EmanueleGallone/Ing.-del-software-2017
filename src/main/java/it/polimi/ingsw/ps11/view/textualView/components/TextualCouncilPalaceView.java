@@ -16,7 +16,7 @@ public class TextualCouncilPalaceView extends CouncilPalaceView{
 			console.print( space.getOwner().getName() + "   ");
 		}
 		
-		if(councilPalace.getAllSpace().size() == 0)
+		if(councilPalace.getAllSpace().isEmpty())
 			console.println("Nobody");
 		
 		console.print("\n");

@@ -7,41 +7,40 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class TowerView extends ViewComponent {
 
-	private int tower;
+	private int whichTower;
 	protected String towerName;
-	protected ArrayList<FloorView> floors = new ArrayList<>();
+	protected ArrayList<FloorView> floorViews = new ArrayList<>();
 	protected final int TOWERNUMBER = 4;
 	
 	public TowerView(int whichTower) {
-		this.tower = whichTower;
-		this.towerName = towerName;
+		this.whichTower = whichTower;
 	}
 	
 	public TowerView(int whichTower, String towerName) {
-		this.tower = whichTower;
+		this.whichTower = whichTower;
 		this.towerName = towerName;
 	}
 	
 	public int getTower() {
-		return tower;
+		return whichTower;
 	}
 	
 	public void update(Tower tower){
-		for(FloorView fView : floors){
+		for(FloorView fView : floorViews){
 			fView.update(tower.getFloor(fView.getWhichFloor()));
 		}
 	}
 	
 	public void addFloor(FloorView floorView){
-		floors.add(floorView);
+		floorViews.add(floorView);
 	}
 	
-	public void setFloors(ArrayList<FloorView> floors) {
-		this.floors = floors;
-	}
+	/*public void setFloors(ArrayList<FloorView> floors) {
+		this.floorViews = floors;
+	}*/
 	
-	public ArrayList<FloorView> getFloors() {
-		return floors;
+	public ArrayList<FloorView> getFloorViews() {
+		return floorViews;
 	}
 	
 	public abstract void selected();

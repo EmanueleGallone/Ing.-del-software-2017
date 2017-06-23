@@ -3,9 +3,7 @@ package it.polimi.ingsw.ps11.model.zones;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
@@ -20,6 +18,7 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
  * 
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.dices.DiceManager DiceManager
+ * @see it.polimi.ingsw.ps11.model.zones.towers.Tower Tower
  *
  */
 public class Board implements Serializable{

@@ -10,4 +10,6 @@ public abstract class ProductionView extends ViewComponent{
 	public void update(Production production){
 		this.production = production;
 	}
+	
+	//public abstract void selected();
 }

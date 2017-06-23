@@ -32,7 +32,7 @@ public abstract class BoardView extends ViewComponent {
 		}
 	}
 	
-	public ArrayList<TowerView> getTowers() {
+	public ArrayList<TowerView> getTowerViews() {
 		return towerViews;
 	}
 
