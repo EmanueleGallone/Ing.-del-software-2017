@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
 public class GraphicTowerView extends TowerView{
@@ -16,12 +17,16 @@ public class GraphicTowerView extends TowerView{
 	protected BufferedImage background;
 	//pannello Tower
 	
-	public GraphicTowerView(int whichTower, String towerName) {
+	public GraphicTowerView(Class<? extends Tower> whichTower, String towerName) {
 		super(whichTower,towerName);		
 		tower = new JPanel();
 		for(int i = 0; i< TOWERNUMBER; i++){
 			floorViews.add(new GraphicFloorView(whichTower, i));
 		}
+	}
+	
+	public GraphicTowerView(Class<? extends Tower> whichTower) {
+		this(whichTower, whichTower.getSimpleName());
 	}
 
 	@Override

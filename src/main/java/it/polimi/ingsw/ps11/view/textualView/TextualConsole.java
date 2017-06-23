@@ -28,4 +28,10 @@ public class TextualConsole extends Console{
 		println(message);
 		return read();
 	}
+	
+	public String printSpace(int number){
+		if(number > 0)
+			return new String(new char[number]).replaceAll("\0", " ");
+		return new String(" ");
+	}
 }

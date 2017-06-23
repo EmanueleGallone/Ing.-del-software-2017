@@ -1,16 +1,27 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
 public class TextualTowerView extends TowerView {
 
-	public TextualTowerView(int whichTower, String towerName) {
+	
+	public TextualTowerView(Class<? extends Tower> whichTower, String towerName) {
 		super(whichTower,towerName);
+		
 		for(int i = 0; i< TOWERNUMBER; i++){
 			floorViews.add(new TextualFloorView(whichTower, i));
 		}
+	}
+	
+	public TextualTowerView(Class<? extends Tower> whichTower) {
+		this(whichTower,whichTower.getSimpleName());
+	}
+	
+	public TextualTowerView(Tower tower) {
+		super(tower);
 	}
 
 	@Override
@@ -31,8 +42,8 @@ public class TextualTowerView extends TowerView {
 		//lo switch e' necessario per il controllo sull'input
 		switch (whichFloor) {
 		case "1":
-			//l'attributo tower indica la torre attuale -> vedi in TowerView
 			this.floorViews.get(0).selected();
+			//crea evento dicendo quale torre e' stata selezionata e mi fermo.
 			break;
 		case "2":
 			this.floorViews.get(1).selected();

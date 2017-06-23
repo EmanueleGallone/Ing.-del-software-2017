@@ -1,5 +1,10 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
+import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
+import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
+import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
+import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
@@ -8,10 +13,10 @@ public class TextualBoardView extends BoardView {
 
 	public TextualBoardView() {
 		//Questa cosa potrebbe essere convertita un un ciclo, sarebbe meglio??
-		towerViews.add(new TextualTowerView(0,"GreenTower"));
-		towerViews.add(new TextualTowerView(1,"BlueTower"));
-		towerViews.add(new TextualTowerView(2,"YellowTower"));
-		towerViews.add(new TextualTowerView(3,"PurpleTower"));
+		towerViews.add(new TextualTowerView(GreenTower.class));
+		towerViews.add(new TextualTowerView(BlueTower.class));
+		towerViews.add(new TextualTowerView(YellowTower.class));
+		towerViews.add(new TextualTowerView(PurpleTower.class));
 		
 		diceView = new TextualDiceView();
 		
@@ -20,6 +25,10 @@ public class TextualBoardView extends BoardView {
 		councilPalaceView = new TextualCouncilPalaceView();
 		marketView = new TextualMarketView();
 		//churchView = new TextualChurchView();
+	}
+	
+	public TextualBoardView(Board board){
+		super(board);
 	}
 	
 	@Override

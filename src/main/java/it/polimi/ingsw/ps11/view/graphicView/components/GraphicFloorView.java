@@ -17,7 +17,7 @@ public class GraphicFloorView extends FloorView {
 	protected JPanel floor = new JPanel();
 	protected BufferedImage background;
 	
-	public GraphicFloorView(int whichTower, int whichFloor) {
+	public GraphicFloorView(Class<? extends Tower> whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
 		this.cardView = new TextualDevelopmentCardView();
 	}
