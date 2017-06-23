@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.viewGenerica;
 
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.game.Game;
@@ -26,6 +27,7 @@ public abstract class View implements ViewInterface, Runnable {
 	
 	protected EventManager events = new EventManager();
 
+	protected EventHandler<ViewEventInterface> viewEvent = new EventHandler<>();
 
 	@Override
 	public void out(String message) {
@@ -34,12 +36,9 @@ public abstract class View implements ViewInterface, Runnable {
 	
 	// EVENT _____________________________
 	
-	public void attachFloorSelected(EventListener<FloorSelectedEvent> listener) {
-		events.attach(FloorSelectedEvent.class, listener);
-	}
 	
 	public void attach(EventListener<ViewEventInterface> listener){
-		//this.viewEvent.attach(listener);
+		this.viewEvent.attach(listener);
 	}
 	
 	// UPDATE ____________________________
