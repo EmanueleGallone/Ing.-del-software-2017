@@ -52,6 +52,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 public class MainTest {
 	
 	public static void main(String[] args){
+		/*
 		PlayerFactory factory = new PlayerFactory();
 
 		Player player =factory.newPlayer(0);
@@ -88,18 +89,7 @@ public class MainTest {
 		player2.getCardManager().addCard(card.clone());
 		
 		view.run();
-		
-		
-		
-<<<<<<< HEAD
-		//String gString = adapter.toJson(game);
-		//System.out.println(gString);
-		
-		//Game game2 = adapter.fromJson(gString, Game.class);
-		//System.out.println(game2.getBoard());
-=======
-		
->>>>>>> ac41f191378fd158791e6f9284b8fbe27d61d8b5
+		*/
 		
 //		Client client = new SocketClient(view);
 //		player2.getCardManager().addCard(card.clone());
