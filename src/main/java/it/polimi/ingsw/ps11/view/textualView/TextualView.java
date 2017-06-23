@@ -36,8 +36,6 @@ public class TextualView extends View {
 
 	@Override
 	public void print() {
-		boardView.print();
-		you.print();
 		console.println(instructions);
 	}
 
@@ -60,13 +58,13 @@ public class TextualView extends View {
 			towerChoice();
 			break;
 		case "3":
-			productionChoice();
+			//productionChoice();
 			break;
 		case "4":
-			harvestChoice();
+			//harvestChoice();
 			break;
 		case "5":
-			counsilChoice();
+			//counsilChoice();
 			break;
 			
 			
@@ -111,32 +109,9 @@ public class TextualView extends View {
 		}
 	}
 	
-	private void productionChoice(){
-		console.print("Production Zone\n");
-		familyChoice(); //scelta del familiare
-		//lancio ProductionZoneSelect?
-		
-	}
 	
-	private void harvestChoice(){
-		console.print("Harvest Zone\n");
-		familyChoice(); //scelta del familiare
-		//lancio ProductionZoneSelect?
-		
-	}
 	
-	private void familyChoice(){
-		//da spostare
 	
-		
-		
-	}
 	
-	private void counsilChoice(){
-		//da spostare
-		console.print("Council Palace");
-		familyChoice();
-		//lancia CouncilSelectedEvent
-	}
 	
 }

@@ -1,12 +1,14 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 
 public class TextualFloorView extends FloorView {
 	
-
-	public TextualFloorView(int whichTower, int whichFloor) {
+	private final int SPACE = 30;
+	
+	public TextualFloorView(Class<? extends Tower> whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
 		this.cardView = new TextualDevelopmentCardView();
 		this.resourceView = new TextualResourceView();
@@ -21,7 +23,7 @@ public class TextualFloorView extends FloorView {
 		
 		console.print( "Floor " + (whichFloor + 1) 
 						+ "           Card: " + card 
-						+"           ActionCost: " + floor.getActionSpace().getActionCost()
+						+ console.printSpace(SPACE-card.length()) + "ActionCost: " + floor.getActionSpace().getActionCost()
 						+ "\t"
 						);
 		
@@ -48,7 +50,7 @@ public class TextualFloorView extends FloorView {
 		console.print("\nDo you confirm the choice? (y/n)");
 		String choice = console.read();
 		if("y".equalsIgnoreCase(choice)){
-			//crea evento con parametri
+			//crea evento con parametri 
 		}
 		else {
 			return;

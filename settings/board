@@ -1,112 +1,6 @@
 {
-  "towers": [
-    {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
-      "INSTANCE": {
-        "floors": [
-          {
-            "actionSpace": {
-              "cost": 1,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 3,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 5,
-              "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                    "INSTANCE": {
-                      "value": 1
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 7,
-              "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                    "INSTANCE": {
-                      "value": 2
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
-      "INSTANCE": {
-        "floors": [
-          {
-            "actionSpace": {
-              "cost": 1,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 3,
-              "resources": {
-                "resources": {}
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 5,
-              "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                    "INSTANCE": {
-                      "value": 1
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            "actionSpace": {
-              "cost": 7,
-              "resources": {
-                "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                    "INSTANCE": {
-                      "value": 2
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
+  "towers": {
+    "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower": {
       "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
       "INSTANCE": {
         "floors": [
@@ -159,7 +53,60 @@
         ]
       }
     },
-    {
+    "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+      "INSTANCE": {
+        "floors": [
+          {
+            "actionSpace": {
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 5,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 7,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower": {
       "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
       "INSTANCE": {
         "floors": [
@@ -211,14 +158,67 @@
           }
         ]
       }
+    },
+    "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+      "INSTANCE": {
+        "floors": [
+          {
+            "actionSpace": {
+              "cost": 1,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 3,
+              "resources": {
+                "resources": {}
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 5,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                    "INSTANCE": {
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "actionSpace": {
+              "cost": 7,
+              "resources": {
+                "resources": {
+                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                    "INSTANCE": {
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
     }
-  ],
+  },
   "diceManager": {
     "blackDice": {
       "value": 0,
       "gen": {
         "seed": {
-          "value": 103038263801228
+          "value": 6056976383531
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -228,7 +228,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 256047592622562
+          "value": 194527411247094
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false
@@ -238,7 +238,7 @@
       "value": 0,
       "gen": {
         "seed": {
-          "value": 92584981915512
+          "value": 13197733925235
         },
         "nextNextGaussian": 0.0,
         "haveNextNextGaussian": false

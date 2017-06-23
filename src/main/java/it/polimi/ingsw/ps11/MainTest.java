@@ -53,6 +53,8 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		/*
+		
+>>>>>>> ema
 		PlayerFactory factory = new PlayerFactory();
 
 		Player player =factory.newPlayer(0);
@@ -76,10 +78,10 @@ public class MainTest {
 		Type type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
 		ArrayList<YellowCard> cards = new JsonAdapter().fromJson(readFile("settings\\YellowCards"), type);
 		
-		game.getBoard().getTower(2).getFloor(0).setCard(cards.get(0).clone());
-		game.getBoard().getTower(2).getFloor(1).setCard(cards.get(1).clone());
-		game.getBoard().getTower(2).getFloor(2).setCard(cards.get(2).clone());
-		game.getBoard().getTower(2).getFloor(3).setCard(cards.get(3).clone());
+		game.getBoard().getTower(YellowTower.class).getFloor(0).setCard(cards.get(0).clone());
+		game.getBoard().getTower(YellowTower.class).getFloor(1).setCard(cards.get(1).clone());
+		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(cards.get(2).clone());
+		game.getBoard().getTower(YellowTower.class).getFloor(3).setCard(cards.get(3).clone());
 		game.getBoard().getDices().rollDices();
 		
 		view.update(game);
