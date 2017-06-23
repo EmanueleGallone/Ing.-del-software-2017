@@ -10,12 +10,16 @@ public class TextualDevelopmentCardView extends DevelopmentCardView {
 	public void print() {
 		TextualConsole console = new TextualConsole();
 		TextualResourceView resourceView = new TextualResourceView();
-		console.print(card.getName() + " ");
 		
-		for(ResourceList resourceList : card.getCosts()) {
-			console.print("Costi: ");
-			resourceView.update(resourceList);
-			resourceView.print();
+		if(developmentCard.getName() != null){
+			console.println(developmentCard.getName());
+			
+			for(ResourceList resourceList : developmentCard.getCosts()) {
+				console.print("Costi: ");
+				resourceView.update(resourceList);
+				resourceView.print();
+				console.println("");
+			}
 		}
 		
 		//mancano i bonus

@@ -12,5 +12,4 @@ public interface ViewListener {
 	public void handle(MarketSelectedEvent marketSelectedEvent);
 	public void handle(ProductionSelectedEvent productionSelectedEvent);
 	public void handle(HarvestSelectedEvent harvestSelectedEvent);
-	
 }

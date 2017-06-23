@@ -11,4 +11,6 @@ public abstract class CouncilPalaceView  extends ViewComponent{
 		this.councilPalace = councilPalace;
 	}
 	
+	//public abstract void selected(); //lancera' l'evento che e' stato selezionato o un ChooseFamilyView?
+	
 }

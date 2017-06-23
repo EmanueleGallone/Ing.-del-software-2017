@@ -1,16 +1,18 @@
 package it.polimi.ingsw.ps11.model.zones;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 
-public class Market extends MultipleActionSpace  {
+public class Market extends MultipleActionSpace implements Serializable  {
 	
 	private final int THRESHOLD = 2;
 	private final int MAX_NUMBER = 4;
 	private int playerNumber;
 	
 	public Market(int playerNumber) {
-		this.playerNumber = playerNumber;
+		this.playerNumber = playerNumber;		
 	}
 	
 	public void setPlayerNumber(int playerNumber) {
@@ -29,5 +31,8 @@ public class Market extends MultipleActionSpace  {
 		
 		throw new IllegalArgumentException();
 	}
+	
+	
+	
 	
 }

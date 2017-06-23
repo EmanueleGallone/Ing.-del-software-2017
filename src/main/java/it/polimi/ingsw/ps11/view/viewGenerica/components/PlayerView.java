@@ -8,12 +8,14 @@ public abstract class PlayerView extends ViewComponent {
 	protected Player player;
 	
 	protected ResourceView resourceView;
-	protected PersonalBoardView personalBoard;
+	protected CardManagerView cardManagerView;
+	protected ChooseFamilyView chooseFamilyView;
 	
 	public void update(Player player){
 		this.player = player;
 		resourceView.update(player.getResourceList());
-		personalBoard.update(player.getCardManager());
+		cardManagerView.update(player.getCardManager());
+		chooseFamilyView.update(player.getFamilyManager());
 	}
 	
 }

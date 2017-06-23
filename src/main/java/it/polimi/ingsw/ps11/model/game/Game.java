@@ -23,6 +23,7 @@ public class Game implements Serializable  {
 			roundManager = new RoundManager(players);
 			board = initializeBoard();
 			board.getMarket().setPlayerNumber(players.size());
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

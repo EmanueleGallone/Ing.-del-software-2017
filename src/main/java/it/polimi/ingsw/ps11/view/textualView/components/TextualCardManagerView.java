@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
-import it.polimi.ingsw.ps11.view.viewGenerica.components.PersonalBoardView;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 
-public class TextualPersonalBoardView extends PersonalBoardView{
+public class TextualCardManagerView extends CardManagerView{
 
 	
 	@Override
@@ -18,7 +18,7 @@ public class TextualPersonalBoardView extends PersonalBoardView{
 			int i = 0;
 			for(DevelopmentCard card : deck){
 				if (i == 0){
-					console.print(card.getClass().getSimpleName() + " : ");
+					console.println(card.getClass().getSimpleName() + "s : ");
 					i++;
 				}
 				//console.print(card.getName() + "   ");

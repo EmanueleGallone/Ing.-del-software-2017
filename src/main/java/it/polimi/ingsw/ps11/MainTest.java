@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import com.google.gson.reflect.TypeToken;
 
-import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus;
 import it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus;
@@ -69,18 +68,39 @@ public class MainTest {
 		
 		//Game game = new Game(players.size());
 		
-		JsonAdapter adapter = new JsonAdapter();
+		View view = new TextualView();
+		YellowCard card = new YellowCard();
+		card.setName("Funziona");
 		
+		Type type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
+		ArrayList<YellowCard> cards = new JsonAdapter().fromJson(readFile("settings\\YellowCards"), type);
+		
+		game.getBoard().getTower(2).getFloor(0).setCard(cards.get(0).clone());
+		game.getBoard().getTower(2).getFloor(1).setCard(cards.get(1).clone());
+		game.getBoard().getTower(2).getFloor(2).setCard(cards.get(2).clone());
+		game.getBoard().getTower(2).getFloor(3).setCard(cards.get(3).clone());
+		game.getBoard().getDices().rollDices();
+		
+		view.update(game);
+		view.update(player2);
+		
+		card.addCost(new ResourceList(new Coin(5)));
+		player2.getCardManager().addCard(card.clone());
+		
+		view.run();
+		
+		
+		
+<<<<<<< HEAD
 		//String gString = adapter.toJson(game);
 		//System.out.println(gString);
 		
 		//Game game2 = adapter.fromJson(gString, Game.class);
 		//System.out.println(game2.getBoard());
+=======
 		
-//		View view = new TextualView();
-//		YellowCard card = new YellowCard();
-//		card.setName("Funziona");
-//		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(card.clone());
+>>>>>>> ac41f191378fd158791e6f9284b8fbe27d61d8b5
+		
 //		Client client = new SocketClient(view);
 //		player2.getCardManager().addCard(card.clone());
 //		card.addCost(new ResourceList(new Coin(10)));
@@ -90,18 +110,6 @@ public class MainTest {
 
 		//inizializzaCarte();
 		//inizializzatore();		
-		/*String string = readFile("settings\\board");
-
-		ArrayList<Class<?>> list = new ArrayList<>();
-		list.add(DevelopmentCard.class);
-		list.add(Resource.class);
-		list.add(Tower.class);
-		
-		JsonAdapter jsonAdapter = new JsonAdapter(list);
-		Board board = jsonAdapter.fromJson(string, Board.class);
-		
-		System.out.println(board.getTower(BlueTower.class).getFloors().get(3).getActionSpace().getResources());
-		*/
 	}
 	
 	
@@ -168,7 +176,6 @@ public class MainTest {
 		list.add(DevelopmentCard.class);
 		list.add(Resource.class);
 		list.add(Tower.class);
-		//list.add(ResourceList.class);
 		
 		JsonAdapter gAdapter = new JsonAdapter(list);
 		
@@ -230,14 +237,11 @@ public class MainTest {
  // ________ MARKET ________________________________________________
 		
 		Market market = new Market(2);
-		//ArrayList<ActionSpace> list2 = new ArrayList<>();
 		
-		resource = new ResourceList();
-		resource.setResource(new Coin(5));
+		resource = new ResourceList(new Coin(5));
 		market.addActionSpace(new ActionSpace(resource.clone()));
 		
-		resource = new ResourceList();
-		resource.setResource(new Servant(5));
+		resource = new ResourceList(new Servant(5));
 		market.addActionSpace(new ActionSpace(resource.clone()));
 		
 		resource = new ResourceList();
@@ -245,24 +249,14 @@ public class MainTest {
 		resource.setResource(new MilitaryPoint(3));
 		market.addActionSpace(new ActionSpace(resource.clone()));
 		
-		/*
-		CouncilPrivilege councilPrivilege = new CouncilPrivilege();
-		
-		councilPrivilege.setResource(new Wood(1));
-		councilPrivilege.setResource(new Stone(1));
-		councilPrivilege.setResource(new Servant(2));
-		councilPrivilege.setResource(new Coin(2));
-		councilPrivilege.setResource(new MilitaryPoint(2));
-		councilPrivilege.setResource(new FaithPoint(1));
-		
-		list2.add(new ActionSpace(councilPrivilege));
-		*/
+		resource = new ResourceList(new CouncilPrivilege(2));
+		market.addActionSpace(new ActionSpace(resource.clone()));
 		
   // ___________________________________________________
 		
 		
 		Board board = new Board(towers, market, new CouncilPalace());
-		//writeFile("settings\\board", gAdapter.toJson(board));
+		writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}
 	

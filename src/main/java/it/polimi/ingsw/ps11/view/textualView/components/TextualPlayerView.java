@@ -7,7 +7,8 @@ public class TextualPlayerView extends PlayerView{
 
 	public TextualPlayerView() {
 		resourceView = new TextualResourceView();
-		personalBoard = new TextualPersonalBoardView();
+		cardManagerView = new TextualCardManagerView();
+		chooseFamilyView = new TextualChooseFamilyView();
 	}
 	
 	@Override
@@ -15,8 +16,9 @@ public class TextualPlayerView extends PlayerView{
 		TextualConsole console = new TextualConsole();
 		console.print("Player \nName: "  + player.getName() + "\nResources: ");
 		resourceView.print();
-		console.println("Cards: ");
-		personalBoard.print();
+		console.println("\nCards: ");
+		cardManagerView.print();
+		//chooseFamilyView.print(); 
 	}
 
 }

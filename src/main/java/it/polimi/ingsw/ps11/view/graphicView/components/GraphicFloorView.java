@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualCardView;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualDevelopmentCardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 
 public class GraphicFloorView extends FloorView {
@@ -18,7 +19,7 @@ public class GraphicFloorView extends FloorView {
 	
 	public GraphicFloorView(int whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
-		this.cardView = new TextualCardView();
+		this.cardView = new TextualDevelopmentCardView();
 	}
 
 	@Override
@@ -40,6 +41,12 @@ public class GraphicFloorView extends FloorView {
 	
 	public JPanel getComponent() {
 		return floor;
+	}
+	
+	@Override
+	public void selected() {
+		// TODO Auto-generated method stub
+		//cosa accade quando e' selezionata? zan zan zaaaan
 	}
 
 }
