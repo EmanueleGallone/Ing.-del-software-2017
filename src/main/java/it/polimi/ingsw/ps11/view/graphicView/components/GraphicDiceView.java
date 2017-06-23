@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView;
 
 public class GraphicDiceView extends DiceView {
@@ -36,5 +37,13 @@ public class GraphicDiceView extends DiceView {
 	public JPanel getComponent(){
 		return dice;
 	}
+	
+	/*
+	@Override
+	public void update(DiceManager dices) {
+		super.update(dices);
+		
+	}
+	*/
 
 }

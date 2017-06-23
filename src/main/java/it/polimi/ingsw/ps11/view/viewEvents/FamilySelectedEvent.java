@@ -1,13 +1,14 @@
 package it.polimi.ingsw.ps11.view.viewEvents;
 
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 
 public class FamilySelectedEvent extends ViewEvent {
 
 	private String familyMember;
 	
-	public FamilySelectedEvent(FamilyMember familyMember)  {
-		this.familyMember = familyMember.getClass().toString(); //Ci sono alternative
+
+	public FamilySelectedEvent(Class<BlackFamilyMember> class1) {
+		familyMember = class1.toString();
 	}
 
 	@Override

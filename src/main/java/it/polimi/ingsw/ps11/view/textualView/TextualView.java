@@ -1,7 +1,16 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
+import java.util.HashMap;
+
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
+import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3>TextualView</h3>
@@ -32,10 +41,19 @@ public class TextualView extends View {
 		console = new TextualConsole();
 		
 		//dovrei avere tutti i components nel caso definissi la select; oppure definire in cascata da boardView
+		
+		HashMap<String, ViewEventInterface> command = new HashMap<>();
+		
+		command.put("green tower 1", new FloorSelectedEvent(GreenTower.class, 1));
+		command.put("green tower 2", new FloorSelectedEvent(GreenTower.class, 2));
+		command.put("yellow tower 1", new FloorSelectedEvent(YellowTower.class, 1));
+		command.put("family black", new FamilySelectedEvent(BlackFamilyMember.class));
+		
 	}
-
+	
 	@Override
 	public void print() {
+		
 		console.println(instructions);
 	}
 
@@ -43,6 +61,13 @@ public class TextualView extends View {
 	public void run() {
 		String input;
 		while (!(input = console.read()).equals("q")){
+//			ViewEventInterface event = command.get(input);
+//			if(event != null){
+//				viewEvent.invoke(event);
+//			}
+//			else {
+//				console.print("Comando non riconosciuto");
+//			}
 			selectComponent(input);
 			console.println(instructions);
 		}
@@ -110,7 +135,12 @@ public class TextualView extends View {
 	}
 	
 	
-	
+	@Override
+	public void update(Board board) {
+		
+		new TextualBoardView(board).print();
+		//familyManagerView(FamilyMemberManager).print();
+	}
 	
 	
 	

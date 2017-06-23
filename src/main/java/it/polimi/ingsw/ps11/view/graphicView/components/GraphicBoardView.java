@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
@@ -19,7 +20,7 @@ public class GraphicBoardView extends BoardView{
 	protected ArrayList<GraphicTowerView> towerViews;
 	protected GraphicHarvestView harvestView;
 	protected GraphicProductionView productionView;
-	protected GraphicDiceView diceView;
+	//protected GraphicDiceView diceView;
 	protected GraphicCouncilPalaceView councilPalaceView;
 	protected GraphicChurchView churchView;
 	protected GraphicMarketView marketView;
@@ -39,6 +40,11 @@ public class GraphicBoardView extends BoardView{
 		towerViews.add(new GraphicTowerView(BlueTower.class));
 		towerViews.add(new GraphicTowerView(YellowTower.class));
 		towerViews.add(new GraphicTowerView(PurpleTower.class));
+		
+		GraphicDiceView graphicDiceView = new GraphicDiceView();
+		
+		
+		this.diceView = graphicDiceView;
 		
 		diceView = new GraphicDiceView();
 		marketView = new GraphicMarketView();

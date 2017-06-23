@@ -9,24 +9,36 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class GraphicView extends View{
 
 	JFrame window = new JFrame();
+	
 	protected GraphicPlayerView you;
 	protected GraphicBoardView boardView;
 	protected GraphicConsole console;
 	private JOptionPane exit;
-
+	
 	
 	public GraphicView() {
 		you = new GraphicPlayerView();
 		boardView = new GraphicBoardView();
 		console = new GraphicConsole();
 	}
+	
+	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
+
+		@Override
+		public void handle(ViewEventInterface e) {
+			viewEvent.invoke(e);
+		}
+	};
+	
 
 	@Override
 	public void print() {
