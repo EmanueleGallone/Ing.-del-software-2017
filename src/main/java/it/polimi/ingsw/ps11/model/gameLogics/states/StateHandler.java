@@ -16,7 +16,7 @@ public class StateHandler {
 	private Player player;
 	private Game game;
 	
-	EventHandler<ModelEventInterface> modelEvent = new EventHandler<>();
+	private EventHandler<ModelEventInterface> modelEvent = new EventHandler<>();
 	
 	public StateHandler(State startState) {
 		this.nextState(startState);

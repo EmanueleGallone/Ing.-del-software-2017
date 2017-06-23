@@ -6,8 +6,12 @@ import it.polimi.ingsw.ps11.model.player.Player;
 
 public interface ModelEventInterface extends Serializable{
 
-	public void setReceiver(Player player);
+	public String getMessage();
+	public void setMessage(String message);
+	
 	public Player getReceiver();
+	public void setReceiver(Player player);
+	
 	public void accept(ModelListener listener);
 
 }
