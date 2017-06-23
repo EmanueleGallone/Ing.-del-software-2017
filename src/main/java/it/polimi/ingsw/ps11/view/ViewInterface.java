@@ -9,7 +9,8 @@ public interface ViewInterface {
 	public void print();
 	public abstract void out(String message);
 
-	public void update(Game game);
+	void update(Game game);
 	public void update(Board board);
 	public void update(Player player);
+	
 }

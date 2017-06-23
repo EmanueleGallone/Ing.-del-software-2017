@@ -1,11 +1,25 @@
 package it.polimi.ingsw.ps11.model.gameLogics;
 
-public abstract class State implements EventRecognizer{
+import it.polimi.ingsw.ps11.model.gameLogics.states.StateHandler;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewListener;
 
-	protected PlayerHandler playerHandler;
+public abstract class State implements ViewListener {
 	
-	public State(PlayerHandler playerHandler) {
-		this.playerHandler = playerHandler;
+	private StateHandler handler;
+	
+	public State() {
+	
+	}
+	
+	public State(StateHandler handler) {
+		this.handler = handler;
+	}
+	
+	public void setStateHandler(StateHandler handler){
+		this.handler = handler; 
 	}
 
+	public StateHandler stateHandler() {
+		return handler;
+	}
 }

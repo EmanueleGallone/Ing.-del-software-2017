@@ -3,30 +3,48 @@ package it.polimi.ingsw.ps11.model.gameLogics;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.controller.network.Connection;
-import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
+import it.polimi.ingsw.ps11.model.gameLogics.states.StateHandler;
+import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
-public class GameLogic {
+public class GameLogic implements Runnable{
 
-	private HashMap<Connection, Player> players = new HashMap<>();
 	private Game game;
+	HashMap<Player, StateHandler> playerStatus = new HashMap<>();
 	
-	public GameLogic(ArrayList<Connection> clients) {
+	public GameLogic(ArrayList<Player> players) {
 		
-		int i = 0;
-		PlayerFactory pFactory = new PlayerFactory();
-		
-		for(Connection client : clients){
-			Player player = pFactory.newPlayer(i);
-			this.players.put(client, player);
-			i++;
+		game = new Game(players);
+		for(Player player : players){
+			playerStatus.put(player, new StateHandler(new PlayState()));
 		}
-		
-		game = new Game(new ArrayList<>(this.players.values()));
+	}
+
+
+	public Game getGame() {
+		return game;
 	}
 	
-	
+	public void attach(EventListener<ModelEventInterface> listener){
+		for(StateHandler playerState : playerStatus.values()){
+			playerState.attach(listener);
+		}
+	}
 
+	@Override
+	public void run() {
+		for(StateHandler playerState : playerStatus.values()){
+			playerState.start();
+		}
+	}
+
+// Handle events from view
+	
+	public void handle(ViewEventInterface viewEvent){
+		playerStatus.get(viewEvent.getSource()).handle(viewEvent);
+	}
 }

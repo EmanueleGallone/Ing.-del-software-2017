@@ -73,11 +73,11 @@ public class TextualView extends View {
 	// UPDATE ____________________________-
 	
 
-	@Override
-	public void update(Game game) {
-		super.update(game);
-		update(game.getBoard());
-	}
+//	@Override
+//	public void update(Game game) {
+//		super.update(game);
+//		update(game.getBoard());
+//	}
 
 	@Override
 	public void update(Board board) {

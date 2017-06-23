@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
+
+import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
@@ -41,7 +43,6 @@ public class TextualView extends View {
 
 	@Override
 	public void run() {
-		this.print();
 		String input;
 		while (!(input = console.read()).equals("q")){
 			selectComponent(input);
@@ -108,6 +109,12 @@ public class TextualView extends View {
 			console.printError("Unknown command");
 			break;
 		}
+	}
+	
+	@Override
+	public void update(Board board){
+		//tutti i component, cosi'
+		new TextualBoardView(board);
 	}
 	
 	

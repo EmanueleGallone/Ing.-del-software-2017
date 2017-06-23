@@ -7,7 +7,7 @@ import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.model.player.Colors;
+import it.polimi.ingsw.ps11.model.game.Colors;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class PlayerPackageTest {

@@ -22,9 +22,9 @@ import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.game.Colors;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.player.Colors;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -52,7 +52,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 public class MainTest {
 	
 	public static void main(String[] args){
-		
+		/*
 		PlayerFactory factory = new PlayerFactory();
 
 		Player player =factory.newPlayer(0);
@@ -67,7 +67,7 @@ public class MainTest {
 		players.add(player);
 		players.add(player2);
 		
-		Game game = new Game(players);
+		//Game game = new Game(players.size());
 		
 		View view = new TextualView();
 		YellowCard card = new YellowCard();
@@ -88,11 +88,16 @@ public class MainTest {
 		card.addCost(new ResourceList(new Coin(5)));
 		player2.getCardManager().addCard(card.clone());
 		
-		view.run();
+		view.run();*/
 		
 		
 		
+
+		//String gString = adapter.toJson(game);
+		//System.out.println(gString);
 		
+		//Game game2 = adapter.fromJson(gString, Game.class);
+		//System.out.println(game2.getBoard());
 		
 //		Client client = new SocketClient(view);
 //		player2.getCardManager().addCard(card.clone());

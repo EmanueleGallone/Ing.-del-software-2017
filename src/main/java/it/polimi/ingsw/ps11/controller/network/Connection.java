@@ -2,8 +2,9 @@ package it.polimi.ingsw.ps11.controller.network;
 
 import java.io.IOException;
 
-import it.polimi.ingsw.ps11.controller.message.MessageArrivedEvent;
-import it.polimi.ingsw.ps11.controller.message.generic.TextualMessage;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
+import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
+import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 
@@ -12,7 +13,7 @@ public abstract class Connection implements ConnectionInterface {
 	private String serverAddress = "localhost";
 	private int port = 4099;
 	
-	protected EventHandler<MessageArrivedEvent> messageListener = new EventHandler<>();
+	private EventHandler<MessageEvent> messageListener = new EventHandler<>();
 
 	public Connection() {
 		
@@ -43,8 +44,12 @@ public abstract class Connection implements ConnectionInterface {
 		return port;
 	}
 	
+	protected void invokeMessageEvent(Message message){
+		messageListener.invoke(new MessageEvent(message,this));
+	}
+	
 	@Override
-	public void attachMessageListener(EventListener<MessageArrivedEvent> listener) {
+	public void attachListener(EventListener<MessageEvent> listener) {
 		messageListener.attach(listener);
 	}
 }

@@ -19,7 +19,7 @@ public class TextualFloorView extends FloorView {
 		TextualConsole console = new TextualConsole();
 		String card = "None";
 		
-		if (floor.getCard() != null)
+		if (floor != null && floor.getCard() != null)
 			card = floor.getCard().getName();
 		
 		console.print( "Floor " + (whichFloor + 1) 

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.player;
+package it.polimi.ingsw.ps11.model.game;
 
 public enum Colors {
 
