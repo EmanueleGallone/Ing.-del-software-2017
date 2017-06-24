@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.oldGameLogics.actions.list.player;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.list;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
@@ -9,19 +9,22 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class FamilyInFloorAction extends PlayerAction<FamilyInFloorAction> {
+public class FamilyInFloorAction extends PlayerAction {
 
 	private Tower tower;
 	private Floor floor;
 	private FamilyMember familyMember;
+	private ResourceList costIfNotFree = new ResourceList(new Coin(3));
 	
 	//Il familiare di supporto serve ad alcuni bonus per alterare il valore del familiare
 	private FamilyMember supportFamilyMember;
 	
 	
-	public FamilyInFloorAction(Player player){
-		super(player);
-	}
+//	public FamilyInFloorAction(FamilyMember familyMember, Tower tower , int floor){
+//		this.tower = tower;
+//		this.floor = tower.getFloor(floor);
+//		supportFamilyMember = familyMember.clone();
+//	}
 	
 	public FamilyInFloorAction(Player player, FamilyMember familyMember, Tower tower , int floor) {
 		super(player);
@@ -30,43 +33,38 @@ public class FamilyInFloorAction extends PlayerAction<FamilyInFloorAction> {
 		supportFamilyMember = familyMember.clone();
 	}
 	
-	public FamilyInFloorAction newIstance(FamilyMember familyMember, Tower tower , int floor){
-		FamilyInFloorAction f = new FamilyInFloorAction(getSource(),familyMember,tower, floor);
-		f.setObservers(observers);
-		return f;
-	}
-	
 // Logics ________________________
 	
 	@Override
 	public void perform() {
-		floor.placeFamilyMember(familyMember, getSource());
+		floor.placeFamilyMember(familyMember, getPlayer());
 		if(!tower.isFree()){
-			DecrementResourceAction tax = new DecrementResourceAction(getSource(), new ResourceList(new Coin(3)));
-			tax.perform();
+			DecrementResourceAction tax = new DecrementResourceAction(getPlayer(), costIfNotFree);
+			getObservers().perform(tax);
 		}
-		observers.performEvent(this);
 	}
 
 	@Override
 	public boolean isLegal() {
 		ActionSpace actionSpace = floor.getActionSpace();
-		boolean result = observers.validationEvent(this);
-		result = result && checkTower() && actionSpace.isFree();
+		boolean result = checkTower() && actionSpace.isFree();
 		return result && actionSpace.getActionCost() >= supportFamilyMember.getValue();
 	}
 	
+
+// _____________________________________________________
+	
 	public boolean checkTower(){
-		if (familyMember.getClass() != NeutralFamilyMember.class && contains(getSource())){
+		if (familyMember.getClass() != NeutralFamilyMember.class && contains(getPlayer())){
 			return false;
 		}
 		else if (!tower.isFree()) {
-			//DecrementResourceAction action = getSource().getActionHandler().get(DecrementResourceAction.class);
-			//action.newIstance(new ResourceList(new Coin(3)));
-			//return action.isLegal();
+			DecrementResourceAction action = new DecrementResourceAction(getPlayer(),costIfNotFree);
+			return getObservers().isLegal(action);
 		}
 		return true;
 	}
+	
 	
 	private boolean contains(Player player){
 		// Ritorna true se sulla torre c'e' un familyMember del giocatore passato che non sia il familiare neutro

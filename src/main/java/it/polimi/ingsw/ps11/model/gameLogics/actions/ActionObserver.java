@@ -1,10 +1,10 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
-public interface ActionObserver<ACTION_TYPE> {
+public interface ActionObserver<T> {
 	
-	public void affectPerform(ACTION_TYPE action);
+	public void affectPerform(T action);
 	
-	public  default boolean affectCondiction(ACTION_TYPE action){
+	public  default boolean affectCondiction(T action){
 		return true;
 	}
 	

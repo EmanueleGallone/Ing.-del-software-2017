@@ -2,12 +2,12 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
 import java.util.ArrayList;
 
-public class ActionObservable<T> {
+public class ObserversHandler<T extends Action> {
 	
 	private	ArrayList<ActionObserver<T>> observers = new ArrayList<>();
 	
-	public void addObserver(ActionObserver<T> listener){
-		this.observers.add(listener);
+	public void attach(ActionObserver<T> observer){
+		this.observers.add(observer);
 	}
 	
 	public void performEvent(T action){

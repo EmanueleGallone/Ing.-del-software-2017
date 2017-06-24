@@ -37,8 +37,6 @@ public class Player implements Serializable{
 	//Da togliere
 	private ArrayList<Excommunication> excommunication = new ArrayList<>();
 
-	private ActionHandler actionHandler = new ActionHandler();
-	
 // Start constructors
 	
 	public Player(){
@@ -82,10 +80,6 @@ public class Player implements Serializable{
 	
 	public ArrayList<Excommunication> getExcommunication() {
 		return excommunication;
-	}
-	
-	public ActionHandler getActionHandler() {
-		return actionHandler;
 	}
 	
 // End getters

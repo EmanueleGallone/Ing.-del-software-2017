@@ -16,11 +16,6 @@ public class FamilyInFloorBonus implements ActionObserver<FamilyInFloorAction> {
 		this.tower = tower.toString();
 		this.value = value;
 	}
-
-	@Override
-	public void affectPerform(FamilyInFloorAction action) {
-		
-	}
 	
 	@Override
 	public boolean affectCondiction(FamilyInFloorAction action) {
@@ -32,5 +27,9 @@ public class FamilyInFloorBonus implements ActionObserver<FamilyInFloorAction> {
 		return true;
 	}
 	
+	@Override
+	public void affectPerform(FamilyInFloorAction action) {
+		
+	}
 	
 }

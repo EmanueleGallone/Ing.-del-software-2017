@@ -4,4 +4,7 @@ public interface Action {
 	
 	public void perform();
 	public boolean isLegal();
+	
+	public void setObservers(ActionManager actionManager);
+	public ActionManager getObservers();
 }
