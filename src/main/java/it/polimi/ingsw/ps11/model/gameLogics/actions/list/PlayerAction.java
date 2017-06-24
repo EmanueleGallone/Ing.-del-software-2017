@@ -27,12 +27,12 @@ public abstract class PlayerAction implements Action {
 	}
 	
 	@Override
-	public void setObservers(ActionManager actionManager) {
+	public void setActionManager(ActionManager actionManager) {
 		this.actionManager = actionManager;
 	}
 	
 	@Override
-	public ActionManager getObservers() {
+	public ActionManager actionManager() {
 		return actionManager;
 	}
 }

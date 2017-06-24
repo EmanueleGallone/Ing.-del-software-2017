@@ -33,20 +33,25 @@ public class CardManager implements Serializable {
 	
 	public <T extends DevelopmentCard> boolean addCard(T card){
 		
-		ArrayList<DevelopmentCard> temp = cards.get(card.getClass().toString());
+		if(canAdd(card)){
+			cards.get(card.getClass().toString()).add(card);
+			return true;
+		}
 		
+		return false;
+	}
+	
+	public <T extends DevelopmentCard> boolean canAdd(T card){
+		
+		ArrayList<DevelopmentCard> temp = cards.get(card.getClass().toString());
 		if(temp == null){
 			temp = new ArrayList<>();
 			this.cards.put(card.getClass().toString(), temp);
 		}
-		
-		if(temp.size() <= MAX_CARD){
-			temp.add(card);
+		if(temp.size() <= MAX_CARD)
 			return true;
-		}
 		return false;
 	}
-	
 	
 // End logic
 // Start getters
@@ -64,6 +69,7 @@ public class CardManager implements Serializable {
 	public HashMap<String, ArrayList<DevelopmentCard>> getAllCards() {
 		return (HashMap<String, ArrayList<DevelopmentCard>>) cards.clone();
 	}
+
 	
 	@Override
 	public String toString() {

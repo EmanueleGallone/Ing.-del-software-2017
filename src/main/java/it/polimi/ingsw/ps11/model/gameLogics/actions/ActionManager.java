@@ -18,14 +18,14 @@ public class ActionManager {
 
 
 	public <T extends Action> boolean isLegal(T action){
-		action.setObservers(this);
+		action.setActionManager(this);
 		Class<T> aClass = (Class<T>) action.getClass();
 		boolean result = get(aClass).validationEvent(action);
 		return  result && action.isLegal();
 	}
 	
 	public <T extends Action> void perform(T action){
-		action.setObservers(this);
+		action.setActionManager(this);
 		Class<T> aClass = (Class<T>) action.getClass();
 		get(aClass).performEvent(action);
 		action.perform();

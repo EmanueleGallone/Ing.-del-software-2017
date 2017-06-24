@@ -40,7 +40,7 @@ public class FamilyInFloorAction extends PlayerAction {
 		floor.placeFamilyMember(familyMember, getPlayer());
 		if(!tower.isFree()){
 			DecrementResourceAction tax = new DecrementResourceAction(getPlayer(), costIfNotFree);
-			getObservers().perform(tax);
+			actionManager().perform(tax);
 		}
 	}
 
@@ -60,7 +60,7 @@ public class FamilyInFloorAction extends PlayerAction {
 		}
 		else if (!tower.isFree()) {
 			DecrementResourceAction action = new DecrementResourceAction(getPlayer(),costIfNotFree);
-			return getObservers().isLegal(action);
+			return actionManager().isLegal(action);
 		}
 		return true;
 	}

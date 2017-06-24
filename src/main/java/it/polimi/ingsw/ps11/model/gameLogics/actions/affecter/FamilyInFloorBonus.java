@@ -1,14 +1,13 @@
-package it.polimi.ingsw.ps11.model.oldGameLogics.actions.affecter;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.oldGameLogics.actions.ActionObserver;
-import it.polimi.ingsw.ps11.model.oldGameLogics.actions.list.player.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.list.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class FamilyInFloorBonus implements ActionObserver<FamilyInFloorAction> {
 	/*
 	 *	E' quel bonus che se il familiare si piazza in una torre viola ha un +2 al valore 
 	 */
-	
 	private String tower;
 	private int value;
 	
