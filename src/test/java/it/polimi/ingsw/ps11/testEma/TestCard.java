@@ -44,10 +44,10 @@ public class TestCard {
 		esattoria.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource( new VictoryPoint(5));
-		esattoria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//esattoria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(1));
-		esattoria.addPermanentBonus(new GainResourceForEveryCardYouHave(GreenCard.class, resourceList.clone()));
+		//esattoria.addPermanentBonus(new GainResourceForEveryCardYouHave(GreenCard.class, resourceList.clone()));
 		
 		YellowCard arcoTrionfo = new YellowCard();
 		arcoTrionfo.setActiveValue(6);
@@ -61,10 +61,10 @@ public class TestCard {
 		arcoTrionfo.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(6));
-		arcoTrionfo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		//arcoTrionfo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(1));
-		arcoTrionfo.addPermanentBonus(new GainResourceForEveryCardYouHave(PurpleCard.class, resourceList));
+		//arcoTrionfo.addPermanentBonus(new GainResourceForEveryCardYouHave(PurpleCard.class, resourceList));
 		
 		Assert.assertFalse(esattoria.equals(arcoTrionfo));
 		Assert.assertFalse(esattoria.equals(null));
@@ -95,7 +95,7 @@ public class TestCard {
 		BlueCard blueCard = new BlueCard("TestBluCard");
 		blueCard.setPeriod(2);
 		blueCard.setName("TestBlueCard");
-		blueCard.addInstantBonus(new IncrementResourceBonus(costs.clone()));
+		//blueCard.addInstantBonus(new IncrementResourceBonus(costs.clone()));
 		
 		CardManager manager = new CardManager(cards); //gli passo un arraylist con più carte dentro per vedere come si comporta
 		
