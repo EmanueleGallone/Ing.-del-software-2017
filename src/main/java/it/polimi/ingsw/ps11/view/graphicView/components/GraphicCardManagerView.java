@@ -14,7 +14,7 @@ import javax.swing.JToggleButton;
 
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 
-public class GraphicPersonalBoardView extends CardManagerView implements ItemListener{
+public class GraphicCardManagerView extends CardManagerView implements ItemListener{
 
 	protected JPanel personalBoard = new JPanel();
 	protected JPanel overlayedDecksPanel;
@@ -23,7 +23,7 @@ public class GraphicPersonalBoardView extends CardManagerView implements ItemLis
 	protected JToggleButton[] arrayJTButton;
 	protected ButtonGroup buttonGroup;
 
-	public GraphicPersonalBoardView() {
+	public GraphicCardManagerView() {
 		
 		GridBagLayout gblPersonalBoard = new GridBagLayout();
 		gblPersonalBoard.columnWidths = new int[]{0, 0};

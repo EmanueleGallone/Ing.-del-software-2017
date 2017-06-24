@@ -11,21 +11,24 @@ import javax.swing.JButton;
 
 public class GraphicPaintedButton extends JButton{
 	
-	BufferedImage background;
+	protected BufferedImage background;
+	protected Boolean painted = false;
 	
 	public GraphicPaintedButton() {
 	}
 	
 	 @Override
 		public void paintComponent(Graphics g) {
+		 if(painted = true){
 			super.paintComponent(g);
 			Dimension size = getSize();
 			g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
-			
+		 }
 		}
 	
 	public void loadImage(String url){
 		
+		painted = true;
 		URL imagePath = getClass().getResource(url);
 		BufferedImage result = null;
 		try {

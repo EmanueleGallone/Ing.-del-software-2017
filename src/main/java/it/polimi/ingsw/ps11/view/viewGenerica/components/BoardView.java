@@ -13,7 +13,7 @@ public abstract class BoardView extends ViewComponent {
 	protected DiceView diceView;
 	protected CouncilPalaceView councilPalaceView;
 	protected MarketView marketView;
-	//protected ChurchView churchView;
+	protected ChurchView churchView;
 	
 	public BoardView() {
 	
@@ -38,5 +38,43 @@ public abstract class BoardView extends ViewComponent {
 		return towerViews;
 	}
 
+	public void setTower(ArrayList <TowerView> x){
+		this.towerViews = x;
+	};
+	
+	public void setTower(int index, TowerView t){
+		towerViews.set(index, t);
+	};
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,9 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
+
 import java.awt.GridBagLayout;
 
-public class GraphicFamilyMemberView {
+public class GraphicFamilyMemberView extends ChooseFamilyView {
 	
 	protected JPanel familyMembers = new JPanel();
 	protected String arrayFamilyMemberTypes[] = { "Black Family Member", "White Family Member", 

@@ -17,10 +17,6 @@ public class GraphicSlideBoardView extends BoardView {
 
 	protected JDialog slideBoard = new JDialog();
 	protected JButton slideOutButton;
-	protected GraphicProductionView productionView;
-	protected GraphicHarvestView harvestView;
-	protected GraphicMarketView marketView;
-	protected GraphicDiceView diceView;
 
 	public GraphicSlideBoardView() {
 
@@ -28,6 +24,16 @@ public class GraphicSlideBoardView extends BoardView {
 		harvestView = new GraphicHarvestView();
 		marketView = new GraphicMarketView();
 		diceView = new GraphicDiceView();
+					
+	}
+	
+	@Override
+	public void print() {	
+		
+		GraphicProductionView graphicProductionView = new GraphicProductionView();
+		GraphicHarvestView graphicHarvestView = new GraphicHarvestView();
+		GraphicMarketView graphicMarketView = new GraphicMarketView();
+		GraphicDiceView graphicDiceView = new GraphicDiceView();
 		
 		GridBagLayout gblSlideBoard = new GridBagLayout();
 		gblSlideBoard.columnWidths = new int[]{0, 0, 0};
@@ -35,21 +41,16 @@ public class GraphicSlideBoardView extends BoardView {
 		gblSlideBoard.columnWeights = new double[]{0.552052, 0.447948, Double.MIN_VALUE};
 		gblSlideBoard.rowWeights = new double[]{0.550992, 0.127311, 0.321697, Double.MIN_VALUE};
 		slideBoard.getContentPane().setLayout(gblSlideBoard);
-			
-	}
-	
-	@Override
-	public void print() {	
 		
-		productionView.print();
-		harvestView.print();
-		marketView.print();
-		diceView.print();
+		graphicProductionView.print();
+		graphicHarvestView.print();
+		graphicMarketView.print();
+		graphicDiceView.print();
 				
-		JPanel productionPanel = productionView.getComponent();
-		JPanel harvestPanel = harvestView.getComponent();
-		JPanel marketPanel = marketView.getComponent();
-		JPanel dicePanel = diceView.getComponent();
+		JPanel productionPanel = graphicProductionView.getComponent();
+		JPanel harvestPanel = graphicHarvestView.getComponent();
+		JPanel marketPanel = graphicMarketView.getComponent();
+		JPanel dicePanel = graphicDiceView.getComponent();
 		
 		GridBagConstraints gbcProduction = new GridBagConstraints();
 		GridBagConstraints gbcHarvest = new GridBagConstraints();
@@ -84,9 +85,14 @@ public class GraphicSlideBoardView extends BoardView {
 		GridBagConstraints gbcOutButton = new GridBagConstraints();
 		gbcOutButton.anchor = GridBagConstraints.NORTHEAST;
 		slideOutButton = new JButton("X");
-		slideOutButton.setPreferredSize(new Dimension(75, 75));
+		slideOutButton.setPreferredSize(new Dimension(10, 10));
 		slideOutButton.addActionListener(new CloseThis());
-		marketPanel.add(slideOutButton, gbcOutButton);
+		dicePanel.add(slideOutButton, gbcOutButton);
+
+		this.productionView = graphicProductionView;
+		this.harvestView = graphicHarvestView;
+		this.marketView = graphicMarketView;
+		this.diceView = graphicDiceView;
 	}
 	
 	private class CloseThis implements ActionListener {			

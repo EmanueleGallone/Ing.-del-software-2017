@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
@@ -7,21 +8,43 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
 public class GraphicTowerView extends TowerView{
 
 	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
-	protected ArrayList<GraphicFloorView> floors = new ArrayList<>();
+	protected Class<? extends Tower> towerClass;
 	
-	public GraphicTowerView(int whichTower, String towerName) {
-		
-		super(whichTower,towerName);		
+	public GraphicTowerView(Class<? extends Tower> whichTower, String towerName) {
+		super(whichTower,towerName);
+		this.towerClass = whichTower;
 		for(int i = 0; i< TOWERNUMBER; i++){
-			floors.add(new GraphicFloorView(whichTower, i));
+			floorViews.add(new GraphicFloorView(whichTower, i));
 		}
 		this.towerName = towerName;
+
+	}
+	
+	public GraphicTowerView(Class<? extends Tower> whichTower) {
+		this(whichTower,whichTower.getSimpleName());
+	}
+	
+	public GraphicTowerView(Tower tower) {
+		super(tower);
+	}
+
+	@Override
+	public void print(){
+		tower.loadImage("boardImages/" + towerName + ".png");
+		
+		ArrayList<GraphicFloorView> graphicFloorViews = new ArrayList<>();
+		
+		for(int i=0; i<TOWERNUMBER; i++){
+		graphicFloorViews.add(new GraphicFloorView(towerClass, i));
+		graphicFloorViews.get(i).print();
+		}
 		
 		GridBagLayout gblTower = new GridBagLayout();
 		gblTower.columnWidths = new int[]{0, 0};
@@ -29,18 +52,16 @@ public class GraphicTowerView extends TowerView{
 		gblTower.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gblTower.rowWeights = new double[]{ 0.030781 ,0.25, 0.25, 0.25, 0.25, Double.MIN_VALUE};
 		tower.setLayout(gblTower);
-	}
-	
-	@Override
-	public void print(){
-		tower.loadImage("boardImages/" + towerName + ".png");
+		
+		
 		
 		for(int i=0; i< TOWERNUMBER; i++){
 			GridBagConstraints gbcFloor = new GridBagConstraints();
 			gbcFloor.gridy = i+1;
 			gbcFloor.fill = GridBagConstraints.BOTH;
-			floors.get(i).getComponent().setOpaque(false);
-			tower.add(floors.get(i).getComponent(), gbcFloor);
+			graphicFloorViews.get(i).getComponent().setPreferredSize(new Dimension(10, 10));
+			tower.add(graphicFloorViews.get(i).getComponent(), gbcFloor);
+			this.setFloor(i, graphicFloorViews.get(i));
 		}
 	}
 

@@ -10,15 +10,21 @@ import java.awt.GridBagConstraints;
 public class GraphicPlayerView extends PlayerView{
 	
 	protected JPanel personal = new JPanel();
-	protected GraphicPersonalBoardView personalBoard;
-	protected GraphicResourceView resource;
-	protected GraphicFamilyMemberView familyMember;
 	
 	public GraphicPlayerView() {
 			
-		personalBoard = new GraphicPersonalBoardView();
-		resource = new GraphicResourceView();
-		familyMember = new GraphicFamilyMemberView();
+		cardManagerView = new GraphicCardManagerView();
+		resourceView = new GraphicResourceView();
+		chooseFamilyView = new GraphicFamilyMemberView();
+		
+	}
+	
+	@Override
+	public void print() {
+		
+		GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
+		GraphicResourceView graphicResourceView = new GraphicResourceView();
+		GraphicFamilyMemberView graphicFamilyMemberView = new GraphicFamilyMemberView();
 		
 		GridBagLayout gblPersonal = new GridBagLayout();
 		gblPersonal.columnWidths = new int[]{0, 0, 0};
@@ -26,18 +32,14 @@ public class GraphicPlayerView extends PlayerView{
 		gblPersonal.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gblPersonal.rowWeights = new double[]{0.20, 0.465116, 0.334884, Double.MIN_VALUE};
 		personal.setLayout(gblPersonal);
-	}
-	
-	@Override
-	public void print() {
 		
-		personalBoard.print();
-		resource.print();
-		familyMember.print();
+		graphicCardManagerView.print();
+		graphicResourceView.print();
+		graphicFamilyMemberView.print();
 		
-		JPanel personalPanel = personalBoard.getComponent();
-		JPanel resourcePanel = resource.getComponent();
-		JPanel familyMemberPanel = familyMember.getComponent();
+		JPanel personalPanel = graphicCardManagerView.getComponent();
+		JPanel resourcePanel = graphicResourceView.getComponent();
+		JPanel familyMemberPanel = graphicFamilyMemberView.getComponent();
 		
 		GridBagConstraints gbcPersonal = new GridBagConstraints();
 		GridBagConstraints gbcResource = new GridBagConstraints();
@@ -59,7 +61,10 @@ public class GraphicPlayerView extends PlayerView{
 		gbcResource.fill = GridBagConstraints.BOTH;
 		personal.add(resourcePanel, gbcResource);
 		
-
+		this.cardManagerView = graphicCardManagerView;
+		this.resourceView = graphicResourceView;
+		this.chooseFamilyView = graphicFamilyMemberView;
+		
 	}
 
 	public JPanel getComponent() {

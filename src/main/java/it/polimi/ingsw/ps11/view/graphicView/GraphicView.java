@@ -65,8 +65,8 @@ public class GraphicView extends View implements ActionListener{
 		allPlayers.add("<html><body><table width='200'><tr><td>" + "YOU" + "</td></tr></table></body></html>", playerlPanel);
        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
-        slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.689815), 
-        					(int)Math.round(screenSize.getWidth()*0.465), (int)Math.round(screenSize.getHeight()*0.310185));
+        slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.695), 
+        					(int)Math.round(screenSize.getWidth()*0.46), (int)Math.round(screenSize.getHeight()*0.305));
         
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayers = new GridBagConstraints();
@@ -151,13 +151,21 @@ public class GraphicView extends View implements ActionListener{
 			}
 		}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		slidePanel.setVisible(true);
+	private class ShowSlidePanel implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			slidePanel.setVisible(true);			
+		}
+		
 	}
-	
+
 	public static void main(String[] args) {
 		GraphicView tryout = new GraphicView();
 		tryout.print();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		slidePanel.setVisible(true);					
 	}
 }
