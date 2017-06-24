@@ -1,30 +1,31 @@
 package it.polimi.ingsw.ps11.model.bonus;
 
-import it.polimi.ingsw.ps11.model.game.actionsEma.PlaceFamilyTowerAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.list.GetCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class DecrementCostBonus extends PlayerBonus {
+public class DecrementCostBonus implements ActionObserver<GetCard> {
 
-	private Tower tower;
-	private ResourceList resourceList;
-	private ResourceList result;
+	private ResourceList resource;
+	private String tower;
 	
-	public DecrementCostBonus(Tower tower, ResourceList resourceList) {
-		this.tower = tower;
-		this.resourceList = resourceList;
-	}
-	
-	public ResourceList getResult() {
-		return result;
+	public DecrementCostBonus(Class<? extends Tower> tower , ResourceList resource) {
+		this.resource = resource;
+		this.tower = tower.toString();
 	}
 	
 	@Override
-	public void behavior() {
-		new PlaceFamilyTowerAction().perform(this);
+	public void affectPerform(GetCard action) {
+		
 	}
 	
-	public Tower getTower() {
-		return tower;
+	@Override
+	public boolean affectCondiction(GetCard action) {
+		//Bisogna mettere il controllo sul tipo di torre
+		ResourceList cost = action.getCost();
+		cost.subtract(resource);
+		return true;
 	}
+
 }

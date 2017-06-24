@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.zones;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.malus.Excommunication;
+import it.polimi.ingsw.ps11.model.bonus.ema.malus.Excommunication;
 
 public class Church {
 	

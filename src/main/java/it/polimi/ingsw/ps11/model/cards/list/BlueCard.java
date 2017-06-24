@@ -16,11 +16,6 @@ public class BlueCard extends DevelopmentCard {
 	}
 
 	@Override
-	public void enablePermanentBonus() {
-		
-	}
-
-	@Override
 	public BlueCard clone() {
 		BlueCard clone = new BlueCard();
 		

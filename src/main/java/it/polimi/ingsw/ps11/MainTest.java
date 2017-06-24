@@ -10,22 +10,18 @@ import java.util.ArrayList;
 
 import com.google.gson.reflect.TypeToken;
 
-import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
-import it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus;
-import it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus;
-import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus;
-import it.polimi.ingsw.ps11.model.bonus.ResourceExchangeBonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.EnableHarvestBonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.EnableProductionBonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.GainResourceForEveryCardYouHave;
+import it.polimi.ingsw.ps11.model.bonus.ema.IncrementResourceBonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.ResourceExchangeBonus;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.game.Colors;
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -46,12 +42,11 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.view.textualView.TextualView;
-import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class MainTest {
 	
 	public static void main(String[] args){
+	
 		/*
 		
 >>>>>>> ema
@@ -253,7 +248,7 @@ public class MainTest {
 	}
 	
 	public static void inizializzaCarte(){
-		
+		/*
 		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
 		
 		ResourceList resourceList = new ResourceList();
@@ -1708,6 +1703,8 @@ public class MainTest {
 		
 		writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
 		//FINE LEADER CARDS
+	 
+	*/
 	}
 	
 }

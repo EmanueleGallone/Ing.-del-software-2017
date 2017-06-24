@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.cards.list;
 
-import it.polimi.ingsw.ps11.model.bonus.Bonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.Bonus;
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**

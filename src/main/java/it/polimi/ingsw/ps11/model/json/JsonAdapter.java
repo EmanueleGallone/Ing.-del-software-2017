@@ -16,7 +16,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import it.polimi.ingsw.ps11.model.bonus.Bonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.Bonus;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.resources.Resource;

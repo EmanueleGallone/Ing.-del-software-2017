@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.list;
 
-import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -25,7 +24,7 @@ public class GetCard extends PlayerAction {
 
 	@Override
 	public boolean isLegal() {
-		boolean result = getPlayer().getResourceList().canSubtract(cost);
+		boolean result = card.checkCost(getPlayer().getResourceList(), cost);
 		return result && getPlayer().getCardManager().canAdd(card);
 	}
 	

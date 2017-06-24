@@ -9,8 +9,8 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.MainTest;
-import it.polimi.ingsw.ps11.model.bonus.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.GainResourceForEveryCardYouHave;
+import it.polimi.ingsw.ps11.model.bonus.ema.IncrementResourceBonus;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;

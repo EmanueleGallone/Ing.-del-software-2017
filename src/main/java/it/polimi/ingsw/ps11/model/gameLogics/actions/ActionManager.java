@@ -7,7 +7,7 @@ public class ActionManager {
 	private HashMap<String , ObserversHandler<? extends Action>> observers = new HashMap<>();
 	
 	
-	private <T extends Action> ObserversHandler<T> get(Class<T> action){
+	public <T extends Action> ObserversHandler<T> get(Class<T> action){
 		ObserversHandler<T> obHandler = (ObserversHandler<T>) observers.get(action.toString());
 		if (obHandler == null){
 			obHandler = new ObserversHandler<T>();
@@ -15,8 +15,7 @@ public class ActionManager {
 		}
 		return obHandler;
 	}
-
-
+	
 	public <T extends Action> boolean isLegal(T action){
 		action.setActionManager(this);
 		Class<T> aClass = (Class<T>) action.getClass();

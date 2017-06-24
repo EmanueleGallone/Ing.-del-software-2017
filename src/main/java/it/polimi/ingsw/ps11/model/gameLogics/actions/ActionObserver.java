@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
-public interface ActionObserver<T> {
+public interface ActionObserver<T extends Action> {
 	
 	public void affectPerform(T action);
 	

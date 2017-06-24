@@ -2,8 +2,8 @@ package it.polimi.ingsw.ps11.model.cards;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.bonus.Bonus;
-import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Development Card</h3>
@@ -21,8 +21,8 @@ public abstract class DevelopmentCard extends Card {
 	
 	protected ArrayList<ResourceList> costs = new ArrayList<>();
 
-	protected ArrayList<Bonus> instantBonus = new ArrayList<>(); 
-	protected ArrayList<Bonus> permanentBonus = new ArrayList<>();
+	protected ArrayList<Action> instantBonus = new ArrayList<>(); 
+	protected ArrayList<ActionObserver<? extends Action>> permanentBonus = new ArrayList<>();
 	
 	public DevelopmentCard() {
 	
@@ -43,48 +43,52 @@ public abstract class DevelopmentCard extends Card {
 // Start Logics
 	
 	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
-		if (playerResourceList.greaterEquals(cost)) 
+		if (costs.contains(cost) && playerResourceList.canSubtract(cost)) 
 			return true;
-		
 		return false;
 	}
 	
-	public boolean take(Player player, ResourceList cost){
-		if (checkCost(player.getResourceList(), cost)){
-			player.getResourceList().subtract(cost); //sottraggo le risorse spese per prendere la carta
-			if (player.getCardManager().addCard(this)){
-				//setOwner(player); come faccio a settare il giocatore del bonus?
-				return true;
-			}
-		}
-		
-		return false;
+//	public boolean take(Player player, ResourceList cost){
+//		if (checkCost(player.getResourceList(), cost)){
+//			player.getResourceList().subtract(cost); //sottraggo le risorse spese per prendere la carta
+//			if (player.getCardManager().addCard(this)){
+//				//setOwner(player); come faccio a settare il giocatore del bonus?
+//				return true;
+//			}
+//		}
+//		
+//		return false;
+//	}
+//	
+	
+// Action
+	
+	public ArrayList<Action> getInstantBonus() {
+		return instantBonus;
+	}
+	public ArrayList<ActionObserver<? extends Action>> getPermanentBonus() {
+		return permanentBonus;
 	}
 	
-	public void enablePermanentBonus(){
-		for(Bonus bonus: permanentBonus){
-			bonus.behavior();
-		}
-	}
-	
-	public void enableInstantBonus(){
-		for(Bonus bonus : instantBonus){
-			bonus.behavior();
-		}
-	}
-	
-//End Logics
-	
-// Start setters
-	
-	public void addInstantBonus(Bonus bonus){
+	public void addInstantBonus(Action bonus){
 		this.instantBonus.add(bonus);
 	}
 	
-	public void addPermanentBonus(Bonus bonus){
+	public void addPermanentBonus(ActionObserver<? extends Action> bonus){
 		this.permanentBonus.add(bonus);
 
 	}
+	
+	public void setInstantBonus(ArrayList<Action> instantBonus) {
+		this.instantBonus = instantBonus;
+	}
+	public void setPermanentBonus(ArrayList<ActionObserver<? extends Action>> permanentBonus) {
+		this.permanentBonus = permanentBonus;
+	}
+
+// Start setters
+	
+	
 	
 	/*private void setOwner(Player player){
 		for(Bonus bonus : permanentBonus){
@@ -95,14 +99,6 @@ public abstract class DevelopmentCard extends Card {
 			bonus.setOwner(player);
 		}
 	}*/
-	
-	public void setInstantBonus(ArrayList<Bonus> istantBonus) {
-		this.instantBonus = istantBonus;
-	}
-	
-	public void setPermanentBonus(ArrayList<Bonus> permanentBonus) {
-		this.permanentBonus = permanentBonus;
-	}
 	
 	public void setPeriod(int period) {
 		this.period = period;
@@ -117,12 +113,6 @@ public abstract class DevelopmentCard extends Card {
 	public ArrayList<ResourceList> getCosts() {
 		return costs;
 	}
-	public ArrayList<Bonus> getIstantBonus() {
-		return instantBonus;
-	}
-	public ArrayList<Bonus> getPermanentBonus() {
-		return permanentBonus;
-	}
 	
 	
 // End setters
@@ -130,8 +120,6 @@ public abstract class DevelopmentCard extends Card {
 	public int getPeriod() {
 		return period;
 	}
-	
-	
 	
 	@Override
 	public abstract DevelopmentCard clone();
