@@ -1,7 +1,16 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
+import java.util.HashMap;
+
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
+import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3>TextualView</h3>
@@ -26,41 +35,46 @@ public class TextualView extends View {
 			+ "\n0: Cancel"
 			+ "\n";
 	
-	private String familyChoice = "Choose a Familiar: " 
-			+ "\n1: White "
-			+ "\n2: Orange"
-			+ "\n3: Black"
-			+ "\n4: Neutral"
-			+ "\n"
-			;
-	
 	public TextualView() {
 		you = new TextualPlayerView();
 		boardView = new TextualBoardView();
 		console = new TextualConsole();
 		
 		//dovrei avere tutti i components nel caso definissi la select; oppure definire in cascata da boardView
+		
+		HashMap<String, ViewEventInterface> command = new HashMap<>();
+		
+		command.put("green tower 1", new FloorSelectedEvent(GreenTower.class, 1));
+		command.put("green tower 2", new FloorSelectedEvent(GreenTower.class, 2));
+		command.put("yellow tower 1", new FloorSelectedEvent(YellowTower.class, 1));
+		command.put("family black", new FamilySelectedEvent(BlackFamilyMember.class));
+		
 	}
-
+	
 	@Override
 	public void print() {
-		boardView.print();
-		you.print();
+		
 		console.println(instructions);
 	}
 
 	@Override
 	public void run() {
-		this.print();
 		String input;
 		while (!(input = console.read()).equals("q")){
+//			ViewEventInterface event = command.get(input);
+//			if(event != null){
+//				viewEvent.invoke(event);
+//			}
+//			else {
+//				console.print("Comando non riconosciuto");
+//			}
 			selectComponent(input);
 			console.println(instructions);
 		}
 	}
 	
 	public void selectComponent(String input){
-		//se definissi la select, allora farei semplicemente ad esempio boardview.gettowerchoice.select()? dove towerchoice è un towerView
+		
 		switch (input) {
 		case "1":
 			you.print();
@@ -69,13 +83,13 @@ public class TextualView extends View {
 			towerChoice();
 			break;
 		case "3":
-			productionChoice();
+			//productionChoice();
 			break;
 		case "4":
-			harvestChoice();
+			//harvestChoice();
 			break;
 		case "5":
-			counsilChoice();
+			//counsilChoice();
 			break;
 			
 			
@@ -94,21 +108,22 @@ public class TextualView extends View {
 		String choice = console.read();
 		
 		switch (choice) {
-		case "1": //blueTower
-			boardView.getTowers().get(0).selected();
-			//floorChoice(1);
+		case "1": //GreenTower
+			//il numero nel Selected rappresenta la torre scelta. se si scegliesse di tornare sulla map, bisogna cambiare su Towerview il parametro di selected()
+			boardView.getTowerViews().get(0).selected();
+			
 			break;
-		case "2": //greenTower
-			boardView.getTowers().get(1).selected();
-			//floorChoice(2);
+		case "2": //BlueTower
+			boardView.getTowerViews().get(1).selected();
+
 			break;
 		case "3": // yellowTower
-			boardView.getTowers().get(2).selected();
-			//floorChoice(3);	
+			boardView.getTowerViews().get(2).selected();
+
 			break;
 		case "4": //PurpleTower
-			boardView.getTowers().get(3).selected();
-			//floorChoice(4);
+			boardView.getTowerViews().get(3).selected();
+
 			break;
 		case "0":
 			return;
@@ -119,84 +134,14 @@ public class TextualView extends View {
 		}
 	}
 	
-	/*private void floorChoice(int tower){
-	 * spostata all'interno di textualTowerView
-		console.println("(Presso 0 to Cancel)");
-		console.print("Select the Floor : ");
-		String whichFloor = console.read();
-		
-		switch (whichFloor) {
-		case "1":
-			// new FloorSelectedEvent(tower, 1);
-			break;
-		case "2":
-			// new FloorSelectedEvent(tower, 2);
-			break;
-		case "3":
-			// new FloorSelectedEvent(tower, 3);
-			break;
-		case "4":
-			// new FloorSelectedEvent(tower, 4);
-			break;
-
-		case "0":
-			return;
-			
-		default:
-			console.printError("Unknown command");
-			break;
-		}
-		
-	}*/
 	
-	private void productionChoice(){
-		console.print("Production Zone\n");
-		familyChoice(); //scelta del familiare
-		//lancio ProductionZoneSelect?
+	@Override
+	public void update(Board board) {
 		
+		new TextualBoardView(board).print();
+		//familyManagerView(FamilyMemberManager).print();
 	}
 	
-	private void harvestChoice(){
-		console.print("Harvest Zone\n");
-		familyChoice(); //scelta del familiare
-		//lancio ProductionZoneSelect?
-		
-	}
 	
-	private void familyChoice(){
-		//la scelta nel familiare? dove la si mette? ad esempio in FloorSelectedEvent?
-		console.print(familyChoice + "(Press 0 to Cancel the action)\n");
-		String choice = console.read();
-		
-		switch (choice) {
-		case "1":
-			//lancia il FamilySelectedEvent?
-			break;
-		case "2":
-			//lancia il FamilySelectedEvent?
-			break;
-		case "3":
-			//lancia il FamilySelectedEvent?
-			break;
-		case "4":
-			//lancia il FamilySelectedEvent?
-			break;
-			
-		case "0":
-			return;
-
-		default:
-			System.err.println("Unknown command.");
-			break;
-		}
-		
-		
-	}
-	
-	private void counsilChoice(){
-		console.print("Council Palace");
-		familyChoice();
-		//lancia CouncilSelectedEvent
-	}
 	
 }

@@ -7,10 +7,6 @@ public abstract class CardManagerView extends ViewComponent {
 
 	protected CardManager cardManager;
 	
-	public CardManagerView() {
-		
-	}
-	
 	public void update(CardManager cardManager){
 		this.cardManager = cardManager;	
 	}

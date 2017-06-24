@@ -18,7 +18,9 @@ public abstract class BoardView extends ViewComponent {
 	public BoardView() {
 	
 	}
-	
+	public BoardView(Board board){
+		update(board);
+	}
 	public void update(Board board) {
 		productionView.update(board.getProduction());
 		harvestView.update(board.getHarvest());
@@ -28,11 +30,11 @@ public abstract class BoardView extends ViewComponent {
 		//churchView.update(board.getChurch());
 		
 		for(TowerView t : towerViews){
-			t.update(board.getTower(t.getTower()));
+			//t.update(board.getTower(t.getTower()));
 		}
 	}
 	
-	public ArrayList<TowerView> getTowers() {
+	public ArrayList<TowerView> getTowerViews() {
 		return towerViews;
 	}
 

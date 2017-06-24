@@ -4,10 +4,10 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 
 public abstract class DevelopmentCardView extends CardView{
 
-	protected DevelopmentCard card;
+	protected DevelopmentCard developmentCard;
 	
 	public void update(DevelopmentCard card){
-		this.card = card;
+		this.developmentCard = card;
 	}
 
 }

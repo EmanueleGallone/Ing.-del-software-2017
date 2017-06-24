@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 
-public class TextualPersonalBoardView extends CardManagerView{
+public class TextualCardManagerView extends CardManagerView{
 
 	
 	@Override

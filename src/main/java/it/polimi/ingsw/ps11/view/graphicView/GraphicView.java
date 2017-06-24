@@ -14,9 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicMainBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicSlideBoardView;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class GraphicView extends View implements ActionListener{

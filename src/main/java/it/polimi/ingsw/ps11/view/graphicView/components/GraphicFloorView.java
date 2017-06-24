@@ -4,6 +4,7 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualCardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 
@@ -11,9 +12,9 @@ public class GraphicFloorView extends FloorView {
 	
 	protected JPanel floor = new JPanel();
 	
-	public GraphicFloorView(int whichTower, int whichFloor) {
+	public GraphicFloorView(Class<? extends Tower> whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
-		this.cardView = new TextualCardView();
+		this.cardView = new GraphicCardView();
 		
 		GridBagLayout gblFloor = new GridBagLayout();
 		gblFloor.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
@@ -29,5 +30,11 @@ public class GraphicFloorView extends FloorView {
 	
 	public JPanel getComponent(){
 		return floor;
+	}
+
+	@Override
+	public void selected() {
+		// TODO Auto-generated method stub
+		
 	}
 }
