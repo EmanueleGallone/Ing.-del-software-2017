@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 
 public class GraphicHarvestView extends HarvestView {
 
-	protected GraphicBackground harvest = new GraphicBackground();
+	protected GraphicPaintedPanel harvest = new GraphicPaintedPanel();
 	
 	@Override
 	public void print() {	

@@ -14,13 +14,18 @@ public class TextualHarvestView extends HarvestView {
 		console.println("Harvest");
 		Player player = harvest.getSingleActionSpace().getOwner();
 		String pString = "Nobody";
-		if (player != null){
+		
+		if (player != null)
 			pString = player.getName();
-		}
-		console.println("Single space: " + pString + " " + "\tMultiple space: ");
+		
+		console.print("Single space: " + pString + " " + "\tMultiple space: ");
+		
 		for(ActionSpace space : harvest.getMultipleActionSpace().getAllSpace()){
 			console.print(space.getOwner().getName() + " ");
 		}
+		
+		if(harvest.getMultipleActionSpace().getAllSpace().isEmpty())
+			console.println("Nobody" + "  ");
 	}
 
 }

@@ -26,10 +26,10 @@ public class GraphicMainBoardView extends BoardView{
 	public GraphicMainBoardView() {
 		
 		GridBagLayout gblMainBoard = new GridBagLayout();
-		gblMainBoard.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gblMainBoard.rowHeights = new int[]{0, 0, 0, 0};
-		gblMainBoard.columnWeights = new double[]{0.022639, 0.216556, 0.177224, 0.039332, 0.216556, 0.216556, 0.024926, 0.086211, Double.MIN_VALUE};
-		gblMainBoard.rowWeights = new double[]{0.7086, 0.221122, 0.070278, Double.MIN_VALUE};
+		gblMainBoard.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+		gblMainBoard.rowHeights = new int[]{0, 0, 0};
+		gblMainBoard.columnWeights = new double[]{0.024774, 0.236987, 0.193944, 0.043043, 0.236987, 0.236987, 0.027277, Double.MIN_VALUE};
+		gblMainBoard.rowWeights = new double[]{0.762163, 0.237837, Double.MIN_VALUE};
 		mainBoard.setLayout(gblMainBoard);
 
 		towerViews = new ArrayList<>();
@@ -38,10 +38,13 @@ public class GraphicMainBoardView extends BoardView{
 		towerViews.add(new GraphicTowerView(2,"YellowTower"));
 		towerViews.add(new GraphicTowerView(3,"PurpleTower"));
 		
+		GraphicDiceView graphicDiceView = new GraphicDiceView();
+		
+		
+		this.diceView = graphicDiceView;
+		
 		churchView = new GraphicChurchView();
 		councilPalaceView = new GraphicCouncilPalaceView();
-		faithPointsView = new GraphicFaithPointsView();
-		militaryPointsView = new GraphicMilitaryPointsView();
 
 	}
 	
@@ -54,8 +57,6 @@ public class GraphicMainBoardView extends BoardView{
 		towerViews.get(3).print();
 		churchView.print();
 		councilPalaceView.print();
-		faithPointsView.print();
-		militaryPointsView.print();
 		
 		JPanel greenTowerPanel = towerViews.get(0).getComponent();
 		JPanel blueTowerPanel = towerViews.get(1).getComponent();
@@ -63,8 +64,6 @@ public class GraphicMainBoardView extends BoardView{
 		JPanel purpleTowerPanel = towerViews.get(3).getComponent();
 		JPanel churchPanel = churchView.getComponent();
 		JPanel councilPalacePanel = councilPalaceView.getComponent();
-		JPanel faithPointsPanel = faithPointsView.getComponent();
-		JPanel militaryPointsPanel = militaryPointsView.getComponent();
 		slideInButton = new JButton("SlideIn");		
 		
 		GridBagConstraints gbcGreenTower = new GridBagConstraints();
@@ -73,8 +72,6 @@ public class GraphicMainBoardView extends BoardView{
 		GridBagConstraints gbcPurpleTower = new GridBagConstraints();
 		GridBagConstraints gbcChurch = new GridBagConstraints();
 		GridBagConstraints gbcCouncilPalace = new GridBagConstraints();
-		GridBagConstraints gbcFaithPoints = new GridBagConstraints();
-		GridBagConstraints gbcMilitaryPoints = new GridBagConstraints();
 		GridBagConstraints gbcSlideIn = new GridBagConstraints();
 
 		gbcGreenTower.gridx = 1;
@@ -108,26 +105,12 @@ public class GraphicMainBoardView extends BoardView{
 		gbcCouncilPalace.gridy = 1;
 		gbcCouncilPalace.gridwidth = 4;
 		gbcCouncilPalace.fill = GridBagConstraints.BOTH;
+		councilPalacePanel.setPreferredSize(new Dimension(10, 10));
 		mainBoard.add(councilPalacePanel, gbcCouncilPalace);
 		
-		gbcFaithPoints.gridx = 0;
-		gbcFaithPoints.gridy = 2;
-		gbcFaithPoints.gridwidth = 7;
-		gbcFaithPoints.fill = GridBagConstraints.BOTH;
-		mainBoard.add(faithPointsPanel, gbcFaithPoints);
-		
-		gbcMilitaryPoints.gridx = 7;
-		gbcMilitaryPoints.gridy = 0;
-		gbcMilitaryPoints.gridheight = 2;
-		gbcMilitaryPoints.fill = GridBagConstraints.BOTH;
-		militaryPointsPanel.setPreferredSize(new Dimension(10, 10));
-		mainBoard.add(militaryPointsPanel, gbcMilitaryPoints);
-		
-		gbcSlideIn.gridx = 7;
-		gbcSlideIn.gridy = 2;
-		gbcSlideIn.fill = GridBagConstraints.BOTH;
-		slideInButton.setPreferredSize(new Dimension(5, 5));
-		mainBoard.add(slideInButton, gbcSlideIn);
+		gbcSlideIn.anchor = GridBagConstraints.SOUTHEAST;
+		slideInButton.setPreferredSize(new Dimension(75, 75));
+		councilPalacePanel.add(slideInButton, gbcSlideIn);
 		
 	}
 

@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView;
 
 public class GraphicProductionView extends ProductionView {
 
-	protected GraphicBackground production = new GraphicBackground();
+	protected GraphicPaintedPanel production = new GraphicPaintedPanel();
 	
 	@Override
 	public void print() {

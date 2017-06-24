@@ -7,15 +7,21 @@ public class TextualFloorView extends FloorView {
 
 	public TextualFloorView(int whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
-		this.cardView = new TextualCardView();
+		this.cardView = new TextualDevelopmentCardView();
 	}
 
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
 		String card = "None";
+		
 		if (floor.getCard() != null)
 			card = floor.getCard().getName();
-		console.println( "Floor " + (whichFloor + 1) + "           Card: " + card +"           ActionCost: " + floor.getActionSpace().getActionCost());
+		
+		console.println( "Floor " + (whichFloor + 1) 
+						+ "           Card: " + card 
+						+"           ActionCost: " + floor.getActionSpace().getActionCost()
+						);
+		
 	}
 }

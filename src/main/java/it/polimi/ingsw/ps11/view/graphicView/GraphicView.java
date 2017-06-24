@@ -35,6 +35,14 @@ public class GraphicView extends View implements ActionListener{
 		slideBoardView = new GraphicSlideBoardView();
 		console = new GraphicConsole();
 	}
+	
+	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
+
+		@Override
+		public void handle(ViewEventInterface e) {
+			viewEvent.invoke(e);
+		}
+	};
 
 	@Override
 	public void print() {
@@ -56,7 +64,7 @@ public class GraphicView extends View implements ActionListener{
        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
         slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.689815), 
-        					(int)Math.round(screenSize.getWidth()*0.475), (int)Math.round(screenSize.getHeight()*0.310185));
+        					(int)Math.round(screenSize.getWidth()*0.465), (int)Math.round(screenSize.getHeight()*0.310185));
         
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayers = new GridBagConstraints();
@@ -65,15 +73,15 @@ public class GraphicView extends View implements ActionListener{
 		gbcMainBoard.gridx = 0;
 		gbcMainBoard.gridy = 0;
 		gbcMainBoard.gridheight = 2;
-		gbcMainBoard.weightx = 0.477604;
+		gbcMainBoard.weightx = 0.469271;
 		gbcMainBoard.fill = GridBagConstraints.BOTH;
 		window.add(boardPanel, gbcMainBoard);
 			
 		gbcPlayers.gridx = 1;
 		gbcPlayers.gridy = 1;
 		gbcPlayers.gridwidth = 2;
-		gbcPlayers.weightx = 0.522396;
-		gbcPlayers.weighty = 0.703703;
+		gbcPlayers.weightx = 0.530729166;
+		gbcPlayers.weighty = 0.803703;
 		gbcPlayers.fill = GridBagConstraints.BOTH;
 		allPlayers.setPreferredSize(new Dimension(10, 10));
 		window.add(allPlayers, gbcPlayers);
@@ -81,7 +89,7 @@ public class GraphicView extends View implements ActionListener{
 		gbcConsole.gridx = 1;
 		gbcConsole.gridy = 0;
 		gbcConsole.weightx = 0.192933;
-		gbcConsole.weighty = 0.296296;
+		gbcConsole.weighty = 0.196296;
 		gbcConsole.fill = GridBagConstraints.BOTH;
 		window.add(consolePanel, gbcConsole);
 		
@@ -90,7 +98,7 @@ public class GraphicView extends View implements ActionListener{
 		gbcTurn.gridx = 2;
 		gbcTurn.gridy = 0;
 		gbcTurn.weightx = 0.313838;
-		gbcTurn.weighty = 0.296296;
+		gbcTurn.weighty = 0.196296;
 		gbcTurn.fill = GridBagConstraints.BOTH;
 		window.add(playersTurn, gbcTurn);
 		

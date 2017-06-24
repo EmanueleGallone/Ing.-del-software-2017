@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.CardView;
 
 public class GraphicCardView extends CardView{
 
-	protected GraphicBackground card = new GraphicBackground();
+	protected GraphicPaintedPanel card = new GraphicPaintedPanel();
 	
 	@Override
 	public void print(){

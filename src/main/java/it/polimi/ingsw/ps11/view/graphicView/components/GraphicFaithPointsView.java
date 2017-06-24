@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 public class GraphicFaithPointsView {
 	
-	protected GraphicBackground faithPoints = new GraphicBackground();
+	protected GraphicPaintedPanel faithPoints = new GraphicPaintedPanel();
 	
 	public void print() {
 		faithPoints.loadImage("boardImages/FaithPoints.png");

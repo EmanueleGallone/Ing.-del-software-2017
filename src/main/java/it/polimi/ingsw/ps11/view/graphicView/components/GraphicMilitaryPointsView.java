@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 public class GraphicMilitaryPointsView {
 	
-	protected GraphicBackground militaryPoints = new GraphicBackground();
+	protected GraphicPaintedPanel militaryPoints = new GraphicPaintedPanel();
 
 	public void print() {
 		militaryPoints.loadImage("boardImages/MilitaryPoints.png");

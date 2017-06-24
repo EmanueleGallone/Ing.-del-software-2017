@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
-
+/**
+ * <h3>RoundManager</h3>
+ * <p> Classe che gestisce i turni di gioco </p>
+ */
 public class RoundManager implements Serializable{
 
 	private static final int MAX_ROUND_PER_TURN = 4;

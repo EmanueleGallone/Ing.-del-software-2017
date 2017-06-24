@@ -6,11 +6,11 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView;
 
 public class GraphicChurchView extends ChurchView {
 	
-	protected GraphicBackground church = new GraphicBackground();
+	protected GraphicPaintedPanel church = new GraphicPaintedPanel();
 	
 	@Override
 	public void print(){
-		church.loadImage("boardImages/Church.png");
+		church.loadImage("boardImages/Church.png"); //     ./../../../../settings/
 	}
 
 	public JPanel getComponent() {

@@ -12,6 +12,8 @@ public abstract class BoardView extends ViewComponent {
 	protected ProductionView productionView;
 	protected DiceView diceView;
 	protected CouncilPalaceView councilPalaceView;
+	protected MarketView marketView;
+	//protected ChurchView churchView;
 	
 	public BoardView() {
 	
@@ -22,6 +24,9 @@ public abstract class BoardView extends ViewComponent {
 		harvestView.update(board.getHarvest());
 		diceView.update(board.getDices());
 		councilPalaceView.update(board.getCouncilPalace());
+		marketView.update(board.getMarket());
+		//churchView.update(board.getChurch());
+		
 		for(TowerView t : towerViews){
 			t.update(board.getTower(t.getTower()));
 		}

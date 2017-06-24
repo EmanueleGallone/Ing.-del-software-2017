@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 
 public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
-	protected GraphicBackground councilPalace = new GraphicBackground();
+	protected GraphicPaintedPanel councilPalace = new GraphicPaintedPanel();
 	
 	@Override
 	public void print(){

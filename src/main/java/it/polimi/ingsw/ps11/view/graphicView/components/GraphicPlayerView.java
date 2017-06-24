@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
@@ -22,8 +23,8 @@ public class GraphicPlayerView extends PlayerView{
 		GridBagLayout gblPersonal = new GridBagLayout();
 		gblPersonal.columnWidths = new int[]{0, 0, 0};
 		gblPersonal.rowHeights = new int[]{0, 0, 0};
-		gblPersonal.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gblPersonal.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gblPersonal.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gblPersonal.rowWeights = new double[]{0.20, 0.465116, 0.334884, Double.MIN_VALUE};
 		personal.setLayout(gblPersonal);
 	}
 	
@@ -41,6 +42,23 @@ public class GraphicPlayerView extends PlayerView{
 		GridBagConstraints gbcPersonal = new GridBagConstraints();
 		GridBagConstraints gbcResource = new GridBagConstraints();
 		GridBagConstraints gbcFamilyMember = new GridBagConstraints();
+		
+		gbcFamilyMember.gridy = 0;
+		gbcFamilyMember.gridy = 0;
+		gbcFamilyMember.fill = GridBagConstraints.BOTH;
+		personal.add(familyMemberPanel, gbcFamilyMember);
+		
+		gbcPersonal.gridx = 0;
+		gbcPersonal.gridy = 1;
+		gbcPersonal.gridwidth = 2;
+		gbcPersonal.fill = GridBagConstraints.BOTH;
+		personal.add(personalPanel, gbcPersonal);
+		
+		gbcResource.gridx = 0;
+		gbcResource.gridy = 2;
+		gbcResource.fill = GridBagConstraints.BOTH;
+		personal.add(resourcePanel, gbcResource);
+		
 
 	}
 
