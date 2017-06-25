@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public class ActionManager{
 	
-	private HashMap<String, ActionDecorator<? extends PlayerAction>> actions = new HashMap<>();
+	private HashMap<String, ActionDecorator<? extends Action>> actions = new HashMap<>();
 	
-	public <T extends ActionDecorator<K>, K extends PlayerAction> T get(Class<K> action) {
+	public <T extends ActionDecorator<K>, K extends Action> T get(Class<K> action) {
 		return (T) actions.get(action.toString());
 	}
 	

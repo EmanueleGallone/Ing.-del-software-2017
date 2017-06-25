@@ -2,10 +2,8 @@ package it.polimi.ingsw.ps11.model.cards;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.PlayerAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Development Card</h3>
@@ -23,8 +21,8 @@ public abstract class DevelopmentCard extends Card {
 	
 	protected ArrayList<ResourceList> costs = new ArrayList<>();
 
-	protected ArrayList<PlayerAction> istantEffect = new ArrayList<>();
-	protected ArrayList<ActionDecorator<? extends PlayerAction>> permanentEffect = new ArrayList<>();
+	protected ArrayList<Action> istantEffect = new ArrayList<>();
+	protected ArrayList<ActionDecorator<? extends Action>> permanentEffect = new ArrayList<>();
 	 
 	public DevelopmentCard() {
 	
@@ -65,11 +63,11 @@ public abstract class DevelopmentCard extends Card {
 	
 // Action
 	
-	public ArrayList<ActionDecorator<? extends PlayerAction>> getPermanentEffect() {
+	public ArrayList<ActionDecorator<? extends Action>> getPermanentEffect() {
 		return permanentEffect;
 	}
 	
-	public ArrayList<PlayerAction> getIstantEffect() {
+	public ArrayList<Action> getIstantEffect() {
 		return istantEffect;
 	}
 

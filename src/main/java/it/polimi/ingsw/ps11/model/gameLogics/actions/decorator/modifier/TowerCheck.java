@@ -1,11 +1,9 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.modifier;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.PlayerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction.DecrementResource;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction.PlaceFamilyInSpace;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -41,9 +39,9 @@ public class TowerCheck extends ActionDecorator<PlaceFamilyInSpace>{
 		}
 		if(!tower.isFree()){
 			
-			DecrementResource tax = new DecrementResource(action.getSource(), taxIfNotFree);
-			ActionDecorator<DecrementResource> decorator = action.getSource().actions().get(DecrementResource.class);
-			result = decorator.decore(tax).isLegal();
+			DecrementResource decrement = new DecrementResource(action.getSource(), taxIfNotFree);
+			Action tax = decrement.enable(action.getSource().actions());
+			result = tax.isLegal();
 		}
 		return result && action.isLegal();
 	}
@@ -53,7 +51,12 @@ public class TowerCheck extends ActionDecorator<PlaceFamilyInSpace>{
 		return new TowerCheck(action, tower);
 	}
 	
-
+	@Override
+	public ActionDecorator<TowerCheck> enable(ActionManager aManager) {
+		ActionDecorator<TowerCheck> decorator = aManager.get(TowerCheck.class);
+		return decorator.decore(this);
+	}
+	
 	public boolean contains(Tower tower, Player player){
 		// Ritorna true se c'e' un familyMember di un giocatore che non sia il familiare neutro
 		for(Floor floor : tower.getFloors()){

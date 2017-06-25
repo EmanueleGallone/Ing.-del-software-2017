@@ -4,17 +4,17 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.PlayerAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class GetCard extends PlayerAction {
+public class GetCard implements Action {
 
+	private Player player;
 	private DevelopmentCard card;
 	private ResourceList cost;
 	
 	public GetCard(Player player, DevelopmentCard card, ResourceList cost) {
-		super(player);
+		this.player = player;
 		this.card = card;
 		this.cost = cost;
 	}
@@ -23,7 +23,7 @@ public class GetCard extends PlayerAction {
 	public void perform() {
 		ActionManager aManager = getSource().actions();
 		
-		for(PlayerAction effect : card.getIstantEffect()){
+		for(Action effect : card.getIstantEffect()){
 			effect.enable(aManager);
 		}
 		
@@ -34,6 +34,10 @@ public class GetCard extends PlayerAction {
 	}
 
 	@Override
+	public Player getSource() {
+		return player;
+	}
+	@Override
 	public boolean isLegal() {
 	 boolean result = card.getCosts().contains(cost);
 	 result = result && getSource().getResourceList().canSubtract(cost);
@@ -42,11 +46,9 @@ public class GetCard extends PlayerAction {
 	
 
 	@Override
-	public void enable(ActionManager aManager) {
+	public ActionDecorator<GetCard> enable(ActionManager aManager) {
 		ActionDecorator<GetCard> decorator = aManager.get(GetCard.class);
-		Action action = decorator.decore(this);
-		if(action.isLegal())
-			action.perform();
+		return decorator.decore(this);
 	}
 
 	

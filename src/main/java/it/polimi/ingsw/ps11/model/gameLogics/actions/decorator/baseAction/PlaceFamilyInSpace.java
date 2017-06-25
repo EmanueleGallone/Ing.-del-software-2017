@@ -4,23 +4,28 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.PlayerAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 
-public class PlaceFamilyInSpace extends PlayerAction {
+public class PlaceFamilyInSpace implements Action {
 
+	private Player player;
 	private FamilyMember familyMember;
 	private ActionSpace actionSpace;
 	
 	public PlaceFamilyInSpace(Player player, FamilyMember familyMember, ActionSpace actionSpace) {
-		super(player);
+		this.player = player;
 		this.familyMember = familyMember;
 		this.actionSpace = actionSpace;
 	}
 
 	public FamilyMember getFamilyMember() {
 		return familyMember;
+	}
+	
+	@Override
+	public Player getSource() {
+		return player;
 	}
 	
 	@Override
@@ -34,11 +39,9 @@ public class PlaceFamilyInSpace extends PlayerAction {
 	}
 
 	@Override
-	public void enable(ActionManager aManager) {
+	public ActionDecorator<PlaceFamilyInSpace> enable(ActionManager aManager) {
 		ActionDecorator<PlaceFamilyInSpace> decorator = aManager.get(PlaceFamilyInSpace.class);
-		Action action = decorator.decore(this);
-		if(action.isLegal())
-			action.perform();
+		return decorator.decore(this);
 	}
 
 }

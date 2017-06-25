@@ -7,4 +7,5 @@ public interface Action {
 	public void perform();
 	public boolean isLegal();
 	public Player getSource();
+	public ActionDecorator<? extends Action> enable(ActionManager aManager);
 }

@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator;
 
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public abstract class ActionDecorator<T extends PlayerAction> implements Action{
+public abstract class ActionDecorator<T extends Action> implements Action{
 
 	protected T action;
 	protected String target;
@@ -23,5 +23,6 @@ public abstract class ActionDecorator<T extends PlayerAction> implements Action{
 	public Player getSource() {
 		return action.getSource();
 	}
+	
 	public abstract ActionDecorator<T> decore(T action);
 }
