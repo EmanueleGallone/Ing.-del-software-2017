@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.zones.harvestAndProduction;
+package it.polimi.ingsw.ps11.model.zones.yield;
 
 import java.io.Serializable;
 
@@ -8,12 +8,12 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 
-public class Production implements FamilyMemberSpace, Serializable {
+public class Yield implements FamilyMemberSpace, Serializable {
 
 	private ActionSpace singleActionSpace = new ActionSpace();
 	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace();
 	
-	public Production() {
+	public Yield() {
 	
 	}
 	

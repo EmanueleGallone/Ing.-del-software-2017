@@ -9,11 +9,11 @@ import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class ProductionTest {
 
-	Production production;
+	Yield production;
 	Player player1;
 	Player player2;
 	BlackFamilyMember f1;
@@ -22,7 +22,7 @@ public class ProductionTest {
 
 	@Before
 	public void setting(){
-		production = new Production();
+		production = new Yield();
 		player1 = new Player();
 		player2 = new Player();
 		

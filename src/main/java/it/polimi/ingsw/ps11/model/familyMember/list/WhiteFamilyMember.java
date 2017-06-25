@@ -20,4 +20,9 @@ public class WhiteFamilyMember extends FamilyMember {
 		
 		return clone;
 	}
+
+	@Override
+	public boolean isNeutral() {
+		return false;
+	}
 }

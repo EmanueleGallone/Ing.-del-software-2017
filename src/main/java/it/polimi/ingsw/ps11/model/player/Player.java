@@ -7,6 +7,7 @@ import it.polimi.ingsw.ps11.model.bonus.ema.malus.Excommunication;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Colors;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -33,9 +34,13 @@ public class Player implements Serializable{
 	private FamilyMemberManager familyManager;
 	private CardManager cardManager;
 	
-	//Da togliere
-	private ArrayList<Excommunication> excommunication = new ArrayList<>();
-
+	private ActionManager actionManager = new ActionManager();
+	
+	public ActionManager actions() {
+		return actionManager;
+	}
+	
+	
 // Start constructors
 	
 	public Player(){
@@ -77,10 +82,6 @@ public class Player implements Serializable{
 		return color;
 	}
 	
-	public ArrayList<Excommunication> getExcommunication() {
-		return excommunication;
-	}
-	
 // End getters
 	
 	public void setName(String name) {
@@ -90,11 +91,6 @@ public class Player implements Serializable{
 	public void setColor(Colors color) {
 		this.color = color;
 	}
-	
-	public void addExcommunication(Excommunication ex){
-		this.excommunication.add(ex);
-	}
-
 	
 	@Override
 	public Player clone(){

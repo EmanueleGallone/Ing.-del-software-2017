@@ -2,15 +2,15 @@ package it.polimi.ingsw.ps11.model.bonus.ema.actionsEma;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class PlaceFamilyProductionSingleSpace extends Action {
 	
 	private FamilyMember familiareScelto;
-	private Production production;
+	private Yield production;
 	private Player player;
 	
-	public PlaceFamilyProductionSingleSpace(FamilyMember familiareScelto,Player player, Production production) {
+	public PlaceFamilyProductionSingleSpace(FamilyMember familiareScelto,Player player, Yield production) {
 		this.familiareScelto = familiareScelto;
 		this.production = production;
 		this.player = player;
@@ -29,7 +29,7 @@ public class PlaceFamilyProductionSingleSpace extends Action {
 	
 	//start setters
 	
-	public void setProduction(Production production) {
+	public void setProduction(Yield production) {
 		this.production = production;
 	}
 	

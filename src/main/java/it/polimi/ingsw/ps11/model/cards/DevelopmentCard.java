@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.PlayerAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Development Card</h3>
@@ -21,9 +23,9 @@ public abstract class DevelopmentCard extends Card {
 	
 	protected ArrayList<ResourceList> costs = new ArrayList<>();
 
-	protected ArrayList<Action> instantBonus = new ArrayList<>(); 
-	protected ArrayList<ActionObserver<? extends Action>> permanentBonus = new ArrayList<>();
-	
+	protected ArrayList<PlayerAction> istantEffect = new ArrayList<>();
+	protected ArrayList<ActionDecorator<? extends PlayerAction>> permanentEffect = new ArrayList<>();
+	 
 	public DevelopmentCard() {
 	
 	}
@@ -63,28 +65,14 @@ public abstract class DevelopmentCard extends Card {
 	
 // Action
 	
-	public ArrayList<Action> getInstantBonus() {
-		return instantBonus;
-	}
-	public ArrayList<ActionObserver<? extends Action>> getPermanentBonus() {
-		return permanentBonus;
+	public ArrayList<ActionDecorator<? extends PlayerAction>> getPermanentEffect() {
+		return permanentEffect;
 	}
 	
-	public void addInstantBonus(Action bonus){
-		this.instantBonus.add(bonus);
+	public ArrayList<PlayerAction> getIstantEffect() {
+		return istantEffect;
 	}
-	
-	public void addPermanentBonus(ActionObserver<? extends Action> bonus){
-		this.permanentBonus.add(bonus);
 
-	}
-	
-	public void setInstantBonus(ArrayList<Action> instantBonus) {
-		this.instantBonus = instantBonus;
-	}
-	public void setPermanentBonus(ArrayList<ActionObserver<? extends Action>> permanentBonus) {
-		this.permanentBonus = permanentBonus;
-	}
 
 // Start setters
 	

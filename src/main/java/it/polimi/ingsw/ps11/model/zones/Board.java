@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
-import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 /**
  * <h3>Board</h3>
  * <p> Classe che rappresenta il tabellone. e' composto da vari oggetti quali: <ul>
@@ -28,8 +28,8 @@ public class Board implements Serializable{
 	//ArrayList<Tower> towers = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
 	
-	private Production harvest = new Production();
-	private Production production = new Production();
+	private Yield harvest = new Yield();
+	private Yield production = new Yield();
 	private Market market;
 	private CouncilPalace councilPalace;
 	//manca la church
@@ -83,11 +83,11 @@ public class Board implements Serializable{
 		return this.market;
 	}
 	
-	public Production getProduction() {
+	public Yield getProduction() {
 		return this.production;
 	}
 	
-	public Production getHarvest() {
+	public Yield getHarvest() {
 		return harvest;
 	}
 	

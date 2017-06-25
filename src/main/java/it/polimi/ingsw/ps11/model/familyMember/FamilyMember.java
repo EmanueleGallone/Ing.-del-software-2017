@@ -46,6 +46,8 @@ public abstract class FamilyMember implements Serializable{
 		this.value = value;
 	}
 	
+	public abstract boolean isNeutral();
+	
 	@Override
 	public abstract FamilyMember clone();
 	

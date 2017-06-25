@@ -25,4 +25,9 @@ public class NeutralFamilyMember extends FamilyMember {
 	public void setValue(int value) {
 		return;
 	}
+
+	@Override
+	public boolean isNeutral() {
+		return true;
+	}
 }

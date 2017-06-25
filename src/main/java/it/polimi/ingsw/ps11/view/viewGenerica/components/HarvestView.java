@@ -1,13 +1,13 @@
 package it.polimi.ingsw.ps11.view.viewGenerica.components;
 
-import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class HarvestView extends ViewComponent{
 	
-	protected Production harvest;
+	protected Yield harvest;
 	
-	public void update(Production harvest){
+	public void update(Yield harvest){
 		this.harvest = harvest;
 	}
 }

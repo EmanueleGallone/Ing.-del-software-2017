@@ -14,7 +14,7 @@ import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Market;
-import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class OtherZonesPackageTest {
 	
@@ -31,7 +31,7 @@ public class OtherZonesPackageTest {
 	
 	CouncilPalace councilPalace;
 	Market market;
-	Production production;
+	Yield production;
 	
 	@Before
 	public void setting(){
@@ -56,7 +56,7 @@ public class OtherZonesPackageTest {
 				
 		councilPalace = new CouncilPalace();
 		market = new Market(players.size());
-		production = new Production();
+		production = new Yield();
 		
 	}
 	
