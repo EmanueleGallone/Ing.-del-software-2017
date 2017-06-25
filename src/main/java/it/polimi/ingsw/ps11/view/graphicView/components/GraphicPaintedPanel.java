@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 public class GraphicPaintedPanel extends JPanel {
 	
+	//JPanel con immagine fissa
+	
 	BufferedImage background;
 	
 	public GraphicPaintedPanel() {

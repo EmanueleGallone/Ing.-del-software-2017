@@ -1,13 +1,17 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import javax.swing.BorderFactory;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 
 public class GraphicPlayerView extends PlayerView{
+	
+	//View del giocatore singolo, contiene un cardManager, un selettore dei familiari e le risorse
 	
 	protected JPanel personal = new JPanel();
 	
@@ -21,6 +25,8 @@ public class GraphicPlayerView extends PlayerView{
 	
 	@Override
 	public void print() {
+		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
 		GraphicResourceView graphicResourceView = new GraphicResourceView();
@@ -61,12 +67,20 @@ public class GraphicPlayerView extends PlayerView{
 		gbcResource.fill = GridBagConstraints.BOTH;
 		personal.add(resourcePanel, gbcResource);
 		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 		this.cardManagerView = graphicCardManagerView;
 		this.resourceView = graphicResourceView;
 		this.chooseFamilyView = graphicFamilyMemberView;
 		
 	}
-
+	
+	@Override
+	public void attach(EventListener<ViewEventInterface> listener) {			//attach il listener della finestra principale ai soli familiari
+		super.attach(listener);
+		chooseFamilyView.attach(listener);
+	}
+	
 	public JPanel getComponent() {
 		return personal;
 	}

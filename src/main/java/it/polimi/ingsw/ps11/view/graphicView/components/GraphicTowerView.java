@@ -5,14 +5,16 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
 public class GraphicTowerView extends TowerView{
+	
+	//Torre, contiene 4 piani
 
 	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
 	protected Class<? extends Tower> towerClass;
@@ -39,6 +41,8 @@ public class GraphicTowerView extends TowerView{
 	public void print(){
 		tower.loadImage("boardImages/" + towerName + ".png");
 		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
 		ArrayList<GraphicFloorView> graphicFloorViews = new ArrayList<>();
 		
 		for(int i=0; i<TOWERNUMBER; i++){
@@ -53,22 +57,31 @@ public class GraphicTowerView extends TowerView{
 		gblTower.rowWeights = new double[]{ 0.030781 ,0.25, 0.25, 0.25, 0.25, Double.MIN_VALUE};
 		tower.setLayout(gblTower);
 		
-		
-		
-		for(int i=0; i< TOWERNUMBER; i++){
+		for(int i = 0; i < TOWERNUMBER; i++){
 			GridBagConstraints gbcFloor = new GridBagConstraints();
-			gbcFloor.gridy = i+1;
+			gbcFloor.gridy = (4-i);
 			gbcFloor.fill = GridBagConstraints.BOTH;
 			graphicFloorViews.get(i).getComponent().setPreferredSize(new Dimension(10, 10));
 			tower.add(graphicFloorViews.get(i).getComponent(), gbcFloor);
 			this.setFloor(i, graphicFloorViews.get(i));
 		}
+		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 	}
 
 	public JPanel getComponent() {
 		return tower;
 	}
-
+	
+	@Override
+	public void attach(EventListener<ViewEventInterface> listener){			//Attach l'eventHandler principale ad ogni piano
+		super.attach(listener);
+		for(int i = 0; i < TOWERNUMBER; i++){
+			floorViews.get(i).attach(listener);
+		}
+	}
+	
 	@Override
 	public void selected() {
 		// TODO Auto-generated method stub

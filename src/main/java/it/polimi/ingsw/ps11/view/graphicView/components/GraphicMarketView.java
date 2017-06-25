@@ -2,12 +2,17 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.MarketView;
 
 public class GraphicMarketView extends MarketView{
+	
+	//Zona mercato, ha un action space singolo per ogni zona intriore del mercato e un pannello che mostra i turni
 
 	protected GraphicPaintedPanel marketPanel = new GraphicPaintedPanel();
 	protected GraphicActionSpace goldSingleActionSpace = new GraphicActionSpace("Gold Market"),
@@ -15,10 +20,19 @@ public class GraphicMarketView extends MarketView{
 								 mixed1SingleActionSpace = new GraphicActionSpace("Mixed1 Market"),
 								 mixed2SingleActionSpace = new GraphicActionSpace("Mixed2 Market");
 
+	public GraphicMarketView() {
+		goldSingleActionSpace.addActionListener(new MarketSelectedListner(0));
+		servantSingleActionSpace.addActionListener(new MarketSelectedListner(1));
+		mixed1SingleActionSpace.addActionListener(new MarketSelectedListner(2));
+		mixed2SingleActionSpace.addActionListener(new MarketSelectedListner(3));
+	}
+	
 	@Override
 	public void print(){
 		marketPanel.loadImage("boardImages/Market.png");
 		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
 		GridBagLayout gblMarket = new GridBagLayout();
 		gblMarket.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gblMarket.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -54,10 +68,24 @@ public class GraphicMarketView extends MarketView{
 		gbcMixed2Market.fill = GridBagConstraints.BOTH;
 		marketPanel.add(mixed2SingleActionSpace, gbcMixed2Market);
 		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+		
 	}
 
 	public JPanel getComponent() {
 		return marketPanel;
 	}
+	
+	private class MarketSelectedListner implements ActionListener{		//Se viene selezionatauna zona interiore del mercato invoca l'eveento "zona del mercato selezionata"
 
+		int marketType;
+		public MarketSelectedListner(int marketType) {
+			this.marketType = marketType;
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			eventHandler.invoke(new MarketSelectedEvent(marketType));
+		}
+	}
 }

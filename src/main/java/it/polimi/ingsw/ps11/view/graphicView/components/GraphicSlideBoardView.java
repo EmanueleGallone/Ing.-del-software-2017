@@ -6,14 +6,17 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 
 public class GraphicSlideBoardView extends BoardView {
+	
+	//Parte della board nascosta, contiene le zone produzione e raccolta, il mercato e i dadi
 
 	protected JDialog slideBoard = new JDialog();
 	protected JButton slideOutButton;
@@ -30,6 +33,8 @@ public class GraphicSlideBoardView extends BoardView {
 	@Override
 	public void print() {	
 		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
 		GraphicProductionView graphicProductionView = new GraphicProductionView();
 		GraphicHarvestView graphicHarvestView = new GraphicHarvestView();
 		GraphicMarketView graphicMarketView = new GraphicMarketView();
@@ -61,12 +66,14 @@ public class GraphicSlideBoardView extends BoardView {
 		gbcProduction.gridy = 0;
 		gbcProduction.gridheight = 1;
 		gbcProduction.fill = GridBagConstraints.BOTH;
+		productionPanel.setPreferredSize(new Dimension(10, 10));
 		slideBoard.getContentPane().add(productionPanel, gbcProduction);
 		
 		gbcHarvest.gridx = 0;
 		gbcHarvest.gridy = 1;
 		gbcHarvest.gridheight = 2;
 		gbcHarvest.fill = GridBagConstraints.BOTH;
+		harvestPanel.setPreferredSize(new Dimension(10, 10));
 		slideBoard.getContentPane().add(harvestPanel, gbcHarvest);
 		
 		gbcMarket.gridx = 1;
@@ -80,19 +87,33 @@ public class GraphicSlideBoardView extends BoardView {
 		gbcDice.gridy = 2;
 		gbcDice.gridheight = 1;
 		gbcDice.fill = GridBagConstraints.BOTH;
+		dicePanel.setPreferredSize(new Dimension(10, 10));
 		slideBoard.getContentPane().add(dicePanel, gbcDice);
 		
 		GridBagConstraints gbcOutButton = new GridBagConstraints();
-		gbcOutButton.anchor = GridBagConstraints.NORTHEAST;
+		gbcOutButton.gridx = 6;
+		gbcOutButton.gridy = 2;
+		gbcOutButton.fill = GridBagConstraints.BOTH;
+		gbcOutButton.anchor = GridBagConstraints.SOUTHEAST;
 		slideOutButton = new JButton("X");
 		slideOutButton.setPreferredSize(new Dimension(10, 10));
 		slideOutButton.addActionListener(new CloseThis());
 		dicePanel.add(slideOutButton, gbcOutButton);
+		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		this.productionView = graphicProductionView;
 		this.harvestView = graphicHarvestView;
 		this.marketView = graphicMarketView;
 		this.diceView = graphicDiceView;
+	}
+	
+	@Override
+	public void attach(EventListener<ViewEventInterface> listener) {
+		super.attach(listener);
+		productionView.attach(listener);
+		harvestView.attach(listener);
+		marketView.attach(listener);
 	}
 	
 	private class CloseThis implements ActionListener {			

@@ -2,21 +2,33 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 
 public class GraphicHarvestView extends HarvestView {
+	
+	//Zona raccolta, ha un single ActionSpace e un multiplo ActionSpace
 	
 	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
 	protected GraphicActionSpace singleActionSpace = new GraphicActionSpace("Harvest single"),
 			  					 multipleActionSpace = new GraphicActionSpace("Harvest multiple");
 	
+	public GraphicHarvestView() {
+		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
+		multipleActionSpace.addActionListener(new MultipleHarvestSelectedListener());
+		}
+	
 	@Override
 	public void print() {
 		harvestPanel.loadImage("boardImages/Harvest.png");
 		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
 		GridBagLayout gblProduction = new GridBagLayout();
 		gblProduction.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblProduction.rowHeights = new int[]{0, 0, 0, 0};
@@ -36,10 +48,29 @@ public class GraphicHarvestView extends HarvestView {
 		gbcMultipleActionSpace.gridy = 1;
 		gbcMultipleActionSpace.fill = GridBagConstraints.BOTH;
 		harvestPanel.add(multipleActionSpace, gbcMultipleActionSpace);
+		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 	}
 	
 	public JPanel getComponent(){
 		return harvestPanel;
+	}
+	
+	private class SingleHarvestSelectedListener implements ActionListener{		//Se il single action space viene selezionato invoca l'evento "spazio singolo raccolta selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			eventHandler.invoke(new HarvestSelectedEvent());
+		}
+	}
+	
+	private class MultipleHarvestSelectedListener implements ActionListener{	//Se il multiple action space viene selezionato invoca l'evento "spazio multiplo raccolta selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			eventHandler.invoke(new HarvestSelectedEvent());
+		}
 	}
 
 }

@@ -1,24 +1,37 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 
 public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
+	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
+	
 	protected GraphicPaintedPanel councilPalace = new GraphicPaintedPanel();
-	protected GraphicActionSpace multipleActionSpace = new GraphicActionSpace("Council");
+	protected GraphicActionSpace multipleActionSpace;
+	protected JButton showPanelButton = new JButton("^");
 	protected JPanel turns = new JPanel();
+	
+	public GraphicCouncilPalaceView() {
+		multipleActionSpace = new GraphicActionSpace("Council");
+		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
+		}
 	
 	@Override
 	public void print(){
 		councilPalace.loadImage("boardImages/CouncilPalace.png");
 		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
 		GridBagLayout gblCouncilPalace = new GridBagLayout();
 		gblCouncilPalace.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblCouncilPalace.rowHeights = new int[]{0, 0, 0, 0, 0};
@@ -28,6 +41,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		
 		GridBagConstraints gbcMultipleActionSpace = new GridBagConstraints();
 		GridBagConstraints gbcTurns = new GridBagConstraints();
+		GridBagConstraints gbcSlideIn = new GridBagConstraints();
 		
 		gbcMultipleActionSpace.gridx = 1;
 		gbcMultipleActionSpace.gridy = 1;
@@ -40,10 +54,31 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		gbcTurns.fill = GridBagConstraints.BOTH;
 		councilPalace.add(turns, gbcTurns);
 		
+		gbcSlideIn.gridx = 4 ;
+		gbcSlideIn.gridy = 3 ;
+		gbcSlideIn.fill = GridBagConstraints.BOTH;
+		gbcSlideIn.anchor = GridBagConstraints.SOUTHEAST;
+		showPanelButton.setPreferredSize(new Dimension(10, 10));
+		councilPalace.add(showPanelButton, gbcSlideIn);
+		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
+	}
+	
+	public void attachSlideListener(ShowPanel showPanel){					//Bottone che fa entrare la parte nascosta della board
+		showPanelButton.addActionListener(showPanel);
 	}
 
 	public JPanel getComponent() {
 		return councilPalace;
+	}
+
+	private class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			//eventHandler.invoke(new CouncilSelectedEvent());
+		}
 	}
 
 }

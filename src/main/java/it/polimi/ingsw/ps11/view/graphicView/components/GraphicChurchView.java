@@ -8,6 +8,8 @@ public class GraphicChurchView extends ChurchView {
 	
 	protected GraphicPaintedPanel church = new GraphicPaintedPanel();
 	
+	//Church ancora da implementare
+	
 	@Override
 	public void print(){
 		church.loadImage("boardImages/Church.png"); //     ./../../../../settings/
