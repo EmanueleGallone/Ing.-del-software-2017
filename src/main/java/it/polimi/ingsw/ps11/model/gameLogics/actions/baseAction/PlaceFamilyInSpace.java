@@ -1,9 +1,11 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.baseAction;
+
+import java.util.Optional;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 
@@ -39,9 +41,11 @@ public class PlaceFamilyInSpace implements Action {
 	}
 
 	@Override
-	public ActionDecorator<PlaceFamilyInSpace> enable(ActionManager aManager) {
-		ActionDecorator<PlaceFamilyInSpace> decorator = aManager.get(PlaceFamilyInSpace.class);
-		return decorator.decore(this);
+	public Action enable(ActionManager aManager) {
+		Optional<ActionDecorator<PlaceFamilyInSpace>> optional = aManager.get(PlaceFamilyInSpace.class);
+		if(optional.isPresent())
+			return optional.get().decore(this);
+		return this;
 	}
 
 }

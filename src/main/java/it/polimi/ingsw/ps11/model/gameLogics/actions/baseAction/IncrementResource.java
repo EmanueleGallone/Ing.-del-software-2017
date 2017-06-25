@@ -1,8 +1,10 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.baseAction;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
+import java.util.Optional;
+
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -36,8 +38,10 @@ public class IncrementResource implements Action {
 	}
 
 	@Override
-	public ActionDecorator<IncrementResource> enable(ActionManager aManager) {
-		ActionDecorator<IncrementResource> decorator = aManager.get(IncrementResource.class);
-		return decorator.decore(this);
+	public Action enable(ActionManager aManager) {
+		Optional<ActionDecorator<IncrementResource>> optional = aManager.get(IncrementResource.class);
+		if(optional.isPresent())
+			return optional.get().decore(this);
+		return this;
 	}
 }

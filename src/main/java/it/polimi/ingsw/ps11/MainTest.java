@@ -22,6 +22,7 @@ import it.polimi.ingsw.ps11.model.cards.list.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -47,8 +48,11 @@ public class MainTest {
 	
 	public static void main(String[] args){
 	
-		/*
+		Player player = new Player();
 		
+		
+		
+		/*
 >>>>>>> ema
 		PlayerFactory factory = new PlayerFactory();
 

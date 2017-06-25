@@ -2,8 +2,8 @@ package it.polimi.ingsw.ps11.model.cards;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionDecorator;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Development Card</h3>

@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.bonus;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionObserver;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.list.GetCard;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.old.ActionObserver;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.old.list.GetCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 

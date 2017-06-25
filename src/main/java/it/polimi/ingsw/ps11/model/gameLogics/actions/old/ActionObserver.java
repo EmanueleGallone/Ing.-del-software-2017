@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.old;
 
 public interface ActionObserver<T extends Action> {
 	

@@ -1,9 +1,11 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.baseAction;
+
+import java.util.Optional;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -46,9 +48,11 @@ public class GetCard implements Action {
 	
 
 	@Override
-	public ActionDecorator<GetCard> enable(ActionManager aManager) {
-		ActionDecorator<GetCard> decorator = aManager.get(GetCard.class);
-		return decorator.decore(this);
+	public Action enable(ActionManager aManager) {
+		Optional<ActionDecorator<GetCard>> optional = aManager.get(GetCard.class);
+		if(optional.isPresent())
+			return optional.get().decore(this);
+		return this;
 	}
 
 	

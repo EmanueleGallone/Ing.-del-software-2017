@@ -1,8 +1,12 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.baseAction;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
+import java.util.Optional;
+
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.DefaultDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.modifier.TowerCheck;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -32,9 +36,11 @@ public class DecrementResource implements Action {
 
 	
 	@Override
-	public ActionDecorator<DecrementResource> enable(ActionManager aManager) {
-		ActionDecorator<DecrementResource> decorator = aManager.get(DecrementResource.class);
-		return decorator.decore(this);
+	public Action enable(ActionManager aManager) {
+		Optional<ActionDecorator<DecrementResource>> optional = aManager.get(DecrementResource.class);
+		if(optional.isPresent())
+			return optional.get().decore(this);
+		return this;
 	}
 
 	@Override

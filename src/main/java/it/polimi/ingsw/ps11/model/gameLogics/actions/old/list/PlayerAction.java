@@ -1,7 +1,7 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.list;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.old.list;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.old.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.old.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public abstract class PlayerAction implements Action {

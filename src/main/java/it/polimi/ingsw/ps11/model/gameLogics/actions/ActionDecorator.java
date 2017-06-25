@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator;
+package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
 import it.polimi.ingsw.ps11.model.player.Player;
 

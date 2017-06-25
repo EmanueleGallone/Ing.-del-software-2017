@@ -1,11 +1,13 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.modifier;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.modifier;
+
+import java.util.Optional;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionDecorator;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction.DecrementResource;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.baseAction.PlaceFamilyInSpace;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionDecorator;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.baseAction.DecrementResource;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.baseAction.PlaceFamilyInSpace;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -48,13 +50,16 @@ public class TowerCheck extends ActionDecorator<PlaceFamilyInSpace>{
 	
 	@Override
 	public TowerCheck decore(PlaceFamilyInSpace action) {
-		return new TowerCheck(action, tower);
+		this.action = action;
+		return this;
 	}
 	
 	@Override
-	public ActionDecorator<TowerCheck> enable(ActionManager aManager) {
-		ActionDecorator<TowerCheck> decorator = aManager.get(TowerCheck.class);
-		return decorator.decore(this);
+	public Action enable(ActionManager aManager) {
+		Optional<ActionDecorator<TowerCheck>> optional = aManager.get(TowerCheck.class);
+		if(optional.isPresent())
+			return optional.get().decore(this);
+		return this;
 	}
 	
 	public boolean contains(Tower tower, Player player){

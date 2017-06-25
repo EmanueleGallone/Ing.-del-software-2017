@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.bonus.ema.malus.Excommunication;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Colors;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.decorator.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 

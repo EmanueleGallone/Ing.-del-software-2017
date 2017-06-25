@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.list;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.old.list;
 
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

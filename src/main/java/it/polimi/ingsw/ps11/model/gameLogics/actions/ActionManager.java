@@ -1,32 +1,21 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
 import java.util.HashMap;
+import java.util.Optional;
 
-public class ActionManager {
-
-	private HashMap<String , ObserversHandler<? extends Action>> observers = new HashMap<>();
+public class ActionManager{
 	
+	private HashMap<String, ActionDecorator<? extends Action>> actions = new HashMap<>();
 	
-	public <T extends Action> ObserversHandler<T> get(Class<T> action){
-		ObserversHandler<T> obHandler = (ObserversHandler<T>) observers.get(action.toString());
-		if (obHandler == null){
-			obHandler = new ObserversHandler<T>();
-			observers.put(action.toString(), obHandler);
-		}
-		return obHandler;
+	public <T extends ActionDecorator<K>, K extends Action> Optional<T> get(Class<K> action) {
+		Optional<T> optional = Optional.empty();
+		return Optional.of((T)actions.get(action.toString()));
+		//return (T) actions.get(action.toString());
 	}
 	
-	public <T extends Action> boolean isLegal(T action){
-		action.setActionManager(this);
-		Class<T> aClass = (Class<T>) action.getClass();
-		boolean result = get(aClass).validationEvent(action);
-		return  result && action.isLegal();
+	public void add(ActionDecorator<? extends Action> action){
+		actions.put(action.getTarget(), action);
 	}
 	
-	public <T extends Action> void perform(T action){
-		action.setActionManager(this);
-		Class<T> aClass = (Class<T>) action.getClass();
-		get(aClass).performEvent(action);
-		action.perform();
-	}
+	
 }

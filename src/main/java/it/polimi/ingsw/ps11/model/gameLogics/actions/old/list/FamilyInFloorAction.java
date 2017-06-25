@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.list;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.old.list;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
