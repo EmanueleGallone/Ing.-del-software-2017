@@ -52,7 +52,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 public class MainTest {
 	
 	public static void main(String[] args){
-		/*
+		
 		PlayerFactory factory = new PlayerFactory();
 
 		Player player =factory.newPlayer(0);
@@ -67,7 +67,7 @@ public class MainTest {
 		players.add(player);
 		players.add(player2);
 		
-		//Game game = new Game(players.size());
+		Game game = new Game(players);
 		
 		View view = new TextualView();
 		YellowCard card = new YellowCard();
@@ -83,12 +83,15 @@ public class MainTest {
 		game.getBoard().getDices().rollDices();
 		
 		view.update(game);
-		view.update(player2);
+		//view.update(player2);
 		
 		card.addCost(new ResourceList(new Coin(5)));
 		player2.getCardManager().addCard(card.clone());
 		
-		view.run();*/
+		view.update(game.getBoard());
+		
+		view.run();
+		
 		
 		
 		

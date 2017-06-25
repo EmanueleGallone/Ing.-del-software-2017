@@ -21,7 +21,8 @@ public class TextualTowerView extends TowerView {
 	}
 	
 	public TextualTowerView(Tower tower) {
-		super(tower);
+		this(tower.getClass());
+		update(tower);
 	}
 
 	@Override
@@ -35,33 +36,7 @@ public class TextualTowerView extends TowerView {
 	
 	@Override
 	public void selected(){
-		TextualConsole console = new TextualConsole();
-		console.print("Select the Floor (Presso 0 to Cancel): ");
-		String whichFloor = console.read();
 		
-		//lo switch e' necessario per il controllo sull'input
-		switch (whichFloor) {
-		case "1":
-			this.floorViews.get(0).selected();
-			//crea evento dicendo quale torre e' stata selezionata e mi fermo.
-			break;
-		case "2":
-			this.floorViews.get(1).selected();
-			break;
-		case "3":
-			this.floorViews.get(2).selected();
-			break;
-		case "4":
-			this.floorViews.get(3).selected();
-			break;
-
-		case "0":
-			return;
-			
-		default:
-			console.printError("Unknown command");
-			break;
-		}
 	}
 	
 }

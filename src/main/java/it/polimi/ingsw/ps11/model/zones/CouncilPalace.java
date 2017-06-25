@@ -15,7 +15,7 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
  * <p> Classe che rappresenta il palazzo del consiglio. Permette di variare l'ordine in cui i giocatori possono compiere azioni.
  * </p>
  * 
- * @version 0.8
+ * @version 1.0
  * @see it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace MultipleActionSpace
  */
 public class CouncilPalace extends MultipleActionSpace  implements Serializable{

@@ -28,7 +28,9 @@ public class TextualBoardView extends BoardView {
 	}
 	
 	public TextualBoardView(Board board){
-		super(board);
+		this();
+		update(board);
+		
 	}
 	
 	@Override

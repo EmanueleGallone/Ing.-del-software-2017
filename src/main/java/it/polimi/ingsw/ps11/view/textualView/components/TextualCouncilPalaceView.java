@@ -1,10 +1,19 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
+import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 
 public class TextualCouncilPalaceView extends CouncilPalaceView{
+	
+	public TextualCouncilPalaceView(CouncilPalace councilPalace) {
+		update(councilPalace);
+	}
+	
+	public TextualCouncilPalaceView() {
+	
+	}
 
 	@Override
 	public void print() {

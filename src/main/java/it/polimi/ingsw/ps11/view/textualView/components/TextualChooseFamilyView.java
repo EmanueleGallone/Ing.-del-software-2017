@@ -1,45 +1,31 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
 
 public class TextualChooseFamilyView extends ChooseFamilyView {
 	//faccio la print che fa scegliere e poi chiama la selected che crea l'evento?
+	
+	public TextualChooseFamilyView() {
+	
+	}
+	
+	public TextualChooseFamilyView(FamilyMemberManager familyMemberManager) {
+		update(familyMemberManager);
+	}
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		String familyChoice = "Choose a Familiar: " 
-				+ "\n1: White "
-				+ "\n2: Orange"
-				+ "\n3: Black"
-				+ "\n4: Neutral"
-				+ "\n"
-				;
-			console.print(familyChoice + "(Press 0 to Cancel the action)\n");
-			String choice = console.read();
-			
-			switch (choice) {
-			case "1":
-				//lancia il FamilySelectedEvent?
-				break;
-			case "2":
-				//lancia il FamilySelectedEvent?
-				break;
-			case "3":
-				//lancia il FamilySelectedEvent?
-				break;
-			case "4":
-				//lancia il FamilySelectedEvent?
-				break;
-				
-			case "0":
-				return;
-
-			default:
-				System.err.println("Unknown command.");
-				break;
-			} 
 		
+		console.print("\nBlack family member (value " + familyView.getFamilyMember(BlackFamilyMember.class).getValue() + ")");
+		console.print("\nOrange family member (value " + familyView.getFamilyMember(OrangeFamilyMember.class).getValue() + ")");
+		console.print("\nWhite family member (value " + familyView.getFamilyMember(WhiteFamilyMember.class).getValue() + ")");
+		console.print("\nNeutral family member (value " + familyView.getFamilyMember(BlackFamilyMember.class).getValue() + ")");
+		console.println("");
 	}
 
 }

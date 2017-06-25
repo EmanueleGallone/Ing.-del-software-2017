@@ -6,12 +6,16 @@ import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.zones.Floor;
+import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.ViewInterface;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 /**
  * <h3>View</h3>
  * <p> Classe astratta rappresentante la view che il giocatore puo' scegliere, ovvero CLI o GUI. e' stata portata avanti
@@ -23,6 +27,7 @@ public abstract class View implements ViewInterface, Runnable {
 	protected PlayerView you;
 	protected BoardView boardView;
 	protected Console console;
+	protected TowerView towerView;
 	
 	protected EventManager events = new EventManager();
 	protected EventHandler<ViewEventInterface> viewEvent = new EventHandler<>();
@@ -66,6 +71,13 @@ public abstract class View implements ViewInterface, Runnable {
 	@Override
 	public void update(Player player) {
 		you.update(player);
-		
 	}
+	
+	//occhio che e' commentato; andrebbero aggiunti nella ViewInterface
+	//@Override
+	public void update(Tower tower){
+		towerView.update(tower);
+	}
+	
+	//come definisco una update della floor? 
 }
