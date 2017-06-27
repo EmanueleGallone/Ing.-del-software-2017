@@ -1,147 +1,68 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
-import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
-import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
-import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3>TextualView</h3>
  * <p> 
- * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco.
+ * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco. Il suo funzionamento e' semplice:
+ * dal server arriva un oggetto del gioco e viene stampato a video; la console e' sempre in ascolto di eventuali input; se il giocatore
+ * inserisce un comando contenuto nella Map allora viene invocato l'evento ed inviato al server
  * </p>
  */
 public class TextualView extends View {
 	
-	private String instructions = "\n1: Print your Status" 
-			+ "\n2: Place Family member in Towers"
-			+ "\n3: Place Family member in Production"
-			+ "\n4: Place Family member in harvest"
-			+ "\n5: Place Family member in Council Palace"
-			+ "\n6: Pass your turn"
-			+ "\nq: Quit the game"; 
-	
-	private String towerChoice = "\n1: GreenTower"
-			+ "\n2: BlueTower"
-			+ "\n3: YellowTower"
-			+ "\n4: PurpleTower"
-			+ "\n0: Cancel"
-			+ "\n";
+	//le istruzioni vanno aggiornate allora
+	private String instructions = "\n instruction:"
+			+ "\nif you want to select the Yellow Tower type -> yellow tower"
+			+ "\nif you want to select the floor of a tower type \" yellow tower 1 \""
+			+ "\netc etc "; 
 	
 	public TextualView() {
 		you = new TextualPlayerView();
 		boardView = new TextualBoardView();
 		console = new TextualConsole();
 		
-		//dovrei avere tutti i components nel caso definissi la select; oppure definire in cascata da boardView
-		
-		HashMap<String, ViewEventInterface> command = new HashMap<>();
-		
-		command.put("green tower 1", new FloorSelectedEvent(GreenTower.class, 1));
-		command.put("green tower 2", new FloorSelectedEvent(GreenTower.class, 2));
-		command.put("yellow tower 1", new FloorSelectedEvent(YellowTower.class, 1));
-		command.put("family black", new FamilySelectedEvent(BlackFamilyMember.class));
-		
 	}
 	
 	@Override
 	public void print() {
-		
-		console.println(instructions);
+		//questo metodo potrebbe essere eliminato
+		//boardView.print();
+		//you.print();
+		console.println(instructions); 
 	}
 
 	@Override
 	public void run() {
-		String input;
+		//manca la map con i comandi
+		//il menu si puo' togliere in quanto viene inviato dal server
+		print();
+		String input = new String();
 		while (!(input = console.read()).equals("q")){
-//			ViewEventInterface event = command.get(input);
-//			if(event != null){
-//				viewEvent.invoke(event);
-//			}
-//			else {
-//				console.print("Comando non riconosciuto");
-//			}
-			selectComponent(input);
-			console.println(instructions);
+
+			//if(viewEvent.get(bla bla bla...) != null)
+			//spara evento
 		}
 	}
-	
-	public void selectComponent(String input){
-		
-		switch (input) {
-		case "1":
-			you.print();
-			break;
-		case "2":
-			towerChoice();
-			break;
-		case "3":
-			//productionChoice();
-			break;
-		case "4":
-			//harvestChoice();
-			break;
-		case "5":
-			//counsilChoice();
-			break;
-			
-			
-		//case passa turno	
-
-		default:
-			console.printError("Unknown command");
-			break;
-		}		
-		
-	}
-	
-	private void towerChoice(){
-		//si segue per ora l'ordine con cui vengono caricate le torri, dal file
-		console.print(towerChoice);
-		String choice = console.read();
-		
-		switch (choice) {
-		case "1": //GreenTower
-			//il numero nel Selected rappresenta la torre scelta. se si scegliesse di tornare sulla map, bisogna cambiare su Towerview il parametro di selected()
-			boardView.getTowerViews().get(0).selected();
-			
-			break;
-		case "2": //BlueTower
-			boardView.getTowerViews().get(1).selected();
-
-			break;
-		case "3": // yellowTower
-			boardView.getTowerViews().get(2).selected();
-
-			break;
-		case "4": //PurpleTower
-			boardView.getTowerViews().get(3).selected();
-
-			break;
-		case "0":
-			return;
-			
-		default:
-			console.printError("Unknown command");
-			break;
-		}
-	}
-	
 	
 	@Override
-	public void update(Board board) {
-		
+	public void update(Board board){
+		boardView.update(board); //in realta' non serve, la faccio all'interno di textualboardview
 		new TextualBoardView(board).print();
-		//familyManagerView(FamilyMemberManager).print();
+	}
+
+	@Override
+	public void update(Player player){
+		you.update(player);
+		new TextualPlayerView(player).print();
 	}
 	
-	
+	//se mi si chiede di scegliere un familiare?
 	
 }

@@ -56,6 +56,8 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param otherList ResourceList da comparare
 	 */
 	public boolean greaterEquals(ResourceList otherList){
+		if(otherList == null)
+			return false;
 		
 		if (resources.size() == 0)
 			return (resources.size() == otherList.getResources().size());
@@ -133,7 +135,12 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	
 // end logic
 // Start getters
-	
+	/**
+	 * Metodo che permette il recupero della risorsa inserita come parametro. 
+	 * Se essa e' presenta nella resourceList allora verra' restituito un oggetto altrimenti un null
+	 * @param rClass classe del tipo di risorsa
+	 * @return
+	 */
 	public <T extends Resource> T getResource(Class<T> rClass){
 		return getResource(rClass.toString());
 	}

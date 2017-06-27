@@ -10,7 +10,7 @@ public class TextualResourceView extends ResourceView{
 	public void print() {
 		TextualConsole console = new TextualConsole();
 		for(Resource resource : resourceList)
-			console.print(resource.getClass().getSimpleName() + " : " + resource.getValue() + "   ");
+			console.print(resource.getClass().getSimpleName() + ": " + resource.getValue() + " ");
 		
 	}
 

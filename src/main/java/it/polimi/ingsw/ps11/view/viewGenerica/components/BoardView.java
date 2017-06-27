@@ -18,9 +18,7 @@ public abstract class BoardView extends ViewComponent {
 	public BoardView() {
 	
 	}
-	public BoardView(Board board){
-		update(board);
-	}
+	
 	public void update(Board board) {
 		productionView.update(board.getProduction());
 		harvestView.update(board.getHarvest());

@@ -21,10 +21,6 @@ public abstract class TowerView extends ViewComponent {
 		this(whichTower, whichTower.getSimpleName());
 	}
 	
-	public TowerView(Tower tower){
-		update(tower);
-	}
-	
 	public String getTower() {
 		return whichTower;
 	}
@@ -47,6 +43,5 @@ public abstract class TowerView extends ViewComponent {
 		return floorViews;
 	}
 	
-	public abstract void selected();
 	
 }

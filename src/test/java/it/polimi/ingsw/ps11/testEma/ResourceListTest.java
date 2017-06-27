@@ -33,6 +33,7 @@ public class ResourceListTest {
 		
 		Assert.assertFalse(resourceList.greaterEquals(list));
 		
+		Assert.assertFalse(resourceList.greaterEquals(null));
 	
 		
 	}
@@ -43,6 +44,7 @@ public class ResourceListTest {
 		ResourceList other = new ResourceList(new Wood(8));
 		
 		Assert.assertFalse(resourceList.equals(other));
+		Assert.assertTrue(resourceList.getResource(MilitaryPoint.class) == null);
 		
 		other = new ResourceList(new Coin(8));
 		

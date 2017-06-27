@@ -28,7 +28,6 @@ public class CardsPackageTest {
 	 * APPARTENENTE ALLA CARTA -> AGGIUNGERE CONTROLLO;
 	 * 3) IL COSTO ALL'INTERNO DELLA CARTA NON HA UTILIZZO PER IL MOTIVO SOPRA
 	 * 4) IN CARDMANAGER RIGA 35 "if(temp.size() <= MAX_CARD)" POSSO AVERE FINO A 7 CARTE -> RIMUOVEREL'UGUALE
-	 * 5) BLUE CARD RIGA 49 CASTING A YELLOWCARD NON POSSIBILE, DA CAMBIARE A DEVELOPMENT CARD -> EQUALS TRA CARTE NON YELLOWCARD NON POSSIBILE
 	 * 6) LE CARTE BLUE SONO DIVERSE DA TUTTE LE ALTRE, ALLE ALTRA MANCA IL COSTRUTTORE CON STRINGA
 	 */
 	
@@ -203,9 +202,6 @@ public class CardsPackageTest {
 		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostServant));
 		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostStone));
 		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostWood));
-		
-		exception.expect(NullPointerException.class);
-		assertTrue(bCard.checkCost(player.getResourceList(), null));
 
 		
 		//assertTrue(bCard.take(player, resourceListCostCoin));
