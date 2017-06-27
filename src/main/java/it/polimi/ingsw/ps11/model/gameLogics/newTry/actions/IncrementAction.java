@@ -3,13 +3,12 @@ package it.polimi.ingsw.ps11.model.gameLogics.newTry.actions;
 import it.polimi.ingsw.ps11.model.gameLogics.newTry.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.newTry.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.newTry.Affecter;
-import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class IncrementAction implements Action, Affecter<IncrementAction> {
 
-	private ActionManager aManager;
-	private ResourceList resource;
+	protected ActionManager aManager;
+	protected ResourceList resource;
 	
 	public IncrementAction(){
 		
@@ -20,7 +19,6 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 		this.resource = resource;
 	}
 	
-
 	public ResourceList getResource() {
 		return resource;
 	}
@@ -51,17 +49,10 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 		}
 		return this;
 	}
-
-	@Override
-	public void perform(boolean execute) {
-		if(execute){
-			perform();
-		}
-	}
 	
 	@Override
 	public void attach(ActionManager actionManager){
-		IncrementAction increment = actionManager.get(IncrementAction.class);
+		IncrementAction increment = actionManager.get(target());
 		if(increment == null){
 			increment = this;
 		}
@@ -71,5 +62,13 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 	@Override
 	public Class<IncrementAction> target() {
 		return IncrementAction.class;
+	}
+	
+// ___________________________________________________
+	
+	@Override
+	public IncrementAction clone(){
+		IncrementAction copy = new IncrementAction(aManager, resource.clone());
+		return copy;
 	}
 }

@@ -7,12 +7,11 @@ public class IncrementAffecter extends IncrementAction {
 
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
+	
 	private IncrementAction action;
 	
-	@Override
-	public void perform() {
-		System.out.println("Sono la affectIncrement");
-		forward();
+	public IncrementAffecter(ResourceList resource) {
+		this.resource = resource;
 	}
 
 	@Override
@@ -24,6 +23,21 @@ public class IncrementAffecter extends IncrementAction {
 	public ResourceList getResource() {
 		return action.getResource();
 	}
+	
+	@Override
+	public boolean isLegal() {
+		return action.isLegal();
+	}
+	
+	@Override
+	public void perform() {
+		ResourceList resourceList = action.getResource();
+		resourceList.subtract(resource);
+		action.setResource(resourceList);
+		forward();
+	}
+	
+// Method for decorator system ____________	
 	
 	@Override
 	public IncrementAction decore(IncrementAction action) {
@@ -47,5 +61,16 @@ public class IncrementAffecter extends IncrementAction {
 	public void perform(boolean forward) {
 		this.forward = forward;
 		perform();
+	}
+	
+// __________________________
+	
+	@Override
+	public IncrementAffecter clone(){
+		IncrementAffecter copy = new IncrementAffecter(resource.clone());
+		copy.aManager = aManager;
+		if(action != null)
+			copy.action = action.clone();
+		return copy;
 	}
 }
