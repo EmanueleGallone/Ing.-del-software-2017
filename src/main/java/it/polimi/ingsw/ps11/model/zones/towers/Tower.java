@@ -47,7 +47,7 @@ public class Tower implements Serializable{
 		if(index < floors.size()){
 			return floors.get(index);	
 		}
-		throw new IllegalArgumentException("Non hai selezionato un piano corretto");
+		throw new IllegalArgumentException("Non hai selezionato un piano corretto");		
 	}
 	
 	/*
