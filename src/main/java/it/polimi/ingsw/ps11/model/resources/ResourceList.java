@@ -135,7 +135,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 // Start getters
 	
 	public <T extends Resource> T getResource(Class<T> rClass){
-		return (T) resources.get(rClass.toString());
+		return getResource(rClass.toString());
 	}
 	
 	public <T extends Resource> T getResource(String rType){
@@ -145,7 +145,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	public int getValueOf(String rType){
 		Resource r = this.getResource(rType);
 		if (r == null)
-			return DEFAULT_VALUE; //Da decidere
+			return DEFAULT_VALUE;
 		return r.getValue();
 	}
 	

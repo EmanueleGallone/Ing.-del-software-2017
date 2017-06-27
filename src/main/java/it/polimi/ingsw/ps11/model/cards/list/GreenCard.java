@@ -15,6 +15,11 @@ public class GreenCard extends DevelopmentCard {
 		this.period = DEFAULT_VALUE;
 	}
 	
+	public GreenCard(String name) {
+		this();
+		setName(name);
+	}
+
 	public int getActiveValue() {
 		return activeValue;
 	}

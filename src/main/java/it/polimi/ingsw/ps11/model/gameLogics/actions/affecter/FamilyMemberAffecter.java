@@ -7,8 +7,13 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class FamilyMemberAffecter extends FamilyInFloorAction {
 
+/**
+ * Incrementa di un tot (value) il valore del familyMember se quest'ultimo viene piazzato 
+ * in una torre di un determinato colore
+ */
+public class FamilyMemberAffecter extends FamilyInFloorAction {
+	
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
 	
