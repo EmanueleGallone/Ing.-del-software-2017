@@ -3,7 +3,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions;
 import java.util.HashMap;
 import java.util.Optional;
 
-public class ActionManager{
+import it.polimi.ingsw.ps11.model.gameLogics.actions.modifier.TowerCheck;
+
+public class ActionManager {
 	
 	private HashMap<String, ActionDecorator<? extends Action>> actions = new HashMap<>();
 	
@@ -16,6 +18,5 @@ public class ActionManager{
 	public void add(ActionDecorator<? extends Action> action){
 		actions.put(action.getTarget(), action);
 	}
-	
 	
 }

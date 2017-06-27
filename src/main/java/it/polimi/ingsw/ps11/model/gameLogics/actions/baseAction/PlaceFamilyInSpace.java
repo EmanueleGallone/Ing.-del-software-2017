@@ -39,7 +39,7 @@ public class PlaceFamilyInSpace implements Action {
 	public boolean isLegal() {
 		return (familyMember.getValue() >= actionSpace.getActionCost());
 	}
-
+	
 	@Override
 	public Action enable(ActionManager aManager) {
 		Optional<ActionDecorator<PlaceFamilyInSpace>> optional = aManager.get(PlaceFamilyInSpace.class);
