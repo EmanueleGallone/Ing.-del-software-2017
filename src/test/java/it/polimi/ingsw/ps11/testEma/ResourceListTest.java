@@ -33,9 +33,7 @@ public class ResourceListTest {
 		
 		Assert.assertFalse(resourceList.greaterEquals(list));
 		
-		Assert.assertFalse(resourceList.greaterEquals(null));
-	
-		
+		Assert.assertTrue(resourceList.greaterEquals(null));
 	}
 	
 	@Test

@@ -57,7 +57,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 */
 	public boolean greaterEquals(ResourceList otherList){
 		if(otherList == null)
-			return false;
+			return true;
 		
 		if (resources.size() == 0)
 			return (resources.size() == otherList.getResources().size());

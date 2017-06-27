@@ -159,7 +159,8 @@ public class ActionsTest {
 		
 		ActionManager aManager = new ActionManager(player);
 		
-				
+		
+		
 		Action action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
 		if(action.isLegal())
 			action.perform();
