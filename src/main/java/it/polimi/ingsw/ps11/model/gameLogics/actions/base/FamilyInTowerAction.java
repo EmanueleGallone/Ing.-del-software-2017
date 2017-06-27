@@ -17,14 +17,12 @@ public class FamilyInTowerAction implements Action, Affecter<FamilyInTowerAction
 	
 	protected ActionManager aManager;
 	protected Tower tower;
-	protected int floor;
 	protected FamilyMember familyMember;
 	
-	public FamilyInTowerAction(ActionManager aManager, Tower tower, int floor, FamilyMember familyMember) {
+	public FamilyInTowerAction(ActionManager aManager, Tower tower, FamilyMember familyMember) {
 	
 		this.aManager = aManager;
 		this.tower = tower;
-		this.floor = floor;
 		this.familyMember = familyMember.clone();
 	}
 
@@ -57,13 +55,16 @@ public class FamilyInTowerAction implements Action, Affecter<FamilyInTowerAction
 		// Ritorna true se c'e' un familyMember di un giocatore che non sia il familiare neutro
 		for(Floor floor : tower.getFloors()){
 			ActionSpace aSpace = floor.getActionSpace();
-			if (aSpace.getOwner().equals(player) && !aSpace.getFamilyMember().isNeutral()){
+			if (aSpace.getOwner() != null && aSpace.getOwner().equals(player) && !aSpace.getFamilyMember().isNeutral()){
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	public Tower getTower() {
+		return tower;
+	}
 	
 // Method for decorator ______________________
 

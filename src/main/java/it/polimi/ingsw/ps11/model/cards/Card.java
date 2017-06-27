@@ -8,8 +8,6 @@ public abstract class Card{
 	
 	protected String name; //Va visto come un identificatore unico
 	
-	
-	
 	public Card() {
 	}
 	

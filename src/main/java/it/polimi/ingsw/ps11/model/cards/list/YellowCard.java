@@ -8,6 +8,11 @@ public class YellowCard extends DevelopmentCard {
 
 	protected int activeValue; //valore necessario affinchè la carta attivi il bonus
 	
+	public YellowCard(String name){
+		super(name);
+		this.activeValue = DEFAULT_VALUE;
+	}
+	
 	public YellowCard() {
 		super();
 		this.activeValue = DEFAULT_VALUE;

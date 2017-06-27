@@ -101,7 +101,6 @@ public class Tower implements Serializable{
 				clone.addFloor(f.clone());
 		}
 		
-		
 		return clone;
 	}
 	

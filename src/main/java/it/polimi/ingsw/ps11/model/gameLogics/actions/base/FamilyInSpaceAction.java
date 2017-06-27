@@ -38,6 +38,10 @@ public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction
 	public ActionSpace getSpace() {
 		return space;
 	}
+	
+	public FamilyMember getFamilyMember() {
+		return familyMember;
+	}
 
 // Method for decorator pattern _____________________________
 	
