@@ -34,9 +34,9 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 
 		GridBagLayout gblCouncilPalace = new GridBagLayout();
 		gblCouncilPalace.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
-		gblCouncilPalace.rowHeights = new int[]{0, 0, 0, 0, 0};
+		gblCouncilPalace.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 		gblCouncilPalace.columnWeights = new double[]{0.130115, 0.548506, 0.135632, 0.10023, 0.085517, Double.MIN_VALUE};
-		gblCouncilPalace.rowWeights = new double[]{0.063213, 0.375768, 0.3125555, 0.248464, Double.MIN_VALUE};
+		gblCouncilPalace.rowWeights = new double[]{0.063213, 0.375768, 0.3125555, 0.138464, 0.11, Double.MIN_VALUE};
 		councilPalace.setLayout(gblCouncilPalace);
 		
 		GridBagConstraints gbcMultipleActionSpace = new GridBagConstraints();
@@ -55,7 +55,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		councilPalace.add(turns, gbcTurns);
 		
 		gbcSlideIn.gridx = 4 ;
-		gbcSlideIn.gridy = 3 ;
+		gbcSlideIn.gridy = 4 ;
 		gbcSlideIn.fill = GridBagConstraints.BOTH;
 		gbcSlideIn.anchor = GridBagConstraints.SOUTHEAST;
 		showPanelButton.setPreferredSize(new Dimension(10, 10));

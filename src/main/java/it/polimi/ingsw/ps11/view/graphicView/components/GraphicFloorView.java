@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
@@ -85,5 +86,17 @@ public class GraphicFloorView extends FloorView{
 	public void selected() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public void update(Floor floor) {
+		super.update(floor);
+		if(!(floor.getActionSpace().getFamilyMember() == null)){
+			String owner = floor.getActionSpace().getOwner().getColor().toString(),
+			member = floor.getActionSpace().getFamilyMember().getClass().getSimpleName();
+			actionSpace.loadImage("playerImages/" + owner + " " + member);
+		}
+//		if(!(floor.getCard() == null)) this.card.loadImage("" + floor.getCard().getName() + ".png");
+		this.floor.repaint();
 	}
 }

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 
@@ -71,6 +72,18 @@ public class GraphicHarvestView extends HarvestView {
 		public void actionPerformed(ActionEvent e) {
 			eventHandler.invoke(new HarvestSelectedEvent());
 		}
+	}
+	
+	@Override
+	public void update(Production harvest) {
+		super.update(harvest);
+		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
+			String singleOwner = harvest.getSingleActionSpace().getOwner().getColor().toString(),
+			singleMember = harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName();
+			singleActionSpace.loadImage("playerImages/" + singleOwner + " " + singleMember);
+		}
+		harvestPanel.repaint();
+		//DA FARE IL MULTI
 	}
 
 }

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.harvestAndProduction.Production;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView;
 
@@ -71,5 +72,17 @@ public class GraphicProductionView extends ProductionView {
 		public void actionPerformed(ActionEvent e) {
 			eventHandler.invoke(new ProductionSelectedEvent());
 		}
+	}
+	
+	@Override
+	public void update(Production production) {
+		super.update(production);
+		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
+			String singleOwner = production.getSingleActionSpace().getOwner().getColor().toString(),
+			singleMember = production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName();
+			singleActionSpace.loadImage("playerImages/" + singleOwner + " " + singleMember);
+		}
+		productionPanel.repaint();
+		//DA FARE IL MULTI
 	}
 }

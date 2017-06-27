@@ -16,6 +16,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextPane;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -53,17 +55,16 @@ public class GraphicView extends View{
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
                 
 		GridBagLayout gblView = new GridBagLayout();
-		gblView.columnWidths = new int[]{0, 0, 0, 0};
-		gblView.rowHeights = new int[]{0, 0, 0};
-		gblView.columnWeights = new double[]{0.469271, 0.192933, 0.313838, Double.MIN_VALUE};
-		gblView.rowWeights = new double[]{0.196296, 0.803703, Double.MIN_VALUE};
+		gblView.columnWidths = new int[]{0, 0, 0, 0};		//QUI VANNNO LE LARGHEZZE IN PIXEL DELLE COLONNE, MA CONSIGLIO DI NN USARLO, CAMBIANDO SCHERMO VIENE TUTTO SBALLATO
+		gblView.rowHeights = new int[]{0, 0, 0};			//QUI LE ALTEZZE DELLE RIGHE, SEMPRE IN PIXEL
+		gblView.columnWeights = new double[]{0.469271, 0.192933, 0.313838, Double.MIN_VALUE};	//USA QUESTI, LARGHEZZE IN "PESO", VEDILE COME PERCENTUALI, LA SOMMA DEVE FARE 1
+		gblView.rowWeights = new double[]{0.196296, 0.803703, Double.MIN_VALUE};		//COME SOPRA
         window.setLayout(gblView);
         
         GraphicBoardView graphicBoardView = new GraphicBoardView();
         GraphicPlayerView graphicPlayerView = new GraphicPlayerView();
         GraphicConsole graphicConsole = new GraphicConsole();
 		JButton exitButton = new JButton("X");
-		JButton showPanelButton = new JButton("^");
                
         JPanel boardPanel = graphicBoardView.getMainBoard().getComponent();
         slidePanel = graphicBoardView.getSlideBoard().getComponent();
@@ -123,29 +124,11 @@ public class GraphicView extends View{
         
         graphicBoardView.attachSlideListener(new ShowPanel());						//listener per il bottone che fa entrare il pannello della slideBoardView
         
-        graphicBoardView.attach(new BoardListener());
-        graphicPlayerView.attach(new PlayerListener());
+        graphicBoardView.attach(eventListener);
+        graphicPlayerView.attach(eventListener);
         
         window.setVisible(true);
 
-	}
-	
-	public class BoardListener implements EventListener<ViewEventInterface>{
-
-		@Override
-		public void handle(ViewEventInterface e) {
-			System.out.println("BoardSelected");
-		}
-		
-	}
-	
-	public class PlayerListener implements EventListener<ViewEventInterface>{
-
-		@Override
-		public void handle(ViewEventInterface e) {
-			System.out.println("PlayerSelected");
-		}
-		
 	}
 
 	@Override
@@ -186,3 +169,22 @@ public class GraphicView extends View{
 		tryout.print();
 	}
 }
+
+//
+//public class BoardListener implements EventListener<ViewEventInterface>{
+//
+//	@Override
+//	public void handle(ViewEventInterface e) {
+//		System.out.println("BoardSelected");
+//	}
+//	
+//}
+//
+//public class PlayerListener implements EventListener<ViewEventInterface>{
+//
+//	@Override
+//	public void handle(ViewEventInterface e) {
+//		System.out.println("PlayerSelected");
+//	}
+//	
+//}

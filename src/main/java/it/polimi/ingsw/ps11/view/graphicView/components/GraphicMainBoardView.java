@@ -140,13 +140,6 @@ public class GraphicMainBoardView extends BoardView{
 		gbcPaddingDX.fill = GridBagConstraints.BOTH;
 		mainBoard.add(paddingDX, gbcPaddingDX);
 		
-		gbcSlideIn.gridx = 4 ;
-		gbcSlideIn.gridy = 3 ;
-		gbcSlideIn.fill = GridBagConstraints.BOTH;
-		gbcSlideIn.anchor = GridBagConstraints.SOUTHEAST;
-		slideInButton.setPreferredSize(new Dimension(10, 10));
-		councilPalacePanel.add(slideInButton, gbcSlideIn);
-		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
 		this.setTower(0, graphicGreenTowerView);

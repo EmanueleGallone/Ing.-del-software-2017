@@ -44,6 +44,7 @@ public class GraphicMarketView extends MarketView{
 		GridBagConstraints gbcServantMarket = new GridBagConstraints();
 		GridBagConstraints gbcMixed1Market = new GridBagConstraints();
 		GridBagConstraints gbcMixed2Market = new GridBagConstraints();
+		GridBagConstraints gbcCloseButton = new GridBagConstraints();
 		
 		gbcGoldMarket.gridx = 1;
 		gbcGoldMarket.gridy = 1;

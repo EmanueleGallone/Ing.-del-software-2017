@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 import java.awt.CardLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -10,6 +11,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 
 public class GraphicCardManagerView extends CardManagerView implements ItemListener{
@@ -49,7 +52,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		gblSelectors.columnWeights = new double[]{0.02, 0.02, 0.02, 0.02, 0.92, Double.MIN_VALUE};
 		gblSelectors.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		selectorButtonsPanel.setLayout(gblSelectors);
-		
+				
 		overlayedDecksPanel = new JPanel(new CardLayout());												//Pannello dei deck sovrapposti
 		
 		GridBagConstraints gbcSelectors = new GridBagConstraints();
@@ -76,6 +79,14 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			GraphicPaintedPanel deck = new GraphicPaintedPanel();
 			deck.loadImage("boardImages/" + arrayDeckType[i] + ".png");
+			
+			GridBagLayout gblDecks = new GridBagLayout();												//Layout dei bottoni
+			gblDecks.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
+			gblDecks.rowHeights = new int[]{0, 0};
+			gblDecks.columnWeights = new double[]{0.1666, 0.1666, 0.1666, 0.1666, 0.1666, 0.1666, Double.MIN_VALUE};
+			gblDecks.rowWeights = new double[]{1.0, Double.MIN_VALUE};
+			deck.setLayout(gblDecks);
+			
 			overlayedDecksPanel.add(deck, arrayDeckType[i]);
 		}
 		
@@ -95,4 +106,28 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		return personalBoard;
 	}
 
+	@Override
+	public void update(CardManager cardManager) {
+		super.update(cardManager);
+		
+    	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
+    	
+		for (String deck : cardManager.getAllCards().keySet()) {
+			
+			int cards = 0;
+			
+			for (DevelopmentCard card : cardManager.getCardList(deck)) {
+				
+				GraphicPaintedButton cardButton = new GraphicPaintedButton();
+				cardButton.loadImage("cards/" + deck + "/" + card.getName());
+				GridBagConstraints gbcCard = new GridBagConstraints();
+				gbcCard.gridx = cards;
+				gbcCard.insets = new Insets(10, 10, 10, 10);
+				gbcCard.fill = GridBagConstraints.BOTH;
+				//cl.getComponent(deck).add(cardButton, gbcCard);			NON SO SE ESISTA UN COMANDO SIMILE
+				
+			}
+		}
+	}
+	
 }

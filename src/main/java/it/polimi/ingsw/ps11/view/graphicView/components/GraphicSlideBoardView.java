@@ -87,18 +87,18 @@ public class GraphicSlideBoardView extends BoardView {
 		gbcDice.gridy = 2;
 		gbcDice.gridheight = 1;
 		gbcDice.fill = GridBagConstraints.BOTH;
-		dicePanel.setPreferredSize(new Dimension(10, 10));
 		slideBoard.getContentPane().add(dicePanel, gbcDice);
 		
-		GridBagConstraints gbcOutButton = new GridBagConstraints();
+		graphicDiceView.attachCloseButton(new CloseThis());
+		
+		/*GridBagConstraints gbcOutButton = new GridBagConstraints();
 		gbcOutButton.gridx = 6;
 		gbcOutButton.gridy = 2;
-		gbcOutButton.fill = GridBagConstraints.BOTH;
 		gbcOutButton.anchor = GridBagConstraints.SOUTHEAST;
 		slideOutButton = new JButton("X");
-		slideOutButton.setPreferredSize(new Dimension(10, 10));
+		slideOutButton.setPreferredSize(new Dimension(50, 50));
 		slideOutButton.addActionListener(new CloseThis());
-		dicePanel.add(slideOutButton, gbcOutButton);
+		dicePanel.add(slideOutButton, gbcOutButton);*/
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
@@ -115,6 +115,8 @@ public class GraphicSlideBoardView extends BoardView {
 		harvestView.attach(listener);
 		marketView.attach(listener);
 	}
+	
+	
 	
 	private class CloseThis implements ActionListener {			
 		@Override
