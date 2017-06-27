@@ -1,39 +1,84 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 
 public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
-	protected JPanel councilPalace = new JPanel();
-	protected BufferedImage background;
-
-	@Override
-	public void print() {
-		councilPalace.setBorder(BorderFactory.createLoweredBevelBorder());
-		//background = loadImage();
-	}
+	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
 	
-	private BufferedImage loadImage(){
-		URL imagePath = getClass().getResource("BoardComponentsImages/CouncilPalace.png");
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(imagePath);
-		} catch (IOException e) {
-			System.err.println("Errore, immagine non trovata");
+	protected GraphicPaintedPanel councilPalace = new GraphicPaintedPanel();
+	protected GraphicActionSpace multipleActionSpace;
+	protected JButton showPanelButton = new JButton("^");
+	protected JPanel turns = new JPanel();
+	
+	public GraphicCouncilPalaceView() {
+		multipleActionSpace = new GraphicActionSpace("Council");
+		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
 		}
+	
+	@Override
+	public void print(){
+		councilPalace.loadImage("boardImages/CouncilPalace.png");
 		
-		return result;
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
+		GridBagLayout gblCouncilPalace = new GridBagLayout();
+		gblCouncilPalace.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
+		gblCouncilPalace.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
+		gblCouncilPalace.columnWeights = new double[]{0.130115, 0.548506, 0.135632, 0.10023, 0.085517, Double.MIN_VALUE};
+		gblCouncilPalace.rowWeights = new double[]{0.063213, 0.375768, 0.3125555, 0.138464, 0.11, Double.MIN_VALUE};
+		councilPalace.setLayout(gblCouncilPalace);
+		
+		GridBagConstraints gbcMultipleActionSpace = new GridBagConstraints();
+		GridBagConstraints gbcTurns = new GridBagConstraints();
+		GridBagConstraints gbcSlideIn = new GridBagConstraints();
+		
+		gbcMultipleActionSpace.gridx = 1;
+		gbcMultipleActionSpace.gridy = 1;
+		gbcMultipleActionSpace.fill = GridBagConstraints.BOTH;
+		councilPalace.add(multipleActionSpace, gbcMultipleActionSpace);
+		
+		gbcTurns.gridx = 3;
+		gbcTurns.gridy = 0;
+		gbcTurns.gridheight = 3;
+		gbcTurns.fill = GridBagConstraints.BOTH;
+		councilPalace.add(turns, gbcTurns);
+		
+		gbcSlideIn.gridx = 4 ;
+		gbcSlideIn.gridy = 4 ;
+		gbcSlideIn.fill = GridBagConstraints.BOTH;
+		gbcSlideIn.anchor = GridBagConstraints.SOUTHEAST;
+		showPanelButton.setPreferredSize(new Dimension(10, 10));
+		councilPalace.add(showPanelButton, gbcSlideIn);
+		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 	}
 	
-	public JPanel getComponent(){
+	public void attachSlideListener(ShowPanel showPanel){					//Bottone che fa entrare la parte nascosta della board
+		showPanelButton.addActionListener(showPanel);
+	}
+
+	public JPanel getComponent() {
 		return councilPalace;
 	}
+
+	private class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			//eventHandler.invoke(new CouncilSelectedEvent());
+		}
+	}
+
 }

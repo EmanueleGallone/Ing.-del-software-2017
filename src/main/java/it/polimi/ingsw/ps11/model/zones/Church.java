@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.bonus.ema.malus.Excommunication;
 
+
 public class Church {
 	
 	private ArrayList<Excommunication> excommunications = new ArrayList<>();

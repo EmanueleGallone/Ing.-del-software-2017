@@ -12,6 +12,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 public class TextualBoardView extends BoardView {
 
 	public TextualBoardView() {
+
 		towerViews.add(new TextualTowerView(GreenTower.class));
 		towerViews.add(new TextualTowerView(BlueTower.class));
 		towerViews.add(new TextualTowerView(YellowTower.class));
@@ -29,7 +30,6 @@ public class TextualBoardView extends BoardView {
 	public TextualBoardView(Board board){
 		this();
 		update(board);
-		
 	}
 	
 	@Override

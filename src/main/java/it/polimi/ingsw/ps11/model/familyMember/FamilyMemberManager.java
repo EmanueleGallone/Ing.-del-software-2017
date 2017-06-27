@@ -35,6 +35,10 @@ public class FamilyMemberManager implements Serializable {
 		this.family.put(familyMember.getClass().toString(), familyMember);
 	}
 	
+	public HashMap<String, FamilyMember> getFamily(){
+		return this.family;
+	}
+	
 	@Override
 	public FamilyMemberManager clone(){
 		FamilyMemberManager clone = new FamilyMemberManager();

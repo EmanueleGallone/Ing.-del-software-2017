@@ -13,12 +13,15 @@ public abstract class BoardView extends ViewComponent {
 	protected DiceView diceView;
 	protected CouncilPalaceView councilPalaceView;
 	protected MarketView marketView;
-	//protected ChurchView churchView;
+
+	protected ChurchView churchView;
 	
 	public BoardView() {
 	
 	}
-	
+	public BoardView(Board board){
+		update(board);
+	}
 	public void update(Board board) {
 		productionView.update(board.getProduction());
 		harvestView.update(board.getHarvest());
@@ -28,7 +31,7 @@ public abstract class BoardView extends ViewComponent {
 		//churchView.update(board.getChurch());
 		
 		for(TowerView t : towerViews){
-			t.update(board.getTower(t.getTower()));
+			//t.update(board.getTower(t.getTower()));
 		}
 	}
 	
@@ -36,5 +39,43 @@ public abstract class BoardView extends ViewComponent {
 		return towerViews;
 	}
 
+	public void setTower(ArrayList <TowerView> x){
+		this.towerViews = x;
+	};
+	
+	public void setTower(int index, TowerView t){
+		towerViews.set(index, t);
+	};
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

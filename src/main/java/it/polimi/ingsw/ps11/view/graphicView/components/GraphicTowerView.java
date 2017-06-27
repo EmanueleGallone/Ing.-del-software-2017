@@ -1,28 +1,33 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 
 public class GraphicTowerView extends TowerView{
+	
+	//Torre, contiene 4 piani
 
-	protected JPanel tower = new JPanel();
-	protected BufferedImage background;
-	//pannello Tower
+	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
+	protected Class<? extends Tower> towerClass;
 	
 	public GraphicTowerView(Class<? extends Tower> whichTower, String towerName) {
-		super(whichTower,towerName);		
-		tower = new JPanel();
+
+		super(whichTower,towerName);
+		this.towerClass = whichTower;
 		for(int i = 0; i< TOWERNUMBER; i++){
 			floorViews.add(new GraphicFloorView(whichTower, i));
 		}
+		this.towerName = towerName;
+
 	}
 	
 	public GraphicTowerView(Class<? extends Tower> whichTower) {
@@ -30,25 +35,48 @@ public class GraphicTowerView extends TowerView{
 	}
 
 	@Override
-	public void print() {
-		tower.setBorder(BorderFactory.createLoweredBevelBorder());
-		//background = loadImage();
-	}
-	
-	private BufferedImage loadImage(){
-		URL imagePath = getClass().getResource("BoardComponentsImages/" + towerName + ".png");
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(imagePath);
-		} catch (IOException e) {
-			System.err.println("Errore, immagine non trovata");
+	public void print(){
+		tower.loadImage("boardImages/" + towerName + ".png");
+		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
+		ArrayList<GraphicFloorView> graphicFloorViews = new ArrayList<>();
+		
+		for(int i=0; i<TOWERNUMBER; i++){
+		graphicFloorViews.add(new GraphicFloorView(towerClass, i));
+		graphicFloorViews.get(i).print();
 		}
 		
-		return result;
+		GridBagLayout gblTower = new GridBagLayout();
+		gblTower.columnWidths = new int[]{0, 0};
+		gblTower.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
+		gblTower.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gblTower.rowWeights = new double[]{ 0.030781 ,0.25, 0.25, 0.25, 0.25, Double.MIN_VALUE};
+		tower.setLayout(gblTower);
+		
+		for(int i = 0; i < TOWERNUMBER; i++){
+			GridBagConstraints gbcFloor = new GridBagConstraints();
+			gbcFloor.gridy = (4-i);
+			gbcFloor.fill = GridBagConstraints.BOTH;
+			graphicFloorViews.get(i).getComponent().setPreferredSize(new Dimension(10, 10));
+			tower.add(graphicFloorViews.get(i).getComponent(), gbcFloor);
+			this.setFloor(i, graphicFloorViews.get(i));
+		}
+		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
+	}
+
+	public JPanel getComponent() {
+		return tower;
 	}
 	
-	public JPanel getComponent(){
-		return tower;
+	@Override
+	public void attach(EventListener<ViewEventInterface> listener){			//Attach l'eventHandler principale ad ogni piano
+		super.attach(listener);
+		for(int i = 0; i < TOWERNUMBER; i++){
+			floorViews.get(i).attach(listener);
+		}
 	}
 
 }

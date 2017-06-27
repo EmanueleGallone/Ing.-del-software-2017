@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
 
-
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
@@ -10,9 +9,13 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3>TextualView</h3>
  * <p> 
+<<<<<<< HEAD
  * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco. Il suo funzionamento e' semplice:
  * dal server arriva un oggetto del gioco e viene stampato a video; la console e' sempre in ascolto di eventuali input; se il giocatore
  * inserisce un comando contenuto nella Map allora viene invocato l'evento ed inviato al server
+=======
+ * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco.
+>>>>>>> GabLog
  * </p>
  */
 public class TextualView extends View {
@@ -27,7 +30,7 @@ public class TextualView extends View {
 		you = new TextualPlayerView();
 		boardView = new TextualBoardView();
 		console = new TextualConsole();
-		
+
 	}
 	
 	@Override
@@ -36,6 +39,7 @@ public class TextualView extends View {
 		//boardView.print();
 		//you.print();
 		console.println(instructions); 
+
 	}
 
 	@Override

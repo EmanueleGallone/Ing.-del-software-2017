@@ -5,33 +5,17 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import com.google.gson.reflect.TypeToken;
-
-import it.polimi.ingsw.ps11.model.bonus.ema.EnableHarvestBonus;
-import it.polimi.ingsw.ps11.model.bonus.ema.EnableProductionBonus;
-import it.polimi.ingsw.ps11.model.bonus.ema.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.model.bonus.ema.IncrementResourceBonus;
-import it.polimi.ingsw.ps11.model.bonus.ema.ResourceExchangeBonus;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.cards.list.LeaderCard;
-import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege;
-import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
-import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
@@ -48,64 +32,7 @@ public class MainTest {
 	
 	public static void main(String[] args){
 	
-		/*
->>>>>>> ema
-		PlayerFactory factory = new PlayerFactory();
-
-		Player player =factory.newPlayer(0);
-		player.setName("Giocatore 1");
-		player.setColor(Colors.RED);
-		
-		Player player2 = factory.newPlayer(1);
-		player2.setName("Giocatore 2");
-		player2.setColor(Colors.GREEN);
-		
-		ArrayList<Player> players = new ArrayList<>();
-		players.add(player);
-		players.add(player2);
-		
-		Game game = new Game(players);
-		
-		View view = new TextualView();
-		YellowCard card = new YellowCard();
-		card.setName("CartaGialla");
-		PurpleCard purpleCard = new PurpleCard();
-		purpleCard.setName("cartaPurple");
-		
-		Type type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
-		ArrayList<YellowCard> cards = new JsonAdapter().fromJson(readFile("settings\\YellowCards"), type);
-		
-		game.getBoard().getTower(YellowTower.class).getFloor(0).setCard(cards.get(0).clone());
-		game.getBoard().getTower(YellowTower.class).getFloor(1).setCard(cards.get(1).clone());
-		game.getBoard().getTower(YellowTower.class).getFloor(2).setCard(cards.get(2).clone());
-		game.getBoard().getTower(YellowTower.class).getFloor(3).setCard(cards.get(3).clone());
-		game.getBoard().getDices().rollDices();
-		
-		//view.update(game);
-		
-		
-		card.addCost(new ResourceList(new Coin(5)));
-		player2.getCardManager().addCard(card.clone());
-		player2.getCardManager().addCard(cards.get(4).clone());
-		player2.getCardManager().addCard(purpleCard.clone());
-		
-		
-		//view.update(game.getBoard());
-		view.update(player2);
-		
-		view.run();
-<<<<<<< HEAD
-		*/
-		
-//		Client client = new SocketClient(view);
-//		player2.getCardManager().addCard(card.clone());
-//		card.addCost(new ResourceList(new Coin(10)));
-//		player2.getCardManager().addCard(card.clone());
-//		
-//		client.temp(game, player2);
-
-		//inizializzaCarte();
-		//inizializzatore();		
+	
 	}
 	
 	

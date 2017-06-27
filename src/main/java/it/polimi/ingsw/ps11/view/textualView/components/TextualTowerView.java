@@ -20,11 +20,6 @@ public class TextualTowerView extends TowerView {
 		this(whichTower,whichTower.getSimpleName());
 	}
 	
-	public TextualTowerView(Tower tower) {
-		this(tower.getClass());
-		update(tower);
-	}
-
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();

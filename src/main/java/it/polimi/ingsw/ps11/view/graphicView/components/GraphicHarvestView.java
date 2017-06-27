@@ -1,40 +1,89 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 
 public class GraphicHarvestView extends HarvestView {
-
-	protected JPanel harvest = new JPanel();
-	protected BufferedImage background;
+	
+	//Zona raccolta, ha un single ActionSpace e un multiplo ActionSpace
+	
+	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
+	protected GraphicActionSpace singleActionSpace = new GraphicActionSpace("Harvest single"),
+			  					 multipleActionSpace = new GraphicActionSpace("Harvest multiple");
+	
+	public GraphicHarvestView() {
+		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
+		multipleActionSpace.addActionListener(new MultipleHarvestSelectedListener());
+		}
 	
 	@Override
 	public void print() {
-		harvest.setBorder(BorderFactory.createLoweredBevelBorder());
-		//background = loadImage();
-	}
-	
-	private BufferedImage loadImage(){
-		URL imagePath = getClass().getResource("BoardComponentsImages/Harvest.png");
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(imagePath);
-		} catch (IOException e) {
-			System.err.println("Errore, immagine non trovata");
-		}
+		harvestPanel.loadImage("boardImages/Harvest.png");
 		
-		return result;
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
+		GridBagLayout gblProduction = new GridBagLayout();
+		gblProduction.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
+		gblProduction.rowHeights = new int[]{0, 0, 0, 0};
+		gblProduction.columnWeights = new double[]{0.048957, 0.08, 0.09, 0.35, 0.290571, Double.MIN_VALUE};
+		gblProduction.rowWeights = new double[]{0.222501, 0.432927, 0.344512, Double.MIN_VALUE};
+		harvestPanel.setLayout(gblProduction);
+		
+		GridBagConstraints gbcSingleActionSpace = new GridBagConstraints();
+		GridBagConstraints gbcMultipleActionSpace = new GridBagConstraints();
+		
+		gbcSingleActionSpace.gridx = 1;
+		gbcSingleActionSpace.gridy = 1;
+		gbcSingleActionSpace.fill = GridBagConstraints.BOTH;
+		harvestPanel.add(singleActionSpace, gbcSingleActionSpace);
+		
+		gbcMultipleActionSpace.gridx = 3;
+		gbcMultipleActionSpace.gridy = 1;
+		gbcMultipleActionSpace.fill = GridBagConstraints.BOTH;
+		harvestPanel.add(multipleActionSpace, gbcMultipleActionSpace);
+		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 	}
 	
 	public JPanel getComponent(){
-		return harvest;
+		return harvestPanel;
+	}
+	
+	private class SingleHarvestSelectedListener implements ActionListener{		//Se il single action space viene selezionato invoca l'evento "spazio singolo raccolta selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			eventHandler.invoke(new HarvestSelectedEvent());
+		}
+	}
+	
+	private class MultipleHarvestSelectedListener implements ActionListener{	//Se il multiple action space viene selezionato invoca l'evento "spazio multiplo raccolta selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			eventHandler.invoke(new HarvestSelectedEvent());
+		}
+	}
+	
+	@Override
+	public void update(Yield harvest) {
+		super.update(harvest);
+		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
+			String singleOwner = harvest.getSingleActionSpace().getOwner().getColor().toString(),
+			singleMember = harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName();
+			singleActionSpace.loadImage("playerImages/" + singleOwner + " " + singleMember);
+		}
+		harvestPanel.repaint();
+		//DA FARE IL MULTI
 	}
 
 }
