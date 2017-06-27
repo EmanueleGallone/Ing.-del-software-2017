@@ -34,9 +34,4 @@ public class TextualTowerView extends TowerView {
 		}
 	}
 	
-	@Override
-	public void selected(){
-		
-	}
-	
 }

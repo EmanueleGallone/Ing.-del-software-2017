@@ -12,16 +12,25 @@ public class TextualDevelopmentCardView extends DevelopmentCardView {
 		TextualResourceView resourceView = new TextualResourceView();
 		
 		if(developmentCard.getName() != null){
-			console.println(developmentCard.getName());
+			console.println(developmentCard.getName()); //nome del tipo delle carte
 			
+			console.print("Costi: ");
+			int i = developmentCard.getCosts().size() -1;//necessario per la stampa dell'OR
 			for(ResourceList resourceList : developmentCard.getCosts()) {
-				console.print("Costi: ");
+				
+				
 				resourceView.update(resourceList);
 				resourceView.print();
-				console.println("");
+				
+				if(i != 0){
+					//stampo un OR in caso vi fossero piu' risorse
+					console.print("OR ");
+					i--;
+				}
 			}
 		}
 		
+		console.println("\tBonus : ");
 		//mancano i bonus
 		
 	}

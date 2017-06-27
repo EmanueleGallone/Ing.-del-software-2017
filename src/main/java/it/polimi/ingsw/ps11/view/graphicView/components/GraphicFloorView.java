@@ -42,11 +42,5 @@ public class GraphicFloorView extends FloorView {
 	public JPanel getComponent() {
 		return floor;
 	}
-	
-	@Override
-	public void selected() {
-		// TODO Auto-generated method stub
-		//cosa accade quando e' selezionata? zan zan zaaaan
-	}
 
 }

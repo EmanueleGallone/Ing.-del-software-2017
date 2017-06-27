@@ -6,10 +6,7 @@ import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
-import it.polimi.ingsw.ps11.model.zones.Floor;
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.ViewInterface;
-import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
@@ -73,11 +70,5 @@ public abstract class View implements ViewInterface, Runnable {
 		you.update(player);
 	}
 	
-	//occhio che e' commentato; andrebbero aggiunti nella ViewInterface
-	//@Override
-	public void update(Tower tower){
-		towerView.update(tower);
-	}
 	
-	//come definisco una update della floor? 
 }

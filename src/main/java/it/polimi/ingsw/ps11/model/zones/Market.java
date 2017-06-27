@@ -1,7 +1,10 @@
 package it.polimi.ingsw.ps11.model.zones;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 
@@ -32,7 +35,10 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		throw new IllegalArgumentException();
 	}
 	
-	
-	
+	@Override
+	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
+		//deve esserci override per il posizionamento del familiare su quale spazio azione
+		return super.placeFamilyMember(familyMember, player);
+	}	
 	
 }

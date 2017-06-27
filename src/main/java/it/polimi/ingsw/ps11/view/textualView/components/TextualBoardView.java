@@ -12,7 +12,6 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 public class TextualBoardView extends BoardView {
 
 	public TextualBoardView() {
-		//Questa cosa potrebbe essere convertita un un ciclo, sarebbe meglio??
 		towerViews.add(new TextualTowerView(GreenTower.class));
 		towerViews.add(new TextualTowerView(BlueTower.class));
 		towerViews.add(new TextualTowerView(YellowTower.class));

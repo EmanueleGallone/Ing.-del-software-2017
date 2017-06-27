@@ -71,7 +71,9 @@ public class MainTest {
 		
 		View view = new TextualView();
 		YellowCard card = new YellowCard();
-		card.setName("Funziona");
+		card.setName("CartaGialla");
+		PurpleCard purpleCard = new PurpleCard();
+		purpleCard.setName("cartaPurple");
 		
 		Type type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
 		ArrayList<YellowCard> cards = new JsonAdapter().fromJson(readFile("settings\\YellowCards"), type);
@@ -82,13 +84,17 @@ public class MainTest {
 		game.getBoard().getTower(YellowTower.class).getFloor(3).setCard(cards.get(3).clone());
 		game.getBoard().getDices().rollDices();
 		
-		view.update(game);
-		//view.update(player2);
+		//view.update(game);
+		
 		
 		card.addCost(new ResourceList(new Coin(5)));
 		player2.getCardManager().addCard(card.clone());
+		player2.getCardManager().addCard(cards.get(4).clone());
+		player2.getCardManager().addCard(purpleCard.clone());
 		
-		view.update(game.getBoard());
+		
+		//view.update(game.getBoard());
+		view.update(player2);
 		
 		view.run();
 		

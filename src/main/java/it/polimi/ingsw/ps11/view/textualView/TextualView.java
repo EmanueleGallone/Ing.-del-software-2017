@@ -61,4 +61,6 @@ public class TextualView extends View {
 		new TextualPlayerView(player).print();
 	}
 	
+	//se mi si chiede di scegliere un familiare?
+	
 }

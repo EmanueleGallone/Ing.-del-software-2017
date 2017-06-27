@@ -11,5 +11,4 @@ public abstract class ProductionView extends ViewComponent{
 		this.production = production;
 	}
 	
-	//public abstract void selected();
 }

@@ -20,7 +20,7 @@ public abstract class FloorView extends ViewComponent{
 	}
 	
 	public FloorView(Floor floor){
-		//solo per la stampa a schermo se mi arriva un floor dal server. non conosco la torre
+		//potrebbe creare problemi.
 		update(floor);
 	}
 	
@@ -42,5 +42,4 @@ public abstract class FloorView extends ViewComponent{
 		return tower;
 	}
 	
-	public abstract void selected();
 }
