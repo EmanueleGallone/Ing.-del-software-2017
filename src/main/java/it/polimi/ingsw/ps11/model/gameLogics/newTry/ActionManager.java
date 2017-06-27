@@ -24,11 +24,17 @@ public class ActionManager {
 		actions.put(action.target().toString(), action);
 	}
 	
+	public Player getSubject(){
+		return player;
+	}
+	
 	public IncrementAction newIncrementResource(ResourceList resource){
 		IncrementAction a = get(IncrementAction.class);
-		IncrementAction action = new IncrementAction(player,resource);
+		IncrementAction action = new IncrementAction(this,resource);
 		if (a!=null)
 			return a.decore(action);
 		return action;
 	}
+	
+	
 }

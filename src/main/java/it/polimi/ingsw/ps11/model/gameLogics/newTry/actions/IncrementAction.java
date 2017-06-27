@@ -8,17 +8,18 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class IncrementAction implements Action, Affecter<IncrementAction> {
 
-	private Player player;
+	private ActionManager aManager;
 	private ResourceList resource;
 	
 	public IncrementAction(){
 		
 	}
 	
-	public IncrementAction(Player player, ResourceList resource) {
-		this.player = player;
+	public IncrementAction(ActionManager actionManager, ResourceList resource) {
+		this.aManager = actionManager;
 		this.resource = resource;
 	}
+	
 
 	public ResourceList getResource() {
 		return resource;
@@ -35,8 +36,13 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 
 	@Override
 	public void perform() {
-		System.out.println("Sono Increment Resource");
+		aManager.getSubject().getResourceList().sum(resource);
 	}
+	
+	
+	
+// _________________________ Method for decorator system ________________________
+	
 
 	@Override
 	public IncrementAction decore(IncrementAction action) {

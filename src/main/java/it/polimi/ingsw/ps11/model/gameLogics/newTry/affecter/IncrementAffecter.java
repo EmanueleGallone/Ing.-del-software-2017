@@ -4,7 +4,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.newTry.actions.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class IncrementAffecter extends IncrementAction {
-	
+
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
 	private IncrementAction action;
