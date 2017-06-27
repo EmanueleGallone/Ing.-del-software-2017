@@ -1,9 +1,9 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newTry.actions;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -11,51 +11,38 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
-public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction>{
+public class FamilyInTowerAction implements Action, Affecter<FamilyInTowerAction> {
 
 	protected ResourceList taxIfNotFree = new ResourceList(new Coin(3));
 	
 	protected ActionManager aManager;
 	protected Tower tower;
 	protected int floor;
-	protected GetCardAction getCard;
-	
 	protected FamilyMember familyMember;
 	
-	public FamilyInFloorAction() {
+	public FamilyInTowerAction(ActionManager aManager, Tower tower, int floor, FamilyMember familyMember) {
 	
-	}
-	
-	public FamilyInFloorAction(ActionManager actionManager, Tower tower, int floor, GetCardAction getCard ) {
-		this.aManager = actionManager;
+		this.aManager = aManager;
 		this.tower = tower;
 		this.floor = floor;
+		this.familyMember = familyMember.clone();
 	}
-	
+
+
 	@Override
 	public void perform() {
 		if(!tower.isFree()){
 			DecrementAction tax = aManager.newDecrementAction(taxIfNotFree);
 			tax.perform();
 		}
-		Floor floor = tower.getFloor(this.floor);
 	}
-	
+
 	@Override
 	public boolean isLegal() {
-		ActionSpace space;
-		try {
-			space = tower.getFloor(this.floor).getActionSpace();
-		} catch (IllegalArgumentException e) {
-			return false;
-		}
 		if(contains(tower, aManager.getSubject()) && !familyMember.isNeutral()){
 			return false;
 		}
-		else if(space.isFree() && space.getActionCost() <= familyMember.getValue()){
-			return checkTax();
-		}
-		return false;
+		return checkTax();
 	}
 	
 	public boolean checkTax(){
@@ -76,31 +63,36 @@ public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction
 		}
 		return false;
 	}
-
-// Method for decorator pattern ___________________
 	
+	
+// Method for decorator ______________________
+
 	@Override
 	public void attach(ActionManager aManager) {
-		// TODO Auto-generated method stub
-		
+		FamilyInTowerAction increment = aManager.get(target());
+		if(increment == null){
+			increment = this;
+		}
+		aManager.add(increment.decore(this));
 	}
 
 	@Override
-	public Class<? extends Action> target() {
-		// TODO Auto-generated method stub
-		return null;
+	public Class<FamilyInTowerAction> target() {
+		return FamilyInTowerAction.class;
 	}
-
-	@Override
-	public FamilyInFloorAction decore(FamilyInFloorAction action) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-// _________________________________________________
 	
 	@Override
-	public FamilyInFloorAction clone() {
+	public FamilyInTowerAction decore(FamilyInTowerAction action) {
+		if(action != this){
+			return action.decore(this);
+		}
+		return this;
+	}
+
+	@Override
+	public FamilyInTowerAction clone() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

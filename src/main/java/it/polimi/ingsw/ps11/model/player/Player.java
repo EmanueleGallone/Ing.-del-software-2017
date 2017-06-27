@@ -3,7 +3,6 @@ package it.polimi.ingsw.ps11.model.player;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.bonus.ema.malus.Excommunication;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Colors;
@@ -33,12 +32,6 @@ public class Player implements Serializable{
 	private ResourceList resourceList;
 	private FamilyMemberManager familyManager;
 	private CardManager cardManager;
-	
-	private ActionManager actionManager = new ActionManager();
-	
-	public ActionManager actions() {
-		return actionManager;
-	}
 	
 	
 // Start constructors

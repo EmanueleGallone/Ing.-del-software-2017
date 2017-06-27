@@ -1,6 +1,6 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newTry.affecter;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.actions.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class IncrementAffecter extends IncrementAction {

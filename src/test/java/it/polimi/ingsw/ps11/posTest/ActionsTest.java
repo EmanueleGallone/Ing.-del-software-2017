@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.actions.IncrementAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.affecter.IncrementAffecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.IncrementAffecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;

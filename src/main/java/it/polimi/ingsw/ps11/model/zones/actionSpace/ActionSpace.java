@@ -55,10 +55,10 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-		if(isFree()){ //non viene fatto il controllo sul valore del familiare ed il cost dello spazio azione
+		if(isFree()){
 			this.familyMember = familyMember;
 			this.owner = player;
-			return true; //manca poi l'assegnamento delle risorse al giocatore che ha piazzato
+			return true;
 		}
 		return false;
 	}

@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newTry.actions;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newTry.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class DecrementAction implements Action, Affecter<DecrementAction> {
