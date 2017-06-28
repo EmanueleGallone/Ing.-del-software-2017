@@ -3,8 +3,8 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
@@ -12,6 +12,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.UseServantAction;
+import it.polimi.ingsw.ps11.model.gameLogics.states.StateHandler;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
@@ -22,9 +23,12 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 public class ActionManager {
 	
 	Player player;
+	StateHandler stateHandler;
 	private HashMap<String, Action<?>> actions = new HashMap<>();
 	
-	
+	public StateHandler getStateHandler() {
+		return stateHandler;
+	}
 	
 	public ActionManager(Player player) {
 		this.player = player;
@@ -56,10 +60,10 @@ public class ActionManager {
 			return (T) decorator.decore(action);
 		return action;
 	}
+
 	
-	
-	public void askToClient(){
-		
+	public void changeState(State state){
+		stateHandler.nextState(state);
 	}
 	
 // Actions constructors __________________
@@ -78,40 +82,23 @@ public class ActionManager {
 	
 	
 	
-	public GetCardAction newGetCardAction( DevelopmentCard card, ResourceList cost){
-		GetCardAction action = new GetCardAction(this, card, cost);
+	public GetCardAction newGetCardAction(DevelopmentCard card, ResourceList cost){
+		GetCardAction action = new GetCardAction(this, card,cost);
 		return make(GetCardAction.class, action);
 	}
 
 	
-// _____________________________ Action to position familyMember _________________________________________
+// _____________________________________ position familyMember _________________________________________
 
 	public FamilyInFloorAction newFamilyInFloorAction(FamilyInTowerAction tAction, FamilyInSpaceAction sAction ,GetCardAction getCard){
 		FamilyInFloorAction action = new FamilyInFloorAction(this, tAction, sAction, getCard);
 		return make(FamilyInFloorAction.class, action);
 	}
 	
-	public FamilyInFloorAction newFamilyInFloorAction(Tower tower, Floor floor, FamilyMember fMember, ResourceList cost, Servant servant){
-		FamilyInTowerAction tAction = this.newFamilyInTowerAction(tower, fMember);
-		FamilyInSpaceAction sAction = this.newFamilyInSpaceAction(fMember, floor.getActionSpace());
-		GetCardAction getCard = this.newGetCardAction(floor.getCard(), cost);
-
-		return newFamilyInFloorAction(tAction, sAction, getCard);
-	}
-	
-	
-	public FamilyInFloorAction newFamilyInFloorAction(Tower tower, Floor floor, FamilyMember fMember, ResourceList cost){
-		return newFamilyInFloorAction(tower, floor, fMember, cost,new Servant(0));
-	}
-	
-
-	
 	public FamilyInSpaceAction newFamilyInSpaceAction(FamilyMember fMember, ActionSpace space){
 		FamilyInSpaceAction action = new FamilyInSpaceAction(this, fMember, space);
 		return make(FamilyInSpaceAction.class, action);
 	}
-	
-	
 	
 	public FamilyInTowerAction newFamilyInTowerAction(Tower tower, FamilyMember familyMember){
 		FamilyInTowerAction action = new FamilyInTowerAction(this, tower, familyMember);

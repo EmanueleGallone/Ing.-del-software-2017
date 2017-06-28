@@ -87,10 +87,10 @@ public class ActionsTest {
 		
 		ActionManager aManager = new ActionManager(player);
 		
-		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
-		if(action.isLegal())
-			action.perform();
-		
+//		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
+//		if(action.isLegal())
+//			action.perform();
+//		
 		//Dopo aver eseguito la placeInFloor Action la situazione è:
 		
 		//Il floor ha come owner il player
@@ -119,10 +119,10 @@ public class ActionsTest {
 		
 		card2.getIstantEffect().add(addResourceEffect);
 		
-		Action action2 = aManager.newFamilyInFloorAction(greenTower, floor2, fMember, card2Cost);
-		
-		if (action2.isLegal())
-			action2.perform();
+//		Action action2 = aManager.newFamilyInFloorAction(greenTower, floor2, fMember, card2Cost);
+//		
+//		if (action2.isLegal())
+//			action2.perform();
 		
 		//Dopo aver eseguito la placeInFloor Action la situazione è:
 		
@@ -157,10 +157,10 @@ public class ActionsTest {
 		ActionManager aManager = new ActionManager(player);
 		
 		
-		
-		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
-		if(action.isLegal())
-			action.perform();
+//		
+//		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
+//		if(action.isLegal())
+//			action.perform();
 	}
 	
 

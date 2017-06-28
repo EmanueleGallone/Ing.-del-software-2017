@@ -28,6 +28,10 @@ public class FamilyMemberManager implements Serializable {
 	
 	@SuppressWarnings("unchecked")
 	public <T extends FamilyMember> T getFamilyMember(Class<T> familyMember){
+		return getFamilyMember(familyMember.toString());
+	}
+	
+	public <T extends FamilyMember> T getFamilyMember(String familyMember){
 		return (T) this.family.get(familyMember.toString());
 	}
 		

@@ -4,6 +4,7 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -11,10 +12,15 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class StateHandler {
 
+	
+	// C'è da mettere il game e il player nel costruttore
+	
 	private State currState;
 	private State mainState;
 	private Player player;
 	private Game game;
+	
+	private ActionManager aManager = new ActionManager(player);
 	
 	private EventHandler<ModelEventInterface> modelEvent = new EventHandler<>();
 	
@@ -27,6 +33,10 @@ public class StateHandler {
 		invoke(new GameStartedEvent(game));
 	}
 	
+	
+	public ActionManager actions() {
+		return aManager;
+	}
 	
 // Events handling 
 	

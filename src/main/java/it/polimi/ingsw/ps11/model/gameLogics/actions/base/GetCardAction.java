@@ -1,9 +1,13 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
+import it.polimi.ingsw.ps11.model.modelEvents.ChooseCost;
+import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class GetCardAction implements Action<GetCardAction>{
@@ -12,11 +16,16 @@ public class GetCardAction implements Action<GetCardAction>{
 	protected DevelopmentCard card;
 	protected ResourceList cost;
 	
+	private ResourceList modifier;
+	
+	
+	EventHandler<ModelEvent> eventHandler = new EventHandler<>();
+	
 	public GetCardAction() {
 	
 	}
 
-	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList cost) {
+	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList state) {
 		this.aManager = aManager;
 		this.card = card;
 		this.cost = cost.clone();
@@ -24,9 +33,19 @@ public class GetCardAction implements Action<GetCardAction>{
 	
 	@Override
 	public boolean isLegal() {
-		//boolean result = this.card.getCosts().contains(cost);
-		DecrementAction pay = aManager.newDecrementAction(cost);
-		//boolean result = result && pay.isLegal();
+		
+		if(cost == null && !card.isMonoCost()){
+			eventHandler.invoke(new ChooseCost(card.getCosts()));
+			return false;
+		}
+		else if(cost == null && card.isMonoCost()){
+			cost = card.getCosts().get(0);
+		}
+		
+		boolean result = this.card.getCosts().contains(cost);
+		ResourceList temp = cost.clone();
+		temp.subtract(modifier);
+		DecrementAction pay = aManager.newDecrementAction(temp);
 		return pay.isLegal() && aManager.getSubject().getCardManager().canAdd(card) ;
 	}
 
@@ -37,11 +56,11 @@ public class GetCardAction implements Action<GetCardAction>{
 		aManager.getSubject().getCardManager().addCard(card);
 		
 		for(Effect effect: card.getIstantEffect()){
-			Action action = effect.get(aManager);
+			Action<?> action = effect.get(aManager);
 			if(action.isLegal())
 				action.perform();
 		}
-		for(Action permaEffect: card.getPermanentEffect()){
+		for(Action<?> permaEffect: card.getPermanentEffect()){
 			permaEffect.attach(aManager);
 		}
 	}
@@ -51,10 +70,13 @@ public class GetCardAction implements Action<GetCardAction>{
 		return card;
 	}
 	public ResourceList getCost() {
-		return cost;
+		return modifier;
+	}
+
+	public void attach(EventListener<ModelEvent> listener){
+		eventHandler.attach(listener);
 	}
 	
-
 	// _________________________ Method for action system ________________________
 	
 	@Override

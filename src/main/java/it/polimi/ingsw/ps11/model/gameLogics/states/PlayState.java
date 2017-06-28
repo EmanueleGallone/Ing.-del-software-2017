@@ -2,7 +2,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
@@ -26,6 +28,16 @@ public class PlayState extends State{
 	}
 	
 // Events handling
+
+	@Override
+	public void handle(ConfirmEvent confirmEvent) {
+		
+	}
+	
+	@Override
+	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
+		
+	}
 	
 	@Override
 	public void handle(FamilySelectedEvent familySelectedEvent) {
@@ -59,4 +71,6 @@ public class PlayState extends State{
 			
 		}
 	}
+
+
 }

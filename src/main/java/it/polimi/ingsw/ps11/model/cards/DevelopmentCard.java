@@ -48,6 +48,10 @@ public abstract class DevelopmentCard extends Card {
 		return false;
 	}
 	
+	public boolean isMonoCost(){
+		return (this.costs.size() > 1);
+	}
+	
 //	public boolean take(Player player, ResourceList cost){
 //		if (checkCost(player.getResourceList(), cost)){
 //			player.getResourceList().subtract(cost); //sottraggo le risorse spese per prendere la carta

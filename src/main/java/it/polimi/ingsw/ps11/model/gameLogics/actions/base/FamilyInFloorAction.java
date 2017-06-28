@@ -54,6 +54,7 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>{
 	public GetCardAction getCardAction() {
 		return getCard;
 	}
+	
 
 	// _________________________ Method for action system ________________________
 	

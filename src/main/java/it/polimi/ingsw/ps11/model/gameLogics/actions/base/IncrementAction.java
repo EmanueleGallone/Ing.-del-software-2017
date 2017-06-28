@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 
 public class IncrementAction implements Action<IncrementAction>{
 
@@ -35,7 +36,6 @@ public class IncrementAction implements Action<IncrementAction>{
 	public void perform() {
 		aManager.getSubject().getResourceList().sum(resource);
 	}
-	
 	
 // _________________________ Method for action system ________________________
 	
