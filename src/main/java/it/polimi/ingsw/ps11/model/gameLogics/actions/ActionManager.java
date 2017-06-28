@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
@@ -21,22 +22,23 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 public class ActionManager {
 	
 	Player player;
-	private HashMap<String, Action> actions = new HashMap<>();
+	private HashMap<String, Action<?>> actions = new HashMap<>();
+	
 	
 	
 	public ActionManager(Player player) {
 		this.player = player;
 	}
 	
-	public <T extends Action> T get(Class<T> action){
-		Action actionDecorator = actions.get(action.toString());
+	public <T extends Action<?>> T get(Class<T> action){
+		Action<?> actionDecorator = actions.get(action.toString());
 		if(actionDecorator != null){
 			actionDecorator = actionDecorator.clone();
 		}
 		return (T) actionDecorator;
 	}
 
-	public void add (Action action){
+	public void add (Action<?> action){
 		actions.put(action.target().toString(), action);
 	}
 	
@@ -44,74 +46,88 @@ public class ActionManager {
 		return player;
 	}
 	
-	public IncrementAction newIncrementAction(ResourceList resource){
-		IncrementAction decorator = get(IncrementAction.class);
-		IncrementAction action = new IncrementAction(this,resource);
-		if (decorator!=null){
-			 decorator.decore(action);
-			 return decorator;
-		}
+	public <T extends Action<T>> T make (Class<T> azione, T action){
+	 	 T decorator = this.get(azione);
+	 	 return decore(action, decorator);
+	}
+	
+	public <T extends Action<T>> T decore (T action , T decorator){
+		if(decorator != null)
+			return (T) decorator.decore(action);
 		return action;
 	}
 	
+	
+	public void askToClient(){
+		
+	}
+	
+// Actions constructors __________________
+	
+	
+	public IncrementAction newIncrementAction(ResourceList resource){
+		IncrementAction action = new IncrementAction(this,resource);
+		return make(IncrementAction.class, action);
+	}
+	
+	
 	public DecrementAction newDecrementAction(ResourceList resource){
-		DecrementAction a = get(DecrementAction.class);
 		DecrementAction action = new DecrementAction(this,resource);
-		if (a!=null)
-			return a.decore(action);
-		return action;
+		return make(DecrementAction.class, action);
+	}
+	
+	
+	
+	public GetCardAction newGetCardAction( DevelopmentCard card, ResourceList cost){
+		GetCardAction action = new GetCardAction(this, card, cost);
+		return make(GetCardAction.class, action);
+	}
+
+	
+// _____________________________ Action to position familyMember _________________________________________
+
+	public FamilyInFloorAction newFamilyInFloorAction(FamilyInTowerAction tAction, FamilyInSpaceAction sAction ,GetCardAction getCard){
+		FamilyInFloorAction action = new FamilyInFloorAction(this, tAction, sAction, getCard);
+		return make(FamilyInFloorAction.class, action);
 	}
 	
 	public FamilyInFloorAction newFamilyInFloorAction(Tower tower, Floor floor, FamilyMember fMember, ResourceList cost, Servant servant){
-		FamilyInSpaceAction sAction = this.newFamilyInSpaceAction(fMember, floor.getActionSpace());
 		FamilyInTowerAction tAction = this.newFamilyInTowerAction(tower, fMember);
+		FamilyInSpaceAction sAction = this.newFamilyInSpaceAction(fMember, floor.getActionSpace());
 		GetCardAction getCard = this.newGetCardAction(floor.getCard(), cost);
-		
-		FamilyInFloorAction action = new FamilyInFloorAction(this, tAction, sAction, getCard);
-		FamilyInFloorAction decorator = this.get(FamilyInFloorAction.class);
-		if (decorator != null )
-			return decorator.decore(action);
-		return action;
+
+		return newFamilyInFloorAction(tAction, sAction, getCard);
 	}
+	
+	
 	public FamilyInFloorAction newFamilyInFloorAction(Tower tower, Floor floor, FamilyMember fMember, ResourceList cost){
 		return newFamilyInFloorAction(tower, floor, fMember, cost,new Servant(0));
 	}
 	
+
+	
+	public FamilyInSpaceAction newFamilyInSpaceAction(FamilyMember fMember, ActionSpace space){
+		FamilyInSpaceAction action = new FamilyInSpaceAction(this, fMember, space);
+		return make(FamilyInSpaceAction.class, action);
+	}
+	
+	
+	
+	public FamilyInTowerAction newFamilyInTowerAction(Tower tower, FamilyMember familyMember){
+		FamilyInTowerAction action = new FamilyInTowerAction(this, tower, familyMember);
+		return make(FamilyInTowerAction.class, action);
+	}
+	
+	
+// ___________________________________________________________________________________________
+	
 	
 	public UseServantAction newUseServantAction(Servant servant, FamilyMember fMember){
 		UseServantAction action = new UseServantAction(this,servant, fMember);
-		UseServantAction a = get(UseServantAction.class);
-		if (a!=null)
-			return a.decore(action);
-		return action;
-	}
-	
-	public <T extends Action> T decore (T a1 , T a2){
-		if(a1 != null)
-			return a1.decore(a2);
+		return make(UseServantAction.class, action);
 	}
 
-	public FamilyInSpaceAction newFamilyInSpaceAction(FamilyMember fMember, ActionSpace space){
-		FamilyInSpaceAction a = get(FamilyInSpaceAction.class);
-		FamilyInSpaceAction action = new FamilyInSpaceAction(this, fMember, space);
-		if (a!=null)
-			return a.decore(action);
-		return action;
-	}
 	
-	public GetCardAction newGetCardAction( DevelopmentCard card, ResourceList cost){
-		GetCardAction a = get(GetCardAction.class);
-		GetCardAction action = new GetCardAction(this, card, cost);
-		if (a!=null)
-			return a.decore(action);
-		return action;
-	}
 	
-	public FamilyInTowerAction newFamilyInTowerAction(Tower tower, FamilyMember familyMember){
-		FamilyInTowerAction a = get(FamilyInTowerAction.class);
-		FamilyInTowerAction action = new FamilyInTowerAction(this, tower, familyMember);
-		if (a!=null)
-			return a.decore(action);
-		return action;
-	}
+
 }

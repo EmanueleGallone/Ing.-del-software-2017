@@ -34,6 +34,9 @@ public class StateHandler {
 		viewEvent.accept(currState);
 	}
 	
+	/**
+	 * E' la funzione con cui le azioni inviano eventi alla view
+	 */
 	public void invoke(ModelEventInterface event){
 		event.setReceiver(player);
 	}

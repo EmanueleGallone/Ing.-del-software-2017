@@ -1,17 +1,15 @@
 package it.polimi.ingsw.ps11.posTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyMemberAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.IncrementAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
@@ -22,7 +20,6 @@ import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
@@ -90,7 +87,7 @@ public class ActionsTest {
 		
 		ActionManager aManager = new ActionManager(player);
 		
-		Action action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
+		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
 		if(action.isLegal())
 			action.perform();
 		
@@ -161,7 +158,7 @@ public class ActionsTest {
 		
 		
 		
-		Action action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
+		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tower, floor, fMember, cardCost);
 		if(action.isLegal())
 			action.perform();
 	}

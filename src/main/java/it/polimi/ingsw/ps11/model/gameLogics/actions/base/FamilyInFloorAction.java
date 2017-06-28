@@ -2,10 +2,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction>{
+public class FamilyInFloorAction implements Action<FamilyInFloorAction>{
 	
 	protected ActionManager aManager;
 	protected FamilyInTowerAction towerAction;

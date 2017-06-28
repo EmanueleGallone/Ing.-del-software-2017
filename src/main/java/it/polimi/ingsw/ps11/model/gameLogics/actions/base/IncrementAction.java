@@ -2,10 +2,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class IncrementAction implements Action, Affecter<IncrementAction> {
+public class IncrementAction implements Action<IncrementAction>{
 
 	protected ActionManager aManager;
 	protected ResourceList resource;
@@ -36,7 +35,6 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 	public void perform() {
 		aManager.getSubject().getResourceList().sum(resource);
 	}
-	
 	
 	
 // _________________________ Method for action system ________________________

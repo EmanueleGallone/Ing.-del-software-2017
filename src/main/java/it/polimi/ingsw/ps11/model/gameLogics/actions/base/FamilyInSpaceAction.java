@@ -3,10 +3,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 
-public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction>{
+public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	
 	protected ActionManager aManager;
 	protected FamilyMember familyMember;
@@ -32,9 +31,12 @@ public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction
 	@Override
 	public boolean isLegal() {
 		int mod = 0;
-		if(servantAction != null)
+		boolean result = true;
+		if(servantAction != null){
+			result = servantAction.isLegal();
 			mod = servantAction.getServant().getValue();
-		if(space.isFree() && servantAction.isLegal()){
+		}
+		if(space.isFree() && result){
 			return space.getActionCost() <= (familyMember.getValue() + mod);
 		}
 		return false;
@@ -42,7 +44,8 @@ public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction
 
 	@Override
 	public void perform() {
-		servantAction.perform();
+		if(servantAction!= null)
+			servantAction.perform();
 		space.placeFamilyMember(familyMember, aManager.getSubject());
 		if(space.getResources()!=null){
 			IncrementAction increment = aManager.newIncrementAction(space.getResources());

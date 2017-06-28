@@ -71,7 +71,8 @@ public class FamilyMemberAffecter extends FamilyInFloorAction {
 			return this;
 		}
 		else if(this.action != null){
-			return this.action.decore(action);	
+			this.action.decore(action);
+			return this;	
 		}
 		return this;
 	}

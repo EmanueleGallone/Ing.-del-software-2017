@@ -3,11 +3,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class GetCardAction implements Action, Affecter<GetCardAction> {
+public class GetCardAction implements Action<GetCardAction>{
 
 	protected ActionManager aManager;
 	protected DevelopmentCard card;

@@ -3,11 +3,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 
-public class UseServantAction implements Action, Affecter<UseServantAction>{
+public class UseServantAction implements Action<UseServantAction>{
 
 	protected ActionManager aManager;
 	protected Servant servant;
@@ -63,7 +62,7 @@ public class UseServantAction implements Action, Affecter<UseServantAction>{
 	}
 	
 	@Override
-	public Action clone() {
+	public UseServantAction clone() {
 		UseServantAction copy = new UseServantAction(aManager, servant.clone(), familyMember.clone());
 		return copy;
 	}
