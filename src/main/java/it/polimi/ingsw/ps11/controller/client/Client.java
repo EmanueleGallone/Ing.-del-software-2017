@@ -113,6 +113,5 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	@Override
 	public void handle(ChooseCost chooseCost) {
 		// TODO Auto-generated method stub
-		
 	}
 }

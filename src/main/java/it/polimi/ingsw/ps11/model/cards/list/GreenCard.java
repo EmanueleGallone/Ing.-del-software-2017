@@ -3,11 +3,8 @@ package it.polimi.ingsw.ps11.model.cards.list;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class GreenCard extends DevelopmentCard {
-	//carte Territori
-	
-	protected int activeValue; //valore necessario affinchè la carta attivi il bonus
-	
+public class GreenCard extends DevelopmentCard{
+	//carte Territori	
 	
 	public GreenCard() {
 		super();
@@ -20,9 +17,6 @@ public class GreenCard extends DevelopmentCard {
 		setName(name);
 	}
 
-	public int getActiveValue() {
-		return activeValue;
-	}
 	public void setActiveValue(int activeValue) {
 		this.activeValue = activeValue;
 	}

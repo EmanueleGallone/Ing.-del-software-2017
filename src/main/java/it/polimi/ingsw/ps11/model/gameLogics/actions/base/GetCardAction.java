@@ -60,8 +60,8 @@ public class GetCardAction implements Action<GetCardAction>{
 			if(action.isLegal())
 				action.perform();
 		}
-		for(Action<?> permaEffect: card.getPermanentEffect()){
-			permaEffect.attach(aManager);
+		for(Effect permaEffect: card.getPermanentEffect()){
+			permaEffect.get(aManager).attach(aManager);
 		}
 	}
 	

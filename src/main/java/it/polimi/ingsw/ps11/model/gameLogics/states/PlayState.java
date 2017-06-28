@@ -46,9 +46,7 @@ public class PlayState extends State{
 	
 	@Override
 	public void handle(FloorSelectedEvent floorSelectedEvent) {
-		if(familySelectedCheck(floorSelectedEvent)){
-			
-		}
+		stateHandler().nextState(new FloorSelected(floorSelectedEvent));
 	}
 
 	@Override
