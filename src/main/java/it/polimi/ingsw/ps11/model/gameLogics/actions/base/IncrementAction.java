@@ -39,7 +39,7 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 	
 	
 	
-// _________________________ Method for decorator system ________________________
+// _________________________ Method for action system ________________________
 	
 
 	@Override

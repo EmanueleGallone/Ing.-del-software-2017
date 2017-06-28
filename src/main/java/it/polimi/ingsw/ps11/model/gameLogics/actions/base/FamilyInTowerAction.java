@@ -66,7 +66,7 @@ public class FamilyInTowerAction implements Action, Affecter<FamilyInTowerAction
 		return tower;
 	}
 	
-// Method for decorator ______________________
+	// _________________________ Method for action system ________________________
 
 	@Override
 	public void attach(ActionManager aManager) {

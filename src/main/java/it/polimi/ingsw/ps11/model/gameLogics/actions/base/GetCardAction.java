@@ -56,7 +56,7 @@ public class GetCardAction implements Action, Affecter<GetCardAction> {
 	}
 	
 
-// Method for decorator system _____________________________
+	// _________________________ Method for action system ________________________
 	
 	@Override
 	public void attach(ActionManager aManager) {

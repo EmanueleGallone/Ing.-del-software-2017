@@ -29,7 +29,7 @@ public class DecrementAction implements Action, Affecter<DecrementAction> {
 		return aManager.getSubject().getResourceList().canSubtract(getResource());
 	}
 	
-//  _______________ Method for decorator system _____________________
+	// _________________________ Method for action system ________________________
 
 
 	@Override

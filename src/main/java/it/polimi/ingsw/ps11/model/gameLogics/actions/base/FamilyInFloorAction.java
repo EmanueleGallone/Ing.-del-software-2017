@@ -56,7 +56,7 @@ public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction
 		return getCard;
 	}
 
-// Method for decorator pattern ___________________
+	// _________________________ Method for action system ________________________
 	
 	@Override
 	public void attach(ActionManager aManager) {

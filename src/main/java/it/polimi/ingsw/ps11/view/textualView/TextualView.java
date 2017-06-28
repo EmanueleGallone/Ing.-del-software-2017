@@ -49,7 +49,7 @@ public class TextualView extends View {
 		print();
 		String input = new String();
 		while (!(input = console.read()).equals("q")){
-
+			
 			//if(viewEvent.get(bla bla bla...) != null)
 			//spara evento
 		}
