@@ -321,8 +321,8 @@
         "cost": 1,
         "resources": {
           "resources": {
-            "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
+            "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
               "INSTANCE": {
                 "value": 2
               }

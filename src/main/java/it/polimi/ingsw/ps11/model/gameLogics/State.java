@@ -24,6 +24,7 @@ public abstract class State implements ViewListener {
 	}
 	
 	public void notifyToClient() {
-		stateHandler().invoke(new TextualEvent("Il server è in " + this.getClass().getSimpleName()));
+		System.out.println("Notifico lo stato " + this.getClass().getSimpleName());
+		stateHandler().invoke(new TextualEvent("Sei nello stato: " + this.getClass().getSimpleName()));
 	}
 }

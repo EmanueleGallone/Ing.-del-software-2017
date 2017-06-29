@@ -71,7 +71,7 @@ public class TextualView extends View {
 
 	}
 
-	//@Override
+	@Override
 	public void run() {
 		waitInput();
 	}
@@ -79,7 +79,6 @@ public class TextualView extends View {
 	private void waitInput(){
 		String command;
 		while (!(command = input.read()).equals("q")){
-
 			if(commands.get(command) != null){
 				viewEvent.invoke(commands.get(command));
 				console.println("debug: hai selezionato l'evento : " + commands.get(command).getClass().getSimpleName());

@@ -28,7 +28,6 @@ public class ConnectionHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		add(client);
 	}
 	
@@ -52,10 +51,10 @@ public class ConnectionHandler {
 	
 	private synchronized void newMatch() {
 		System.out.println("Avvio una nuova partita");
-		GameController game = new GameController(lobby);
+		GameController gameController = new GameController(lobby);
 		lobby = new ArrayList<>();
-		this.games.add(game);
-		new Thread(game).start(); 
+		this.games.add(gameController);
+		new Thread(gameController).start(); 
 	}
 	
 	class StartingMatch extends TimerTask{

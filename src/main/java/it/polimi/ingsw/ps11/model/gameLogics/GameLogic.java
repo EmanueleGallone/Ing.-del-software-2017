@@ -45,9 +45,11 @@ public class GameLogic implements Runnable{
 
 	@Override
 	public void run() {
+		nextPlayer();
 		for(StateHandler playerState : playerStatus.values()){
-			playerState.start(new DefaultState());
+			playerState.start();
 		}
+		System.out.println("Ho finito la run di gameLogic");
 	}
 
 // Handle events from view
