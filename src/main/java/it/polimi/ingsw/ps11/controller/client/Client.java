@@ -88,7 +88,7 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	public void handle(GameStartedEvent gameStartedEvent) {
 		view.update(gameStartedEvent.getGame());
 		view.update(gameStartedEvent.getReceiver());
-		//view.print();
+		view.print();
 		view.out(gameStartedEvent.getMessage());
 	}
 
