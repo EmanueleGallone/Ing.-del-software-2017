@@ -6,7 +6,6 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
-import it.polimi.ingsw.ps11.model.gameLogics.states.StateHandler;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;

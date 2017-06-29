@@ -5,6 +5,8 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
+import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYield;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
@@ -12,7 +14,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.UseServantAction;
-import it.polimi.ingsw.ps11.model.gameLogics.states.StateHandler;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
@@ -112,8 +113,10 @@ public class ActionManager {
 		UseServantAction action = new UseServantAction(this,servant, fMember);
 		return make(UseServantAction.class, action);
 	}
-
 	
+	public ActiveYield newActiveYield(String cardType, int value){
+		ActiveYield action = new ActiveYield(this,cardType, value);
+		return make(ActiveYield.class, action);
+	}
 	
-
 }

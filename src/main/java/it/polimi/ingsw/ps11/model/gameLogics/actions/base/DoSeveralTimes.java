@@ -2,29 +2,33 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.states.WaitCard;
 
-public class SelectACard implements Action<SelectACard> {
+public class DoSeveralTimes implements Action<DoSeveralTimes>{
 
 	private ActionManager aManager;
-	private String cardType;
+	private Action<?> action;
+	private int iterationNumber;
 	
-	public SelectACard(ActionManager aManager, String cardType) {
+	public DoSeveralTimes(ActionManager aManager, Action<?> action, int iterationNumber) {
 		this.aManager = aManager;
+		this.action = action;
+		this.iterationNumber = iterationNumber;
 	}
 	
 	@Override
 	public boolean isLegal() {
-		return true;
+		return action.isLegal();
 	}
 
 	@Override
 	public void perform() {
-		aManager.changeState(new WaitCard(cardType));
+		for(int i = 0; i < iterationNumber; i++){
+			action.perform();
+		}
 	}
 
 	@Override
-	public SelectACard decore(SelectACard action) {
+	public DoSeveralTimes decore(DoSeveralTimes action) {
 		// TODO Auto-generated method stub
 		return null;
 	}

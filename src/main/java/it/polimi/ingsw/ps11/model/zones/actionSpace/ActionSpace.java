@@ -92,7 +92,7 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	public ActionSpace clone(){
 		ActionSpace clone = new ActionSpace();
 		
-		if(this.familyMember == null) //necessario, altrimenti se l'actionspace non ha il familiare, la clone lancia eccezione
+		if(this.familyMember == null) 
 			clone.familyMember = null;
 		else 
 			clone.familyMember = this.familyMember.clone();

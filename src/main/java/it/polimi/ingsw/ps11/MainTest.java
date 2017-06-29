@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
-import it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
@@ -166,10 +166,10 @@ public class MainTest {
 		resource.setResource(new Coin(2));
 		resource.setResource(new MilitaryPoint(3));
 		market.addActionSpace(new ActionSpace(resource.clone()));
-		
-		resource = new ResourceList(new CouncilPrivilege(2));
-		market.addActionSpace(new ActionSpace(resource.clone()));
-		
+//		
+//		resource = new ResourceList(new CouncilPrivilege(2));
+//		market.addActionSpace(new ActionSpace(resource.clone()));
+//		
   // ___________________________________________________
 		
 		

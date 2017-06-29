@@ -1,9 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.states;
+package it.polimi.ingsw.ps11.model.gameLogics;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;

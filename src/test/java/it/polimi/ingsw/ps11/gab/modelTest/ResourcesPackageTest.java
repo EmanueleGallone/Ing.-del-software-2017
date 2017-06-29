@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.gab.modelTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -10,7 +12,6 @@ import org.junit.Test;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
-import it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
@@ -36,7 +37,7 @@ public class ResourcesPackageTest {
 	Stone stone;
 	Wood wood;
 
-	CouncilPrivilege councilPrivilege;
+	//CouncilPrivilege councilPrivilege;
 	FaithPoint faithPoint;
 	MilitaryPoint militaryPoint;
 	VictoryPoint victoryPoint;
@@ -65,7 +66,7 @@ public class ResourcesPackageTest {
 		mixed1 = new ResourceList(mixedResources1);		//UNA COIN E UN WOOD
 		mixed2 = new ResourceList(mixedResources2);		//UNA COIN E UNA STONE
 
-		councilPrivilege = new CouncilPrivilege(1);
+		//councilPrivilege = new CouncilPrivilege(1);
 		faithPoint = new FaithPoint(1);
 		militaryPoint = new MilitaryPoint(1);
 		victoryPoint = new VictoryPoint(1);

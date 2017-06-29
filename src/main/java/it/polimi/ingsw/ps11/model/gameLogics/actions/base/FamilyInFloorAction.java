@@ -39,7 +39,7 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>{
 		ResourceList resource = spaceAction.getSpace().getResources();
 		if(resource != null){
 			// Questo perchè il giocatore può usare le risorse del piano per pagare la carta
-			getCard.getCost().subtract(resource);
+			getCard.getCostModifier().subtract(resource);
 		}
 		result = result && getCard.isLegal();
 		return result;

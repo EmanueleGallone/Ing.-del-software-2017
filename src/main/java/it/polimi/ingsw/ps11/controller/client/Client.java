@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
-import it.polimi.ingsw.ps11.model.modelEvents.ChooseCost;
+import it.polimi.ingsw.ps11.model.modelEvents.ChooseResource;
 import it.polimi.ingsw.ps11.model.modelEvents.Conferma;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
@@ -111,7 +111,7 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	}
 
 	@Override
-	public void handle(ChooseCost chooseCost) {
+	public void handle(ChooseResource chooseCost) {
 		// TODO Auto-generated method stub
 	}
 }
