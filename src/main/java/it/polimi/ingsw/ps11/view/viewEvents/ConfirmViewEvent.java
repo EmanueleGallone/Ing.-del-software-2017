@@ -1,14 +1,15 @@
 package it.polimi.ingsw.ps11.view.viewEvents;
 
-public class ConfirmEvent extends ViewEvent{
+public class ConfirmViewEvent extends ViewEvent{
 
 	
 	private boolean confirm = false;
 	private int servant = 0;
 	
 	
-	public ConfirmEvent() {
-		
+	public ConfirmViewEvent(boolean confirmed, int servant) {
+		this.confirm = confirmed;
+		this.servant = servant;
 	}
 	
 	public int getServant() {

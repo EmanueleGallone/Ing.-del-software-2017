@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.gameLogics.State;
-import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
@@ -49,7 +49,7 @@ public class DefaultState extends State {
 	}
 
 	@Override
-	public void handle(ConfirmEvent confirmEvent) {
+	public void handle(ConfirmViewEvent confirmEvent) {
 		// TODO Auto-generated method stub
 		
 	}

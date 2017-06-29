@@ -11,8 +11,13 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
+import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class GraphicConfirmPanelView extends JDialog{
 	
@@ -20,7 +25,11 @@ public class GraphicConfirmPanelView extends JDialog{
 	private boolean confirmed = false;
 	private JTextField addServitori;
 	
-	public GraphicConfirmPanelView(Floor floor) {
+	private EventHandler<ViewEventInterface> eventHandler;
+	
+	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor) {
+		
+		this.eventHandler = viewEvent;
 		
 		this.floor = floor;
 		int cost = floor.getActionSpace().getActionCost();
@@ -100,19 +109,18 @@ public class GraphicConfirmPanelView extends JDialog{
 	private class Confirmed implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			confirmed = true;
+			int servant = getConfirm();
+			eventHandler.invoke(new ConfirmViewEvent(true, servant));
 		}
 	}
 
 	public int getConfirm() {
-		while(!confirmed)
-			try {
-				TimeUnit.MILLISECONDS.sleep(250);
-			} catch (InterruptedException e) {
-				System.err.println("Errore nel timer");
-			}		
-	int servitori = Integer.parseInt(addServitori.getText());
-	return servitori;
-	
+		int servitori;
+		try {
+			servitori = Integer.parseInt(addServitori.getText());
+		} catch (NumberFormatException e) {
+			servitori = 0;
+		}
+		return servitori;
 	}
 }

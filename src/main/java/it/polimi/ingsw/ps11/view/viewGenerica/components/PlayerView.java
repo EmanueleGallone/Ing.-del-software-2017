@@ -18,4 +18,8 @@ public abstract class PlayerView extends ViewComponent {
 		chooseFamilyView.update(player.getFamilyManager());
 	}
 	
+	public Player getPlayer() {
+		return player;
+	}
+	
 }

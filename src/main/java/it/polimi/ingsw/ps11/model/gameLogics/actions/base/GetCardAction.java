@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
-import it.polimi.ingsw.ps11.model.modelEvents.ChooseResource;
+import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -35,7 +35,7 @@ public class GetCardAction implements Action<GetCardAction>{
 	public boolean isLegal() {
 		
 		if(cost == null && !card.isMonoCost()){
-			ChooseResource c = new ChooseResource(card.getCosts());
+			ChooseResourceEvent c = new ChooseResourceEvent(card.getCosts());
 			c.setMessage("Seleziona uno dei costi da pagare");
 			eventHandler.invoke(c);
 			return false;

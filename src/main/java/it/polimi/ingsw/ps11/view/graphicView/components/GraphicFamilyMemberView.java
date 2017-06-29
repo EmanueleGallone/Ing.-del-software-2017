@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
 
@@ -74,14 +76,15 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		}
 	}
 	
-//	@Override
-//	public void update(FamilyMemberManager familyMemberManager) {
-//		super.update(familyMemberManager);
-//		for (String familyMemberName : familyMemberManager.getFamily().keySet()) {
-//			if(familyView.getFamily().get(familyMemberName).isSelected())
-//				familyMemberButtons.get(familyMemberName).loadImage("playerImages/" + familyMemberName + ".png");
-//			else familyMemberButtons.get(familyMemberName).loadImage("blank.png");
-//		}
-//	}
+	@Override
+	public void update(FamilyMemberManager familyMemberManager) {
+		super.update(familyMemberManager);
+		
+		for(FamilyMember member : familyMemberManager.getFamily().values()){
+			familyMemberButtons.get(member).loadImage("playerImages/" + member + ".png");
+			if(member.isUsed())
+				familyMemberButtons.get(member).setBackground(Color.BLACK);
+		}
+	}
 	
 }

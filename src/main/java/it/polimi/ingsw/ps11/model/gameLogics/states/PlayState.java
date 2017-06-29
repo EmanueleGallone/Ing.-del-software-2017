@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
@@ -34,7 +34,7 @@ public class PlayState extends State{
 // Events handling
 
 	@Override
-	public void handle(ConfirmEvent confirmEvent) {
+	public void handle(ConfirmViewEvent confirmEvent) {
 		
 	}
 	

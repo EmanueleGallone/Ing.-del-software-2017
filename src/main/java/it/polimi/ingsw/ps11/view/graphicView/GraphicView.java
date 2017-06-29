@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicActionSpace;
@@ -148,35 +150,29 @@ public class GraphicView extends View{
 		
 	}
 	
-	public int confirm(Floor floor){
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(floor);
-		int servants = -1;
-		window.setEnabled(false);
+	@Override
+	public void confirm(ConfirmEvent confirm) {
+		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor());
 		confirmPanelView.setBounds((int)Math.round(screenSize.getHeight()*0.5), (int)Math.round(screenSize.getHeight()*0.3), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.462));
 		confirmPanelView.setUndecorated(true);
-		confirmPanelView.setVisible(true);
-		servants = confirmPanelView.getConfirm();
-		confirmPanelView.dispose();
-		return servants;
+		confirmPanelView.setVisible(true);		
 	}
 	
-	public ResourceList update(ArrayList<ResourceList> resourceLists){
-		
-		GraphicCooseResourceListPanel chooseResource = new GraphicCooseResourceListPanel(resourceLists);
-		int choice = -1;
-		while(choice < 0){
-		window.setEnabled(false);
+	@Override
+	public void update(FamilyMemberManager familyMemberManager) {
+		FamilyMemberManager fManager = you.getPlayer().getFamilyManager();
+		fManager = familyMemberManager;
+	}
+
+	@Override
+	public void chooseResource(ArrayList<ResourceList> resource) {
+		GraphicCooseResourceListPanel chooseResource = new GraphicCooseResourceListPanel(viewEvent,resource);
 		chooseResource.setBounds((int)Math.round(screenSize.getHeight()*0.85), (int)Math.round(screenSize.getHeight()*0.4), 
-								 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
+				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
 		chooseResource.setUndecorated(true);
 		chooseResource.setVisible(true);
-		choice = chooseResource.getChoice();
-		chooseResource.dispose();
-		}
 		window.setEnabled(true);
-		return resourceLists.get(choice);
-
 	}
 	
 	private class Close implements ActionListener {			
@@ -236,4 +232,6 @@ public class GraphicView extends View{
 //		System.out.println(tryout.update(list));
 
 	}
+
+
 }
