@@ -100,8 +100,10 @@ public class TextualView extends View {
 	}
 	
 	public void update(FamilyMemberManager familyMemberManager){
-		//manca l'override e va aggiunto nella view
-		new TextualChooseFamilyView(familyMemberManager).print();
+		TextualChooseFamilyView chooser = new TextualChooseFamilyView(input, familyMemberManager, this.viewEvent);
+		chooser.print();
+		console.println("Press 1..4 to select the family member ");
+		input.attach(chooser);
 	}
 	
 	public void update(ArrayList<ResourceList> costs){ 

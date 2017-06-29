@@ -1,32 +1,56 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
+import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
+import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
 
-public class TextualChooseFamilyView extends ChooseFamilyView {
-	//faccio la print che fa scegliere e poi chiama la selected che crea l'evento?
+public class TextualChooseFamilyView extends ChooseFamilyView implements EventListener<String>{
+	
+	private EventHandler<ViewEventInterface> events;
+	private Input input;
 	
 	public TextualChooseFamilyView() {
-	
+		
 	}
 	
-	public TextualChooseFamilyView(FamilyMemberManager familyMemberManager) {
+	public TextualChooseFamilyView(Input input, FamilyMemberManager familyMemberManager, EventHandler<ViewEventInterface> viewEvent) {
 		update(familyMemberManager);
 	}
+	
+	
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
 		
-		console.print("\nBlack family member (value " + familyView.getFamilyMember(BlackFamilyMember.class).getValue() + ")");
-		console.print("\nOrange family member (value " + familyView.getFamilyMember(OrangeFamilyMember.class).getValue() + ")");
-		console.print("\nWhite family member (value " + familyView.getFamilyMember(WhiteFamilyMember.class).getValue() + ")");
-		console.print("\nNeutral family member (value " + familyView.getFamilyMember(BlackFamilyMember.class).getValue() + ")");
+		int i = 1; 
+		for(FamilyMember member : familyView.getFamily().values()){
+			console.print("\n "+i+") " + member.getClass().getSimpleName() + " value: "+ member.getValue());
+		}
 		console.println("");
+	}
+
+	@Override
+	public void handle(String e) {
+		int parsed;
+		ArrayList<FamilyMember> family = new ArrayList<>(familyView.getFamily().values());
+		try {
+			parsed = Integer.parseInt(e);
+			if((parsed +1) <= family.size() && parsed > 0){
+				events.invoke(new FamilySelectedEvent(family.get(parsed).getClass()));
+			}
+				
+		} catch (NumberFormatException e1) {
+			new TextualConsole().println("Choice not valid!");
+		}finally{
+			input.detach(this);
+		}
 	}
 
 }
