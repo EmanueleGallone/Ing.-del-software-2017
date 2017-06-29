@@ -49,7 +49,7 @@ public class Client implements MessageListener,ModelListener,Runnable {
 
 		@Override
 		public void handle(MessageEvent e) {
-			e.getMessage().accept(getThis());;		
+			e.getMessage().accept(getThis());		
 		}
 	};
 	

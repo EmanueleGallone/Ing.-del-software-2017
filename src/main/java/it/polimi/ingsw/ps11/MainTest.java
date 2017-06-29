@@ -1,15 +1,10 @@
 package it.polimi.ingsw.ps11;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -31,59 +26,47 @@ import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 public class MainTest {
 	
 	public static void main(String[] args){
-	
+
 	
 	}	
 	
 	
 	public static void writeFile(String fileName, String testo){
 		
-		BufferedWriter writer = null;
-		
-		try {
-			writer = new BufferedWriter(new FileWriter(fileName));
-			writer.write(testo);
-			writer.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (writer != null){
-				try {
-					writer.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-	}
-	
-	
-	public static String readFile(String fileName){
-		
-		BufferedReader reader = null;
-		String testo = new String();
-		try {
-			reader = new BufferedReader(new FileReader(fileName));
-			String line;
-			while ((line = reader.readLine())!= null) {
-				testo = testo + line;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (reader != null){
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		return testo;
+//		BufferedWriter writer = null;
+//		
+//		try {
+//			writer = new BufferedWriter(new FileWriter(fileName));
+//			writer.write(testo);
+//			writer.flush();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		finally {
+//			if (writer != null){
+//				try {
+//					writer.close();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//=======
+//		TextualView view = new TextualView();
+//>>>>>>> ema
+//		
+//		new Thread(view).start();
+//		view.update(game.getBoard());
+//		//view.update(player1.getFamilyManager());
+//		
+//		ArrayList<ResourceList> list = new ArrayList<ResourceList>();
+//		ResourceList resourceList = new ResourceList(new Coin(5));
+//		resourceList.setResource(new Stone(8));
+//		ResourceList resourceList2 = new ResourceList(new VictoryPoint(8));
+//		list.add(resourceList);
+//		list.add(resourceList2);
+//		
+//		view.update(list);
 	}
 	
  
@@ -174,7 +157,7 @@ public class MainTest {
 		
 		
 		Board board = new Board(towers, market, new CouncilPalace());
-		writeFile("settings\\board", gAdapter.toJson(board));
+		CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}
 	
