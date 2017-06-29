@@ -1,20 +1,13 @@
 package it.polimi.ingsw.ps11;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import it.polimi.ingsw.ps11.controller.client.Client;
-import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
+import it.polimi.ingsw.ps11.controller.Registration;
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -36,7 +29,6 @@ import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.textualView.TextualView;
-import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class MainTest {
 	
@@ -52,7 +44,7 @@ public class MainTest {
 	
 		TextualView view = new TextualView();
 		
-		view.run();
+		new Thread(view).start();
 		view.update(game.getBoard());
 		//view.update(player1.getFamilyManager());
 		
@@ -64,62 +56,6 @@ public class MainTest {
 		list.add(resourceList2);
 		
 		view.update(list);
-	}
-	
-	
-	
-	
-	
-	
-	
-	public static void writeFile(String fileName, String testo){
-		
-		BufferedWriter writer = null;
-		
-		try {
-			writer = new BufferedWriter(new FileWriter(fileName));
-			writer.write(testo);
-			writer.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (writer != null){
-				try {
-					writer.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-	}
-	
-	
-	public static String readFile(String fileName){
-		
-		BufferedReader reader = null;
-		String testo = new String();
-		try {
-			reader = new BufferedReader(new FileReader(fileName));
-			String line;
-			while ((line = reader.readLine())!= null) {
-				testo = testo + line;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (reader != null){
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		return testo;
 	}
 	
  
@@ -210,7 +146,7 @@ public class MainTest {
 		
 		
 		Board board = new Board(towers, market, new CouncilPalace());
-		writeFile("settings\\board", gAdapter.toJson(board));
+		CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}
 	
