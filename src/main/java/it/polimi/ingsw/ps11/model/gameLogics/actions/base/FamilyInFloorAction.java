@@ -2,16 +2,19 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
+import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
 
-public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction>{
+public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedConfirm{
 	
 	protected ActionManager aManager;
 	protected FamilyInTowerAction towerAction;
 	protected FamilyInSpaceAction spaceAction;
 	protected GetCardAction getCard;
 	
+	private ConfirmEvent confermed;
 	
 	public FamilyInFloorAction() {
 		
@@ -35,12 +38,16 @@ public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction
 	@Override
 	public boolean isLegal() {
 		
-		boolean result = towerAction.isLegal() && spaceAction.isLegal();
+		if(confermed == null){
+			aManager.changeState(new WaitConfirm(this));
+			return false;
+		}
 		
+		boolean result = towerAction.isLegal() && spaceAction.isLegal();
 		ResourceList resource = spaceAction.getSpace().getResources();
 		if(resource != null){
 			// Questo perchè il giocatore può usare le risorse del piano per pagare la carta
-			getCard.getCost().subtract(resource);
+			getCard.getCostModifier().subtract(resource);
 		}
 		result = result && getCard.isLegal();
 		return result;
@@ -56,7 +63,15 @@ public class FamilyInFloorAction implements Action, Affecter<FamilyInFloorAction
 		return getCard;
 	}
 
-// Method for decorator pattern ___________________
+	@Override
+	public void notifyConfirm(ConfirmEvent confirm) {
+		this.confermed = confirm;
+		spaceAction.getServantAction().setServant(confirm.getServant());
+		if(isLegal())
+			perform();
+	}
+
+	// _________________________ Method for action system ________________________
 	
 	@Override
 	public void attach(ActionManager aManager) {

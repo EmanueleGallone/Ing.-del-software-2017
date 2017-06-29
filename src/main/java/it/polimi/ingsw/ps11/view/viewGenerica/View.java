@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.view.viewGenerica;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
@@ -15,7 +16,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 /**
  * <h3>View</h3>
  * <p> Classe astratta rappresentante la view che il giocatore puo' scegliere, ovvero CLI o GUI. e' stata portata avanti
- * una struttura ad albero utilizzando i "components". Ogni oggetto che ha bisogno di essere stampato a video fa parte dei components.
+ * una struttura modulare utilizzando i "components". Ogni oggetto che ha bisogno di essere stampato a video fa parte dei components.
  * </p>
  */
 public abstract class View implements ViewInterface, Runnable {
@@ -63,8 +64,12 @@ public abstract class View implements ViewInterface, Runnable {
 	@Override
 	public void update(Player player) {
 		you.update(player);
-		
 	}
+	
+	//public abstract void update(FamilyMemberManager familyMemberManager);
+	//public abstract void update(ArrayList<ResourceList> costs);
+		
+	
 	
 	
 }

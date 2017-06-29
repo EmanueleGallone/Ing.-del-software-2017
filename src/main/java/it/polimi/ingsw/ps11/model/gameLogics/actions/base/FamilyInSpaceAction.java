@@ -1,16 +1,22 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 
-public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction>{
+public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	
 	protected ActionManager aManager;
 	protected FamilyMember familyMember;
 	protected ActionSpace space;
+	protected UseServantAction servantAction;
+	
+	public FamilyInSpaceAction() {
+	
+	}
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space) {
 		this.aManager = aManager;
@@ -18,16 +24,30 @@ public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction
 		this.space = space;
 	}
 	
+	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space, UseServantAction servantAction) {
+		this(aManager,fMember,space);
+		this.servantAction = servantAction;
+	}
+	
 	@Override
 	public boolean isLegal() {
-		if(space.isFree() && space.getActionCost() <= familyMember.getValue()){
-			return true;
+		int mod = 0;
+		boolean result = true;
+		if(servantAction != null){
+			result = servantAction.isLegal();
+			mod = servantAction.getServant().getValue();
+		}
+		if(space.isFree() && result){
+			result = space.getActionCost() <= (familyMember.getValue() + mod);
+			return result;
 		}
 		return false;
 	}
 
 	@Override
 	public void perform() {
+		if(servantAction!= null)
+			servantAction.perform();
 		space.placeFamilyMember(familyMember, aManager.getSubject());
 		if(space.getResources()!=null){
 			IncrementAction increment = aManager.newIncrementAction(space.getResources());
@@ -42,16 +62,22 @@ public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction
 	public FamilyMember getFamilyMember() {
 		return familyMember;
 	}
+	
+	public UseServantAction getServantAction() {
+		return servantAction;
+	}
 
-// Method for decorator pattern _____________________________
+
+	// _________________________ Method for action system ________________________
+	
 	
 	@Override
 	public void attach(ActionManager aManager) {
-		FamilyInSpaceAction increment = aManager.get(target());
-		if(increment == null){
-			increment = this;
+		FamilyInSpaceAction act = aManager.get(target());
+		if(act == null){
+			act = this;
 		}
-		aManager.add(increment.decore(this));
+		aManager.add(act.decore(this));
 	}
 
 	@Override
@@ -71,8 +97,8 @@ public class FamilyInSpaceAction implements Action, Affecter<FamilyInSpaceAction
 	
 	@Override
 	public FamilyInSpaceAction clone() {
-		// TODO Auto-generated method stub
-		return null;
+		FamilyInSpaceAction copy = new FamilyInSpaceAction(aManager, familyMember.clone(), space.clone());
+		return copy;
 	}
 
 }

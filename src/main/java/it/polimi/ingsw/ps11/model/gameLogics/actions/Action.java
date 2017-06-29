@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
-public interface Action extends Cloneable{
+public interface Action<T> extends Cloneable{
 
 	public boolean isLegal();
 	public void perform();
@@ -11,8 +11,10 @@ public interface Action extends Cloneable{
 		}
 	}
 	
-	public void attach(ActionManager aManager);
-	public Class<? extends Action> target();
+	public T decore(T action);
 	
-	public Action clone();
+	public void attach(ActionManager aManager);
+	public Class<? extends Action<?>> target();
+	
+	public Action<?> clone();
 }

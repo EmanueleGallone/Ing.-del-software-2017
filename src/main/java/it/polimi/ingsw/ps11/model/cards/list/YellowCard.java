@@ -3,10 +3,8 @@ package it.polimi.ingsw.ps11.model.cards.list;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class YellowCard extends DevelopmentCard {
+public class YellowCard extends DevelopmentCard{
 	//carte EDIFICIO
-
-	protected int activeValue; //valore necessario affinchè la carta attivi il bonus
 	
 	public YellowCard(String name){
 		super(name);
@@ -18,9 +16,6 @@ public class YellowCard extends DevelopmentCard {
 		this.activeValue = DEFAULT_VALUE;
 	}
 
-	public int getActiveValue() {
-		return activeValue;
-	}
 	public void setActiveValue(int activeValue) {
 		this.activeValue = activeValue;
 	}

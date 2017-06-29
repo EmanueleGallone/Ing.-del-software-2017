@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
 public class ConnectionHandler {
 	
 	private final int MAX_SIZE = 4; 
-	private final int START_SIZE = 1;
+	private final int START_SIZE = 2;
 	private long delay = 2000; //60000; //va caricato da file
 	Timer timer;
 	

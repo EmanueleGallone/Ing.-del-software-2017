@@ -2,10 +2,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class DecrementAction implements Action, Affecter<DecrementAction> {
+public class DecrementAction implements Action<DecrementAction> {
 
 	private ActionManager aManager;
 	private ResourceList resource;
@@ -29,7 +28,7 @@ public class DecrementAction implements Action, Affecter<DecrementAction> {
 		return aManager.getSubject().getResourceList().canSubtract(getResource());
 	}
 	
-//  _______________ Method for decorator system _____________________
+	// _________________________ Method for action system ________________________
 
 
 	@Override

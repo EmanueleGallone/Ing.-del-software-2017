@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.view.viewGenerica.components;
 
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualDevelopmentCardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualResourceView;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 

@@ -12,4 +12,7 @@ public interface ViewListener {
 	public void handle(MarketSelectedEvent marketSelectedEvent);
 	public void handle(ProductionSelectedEvent productionSelectedEvent);
 	public void handle(HarvestSelectedEvent harvestSelectedEvent);
+	public void handle(ResourceSelectedEvent resourceSelectedEvent);
+	public void handle(ConfirmEvent confirmEvent);
+	public void handle(EndTurnEvent endTurnEvent);
 }

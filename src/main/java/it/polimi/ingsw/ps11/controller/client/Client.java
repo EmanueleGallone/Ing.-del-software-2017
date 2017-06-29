@@ -10,6 +10,8 @@ import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
+import it.polimi.ingsw.ps11.model.modelEvents.ChooseResource;
+import it.polimi.ingsw.ps11.model.modelEvents.Conferma;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
 import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
@@ -41,11 +43,13 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		}
 	}
 	
+	
+	
 	private transient EventListener<MessageEvent> serverListener = new EventListener<MessageEvent>() {
 
 		@Override
 		public void handle(MessageEvent e) {
-			e.getMessage().accept(getThis());;		
+			e.getMessage().accept(getThis());		
 		}
 	};
 	
@@ -98,5 +102,16 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		view.update(playerUpdateEvent.getReceiver());
 		view.print();
 		view.out(playerUpdateEvent.getMessage());
+	}
+
+	@Override
+	public void handle(Conferma conferma) {
+		// TODO Auto-generated method stub
+		//Qua c'e' da mostrare il pannello di riepilogo
+	}
+
+	@Override
+	public void handle(ChooseResource chooseCost) {
+		// TODO Auto-generated method stub
 	}
 }

@@ -1,8 +1,12 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
@@ -11,6 +15,8 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.SpaceSelectedEve
 
 public class PlayState extends State{
 
+	
+	EventManager manager = new EventManager();
 	
 	public PlayState() {
 	
@@ -26,6 +32,16 @@ public class PlayState extends State{
 	}
 	
 // Events handling
+
+	@Override
+	public void handle(ConfirmEvent confirmEvent) {
+		
+	}
+	
+	@Override
+	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
+		
+	}
 	
 	@Override
 	public void handle(FamilySelectedEvent familySelectedEvent) {
@@ -34,9 +50,7 @@ public class PlayState extends State{
 	
 	@Override
 	public void handle(FloorSelectedEvent floorSelectedEvent) {
-		if(familySelectedCheck(floorSelectedEvent)){
-			
-		}
+		stateHandler().nextState(new FloorSelected(floorSelectedEvent));
 	}
 
 	@Override
@@ -49,7 +63,7 @@ public class PlayState extends State{
 	@Override
 	public void handle(ProductionSelectedEvent productionSelectedEvent) {
 		if(familySelectedCheck(productionSelectedEvent)){
-			
+			manager.invoke(ProductionSelectedEvent.class, productionSelectedEvent);
 		}
 	}
 
@@ -59,4 +73,11 @@ public class PlayState extends State{
 			
 		}
 	}
+
+	@Override
+	public void handle(EndTurnEvent endTurnEvent) {
+		stateHandler().getGameLogic().nextPlayer();
+	}
+
+
 }

@@ -15,7 +15,7 @@ public class MessageEvent {
 		this.message = message;
 		this.source = source;
 	}
-	
+
 	public Connection getSource() {
 		return source;
 	}

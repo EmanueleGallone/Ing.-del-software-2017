@@ -2,10 +2,11 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 
-public class IncrementAction implements Action, Affecter<IncrementAction> {
+public class IncrementAction implements Action<IncrementAction>, ResourceListener{
 
 	protected ActionManager aManager;
 	protected ResourceList resource;
@@ -29,7 +30,7 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 
 	@Override
 	public boolean isLegal() {
-		return true;
+		return (resource != null);
 	}
 
 	@Override
@@ -37,9 +38,14 @@ public class IncrementAction implements Action, Affecter<IncrementAction> {
 		aManager.getSubject().getResourceList().sum(resource);
 	}
 	
+	@Override
+	public void update(ResourceList resource) {
+		this.resource = resource;
+		if(isLegal())
+			perform();
+	}
 	
-	
-// _________________________ Method for decorator system ________________________
+// _________________________ Method for action system ________________________
 	
 
 	@Override

@@ -234,6 +234,8 @@ public class GraphicView extends View{
 //		list.add(resourceList2);
 //		
 //		System.out.println(tryout.update(list));
+		
+		
 
 	}
 }

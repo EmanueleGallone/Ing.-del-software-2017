@@ -5,5 +5,5 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 
 public interface Effect {
 
-	public Action get(ActionManager aManager);
+	public Action<?> get(ActionManager aManager);
 }

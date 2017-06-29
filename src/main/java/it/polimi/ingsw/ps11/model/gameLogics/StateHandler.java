@@ -1,9 +1,9 @@
-package it.polimi.ingsw.ps11.model.gameLogics.states;
+package it.polimi.ingsw.ps11.model.gameLogics;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.gameLogics.State;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -11,22 +11,33 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class StateHandler {
 
+	
+	// C'è da mettere il game e il player nel costruttore
+	
 	private State currState;
 	private State mainState;
 	private Player player;
-	private Game game;
+	private GameLogic gameLogic;
+	
+	private ActionManager aManager = new ActionManager(player);
 	
 	private EventHandler<ModelEventInterface> modelEvent = new EventHandler<>();
 	
-	public StateHandler(State startState) {
+	public StateHandler(GameLogic gameLogic,Player player) {
+		this.gameLogic = gameLogic;
+		this.player = player;
+	}
+	
+	public void start(State startState){
 		this.nextState(startState);
 		this.mainState = startState;
+		invoke(new GameStartedEvent(gameLogic.getGame()));
 	}
 	
-	public void start(){
-		invoke(new GameStartedEvent(game));
-	}
 	
+	public ActionManager actions() {
+		return aManager;
+	}
 	
 // Events handling 
 	
@@ -34,6 +45,9 @@ public class StateHandler {
 		viewEvent.accept(currState);
 	}
 	
+	/**
+	 * E' la funzione con cui le azioni inviano eventi alla view
+	 */
 	public void invoke(ModelEventInterface event){
 		event.setReceiver(player);
 	}
@@ -47,6 +61,7 @@ public class StateHandler {
 	public void nextState(State state){
 		state.setStateHandler(this);
 		this.currState = state;
+		state.notifyToClient();
 	}
 	
 	public void resetState(){
@@ -57,22 +72,22 @@ public class StateHandler {
 		return currState;
 	}
 	
+	
 // _________________________________________
 	
 	public void setMainState(State mainState) {
 		this.mainState = mainState;
 	}
-	public void setGame(Game game) {
-		this.game = game;
-	}
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
 
+	public GameLogic getGameLogic() {
+		return gameLogic;
+	}
 	
-	
-	public Game getGame() {
-		return game;
+	public Game getGame(){
+		return gameLogic.getGame();
 	}
 	public Player getPlayer() {
 		return player;
