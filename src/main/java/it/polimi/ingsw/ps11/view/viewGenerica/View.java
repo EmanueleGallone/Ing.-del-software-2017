@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.view.viewGenerica;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
@@ -62,8 +63,11 @@ public abstract class View implements ViewInterface, Runnable {
 	@Override
 	public void update(Player player) {
 		you.update(player);
-		
 	}
+	
+	//public abstract void update(FamilyMemberManager familyMemberManager);
+		
+	
 	
 	
 }

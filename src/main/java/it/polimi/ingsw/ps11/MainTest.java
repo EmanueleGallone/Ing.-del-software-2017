@@ -6,9 +6,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import it.polimi.ingsw.ps11.controller.client.Client;
+import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
+import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -16,6 +23,7 @@ import it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
@@ -27,13 +35,35 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.view.textualView.TextualView;
+import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
 public class MainTest {
 	
 	public static void main(String[] args){
-	
+		PlayerFactory factory = new PlayerFactory();
+		Player player1 = factory.newPlayer(0);
+		Player player2 = factory.newPlayer(1);
+		ArrayList<Player> players = new ArrayList<>();
+		players.add(player1);
+		players.add(player2);
 		
+		Game game = new Game(players);
 	
+		TextualView view = new TextualView();
+		
+		view.run();
+		view.update(game.getBoard());
+		//view.update(player1.getFamilyManager());
+		
+		ArrayList<ResourceList> list = new ArrayList<ResourceList>();
+		ResourceList resourceList = new ResourceList(new Coin(5));
+		resourceList.setResource(new Stone(8));
+		ResourceList resourceList2 = new ResourceList(new VictoryPoint(8));
+		list.add(resourceList);
+		list.add(resourceList2);
+		
+		view.update(list);
 	}
 	
 	

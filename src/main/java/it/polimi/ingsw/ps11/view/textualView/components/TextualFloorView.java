@@ -23,6 +23,7 @@ public class TextualFloorView extends FloorView {
 		TextualConsole console = new TextualConsole();
 		String card = "None";
 		String family = "None";
+		int actionCost = 1;
 		
 		if (floor != null && floor.getCard() != null)
 			card = floor.getCard().getName();
@@ -30,9 +31,12 @@ public class TextualFloorView extends FloorView {
 		if(floor != null && floor.getActionSpace().getFamilyMember() != null)
 			family = floor.getActionSpace().getFamilyMember().getClass().getSimpleName();
 		
+		//if(floor.getActionSpace().getActionCost() != null)
+			actionCost = floor.getActionSpace().getActionCost();
+		
 		console.print( "Floor " + (whichFloor + 1) 
 						+ "           Card: " + card 
-						+ console.printSpace(SPACE-card.length()) + "ActionCost: " + floor.getActionSpace().getActionCost()
+						+ console.printSpace(SPACE-card.length()) + "ActionCost: " + actionCost
 						+ console.printSpace(SPACE-family.length()) + "Occupied : " + family
 						+"\t"
 						);
