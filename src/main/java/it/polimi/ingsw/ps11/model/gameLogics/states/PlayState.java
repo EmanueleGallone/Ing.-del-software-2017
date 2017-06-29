@@ -4,6 +4,7 @@ import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
@@ -71,6 +72,11 @@ public class PlayState extends State{
 		if(familySelectedCheck(harvestSelectedEvent)){
 			
 		}
+	}
+
+	@Override
+	public void handle(EndTurnEvent endTurnEvent) {
+		stateHandler().getGameLogic().nextPlayer();
 	}
 
 

@@ -17,19 +17,21 @@ public class StateHandler {
 	private State currState;
 	private State mainState;
 	private Player player;
-	private Game game;
+	private GameLogic gameLogic;
 	
 	private ActionManager aManager = new ActionManager(player);
 	
 	private EventHandler<ModelEventInterface> modelEvent = new EventHandler<>();
 	
-	public StateHandler(State startState) {
-		this.nextState(startState);
-		this.mainState = startState;
+	public StateHandler(GameLogic gameLogic,Player player) {
+		this.gameLogic = gameLogic;
+		this.player = player;
 	}
 	
-	public void start(){
-		invoke(new GameStartedEvent(game));
+	public void start(State startState){
+		this.nextState(startState);
+		this.mainState = startState;
+		invoke(new GameStartedEvent(gameLogic.getGame()));
 	}
 	
 	
@@ -59,6 +61,7 @@ public class StateHandler {
 	public void nextState(State state){
 		state.setStateHandler(this);
 		this.currState = state;
+		state.notifyToClient();
 	}
 	
 	public void resetState(){
@@ -69,22 +72,22 @@ public class StateHandler {
 		return currState;
 	}
 	
+	
 // _________________________________________
 	
 	public void setMainState(State mainState) {
 		this.mainState = mainState;
 	}
-	public void setGame(Game game) {
-		this.game = game;
-	}
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
 
+	public GameLogic getGameLogic() {
+		return gameLogic;
+	}
 	
-	
-	public Game getGame() {
-		return game;
+	public Game getGame(){
+		return gameLogic.getGame();
 	}
 	public Player getPlayer() {
 		return player;

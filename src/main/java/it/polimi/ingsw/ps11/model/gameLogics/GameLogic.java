@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -19,7 +20,7 @@ public class GameLogic implements Runnable{
 		
 		game = new Game(players);
 		for(Player player : players){
-			playerStatus.put(player, new StateHandler(new PlayState()));
+			playerStatus.put(player, new StateHandler(this,player));
 		}
 	}
 
@@ -33,11 +34,19 @@ public class GameLogic implements Runnable{
 			playerState.attach(listener);
 		}
 	}
+	
+	public void nextPlayer(){
+		for(StateHandler playerState : playerStatus.values()){
+			playerState.nextState(new DefaultState());
+		}
+		Player player = game.getRoundManager().next();
+		playerStatus.get(player).nextState(new PlayState());
+	}
 
 	@Override
 	public void run() {
 		for(StateHandler playerState : playerStatus.values()){
-			playerState.start();
+			playerState.start(new DefaultState());
 		}
 	}
 
