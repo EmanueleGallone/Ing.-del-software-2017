@@ -34,6 +34,10 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		throw new IllegalArgumentException();
 	}
 	
+	public int getPlayerNumber() {
+		return playerNumber;
+	}
+	
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		//deve esserci override per il posizionamento del familiare su quale spazio azione

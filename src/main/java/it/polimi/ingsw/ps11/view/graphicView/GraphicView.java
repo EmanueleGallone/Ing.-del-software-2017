@@ -6,33 +6,47 @@ import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextPane;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.zones.Floor;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicActionSpace;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicCooseResourceListPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
-
+/**
+ * <h3> Graphic View</h3>
+ * <p> Classe che rappresenta la finestra generale della GUI, contiene un JPanel per la board Superiore(torri, chiesa e consiglio),
+ * un JDialog per la board Inferiore(zone raccolta e produzione, mercato e dadi) un JPanel per la board Personale e un JTextPane per
+ * la console vhe visualizza i messaggi  </p>
+ * @see GraphicBoardView 
+ * @see GraphicPlayerView 
+ * @see GraphicConsole
+ */
 public class GraphicView extends View{
 
-	JFrame window = new JFrame();							//Finestra Generale				
-	protected JOptionPane exit;								//Finestra che si apre quando si vuole chiudere il gioco
-	protected JDialog slidePanel;							//Pannello interno alla slideBoardView
-	
+	JFrame window = new JFrame();												//Finestra Generale				
+	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
+	protected JPanel boardPanel, playerPanel;									//Pannelli boardPrincipale e boardPersonale
+	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
+	protected JTextPane consolePanel;
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
+
 	public GraphicView() {
-		you = new GraphicPlayerView();						//Board personale	
-		boardView = new GraphicBoardView();					//Board generale
-		console = new GraphicConsole();						//Console per la gestione dei messaggi
+		you = new GraphicPlayerView();											//Board personale	
+		boardView = new GraphicBoardView();										//Board generale
+		console = new GraphicConsole();											//Console per la gestione dei messaggi
 	}
 	
 	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
@@ -51,7 +65,7 @@ public class GraphicView extends View{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
         window.pack();
-        
+                
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
                 
 		GridBagLayout gblView = new GridBagLayout();
@@ -66,17 +80,11 @@ public class GraphicView extends View{
         GraphicConsole graphicConsole = new GraphicConsole();
 		JButton exitButton = new JButton("X");
                
-        JPanel boardPanel = graphicBoardView.getMainBoard().getComponent();
-        slidePanel = graphicBoardView.getSlideBoard().getComponent();
-        JPanel playerlPanel = graphicPlayerView.getComponent();
-        JTextPane consolePanel = graphicConsole.getComponent();
-		JTabbedPane allPlayers = new JTabbedPane();
-		allPlayers.add("<html><body><table width='200'><tr><td>" + "YOU" + "</td></tr></table></body></html>", playerlPanel);
-       
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
-        slidePanel.setBounds(0, (int)Math.round(screenSize.getHeight()*0.695), 
-        					(int)Math.round(screenSize.getWidth()*0.467), (int)Math.round(screenSize.getHeight()*0.305));
-        
+        boardPanel = graphicBoardView.getMainBoard().getComponent();
+        slideDialog = graphicBoardView.getSlideBoard().getComponent();
+        playerPanel = graphicPlayerView.getComponent();
+        consolePanel = graphicConsole.getComponent();
+               
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayers = new GridBagConstraints();
 		GridBagConstraints gbcConsole = new GridBagConstraints();
@@ -92,8 +100,8 @@ public class GraphicView extends View{
 		gbcPlayers.gridy = 1;
 		gbcPlayers.gridwidth = 2;
 		gbcPlayers.fill = GridBagConstraints.BOTH;
-		allPlayers.setPreferredSize(new Dimension(10, 10));
-		window.add(allPlayers, gbcPlayers);
+		playerPanel.setPreferredSize(new Dimension(10, 10));
+		window.add(playerPanel, gbcPlayers);
 		
 		gbcConsole.gridx = 1;
 		gbcConsole.gridy = 0;
@@ -107,6 +115,9 @@ public class GraphicView extends View{
 		gbcTurn.gridy = 0;
 		gbcTurn.fill = GridBagConstraints.BOTH;
 		window.add(playersTurn, gbcTurn);
+		
+        slideDialog.setBounds(0, (int)Math.round(screenSize.getHeight()*0.695), 
+				(int)Math.round(screenSize.getWidth()*0.467), (int)Math.round(screenSize.getHeight()*0.305));
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 				    
@@ -123,6 +134,7 @@ public class GraphicView extends View{
 		this.console = graphicConsole;
         
         graphicBoardView.attachSlideListener(new ShowPanel());						//listener per il bottone che fa entrare il pannello della slideBoardView
+        graphicBoardView.attachChangePlayer(new ChangePlayer());
         
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
@@ -133,14 +145,38 @@ public class GraphicView extends View{
 
 	@Override
 	public void run() {
-		String input;
-		while (!(input = console.read()).equals("q")){
-			selectComponent(input);
-		}
+		
 	}
 	
-	public void selectComponent(String input){
+	public int confirm(Floor floor){
+		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(floor);
+		int servants = -1;
+		window.setEnabled(false);
+		confirmPanelView.setBounds((int)Math.round(screenSize.getHeight()*0.5), (int)Math.round(screenSize.getHeight()*0.3), 
+				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.462));
+		confirmPanelView.setUndecorated(true);
+		confirmPanelView.setVisible(true);
+		servants = confirmPanelView.getConfirm();
+		confirmPanelView.dispose();
+		return servants;
+	}
+	
+	public ResourceList update(ArrayList<ResourceList> resourceLists){
 		
+		GraphicCooseResourceListPanel chooseResource = new GraphicCooseResourceListPanel(resourceLists);
+		int choice = -1;
+		while(choice < 0){
+		window.setEnabled(false);
+		chooseResource.setBounds((int)Math.round(screenSize.getHeight()*0.85), (int)Math.round(screenSize.getHeight()*0.4), 
+								 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
+		chooseResource.setUndecorated(true);
+		chooseResource.setVisible(true);
+		choice = chooseResource.getChoice();
+		chooseResource.dispose();
+		}
+		window.setEnabled(true);
+		return resourceLists.get(choice);
+
 	}
 	
 	private class Close implements ActionListener {			
@@ -152,7 +188,7 @@ public class GraphicView extends View{
 					JOptionPane.ERROR_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) 
 					{
 					window.dispose();
-					slidePanel.dispose();
+					slideDialog.dispose();
 					}
 		}
 	}
@@ -160,31 +196,44 @@ public class GraphicView extends View{
 	public class ShowPanel implements ActionListener {			
 		@Override
 		public void actionPerformed(ActionEvent e) {			
-			slidePanel.setVisible(true);
+			slideDialog.setVisible(true);
 			}
 		}
+	
+	public class ChangePlayer implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			int playerIndex = Integer.parseInt(((GraphicActionSpace) event.getSource()).getName());
+			you.update(game.getRoundManager().getCurrentOrder().get(playerIndex));
+		}
+		
+	}
 
 	public static void main(String[] args) {
 		GraphicView tryout = new GraphicView();
 		tryout.print();
+		
+//		ArrayList<Resource> array1 = new ArrayList<>();
+//		array1.add(new Coin(3));
+//		array1.add(new Wood(5));
+//		array1.add(new FaithPoint(2));
+//		array1.add(new VictoryPoint(4));
+//		
+//		ArrayList<Resource> array2 = new ArrayList<>();
+//		array2.add(new Servant(3));
+//		array2.add(new Stone(5));
+//		array2.add(new MilitaryPoint(2));
+//		array2.add(new VictoryPoint(4));
+//		
+//		ResourceList resourceList1 = new ResourceList(array1), 
+//				resourceList2 = new ResourceList(array2);
+//		
+//		ArrayList<ResourceList> list = new ArrayList<>();
+//		list.add(resourceList1);
+//		list.add(resourceList2);
+//		
+//		System.out.println(tryout.update(list));
+
 	}
 }
-
-//
-//public class BoardListener implements EventListener<ViewEventInterface>{
-//
-//	@Override
-//	public void handle(ViewEventInterface e) {
-//		System.out.println("BoardSelected");
-//	}
-//	
-//}
-//
-//public class PlayerListener implements EventListener<ViewEventInterface>{
-//
-//	@Override
-//	public void handle(ViewEventInterface e) {
-//		System.out.println("PlayerSelected");
-//	}
-//	
-//}

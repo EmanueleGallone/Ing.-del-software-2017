@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import it.polimi.ingsw.ps11.model.dices.BlackDice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.dices.OrangeDice;
+import it.polimi.ingsw.ps11.model.dices.WhiteDice;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
@@ -33,11 +35,11 @@ public class FamilyMemberTest {
 		DiceManager dice = new DiceManager();
 		dice.rollDices();
 		
-		black.setValue(dice.getBlackDice().getValue());
-		white.setValue(dice.getWhiteDice().getValue());
-		orange.setValue(dice.getOrangeDice().getValue());
+		black.setValue(dice.getDice(BlackDice.class).getValue());
+		white.setValue(dice.getDice(WhiteDice.class).getValue());
+		orange.setValue(dice.getDice(OrangeDice.class).getValue());
 		
-		BlackDice blackDice = dice.getBlackDice();
+		BlackDice blackDice = dice.getDice(BlackDice.class);
 		BlackDice blackClone = blackDice.clone();
 		
 		Assert.assertTrue(blackClone.getValue() == blackDice.getValue());

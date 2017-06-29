@@ -145,6 +145,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		return getResource(rClass.toString());
 	}
 	
+	@SuppressWarnings("unchecked")
 	public <T extends Resource> T getResource(String rType){
 		return (T) resources.get(rType);
 	}

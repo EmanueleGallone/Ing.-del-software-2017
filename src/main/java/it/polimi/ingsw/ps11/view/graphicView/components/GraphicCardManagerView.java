@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
@@ -24,6 +25,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	protected String arrayDeckType[] = { "Territories Cards", "Characters Cards", 
 										 "Buildings Cards", "Ventures Cards"};
 	protected JToggleButton[] arrayJTButton;
+	protected ArrayList<GraphicPaintedPanel> allDecks = new ArrayList<>();
 	protected ButtonGroup buttonGroup;
 
 	public GraphicCardManagerView() {
@@ -88,6 +90,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			deck.setLayout(gblDecks);
 			
 			overlayedDecksPanel.add(deck, arrayDeckType[i]);
+			allDecks.add(deck);
 		}
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -111,6 +114,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		super.update(cardManager);
 		
     	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
+    	int decks = 0;
     	
 		for (String deck : cardManager.getAllCards().keySet()) {
 			
@@ -118,14 +122,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
-				GraphicPaintedButton cardButton = new GraphicPaintedButton();
-				cardButton.loadImage("cards/" + deck + "/" + card.getName());
+				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView();
+				cardButton.getComponent().loadImage("cards/" + deck + "/" + card.getName());
 				GridBagConstraints gbcCard = new GridBagConstraints();
 				gbcCard.gridx = cards;
 				gbcCard.insets = new Insets(10, 10, 10, 10);
 				gbcCard.fill = GridBagConstraints.BOTH;
-				//cl.getComponent(deck).add(cardButton, gbcCard);			NON SO SE ESISTA UN COMANDO SIMILE
-				
+				allDecks.get(decks).add(cardButton.getComponent(), gbcCard);				
 			}
 		}
 	}

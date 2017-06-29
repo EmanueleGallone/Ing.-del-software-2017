@@ -20,6 +20,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
  */
 public abstract class View implements ViewInterface, Runnable {
 	
+	protected Game game;
 	protected PlayerView you;
 	protected BoardView boardView;
 	protected Console console;

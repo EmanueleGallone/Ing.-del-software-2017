@@ -198,18 +198,12 @@ public class CardsPackageTest {
 	public void CostsCardTest(){	//----------COSTS TEST----------//
 		
 		bCard.setCosts(arrayListResourceCostCoin);
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostCoin));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostServant));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostStone));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostWood));
-
+		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostCoin));
+		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostServant));
+		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostStone));
+		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostWood));
 		
 		//assertTrue(bCard.take(player, resourceListCostCoin));
-		
-		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostCoin));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostServant));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostStone));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostWood));
 		
 		ResourceList mixed = new ResourceList();	//LA MIXED HA UNA COIN E UNA STONE, IL GIOCATORE UN SERVANT, UNA STONE, UN WOOD
 		mixed.setResource(coin);					//AL GIOCATORE MANCA UNA COIN -> NON PUò PRENDERE LA CARTA
@@ -228,12 +222,12 @@ public class CardsPackageTest {
 
 		player.getResourceList().setResource(new Coin(9));
 		
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostCoin));
+		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostCoin));
 //		for(int i=0; i<=6; i++){
 //		assertTrue(bCard.take(player, resourceListCostCoin)); 		//IL GIOCATORE PUò PRENDERE 7 CARTE BLU, POI FINISCONO GLI SPAZI
 //		}
 //		assertFalse(bCard.take(player, resourceListCostCoin));
-		assertTrue(bCard.checkCost(player.getResourceList(), resourceListCostCoin)); //NONOSTANTE ABBIA LE RISORSE NON HA GLI SPAZI
+		assertFalse(bCard.checkCost(player.getResourceList(), resourceListCostCoin)); //NONOSTANTE ABBIA LE RISORSE NON HA GLI SPAZI
 		//assertEquals( 44, player.getResourceList().getResource(coin));		NON LO PRENDE?
 		
 		/*assertTrue(gCard.checkCost(player.getResourceList(), resourceListCostCoin));

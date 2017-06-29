@@ -12,7 +12,9 @@ public class GraphicChurchView extends ChurchView {
 	
 	@Override
 	public void print(){
-		church.loadImage("boardImages/Church.png"); //     ./../../../../settings/
+		church.loadImage("boardImages/Church.png");
+		//church.loadImage("C:\\Users\\Gabs3\\Desktop\\ProgettoIngSoft\\Ing.-del-software-2017\\src\\main\\java\\it\\polimi\\ingsw\\ps11\\view\\graphicView\\components\\boardImages\\Church.png");
+		//church.loadImage("./../../../../../../../it/polimi/ingsw/ps11/view/graphicView/components/boardImages/Church.png");
 	}
 
 	public JPanel getComponent() {

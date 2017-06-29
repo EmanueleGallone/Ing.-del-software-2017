@@ -14,6 +14,7 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 	//JButton con immagine fissa, usato per i familiari
 	
 	protected BufferedImage background;
+	private boolean painted = false;
 	
 	public GraphicPaintedButton() {
 	}
@@ -21,14 +22,16 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 	@Override
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			if(painted){
 			Dimension size = getSize();
 			g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
-		 
+			}
 		}
 	
 	@Override
 	public void loadImage(String url){
 		
+		painted = true;
 		URL imagePath = getClass().getResource(url);
 		BufferedImage result = null;
 		try {

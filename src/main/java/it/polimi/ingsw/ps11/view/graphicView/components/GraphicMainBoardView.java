@@ -13,6 +13,7 @@ import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
@@ -60,7 +61,7 @@ public class GraphicMainBoardView extends BoardView{
 		GridBagLayout gblMainBoard = new GridBagLayout();
 		gblMainBoard.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 		gblMainBoard.rowHeights = new int[]{0, 0, 0};
-		gblMainBoard.columnWeights = new double[]{0.024774, 0.236987, 0.193944, 0.043043, 0.236987, 0.236987, 0.027277, Double.MIN_VALUE};
+		gblMainBoard.columnWeights = new double[]{0.016, 0.236987, 0.193944, 0.043043, 0.236987, 0.236987, 0.027277, Double.MIN_VALUE};
 		gblMainBoard.rowWeights = new double[]{0.762163, 0.237837, Double.MIN_VALUE};
 		mainBoard.setLayout(gblMainBoard);
 		
@@ -168,6 +169,10 @@ public class GraphicMainBoardView extends BoardView{
 
 	public void attachSlideListener(ShowPanel showPanel) {				//Se viene cliccato il pulsante, mostra la parte nascosta della board
 		graphicCouncilPalaceView.attachSlideListener(showPanel);
+	}
+
+	public void attachChangePlayer(ChangePlayer changePlayer) {
+		graphicCouncilPalaceView.attachChangePlayer(changePlayer);
 	}
 
 }
