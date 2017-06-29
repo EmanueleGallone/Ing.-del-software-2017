@@ -19,10 +19,7 @@ public class GraphicFloorView extends FloorView{
 	//Piano della torre, ha la classe della torre e un int per il piano
 	
 	protected JPanel floor = new JPanel();
-//	protected GraphicPaintedButton card = new GraphicPaintedButton(), 
-//								   actionSpace = new GraphicPaintedButton(); 
-	
-	protected JButton card;
+	protected GraphicDevelopmentCardView cardView;
 	protected GraphicActionSpace actionSpace;
 	private Class<? extends Tower> whichTower;
 	private int whichFloor;
@@ -32,9 +29,11 @@ public class GraphicFloorView extends FloorView{
 		this.whichTower = whichTower;
 		this.whichFloor = whichFloor;
 		this.cardView = new GraphicDevelopmentCardView();
-		card = new JButton();
+		cardView = new GraphicDevelopmentCardView();
 		actionSpace = new GraphicActionSpace(whichTower.getClass().getSimpleName() + " " + (4-whichFloor));
+		actionSpace.setContentAreaFilled(false);
 		actionSpace.addActionListener(new FloorSelectedListener());
+		cardView.getComponent().setContentAreaFilled(false);
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public class GraphicFloorView extends FloorView{
 		gbcCard.gridheight = 3;
 		gbcCard.insets = new Insets(10, 7, 0, 0);
 		gbcCard.fill = GridBagConstraints.BOTH;
-		floor.add(card, gbcCard);
+		floor.add(cardView.getComponent(), gbcCard);
 		
 		gbcActionSPace.gridx = 2;
 		gbcActionSPace.gridy = 1;
@@ -85,12 +84,13 @@ public class GraphicFloorView extends FloorView{
 	@Override
 	public void update(Floor floor) {
 		super.update(floor);
+		
 		if(!(floor.getActionSpace().getFamilyMember() == null)){
-			String owner = floor.getActionSpace().getOwner().getColor().toString(),
-			member = floor.getActionSpace().getFamilyMember().getClass().getSimpleName();
-			actionSpace.loadImage("playerImages/" + owner + " " + member);
+			actionSpace.loadImage("playerImages/" + floor.getActionSpace().getOwner().getColor().toString() + 
+					" " + floor.getActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
-//		if(!(floor.getCard() == null)) this.card.loadImage("" + floor.getCard().getName() + ".png");
+		
+		if(!(floor.getCard() == null)) this.cardView.print(floor.getCard().getName());
 		this.floor.repaint();
 	}
 }

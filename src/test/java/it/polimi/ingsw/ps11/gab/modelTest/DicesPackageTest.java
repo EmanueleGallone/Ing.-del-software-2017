@@ -7,7 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.model.dices.BlackDice;
-import it.polimi.ingsw.ps11.model.dices.DiceManagerGab;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.dices.OrangeDice;
+import it.polimi.ingsw.ps11.model.dices.WhiteDice;
 
 public class DicesPackageTest {
 	
@@ -15,12 +17,12 @@ public class DicesPackageTest {
 	 * ESTERNO ALL ROLLDICE -> RENDERLO PRIVATE
 	 */
 
-	private DiceManagerGab diceManager, diceManagerClone;
+	private DiceManager diceManager, diceManagerClone;
 	
 	@Before
 	public void setting(){
 		
-		diceManager = new DiceManagerGab();
+		diceManager = new DiceManager();
 		
 	}
 	
@@ -28,27 +30,27 @@ public class DicesPackageTest {
 	public void RollTest(){
 		
 		diceManager.rollDices();
-		assertTrue(diceManager.getBlackDice().getValue()<7 && diceManager.getBlackDice().getValue()>0);
-		assertTrue(diceManager.getOrangeDice().getValue()<7 && diceManager.getOrangeDice().getValue()>0);
-		assertTrue(diceManager.getWhiteDice().getValue()<7 && diceManager.getWhiteDice().getValue()>0);
+		assertTrue(diceManager.getDice(BlackDice.class).getValue()<7 && diceManager.getDice(BlackDice.class).getValue()>0);
+		assertTrue(diceManager.getDice(OrangeDice.class).getValue()<7 && diceManager.getDice(OrangeDice.class).getValue()>0);
+		assertTrue(diceManager.getDice(WhiteDice.class).getValue()<7 && diceManager.getDice(WhiteDice.class).getValue()>0);
 		
 		diceManager.setDice(new BlackDice());
-		assertEquals(0, diceManager.getBlackDice().getValue());
+		assertEquals(0, diceManager.getDice(BlackDice.class).getValue());
 	}
 	
 	@Test
 	public void CloneAndGettersTest(){
 		
-		assertEquals(0, diceManager.getBlackDice().getValue());
-		assertEquals(0, diceManager.getOrangeDice().getValue());
-		assertEquals(0, diceManager.getWhiteDice().getValue());
+		assertEquals(0, diceManager.getDice(BlackDice.class).getValue());
+		assertEquals(0, diceManager.getDice(OrangeDice.class).getValue());
+		assertEquals(0, diceManager.getDice(WhiteDice.class).getValue());
 		
 		diceManager.rollDices();
 		diceManagerClone = diceManager.clone();
 		
-		assertEquals(diceManagerClone.getBlackDice().getValue(), diceManager.getBlackDice().getValue());
-		assertEquals(diceManagerClone.getOrangeDice().getValue(), diceManager.getOrangeDice().getValue());
-		assertEquals(diceManagerClone.getWhiteDice().getValue(), diceManager.getWhiteDice().getValue());
-		
+		assertEquals(diceManagerClone.getDice(BlackDice.class).getValue(), diceManager.getValueOf(BlackDice.class));
+		assertEquals(diceManagerClone.getDice(OrangeDice.class).getValue(), diceManager.getValueOf(OrangeDice.class));
+		assertEquals(diceManagerClone.getDice(WhiteDice.class).getValue(), diceManager.getValueOf(WhiteDice.class));
+				
 	}
 }

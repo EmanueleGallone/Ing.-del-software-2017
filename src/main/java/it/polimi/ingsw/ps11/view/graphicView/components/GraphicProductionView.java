@@ -16,10 +16,17 @@ public class GraphicProductionView extends ProductionView {
 	//Zona produzione, ha un single ActionSpace e un multiplo ActionSpace
 
 	protected GraphicPaintedPanel productionPanel = new GraphicPaintedPanel();
-	protected GraphicActionSpace singleActionSpace = new GraphicActionSpace("Production single"),
-			  					 multipleActionSpace = new GraphicActionSpace("Production multiple");
+	protected GraphicActionSpace singleActionSpace,
+			  					 multipleActionSpace;
 	
 	public GraphicProductionView() {
+		
+		singleActionSpace = new GraphicActionSpace("Production single");
+		multipleActionSpace = new GraphicActionSpace("Production multiple");
+		
+		singleActionSpace.setContentAreaFilled(false);
+		multipleActionSpace.setContentAreaFilled(false);
+		
 		singleActionSpace.addActionListener(new SingleProductionSelectedListener());
 		multipleActionSpace.addActionListener(new MultipleProductionSelectedListener());
 	}
@@ -78,9 +85,8 @@ public class GraphicProductionView extends ProductionView {
 	public void update(Yield production) {
 		super.update(production);
 		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
-			String singleOwner = production.getSingleActionSpace().getOwner().getColor().toString(),
-			singleMember = production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName();
-			singleActionSpace.loadImage("playerImages/" + singleOwner + " " + singleMember);
+			singleActionSpace.loadImage("playerImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
+					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
 		productionPanel.repaint();
 		//DA FARE IL MULTI

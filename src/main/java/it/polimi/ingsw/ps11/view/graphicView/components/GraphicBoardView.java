@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
@@ -37,6 +38,10 @@ public class GraphicBoardView extends BoardView {
 
 	public void attachSlideListener(ShowPanel showPanel) {					//attach la finestra principale al bottone interno
 		mainBoard.attachSlideListener(showPanel);
+	}
+
+	public void attachChangePlayer(ChangePlayer changePlayer) {
+		mainBoard.attachChangePlayer(changePlayer);
 	}
 
 }

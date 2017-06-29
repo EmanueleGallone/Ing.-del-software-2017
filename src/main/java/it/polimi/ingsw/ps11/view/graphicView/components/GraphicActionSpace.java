@@ -14,7 +14,7 @@ public class GraphicActionSpace extends JButton implements ToPaint{
 	//JButton con aggiunta di nome nel costruttore e immagine caricabile
 	
 	private String name;
-	private boolean painted = false;
+	//private boolean painted = false;
 	private BufferedImage background;
 	
 	public GraphicActionSpace(String name) {
@@ -28,17 +28,14 @@ public class GraphicActionSpace extends JButton implements ToPaint{
 	
 	@Override
 	public void paintComponent(Graphics g) {		//se è stata caricata l'iimagine, allora la mostra
-	 if(painted = true){
 		super.paintComponent(g);
 		Dimension size = getSize();
 		//g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
-	 }
 	}
 
 	@Override
 	public void loadImage(String url){				//riceve l'url dell'immagine da carica e la carica
 		
-		painted = true;
 		URL imagePath = getClass().getResource(url);
 		BufferedImage result = null;
 		try {

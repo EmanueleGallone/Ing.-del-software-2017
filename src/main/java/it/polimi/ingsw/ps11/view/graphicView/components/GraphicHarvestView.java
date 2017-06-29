@@ -20,6 +20,13 @@ public class GraphicHarvestView extends HarvestView {
 			  					 multipleActionSpace = new GraphicActionSpace("Harvest multiple");
 	
 	public GraphicHarvestView() {
+		
+		singleActionSpace = new GraphicActionSpace("Harvest single");
+		multipleActionSpace = new GraphicActionSpace("Harvest multiple");
+		
+		singleActionSpace.setContentAreaFilled(false);
+		multipleActionSpace.setContentAreaFilled(false);
+		
 		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
 		multipleActionSpace.addActionListener(new MultipleHarvestSelectedListener());
 		}
@@ -77,11 +84,12 @@ public class GraphicHarvestView extends HarvestView {
 	@Override
 	public void update(Yield harvest) {
 		super.update(harvest);
+		
 		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
-			String singleOwner = harvest.getSingleActionSpace().getOwner().getColor().toString(),
-			singleMember = harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName();
-			singleActionSpace.loadImage("playerImages/" + singleOwner + " " + singleMember);
+			singleActionSpace.loadImage("playerImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
+					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
+		
 		harvestPanel.repaint();
 		//DA FARE IL MULTI
 	}
