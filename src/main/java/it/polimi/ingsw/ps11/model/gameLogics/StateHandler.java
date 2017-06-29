@@ -11,9 +11,6 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class StateHandler {
 
-	
-	// C'è da mettere il game e il player nel costruttore
-	
 	private State currState;
 	private State mainState;
 	private Player player;

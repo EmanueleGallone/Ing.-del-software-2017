@@ -64,9 +64,8 @@ public class TextualView extends View {
 	
 	@Override
 	public void print() {
-		//questo metodo potrebbe essere eliminato
-		//boardView.print();
-		//you.print();
+		boardView.print();
+		you.print();
 		console.println(instructions); 
 
 	}

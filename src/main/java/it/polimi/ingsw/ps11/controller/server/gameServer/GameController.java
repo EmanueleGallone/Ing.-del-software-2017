@@ -46,7 +46,7 @@ public class GameController implements MessageListener,Runnable {
 	
 	public Connection getClient(Player player) throws IllegalArgumentException{
 		for (Connection c : clients.keySet()){
-			if(player.equals(this.clients.get(clients))){
+			if(player.equals(this.clients.get(c))){
 				return c;
 			}
 		}

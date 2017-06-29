@@ -49,7 +49,6 @@ public class GameLogic implements Runnable{
 		for(StateHandler playerState : playerStatus.values()){
 			playerState.start();
 		}
-		System.out.println("Ho finito la run di gameLogic");
 	}
 
 // Handle events from view

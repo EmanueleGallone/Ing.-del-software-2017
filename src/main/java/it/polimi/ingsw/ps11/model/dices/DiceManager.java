@@ -1,9 +1,10 @@
 package it.polimi.ingsw.ps11.model.dices;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class DiceManager implements Iterable<Dice>{
+public class DiceManager implements Iterable<Dice>, Serializable{
 	
 	private static final int DEFAULT_VALUE = 0;
 	private HashMap<String, Dice> dices = new HashMap<>();

@@ -46,7 +46,7 @@ public class MainTest {
 		card.addPermanentEffect(new CouncilPrivilege(council));
 		
 		card.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2));
-		card.addPermanentEffect(new CardDiscount(new ResourceList(new Coin(1))));
+		card.addPermanentEffect(new CardDiscount(BlueCard.class,new ResourceList(new Coin(1))));
 		card.addPermanentEffect(new ActiveYieldEffect(YellowCard.class.toString(), 2));
 	}	
 	
