@@ -4,17 +4,14 @@ package it.polimi.ingsw.ps11.view.textualView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Semaphore;
 
-import it.polimi.ingsw.ps11.model.events.Event;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
+import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
@@ -23,8 +20,9 @@ import it.polimi.ingsw.ps11.view.textualView.components.Input;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseFamilyView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceView;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
-import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
@@ -73,7 +71,7 @@ public class TextualView extends View {
 
 	}
 
-	//@Override
+	@Override
 	public void run() {
 		waitInput();
 	}
@@ -81,7 +79,6 @@ public class TextualView extends View {
 	private void waitInput(){
 		String command;
 		while (!(command = input.read()).equals("q")){
-
 			if(commands.get(command) != null){
 				viewEvent.invoke(commands.get(command));
 				console.println("debug: hai selezionato l'evento : " + commands.get(command).getClass().getSimpleName());
@@ -99,6 +96,7 @@ public class TextualView extends View {
 		new TextualPlayerView(player).print();
 	}
 	
+	@Override
 	public void update(FamilyMemberManager familyMemberManager){
 		TextualChooseFamilyView chooser = new TextualChooseFamilyView(input, familyMemberManager, this.viewEvent);
 		chooser.print();
@@ -106,10 +104,40 @@ public class TextualView extends View {
 		input.attach(chooser);
 	}
 	
-	public void update(ArrayList<ResourceList> costs){ 
+	@Override
+	public void chooseResource(ArrayList<ResourceList> costs){ 
 		TextualChooseResourceView chooser = new TextualChooseResourceView(input, costs, this.viewEvent);
 		chooser.print();
 		input.attach(chooser);
+	}
+	
+	@Override
+	public void confirm(ConfirmEvent confirm) {
+		Floor floor = confirm.getFloor();
+		TextualFloorView floorView = new TextualFloorView(null,0);
+		floorView.update(floor);
+		floorView.print();
+		console.println(confirm.getMessage());
+		console.println("Select servant number or press -1 to abort");
+		
+		input.attach(new EventListener<String>() {
+			
+			@Override
+			public void handle(String e) {
+				int parsed;
+				try {
+					parsed = Integer.parseInt(e);
+					if(parsed >= 0){
+						viewEvent.invoke(new ConfirmViewEvent(true,parsed));
+					}
+						
+				} catch (NumberFormatException e1) {
+					new TextualConsole().println("Choice not valid!");
+				}finally{
+					input.detach(this);
+				}
+			}
+		});
 	}
 	
 	private void initializeEventMap(){
@@ -135,12 +163,7 @@ public class TextualView extends View {
 		commands.put("market 2", new MarketSelectedEvent(2));
 		commands.put("market 3", new MarketSelectedEvent(3));
 		commands.put("market 4", new MarketSelectedEvent(4));
-		
-		commands.put("orange family", new FamilySelectedEvent(OrangeFamilyMember.class));
-		commands.put("black family", new FamilySelectedEvent(BlackFamilyMember.class));
-		commands.put("white family", new FamilySelectedEvent(WhiteFamilyMember.class));
-		commands.put("neutral family", new FamilySelectedEvent(NeutralFamilyMember.class));
-		
+
 		commands.put("production" , new ProductionSelectedEvent()); //manca l'harvest
 	}
 	

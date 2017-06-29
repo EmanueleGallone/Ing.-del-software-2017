@@ -28,9 +28,7 @@ public class StateHandler {
 		this.player = player;
 	}
 	
-	public void start(State startState){
-		this.nextState(startState);
-		this.mainState = startState;
+	public void start(){
 		invoke(new GameStartedEvent(gameLogic.getGame()));
 	}
 	
@@ -50,6 +48,7 @@ public class StateHandler {
 	 */
 	public void invoke(ModelEventInterface event){
 		event.setReceiver(player);
+		modelEvent.invoke(event);
 	}
 	
 	public void attach(EventListener<ModelEventInterface> listener){

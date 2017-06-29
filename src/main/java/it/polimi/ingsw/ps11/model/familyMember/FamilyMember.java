@@ -19,6 +19,7 @@ public abstract class FamilyMember implements Serializable{
 	
 	protected int value; 
 	protected int modifier;
+	private boolean used = false;
 	
 	
 	public FamilyMember(){
@@ -47,6 +48,14 @@ public abstract class FamilyMember implements Serializable{
 	}
 	
 	public abstract boolean isNeutral();
+	
+	public boolean isUsed() {
+		return used;
+	}
+	
+	public void setUsed(boolean used) {
+		this.used = used;
+	}
 	
 	@Override
 	public abstract FamilyMember clone();

@@ -25,10 +25,7 @@ public abstract class View implements ViewInterface, Runnable {
 	protected PlayerView you;
 	protected BoardView boardView;
 	protected Console console;
-
 	
-	protected EventManager events = new EventManager();
-
 	protected EventHandler<ViewEventInterface> viewEvent = new EventHandler<>();
 
 	@Override
@@ -65,11 +62,5 @@ public abstract class View implements ViewInterface, Runnable {
 	public void update(Player player) {
 		you.update(player);
 	}
-	
-	//public abstract void update(FamilyMemberManager familyMemberManager);
-	//public abstract void update(ArrayList<ResourceList> costs);
-		
-	
-	
-	
+
 }

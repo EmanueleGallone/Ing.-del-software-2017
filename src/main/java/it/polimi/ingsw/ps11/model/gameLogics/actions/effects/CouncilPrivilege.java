@@ -15,6 +15,10 @@ public class CouncilPrivilege implements Effect {
 	
 	}
 	
+	public CouncilPrivilege(ArrayList<ResourceList> resources) {
+		this.resources = resources;
+	}
+	
 	public void setResources(ArrayList<ResourceList> resources) {
 		this.resources = resources;
 	}

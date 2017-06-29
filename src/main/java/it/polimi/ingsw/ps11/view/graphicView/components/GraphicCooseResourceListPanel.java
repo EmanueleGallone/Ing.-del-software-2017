@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -15,19 +14,24 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import it.polimi.ingsw.ps11.model.resources.Resource;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class GraphicCooseResourceListPanel extends JDialog{
+	// Da aggiornare, deve estendere ChooseResourceView
 	
 	ButtonGroup selectResourceList = new ButtonGroup(); 
-	boolean chosen = false;
+	private EventHandler<ViewEventInterface> eventHandler;
 	
-	public GraphicCooseResourceListPanel(ArrayList<ResourceList> resourceLists) {
+	public GraphicCooseResourceListPanel(EventHandler<ViewEventInterface> viewEvent, ArrayList<ResourceList> resourceLists) {
+		
+		this.eventHandler = viewEvent;
+		//this.cost = resourceLists;
 		
 		GridBagLayout gblDialog = new GridBagLayout();
 		gblDialog.columnWidths = new int[]{0, 0};
@@ -59,6 +63,8 @@ public class GraphicCooseResourceListPanel extends JDialog{
 		getContentPane().add(confirm, gbc);
 		
 	}
+	
+	
 
 	public class ShowResourceList extends JPanel{
 		public ShowResourceList(ResourceList resourceList) {
@@ -71,25 +77,19 @@ public class GraphicCooseResourceListPanel extends JDialog{
 			selectResourceList.add(selector);
 			add(selector);
 			add(resources);
-		}	
+		}
 	}
 	
 	public class ChoiceMade implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			chosen = true;
-	}
+			int i = getChoice();
+			//eventHandler.invoke(new ResourceSelectedEvent(cost.get(i)));
+		}
 	}
 
 	public int getChoice(){
-		
-		while(!chosen)
-			try {
-				TimeUnit.MILLISECONDS.sleep(250);
-			} catch (InterruptedException e) {
-				System.err.println("Errore nel timer");
-			}
 		int i = 0;
         for (Enumeration<AbstractButton> buttons = selectResourceList.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();

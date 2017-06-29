@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
-import it.polimi.ingsw.ps11.model.zones.Floor;
-
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
@@ -9,7 +7,6 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 public class TextualFloorView extends FloorView {
 
 	private final int SPACE = 20;
-
 	
 	public TextualFloorView(Class<? extends Tower> whichTower, int whichFloor) {
 		super(whichTower, whichFloor);

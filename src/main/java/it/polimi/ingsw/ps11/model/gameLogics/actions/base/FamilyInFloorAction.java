@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
 public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedConfirm{
 	
@@ -14,7 +14,7 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 	protected FamilyInSpaceAction spaceAction;
 	protected GetCardAction getCard;
 	
-	private ConfirmEvent confermed;
+	private ConfirmViewEvent confermed;
 	
 	public FamilyInFloorAction() {
 		
@@ -64,7 +64,7 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 	}
 
 	@Override
-	public void notifyConfirm(ConfirmEvent confirm) {
+	public void notifyConfirm(ConfirmViewEvent confirm) {
 		this.confermed = confirm;
 		spaceAction.getServantAction().setServant(confirm.getServant());
 		if(isLegal())

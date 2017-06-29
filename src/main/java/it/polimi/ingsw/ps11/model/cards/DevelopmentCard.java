@@ -80,6 +80,13 @@ public abstract class DevelopmentCard extends Card {
 		return permanentEffect;
 	}
 
+	public void addIstantEffect(Effect istantEffect) {
+		this.istantEffect.add(istantEffect);
+	}
+	
+	public void addPermanentEffect(Effect permanentEffect) {
+		this.permanentEffect.add(permanentEffect);
+	}
 
 // Start setters
 	

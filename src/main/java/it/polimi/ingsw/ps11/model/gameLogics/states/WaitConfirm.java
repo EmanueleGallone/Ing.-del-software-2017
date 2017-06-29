@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
-import it.polimi.ingsw.ps11.view.viewEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
 public class WaitConfirm extends PlayState {
 
@@ -12,7 +12,7 @@ public class WaitConfirm extends PlayState {
 	}
 	
 	@Override
-	public void handle(ConfirmEvent confirmEvent) {
+	public void handle(ConfirmViewEvent confirmEvent) {
 		action.notifyConfirm(confirmEvent);
 	}
 }

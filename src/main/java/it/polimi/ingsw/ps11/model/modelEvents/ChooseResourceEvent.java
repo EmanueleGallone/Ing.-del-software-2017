@@ -4,11 +4,11 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 import java.util.ArrayList;
 
-public class ChooseResource extends ModelEvent {
+public class ChooseResourceEvent extends ModelEvent {
 
 	private ArrayList<ResourceList> options;
 	
-	public ChooseResource(ArrayList<ResourceList> options) {
+	public ChooseResourceEvent(ArrayList<ResourceList> options) {
 		this.options = options;
 	}
 	

@@ -3,6 +3,13 @@ package it.polimi.ingsw.ps11;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.resources.Resource;
@@ -27,7 +34,20 @@ public class MainTest {
 	
 	public static void main(String[] args){
 
-	
+		ArrayList<ResourceList> council = new ArrayList<>();
+		
+		
+		
+		
+		
+		DevelopmentCard card = new YellowCard();
+		
+		card.addIstantEffect(new AddResourceEffect(new ResourceList(new Coin(3))));
+		card.addPermanentEffect(new CouncilPrivilege(council));
+		
+		card.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2));
+		card.addPermanentEffect(new CardDiscount(new ResourceList(new Coin(1))));
+		card.addPermanentEffect(new ActiveYieldEffect(YellowCard.class.toString(), 2));
 	}	
 	
 	

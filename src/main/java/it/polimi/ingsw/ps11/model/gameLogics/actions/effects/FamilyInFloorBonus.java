@@ -1,22 +1,27 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.effects;
 
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyMemberAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 
 public class FamilyInFloorBonus implements Effect{
 
-	private String tower;
+	private String cardType;
 	private int value;
 	
-	public FamilyInFloorBonus(String tower, int value) {
-		this.tower = tower;
+	public FamilyInFloorBonus(Class<? extends DevelopmentCard> cardType, int value) {
+		this(cardType.toString(), value);
+	}
+	
+	public FamilyInFloorBonus(String cardType, int value) {
+		this.cardType = cardType;
 		this.value = value;
 	}
 	
 	@Override
 	public FamilyInFloorAction get(ActionManager aManager) {
-		return new FamilyMemberAffecter(tower, value);
+		return new FamilyMemberAffecter(cardType, value);
 	}
 
 }
