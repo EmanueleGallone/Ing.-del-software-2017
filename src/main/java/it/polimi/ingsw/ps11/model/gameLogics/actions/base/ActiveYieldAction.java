@@ -7,13 +7,13 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 
-public class ActiveYield implements Action<ActiveYield> {
+public class ActiveYieldAction implements Action<ActiveYieldAction> {
 
 	private ActionManager aManager;
 	private int value;
 	private String cardType;
 	
-	public ActiveYield(ActionManager aManager, String cardType ,int value) {
+	public ActiveYieldAction(ActionManager aManager, String cardType ,int value) {
 		this.aManager = aManager;
 		this.value = value;
 		this.cardType = cardType;
@@ -47,7 +47,7 @@ public class ActiveYield implements Action<ActiveYield> {
 //______________________________________________________________
 	
 	@Override
-	public ActiveYield decore(ActiveYield action) {
+	public ActiveYieldAction decore(ActiveYieldAction action) {
 		// TODO Auto-generated method stub
 		return null;
 	}

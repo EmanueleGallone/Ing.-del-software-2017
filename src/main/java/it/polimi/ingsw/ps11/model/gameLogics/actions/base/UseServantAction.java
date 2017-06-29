@@ -35,6 +35,10 @@ public class UseServantAction implements Action<UseServantAction>{
 		return servant;
 	}
 	
+	public void setServant(int servant) {
+		this.servant.setValue(servant);
+	}
+	
 	// _________________________ Method for action system ________________________
 	
 

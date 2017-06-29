@@ -31,8 +31,8 @@ public class FloorSelected extends PlayState {
 		
 		ActionManager aManager = stateHandler().actions();
 		
-		FamilyInTowerAction tAction = aManager.newFamilyInTowerAction(tower, fMember);
-		FamilyInSpaceAction sAction = aManager.newFamilyInSpaceAction(fMember, floor.getActionSpace());
+		FamilyInTowerAction tAction = aManager.newFamilyInTower(tower, fMember);
+		FamilyInSpaceAction sAction = aManager.newFamilyInSpace(fMember, floor.getActionSpace());
 		GetCardAction getCard = aManager.newGetCardAction(floor.getCard(), cost);
 		getCard.attach(listener);
 		

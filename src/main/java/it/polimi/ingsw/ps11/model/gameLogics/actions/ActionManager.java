@@ -6,8 +6,9 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYield;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
@@ -95,12 +96,12 @@ public class ActionManager {
 		return make(FamilyInFloorAction.class, action);
 	}
 	
-	public FamilyInSpaceAction newFamilyInSpaceAction(FamilyMember fMember, ActionSpace space){
+	public FamilyInSpaceAction newFamilyInSpace(FamilyMember fMember, ActionSpace space){
 		FamilyInSpaceAction action = new FamilyInSpaceAction(this, fMember, space);
 		return make(FamilyInSpaceAction.class, action);
 	}
 	
-	public FamilyInTowerAction newFamilyInTowerAction(Tower tower, FamilyMember familyMember){
+	public FamilyInTowerAction newFamilyInTower(Tower tower, FamilyMember familyMember){
 		FamilyInTowerAction action = new FamilyInTowerAction(this, tower, familyMember);
 		return make(FamilyInTowerAction.class, action);
 	}
@@ -109,14 +110,18 @@ public class ActionManager {
 // ___________________________________________________________________________________________
 	
 	
-	public UseServantAction newUseServantAction(Servant servant, FamilyMember fMember){
+	public UseServantAction newUseServant(Servant servant, FamilyMember fMember){
 		UseServantAction action = new UseServantAction(this,servant, fMember);
 		return make(UseServantAction.class, action);
 	}
 	
-	public ActiveYield newActiveYield(String cardType, int value){
-		ActiveYield action = new ActiveYield(this,cardType, value);
-		return make(ActiveYield.class, action);
+	public ActiveYieldAction newActiveYield(String cardType, int value){
+		ActiveYieldAction action = new ActiveYieldAction(this,cardType, value);
+		return make(ActiveYieldAction.class, action);
+	}
+	
+	public EndGameAction newEndGame(){
+		return make(EndGameAction.class, new EndGameAction());
 	}
 	
 }

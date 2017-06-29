@@ -3,13 +3,13 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 
-public class DoSeveralTimes implements Action<DoSeveralTimes>{
+public class DoSeveralTimesAction implements Action<DoSeveralTimesAction>{
 
 	private ActionManager aManager;
 	private Action<?> action;
 	private int iterationNumber;
 	
-	public DoSeveralTimes(ActionManager aManager, Action<?> action, int iterationNumber) {
+	public DoSeveralTimesAction(ActionManager aManager, Action<?> action, int iterationNumber) {
 		this.aManager = aManager;
 		this.action = action;
 		this.iterationNumber = iterationNumber;
@@ -28,7 +28,7 @@ public class DoSeveralTimes implements Action<DoSeveralTimes>{
 	}
 
 	@Override
-	public DoSeveralTimes decore(DoSeveralTimes action) {
+	public DoSeveralTimesAction decore(DoSeveralTimesAction action) {
 		// TODO Auto-generated method stub
 		return null;
 	}

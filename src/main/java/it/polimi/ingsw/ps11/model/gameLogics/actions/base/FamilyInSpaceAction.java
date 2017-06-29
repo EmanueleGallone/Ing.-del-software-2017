@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
@@ -11,7 +13,6 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	protected FamilyMember familyMember;
 	protected ActionSpace space;
 	protected UseServantAction servantAction;
-	
 	
 	public FamilyInSpaceAction() {
 	
@@ -37,7 +38,8 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 			mod = servantAction.getServant().getValue();
 		}
 		if(space.isFree() && result){
-			return space.getActionCost() <= (familyMember.getValue() + mod);
+			result = space.getActionCost() <= (familyMember.getValue() + mod);
+			return result;
 		}
 		return false;
 	}
@@ -61,6 +63,10 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 		return familyMember;
 	}
 	
+	public UseServantAction getServantAction() {
+		return servantAction;
+	}
+
 
 	// _________________________ Method for action system ________________________
 	

@@ -4,12 +4,12 @@ import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 
-public class ChangeState implements Action<ChangeState> {
+public class ChangeStateAction implements Action<ChangeStateAction> {
 
 	private ActionManager aManager;
 	private State nextState;
 	
-	public ChangeState(ActionManager aManager, State state) {
+	public ChangeStateAction(ActionManager aManager, State state) {
 		this.aManager = aManager;
 		this.nextState = state;
 	}
@@ -25,7 +25,7 @@ public class ChangeState implements Action<ChangeState> {
 	}
 
 	@Override
-	public ChangeState decore(ChangeState action) {
+	public ChangeStateAction decore(ChangeStateAction action) {
 		// TODO Auto-generated method stub
 		return null;
 	}

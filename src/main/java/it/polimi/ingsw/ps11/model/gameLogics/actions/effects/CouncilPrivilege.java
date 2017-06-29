@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.effects;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ChangeState;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ChangeStateAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -20,8 +20,8 @@ public class CouncilPrivilege implements Effect {
 	}
 	
 	@Override
-	public ChangeState get(ActionManager aManager) {
-		return new ChangeState(aManager, new WaitResource(resources,aManager.newIncrementAction(null)));
+	public ChangeStateAction get(ActionManager aManager) {
+		return new ChangeStateAction(aManager, new WaitResource(resources,aManager.newIncrementAction(null)));
 	}
 	
 }

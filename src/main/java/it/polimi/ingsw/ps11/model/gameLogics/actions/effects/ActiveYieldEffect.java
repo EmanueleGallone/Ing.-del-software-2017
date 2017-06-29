@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.effects;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYield;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 
 public class ActiveYieldEffect implements Effect {
 
@@ -14,7 +14,7 @@ public class ActiveYieldEffect implements Effect {
 	}
 	
 	@Override
-	public ActiveYield get(ActionManager aManager) {
+	public ActiveYieldAction get(ActionManager aManager) {
 		return aManager.newActiveYield(cardType, value);
 	}
 

@@ -1,36 +1,35 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 
 /**
  * Incrementa di un tot (value) il valore del familyMember se quest'ultimo viene piazzato 
- * in una torre di un determinato colore
+ * in un piano con una carta di un certo colore
  */
 public class FamilyMemberAffecter extends FamilyInFloorAction {
 	
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
 	
-	private String tower;
+	private String cardType;
 	private int value;
 	
 	private FamilyInFloorAction action;
 	
-	public FamilyMemberAffecter(String tower, int value) {
-		this.tower = tower;
+	public FamilyMemberAffecter(String cardType, int value) {
+		this.cardType = cardType;
 		this.value = value;
 	}
 	
-	public FamilyMemberAffecter(Class<? extends Tower> tower, int value) {
-		this(tower.toString(), value);
+	public FamilyMemberAffecter(Class<? extends DevelopmentCard> cardType, int value) {
+		this(cardType.toString(), value);
 	}
-	
 	
 	@Override
 	public GetCardAction getCardAction() {
@@ -50,8 +49,8 @@ public class FamilyMemberAffecter extends FamilyInFloorAction {
 	@Override
 	public boolean isLegal() {
 		FamilyMember familyMember = action.getSpaceAction().getFamilyMember();
-		Tower tower = action.getTowerAction().getTower();
-		if(tower.getClass().toString().equals(this.tower)){
+		DevelopmentCard card = action.getCardAction().getCard();
+		if(card.getClass().toString().equals(this.cardType)){
 			familyMember.setModifier(value);
 		}
 		return action.isLegal();
@@ -93,7 +92,7 @@ public class FamilyMemberAffecter extends FamilyInFloorAction {
 	
 	@Override
 	public FamilyMemberAffecter clone(){
-		FamilyMemberAffecter copy = new FamilyMemberAffecter(tower,value);
+		FamilyMemberAffecter copy = new FamilyMemberAffecter(cardType,value);
 		copy.aManager = aManager;
 		if(action != null)
 			copy.action = action.clone();
