@@ -9,7 +9,11 @@ import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-
+/** <h3> FamilyInTowerAction </h3>
+ * <p> Classe che rappresenta l'azione di posizionamento di un familiare su un actionspace appartenente ad una tower, con 
+ * il controllo che non ce ne siano altri appartenenti allo stesso giocatore</p>
+ * @see Action
+ */
 public class FamilyInTowerAction implements Action<FamilyInTowerAction> {
 
 	protected ResourceList taxIfNotFree = new ResourceList(new Coin(3));

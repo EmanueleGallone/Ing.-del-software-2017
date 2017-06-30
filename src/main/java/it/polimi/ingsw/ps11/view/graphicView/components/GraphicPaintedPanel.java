@@ -33,10 +33,9 @@ public class GraphicPaintedPanel extends JPanel {
 	
 	public void loadImage(String url){
 		
-		URL imagePath = getClass().getResource(url);
 		BufferedImage result = null;
 		try {
-			result = ImageIO.read(imagePath);
+			result = ImageIO.read(getClass().getResource(url));
 		} catch (IOException e) {
 			System.err.println("Errore, immagine non trovata");
 		}

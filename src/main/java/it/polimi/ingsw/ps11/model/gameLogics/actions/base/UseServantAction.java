@@ -5,7 +5,11 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
-
+/** <h3> UseServantAction </h3>
+ * <p> Classe che rappresenta l'azione di aggiunta di servitori all'attivazione di un'altra azione, allo scopo di 
+ * raggiungere il costo predefinito.</p>
+ * @see Action
+ */
 public class UseServantAction implements Action<UseServantAction>{
 
 	protected ActionManager aManager;

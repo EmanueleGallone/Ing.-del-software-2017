@@ -5,7 +5,10 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> CardCostAffecter </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare il costo della ResourceList di una carta</p>
+ * @see GetCardAction
+ */
 public class CardCostAffecter extends GetCardAction {
 	
 	private final boolean FORWARD = true;

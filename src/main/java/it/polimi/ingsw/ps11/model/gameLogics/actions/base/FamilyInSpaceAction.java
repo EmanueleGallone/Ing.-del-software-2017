@@ -1,13 +1,14 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
-import it.polimi.ingsw.ps11.model.events.EventHandler;
-import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-
+/** <h3> FamilyInSpaceAction </h3>
+ * <p> Classe che rappresenta l'azione di posizionamento di un familiare i un generico actionspace.</p>
+ * @see Action
+ */
 public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	
 	protected ActionManager aManager;

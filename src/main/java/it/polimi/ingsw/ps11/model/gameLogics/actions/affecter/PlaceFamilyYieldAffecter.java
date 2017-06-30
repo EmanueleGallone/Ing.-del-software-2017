@@ -3,7 +3,11 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.PlaceFamilyYieldAction;
-
+/** <h3> Nome </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare il valore di un familiare se quest'ultimo viene 
+ * posizionato sull'actionSpace di una zona Raccolta o Produzione </p>
+ * @see PlaceFamilyYieldAction
+ */
 public class PlaceFamilyYieldAffecter extends PlaceFamilyYieldAction{
 
 	private final boolean FORWARD = true;

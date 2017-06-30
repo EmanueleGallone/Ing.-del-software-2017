@@ -58,7 +58,7 @@ public class Game implements Serializable  {
 	}
 
 	/**<h3> void refreshCard(int Period) </h3>
-	 * <p>Piazza le carte sulle torri in maniera casuale in base al periodo</p>
+	 * <p>Posiziona le carte sulle torri in maniera casuale in base al periodo</p>
 	 */
 	public void refreshCard(int period) throws FileNotFoundException{
 		CardManager currentCard = loadCards(period);

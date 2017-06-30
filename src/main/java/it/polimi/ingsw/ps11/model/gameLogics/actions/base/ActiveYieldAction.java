@@ -6,7 +6,11 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
-
+/** <h3> ActiveYieldAction </h3>
+ * <p> Classe che rappresenta l'azione di attivazione delle carte appartenenti alla classe "Territorio" o "Edificio", 
+ * dovuto al piazzamento di un familiare nella zona racolta o Produzione o all'attivazione di una carta</p>
+ * @see Action
+ */
 public class ActiveYieldAction implements Action<ActiveYieldAction> {
 
 	private ActionManager aManager;

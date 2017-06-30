@@ -10,7 +10,10 @@ import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> GetCardAction </h3>
+ * <p> Classe che rappresenta l'azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
+ * @see Action
+ */
 public class GetCardAction implements Action<GetCardAction>{
 
 	protected ActionManager aManager;

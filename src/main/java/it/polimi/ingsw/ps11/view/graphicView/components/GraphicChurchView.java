@@ -17,6 +17,7 @@ public class GraphicChurchView extends ChurchView {
 	
 	@Override
 	public void print(){
+		//church.loadImage("resources\\Church.PNG");
 		church.loadImage("boardImages/Church.png");
 
 		//church.loadImage("..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\settings\\boardImages\\Church.png");

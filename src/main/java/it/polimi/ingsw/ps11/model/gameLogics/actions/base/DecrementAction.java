@@ -3,7 +3,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> DecrementAction </h3>
+ * <p> Classe che rappresenta l'azione di decremento di risorse in una ResourceList.</p>
+ * @see Action
+ */
 public class DecrementAction implements Action<DecrementAction> {
 
 	private ActionManager aManager;

@@ -124,6 +124,7 @@ public class GraphicView extends View{
 		gbcTurn.gridx = 2;
 		gbcTurn.gridy = 0;
 		gbcTurn.fill = GridBagConstraints.BOTH;
+		playersTurn.setPreferredSize(new Dimension(10, 10));
 		window.add(playersTurn, gbcTurn);
 		
         gbc.gridx = 1;
@@ -137,7 +138,7 @@ public class GraphicView extends View{
         playersTurn.add(exit, gbc);
 		
         slideDialog.setBounds(0, (int)Math.round(screenSize.getHeight()*0.695), 
-				(int)Math.round(screenSize.getWidth()*0.467), (int)Math.round(screenSize.getHeight()*0.305));
+				(int)Math.round(screenSize.getWidth()*0.477), (int)Math.round(screenSize.getHeight()*0.305));
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 				    
