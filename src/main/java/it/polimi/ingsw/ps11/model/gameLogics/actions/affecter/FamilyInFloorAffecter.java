@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
  * Incrementa di un tot (value) il valore del familyMember se quest'ultimo viene piazzato 
  * in un piano con una carta di un certo colore
  */
-public class FamilyMemberAffecter extends FamilyInFloorAction {
+public class FamilyInFloorAffecter extends FamilyInFloorAction {
 	
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
@@ -22,12 +22,12 @@ public class FamilyMemberAffecter extends FamilyInFloorAction {
 	
 	private FamilyInFloorAction action;
 	
-	public FamilyMemberAffecter(String cardType, int value) {
+	public FamilyInFloorAffecter(String cardType, int value) {
 		this.cardType = cardType;
 		this.value = value;
 	}
 	
-	public FamilyMemberAffecter(Class<? extends DevelopmentCard> cardType, int value) {
+	public FamilyInFloorAffecter(Class<? extends DevelopmentCard> cardType, int value) {
 		this(cardType.toString(), value);
 	}
 	
@@ -91,8 +91,8 @@ public class FamilyMemberAffecter extends FamilyInFloorAction {
 // __________________________
 	
 	@Override
-	public FamilyMemberAffecter clone(){
-		FamilyMemberAffecter copy = new FamilyMemberAffecter(cardType,value);
+	public FamilyInFloorAffecter clone(){
+		FamilyInFloorAffecter copy = new FamilyInFloorAffecter(cardType,value);
 		copy.aManager = aManager;
 		if(action != null)
 			copy.action = action.clone();

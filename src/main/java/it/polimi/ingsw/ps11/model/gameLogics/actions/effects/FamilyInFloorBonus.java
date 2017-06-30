@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.effects;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyMemberAffecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInFloorAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 
 public class FamilyInFloorBonus implements Effect{
@@ -21,7 +21,7 @@ public class FamilyInFloorBonus implements Effect{
 	
 	@Override
 	public FamilyInFloorAction get(ActionManager aManager) {
-		return new FamilyMemberAffecter(cardType, value);
+		return new FamilyInFloorAffecter(cardType, value);
 	}
 
 }

@@ -34,4 +34,17 @@ public class Yield implements FamilyMemberSpace, Serializable {
 	public MultipleActionSpace getMultipleActionSpace() {
 		return multipleActionSpace;
 	}
+	
+	@Override
+	public Yield clone(){
+		Yield clone = new Yield();
+		
+		if (this.singleActionSpace != null)
+			clone.singleActionSpace = this.singleActionSpace.clone();
+		
+		if(this.multipleActionSpace != null)
+			clone.multipleActionSpace = this.multipleActionSpace.clone();
+		
+		return clone;
+	}
 }

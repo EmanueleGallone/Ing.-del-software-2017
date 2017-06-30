@@ -2,9 +2,14 @@ package it.polimi.ingsw.ps11;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.google.gson.reflect.TypeToken;
 
+import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
@@ -41,8 +46,9 @@ import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
 public class MainTest {
 	
-	public static void main(String[] args){		
+	public static void main(String[] args){
 		
+
 	}	
 	
  
@@ -1626,6 +1632,29 @@ public class MainTest {
 		//FINE LEADER CARDS
 	 */
 	
+	}
+	
+	public void CardsInCardManagerFileCreator(){
+		CardManager cardManager = new CardManager(false);
+		JsonAdapter jsonAdapter = new JsonAdapter();
+		
+		ArrayList<GreenCard> Deck = new ArrayList<GreenCard>(); 
+		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
+		
+		Deck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\GreenCards"), type);
+		List<GreenCard> copy = Deck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
+		
+		for(GreenCard c : copy)
+			cardManager.addCard(c);
+		
+		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>(); 
+		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
+		
+		Deck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\PurpleCards"), type);
+		List<PurpleCard> copy2 = purpleDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
+		
+		for(PurpleCard c : copy2)
+			cardManager.addCard(c);
 	}
 	
 }
