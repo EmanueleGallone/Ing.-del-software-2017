@@ -44,30 +44,37 @@ public class ActiveYieldAction implements Action<ActiveYieldAction> {
 		}
 	}
 	
-//______________________________________________________________
-	
+// _________________________ Method for action system ________________________
+
+
 	@Override
 	public ActiveYieldAction decore(ActiveYieldAction action) {
-		// TODO Auto-generated method stub
-		return null;
+		if(action != this){
+			return action.decore(this);
+		}
+		return this;
+	}
+	
+	@Override
+	public void attach(ActionManager aManager){
+		ActiveYieldAction action = aManager.get(target());
+		if(action == null){
+			action = this;
+		}
+		aManager.add(action.decore(this));
 	}
 
 	@Override
-	public void attach(ActionManager aManager) {
-		// TODO Auto-generated method stub
-		
+	public Class<ActiveYieldAction> target() {
+		return ActiveYieldAction.class;
 	}
-
+	
+// ___________________________________________________
+	
 	@Override
-	public Class<? extends Action<?>> target() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Action<?> clone() {
-		// TODO Auto-generated method stub
-		return null;
+	public ActiveYieldAction clone(){
+		ActiveYieldAction copy = new ActiveYieldAction(aManager,cardType,value);
+		return copy;
 	}
 
 }

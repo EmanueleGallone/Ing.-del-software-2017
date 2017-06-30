@@ -3,13 +3,15 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
-public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedConfirm{
+public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedConfirm, ResourceListener{
 	
 	protected ActionManager aManager;
 	protected FamilyInTowerAction towerAction;
@@ -36,23 +38,22 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 		towerAction.perform();
 		spaceAction.perform();
 		getCard.perform();
+		aManager.stateHandler().invoke(new GameUpdateEvent(aManager.stateHandler().getGame()));
 	}
 	
 	@Override
 	public boolean isLegal() {
-		
+		boolean result = towerAction.isLegal() &&  getCard.isLegal();
 		if(confermed == null){
 			aManager.changeState(new WaitConfirm(this));
 			return false;
 		}
-		
-		boolean result = towerAction.isLegal() && spaceAction.isLegal();
+		spaceAction.getServantAction().setServant(confermed.getServant());
 		ResourceList resource = spaceAction.getSpace().getResources();
 		if(resource != null){
-			// Questo perchè il giocatore può usare le risorse del piano per pagare la carta
-			getCard.getCostModifier().subtract(resource);
+			getCard.getCostModifier().subtract(resource); 		// Questo perchè il giocatore può usare le risorse del piano per pagare la carta
 		}
-		result = result && getCard.isLegal();
+		result = result && spaceAction.isLegal();
 		return result;
 	}
 
@@ -83,7 +84,14 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 		return new ConfirmEvent(floor, tower);
 	}
 	
-	// _________________________ Method for action system ________________________
+	@Override
+	public void update(ResourceList resource) {
+		getCard.setCost(resource);
+		if(isLegal())
+			perform();
+	}
+	
+// _________________________ Method for action system ________________________
 	
 	@Override
 	public void attach(ActionManager aManager) {
@@ -113,4 +121,5 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 		FamilyInFloorAction copy = new FamilyInFloorAction(aManager,towerAction.clone(), spaceAction.clone(), getCard.clone());
 		return copy;
 	}
+
 }

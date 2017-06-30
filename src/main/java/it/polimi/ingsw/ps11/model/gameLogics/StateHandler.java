@@ -4,7 +4,7 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -27,7 +27,7 @@ public class StateHandler {
 	}
 	
 	public void start(){
-		invoke(new GameStartedEvent(gameLogic.getGame()));
+		invoke(new GameUpdateEvent(gameLogic.getGame()));
 	}
 	
 	

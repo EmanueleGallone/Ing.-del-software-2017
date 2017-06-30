@@ -22,10 +22,10 @@ public class FloorSelected extends PlayState {
 	private FloorSelectedEvent floorSelectedEvent;
 	private FamilySelectedEvent familySelectedEvent;
 	
+	private FamilyInFloorAction action;
+	
 	public FloorSelected(FloorSelectedEvent event) {
 		this.floorSelectedEvent = event;
-		Player player = stateHandler().actions().getSubject();
-		stateHandler().invoke(new UpdateFamilyMemberEvent(player.getFamilyManager()));
 	}
 	
 	public void createAction(ResourceList cost){
@@ -39,8 +39,8 @@ public class FloorSelected extends PlayState {
 		FamilyInSpaceAction sAction = aManager.newFamilyInSpace(fMember, floor.getActionSpace());
 		GetCardAction getCard = aManager.newGetCardAction(floor.getCard(), cost);
 		getCard.attach(listener);
-		
-		FamilyInFloorAction action = aManager.newFamilyInFloorAction(tAction, sAction, getCard);
+
+		action = aManager.newFamilyInFloorAction(tAction, sAction, getCard);
 		
 		if(action.isLegal()){
 			action.perform();
@@ -52,6 +52,7 @@ public class FloorSelected extends PlayState {
 
 		@Override
 		public void handle(ModelEvent e) {
+			stateHandler().nextState(new WaitResource(action));
 			stateHandler().invoke(e);
 		}
 	};
