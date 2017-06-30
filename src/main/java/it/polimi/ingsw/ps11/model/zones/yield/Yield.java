@@ -22,6 +22,9 @@ public class Yield implements FamilyMemberSpace, Serializable {
 		this.cardType = cardType.toString();
 	}
 	
+	/**<h3> ActionSpace getFreeSpace() </h3>
+	 * <p> Restituisce il single actionspace se questo è vuoto, altrimenti prende un actionspace libero del multiple actionspace</p>
+	 */
 	public ActionSpace getFreeSpace(){
 		if(singleActionSpace.isFree())
 			return singleActionSpace;
@@ -32,6 +35,11 @@ public class Yield implements FamilyMemberSpace, Serializable {
 		return cardType;
 	}
 	
+	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
+	 * <p> Se il sigle action space è libero, vi piazza il familiare, altrimenti lo mette nel multiple actionspace se questo non
+	 * contiene già un altro familiare dello stesso giocatore che non sia di tipo Neutral</p>
+	 * @return true se è stato piazzato, false se non è stato possibile
+	 */
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		if(singleActionSpace.isFree())

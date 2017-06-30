@@ -78,7 +78,8 @@ public class Tower implements Serializable{
 		return false;
 	}
 	*/
-	
+	/** <p> Indica se la torre ha tutti gli actionspace vuoti. </p>
+	 */
 	public boolean isFree(){
 		for(Floor floor : floors){
 			if (!floor.getActionSpace().isFree()){
@@ -105,10 +106,13 @@ public class Tower implements Serializable{
 	}
 	
 // End getters
-
+	
+	/**<h3> String toString() </h3>
+	 * <p> TIPOTORRE [floors= ]</p>
+	 */
 	@Override
 	public String toString() {
-		return "Tower [floors=" + floors + "]";
+		return this.getClass().getSimpleName() + "[floors=" + floors + "]";
 	}
 	
 	@Override

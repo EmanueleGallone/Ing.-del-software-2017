@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.model.familyMember;
 
 import java.io.Serializable;
+
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 /**
  * <h3>FamilyMember</h3>
  * <p>
@@ -47,8 +49,10 @@ public abstract class FamilyMember implements Serializable{
 		this.value = value;
 	}
 	
-	public abstract boolean isNeutral();
-	
+	/**<h3> boolean isUsed() </h3>
+	 * <p>Indica se un familiare è già stato usato e di conseguenza non può essere riutilizzato fino alla fine del turno</p>
+	 * @return true se è già stato utilizzato, false altrimenti.
+	 */
 	public boolean isUsed() {
 		return used;
 	}
@@ -60,9 +64,20 @@ public abstract class FamilyMember implements Serializable{
 	@Override
 	public abstract FamilyMember clone();
 	
-	@Override
+	/**<h3> String toString() </h3>
+	 * <p>TIPOFAMILIARE "[value=" + value + ", modifier=" + modifier + "]"</p>
+	 */
 	public String toString() {
-		return "FamilyMember [value=" + value + ", modifier=" + modifier + "]";
+		return this.getClass().getSimpleName() + "[value=" + value + ", modifier=" + modifier + "]";
+	}
+	
+	/**<h3> boolean isNeutral() </h3>
+	 * <p> Indica se un familiare è di tipo Neutrale</p>
+	 * @return true se il familiare è di tipo Neutral, false altrimenti
+	 */
+	public boolean isNeutral() {
+		if(this.getClass().getSimpleName().equals(NeutralFamilyMember.class.getSimpleName())) return true;
+		else return false;
 	}
 	
 }

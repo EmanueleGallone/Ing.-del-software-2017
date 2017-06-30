@@ -20,7 +20,9 @@ public class CardManager implements Serializable {
 	public CardManager() {
 		
 	}
-	
+	/**<h3> CardManager(boolean) </h3>
+	 * <p> Impone un limite di 6 carte per tipo </p>
+	 */
 	public CardManager(boolean limited) {
 		setLimited(limited);
 	}
@@ -33,7 +35,9 @@ public class CardManager implements Serializable {
 	
 	
 // Start logic
-	
+	/**<h3> <T extends DevelopmentCard> boolean addCard(T)</h3>
+	 * <p> Aggiunge una carta al mazzo relativo. Ritorna true se è stata aggiunta, false altrimenti. </p>
+	 */
 	public <T extends DevelopmentCard> boolean addCard(T card){
 		
 		if(canAdd(card)){
@@ -44,6 +48,10 @@ public class CardManager implements Serializable {
 		return false;
 	}
 	
+	/**<h3> boolean canAdd(T)</h3>
+	 * <p> Controlla che il mazzo corrispondente ad una carta non abbia già il numero massimo di elementi. </p>
+	 * @return true se il limite non è ancora stato raggiunto, false altrimenti
+	 */
 	public <T extends DevelopmentCard> boolean canAdd(T card){
 		
 		ArrayList<DevelopmentCard> temp = cards.get(card.getClass().toString());
@@ -56,6 +64,9 @@ public class CardManager implements Serializable {
 		return true;
 	}
 	
+	/**<h3> boolean isLimited() </h3>
+	 * <p> Indica se il mazzo ha limite nel numero di carte. </p>
+	 */
 	public boolean isLimited() {
 		return limited;
 	}
@@ -81,7 +92,9 @@ public class CardManager implements Serializable {
 		return (HashMap<String, ArrayList<DevelopmentCard>>) cards.clone();
 	}
 
-	
+	/**<h3> String toString() </h3>
+	 * <p> Per ogni carta del mazzo stampa : TIPOCARTA [DEFAULT_VALUE= , activeValue= ]\n </p>
+	 */
 	@Override
 	public String toString() {
 		String string = "";

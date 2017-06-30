@@ -25,7 +25,10 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 		this.cost = cost;
 	}
 	
-	@Override
+	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
+	 * <p> Piazza il familiare su un actionspace se ne ha la possibilità e aggiunge l'actionspace a quelli già presenti</p>
+	 * @return true se il familiare è stato piazzato, false altrimenti
+	 */
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		ActionSpace actionSpace = new ActionSpace(3);
 		if(actionSpace.placeFamilyMember(familyMember, player)){
@@ -35,7 +38,9 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 		return false;
 	}
 	
-	
+	/**<h3> ActionSpace getFreeSpace </h3>
+	 * <p> Restituisce il primo actionspace vuoto, se non sono presenti, ne crea uno nuovo.</p>
+	 */
 	public ActionSpace getFreeSpace(){
 		for(ActionSpace space : multipleActionSpace){
 			if(space.isFree())

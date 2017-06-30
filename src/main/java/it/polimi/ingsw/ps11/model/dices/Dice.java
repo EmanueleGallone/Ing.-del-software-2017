@@ -20,8 +20,8 @@ public abstract class Dice implements Serializable{
 	public Dice(){
 		this.value = 0;
 	}	
-	/**
-	 * Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.
+	/**<h3> void rollDice() </h3>
+	/** <p>Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.</p>
 	 */
 	public void rollDice(){
 		this.value = gen.nextInt(MAX_FACES) +1;
@@ -35,7 +35,11 @@ public abstract class Dice implements Serializable{
 	@Override
 	public abstract Dice clone();
 	
-	@Override
-	public abstract String toString();
+	/**<h3> String toString() </h3>
+	 * <p> TIPODADO [value= ]</p>
+	 */
+	public String toString(){
+		return this.getClass().getSimpleName() + "[value=" + value + "]";
+	};
 
 }

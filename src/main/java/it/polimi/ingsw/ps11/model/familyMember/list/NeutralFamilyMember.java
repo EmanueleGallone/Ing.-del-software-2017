@@ -21,14 +21,4 @@ public class NeutralFamilyMember extends FamilyMember {
 		
 		return clone;
 	}
-	
-	@Override
-	public void setValue(int value) {
-		return;
-	}
-
-	@Override
-	public boolean isNeutral() {
-		return true;
-	}
 }

@@ -94,6 +94,10 @@ public class Player implements Serializable{
 		return clone;
 	}
 	
+	/**<h3> boolean equals(Object) </h3>
+	 * <p>Compara due giocatori, ritorna true se entrambi sono giocatori e hanno lo stesso colore</p>
+	 * @return true se sono uguali, false altrimenti
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null)
@@ -106,6 +110,13 @@ public class Player implements Serializable{
 		return false;
 	}
 	
+	/**<h3> String toString() </h3>
+	 * <p>Player [name= </p>
+				<p>resourceList=</p>
+				<p>familyManager=</p>
+				<p>cardManager=</p>
+				<p>]</p>
+	 */
 	@Override
 	public String toString() {
 		return "Player [name=" + name 

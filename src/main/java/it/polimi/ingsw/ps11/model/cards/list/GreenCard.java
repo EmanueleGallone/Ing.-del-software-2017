@@ -44,7 +44,8 @@ public class GreenCard extends DevelopmentCard{
 		
 		return clone;
 	}
-	
+	/** <p> Compara due carte, ritorna true se sono delle stesso tipo e hanno lo stesso nome </p>
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if(obj == null)

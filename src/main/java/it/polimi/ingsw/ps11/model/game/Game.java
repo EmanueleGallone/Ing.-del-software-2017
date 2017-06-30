@@ -33,7 +33,10 @@ public class Game implements Serializable  {
 			e.printStackTrace();
 		}
 	}
-	
+	/**<h3> Board initializeBoard() </h3>
+	 * <p> Crea una board vuota caricandola da file</p>
+	 * @return una nuova board
+	 */
 	private Board initializeBoard() throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader("settings\\board"));
 		String line,strBoard = "";
@@ -52,13 +55,18 @@ public class Game implements Serializable  {
 		return jsonAdapter.fromJson(strBoard, Board.class);
 	}
 	
-	
+	/**<h3> CardManager loadCards(int period) </h3>
+	 * <p> Carica le carte sulle torri in base al periodo</p>
+	 */
 	private CardManager loadCards(int period){
 		CardManager cardManager = null;
 		
 		return cardManager;
 	}
 
+	/**<h3> void refreshCard(int Period) </h3>
+	 * <p>Piazza le carte sulle torri in maniera casuale in base al periodo</p>
+	 */
 	public void refreshCard(int period){
 		CardManager currentCard = loadCards(period);
 		//impostaOrdineCasuale();

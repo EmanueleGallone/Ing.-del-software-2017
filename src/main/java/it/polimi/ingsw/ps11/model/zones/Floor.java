@@ -41,6 +41,10 @@ public class Floor implements FamilyMemberSpace, Serializable {
 // End constructors
 // Start logic
 	
+	/**<h3> boolean placeFamilymember(FamilyMember, Player) </h3>
+	 *<p> Piazza il familiare nell'actionspace se questo non è già occupato.</p>
+	 *@return true se è stato piazzato, false altrimenti
+	 */
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		return actionSpace.placeFamilyMember(familyMember, player);
@@ -70,6 +74,10 @@ public class Floor implements FamilyMemberSpace, Serializable {
 	
 // End getters
 	
+	/**<h3> String toString() </h3>
+	 *<p> Floor [card= </p> 
+	 * <p>, actionSpace= ]</p>
+	 */
 	@Override
 	public String toString() {
 		return "Floor [card=" + card +'\n' + ", actionSpace=" + actionSpace + "]";

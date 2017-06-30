@@ -39,6 +39,8 @@ public class LeaderCard extends Card {
 		return new LeaderCard(this.name);
 	}
 	
+	/** <p> Compara due carte, ritorna true se sono delle stesso tipo e hanno lo stesso nome </p>
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if(obj == null)
@@ -50,6 +52,8 @@ public class LeaderCard extends Card {
 		return false;
 	}
 	
+	/** <p> LeaderCard [name = NOME_CARTA] </p>
+	 */
 	@Override
 	public String toString() {
 		return "LeaderCard [name=" + name + "]";

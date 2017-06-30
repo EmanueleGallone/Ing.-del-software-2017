@@ -11,11 +11,6 @@ public class OrangeDice extends Dice {
 	}
 	
 	@Override
-	public String toString() {
-		return "YellowDice [value=" + value + "]";
-	}
-	
-	@Override
 	public OrangeDice clone() {
 		OrangeDice clone = new OrangeDice();
 		

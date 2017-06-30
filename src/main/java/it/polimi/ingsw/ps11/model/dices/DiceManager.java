@@ -49,6 +49,9 @@ public class DiceManager implements Iterable<Dice>, Serializable{
 //End setters
 // start logic
 	
+	/**<h3> void rollDices() </h3>
+	 * <p> Assegna un valore random compreso tra 1 e 6 ad ogni dado contenuto nel Dicemanager</p>
+	 */
 	public void rollDices(){
 		for(String dice: dices.keySet()){
 			dices.get(dice).rollDice();
@@ -59,7 +62,6 @@ public class DiceManager implements Iterable<Dice>, Serializable{
 		return getDice(diceClass.toString());
 	}
 	
-	@SuppressWarnings("unchecked")
 	public <T extends Dice> T getDice(String diceClass){
 		return (T) dices.get(diceClass);
 	}
@@ -78,6 +80,10 @@ public class DiceManager implements Iterable<Dice>, Serializable{
 	public HashMap<String, Dice> getDices() {
 		return dices;
 	}
+	
+	/**<h3> String toString() </h3>
+	 * <p> Per ogni dado stampa : TIPODADO [value= ]\n </p>
+	 */
 	public String toString(){
 		String string = "";
 		
@@ -94,7 +100,6 @@ public class DiceManager implements Iterable<Dice>, Serializable{
 
 	@Override
 	public Iterator<Dice> iterator() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
