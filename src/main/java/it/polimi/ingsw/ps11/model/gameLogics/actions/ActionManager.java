@@ -9,6 +9,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndTurnAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
@@ -69,6 +70,11 @@ public class ActionManager {
 	
 // Actions constructors __________________
 	
+	
+	public EndTurnAction newEndTurn(){
+		EndTurnAction action = new EndTurnAction(this);
+		return make(EndTurnAction.class, action);
+	}
 	
 	public IncrementAction newIncrementAction(ResourceList resource){
 		IncrementAction action = new IncrementAction(this,resource);

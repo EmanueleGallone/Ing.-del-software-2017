@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
@@ -22,7 +23,7 @@ public class ProductionTest {
 
 	@Before
 	public void setting(){
-		production = new Yield();
+		production = new Yield(YellowCard.class);
 		player1 = new Player();
 		player2 = new Player();
 		

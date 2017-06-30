@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
@@ -29,12 +31,13 @@ public class Board implements Serializable{
 	private HashMap<String, Tower> towers = new HashMap<>();
 	private DiceManager diceManager = new DiceManager();
 	
-	private Yield harvest = new Yield();
-	private Yield production = new Yield();
+	private Yield harvest = new Yield(GreenCard.class);
+	private Yield production = new Yield(YellowCard.class);
 	private Market market;
 	private CouncilPalace councilPalace;
 	//manca la church
 	
+	ArrayList<DevelopmentCard> alreadyUsed = new ArrayList<>();
 	
 	public Board(){
 	
@@ -52,7 +55,8 @@ public class Board implements Serializable{
 	public void setCard(CardManager cards){
 		for(Tower tower : towers.values()){
 			ArrayList<DevelopmentCard> c = cards.getCardList(tower.getCardType());
-			tower.setCard(c); 
+			c.removeAll(alreadyUsed);
+			alreadyUsed.addAll(tower.setCard(c));
 		}
 	}
 	

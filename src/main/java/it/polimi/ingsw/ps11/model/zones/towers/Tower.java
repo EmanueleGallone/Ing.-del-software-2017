@@ -55,10 +55,14 @@ public class Tower implements Serializable{
 		throw new IllegalArgumentException("Non hai selezionato un piano corretto");		
 	}
 	
-	public void setCard(ArrayList<DevelopmentCard> cards){
+	public ArrayList<DevelopmentCard> setCard(ArrayList<DevelopmentCard> cards){
+		ArrayList<DevelopmentCard> cardUsed = new ArrayList<>();
 		for(int i = 0; i < floors.size() && i < cards.size(); i++){
-			floors.get(i).setCard(cards.get(i));
+			DevelopmentCard card = cards.get(i);
+			floors.get(i).setCard(card);
+			cardUsed.add(card);
 		}
+		return cardUsed;
 	}
 	
 	/*

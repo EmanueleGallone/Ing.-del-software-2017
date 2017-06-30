@@ -13,7 +13,7 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEv
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.SpaceSelectedEvent;
 
-public class PlayState extends State{
+public class PlayState extends DefaultState{
 
 	
 	EventManager manager = new EventManager();

@@ -58,11 +58,11 @@ public class IncrementAction implements Action<IncrementAction>, ResourceListene
 	
 	@Override
 	public void attach(ActionManager aManager){
-		IncrementAction increment = aManager.get(target());
-		if(increment == null){
-			increment = this;
+		IncrementAction action = aManager.get(target());
+		if(action == null){
+			action = this;
 		}
-		aManager.add(increment.decore(this));
+		aManager.add(action.decore(this));
 	}
 
 	@Override

@@ -21,6 +21,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
@@ -841,7 +842,7 @@ public class MainTest {
 		purpleDeck.add(campagnaMilitare);
 		
 		
-		writeFile("settings\\PurpleCards", gAdapter.toJson(purpleDeck,type)); 
+		CustomFileReaderWriter.writeFile("settings\\PurpleCards", gAdapter.toJson(purpleDeck,type)); 
 		
 		//FINE CARTE VIOLA
 		
@@ -1261,14 +1262,14 @@ public class MainTest {
 		//FINE CARTE GIALLE
 		
 		//INIZIO CARTE BLU
-		//DA RIVEDERE
 		BlueCard badessa = new BlueCard();
 		badessa.setName("Abbess");
 		badessa.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		badessa.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(1));
-		//va aggiunto il bonus take another Card tra gli instant bonus
+		badessa.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		badessa.addInstantEffect(new AnotherCard(null, 4));
 		
 		BlueCard predicatore = new BlueCard();
 		predicatore.setName("Preacher");
@@ -1284,8 +1285,8 @@ public class MainTest {
 		dama.setPeriod(1);
 		resourceList = new ResourceList(new Coin(4));
 		dama.addCost(resourceList.clone());
-		dama.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2));
-		dama.addPermanentEffect(new CardDiscount(BlueCard.class, new ResourceList(new Coin(1))));
+		dama.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class.toString(), 2));
+		dama.addPermanentEffect(new CardDiscount(BlueCard.class.toString(), new ResourceList(new Coin(1))));
 		
 		BlueCard cavaliere = new BlueCard();
 		cavaliere.setName("Knight");
@@ -1293,33 +1294,31 @@ public class MainTest {
 		resourceList = new ResourceList(new Coin(2));
 		cavaliere.addCost(resourceList.clone());
 		cavaliere.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
-		cavaliere.addPermanentEffect(new FamilyInFloorBonus(PurpleCard.class, 2));
+		cavaliere.addPermanentEffect(new FamilyInFloorBonus(PurpleCard.class.toString(), 2));
 		
 		BlueCard contadino = new BlueCard();
 		contadino.setName("Farmer");
 		contadino.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		contadino.addCost(resourceList.clone());
-		//contadino.addPermanentEffect();
-		//il bonus permanente aumenta +2 quando attivi l'harvest
+		contadino.addPermanentEffect(new FamilyInYieldBonus(GreenCard.class.toString(), 2));
 		
 		BlueCard artigiano = new BlueCard();
 		artigiano.setName("Artisan");
 		artigiano.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		artigiano.addCost(resourceList.clone());
-		//artigiano.addPermanentEffect();
-		//l'effetto aumenta di 2 la produzione quando viene attivata
+		artigiano.addPermanentEffect(new FamilyInYieldBonus(YellowCard.class.toString(), 2));
 		
 		BlueCard costruttore = new BlueCard();
 		costruttore.setName("Stonemason");
 		costruttore.setPeriod(1);
 		resourceList = new ResourceList(new Coin(4));
 		costruttore.addCost(resourceList.clone());
-		costruttore.addPermanentEffect(new FamilyInFloorBonus(YellowCard.class, 2));
+		costruttore.addPermanentEffect(new FamilyInFloorBonus(YellowCard.class.toString(), 2));
 		resourceList = new ResourceList(new Wood(1));
 		resourceList.setResource(new Stone(1));//paghi 1 wood OR stone, qui e' messo in AND
-		costruttore.addPermanentEffect(new CardDiscount(YellowCard.class, resourceList.clone()));
+		costruttore.addPermanentEffect(new CardDiscount(YellowCard.class.toString(), resourceList.clone()));
 		
 		BlueCard condottiero = new BlueCard();
 		condottiero.setName("Warlord");
@@ -1328,39 +1327,42 @@ public class MainTest {
 		condottiero.addCost(resourceList.clone());
 		resourceList = new ResourceList(new MilitaryPoint(3));
 		condottiero.addInstantEffect(new AddResourceEffect(resourceList.clone()));
-		condottiero.addPermanentEffect(new FamilyInFloorBonus(GreenCard.class, 2));
+		condottiero.addPermanentEffect(new FamilyInFloorBonus(GreenCard.class.toString(), 2));
 		
 		//FINE PRIMO PERIODO
 		
 		BlueCard messoPapale = new BlueCard();
-		messoPapale.setName("Messo Papale");
+		messoPapale.setName("Papal Messenger");
 		messoPapale.setPeriod(2);
 		resourceList = new ResourceList(new Coin(5));
 		messoPapale.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(3));
-		messoPapale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		messoPapale.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		
 		BlueCard fattore = new BlueCard();
-		fattore.setName("Fattore");
+		fattore.setName("Peasant");
 		fattore.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		fattore.addCost(resourceList.clone());
-		fattore.addPermanentBonus(new EnableHarvestBonus(3));
+		fattore.addPermanentEffect(new FamilyInYieldBonus(GreenCard.class.toString(),3));
 		
 		BlueCard messoReale = new BlueCard();
-		messoReale.setName("Messo Reale");
+		messoReale.setName("Royal Messenger");
 		messoReale.setPeriod(2);
 		resourceList = new ResourceList(new Coin(5));
 		messoReale.addCost(resourceList.clone());
-		resourceList = new ResourceList(new CouncilPrivilege(3)); //sulla carta c'è scritto che le 3 scelte devono essere diverse
-		messoReale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		messoReale.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
+		messoReale.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
+		messoReale.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		
 		BlueCard mecenate = new BlueCard();
-		mecenate.setName("Mecenate");
+		mecenate.setName("Patron");
 		mecenate.setPeriod(2);
 		resourceList = new ResourceList(new Coin(3));
 		mecenate.addCost(resourceList.clone());
-		//aggiungere come instant il bonus che puoi prendere una carta blu con valore 6 e pagare -2 monete
+		mecenate.addInstantEffect(new AnotherCard(BlueCard.class.toString(), 6));
+		resourceList.setResource(new Coin(2));
+		mecenate.addInstantEffect(new CardDiscount(BlueCard.class.toString(), resourceList.clone()));
 		
 		BlueCard capitano = new BlueCard();
 		capitano.setName("Captain");
@@ -1372,26 +1374,29 @@ public class MainTest {
 		capitano.addInstantEffect(new AnotherCard(GreenCard.class.toString(), 6));
 		
 		BlueCard studioso = new BlueCard();
-		studioso.setName("Studioso");
+		studioso.setName("Scholar");
 		studioso.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		studioso.addCost(resourceList.clone());
-		studioso.addPermanentBonus(new EnableProductionBonus(3));
+		studioso.addPermanentEffect(new FamilyInYieldBonus(YellowCard.class.toString(), 3));
 		
 		BlueCard architetto = new BlueCard();
-		architetto.setName("Architetto");
+		architetto.setName("Architect");
 		architetto.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		architetto.addCost(resourceList.clone());
-		//aggiungere bonus che ti fa pescare carta gialla con valore 6 e paghi -1 stone/wood
+		architetto.addInstantEffect(new AnotherCard(YellowCard.class.toString(), 6));
+		resourceList = new ResourceList(new Stone(1));
+		resourceList.setResource(new Wood(1));
+		architetto.addInstantEffect(new CardDiscount(YellowCard.class.toString(), resourceList.clone()));
 		
 		BlueCard eroe = new BlueCard();
-		eroe.setName("Eroe");
+		eroe.setName("Hero");
 		eroe.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		eroe.addCost(resourceList.clone());
-		resourceList = new ResourceList(new CouncilPrivilege(1));
-		eroe.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		eroe.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
+		eroe.addInstantEffect(new AnotherCard(PurpleCard.class.toString(),6));
 		//aggiungere il bonus che ti fa prendere una carta viola con valore 6
 		
 		//FINE SECONDO PERIODO
@@ -1445,7 +1450,7 @@ public class MainTest {
 		//aggiungere bonus che ogni 2 MP hai +1 VP
 		
 		BlueCard nobile = new BlueCard();
-		nobile.setName("Nobile");
+		nobile.setName("Noble");
 		nobile.setPeriod(3);
 		resourceList = new ResourceList(new Coin(6));
 		nobile.addCost(resourceList.clone());
