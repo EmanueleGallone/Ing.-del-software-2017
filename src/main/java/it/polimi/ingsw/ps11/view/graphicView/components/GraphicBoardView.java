@@ -6,10 +6,15 @@ import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
-
+/**
+ * <h3> GraphicBoardView</h3>
+ * <p> Classe intermedia che raggruppa e fa da tramite tra la GraphicView e le sue due parti: 
+ * MainBoard, sempre visibile, e SlideBoard, richiamabile con l'apposito tasto</p>
+ * @see GraphicMainBoardView
+ * @see GraphicSlideBoardView
+ * @see BoardView
+ */
 public class GraphicBoardView extends BoardView {
-
-	//classe intermedia che raggruppa i due pannelli della mainBoard
 
 	GraphicMainBoardView mainBoard = new GraphicMainBoardView();		//Parte fissa della Board
 	GraphicSlideBoardView slideBoard = new GraphicSlideBoardView();		//Parte della Board che compare e scompare

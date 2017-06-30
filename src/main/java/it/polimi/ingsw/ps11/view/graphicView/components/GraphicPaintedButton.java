@@ -8,15 +8,25 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-
+/**
+ * <h3> GraphicPaintedButton</h3>
+ * <p> Classe che estende JButton. Aggiunge la possibilità di assegnare un nome al pulsante tramite costruttore e aggiunge
+ * un'immagine al pulsante se richiesto senza l'ulteriore aggiunta di componenti </p>
+ */
 public class GraphicPaintedButton extends JButton implements ToPaint{
 	
 	//JButton con immagine fissa, usato per i familiari
 	
+	String name;
 	protected BufferedImage background;
 	private boolean painted = false;
 	
-	public GraphicPaintedButton() {
+	public GraphicPaintedButton(String name) {
+		this.name = name;
+	}
+	
+	public String getName(){
+		return this.name;
 	}
 	
 	@Override

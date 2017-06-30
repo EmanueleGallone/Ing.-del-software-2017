@@ -7,11 +7,17 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
-
+/**
+ * <h3> GraphicPlayerView</h3>
+ * <p> Classe per la visualizzazione del pannello del singolo giocatore. Contiene un CardManager, una ResourceView e un 
+ * FamilyManager</p>
+ * @see PlayerView
+ * @see GraphicCardManagerView
+ * @see GraphicResourceView
+ * @see GraphicFamilyMemberView
+ */
 public class GraphicPlayerView extends PlayerView{
-	
-	//View del giocatore singolo, contiene un cardManager, un selettore dei familiari e le risorse
-	
+		
 	protected JPanel personal = new JPanel();
 	
 	public GraphicPlayerView() {

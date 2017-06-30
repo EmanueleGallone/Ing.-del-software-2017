@@ -11,11 +11,14 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
-
+/**
+ * <h3> GraphicTowerView</h3>
+ * <p> Classe per la visualizzazione della torre contente 4 piani. E' caratterizzato dalla classe della torre e il nome
+ * della torre</p>
+ * @see GraphicFloorView
+ */
 public class GraphicTowerView extends TowerView{
 	
-	//Torre, contiene 4 piani
-
 	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
 	protected Class<? extends Tower> towerClass;
 	

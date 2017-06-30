@@ -10,7 +10,11 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView;
-
+/**
+ * <h3> GraphicDiceView</h3>
+ * <p> Classe per la visualizzazione dei dadi e dei loro valori, realizzati attraverso pannelli</p>
+ * @see DiceView
+ */
 public class GraphicDiceView extends DiceView {
 
 	protected GraphicPaintedPanel dice = new GraphicPaintedPanel();
@@ -82,13 +86,4 @@ public class GraphicDiceView extends DiceView {
 	public void attachCloseButton(ActionListener listener){
 		closeButton.addActionListener(listener);
 	}
-	
-	/*
-	@Override
-	public void update(DiceManager dices) {
-		super.update(dices);
-		
-	}
-	*/
-
 }

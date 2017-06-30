@@ -21,24 +21,30 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
-
-public class GraphicCooseResourceListPanel extends JDialog{
-	// Da aggiornare, deve estendere ChooseResourceView
+import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseResourceView;
+/**
+ * <h3> GraphicChooseResourceListPanel</h3>
+ * <p> Pannello che mostra una lista di resourcelist ne caso una carta permetta una scelta, e richiede al giocatore per quale 
+ * tra quelle elencate si vuole optare</p>
+ * @see ResourceList
+ */
+public class GraphicChooseResourceListPanel extends ChooseResourceView{
 	
-	ButtonGroup selectResourceList = new ButtonGroup(); 
+	JDialog dialog = new JDialog();
+	private ButtonGroup selectResourceList = new ButtonGroup(); 
 	private EventHandler<ViewEventInterface> eventHandler;
 	
-	public GraphicCooseResourceListPanel(EventHandler<ViewEventInterface> viewEvent, ArrayList<ResourceList> resourceLists) {
+	public GraphicChooseResourceListPanel(EventHandler<ViewEventInterface> viewEvent, ArrayList<ResourceList> resourceLists) {
 		
 		this.eventHandler = viewEvent;
-		//this.cost = resourceLists;
+		this.costs = resourceLists;
 		
 		GridBagLayout gblDialog = new GridBagLayout();
 		gblDialog.columnWidths = new int[]{0, 0};
 		gblDialog.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 		gblDialog.columnWeights = new double[]{1.0,  Double.MIN_VALUE};
 		gblDialog.rowWeights = new double[]{0.2, 0.2, 0.2, 0.2, 0.2, Double.MIN_VALUE};
-		this.getContentPane().setLayout(gblDialog);		
+		dialog.getContentPane().setLayout(gblDialog);		
 
 		int i = 0;
 		for (ResourceList resourceList : resourceLists) {
@@ -49,7 +55,7 @@ public class GraphicCooseResourceListPanel extends JDialog{
 			gbc.gridx = 0;
 			gbc.gridy = i;
 			gbc.fill = GridBagConstraints.BOTH;
-			getContentPane().add(list, gbc);
+			dialog.getContentPane().add(list, gbc);
 			i++;
 			
 		}
@@ -60,7 +66,7 @@ public class GraphicCooseResourceListPanel extends JDialog{
 		gbc.gridx = 0;
 		gbc.gridy = 4;
 		gbc.anchor = GridBagConstraints.SOUTH;
-		getContentPane().add(confirm, gbc);
+		dialog.getContentPane().add(confirm, gbc);
 		
 	}
 	
@@ -85,7 +91,10 @@ public class GraphicCooseResourceListPanel extends JDialog{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			int i = getChoice();
-			//eventHandler.invoke(new ResourceSelectedEvent(cost.get(i)));
+			if(i >= 0){
+				eventHandler.invoke(new ResourceSelectedEvent(costs.get(i)));
+				dialog.dispose();
+				}
 		}
 	}
 
@@ -101,27 +110,12 @@ public class GraphicCooseResourceListPanel extends JDialog{
 	}
 		return -1;
 	}
+	
+	public JDialog getComponent(){
+		return dialog;
+	}
+
+	@Override
+	public void print() {		
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

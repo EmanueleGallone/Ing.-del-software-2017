@@ -9,27 +9,33 @@ import java.awt.event.WindowFocusListener;
 import javax.swing.JDialog;
 
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
-
+/**
+ * <h3> GraphicDevelopmentCardView</h3>
+ * <p> Classe per la visualizzazione delle carte, contiene un pulsante raffigurante la carta che se cliccato crea una finestra
+ * zoom che permette di visualizzare la carta su dimensione maggiore</p>
+ * @see DevelopmentCardView
+ */
 public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
 	ViewCard dialog;
-	GraphicPaintedButton image = new GraphicPaintedButton();
+	GraphicPaintedButton image;
 	String cardName;
+	
+	public GraphicDevelopmentCardView(String name) {
+		this.cardName = name;
+		image = new GraphicPaintedButton(cardName);
+		image.addActionListener(new Zoom());
+	}
 	
 	public GraphicPaintedButton getComponent(){
 		return image;
 	}
 
-	public void print(String cardName) {
-		image.addActionListener(new Zoom());
-		this.cardName = cardName;
-		image.loadImage("/cards/" + cardName + ".png");
+	public void print(){
+		//image.loadImage("/cards/" + cardName + ".png");
 	}
 
-	@Override
-	public void print() {		
-	}
-	
+
 	private class Zoom implements ActionListener{
 
 		@Override

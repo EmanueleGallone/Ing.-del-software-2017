@@ -2,24 +2,19 @@ package it.polimi.ingsw.ps11.view.graphicView;
 
 import java.awt.Color;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextPane;
-import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Highlighter;
-import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
-import javax.swing.text.StyleContext;
 import javax.swing.text.StyledDocument;
 
-import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
-
+/**
+ * <h3> GraphicConsole</h3>
+ * <p> Classe per la visualizzazione della console. Simula un terminale, con possibilità di usare diversi colori per diversi
+ * tipi di messaggio.</p>
+ * @see Console
+ */
 public class GraphicConsole extends Console {
 	
 	protected JTextPane outPut;

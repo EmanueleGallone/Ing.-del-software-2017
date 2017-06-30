@@ -4,9 +4,8 @@ import java.io.Serializable;
 import java.util.Random;
 /**
  * <h3>Dice</h3>
- * <p> Classe astratta che rappresenta l'oggetto dado del gioco. I singoli dadi sono stati implementati usando classi concrete che estendono la sottoscritta.
- * 
- * </p>
+ * <p> Classe astratta che rappresenta l'oggetto dado del gioco. I singoli dadi sono stati implementati usando classi concrete che estendono la sottoscritta. 
+ * Contiene il valore del dado, compreso tra 1 e 6.</p>
  * @version 1.0
  * @see BlackDice
  * @see OrangeDice

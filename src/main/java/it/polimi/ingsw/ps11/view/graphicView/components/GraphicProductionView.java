@@ -10,19 +10,23 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView;
-
+/**
+ * <h3> GraphicProductionView</h3>
+ * <p> Classe per la visualizzazione della zona Produzione, presenta due action space distinti secondo le regole entrambi
+ * realizzati con GraphicPaintedButton</p>
+ * @see ProductionView
+ * @see GraphicPaintedButton
+ */
 public class GraphicProductionView extends ProductionView {
 	
-	//Zona produzione, ha un single ActionSpace e un multiplo ActionSpace
-
 	protected GraphicPaintedPanel productionPanel = new GraphicPaintedPanel();
-	protected GraphicActionSpace singleActionSpace,
+	protected GraphicPaintedButton singleActionSpace,
 			  					 multipleActionSpace;
 	
 	public GraphicProductionView() {
 		
-		singleActionSpace = new GraphicActionSpace("Production single");
-		multipleActionSpace = new GraphicActionSpace("Production multiple");
+		singleActionSpace = new GraphicPaintedButton("Production single");
+		multipleActionSpace = new GraphicPaintedButton("Production multiple");
 		
 		singleActionSpace.setContentAreaFilled(false);
 		multipleActionSpace.setContentAreaFilled(false);

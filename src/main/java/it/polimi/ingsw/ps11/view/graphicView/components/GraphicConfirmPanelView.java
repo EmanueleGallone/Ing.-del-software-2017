@@ -4,7 +4,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -14,17 +13,19 @@ import javax.swing.JTextField;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
-
+import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
+/**
+ * <h3> GraphicConfiirmPanelView</h3>
+ * <p> Pannello che mostra il riepilogo di un'zione che un giocatore vuole eseguire, sono riportati il costo del dado dell'azione,
+ * il bonus di risorse dell'actionspace e la carta se presenti, e richiede se necessario l'aggiunta dei servitori. Il giocatore
+ * può decidere se confermare l'azione o annullarla e ricominciare l'azione</p>
+ */
 public class GraphicConfirmPanelView extends JDialog{
 	
 	protected Floor floor; 
-	private boolean confirmed = false;
 	private JTextField addServitori;
-	
 	private EventHandler<ViewEventInterface> eventHandler;
 	
 	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor) {
@@ -36,14 +37,15 @@ public class GraphicConfirmPanelView extends JDialog{
 		ResourceList resourceList = floor.getActionSpace().getResources();
 		JLabel scrittaCosto = new JLabel("COSTO"),
 				   scrittaBonus = new JLabel("BONUS"),
-				   scrittaServitori = new JLabel("SERViTORI");
-		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
+				   scrittaServitori = new JLabel("SERVITORI");
+		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView(floor.getCard().getName());
+		cardView.print();
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
 		GraphicResourceListView bonus = new GraphicResourceListView(resourceList);
 		addServitori = new JTextField("0");
 		JButton confirm = new JButton("Conferma"),
 				cancel = new JButton("Annulla");
-		cardView.print(floor.getCard().getName());
+		cardView.print();
 		
 		GridBagLayout gblConfirmpanel = new GridBagLayout();
 		gblConfirmpanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};

@@ -8,14 +8,19 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
+/**
+ * <h3> GraphicPaintedPanel</h3>
+ * <p> Classe che estende JPanel. Aggiunge la possibilità di caricare un immagine direttamente sul pannello senza l'ulteriore 
+ * aggiunta di componenti</p>
+ * @see View
+ */
 public class GraphicPaintedPanel extends JPanel {
 	
 	//JPanel con immagine fissa
 	
 	BufferedImage background;
 	
-	public GraphicPaintedPanel() {
+	public GraphicPaintedPanel(){
 	}
 	
 	 @Override

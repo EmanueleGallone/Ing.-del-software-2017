@@ -8,7 +8,12 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> GraphicResourceListView</h3>
+ * <p> Classe per la visualizzazione di una ResourceList. contiene fino a sette segmenti, ognuno composto da un'immagine
+ * della risorsa e il suo valore</p>
+ * @see ResourceList
+ */
 public class GraphicResourceListView extends JPanel{
 
 	ResourceList resourceList;

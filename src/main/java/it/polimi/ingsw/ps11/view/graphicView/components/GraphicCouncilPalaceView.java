@@ -15,26 +15,32 @@ import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
-
+/**
+ * <h3> GraphicCouncilPalaceView</h3>
+ * <p> Classe per la visualizzazione del Palazzo del Consiglio, con l'actionspace multiplo realizzato con un pannello a 
+ * scorrimento e dei pulsanti ordinati che rappresentano l'ordine corrente di gioco. I pulsanti sono anche usati per cambiare la
+ * plancia personale da visualizzare</p>
+ * @see ConcilPalaceView
+ */
 public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
 	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
 	
 	protected GraphicPaintedPanel councilPalacePanel = new GraphicPaintedPanel();
-	protected GraphicActionSpace multipleActionSpace;
+	protected GraphicPaintedButton multipleActionSpace;
 	protected JButton showPanelButton;
-	protected GraphicActionSpace toPlayer1, toPlayer2, toPlayer3, toPlayer4;
-	protected ArrayList<GraphicActionSpace> playerSelectors = new ArrayList<>();
+	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
+	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
 	
 	public GraphicCouncilPalaceView() {
-		multipleActionSpace = new GraphicActionSpace("Council");
+		multipleActionSpace = new GraphicPaintedButton("Council");
 		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
-		toPlayer1 = new GraphicActionSpace("0");
-		toPlayer2 = new GraphicActionSpace("1");
-		toPlayer3 = new GraphicActionSpace("2");
-		toPlayer4 = new GraphicActionSpace("3");
+		toPlayer1 = new GraphicPaintedButton("0");
+		toPlayer2 = new GraphicPaintedButton("1");
+		toPlayer3 = new GraphicPaintedButton("2");
+		toPlayer4 = new GraphicPaintedButton("3");
 		
 		playerSelectors.add(toPlayer1);
 		playerSelectors.add(toPlayer2);

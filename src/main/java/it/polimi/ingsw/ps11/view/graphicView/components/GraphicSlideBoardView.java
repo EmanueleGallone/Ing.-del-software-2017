@@ -13,11 +13,18 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
-
+/**
+ * <h3> GraphicSlideBoardView</h3>
+ * <p> Classe per la visualizzazione della parte nascosta della Board di gioco. Contiene le zone produzione e raccolta, la
+ * zona mercato e il pannello dei dadi</p>
+ * @see BoardView
+ * @see GraphicProductionView
+ * @see GraphicHarvestView
+ * @see GraphicMarketView
+ * @see	GraphicDiceView
+ */
 public class GraphicSlideBoardView extends BoardView {
 	
-	//Parte della board nascosta, contiene le zone produzione e raccolta, il mercato e i dadi
-
 	protected JDialog slideBoard = new JDialog();
 	protected JButton slideOutButton;
 

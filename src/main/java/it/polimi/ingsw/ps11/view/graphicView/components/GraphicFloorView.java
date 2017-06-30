@@ -13,14 +13,21 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
-
+/**
+ * <h3> GraphicFloorView</h3>
+ * <p> Classe per la visualizzazione dei Floor, sono caratterizzati dalla classe della torre dal piano, e contengono una 
+ * DevelopmentCardView per la carta e un PaintedButton per l'actionspace</p>
+ * @see FloorView
+ * @see GraphicDevelopmentCardView
+ * @see GraphicPaintedButton
+ */
 public class GraphicFloorView extends FloorView{
 	
 	//Piano della torre, ha la classe della torre e un int per il piano
 	
 	protected JPanel floor = new JPanel();
 	protected GraphicDevelopmentCardView cardView;
-	protected GraphicActionSpace actionSpace;
+	protected GraphicPaintedButton actionSpace;
 	private Class<? extends Tower> whichTower;
 	private int whichFloor;
 	
@@ -28,9 +35,9 @@ public class GraphicFloorView extends FloorView{
 		super(whichTower, whichFloor);
 		this.whichTower = whichTower;
 		this.whichFloor = whichFloor;
-		this.cardView = new GraphicDevelopmentCardView();
-		cardView = new GraphicDevelopmentCardView();
-		actionSpace = new GraphicActionSpace(whichTower.getClass().getSimpleName() + " " + (4-whichFloor));
+		cardView = new GraphicDevelopmentCardView(null);
+		cardView.print();
+		actionSpace = new GraphicPaintedButton(whichTower.getClass().getSimpleName() + " " + (4-whichFloor));
 		actionSpace.setContentAreaFilled(false);
 		actionSpace.addActionListener(new FloorSelectedListener());
 		cardView.getComponent().setContentAreaFilled(false);
@@ -52,6 +59,7 @@ public class GraphicFloorView extends FloorView{
 		
 		GridBagConstraints gbcCard = new GridBagConstraints();
 		GridBagConstraints gbcActionSPace = new GridBagConstraints();
+		
 		gbcCard.gridx = 0;
 		gbcCard.gridy = 0;
 		gbcCard.gridheight = 3;
@@ -90,7 +98,21 @@ public class GraphicFloorView extends FloorView{
 					" " + floor.getActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
 		
-		if(!(floor.getCard() == null)) this.cardView.print(floor.getCard().getName());
-		this.floor.repaint();
+		if(!(floor.getCard() == null)) {
+			cardView = new GraphicDevelopmentCardView(floor.getCard().getName());
+			cardView.print();
+			
+			GridBagConstraints gbcCard = new GridBagConstraints();
+			gbcCard.gridx = 0;
+			gbcCard.gridy = 0;
+			gbcCard.gridheight = 3;
+			gbcCard.insets = new Insets(10, 7, 0, 0);
+			gbcCard.fill = GridBagConstraints.BOTH;
+			
+			this.floor.add(cardView.getComponent(), gbcCard);
+			
+			};
+			
+			this.floor.repaint();
 	}
 }

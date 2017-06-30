@@ -3,6 +3,12 @@ package it.polimi.ingsw.ps11.model.dices;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+/**
+ * <h3> DiceManager </h3>
+ * <p> Classe Manager per i dadi. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. </p>
+ * @see DevelopmentCard
+ */
 public class DiceManager implements Iterable<Dice>{
 	
 	private static final int DEFAULT_VALUE = 0;

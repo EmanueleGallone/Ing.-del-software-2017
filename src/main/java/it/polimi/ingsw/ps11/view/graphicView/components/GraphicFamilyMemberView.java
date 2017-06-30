@@ -13,7 +13,13 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
-
+/**
+ * <h3> GraphicFamilyMemberView</h3>
+ * <p> Classe per la visualizzazione dei familiari di un giocatore. Ogni familiare è posto un PaintedButton e se è già stato
+ * utilizzato dal giocatore viene oscurato e il pulsante reso inattivo</p>
+ * @see ChooseFamilyView
+ * @see GraphicPaintedButton
+ */
 public class GraphicFamilyMemberView extends ChooseFamilyView {
 	
 	//Selettore del Familiare
@@ -38,7 +44,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		int i = 1;
 		for (String familyMemberName : familyView.getFamily().keySet()) {
 			
-			GraphicPaintedButton familyMember = new GraphicPaintedButton();
+			GraphicPaintedButton familyMember = new GraphicPaintedButton(familyView.getFamily().get(familyMemberName).getClass().getSimpleName());
 			familyMember.loadImage("playerImages/" + familyView.getFamily().get(familyMemberName).getClass().getSimpleName() + ".png");
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
@@ -82,8 +88,11 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		
 		for(FamilyMember member : familyMemberManager.getFamily().values()){
 			familyMemberButtons.get(member).loadImage("playerImages/" + member + ".png");
-			if(member.isUsed())
+			familyMemberButtons.get(member).setEnabled(true);
+			if(member.isUsed()){
 				familyMemberButtons.get(member).setBackground(Color.BLACK);
+				familyMemberButtons.get(member).setEnabled(false);
+			}
 		}
 	}
 	

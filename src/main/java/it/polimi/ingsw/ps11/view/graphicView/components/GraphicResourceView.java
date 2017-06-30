@@ -17,11 +17,14 @@ import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView;
-
+/**
+ * <h3> GraphicResourceView</h3>
+ * <p> Classe per la visualizzazione delle risorse di un singolo giocatore. Contiene monete, legni, pietre, servitori, 
+ * punti del tracciato fede, punti militari e punti vittoria</p>
+ * @see ResourceView
+ */
 public class GraphicResourceView extends ResourceView {
-	
-	//Mostra le risorse di ogni giocatore
-	
+		
 	protected GraphicPaintedPanel resourcesPanel = new GraphicPaintedPanel();
 	protected HashMap<String, JLabel> resources;
 
