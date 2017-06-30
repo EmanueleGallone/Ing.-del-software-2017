@@ -7,7 +7,7 @@ public class UpdateFamilyMemberEvent extends ModelEvent {
 	private FamilyMemberManager manager;
 	
 	public UpdateFamilyMemberEvent(FamilyMemberManager familyMemberManager) {
-		this.manager = manager;
+		this.manager = familyMemberManager;
 	}
 	
 	public FamilyMemberManager getManager() {

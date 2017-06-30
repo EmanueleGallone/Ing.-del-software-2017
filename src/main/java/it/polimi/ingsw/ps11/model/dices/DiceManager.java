@@ -2,14 +2,15 @@ package it.polimi.ingsw.ps11.model.dices;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Iterator;
+
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 
 /**
  * <h3> DiceManager </h3>
  * <p> Classe Manager per i <code>Dice</code>. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. </p>
  * @see DevelopmentCard
  */
-public class DiceManager implements Iterable<Dice>, Serializable{
+public class DiceManager implements Serializable{
 	
 	private static final int DEFAULT_VALUE = 0;
 	private HashMap<String, Dice> dices = new HashMap<>();
@@ -17,14 +18,9 @@ public class DiceManager implements Iterable<Dice>, Serializable{
 // start constructor
 
 	public DiceManager() {
-		
-		BlackDice blackDice = new BlackDice();
-		WhiteDice whiteDice = new WhiteDice();
-		OrangeDice orangeDice = new OrangeDice();
-		dices.put(blackDice.getClass().toString(), blackDice);
-		dices.put(whiteDice.getClass().toString(), whiteDice);
-		dices.put(orangeDice.getClass().toString(), orangeDice);
-		
+		dices.put(BlackDice.class.toString(), new BlackDice());
+		dices.put(WhiteDice.class.toString(), new WhiteDice());
+		dices.put(OrangeDice.class.toString(), new OrangeDice());
 	}
 	
 	private DiceManager(DiceManager toCopy){
@@ -96,10 +92,5 @@ public class DiceManager implements Iterable<Dice>, Serializable{
 	@Override
 	public DiceManager clone(){
 		return new DiceManager(this);
-	}
-
-	@Override
-	public Iterator<Dice> iterator() {
-		return null;
 	}
 }

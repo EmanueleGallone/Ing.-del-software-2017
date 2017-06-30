@@ -26,7 +26,6 @@ import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceListPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;
@@ -154,7 +153,21 @@ public class GraphicView extends View{
 
 	@Override
 	public void run() {
+		GraphicView tryout = new GraphicView();
+		tryout.print();
 		
+		BlueCard card = new BlueCard("name");
+		
+		ArrayList<Resource> array1 = new ArrayList<>();
+		array1.add(new Coin(3));
+		array1.add(new Wood(5));
+		array1.add(new FaithPoint(2));
+		array1.add(new VictoryPoint(4));
+		ResourceList resourceList1 = new ResourceList(array1);
+
+		Floor floor= new Floor();
+		floor.getActionSpace().setResources(resourceList1);
+		floor.setCard(card);
 	}
 	
 	@Override

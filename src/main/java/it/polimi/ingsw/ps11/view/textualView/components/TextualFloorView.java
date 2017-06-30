@@ -6,9 +6,13 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 
 public class TextualFloorView extends FloorView {
 
-	private final int SPACE = 20;
+	private final int SPACE = 30;
 	
 	public TextualFloorView(Class<? extends Tower> whichTower, int whichFloor) {
+		this(whichTower.toString(), whichFloor);
+	}
+	
+	public TextualFloorView(String whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
 		this.cardView = new TextualDevelopmentCardView();
 		this.resourceView = new TextualResourceView();

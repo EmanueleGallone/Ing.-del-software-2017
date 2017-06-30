@@ -27,7 +27,7 @@ public class EndTurnAction implements Action<EndTurnAction>{
 
 	@Override
 	public void perform() {
-		Game game = aManager.getStateHandler().getGame();
+		Game game = aManager.stateHandler().getGame();
 		game.getRoundManager().next();
 		/*
 		 * Va completato

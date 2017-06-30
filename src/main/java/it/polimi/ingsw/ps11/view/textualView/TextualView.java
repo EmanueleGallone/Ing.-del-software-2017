@@ -7,11 +7,11 @@ import java.util.Map;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
@@ -81,7 +81,7 @@ public class TextualView extends View {
 		while (!(command = input.read()).equals("q")){
 			if(commands.get(command) != null){
 				viewEvent.invoke(commands.get(command));
-				console.println("debug: hai selezionato l'evento : " + commands.get(command).getClass().getSimpleName());
+				//console.println("debug: hai selezionato l'evento : " + commands.get(command).getClass().getSimpleName());
 			}
 		}
 	}
@@ -122,7 +122,7 @@ public class TextualView extends View {
 	@Override
 	public void confirm(ConfirmEvent confirm) {
 		Floor floor = confirm.getFloor();
-		TextualFloorView floorView = new TextualFloorView(null,0);
+		TextualFloorView floorView = new TextualFloorView(confirm.getTower(),0);
 		floorView.update(floor);
 		floorView.print();
 		console.println(confirm.getMessage());

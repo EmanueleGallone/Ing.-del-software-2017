@@ -17,7 +17,7 @@ import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 public abstract class FamilyMember implements Serializable{
 	
 	private final int DEFAULT_MODIFIER = 0;
-	private final int DEFAULT_VALUE = 0;
+	private final int DEFAULT_VALUE = 5;
 	
 	protected int value; 
 	protected int modifier;

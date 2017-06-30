@@ -17,8 +17,12 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 import it.polimi.ingsw.ps11.model.bonus.ema.Bonus;
+import it.polimi.ingsw.ps11.model.bonus.ema.actionsEma.Action;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
@@ -29,10 +33,12 @@ public class JsonAdapter {
 	
 	private static ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(
 			Resource.class,
+			Dice.class,
 			Tower.class,
 			DevelopmentCard.class,
 			FamilyMember.class,
-			Bonus.class
+			Effect.class,
+			Action.class
 			));
 	
 	public JsonAdapter() {
@@ -98,6 +104,7 @@ public class JsonAdapter {
 	            JsonDeserializationContext context) throws JsonParseException  {
 	        JsonObject jsonObject = json.getAsJsonObject();
 	        JsonPrimitive prim = (JsonPrimitive) jsonObject.get(CLASSNAME);
+
 	        String className = prim.getAsString();
 
 	        Class<?> klass = null;

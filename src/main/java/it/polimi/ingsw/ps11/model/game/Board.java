@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.zones;
+package it.polimi.ingsw.ps11.model.game;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,6 +10,8 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
+import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 /**

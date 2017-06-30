@@ -15,7 +15,7 @@ import java.util.Random;
 public abstract class Dice implements Serializable{
 	protected static final int MAX_FACES = 6;
 	protected int value;
-	private Random gen = new Random();
+	private transient Random gen = new Random();
 	
 	public Dice(){
 		this.value = 0;

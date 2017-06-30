@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.view.viewGenerica.components;
 
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-import it.polimi.ingsw.ps11.view.textualView.components.TextualDevelopmentCardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualResourceView;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
@@ -17,9 +16,12 @@ public abstract class FloorView extends ViewComponent{
 
 	
 	public FloorView(Class<? extends Tower> whichTower,int whichFloor) {
+		this(whichTower.toString(), whichFloor);
+	}
+	
+	public FloorView(String whichTower,int whichFloor) {
 		updateWhichFloor(whichFloor);
-		this.tower = whichTower.toString();
-
+		this.tower = whichTower;
 	}
 	
 	public void update(Floor floor){

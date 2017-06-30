@@ -19,7 +19,7 @@ public class RoundManager implements Serializable{
 	private int round = 1; //il round finisce quando i giocatori hanno tutti fatto 1 mossa. Quando i giocatori hanno fatto 4 mosse, allora vuol dire che siamo alla fine del round 4
 	private int turn = 1; //dopo che è finito il round 4, vuol dire che e' terminato il turno
 	private int period = 1; 
-	private int actualPlayer = 0;
+	private int actualPlayer = -1; 
 	
 	private EventHandler<RoundManager> newPeriod = new EventHandler<>();
 	private EventHandler<RoundManager> newTurn = new EventHandler<>();

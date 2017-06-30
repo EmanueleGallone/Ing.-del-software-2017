@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.cards;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
@@ -22,7 +23,7 @@ public abstract class DevelopmentCard extends Card {
 	
 	protected ArrayList<ResourceList> costs = new ArrayList<>();
 
-	protected ArrayList<Effect> istantEffect = new ArrayList<>();
+	protected ArrayList<Effect> instantEffect = new ArrayList<>();
 	protected ArrayList<Effect> permanentEffect = new ArrayList<>();
 	 
 	public DevelopmentCard() {
@@ -39,6 +40,13 @@ public abstract class DevelopmentCard extends Card {
 	
 	public DevelopmentCard(ArrayList<ResourceList> costs){
 		this.costs = costs;
+	}
+	
+	public ResourceList getFirstCost(){
+		if(costs.size()>0){
+			return costs.get(0);
+		}
+		return new ResourceList();
 	}
 	
 // Start Logics
@@ -58,7 +66,7 @@ public abstract class DevelopmentCard extends Card {
 	 * @return true se è solo un tipo, false altrimenti
 	 */
 	public boolean isMonoCost(){
-		return (this.costs.size() > 1);
+		return this.costs.size() > 1;
 	}
 	
 	public int getActiveValue() {
@@ -81,8 +89,8 @@ public abstract class DevelopmentCard extends Card {
 // Action
 	
 
-	public ArrayList<Effect> getIstantEffect() {
-		return istantEffect;
+	public ArrayList<Effect> getInstantEffect() {
+		return instantEffect;
 	}
 	public ArrayList<Effect> getPermanentEffect() {
 		return permanentEffect;
@@ -91,8 +99,8 @@ public abstract class DevelopmentCard extends Card {
 	/**<h3> addInstantEffect(Effect) </h3>
 	 * <p> Aggiunge un effetto istantaneo ad una carta </p>
 	 */
-	public void addIstantEffect(Effect istantEffect) {
-		this.istantEffect.add(istantEffect);
+	public void addInstantEffect(Effect istantEffect) {
+		this.instantEffect.add(istantEffect);
 	}
 	
 	/**<h3> addPermanentEffect(Effect) </h3>
@@ -103,16 +111,6 @@ public abstract class DevelopmentCard extends Card {
 	}
 
 // Start setters
-	
-	/*private void setOwner(Player player){
-		for(Bonus bonus : permanentBonus){
-			
-			bonus.(player);
-		}
-		for(Bonus bonus : instantBonus){
-			bonus.setOwner(player);
-		}
-	}*/
 	
 	public void setPeriod(int period) {
 		this.period = period;

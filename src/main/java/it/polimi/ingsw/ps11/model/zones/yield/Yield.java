@@ -22,6 +22,10 @@ public class Yield implements FamilyMemberSpace, Serializable {
 		this.cardType = cardType.toString();
 	}
 	
+	public Yield(String cardType) {
+		this.cardType = cardType;
+	}
+	
 	/**<h3> ActionSpace getFreeSpace() </h3>
 	 * <p> Restituisce il single actionspace se questo è vuoto, altrimenti prende un actionspace libero del multiple actionspace</p>
 	 */
@@ -56,5 +60,16 @@ public class Yield implements FamilyMemberSpace, Serializable {
 	}
 	public MultipleActionSpace getMultipleActionSpace() {
 		return multipleActionSpace;
+	}
+	
+	@Override
+	public Yield clone(){
+		//NB: i singleActionSpace e i Multiple non sono mai null; inutile un controllo
+		Yield clone = new Yield(this.cardType);
+	
+		clone.singleActionSpace = this.singleActionSpace.clone();
+		clone.multipleActionSpace = this.multipleActionSpace.clone();
+		
+		return clone;
 	}
 }

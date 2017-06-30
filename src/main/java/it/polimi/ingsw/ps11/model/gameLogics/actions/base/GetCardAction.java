@@ -8,6 +8,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class GetCardAction implements Action<GetCardAction>{
@@ -16,39 +17,47 @@ public class GetCardAction implements Action<GetCardAction>{
 	protected DevelopmentCard card;
 	protected ResourceList cost;
 	
-	private ResourceList modifier;
+	private ResourceList modifier = new ResourceList();
 	
 	
-	EventHandler<ModelEvent> eventHandler = new EventHandler<>();
+	private EventHandler<ModelEvent> eventHandler = new EventHandler<>();
 	
 	public GetCardAction() {
 	
 	}
 
-	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList state) {
+	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList cost) {
 		this.aManager = aManager;
 		this.card = card;
-		this.cost = cost.clone();
+		if(cost != null)
+			this.cost = cost.clone();
 	}
 	
 	@Override
 	public boolean isLegal() {
 		
-		if(cost == null && !card.isMonoCost()){
+		if(card == null)
+			return false;
+		
+		if(!card.isMonoCost() && cost == null ){
 			ChooseResourceEvent c = new ChooseResourceEvent(card.getCosts());
 			c.setMessage("Seleziona uno dei costi da pagare");
 			eventHandler.invoke(c);
 			return false;
 		}
 		else if(cost == null && card.isMonoCost()){
-			cost = card.getCosts().get(0);
+			cost = card.getFirstCost();
 		}
 		
 		boolean result = this.card.getCosts().contains(cost);
 		ResourceList temp = cost.clone();
 		temp.subtract(modifier);
 		DecrementAction pay = aManager.newDecrementAction(temp);
-		return pay.isLegal() && aManager.getSubject().getCardManager().canAdd(card) ;
+		if(!pay.isLegal()){
+			result = false;
+			aManager.stateHandler().invoke(new TextualEvent("Non hai abbastanza risorse per prendere la carta"));
+		}
+		return result && aManager.getSubject().getCardManager().canAdd(card);
 	}
 
 	@Override
@@ -57,7 +66,7 @@ public class GetCardAction implements Action<GetCardAction>{
 		pay.perform();
 		aManager.getSubject().getCardManager().addCard(card);
 		
-		for(Effect effect: card.getIstantEffect()){
+		for(Effect effect: card.getInstantEffect()){
 			Action<?> action = effect.get(aManager);
 			if(action.isLegal())
 				action.perform();
@@ -68,6 +77,9 @@ public class GetCardAction implements Action<GetCardAction>{
 	}
 	
 	
+	public void setCost(ResourceList cost) {
+		this.cost = cost;
+	}
 	public DevelopmentCard getCard() {
 		return card;
 	}
@@ -105,8 +117,11 @@ public class GetCardAction implements Action<GetCardAction>{
 	
 	@Override
 	public GetCardAction clone() {
-		// TODO Auto-generated method stub
-		return null;
+		ResourceList resource = null;
+		if(cost != null)
+			resource = cost.clone();
+		GetCardAction copy = new GetCardAction(aManager, card.clone(), cost.clone());
+		return copy;
 	}
 
 }
