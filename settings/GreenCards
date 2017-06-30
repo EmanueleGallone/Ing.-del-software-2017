@@ -1,14 +1,14 @@
 [
   {
-    "activeValue": 3,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 3,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -27,11 +27,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -50,18 +50,18 @@
         }
       }
     ],
-    "name": "Tenuta"
+    "name": "Farm"
   },
   {
-    "activeValue": 1,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 1,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -80,11 +80,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -97,25 +97,19 @@
         }
       }
     ],
-    "name": "Citta\u0027 Mercantile"
+    "name": "Trading Town"
   },
   {
-    "activeValue": 6,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 6,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                 "INSTANCE": {
@@ -125,13 +119,76 @@
             }
           }
         }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -150,18 +207,18 @@
         }
       }
     ],
-    "name": "Provincia"
+    "name": "Province"
   },
   {
-    "activeValue": 2,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 2,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -174,11 +231,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -197,18 +254,18 @@
         }
       }
     ],
-    "name": "Cava di Marmo"
+    "name": "Marble Pit"
   },
   {
-    "activeValue": 1,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 1,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -221,11 +278,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -244,18 +301,18 @@
         }
       }
     ],
-    "name": "Santuario"
+    "name": "Sanctuary"
   },
   {
-    "activeValue": 5,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 5,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
@@ -268,11 +325,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -291,18 +348,18 @@
         }
       }
     ],
-    "name": "Colonia"
+    "name": "Colony"
   },
   {
+    "DEFAULT_VALUE": 1,
+    "period": 3,
     "activeValue": 2,
-    "DEFAULT_VALUE": 1,
-    "period": 3,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -321,11 +378,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -344,18 +401,18 @@
         }
       }
     ],
-    "name": "Citta\u0027 Fortificata"
+    "name": "Fortified Town"
   },
   {
-    "activeValue": 4,
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 4,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -374,11 +431,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -397,18 +454,18 @@
         }
       }
     ],
-    "name": "Castello"
+    "name": "Castle"
   },
   {
-    "activeValue": 1,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 1,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -421,11 +478,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -438,18 +495,18 @@
         }
       }
     ],
-    "name": "Miniera d\u0027oro"
+    "name": "Gold Mine"
   },
   {
-    "activeValue": 3,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 3,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -462,11 +519,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
@@ -479,18 +536,18 @@
         }
       }
     ],
-    "name": "Cava Di Pietra"
+    "name": "Rock Pit"
   },
   {
-    "activeValue": 3,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 3,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -503,11 +560,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -526,18 +583,18 @@
         }
       }
     ],
-    "name": "Villaggio Montano"
+    "name": "Mountain Town"
   },
   {
-    "activeValue": 4,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 4,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -556,11 +613,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -579,19 +636,19 @@
         }
       }
     ],
-    "name": "Possedimento"
+    "name": "Estate"
   },
   {
-    "activeValue": 5,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 5,
     "costs": [],
-    "instantBonus": [],
-    "permanentBonus": [
+    "instantEffect": [],
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -610,18 +667,18 @@
         }
       }
     ],
-    "name": "Maniero"
+    "name": "Manor House"
   },
   {
-    "activeValue": 6,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 6,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -634,11 +691,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -663,18 +720,18 @@
         }
       }
     ],
-    "name": "Ducato"
+    "name": "Dukedom"
   },
   {
-    "activeValue": 4,
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 4,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -693,11 +750,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -716,18 +773,18 @@
         }
       }
     ],
-    "name": "Villaggio Minerario"
+    "name": "Mining Town"
   },
   {
+    "DEFAULT_VALUE": 1,
+    "period": 2,
     "activeValue": 2,
-    "DEFAULT_VALUE": 1,
-    "period": 2,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -740,11 +797,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -757,18 +814,18 @@
         }
       }
     ],
-    "name": "Eremo"
+    "name": "Hermitage"
   },
   {
+    "DEFAULT_VALUE": 1,
+    "period": 1,
     "activeValue": 4,
-    "DEFAULT_VALUE": 1,
-    "period": 1,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
@@ -781,11 +838,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
@@ -798,18 +855,18 @@
         }
       }
     ],
-    "name": "Cava Di Ghiaia"
+    "name": "Gravel Pit"
   },
   {
-    "activeValue": 6,
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 6,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -822,36 +879,84 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
         "INSTANCE": {
-          "resourceList": {
-            "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 1
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
                 }
               }
             }
-          }
+          ]
         }
       }
     ],
-    "name": "Citta\u0027"
+    "name": "City\u0027"
   },
   {
-    "activeValue": 5,
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 5,
     "costs": [],
-    "instantBonus": [],
-    "permanentBonus": [
+    "instantEffect": [],
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
@@ -870,18 +975,18 @@
         }
       }
     ],
-    "name": "Rocca"
+    "name": "Citadel"
   },
   {
-    "activeValue": 5,
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 5,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -894,11 +999,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -911,18 +1016,18 @@
         }
       }
     ],
-    "name": "Foresta"
+    "name": "Forest"
   },
   {
-    "activeValue": 6,
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 6,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -941,11 +1046,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -964,19 +1069,19 @@
         }
       }
     ],
-    "name": "Monastero"
+    "name": "Monastery"
   },
   {
+    "DEFAULT_VALUE": 1,
+    "period": 1,
     "activeValue": 3,
-    "DEFAULT_VALUE": 1,
-    "period": 1,
     "costs": [],
-    "instantBonus": [],
-    "permanentBonus": [
+    "instantEffect": [],
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -995,18 +1100,18 @@
         }
       }
     ],
-    "name": "Borgo"
+    "name": "Village"
   },
   {
+    "DEFAULT_VALUE": 1,
+    "period": 1,
     "activeValue": 2,
-    "DEFAULT_VALUE": 1,
-    "period": 1,
     "costs": [],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -1019,11 +1124,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -1036,19 +1141,19 @@
         }
       }
     ],
-    "name": "Bosco"
+    "name": "Woods"
   },
   {
-    "activeValue": 1,
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 1,
     "costs": [],
-    "instantBonus": [],
-    "permanentBonus": [
+    "instantEffect": [],
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -1061,6 +1166,6 @@
         }
       }
     ],
-    "name": "Avamposto Commerciale"
+    "name": "Commercial Hub"
   }
 ]

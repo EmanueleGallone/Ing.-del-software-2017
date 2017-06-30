@@ -1,23 +1,32 @@
 package it.polimi.ingsw.ps11;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
@@ -32,62 +41,9 @@ import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
 public class MainTest {
 	
-	public static void main(String[] args){
-
-		ArrayList<ResourceList> council = new ArrayList<>();
+	public static void main(String[] args){		
 		
-		
-		
-		
-		
-		DevelopmentCard card = new YellowCard();
-		
-		card.addIstantEffect(new AddResourceEffect(new ResourceList(new Coin(3))));
-		card.addPermanentEffect(new CouncilPrivilege(council));
-		
-		card.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2));
-		card.addPermanentEffect(new CardDiscount(BlueCard.class,new ResourceList(new Coin(1))));
-		card.addPermanentEffect(new ActiveYieldEffect(YellowCard.class.toString(), 2));
 	}	
-	
-	
-	public static void writeFile(String fileName, String testo){
-		
-//		BufferedWriter writer = null;
-//		
-//		try {
-//			writer = new BufferedWriter(new FileWriter(fileName));
-//			writer.write(testo);
-//			writer.flush();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		finally {
-//			if (writer != null){
-//				try {
-//					writer.close();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}
-//=======
-//		TextualView view = new TextualView();
-//>>>>>>> ema
-//		
-//		new Thread(view).start();
-//		view.update(game.getBoard());
-//		//view.update(player1.getFamilyManager());
-//		
-//		ArrayList<ResourceList> list = new ArrayList<ResourceList>();
-//		ResourceList resourceList = new ResourceList(new Coin(5));
-//		resourceList.setResource(new Stone(8));
-//		ResourceList resourceList2 = new ResourceList(new VictoryPoint(8));
-//		list.add(resourceList);
-//		list.add(resourceList2);
-//		
-//		view.update(list);
-	}
 	
  
  
@@ -182,277 +138,304 @@ public class MainTest {
 	}
 	
 	public static void inizializzaCarte(){
-		/*
+		
 		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
 		
 		ResourceList resourceList = new ResourceList();
+		
+		/*
+		 * esempio
+		DevelopmentCard card = new YellowCard();
+		
+		card.addInstantEffect(new AddResourceEffect(new ResourceList(new Coin(3))));
+		card.addPermanentEffect(new CouncilPrivilege(council)); //il privilegio del consiglio è un effetto e va passata la resource list con i valori
+		
+		card.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2)); //+2 per le carte blue
+		card.addPermanentEffect(new CardDiscount(BlueCard.class,new ResourceList(new Coin(1)))); //sconto di una moneta per le carte blu
+		card.addPermanentEffect(new ActiveYieldEffect(YellowCard.class.toString(), 2)); //attiva produzione
+		
+		*/
+		
+		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
+		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
+		resourceList.setResource(new Wood(1));
+		resourceList.setResource(new Stone(1));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new Servant(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new Coin(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new MilitaryPoint(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(1));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList();
 		
 		//INIZIO CARTE VERDI
 		
 		GreenCard avampostoCommerciale = new GreenCard(); //creazione carta
 		avampostoCommerciale.setPeriod(1);
-		avampostoCommerciale.setName("Avamposto Commerciale");
+		avampostoCommerciale.setName("Commercial Hub");
 		avampostoCommerciale.setActiveValue(1); //setto il valore per il quale è possibile attivare il bonus permanente
 		resourceList.setResource(new Coin(1)); //setto la resourceList per il bonus
-		avampostoCommerciale.addPermanentBonus(new IncrementResourceBonus(resourceList.clone())); //attribuzione del bonus permanente alla carta
+		avampostoCommerciale.addPermanentEffect(new AddResourceEffect(resourceList.clone())); //attribuzione del bonus permanente alla carta
 		
 		GreenCard bosco = new GreenCard();
 		bosco.setActiveValue(2);
 		bosco.setPeriod(1);
-		bosco.setName("Bosco");
+		bosco.setName("Woods");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
-		bosco.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		bosco.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		bosco.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		bosco.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard borgo = new GreenCard();
-		borgo.setName("Borgo");
+		borgo.setName("Village");
 		borgo.setPeriod(1);
 		borgo.setActiveValue(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(1));
 		resourceList.setResource(new Coin(1));
-		borgo.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		borgo.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard monastero = new GreenCard();
 		monastero.setPeriod(1);
-		monastero.setName("Monastero");
+		monastero.setName("Monastery");
 		monastero.setActiveValue(6);
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(2));
 		resourceList.setResource(new Servant(1));
-		monastero.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		monastero.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(1));
 		resourceList.setResource(new Stone(1));
-		monastero.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		monastero.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard foresta = new GreenCard();
 		foresta.setPeriod(1);
-		foresta.setName("Foresta");
+		foresta.setName("Forest");
 		foresta.setActiveValue(5);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
-		foresta.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		foresta.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(3));
-		foresta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		foresta.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard rocca = new GreenCard();
 		rocca.setPeriod(1);
-		rocca.setName("Rocca");
+		rocca.setName("Citadel");
 		rocca.setActiveValue(5);
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(2));
 		resourceList.setResource(new Stone(1));
-		rocca.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		rocca.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard citta = new GreenCard();
 		citta.setActiveValue(6);
 		citta.setPeriod(1);
-		citta.setName("Citta'");
+		citta.setName("City'");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
-		citta.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		citta.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
-		resourceList.setResource(new CouncilPrivilege(1));
-		citta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		citta.addPermanentEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		
 		GreenCard cavaGhiaia = new GreenCard();
 		cavaGhiaia.setActiveValue(4);
-		cavaGhiaia.setName("Cava Di Ghiaia");
+		cavaGhiaia.setName("Gravel Pit");
 		cavaGhiaia.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(2));
-		cavaGhiaia.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		cavaGhiaia.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		cavaGhiaia.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		cavaGhiaia.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		//INIZIO SECONDO PERIODO
 		
 		GreenCard eremo = new GreenCard();
 		eremo.setActiveValue(2);
-		eremo.setName("Eremo");
+		eremo.setName("Hermitage");
 		eremo.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(1));
-		eremo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		eremo.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		eremo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		eremo.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard villaggioMinerario = new GreenCard();
 		villaggioMinerario.setActiveValue(4);
-		villaggioMinerario.setName("Villaggio Minerario");
+		villaggioMinerario.setName("Mining Town");
 		villaggioMinerario.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(2));
 		resourceList.setResource(new Stone(1));
-		villaggioMinerario.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		villaggioMinerario.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(1));
 		resourceList.setResource(new Stone(2));
-		villaggioMinerario.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		villaggioMinerario.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard ducato = new GreenCard();
 		ducato.setActiveValue(6);
 		ducato.setPeriod(2);
-		ducato.setName("Ducato");
+		ducato.setName("Dukedom");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(4));
-		ducato.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		ducato.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList.setResource(new Coin(1));
 		resourceList.setResource(new Wood(2));
 		resourceList.setResource(new Stone(1));
-		ducato.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		ducato.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard maniero = new GreenCard();
 		maniero.setActiveValue(5);
 		maniero.setPeriod(2);
-		maniero.setName("Maniero");
+		maniero.setName("Manor House");
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(2));
 		resourceList.setResource(new Servant(2));
-		maniero.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		maniero.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard possedimento = new GreenCard();
 		possedimento.setActiveValue(4);
 		possedimento.setPeriod(2);
-		possedimento.setName("Possedimento");
+		possedimento.setName("Estate");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(2));
 		resourceList.setResource(new Wood(1));
-		possedimento.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		possedimento.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList= new ResourceList();
 		resourceList.setResource(new Coin(1));
 		resourceList.setResource(new Wood(2));
-		possedimento.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		possedimento.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard villaggioMontano = new GreenCard();
 		villaggioMontano.setActiveValue(3);
-		villaggioMontano.setName("Villaggio Montano");
+		villaggioMontano.setName("Mountain Town");
 		villaggioMontano.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(1));
-		villaggioMontano.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		villaggioMontano.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(1));
 		resourceList.setResource(new Wood(2));
-		villaggioMontano.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		villaggioMontano.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard cavaDiPietra = new GreenCard();
 		cavaDiPietra.setActiveValue(3);
 		cavaDiPietra.setPeriod(2);
-		cavaDiPietra.setName("Cava Di Pietra");
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(1));
-		cavaDiPietra.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(3));
-		cavaDiPietra.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		cavaDiPietra.setName("Rock Pit");
+		resourceList = new ResourceList(new Wood(1));
+		cavaDiPietra.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		resourceList = new ResourceList(new Stone(3));
+		cavaDiPietra.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard minieraOro = new GreenCard();
 		minieraOro.setActiveValue(1);
 		minieraOro.setPeriod(2);
-		minieraOro.setName("Miniera d'oro");
+		minieraOro.setName("Gold Mine");
 		resourceList = new ResourceList();
 		resourceList.setResource( new Coin(1));
-		minieraOro.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		minieraOro.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList.setResource(new Coin(2));
-		minieraOro.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		minieraOro.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		//INIZIO TERZO PERIODO
 		
 		GreenCard castello = new GreenCard();
 		castello.setActiveValue(4);
-		castello.setName("Castello");
+		castello.setName("Castle");
 		castello.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(2));
 		resourceList.setResource(new Coin(2));
-		castello.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		castello.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(3));
 		resourceList.setResource(new Servant(1));
-		castello.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		castello.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard cittaFortificata = new GreenCard();
 		cittaFortificata.setActiveValue(2);
-		cittaFortificata.setName("Citta' Fortificata");
+		cittaFortificata.setName("Fortified Town");
 		cittaFortificata.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(2));
 		resourceList.setResource(new Servant(1));
-		cittaFortificata.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		cittaFortificata.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(1));
 		resourceList.setResource(new Servant(2));
-		cittaFortificata.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		cittaFortificata.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard colonia = new GreenCard();
 		colonia.setActiveValue(5);
 		colonia.setPeriod(3);
-		colonia.setName("Colonia");
+		colonia.setName("Colony");
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(2));
-		colonia.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		colonia.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
 		resourceList.setResource(new Wood(1));
-		colonia.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		colonia.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard santuario = new GreenCard();
 		santuario.setActiveValue(1);
-		santuario.setName("Santuario");
+		santuario.setName("Sanctuary");
 		santuario.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(1));
-		santuario.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		santuario.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList.setResource(new Coin(1));
-		santuario.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		santuario.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard cavaDiMarmo = new GreenCard();
 		cavaDiMarmo.setActiveValue(2);
-		cavaDiMarmo.setName("Cava di Marmo");
+		cavaDiMarmo.setName("Marble Pit");
 		cavaDiMarmo.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(3));
-		cavaDiMarmo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		cavaDiMarmo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList.setResource(new VictoryPoint(1));
 		resourceList.setResource(new Servant(2));
-		cavaDiMarmo.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		cavaDiMarmo.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard provincia = new GreenCard();
 		provincia.setActiveValue(6);
-		provincia.setName("Provincia");
+		provincia.setName("Province");
 		provincia.setPeriod(3);
 		resourceList = new ResourceList();
-		resourceList.setResource(new CouncilPrivilege(1));
 		resourceList.setResource(new Stone(1));
-		provincia.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		provincia.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		provincia.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
 		resourceList.setResource(new Stone(1));
-		provincia.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		provincia.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard cittaMercantile = new GreenCard();
 		cittaMercantile.setActiveValue(1);
-		cittaMercantile.setName("Citta' Mercantile");
+		cittaMercantile.setName("Trading Town");
 		cittaMercantile.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
-		cittaMercantile.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		cittaMercantile.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
+		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(1));
 		resourceList.setResource(new Servant(1));
-		cittaMercantile.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		cittaMercantile.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		
 		GreenCard tenuta = new GreenCard();
 		tenuta.setActiveValue(3);
-		tenuta.setName("Tenuta");
+		tenuta.setName("Farm");
 		tenuta.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(1));
 		resourceList.setResource(new Wood(1));
-		tenuta.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		tenuta.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList.setResource(new VictoryPoint(2));
 		resourceList.setResource(new Wood(2));
-		tenuta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		tenuta.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
 		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
@@ -481,40 +464,40 @@ public class MainTest {
 		greenDeck.add(bosco);
 		greenDeck.add(avampostoCommerciale);	
 		
-		writeFile("settings\\GreenCards", gAdapter.toJson(greenDeck, type));
+		CustomFileReaderWriter.writeFile("settings\\GreenCards", gAdapter.toJson(greenDeck, type));
 		
 		//FINE CARTE VERDI
 		
 		//INIZIO CARTE VIOLA
 		
 		PurpleCard campagnaMilitare = new PurpleCard();
-		campagnaMilitare.setName("Campagna Militare");
+		campagnaMilitare.setName("Military Campaign");
 		campagnaMilitare.setPeriod(1);
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(3)); //richiede che il giocatore abbia 3 punti militari
+		resourceList.setResource(new MilitaryPoint(2)); //richiede che il giocatore abbia 3 punti militari
 		campagnaMilitare.addCost(resourceList.clone()); //come faccio a dirgli che quando prenderà la carta ne dovra' spendere 2 di militarypoints?
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		campagnaMilitare.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		campagnaMilitare.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
-		campagnaMilitare.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		campagnaMilitare.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		
 		PurpleCard ospitareMendicanti = new PurpleCard();
-		ospitareMendicanti.setName("Ospitare i Mendicanti");
+		ospitareMendicanti.setName("Hosting Panhandlers");
 		ospitareMendicanti.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(3));
 		ospitareMendicanti.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(4));
-		ospitareMendicanti.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		ospitareMendicanti.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		ospitareMendicanti.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		ospitareMendicanti.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard riparareChiesa = new PurpleCard();
-		riparareChiesa.setName("Riparare la Chiesa");
+		riparareChiesa.setName("Repairing the Church");
 		riparareChiesa.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
@@ -523,42 +506,42 @@ public class MainTest {
 		riparareChiesa.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(1));
-		riparareChiesa.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		riparareChiesa.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		riparareChiesa.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		riparareChiesa.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard ingaggiareReclute = new PurpleCard();
-		ingaggiareReclute.setName("Ingaggiare Reclute");
+		ingaggiareReclute.setName("Hiring Recruits");
 		ingaggiareReclute.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(4));
 		ingaggiareReclute.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(5));
-		ingaggiareReclute.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		ingaggiareReclute.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		ingaggiareReclute.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		ingaggiareReclute.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard combattereEresie = new PurpleCard();
-		combattereEresie.setName("Combattere le Eresie");
+		combattereEresie.setName("Fighting Heresies");
 		combattereEresie.setPeriod(1);
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(5)); //anche qui, devo avere 5 military points ma ne devo spendere 3
+		resourceList.setResource(new MilitaryPoint(3)); //anche qui, devo avere 5 military points ma ne devo spendere 3
 		combattereEresie.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(2));
-		combattereEresie.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		combattereEresie.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList= new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		combattereEresie.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		combattereEresie.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard sostegnoVaticano = new PurpleCard();
-		sostegnoVaticano.setName("Sostegno al Vaticano");
+		sostegnoVaticano.setName("Support to the Bishop");
 		sostegnoVaticano.setPeriod(1);
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(4)); //devo avere 4 military points e spenderne 2 per prendere la carta
+		resourceList.setResource(new MilitaryPoint(2)); //devo avere 4 military points e spenderne 2 per prendere la carta
 		sostegnoVaticano.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(2));
@@ -566,64 +549,65 @@ public class MainTest {
 		resourceList.setResource(new Wood(1));
 		sostegnoVaticano.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(3));
-		sostegnoVaticano.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		sostegnoVaticano.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new VictoryPoint(1));
-		sostegnoVaticano.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		sostegnoVaticano.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		PurpleCard costruireMura = new PurpleCard();
-		costruireMura.setName("Costruire le Mura");
+		costruireMura.setName("Building the Walls");
 		costruireMura.setPeriod(1);
 		resourceList = new ResourceList(new Stone(3));
 		costruireMura.addCost(resourceList.clone());
 		resourceList = new ResourceList(new MilitaryPoint(2));
-		resourceList.setResource(new CouncilPrivilege(1));
-		costruireMura.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		costruireMura.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		costruireMura.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		resourceList = new ResourceList(new VictoryPoint(3));
-		costruireMura.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		costruireMura.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		PurpleCard innalzareStatua = new PurpleCard();
-		innalzareStatua.setName("Innalzare una Statua");
+		innalzareStatua.setName("Raising a Statue");
 		innalzareStatua.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(2));
 		resourceList.setResource(new Wood(2));
 		innalzareStatua.addCost(resourceList.clone());
 		resourceList = new ResourceList();
-		resourceList.setResource(new CouncilPrivilege(2)); //ATTENZIONE; questa carta prevede che i 2 favori del consiglio siano DIVERSI
-		innalzareStatua.addInstantBonus( new IncrementResourceBonus(resourceList.clone()));
+		//ATTENZIONE; questa carta prevede che i 2 favori del consiglio siano DIVERSI
+		innalzareStatua.addInstantEffect( new CouncilPrivilege(councilPrivilegeResourceLists));
+		innalzareStatua.addInstantEffect( new CouncilPrivilege(councilPrivilegeResourceLists));
 		resourceList = new ResourceList(new VictoryPoint(4));
-		innalzareStatua.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		innalzareStatua.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		//INIZIO SECONDO PERIODO
 		
 		PurpleCard ingaggiareSoldati = new PurpleCard();
-		ingaggiareSoldati.setName("Ingaggiare Soldati");
+		ingaggiareSoldati.setName("Hiring Soldiers");
 		ingaggiareSoldati.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(6));
 		ingaggiareSoldati.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(6));
-		ingaggiareSoldati.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		ingaggiareSoldati.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		ingaggiareSoldati.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		ingaggiareSoldati.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard scavareCanalizzazioni = new PurpleCard();
-		scavareCanalizzazioni.setName("Scavare Canalizzazioni");
+		scavareCanalizzazioni.setName("Improving the Canals");
 		scavareCanalizzazioni.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(2));
 		resourceList.setResource(new Coin(3));
 		scavareCanalizzazioni.addCost(resourceList.clone());
 		resourceList = new ResourceList();
-		scavareCanalizzazioni.addInstantBonus(new EnableHarvestBonus(4)); //BONUS PARTICOLARE. DA DEFINIRE
+		scavareCanalizzazioni.addInstantEffect(new ActiveYieldEffect(GreenCard.class.toString(), 4));
 		resourceList.setResource(new VictoryPoint(5));
-		scavareCanalizzazioni.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		scavareCanalizzazioni.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard riparareAbbazia = new PurpleCard();
 		riparareAbbazia.setPeriod(2);
-		riparareAbbazia.setName("Riparare l'Abbazia");
+		riparareAbbazia.setName("Repairing the Abbey");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(2));
 		resourceList.setResource(new Wood(2));
@@ -631,30 +615,30 @@ public class MainTest {
 		riparareAbbazia.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(2));
-		riparareAbbazia.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		riparareAbbazia.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(6));
-		riparareAbbazia.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		riparareAbbazia.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard supportoRe = new PurpleCard();
 		supportoRe.setPeriod(2);
-		supportoRe.setName("Supporto al Re");
+		supportoRe.setName("Support to the King");
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(6)); //anche qui, il player deve avere 6 MP e spenderne 3
+		resourceList.setResource(new MilitaryPoint(3)); //anche qui, il player deve avere 6 MP e spenderne 3
 		supportoRe.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(5));
-		resourceList.setResource(new CouncilPrivilege(1));
-		supportoRe.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		supportoRe.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		supportoRe.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(3));
-		supportoRe.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		supportoRe.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard sostegnoCardinale = new PurpleCard();
 		sostegnoCardinale.setPeriod(2);
-		sostegnoCardinale.setName("Sostegno al Cardinale");
+		sostegnoCardinale.setName("Support to the Cardinal");
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(7)); //player deve avere 7 MP e spenderne 4
+		resourceList.setResource(new MilitaryPoint(4)); //player deve avere 7 MP e spenderne 4
 		sostegnoCardinale.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
@@ -663,57 +647,57 @@ public class MainTest {
 		sostegnoCardinale.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(3));
-		sostegnoCardinale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		sostegnoCardinale.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		sostegnoCardinale.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		sostegnoCardinale.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard crociata = new PurpleCard();
 		crociata.setPeriod(2);
-		crociata.setName("Crociata");
+		crociata.setName("Crusade");
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(8)); //player deve avere 8 MP e spenderne 4
+		resourceList.setResource(new MilitaryPoint(4)); //player deve avere 8 MP e spenderne 4
 		crociata.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(5));
 		resourceList.setResource(new FaithPoint(1));
-		crociata.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		crociata.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		crociata.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		crociata.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard costruireBastioni = new PurpleCard();
 		costruireBastioni.setPeriod(2);
-		costruireBastioni.setName("Costruire i Bastioni");
+		costruireBastioni.setName("Building the Bastions");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(4));
 		costruireBastioni.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(3));
-		resourceList.setResource(new CouncilPrivilege(1));
-		costruireBastioni.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		costruireBastioni.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		costruireBastioni.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(2));
-		costruireBastioni.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		costruireBastioni.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard accogliereStranieri = new PurpleCard();
 		accogliereStranieri.setPeriod(2);
-		accogliereStranieri.setName("Accogliere gli Stranieri");
+		accogliereStranieri.setName("Hosting Foreigners");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(4));
 		accogliereStranieri.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(5));
-		accogliereStranieri.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		accogliereStranieri.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		accogliereStranieri.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		accogliereStranieri.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		//INIZIO TERZO PERIODO
 		
 		PurpleCard riparareCattedrale = new PurpleCard(); //CARTA DA RIVEDERE!
 		riparareCattedrale.setPeriod(3);
-		riparareCattedrale.setName("Riparare la Cattedrale");
+		riparareCattedrale.setName("Repairing the Cathedral");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
 		resourceList.setResource(new Stone(3));
@@ -721,107 +705,106 @@ public class MainTest {
 		riparareCattedrale.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		riparareCattedrale.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		riparareCattedrale.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(1));
-		riparareCattedrale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//riparareCattedrale.addInstantBonus(new GetAnotherCardBonus(DevelopmentCard.class)); //ATTENZIONE. VA RIVISTA QUESTA CARTA! E DA' PROBLEMI IN SERIALIZZAZIONE!!!!!!!!!!!!!!!!!!!!!!
+		riparareCattedrale.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		riparareCattedrale.addInstantEffect(new AnotherCard(null, 7));
 		
 		PurpleCard commissionareArteSacra = new PurpleCard();
 		commissionareArteSacra.setPeriod(3);
-		commissionareArteSacra.setName("Commissionare Arte Sacra");
+		commissionareArteSacra.setName("Promoting Sacred Art");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(6));
 		commissionareArteSacra.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(3));
-		commissionareArteSacra.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		commissionareArteSacra.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(3));
-		commissionareArteSacra.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		commissionareArteSacra.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard costruireTorri = new PurpleCard();
 		costruireTorri.setPeriod(3);
-		costruireTorri.setName("Costruire le Torri");
+		costruireTorri.setName("Building the Towers");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(6));
 		costruireTorri.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(4));
-		resourceList.setResource(new CouncilPrivilege(1));
-		costruireTorri.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		costruireTorri.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		costruireTorri.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		costruireTorri.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		costruireTorri.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard ingaggiareMercenari = new PurpleCard();
 		ingaggiareMercenari.setPeriod(3);
-		ingaggiareMercenari.setName("Ingaggiare Mercenari");
+		ingaggiareMercenari.setName("Hiring Mercenaries");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(8));
 		ingaggiareMercenari.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(7));
-		ingaggiareMercenari.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		ingaggiareMercenari.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(6));
-		ingaggiareMercenari.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		ingaggiareMercenari.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard migliorareStrade = new PurpleCard();
 		migliorareStrade.setPeriod(3);
-		migliorareStrade.setName("Migliorare le Strade");
+		migliorareStrade.setName("Improving the Roads");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(3));
 		resourceList.setResource(new Coin(4));
 		migliorareStrade.addCost(resourceList.clone());
-		migliorareStrade.addInstantBonus(new EnableProductionBonus(3)); //attiva la produzione con valore 3
+		migliorareStrade.addInstantEffect(new ActiveYieldEffect(YellowCard.class.toString(),3)); //attiva la produzione con valore 3
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		migliorareStrade.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		migliorareStrade.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		PurpleCard conquistaMilitare = new PurpleCard();
 		conquistaMilitare.setPeriod(3);
-		conquistaMilitare.setName("Conquista Militare");
+		conquistaMilitare.setName("Military Conquest");
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(12)); //il player deve avere 12 MP e spenderne 6
+		resourceList.setResource(new MilitaryPoint(6)); //il player deve avere 12 MP e spenderne 6
 		conquistaMilitare.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(3));
 		resourceList.setResource(new Wood(3));
 		resourceList.setResource(new Coin(3));
-		conquistaMilitare.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		conquistaMilitare.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(7));
-		conquistaMilitare.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		conquistaMilitare.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard sostegnoPapa = new PurpleCard();
 		sostegnoPapa.setPeriod(3);
-		sostegnoPapa.setName("Sostegno al Papa");
+		sostegnoPapa.setName("Support to the Pope");
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(10)); //player deve avere 10 MP e spenderne 5
+		resourceList.setResource(new MilitaryPoint(5)); //player deve avere 10 MP e spenderne 5
 		sostegnoPapa.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(4));
 		resourceList.setResource(new Wood(3));
 		resourceList.setResource(new Stone(3));
 		sostegnoPapa.addCost(resourceList.clone());
-		sostegnoPapa.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new FaithPoint(2));
-		sostegnoPapa.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		sostegnoPapa.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(10));
-		sostegnoPapa.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		sostegnoPapa.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		PurpleCard guerraSanta = new PurpleCard();
 		guerraSanta.setPeriod(3);
-		guerraSanta.setName("Guerra Santa");
-		resourceList = new ResourceList(new MilitaryPoint(15));// player deve avere 15 MP e spenderne 8
+		guerraSanta.setName("Sacred War");
+		resourceList = new ResourceList(new MilitaryPoint(8));// player deve avere 15 MP e spenderne 8
 		guerraSanta.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(4));
-		guerraSanta.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		guerraSanta.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new VictoryPoint(8));
-		guerraSanta.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		guerraSanta.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
 		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>();
 		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
@@ -1267,14 +1250,14 @@ public class MainTest {
 		yellowDeck.add(teatro);
 		yellowDeck.add(residenza);
 		
-		writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck,type));
+		CustomFileReaderWriter.writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck,type));
 		
 		//FINE CARTE GIALLE
 		
 		//INIZIO CARTE BLU
 		//DA RIVEDERE
 		BlueCard badessa = new BlueCard();
-		badessa.setName("Badessa");
+		badessa.setName("Abbess");
 		badessa.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		badessa.addCost(resourceList.clone());
@@ -1282,60 +1265,64 @@ public class MainTest {
 		//va aggiunto il bonus take another Card tra gli instant bonus
 		
 		BlueCard predicatore = new BlueCard();
-		predicatore.setName("Predicatore");
+		predicatore.setName("Preacher");
 		predicatore.setPeriod(1);
 		resourceList = new ResourceList(new Coin(2));
 		predicatore.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(4));
-		predicatore.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		predicatore.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		//va aggiunto il malus che non prendi più le risorse dall'actionspace
 		
 		BlueCard dama = new BlueCard();
-		dama.setName("Dama");
+		dama.setName("Dame");
 		dama.setPeriod(1);
 		resourceList = new ResourceList(new Coin(4));
 		dama.addCost(resourceList.clone());
-		//va aggiunto il bonus che per ogni carta blu hai +2 e paghi -1moneta
+		dama.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2));
+		dama.addPermanentEffect(new CardDiscount(BlueCard.class, new ResourceList(new Coin(1))));
 		
 		BlueCard cavaliere = new BlueCard();
-		cavaliere.setName("Cavaliere");
+		cavaliere.setName("Knight");
 		cavaliere.setPeriod(1);
 		resourceList = new ResourceList(new Coin(2));
 		cavaliere.addCost(resourceList.clone());
-		resourceList = new ResourceList(new CouncilPrivilege(1));
-		cavaliere.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere il bonus che per le carte purple hanno +2 quando le prendi
+		cavaliere.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
+		cavaliere.addPermanentEffect(new FamilyInFloorBonus(PurpleCard.class, 2));
 		
 		BlueCard contadino = new BlueCard();
-		contadino.setName("Contadino");
+		contadino.setName("Farmer");
 		contadino.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		contadino.addCost(resourceList.clone());
-		contadino.addPermanentBonus(new EnableHarvestBonus(2));
+		//contadino.addPermanentEffect();
 		//il bonus permanente aumenta +2 quando attivi l'harvest
 		
 		BlueCard artigiano = new BlueCard();
-		artigiano.setName("Artigiano");
+		artigiano.setName("Artisan");
 		artigiano.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		artigiano.addCost(resourceList.clone());
-		artigiano.addPermanentBonus(new EnableProductionBonus(2));
+		//artigiano.addPermanentEffect();
+		//l'effetto aumenta di 2 la produzione quando viene attivata
 		
 		BlueCard costruttore = new BlueCard();
-		costruttore.setName("Costruttore");
+		costruttore.setName("Stonemason");
 		costruttore.setPeriod(1);
 		resourceList = new ResourceList(new Coin(4));
 		costruttore.addCost(resourceList.clone());
-		//aggiungere il bonus che per ogni carta gialla hai +2 e paghi -1 stone/wood
+		costruttore.addPermanentEffect(new FamilyInFloorBonus(YellowCard.class, 2));
+		resourceList = new ResourceList(new Wood(1));
+		resourceList.setResource(new Stone(1));//paghi 1 wood OR stone, qui e' messo in AND
+		costruttore.addPermanentEffect(new CardDiscount(YellowCard.class, resourceList.clone()));
 		
 		BlueCard condottiero = new BlueCard();
-		condottiero.setName("Condottiero");
+		condottiero.setName("Warlord");
 		condottiero.setPeriod(1);
 		resourceList = new ResourceList(new Coin(2));
 		condottiero.addCost(resourceList.clone());
 		resourceList = new ResourceList(new MilitaryPoint(3));
-		condottiero.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere il bonus che per le carte verdi hai +2
+		condottiero.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		condottiero.addPermanentEffect(new FamilyInFloorBonus(GreenCard.class, 2));
 		
 		//FINE PRIMO PERIODO
 		
@@ -1370,13 +1357,13 @@ public class MainTest {
 		//aggiungere come instant il bonus che puoi prendere una carta blu con valore 6 e pagare -2 monete
 		
 		BlueCard capitano = new BlueCard();
-		capitano.setName("Capitano");
+		capitano.setName("Captain");
 		capitano.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		capitano.addCost(resourceList.clone());
-		//aggiungere tra gli instant bonus che puoi prendere un carta verde con valore 6
 		resourceList = new ResourceList(new MilitaryPoint(2));
-		capitano.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		capitano.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		capitano.addInstantEffect(new AnotherCard(GreenCard.class.toString(), 6));
 		
 		BlueCard studioso = new BlueCard();
 		studioso.setName("Studioso");
@@ -1493,13 +1480,13 @@ public class MainTest {
 		bluDeck.add(nobile);
 		bluDeck.add(governatore);
 		
-		writeFile("settings//BlueCards", gAdapter.toJson(bluDeck, type));
+		CustomFileReaderWriter.writeFile("settings//BlueCards", gAdapter.toJson(bluDeck, type));
 		
 		
 		//FINE CARTE BLU
 		
 		//INIZIO CARTE LEADER
-		
+		/*
 		LeaderCard francescoSforza = new LeaderCard("Francesco Sforza");
 		francescoSforza.setCounter(5);
 		francescoSforza.setCardClass(PurpleCard.class.toString());
@@ -1635,10 +1622,10 @@ public class MainTest {
 		leaderCards.add(cosimoDeMedici);
 		leaderCards.add(bartolomeoColleoni);
 		
-		writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
+		CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
 		//FINE LEADER CARDS
-	 
-	*/
+	 */
+	
 	}
 	
 }

@@ -57,7 +57,7 @@ public class GetCardAction implements Action<GetCardAction>{
 		pay.perform();
 		aManager.getSubject().getCardManager().addCard(card);
 		
-		for(Effect effect: card.getIstantEffect()){
+		for(Effect effect: card.getInstantEffect()){
 			Action<?> action = effect.get(aManager);
 			if(action.isLegal())
 				action.perform();
