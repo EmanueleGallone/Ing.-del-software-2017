@@ -17,15 +17,20 @@ public class CardManager implements Serializable {
 	
 	private final int MAX_CARD = 6;
 	private HashMap<String , ArrayList<DevelopmentCard>> cards = new HashMap<>();
+	private boolean limited = true;
 	
+	public CardManager() {
+		
+	}
+	
+	public CardManager(boolean limited) {
+		setLimited(limited);
+	}
+
 	public CardManager(ArrayList<DevelopmentCard> cards) {
 		for(DevelopmentCard card : cards){
 			addCard(card);
 		}
-	}
-	
-	public CardManager() {
-		
 	}
 	
 	
@@ -48,9 +53,17 @@ public class CardManager implements Serializable {
 			temp = new ArrayList<>();
 			this.cards.put(card.getClass().toString(), temp);
 		}
-		if(temp.size() <= MAX_CARD)
-			return true;
-		return false;
+		if(isLimited() && temp.size() >= MAX_CARD)
+			return false;
+		return true;
+	}
+	
+	public boolean isLimited() {
+		return limited;
+	}
+	
+	public void setLimited(boolean limited) {
+		this.limited = limited;
 	}
 	
 // End logic

@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.Board;
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class Game implements Serializable  {
 	
@@ -22,6 +20,7 @@ public class Game implements Serializable  {
 		try {
 			roundManager = new RoundManager(players);
 			board = initializeBoard();
+			refreshCard(roundManager.getPeriod());
 			board.getMarket().setPlayerNumber(players.size());
 			
 		} catch (IOException e) {
@@ -37,16 +36,29 @@ public class Game implements Serializable  {
 			strBoard += line;
 		}
 		
-		ArrayList<Class<?>> list = new ArrayList<>();
-		list.add(DevelopmentCard.class);
-		list.add(Resource.class);
-		list.add(Tower.class);
-		
-		JsonAdapter jsonAdapter = new JsonAdapter(list);
+//		ArrayList<Class<?>> list = new ArrayList<>();
+//		list.add(DevelopmentCard.class);
+//		list.add(Resource.class);
+//		list.add(Tower.class);
+//		JsonAdapter jsonAdapter = new JsonAdapter(list);
+
+		JsonAdapter jsonAdapter = new JsonAdapter();
 		return jsonAdapter.fromJson(strBoard, Board.class);
 	}
 	
+	
+	private CardManager loadCards(int period){
+		CardManager cardManager = null;
+		
+		return cardManager;
+	}
 
+	public void refreshCard(int period){
+		CardManager currentCard = loadCards(period);
+		//impostaOrdineCasuale();
+		board.setCard(currentCard);
+	}
+	
 	public Board getBoard() {
 		return board;
 	}

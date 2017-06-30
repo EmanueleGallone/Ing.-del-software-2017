@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
@@ -25,7 +27,6 @@ import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 public class Board implements Serializable{
 	
 	private HashMap<String, Tower> towers = new HashMap<>();
-	//ArrayList<Tower> towers = new ArrayList<>();
 	private DiceManager diceManager = new DiceManager();
 	
 	private Yield harvest = new Yield();
@@ -43,12 +44,16 @@ public class Board implements Serializable{
 		this.market = market;
 		this.councilPalace = councilPalace;
 		
-		//this.towers = towers;
 		for(Tower t : towers){
 			this.towers.put(t.getClass().toString(), t);
-			
 		}
-		
+	}
+	
+	public void setCard(CardManager cards){
+		for(Tower tower : towers.values()){
+			ArrayList<DevelopmentCard> c = cards.getCardList(tower.getCardType());
+			tower.setCard(c); 
+		}
 	}
 	
 // End constructors
@@ -59,9 +64,6 @@ public class Board implements Serializable{
 // Start getters
 	
 	public ArrayList<Tower> getTowers() {
-		
-		//ArrayList<Tower> t = new ArrayList<>(this.towers.values());
-		
 		return new ArrayList<Tower>(towers.values());
 	}
 	

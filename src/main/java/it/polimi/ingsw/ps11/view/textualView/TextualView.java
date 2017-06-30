@@ -7,6 +7,7 @@ import java.util.Map;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -87,11 +88,13 @@ public class TextualView extends View {
 	
 	@Override
 	public void update(Board board){
+		this.boardView.update(board);
 		new TextualBoardView(board).print();
 	}
 
 	@Override
 	public void update(Player player){
+		this.you.update(player);
 		new TextualPlayerView(player).print();
 	}
 	
@@ -101,6 +104,11 @@ public class TextualView extends View {
 		chooser.print();
 		console.println("Press 1..4 to select the family member ");
 		input.attach(chooser);
+	}
+	
+	@Override
+	public void update(Game game) {
+		this.update(game.getBoard());
 	}
 	
 	@Override
