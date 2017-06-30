@@ -28,7 +28,8 @@ public class GetCardAction implements Action<GetCardAction>{
 	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList state) {
 		this.aManager = aManager;
 		this.card = card;
-		this.cost = cost.clone();
+		if(cost != null)
+			this.cost = cost.clone();
 	}
 	
 	@Override

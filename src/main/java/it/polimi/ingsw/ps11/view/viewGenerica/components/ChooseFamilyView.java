@@ -5,11 +5,10 @@ import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class ChooseFamilyView extends ViewComponent{
 	
-	protected FamilyMemberManager familyView = new FamilyMemberManager();
-	protected final static int FAMILYMEMBERNUMBER = 4;
+	protected FamilyMemberManager familyManager = new FamilyMemberManager();
 	
 	public void update(FamilyMemberManager familyMemberManager) {
-		this.familyView = familyMemberManager;
+		this.familyManager = familyMemberManager;
 	}
 
 }

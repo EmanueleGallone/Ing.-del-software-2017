@@ -5,6 +5,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 
 public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
@@ -22,6 +23,7 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 		this.aManager = aManager;
 		this.familyMember = fMember.clone();
 		this.space = space;
+		servantAction = aManager.newUseServant(new Servant(0), fMember);
 	}
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space, UseServantAction servantAction) {

@@ -24,8 +24,6 @@ public class FloorSelected extends PlayState {
 	
 	public FloorSelected(FloorSelectedEvent event) {
 		this.floorSelectedEvent = event;
-		Player player = stateHandler().actions().getSubject();
-		stateHandler().invoke(new UpdateFamilyMemberEvent(player.getFamilyManager()));
 	}
 	
 	public void createAction(ResourceList cost){
@@ -66,6 +64,12 @@ public class FloorSelected extends PlayState {
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
 		createAction(resourceSelectedEvent.getResourceList());
+	}
+	
+	@Override
+	public void notifyToClient() {
+		Player player = stateHandler().actions().getSubject();
+		stateHandler().invoke(new UpdateFamilyMemberEvent(player.getFamilyManager()));
 	}
 	
 }

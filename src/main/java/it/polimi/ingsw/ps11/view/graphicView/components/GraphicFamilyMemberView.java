@@ -36,10 +36,10 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		gblFamilyMembers.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		familyMembers.setLayout(gblFamilyMembers);
 		int i = 1;
-		for (String familyMemberName : familyView.getFamily().keySet()) {
+		for (String familyMemberName : familyManager.getFamily().keySet()) {
 			
 			GraphicPaintedButton familyMember = new GraphicPaintedButton();
-			familyMember.loadImage("playerImages/" + familyView.getFamily().get(familyMemberName).getClass().getSimpleName() + ".png");
+			familyMember.loadImage("playerImages/" + familyManager.getFamily().get(familyMemberName).getClass().getSimpleName() + ".png");
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
 			gbc.fill = GridBagConstraints.BOTH;
@@ -47,7 +47,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 			familyMembers.add(familyMember, gbc);
 			i++;
 
-			familyMember.addActionListener(new ChooseFamillyMemberListener(familyView.getFamily().get(familyMemberName).getClass()));
+			familyMember.addActionListener(new ChooseFamillyMemberListener(familyManager.getFamily().get(familyMemberName).getClass()));
 			familyMemberButtons.put
 			(familyMemberName, 
 					familyMember);

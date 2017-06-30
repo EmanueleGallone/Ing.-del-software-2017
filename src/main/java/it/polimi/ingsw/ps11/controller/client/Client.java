@@ -44,8 +44,6 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		}
 	}
 	
-	
-	
 	private transient EventListener<MessageEvent> serverListener = new EventListener<MessageEvent>() {
 
 		@Override

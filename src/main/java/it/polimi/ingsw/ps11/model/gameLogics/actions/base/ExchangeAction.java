@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 public class ExchangeAction implements Action<ExchangeAction>, ResourceListener {
 
 	private ActionManager aManager;
-	private HashMap<ResourceList, ResourceList> exchange;
+	private HashMap<ResourceList, ResourceList> exchange = new HashMap<>();
 	
 	public ExchangeAction(ActionManager aManager, HashMap<ResourceList, ResourceList> exchange) {
 		this.aManager = aManager;

@@ -122,7 +122,7 @@ public class TextualView extends View {
 	@Override
 	public void confirm(ConfirmEvent confirm) {
 		Floor floor = confirm.getFloor();
-		TextualFloorView floorView = new TextualFloorView(null,0);
+		TextualFloorView floorView = new TextualFloorView(confirm.getTower(),0);
 		floorView.update(floor);
 		floorView.print();
 		console.println(confirm.getMessage());

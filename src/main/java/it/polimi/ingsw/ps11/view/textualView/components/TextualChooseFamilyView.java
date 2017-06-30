@@ -13,7 +13,6 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
 
 public class TextualChooseFamilyView extends ChooseFamilyView implements EventListener<String>{
 	
-	private EventHandler<ViewEventInterface> events;
 	private Input input;
 	
 	public TextualChooseFamilyView() {
@@ -22,6 +21,8 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 	
 	public TextualChooseFamilyView(Input input, FamilyMemberManager familyMemberManager, EventHandler<ViewEventInterface> viewEvent) {
 		update(familyMemberManager);
+		this.input = input;
+		this.eventHandler = viewEvent;
 	}
 	
 	
@@ -30,7 +31,7 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 		TextualConsole console = new TextualConsole();
 		
 		int i = 1; 
-		for(FamilyMember member : familyView.getFamily().values()){
+		for(FamilyMember member : familyManager.getFamily().values()){
 			console.print("\n "+i+") " + member.getClass().getSimpleName() + " value: "+ member.getValue());
 		}
 		console.println("");
@@ -39,11 +40,11 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 	@Override
 	public void handle(String e) {
 		int parsed;
-		ArrayList<FamilyMember> family = new ArrayList<>(familyView.getFamily().values());
+		ArrayList<FamilyMember> family = new ArrayList<>(familyManager.getFamily().values());
 		try {
 			parsed = Integer.parseInt(e);
 			if((parsed +1) <= family.size() && parsed > 0){
-				events.invoke(new FamilySelectedEvent(family.get(parsed).getClass()));
+				eventHandler.invoke(new FamilySelectedEvent(family.get(parsed).getClass()));
 			}
 				
 		} catch (NumberFormatException e1) {

@@ -22,7 +22,7 @@ public class Game implements Serializable  {
 			board = initializeBoard();
 			//refreshCard(roundManager.getPeriod());
 			board.getMarket().setPlayerNumber(players.size());
-			
+			board.getDices().rollDices();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

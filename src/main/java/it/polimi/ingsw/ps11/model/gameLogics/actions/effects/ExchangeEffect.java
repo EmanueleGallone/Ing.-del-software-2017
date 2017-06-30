@@ -8,7 +8,8 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class ExchangeEffect implements Effect{
 
-	private HashMap<ResourceList, ResourceList> exchange;
+	private HashMap<ResourceList, ResourceList> exchange = new HashMap<>();
+	
 	public ExchangeEffect() {
 	
 	}

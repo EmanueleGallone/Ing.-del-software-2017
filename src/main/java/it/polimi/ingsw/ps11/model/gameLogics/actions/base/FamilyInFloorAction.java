@@ -5,7 +5,9 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
+import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
 public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedConfirm{
@@ -22,8 +24,6 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 	}
 	
 	public FamilyInFloorAction(ActionManager aManager, FamilyInTowerAction tAction, FamilyInSpaceAction sAction ,GetCardAction getCard) {
-		
-		new ConsoleLog().println("Una floorAction e' stata creata");
 		
 		this.aManager = aManager;
 		this.towerAction = tAction;
@@ -75,6 +75,15 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 			perform();
 	}
 
+	@Override
+	public ConfirmEvent getConfirm() {
+		String tower = towerAction.getTower().getClass().toString();
+		Floor floor = new Floor();
+		floor.setActionSpace(spaceAction.getSpace());
+		floor.setCard(getCard.getCard());
+		return new ConfirmEvent(floor, tower);
+	}
+	
 	// _________________________ Method for action system ________________________
 	
 	@Override

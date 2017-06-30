@@ -15,7 +15,7 @@ import java.io.Serializable;
 public abstract class FamilyMember implements Serializable{
 	
 	private final int DEFAULT_MODIFIER = 0;
-	private final int DEFAULT_VALUE = 0;
+	private final int DEFAULT_VALUE = 5;
 	
 	protected int value; 
 	protected int modifier;
