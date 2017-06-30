@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
  */
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace>, Serializable {
 
-	private final int COST = 1;
+	protected final int COST = 1;
 	private int cost;
 	protected ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
 	

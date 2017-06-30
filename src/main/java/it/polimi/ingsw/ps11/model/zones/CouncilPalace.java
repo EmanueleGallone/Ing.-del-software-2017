@@ -20,8 +20,6 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
  */
 public class CouncilPalace extends MultipleActionSpace  implements Serializable{
 	
-	private final int COST = 1;
-	
 	public ArrayList<Player> getNewOrder(){
 		ArrayList<Player> newOrder = new ArrayList<>();
 		for(ActionSpace space : multipleActionSpace){
