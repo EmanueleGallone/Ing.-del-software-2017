@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11.model.zones.towers;
 
-import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 /**
  * <h3> PurpleTower </h3>
@@ -11,14 +10,15 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 public class PurpleTower extends Tower {
 
 	public PurpleTower() {
-		addFloor(new Floor(1));
-		addFloor(new Floor(3));
-		
-		ResourceList resource = new ResourceList();
-		resource.setResource(new Coin(1));
-		addFloor(new Floor(5,resource.clone()));
-		resource.setResource(new Coin(2));
-		addFloor(new Floor(7,resource.clone()));
+//		addFloor(new Floor(1));
+//		addFloor(new Floor(3));
+//		
+//		ResourceList resource = new ResourceList();
+//		resource.setResource(new Coin(1));
+//		addFloor(new Floor(5,resource.clone()));
+//		resource.setResource(new Coin(2));
+//		addFloor(new Floor(7,resource.clone()));
+		setCardType(PurpleCard.class);
 	}
 	
 	@Override

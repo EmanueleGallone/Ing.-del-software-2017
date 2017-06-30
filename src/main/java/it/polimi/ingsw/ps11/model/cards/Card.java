@@ -1,10 +1,13 @@
 package it.polimi.ingsw.ps11.model.cards;
+
+import java.io.Serializable;
+
 /**
  * <h3>Card</h3>
  * <p> Classe astratta che modella qualsiasi tipo di carta. Identificata da una string per il nome. </p>
  * @see DevelopmentCard
  */
-public abstract class Card{
+public abstract class Card implements Serializable{
 	
 	protected String name; //Va visto come un identificatore unico
 	

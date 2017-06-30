@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11.model.zones.towers;
 
-import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 /**
  * <h3> BlueTower </h3>
@@ -11,14 +10,15 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 public class BlueTower extends Tower {
 
 	public BlueTower() {
-		addFloor(new Floor(1));
-		addFloor(new Floor(3));
-		
-		ResourceList resource = new ResourceList();
-		resource.setResource(new Stone(1));
-		addFloor(new Floor(5,resource.clone()));
-		resource.setResource(new Stone(2));
-		addFloor(new Floor(7,resource.clone()));
+//		addFloor(new Floor(1));
+//		addFloor(new Floor(3));
+//		
+//		ResourceList resource = new ResourceList();
+//		resource.setResource(new Stone(1));
+//		addFloor(new Floor(5,resource.clone()));
+//		resource.setResource(new Stone(2));
+//		addFloor(new Floor(7,resource.clone()));
+		setCardType(BlueCard.class);
 	}
 	
 	@Override

@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,6 +11,7 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
@@ -33,7 +33,6 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.Market;
@@ -48,10 +47,7 @@ public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		//inizializzaCarte();
-		
-		FileReader reader = new FileReader("settings\\cards\\1");
-		CardManager manager = new JsonAdapter().fromJson(reader, CardManager.class);
-		System.out.println("bene");
+		inizializzatore();
 	}	
 	
  
