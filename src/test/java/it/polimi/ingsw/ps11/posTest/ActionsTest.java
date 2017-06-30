@@ -119,7 +119,7 @@ public class ActionsTest {
 		
 		AddResourceEffect addResourceEffect = new AddResourceEffect(new ResourceList(new Coin(3)));
 		
-		card2.getIstantEffect().add(addResourceEffect);
+		card2.getInstantEffect().add(addResourceEffect);
 		
 //		Action action2 = aManager.newFamilyInFloorAction(greenTower, floor2, fMember, card2Cost);
 //		

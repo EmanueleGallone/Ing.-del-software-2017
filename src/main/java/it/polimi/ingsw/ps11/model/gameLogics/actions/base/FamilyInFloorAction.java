@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
-import it.polimi.ingsw.ps11.controller.ConsoleLog;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;

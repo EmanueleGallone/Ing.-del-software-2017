@@ -2,23 +2,24 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 15
+              "value": 8
             }
           }
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -31,11 +32,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -48,40 +49,19 @@
         }
       }
     ],
-    "name": "Guerra Santa"
+    "name": "Sacred War"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 10
-            }
-          }
-        }
-      },
-      {
-        "resources": {
-          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-            "INSTANCE": {
-              "value": 3
-            }
-          },
-          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-            "INSTANCE": {
-              "value": 4
-            }
-          },
-          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-            "INSTANCE": {
-              "value": 3
+              "value": 5
             }
           }
         }
@@ -109,11 +89,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -126,11 +106,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -143,28 +123,29 @@
         }
       }
     ],
-    "name": "Sostegno al Papa"
+    "name": "Support to the Pope"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 12
+              "value": 6
             }
           }
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -189,11 +170,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -206,11 +187,12 @@
         }
       }
     ],
-    "name": "Conquista Militare"
+    "name": "Military Conquest"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -229,19 +211,20 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableProductionBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect",
         "INSTANCE": {
-          "productionActiveValue": 3
+          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
+          "value": 3
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -254,11 +237,12 @@
         }
       }
     ],
-    "name": "Migliorare le Strade"
+    "name": "Improving the Roads"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -271,11 +255,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
@@ -288,11 +272,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -305,11 +289,12 @@
         }
       }
     ],
-    "name": "Ingaggiare Mercenari"
+    "name": "Hiring Mercenaries"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -322,18 +307,12 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
@@ -343,13 +322,76 @@
             }
           }
         }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -362,11 +404,12 @@
         }
       }
     ],
-    "name": "Costruire le Torri"
+    "name": "Building the Towers"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -379,11 +422,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -396,11 +439,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -413,11 +456,12 @@
         }
       }
     ],
-    "name": "Commissionare Arte Sacra"
+    "name": "Promoting Sacred Art"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -442,11 +486,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -457,13 +501,19 @@
             }
           }
         }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard",
+        "INSTANCE": {
+          "value": 7
+        }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -476,11 +526,12 @@
         }
       }
     ],
-    "name": "Riparare la Cattedrale"
+    "name": "Repairing the Cathedral"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -493,11 +544,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -510,11 +561,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -527,11 +578,12 @@
         }
       }
     ],
-    "name": "Accogliere gli Stranieri"
+    "name": "Hosting Foreigners"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -544,18 +596,12 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
@@ -565,13 +611,76 @@
             }
           }
         }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -584,28 +693,29 @@
         }
       }
     ],
-    "name": "Costruire i Bastioni"
+    "name": "Building the Bastions"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 8
+              "value": 4
             }
           }
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -624,11 +734,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -641,18 +751,19 @@
         }
       }
     ],
-    "name": "Crociata"
+    "name": "Crusade"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 7
+              "value": 4
             }
           }
         }
@@ -680,11 +791,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -697,11 +808,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -714,35 +825,30 @@
         }
       }
     ],
-    "name": "Sostegno al Cardinale"
+    "name": "Support to the Cardinal"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 6
+              "value": 3
             }
           }
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
@@ -752,13 +858,76 @@
             }
           }
         }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -771,11 +940,12 @@
         }
       }
     ],
-    "name": "Supporto al Re"
+    "name": "Support to the King"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -800,11 +970,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -817,11 +987,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -834,11 +1004,12 @@
         }
       }
     ],
-    "name": "Riparare l\u0027Abbazia"
+    "name": "Repairing the Abbey"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -857,19 +1028,20 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.EnableHarvestBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect",
         "INSTANCE": {
-          "harvestActivationValue": 4
+          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+          "value": 4
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -882,11 +1054,12 @@
         }
       }
     ],
-    "name": "Scavare Canalizzazioni"
+    "name": "Improving the Canals"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -899,11 +1072,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
@@ -916,11 +1089,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -933,11 +1106,12 @@
         }
       }
     ],
-    "name": "Ingaggiare Soldati"
+    "name": "Hiring Soldiers"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -956,28 +1130,139 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
         "INSTANCE": {
-          "resourceList": {
-            "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 2
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
                 }
               }
             }
-          }
+          ]
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -990,11 +1275,12 @@
         }
       }
     ],
-    "name": "Innalzare una Statua"
+    "name": "Raising a Statue"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -1007,18 +1293,12 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-                "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-                "INSTANCE": {
-                  "value": 1
-                }
-              },
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
@@ -1028,13 +1308,76 @@
             }
           }
         }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1047,18 +1390,19 @@
         }
       }
     ],
-    "name": "Costruire le Mura"
+    "name": "Building the Walls"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 4
+              "value": 2
             }
           }
         }
@@ -1086,11 +1430,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -1103,11 +1447,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1120,28 +1464,29 @@
         }
       }
     ],
-    "name": "Sostegno al Vaticano"
+    "name": "Support to the Bishop"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 5
+              "value": 3
             }
           }
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -1154,11 +1499,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1171,11 +1516,12 @@
         }
       }
     ],
-    "name": "Combattere le Eresie"
+    "name": "Fighting Heresies"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -1188,11 +1534,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
@@ -1205,11 +1551,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1222,11 +1568,12 @@
         }
       }
     ],
-    "name": "Ingaggiare Reclute"
+    "name": "Hiring Recruits"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -1251,11 +1598,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -1268,11 +1615,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1285,11 +1632,12 @@
         }
       }
     ],
-    "name": "Riparare la Chiesa"
+    "name": "Repairing the Church"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
@@ -1302,11 +1650,11 @@
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -1319,11 +1667,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1336,28 +1684,29 @@
         }
       }
     ],
-    "name": "Ospitare i Mendicanti"
+    "name": "Hosting Panhandlers"
   },
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
+    "activeValue": 0,
     "costs": [
       {
         "resources": {
           "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
             "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
             "INSTANCE": {
-              "value": 3
+              "value": 2
             }
           }
         }
       }
     ],
-    "instantBonus": [
+    "instantEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -1370,11 +1719,11 @@
         }
       }
     ],
-    "permanentBonus": [
+    "permanentEffect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
         "INSTANCE": {
-          "resourceList": {
+          "resource": {
             "resources": {
               "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -1387,6 +1736,6 @@
         }
       }
     ],
-    "name": "Campagna Militare"
+    "name": "Military Campaign"
   }
 ]
