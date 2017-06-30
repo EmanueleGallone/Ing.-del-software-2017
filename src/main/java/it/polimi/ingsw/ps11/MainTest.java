@@ -15,6 +15,7 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
@@ -51,7 +52,9 @@ public class MainTest {
 	
 	public static void main(String[] args){
 		inizializzaCarte();
-		CardsInCardManagerFileCreator();
+		CardsInCardManagerFileCreatorFirstPeriod();
+		CardsInCardManagerFileCreatorSecondPeriod();
+		CardsInCardManagerFileCreatorThirdPeriod();
 	}	
 	
  
@@ -1709,7 +1712,7 @@ public class MainTest {
 	
 	}
 	
-	public static void CardsInCardManagerFileCreator(){
+	public static void CardsInCardManagerFileCreatorFirstPeriod(){
 		CardManager cardManager = new CardManager(false);
 		JsonAdapter jsonAdapter = new JsonAdapter();
 		
@@ -1742,7 +1745,7 @@ public class MainTest {
 			cardManager.addCard(c);
 		
 		//YELLOWCARDS
-		/*
+		
 		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>(); 
 		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
 		
@@ -1751,11 +1754,130 @@ public class MainTest {
 		
 		for(YellowCard c : copy3)
 			cardManager.addCard(c);
-		*/
-		System.out.println(cardManager);
+		
+		/*System.out.println(cardManager);
+		System.out.println("# verdi : " + copy.stream().count() 
+				+ " # viola : " + copy2.stream().count()
+				+ " # gialle: " + copy3.stream().count()
+				+ " # blu: " + copy4.stream().count()
+				);*/
 		
 		CustomFileReaderWriter.writeFile("settings\\firstPeriod", jsonAdapter.toJson(cardManager,CardManager.class));
+		
+		
 	}
+	
+	public static void CardsInCardManagerFileCreatorSecondPeriod(){
+		CardManager cardManager = new CardManager(false);
+		JsonAdapter jsonAdapter = new JsonAdapter();
+		
+		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
+		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
+		
+		greenDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\GreenCards"), type);
+		List<GreenCard> copy = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(GreenCard c : copy)
+			cardManager.addCard(c);
+		
+		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>(); 
+		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
+		
+		purpleDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\PurpleCards"), type);
+		List<PurpleCard> copy2 = purpleDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(PurpleCard c : copy2)
+			cardManager.addCard(c);
+		
+		//BLUECARDS
+		ArrayList<BlueCard> blueDeck = new ArrayList<BlueCard>(); 
+		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
+		
+		blueDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\BlueCards"), type);
+		List<BlueCard> copy4 = blueDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(BlueCard c : copy4)
+			cardManager.addCard(c);
+		
+		//YELLOWCARDS
+		
+		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>(); 
+		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
+		
+		yellowDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\YellowCards"), type);
+		List<YellowCard> copy3 = yellowDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(YellowCard c : copy3)
+			cardManager.addCard(c);
+		
+		/*System.out.println(cardManager);
+		System.out.println("# verdi : " + copy.stream().count() 
+				+ " # viola : " + copy2.stream().count()
+				+ " # gialle: " + copy3.stream().count()
+				+ " # blu: " + copy4.stream().count()
+				);*/
+		
+		CustomFileReaderWriter.writeFile("settings\\secondPeriod", jsonAdapter.toJson(cardManager,CardManager.class));
+		//FINE PRIMO PERIODO
+	}
+	
+	public static void CardsInCardManagerFileCreatorThirdPeriod(){
+		CardManager cardManager = new CardManager(false);
+		JsonAdapter jsonAdapter = new JsonAdapter();
+		
+		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
+		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
+		
+		greenDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\GreenCards"), type);
+		List<GreenCard> copy = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(GreenCard c : copy)
+			cardManager.addCard(c);
+		
+		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>(); 
+		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
+		
+		purpleDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\PurpleCards"), type);
+		List<PurpleCard> copy2 = purpleDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(PurpleCard c : copy2)
+			cardManager.addCard(c);
+		
+		//BLUECARDS
+		ArrayList<BlueCard> blueDeck = new ArrayList<BlueCard>(); 
+		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
+		
+		blueDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\BlueCards"), type);
+		List<BlueCard> copy4 = blueDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(BlueCard c : copy4)
+			cardManager.addCard(c);
+		
+		//YELLOWCARDS
+		
+		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>(); 
+		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
+		
+		yellowDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\YellowCards"), type);
+		List<YellowCard> copy3 = yellowDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		
+		for(YellowCard c : copy3)
+			cardManager.addCard(c);
+		
+		/*System.out.println(cardManager);
+		System.out.println("# verdi : " + copy.stream().count() 
+				+ " # viola : " + copy2.stream().count()
+				+ " # gialle: " + copy3.stream().count()
+				+ " # blu: " + copy4.stream().count()
+				);*/
+		
+		CustomFileReaderWriter.writeFile("settings\\ThirdPeriod", jsonAdapter.toJson(cardManager,CardManager.class));
+		//FINE PRIMO PERIODO
+		
+		
+	}
+	
+	
 	
 }
 

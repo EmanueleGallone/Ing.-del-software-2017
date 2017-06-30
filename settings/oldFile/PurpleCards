@@ -2,7 +2,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -54,7 +54,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -128,7 +128,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -192,7 +192,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -242,7 +242,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -294,7 +294,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -409,7 +409,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -461,7 +461,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 3,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -531,7 +531,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -583,7 +583,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -698,7 +698,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -756,7 +756,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -830,7 +830,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -945,7 +945,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1009,7 +1009,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1059,7 +1059,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 2,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1111,7 +1111,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1280,7 +1280,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1395,7 +1395,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1469,7 +1469,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1521,7 +1521,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1573,7 +1573,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1637,7 +1637,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
@@ -1689,7 +1689,7 @@
   {
     "DEFAULT_VALUE": 1,
     "period": 1,
-    "activeValue": 0,
+    "activeValue": 1,
     "costs": [
       {
         "resources": {
