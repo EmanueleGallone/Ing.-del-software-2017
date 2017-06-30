@@ -12,10 +12,16 @@ import it.polimi.ingsw.ps11.model.player.Player;
  */
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace>, Serializable {
 
+	private final int COST = 1;
+	private int cost;
 	protected ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
 	
 	public MultipleActionSpace() {
-		
+		cost = COST;
+	}
+	
+	public MultipleActionSpace(int cost) {
+		this.cost = cost;
 	}
 	
 	@Override
@@ -26,6 +32,17 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 			return true;
 		}
 		return false;
+	}
+	
+	
+	public ActionSpace getFreeSpace(){
+		for(ActionSpace space : multipleActionSpace){
+			if(space.isFree())
+				return space;
+		}
+		ActionSpace space = new ActionSpace(cost);
+		multipleActionSpace.add(space);
+		return space;
 	}
 	
 	/**<h3>public boolean contains(Player player) </h3>
