@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.model.game;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Serializable;
@@ -26,7 +27,7 @@ public class Game implements Serializable  {
 		try {
 			roundManager = new RoundManager(players);
 			board = initializeBoard();
-			//refreshCard(roundManager.getPeriod());
+			refreshCard(roundManager.getPeriod());
 			board.getMarket().setPlayerNumber(players.size());
 			board.getDices().rollDices();
 		} catch (IOException e) {
@@ -41,25 +42,19 @@ public class Game implements Serializable  {
 		while ((line = reader.readLine())!=null){
 			strBoard += line;
 		}
-		
-//		ArrayList<Class<?>> list = new ArrayList<>();
-//		list.add(DevelopmentCard.class);
-//		list.add(Resource.class);
-//		list.add(Tower.class);
-//		JsonAdapter jsonAdapter = new JsonAdapter(list);
 
 		JsonAdapter jsonAdapter = new JsonAdapter();
 		return jsonAdapter.fromJson(strBoard, Board.class);
 	}
 	
 	
-	private CardManager loadCards(int period){
-		CardManager cardManager = null;
-		
+	private CardManager loadCards(int period) throws FileNotFoundException{
+		FileReader reader = new FileReader("settings\\cards\\"+period);
+		CardManager cardManager = new JsonAdapter().fromJson(reader, CardManager.class);
 		return cardManager;
 	}
 
-	public void refreshCard(int period){
+	public void refreshCard(int period) throws FileNotFoundException{
 		CardManager currentCard = loadCards(period);
 		//impostaOrdineCasuale();
 		board.setCard(currentCard);

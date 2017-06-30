@@ -1,13 +1,10 @@
 package it.polimi.ingsw.ps11;
 
-import java.lang.reflect.Type;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
@@ -49,9 +46,12 @@ import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
 public class MainTest {
 	
-	public static void main(String[] args){
-		inizializzaCarte();
-		CardsInCardManagerFileCreator();
+	public static void main(String[] args) throws FileNotFoundException{
+		//inizializzaCarte();
+		
+		FileReader reader = new FileReader("settings\\cards\\1");
+		CardManager manager = new JsonAdapter().fromJson(reader, CardManager.class);
+		System.out.println("bene");
 	}	
 	
  
@@ -445,7 +445,6 @@ public class MainTest {
 		tenuta.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
-		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
 		greenDeck.add(tenuta); 
 		greenDeck.add(cittaMercantile); 
 		greenDeck.add(provincia);
@@ -470,8 +469,6 @@ public class MainTest {
 		greenDeck.add(borgo);
 		greenDeck.add(bosco);
 		greenDeck.add(avampostoCommerciale);	
-		
-		CustomFileReaderWriter.writeFile("settings\\oldFile\\GreenCards", gAdapter.toJson(greenDeck, type));
 		
 		//FINE CARTE VERDI
 		
@@ -813,9 +810,7 @@ public class MainTest {
 		resourceList = new ResourceList(new VictoryPoint(8));
 		guerraSanta.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
-		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>();
-		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
-		
+		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>();		
 		purpleDeck.add(guerraSanta);
 		purpleDeck.add(sostegnoPapa);
 		purpleDeck.add(conquistaMilitare);
@@ -840,9 +835,6 @@ public class MainTest {
 		purpleDeck.add(riparareChiesa);
 		purpleDeck.add(ospitareMendicanti);
 		purpleDeck.add(campagnaMilitare);
-		
-		
-		CustomFileReaderWriter.writeFile("settings\\oldFile\\PurpleCards", gAdapter.toJson(purpleDeck,type)); 
 		
 		//FINE CARTE VIOLA
 		
@@ -1297,9 +1289,7 @@ public class MainTest {
 		castelletto.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		castelletto.addPermanentEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		
-		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>();
-		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
-		
+		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>();		
 		yellowDeck.add(castelletto);
 		yellowDeck.add(palazzo);
 		yellowDeck.add(accademiaMilitare);
@@ -1324,8 +1314,6 @@ public class MainTest {
 		yellowDeck.add(esattoria);
 		yellowDeck.add(teatro);
 		yellowDeck.add(residenza);
-		
-		CustomFileReaderWriter.writeFile("settings\\oldFile\\YellowCards", gAdapter.toJson(yellowDeck,type));
 		
 		//FINE CARTE GIALLE
 		
@@ -1533,9 +1521,7 @@ public class MainTest {
 		resourceList = new ResourceList(new VictoryPoint(2));
 		governatore.addInstantEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
 		
-		ArrayList<BlueCard> bluDeck = new ArrayList<BlueCard>();
-		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
-		
+		ArrayList<BlueCard> bluDeck = new ArrayList<BlueCard>();		
 		bluDeck.add(badessa);
 		bluDeck.add(predicatore);
 		bluDeck.add(dama);
@@ -1561,10 +1547,43 @@ public class MainTest {
 		bluDeck.add(nobile);
 		bluDeck.add(governatore);
 		
-		CustomFileReaderWriter.writeFile("settings\\oldFile\\BlueCards", gAdapter.toJson(bluDeck, type));
+		//costruzione files
 		
+		List<DevelopmentCard> list = greenDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
+		list.addAll(bluDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList()));
+		list.addAll(yellowDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList()));
+		list.addAll(purpleDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList()));
 		
-		//FINE CARTE BLU
+		CardManager cardManager = new CardManager(false);
+		for(DevelopmentCard c : list)
+			cardManager.addCard(c);
+		
+		CustomFileReaderWriter.writeFile("settings\\cards\\FirstPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		
+		list.clear();
+		list = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		list.addAll(bluDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		list.addAll(yellowDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		list.addAll(purpleDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		
+		cardManager = new CardManager(false);
+		for(DevelopmentCard c : list)
+			cardManager.addCard(c);
+		
+		CustomFileReaderWriter.writeFile("settings\\cards\\SecondPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		
+		list.clear();
+		list = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
+		list.addAll(bluDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		list.addAll(yellowDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		list.addAll(purpleDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		
+		cardManager = new CardManager(false);
+		for(DevelopmentCard c : list)
+			cardManager.addCard(c);
+		
+		CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		//Fine costruzione files
 		
 		//INIZIO CARTE LEADER
 		/*
@@ -1707,54 +1726,6 @@ public class MainTest {
 		//FINE LEADER CARDS
 	 */
 	
-	}
-	
-	public static void CardsInCardManagerFileCreator(){
-		CardManager cardManager = new CardManager(false);
-		JsonAdapter jsonAdapter = new JsonAdapter();
-		
-		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
-		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
-		
-		greenDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\GreenCards"), type);
-		List<GreenCard> copy = greenDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
-		
-		for(GreenCard c : copy)
-			cardManager.addCard(c);
-		
-		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>(); 
-		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
-		
-		purpleDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\PurpleCards"), type);
-		List<PurpleCard> copy2 = purpleDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
-		
-		for(PurpleCard c : copy2)
-			cardManager.addCard(c);
-		
-		//BLUECARDS
-		ArrayList<BlueCard> blueDeck = new ArrayList<BlueCard>(); 
-		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
-		
-		blueDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\BlueCards"), type);
-		List<BlueCard> copy4 = blueDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
-		
-		for(BlueCard c : copy4)
-			cardManager.addCard(c);
-		
-		//YELLOWCARDS
-		/*
-		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>(); 
-		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
-		
-		yellowDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\YellowCards"), type);
-		List<YellowCard> copy3 = yellowDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
-		
-		for(YellowCard c : copy3)
-			cardManager.addCard(c);
-		*/
-		System.out.println(cardManager);
-		
-		CustomFileReaderWriter.writeFile("settings\\firstPeriod", jsonAdapter.toJson(cardManager,CardManager.class));
 	}
 	
 }
