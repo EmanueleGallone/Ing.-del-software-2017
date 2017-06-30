@@ -8,6 +8,8 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
@@ -22,6 +24,8 @@ public class FloorSelected extends PlayState {
 	
 	public FloorSelected(FloorSelectedEvent event) {
 		this.floorSelectedEvent = event;
+		Player player = stateHandler().actions().getSubject();
+		stateHandler().invoke(new UpdateFamilyMemberEvent(player.getFamilyManager()));
 	}
 	
 	public void createAction(ResourceList cost){

@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.controller.ConsoleLog;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
@@ -54,6 +55,7 @@ public class GameLogic implements Runnable{
 // Handle events from view
 	
 	public void handle(ViewEventInterface viewEvent){
+		new ConsoleLog().println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
 		playerStatus.get(viewEvent.getSource()).handle(viewEvent);
 	}
 }

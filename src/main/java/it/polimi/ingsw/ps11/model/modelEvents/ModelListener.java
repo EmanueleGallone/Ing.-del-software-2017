@@ -7,4 +7,5 @@ public interface ModelListener {
 	public void handle(PlayerUpdateEvent playerUpdateEvent);
 	public void handle(ConfirmEvent conferma);
 	public void handle(ChooseResourceEvent chooseCost);
+	public void handle(UpdateFamilyMemberEvent updateFamilyMemberEvent);
 }

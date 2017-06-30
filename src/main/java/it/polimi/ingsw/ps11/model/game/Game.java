@@ -20,7 +20,7 @@ public class Game implements Serializable  {
 		try {
 			roundManager = new RoundManager(players);
 			board = initializeBoard();
-			refreshCard(roundManager.getPeriod());
+			//refreshCard(roundManager.getPeriod());
 			board.getMarket().setPlayerNumber(players.size());
 			
 		} catch (IOException e) {

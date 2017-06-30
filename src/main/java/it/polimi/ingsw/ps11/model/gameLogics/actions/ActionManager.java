@@ -24,16 +24,15 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class ActionManager {
 	
-	Player player;
-	StateHandler stateHandler;
+	private StateHandler stateHandler;
 	private HashMap<String, Action<?>> actions = new HashMap<>();
 	
 	public StateHandler getStateHandler() {
 		return stateHandler;
 	}
 	
-	public ActionManager(Player player) {
-		this.player = player;
+	public ActionManager(StateHandler stateHandler) {
+		this.stateHandler = stateHandler;
 	}
 	
 	public <T extends Action<?>> T get(Class<T> action){
@@ -49,7 +48,7 @@ public class ActionManager {
 	}
 	
 	public Player getSubject(){
-		return player;
+		return stateHandler.getPlayer();
 	}
 	
 	public <T extends Action<T>> T make (Class<T> azione, T action){
