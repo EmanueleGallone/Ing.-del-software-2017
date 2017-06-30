@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.model.game.RoundManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class RoundManagerTest {
-
+/*
 	@Test
 	public void testRoundManager2Players(){
 		Player player1 = new Player();
@@ -29,7 +29,7 @@ public class RoundManagerTest {
 			roundManager.next();
 		}
 		
-		/*
+		
 		
 		roundManager.next(); //primo giocatore fa la mossa, round 1; tocca al secondo
 		
@@ -125,7 +125,7 @@ public class RoundManagerTest {
 		Assert.assertTrue(roundManager.getPeriod() == 2);
 		
 		//fine secondo turno
-		*/
+		
 		
 	}
 
@@ -164,5 +164,5 @@ public class RoundManagerTest {
 
 		
 		
-	}
+	}*/
 }

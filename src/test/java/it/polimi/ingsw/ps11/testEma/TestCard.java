@@ -111,26 +111,5 @@ public class TestCard {
 		String Class = GreenCard.class.toString();
 		System.out.println(manager.getCardList(Class).get(0).getName()); //testo il getCardList passando una stringa
 	}
-	
-	@Test
-	public void createFileTest(){
-		
-		MainTest.inizializzaCarte();
-		MainTest.inizializzatore();
-	}
-	
-	@Test
-	public void readCardsFileTest(){
-		JsonAdapter adapter = new JsonAdapter();
-		CustomFileReaderWriter reader = new CustomFileReaderWriter("settings//BlueCards");
-		String read = reader.readFile("settings//BlueCards");
-		
-		Type type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
-		
-		ArrayList<BlueCard> cards = adapter.fromJson(read, type);
-		
-		Assert.assertEquals("Badessa", cards.get(0).getName()); //leggo la prima carta
-		Assert.assertEquals("Governatore", cards.get(23).getName()); //leggo ultima carta
-	}
 
 }

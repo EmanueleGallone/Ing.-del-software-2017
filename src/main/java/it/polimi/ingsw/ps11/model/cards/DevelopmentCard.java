@@ -42,6 +42,13 @@ public abstract class DevelopmentCard extends Card {
 		this.costs = costs;
 	}
 	
+	public ResourceList getFirstCost(){
+		if(costs.size()>0){
+			return costs.get(0);
+		}
+		return new ResourceList();
+	}
+	
 // Start Logics
 	
 	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){

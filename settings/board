@@ -217,6 +217,19 @@
       }
     }
   },
+  "diceManager": {
+    "dices": {
+      "class it.polimi.ingsw.ps11.model.dices.WhiteDice": {
+        "value": 0
+      },
+      "class it.polimi.ingsw.ps11.model.dices.BlackDice": {
+        "value": 0
+      },
+      "class it.polimi.ingsw.ps11.model.dices.OrangeDice": {
+        "value": 0
+      }
+    }
+  },
   "harvest": {
     "singleActionSpace": {
       "cost": 1,

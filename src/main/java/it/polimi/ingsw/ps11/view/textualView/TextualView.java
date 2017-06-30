@@ -81,7 +81,7 @@ public class TextualView extends View {
 		while (!(command = input.read()).equals("q")){
 			if(commands.get(command) != null){
 				viewEvent.invoke(commands.get(command));
-				console.println("debug: hai selezionato l'evento : " + commands.get(command).getClass().getSimpleName());
+				//console.println("debug: hai selezionato l'evento : " + commands.get(command).getClass().getSimpleName());
 			}
 		}
 	}

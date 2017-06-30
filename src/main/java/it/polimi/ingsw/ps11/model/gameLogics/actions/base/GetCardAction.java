@@ -26,7 +26,7 @@ public class GetCardAction implements Action<GetCardAction>{
 	
 	}
 
-	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList state) {
+	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList cost) {
 		this.aManager = aManager;
 		this.card = card;
 		if(cost != null)
@@ -39,14 +39,14 @@ public class GetCardAction implements Action<GetCardAction>{
 		if(card == null)
 			return false;
 		
-		if(cost == null && !card.isMonoCost()){
+		if(!card.isMonoCost() && cost == null ){
 			ChooseResourceEvent c = new ChooseResourceEvent(card.getCosts());
 			c.setMessage("Seleziona uno dei costi da pagare");
 			eventHandler.invoke(c);
 			return false;
 		}
 		else if(cost == null && card.isMonoCost()){
-			cost = card.getCosts().get(0);
+			cost = card.getFirstCost();
 		}
 		
 		boolean result = this.card.getCosts().contains(cost);
@@ -117,8 +117,11 @@ public class GetCardAction implements Action<GetCardAction>{
 	
 	@Override
 	public GetCardAction clone() {
-		// TODO Auto-generated method stub
-		return null;
+		ResourceList resource = null;
+		if(cost != null)
+			resource = cost.clone();
+		GetCardAction copy = new GetCardAction(aManager, card.clone(), cost.clone());
+		return copy;
 	}
 
 }
