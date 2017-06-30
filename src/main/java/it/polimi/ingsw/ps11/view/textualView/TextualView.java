@@ -109,6 +109,7 @@ public class TextualView extends View {
 	@Override
 	public void update(Game game) {
 		this.update(game.getBoard());
+		console.println(instructions);
 	}
 	
 	@Override

@@ -20,6 +20,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.IncrementForCard;
@@ -49,7 +50,8 @@ import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 public class MainTest {
 	
 	public static void main(String[] args){
-
+		inizializzaCarte();
+		CardsInCardManagerFileCreator();
 	}	
 	
  
@@ -133,8 +135,6 @@ public class MainTest {
 		resource.setResource(new MilitaryPoint(3));
 		market.addActionSpace(new ActionSpace(resource.clone()));
 //		
-//		resource = new ResourceList(new CouncilPrivilege(2));
-//		market.addActionSpace(new ActionSpace(resource.clone()));
 //		
   // ___________________________________________________
 		
@@ -471,7 +471,7 @@ public class MainTest {
 		greenDeck.add(bosco);
 		greenDeck.add(avampostoCommerciale);	
 		
-		CustomFileReaderWriter.writeFile("settings\\GreenCards", gAdapter.toJson(greenDeck, type));
+		CustomFileReaderWriter.writeFile("settings\\oldFile\\GreenCards", gAdapter.toJson(greenDeck, type));
 		
 		//FINE CARTE VERDI
 		
@@ -481,8 +481,8 @@ public class MainTest {
 		campagnaMilitare.setName("Military Campaign");
 		campagnaMilitare.setPeriod(1);
 		resourceList = new ResourceList();
-		resourceList.setResource(new MilitaryPoint(2)); //richiede che il giocatore abbia 3 punti militari
-		campagnaMilitare.addCost(resourceList.clone()); //come faccio a dirgli che quando prenderà la carta ne dovra' spendere 2 di militarypoints?
+		resourceList.setResource(new MilitaryPoint(2)); //richiede che il giocatore abbia 3 punti militari e ne spende 2
+		campagnaMilitare.addCost(resourceList.clone()); 
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
 		campagnaMilitare.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
@@ -842,7 +842,7 @@ public class MainTest {
 		purpleDeck.add(campagnaMilitare);
 		
 		
-		CustomFileReaderWriter.writeFile("settings\\PurpleCards", gAdapter.toJson(purpleDeck,type)); 
+		CustomFileReaderWriter.writeFile("settings\\oldFile\\PurpleCards", gAdapter.toJson(purpleDeck,type)); 
 		
 		//FINE CARTE VIOLA
 		
@@ -853,19 +853,30 @@ public class MainTest {
 		YellowCard residenza = new YellowCard(); //bonus da rivedere
 		residenza.setActiveValue(1);
 		residenza.setPeriod(1);
-		residenza.setName("Residenza");
+		residenza.setName("Residence");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(2));
 		residenza.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(1));
-		residenza.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		residenza.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		exchange.setResource(new Coin(1));
-		exchangeable.setResource(new CouncilPrivilege(1));
-		residenza.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone()));
+		exchangeable.setResource(new Servant(2));
+		ExchangeEffect exc = new ExchangeEffect();
+		exc.addExchange(exchange.clone(), exchangeable.clone());
+		exchangeable = new ResourceList(new Wood(1));
+		exchangeable.setResource(new Stone(1));
+		exc.addExchange(exchange.clone(), exchangeable.clone());
+		exchangeable.setResource(new Coin(2));
+		exc.addExchange(exchange.clone(), exchangeable.clone());
+		exchangeable.setResource(new FaithPoint(1));
+		exc.addExchange(exchange.clone(), exchangeable.clone());
+		exchangeable.setResource(new MilitaryPoint(2));
+		exc.addExchange(exchange.clone(), exchangeable.clone());
+		residenza.addPermanentEffect(exc);
 		
 		YellowCard teatro = new YellowCard();
 		teatro.setActiveValue(6);
-		teatro.setName("Teatro");
+		teatro.setName("Theater");
 		teatro.setPeriod(1);
 		resourceList = new ResourceList();
 		exchangeable = new ResourceList();
@@ -877,80 +888,89 @@ public class MainTest {
 		teatro.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(6));
-		teatro.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		teatro.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(1));
-		teatro.addPermanentBonus(new GainResourceForEveryCardYouHave(BlueCard.class, resourceList.clone()));
+		teatro.addPermanentEffect(new IncrementForCard(BlueCard.class.toString(), resourceList.clone()));
 		
 		YellowCard esattoria = new YellowCard();
 		esattoria.setActiveValue(5);
 		esattoria.setPeriod(1);
-		esattoria.setName("Esattoria");
+		esattoria.setName("Tax Office");
 		resourceList = new ResourceList(new Wood(3));
 		esattoria.addCost(resourceList.clone());
 		resourceList = new ResourceList(new Stone(1));
 		esattoria.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(5));
-		esattoria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		esattoria.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new Coin(1));
-		esattoria.addPermanentBonus(new GainResourceForEveryCardYouHave(GreenCard.class, resourceList.clone()));
+		esattoria.addPermanentEffect(new IncrementForCard(GreenCard.class.toString(), resourceList.clone()));
 		
 		YellowCard arcoTrionfo = new YellowCard();
 		arcoTrionfo.setActiveValue(6);
 		arcoTrionfo.setPeriod(1);
-		arcoTrionfo.setName("Arco di Trionfo");
+		arcoTrionfo.setName("Triumphal Arch");
 		resourceList = new ResourceList(new Coin(2));
 		arcoTrionfo.addCost(resourceList.clone());
 		resourceList = new ResourceList(new Stone(2));
 		arcoTrionfo.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(6));
-		arcoTrionfo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		arcoTrionfo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new VictoryPoint(1));
-		arcoTrionfo.addPermanentBonus(new GainResourceForEveryCardYouHave(PurpleCard.class, resourceList));
+		arcoTrionfo.addPermanentEffect(new IncrementForCard(PurpleCard.class.toString(), resourceList.clone()));
 		
 		YellowCard zecca = new YellowCard();
 		zecca.setActiveValue(5);
-		zecca.setName("Zecca");
+		zecca.setName("Mint");
 		zecca.setPeriod(1);
 		resourceList = new ResourceList(new Wood(1));
 		zecca.addCost(resourceList.clone());
 		resourceList = new ResourceList(new Stone(3));
 		zecca.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(5));
-		zecca.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		zecca.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new Coin(1));
-		zecca.addPermanentBonus(new GainResourceForEveryCardYouHave(YellowCard.class, resourceList.clone()));
+		zecca.addPermanentEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
 		
 		YellowCard falegnameria = new YellowCard();
 		falegnameria.setActiveValue(4);
 		falegnameria.setPeriod(1);
-		falegnameria.setName("Falegnameria");
+		falegnameria.setName("Carpenter's Shop");
 		resourceList = new ResourceList(new Coin(1));
 		falegnameria.addCost(resourceList.clone());
 		resourceList = new ResourceList(new Wood(2));
 		falegnameria.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(3));
-		falegnameria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//va settato il bonus permanente
+		falegnameria.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		exchange = new ResourceList(new Wood(1));
+		exchangeable = new ResourceList(new Coin(3));
+		ExchangeEffect exchangeEffect = new ExchangeEffect();
+		exchangeEffect.addExchange(exchange.clone(), exchangeable.clone());
+		exchange = new ResourceList(new Wood(2));
+		exchangeable = new ResourceList(new Coin(5));
+		exchangeEffect.addExchange(exchange.clone(), exchangeable.clone());
+		falegnameria.addPermanentEffect(exchangeEffect);
 		
 		YellowCard cappella = new YellowCard(); //bonus permanente da rivedere
 		cappella.setPeriod(1);
-		cappella.setName("Cappella");
+		cappella.setName("Chapel");
 		cappella.setActiveValue(2);
 		resourceList = new ResourceList(new Wood(2));
 		cappella.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(1));
-		cappella.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		cappella.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		exchange = new ResourceList();
 		exchangeable = new ResourceList();
 		exchange.setResource(new Coin(1));
 		exchangeable.setResource(new FaithPoint(1));
-		cappella.addPermanentBonus(new ResourceExchangeBonus(exchange.clone(), exchangeable.clone())); //da cambiare
+		ExchangeEffect exchangeEffect3 = new ExchangeEffect();
+		exchangeEffect3.addExchange(exchange.clone(), exchangeable.clone());
+		cappella.addPermanentEffect(exchangeEffect3);
 		
 		YellowCard tagliapietre = new YellowCard();
 		tagliapietre.setPeriod(1);
-		tagliapietre.setName("Tagliapietre");
+		tagliapietre.setName("Stonemason's Shop");
 		tagliapietre.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(1));
@@ -960,26 +980,40 @@ public class MainTest {
 		tagliapietre.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(2));
-		tagliapietre.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//mettere il bonus permanente
+		tagliapietre.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exchangeEffect2 = new ExchangeEffect();
+		exchange = new ResourceList(new Stone(1));
+		exchangeable = new ResourceList(new Coin(3));
+		exchangeEffect2.addExchange(exchange.clone(), exchangeable.clone());
+		exchange = new ResourceList(new Stone(2));
+		exchangeable = new ResourceList(new Coin(5));
+		exchangeEffect2.addExchange(exchange.clone(), exchangeable.clone());
+		tagliapietre.addPermanentEffect(exchangeEffect2);
 		
 		//INIZIO SECONDO PERIODO
 		
 		YellowCard gildaScultori = new YellowCard();
 		gildaScultori.setPeriod(2);
-		gildaScultori.setName("Gilda degli Scultori");
+		gildaScultori.setName("Sculptors' Guild");
 		gildaScultori.setActiveValue(5);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(4));
 		gildaScultori.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(6));
-		gildaScultori.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//settare il bonus permanente
+		gildaScultori.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exc3 = new ExchangeEffect();
+		exchange = new ResourceList(new Stone(1));
+		exchangeable = new ResourceList(new VictoryPoint(3));
+		exc3.addExchange(exchange.clone(), exchangeable.clone());
+		exchange = new ResourceList(new Stone(3));
+		exchangeable = new ResourceList(new VictoryPoint(7));
+		exc3.addExchange(exchange.clone(), exchangeable.clone());
+		gildaScultori.addPermanentEffect(exc3);
 		
 		YellowCard gildaCostruttori = new YellowCard();
 		gildaCostruttori.setPeriod(2);
-		gildaCostruttori.setName("Gilda dei Costruttori");
+		gildaCostruttori.setName("Stonemasons' Guild");
 		gildaCostruttori.setActiveValue(4);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
@@ -989,24 +1023,37 @@ public class MainTest {
 		gildaCostruttori.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		gildaCostruttori.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//settare il bonus permanente
+		gildaCostruttori.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exc4 = new ExchangeEffect();
+		exchange = new ResourceList(new Stone(1));
+		exchange.setResource(new Servant(1));
+		exchange.setResource(new Wood(1));
+		exchangeable = new ResourceList(new VictoryPoint(3));
+		exc4.addExchange(exchange.clone(), exchangeable.clone());
+		gildaCostruttori.addPermanentEffect(exc4);
 		
 		YellowCard gildaPittori = new YellowCard();
 		gildaPittori.setPeriod(2);
 		gildaPittori.setActiveValue(4);
-		gildaPittori.setName("Gilda dei Pittori");
+		gildaPittori.setName("Painters' Guild");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(4));
 		gildaPittori.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
-		gildaPittori.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere bonus permanente
+		gildaPittori.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exc2 = new ExchangeEffect();
+		exchange = new ResourceList(new Wood(1));
+		exchangeable = new ResourceList(new VictoryPoint(3));
+		exc2.addExchange(exchange.clone(), exchangeable.clone());
+		exchange = new ResourceList(new Wood(3));
+		exchangeable = new ResourceList(new VictoryPoint(7));
+		exc2.addExchange(exchange.clone(), exchangeable.clone());
+		gildaPittori.addPermanentEffect(exc2);
 		
 		YellowCard mercato = new YellowCard();
 		mercato.setPeriod(2);
-		mercato.setName("Mercato");
+		mercato.setName("Marketplace");
 		mercato.setActiveValue(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(2));
@@ -1016,11 +1063,16 @@ public class MainTest {
 		mercato.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(3));
-		mercato.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere bonus permanente
+		mercato.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exchangeEffect4 = new ExchangeEffect();
+		exchange = new ResourceList(new Coin(3));
+		exchangeable = new ResourceList(new Stone(2));
+		exchangeable.setResource(new Wood(2));
+		exchangeEffect4.addExchange(exchange.clone(), exchangeable.clone());
+		mercato.addPermanentEffect(exchangeEffect4);
 		
 		YellowCard battistero = new YellowCard();
-		battistero.setName("Battistero");
+		battistero.setName("Baptistery");
 		battistero.setPeriod(2);
 		battistero.setActiveValue(2);
 		resourceList = new ResourceList();
@@ -1029,45 +1081,54 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(2));
 		resourceList.setResource(new FaithPoint(1));
-		battistero.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere bonus permanente
+		battistero.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exch = new ExchangeEffect();
+		exchange = new ResourceList(new FaithPoint(1));
+		exchangeable = new ResourceList(new Coin(2));
+		exchangeable.setResource(new VictoryPoint(2));
+		exchangeEffect4.addExchange(exchange.clone(), exchangeable.clone());
+		battistero.addPermanentEffect(exch);
 		
 		YellowCard fortezza = new YellowCard();
 		fortezza.setPeriod(2);
-		fortezza.setName("Fortezza");
+		fortezza.setName("Stronghold");
 		fortezza.setActiveValue(6);
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(2));
+		resourceList = new ResourceList(new Coin(2));
 		fortezza.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(2));
+		resourceList = new ResourceList(new Wood(2));
 		fortezza.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(2));
+		resourceList = new ResourceList(new Stone(2));
 		fortezza.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(8));
-		fortezza.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		fortezza.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new MilitaryPoint(2));
 		resourceList.setResource(new VictoryPoint(2));
-		fortezza.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		fortezza.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		YellowCard tesoreria = new YellowCard();
 		tesoreria.setActiveValue(3);
-		tesoreria.setName("Tesoreria");
+		tesoreria.setName("Treasury");
 		tesoreria.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(3));
 		tesoreria.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(4));
-		tesoreria.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere bonus permanente
+		tesoreria.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exchangeEffect5 = new ExchangeEffect();
+		exchange = new ResourceList(new Coin(1));
+		exchangeable = new ResourceList(new VictoryPoint(3));
+		exchangeEffect5.addExchange(exchange.clone(), exchangeable.clone());
+		exchange = new ResourceList(new Coin(2));
+		exchangeable = new ResourceList(new VictoryPoint(5));
+		exchangeEffect5.addExchange(exchange.clone(), exchangeable.clone());
+		tesoreria.addPermanentEffect(exchangeEffect5);
 		
 		YellowCard caserma = new YellowCard();
 		caserma.setActiveValue(1);
-		caserma.setName("Caserma");
+		caserma.setName("Barracks");
 		caserma.setPeriod(2);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
@@ -1077,54 +1138,49 @@ public class MainTest {
 		caserma.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(3));
-		caserma.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungere bonus permanente
+		caserma.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exchangeEffect6 = new ExchangeEffect();
+		exchange = new ResourceList(new Coin(1));
+		exchangeable = new ResourceList(new MilitaryPoint(3));
+		exchangeEffect6.addExchange(exchange.clone(), exchangeable.clone());
+		caserma.addPermanentEffect(exchangeEffect6);
 		
 		//INIZIO TERZO PERIODO
 		
 		YellowCard giardino = new YellowCard();
 		giardino.setActiveValue(1);
-		giardino.setName("Giardino");
+		giardino.setName("Garden");
 		giardino.setPeriod(3);
-		resourceList = new ResourceList();
-		resourceList.setResource(new Servant(2));
+		resourceList = new ResourceList(new Servant(2));
 		giardino.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(4));
+		resourceList = new ResourceList(new Wood(4));
 		giardino.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(2));
+		resourceList = new ResourceList(new Stone(2));
 		giardino.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(10));
-		giardino.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(3));
-		giardino.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList(new VictoryPoint(10));
+		giardino.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		resourceList = new ResourceList(new VictoryPoint(3));
+		giardino.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		YellowCard banca = new YellowCard();
 		banca.setPeriod(3);
 		banca.setActiveValue(2);
-		banca.setName("Banca");
+		banca.setName("Bank");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
 		banca.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(1));
+		resourceList = new ResourceList(new Wood(1));
 		banca.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(3));
+		resourceList = new ResourceList(new Stone(3));
 		banca.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(7));
-		banca.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(5));
-		banca.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList(new VictoryPoint(7));
+		banca.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		resourceList = new ResourceList(new Coin(5));
+		banca.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		YellowCard basilica = new YellowCard();
 		basilica.setPeriod(3);
-		basilica.setName("Basilica");
+		basilica.setName("Church");
 		basilica.setActiveValue(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
@@ -1135,13 +1191,18 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
 		resourceList.setResource(new FaithPoint(1));
-		basilica.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungi bonus permanente
+		basilica.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exchangeEffect9 = new ExchangeEffect();
+		exchange = new ResourceList(new Wood(1));
+		exchange.setResource(new Stone(1)); //sono in AND ma dovrebbero essere in OR
+		exchangeable = new ResourceList(new FaithPoint(2));
+		exchangeEffect9.addExchange(exchange.clone(), exchangeable.clone());
+		basilica.addPermanentEffect(exchangeEffect9);
 		
 		YellowCard cattedrale = new YellowCard();
 		cattedrale.setPeriod(3);
 		cattedrale.setActiveValue(2);
-		cattedrale.setName("Cattedrale");
+		cattedrale.setName("Cathedral");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(4));
 		cattedrale.addCost(resourceList.clone());
@@ -1151,30 +1212,32 @@ public class MainTest {
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(7));
 		resourceList.setResource(new FaithPoint(3));
-		cattedrale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		cattedrale.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(1));
-		cattedrale.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		cattedrale.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
 		YellowCard fiera = new YellowCard();
 		fiera.setActiveValue(4);
 		fiera.setPeriod(3);
-		fiera.setName("Fiera");
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(4));
+		fiera.setName("Fair");
+		resourceList = new ResourceList(new Coin(4));
 		fiera.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(3));
+		resourceList = new ResourceList(new Wood(3));
 		fiera.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(8));
-		fiera.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList(new VictoryPoint(8));
+		fiera.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList= new ResourceList();
-		//aggiungere bonus
+		ExchangeEffect exchangeEffect7 = new ExchangeEffect();
+		exchange = new ResourceList(new Coin(4));
+		exchangeable = new ResourceList(new Wood(3));
+		exchangeable.setResource(new Stone(3));
+		exchangeEffect7.addExchange(exchange.clone(), exchangeable.clone());
+		fiera.addPermanentEffect(exchangeEffect7);
 		
 		YellowCard accademiaMilitare = new YellowCard();
 		accademiaMilitare.setActiveValue(3);
-		accademiaMilitare.setName("Accademia Militare");
+		accademiaMilitare.setName("Military Academy");
 		accademiaMilitare.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Servant(1));
@@ -1187,12 +1250,17 @@ public class MainTest {
 		accademiaMilitare.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(7));
-		accademiaMilitare.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungi bonus permanente
+		accademiaMilitare.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exc8 = new ExchangeEffect();
+		exchange = new ResourceList(new Servant(1));
+		exchangeable = new ResourceList(new MilitaryPoint(3));
+		exchangeable.setResource(new VictoryPoint(1));
+		exc8.addExchange(exchange.clone(), exchangeable.clone());
+		accademiaMilitare.addPermanentEffect(exc8);
 		
 		YellowCard palazzo = new YellowCard();
 		palazzo.setActiveValue(6);
-		palazzo.setName("Palazzo");
+		palazzo.setName("Palace");
 		palazzo.setPeriod(3);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(3));
@@ -1205,29 +1273,29 @@ public class MainTest {
 		palazzo.addCost(resourceList.clone());
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(9));
-		palazzo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		//aggiungi bonus permanente
+		palazzo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		ExchangeEffect exchangeEffect8 = new ExchangeEffect();
+		exchange = new ResourceList(new Coin(1));
+		exchangeable = new ResourceList(new Servant(2));
+		exchangeable.setResource(new VictoryPoint(4));
+		exchangeEffect8.addExchange(exchange.clone(), exchangeable.clone());
+		fiera.addPermanentEffect(exchangeEffect8);
 		
 		YellowCard castelletto = new YellowCard();
 		castelletto.setActiveValue(5);
-		castelletto.setName("Castelletto");
+		castelletto.setName("Fortress");
 		castelletto.setPeriod(3);
-		resourceList = new ResourceList();
-		resourceList.setResource(new Coin(2));
+		resourceList = new ResourceList(new Coin(2));
 		castelletto.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Wood(2));
+		resourceList = new ResourceList(new Wood(2));
 		castelletto.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new Stone(4));
+		resourceList = new ResourceList(new Stone(4));
 		castelletto.addCost(resourceList.clone());
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(9));
-		castelletto.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		resourceList = new ResourceList();
-		resourceList.setResource(new VictoryPoint(2));
-		resourceList.setResource(new CouncilPrivilege(1));
-		castelletto.addPermanentBonus(new IncrementResourceBonus(resourceList.clone()));
+		resourceList = new ResourceList(new VictoryPoint(9));
+		castelletto.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		resourceList = new ResourceList(new VictoryPoint(2));
+		castelletto.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
+		castelletto.addPermanentEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		
 		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>();
 		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
@@ -1257,7 +1325,7 @@ public class MainTest {
 		yellowDeck.add(teatro);
 		yellowDeck.add(residenza);
 		
-		CustomFileReaderWriter.writeFile("settings\\YellowCards", gAdapter.toJson(yellowDeck,type));
+		CustomFileReaderWriter.writeFile("settings\\oldFile\\YellowCards", gAdapter.toJson(yellowDeck,type));
 		
 		//FINE CARTE GIALLE
 		
@@ -1433,7 +1501,6 @@ public class MainTest {
 		ambasciatore.addCost(resourceList.clone());
 		ambasciatore.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		ambasciatore.addInstantEffect(new AnotherCard(null,7));
-		//aggiungere che puoi pescare una qualsiasi carta con valore 7
 		
 		BlueCard cortigiana = new BlueCard();
 		cortigiana.setName("Paramour");
@@ -1494,7 +1561,7 @@ public class MainTest {
 		bluDeck.add(nobile);
 		bluDeck.add(governatore);
 		
-		CustomFileReaderWriter.writeFile("settings//BlueCards", gAdapter.toJson(bluDeck, type));
+		CustomFileReaderWriter.writeFile("settings\\oldFile\\BlueCards", gAdapter.toJson(bluDeck, type));
 		
 		
 		//FINE CARTE BLU
@@ -1642,15 +1709,15 @@ public class MainTest {
 	
 	}
 	
-	public void CardsInCardManagerFileCreator(){
+	public static void CardsInCardManagerFileCreator(){
 		CardManager cardManager = new CardManager(false);
 		JsonAdapter jsonAdapter = new JsonAdapter();
 		
-		ArrayList<GreenCard> Deck = new ArrayList<GreenCard>(); 
+		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
 		Type type = new TypeToken<ArrayList<GreenCard>>(){}.getType();
 		
-		Deck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\GreenCards"), type);
-		List<GreenCard> copy = Deck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
+		greenDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\GreenCards"), type);
+		List<GreenCard> copy = greenDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
 		
 		for(GreenCard c : copy)
 			cardManager.addCard(c);
@@ -1658,11 +1725,36 @@ public class MainTest {
 		ArrayList<PurpleCard> purpleDeck = new ArrayList<PurpleCard>(); 
 		type = new TypeToken<ArrayList<PurpleCard>>(){}.getType();
 		
-		Deck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\PurpleCards"), type);
+		purpleDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\PurpleCards"), type);
 		List<PurpleCard> copy2 = purpleDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
 		
 		for(PurpleCard c : copy2)
 			cardManager.addCard(c);
+		
+		//BLUECARDS
+		ArrayList<BlueCard> blueDeck = new ArrayList<BlueCard>(); 
+		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
+		
+		blueDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\BlueCards"), type);
+		List<BlueCard> copy4 = blueDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
+		
+		for(BlueCard c : copy4)
+			cardManager.addCard(c);
+		
+		//YELLOWCARDS
+		/*
+		ArrayList<YellowCard> yellowDeck = new ArrayList<YellowCard>(); 
+		type = new TypeToken<ArrayList<YellowCard>>(){}.getType();
+		
+		yellowDeck = jsonAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\oldFile\\YellowCards"), type);
+		List<YellowCard> copy3 = yellowDeck.stream().filter(c -> c.getPeriod()==1).collect(Collectors.toList());
+		
+		for(YellowCard c : copy3)
+			cardManager.addCard(c);
+		*/
+		System.out.println(cardManager);
+		
+		CustomFileReaderWriter.writeFile("settings\\firstPeriod", jsonAdapter.toJson(cardManager,CardManager.class));
 	}
 	
 }

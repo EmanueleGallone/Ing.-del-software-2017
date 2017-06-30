@@ -16,13 +16,14 @@ public class StateHandler {
 	private Player player;
 	private GameLogic gameLogic;
 	
-	private ActionManager aManager = new ActionManager(player);
+	private ActionManager aManager;
 	
 	private EventHandler<ModelEventInterface> modelEvent = new EventHandler<>();
 	
 	public StateHandler(GameLogic gameLogic,Player player) {
 		this.gameLogic = gameLogic;
 		this.player = player;
+		aManager = new ActionManager(this);
 	}
 	
 	public void start(){
