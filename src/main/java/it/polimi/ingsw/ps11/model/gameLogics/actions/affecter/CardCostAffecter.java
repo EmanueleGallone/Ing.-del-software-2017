@@ -11,10 +11,12 @@ public class CardCostAffecter extends GetCardAction {
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
 	
+	private String cardType;
 	private ResourceList discount;
 	private GetCardAction action;
 	
-	public CardCostAffecter(ResourceList resource) {
+	
+	public CardCostAffecter(String cardType, ResourceList resource) {
 		this.discount = resource;
 	}
 	
@@ -25,7 +27,9 @@ public class CardCostAffecter extends GetCardAction {
 	
 	@Override
 	public void perform() {
-		action.getCostModifier().sum(discount);
+		String card = action.getCard().getClass().toString();
+		if(card.equals(cardType))
+			action.getCostModifier().sum(discount);
 		forward();
 	}
 	
@@ -75,7 +79,7 @@ public class CardCostAffecter extends GetCardAction {
 	
 	@Override
 	public CardCostAffecter clone(){
-		CardCostAffecter copy = new CardCostAffecter(discount.clone());
+		CardCostAffecter copy = new CardCostAffecter(cardType, discount.clone());
 		copy.aManager = aManager;
 		if(action != null)
 			copy.action = action.clone();

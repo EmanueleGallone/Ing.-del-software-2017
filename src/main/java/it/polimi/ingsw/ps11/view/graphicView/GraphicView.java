@@ -26,6 +26,7 @@ import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Floor;
+
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceListPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;

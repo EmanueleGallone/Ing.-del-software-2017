@@ -9,6 +9,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndTurnAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
@@ -23,16 +24,15 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class ActionManager {
 	
-	Player player;
-	StateHandler stateHandler;
+	private StateHandler stateHandler;
 	private HashMap<String, Action<?>> actions = new HashMap<>();
 	
 	public StateHandler getStateHandler() {
 		return stateHandler;
 	}
 	
-	public ActionManager(Player player) {
-		this.player = player;
+	public ActionManager(StateHandler stateHandler) {
+		this.stateHandler = stateHandler;
 	}
 	
 	public <T extends Action<?>> T get(Class<T> action){
@@ -48,7 +48,7 @@ public class ActionManager {
 	}
 	
 	public Player getSubject(){
-		return player;
+		return stateHandler.getPlayer();
 	}
 	
 	public <T extends Action<T>> T make (Class<T> azione, T action){
@@ -69,6 +69,11 @@ public class ActionManager {
 	
 // Actions constructors __________________
 	
+	
+	public EndTurnAction newEndTurn(){
+		EndTurnAction action = new EndTurnAction(this);
+		return make(EndTurnAction.class, action);
+	}
 	
 	public IncrementAction newIncrementAction(ResourceList resource){
 		IncrementAction action = new IncrementAction(this,resource);

@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
+import it.polimi.ingsw.ps11.controller.ConsoleLog;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
@@ -21,6 +22,9 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 	}
 	
 	public FamilyInFloorAction(ActionManager aManager, FamilyInTowerAction tAction, FamilyInSpaceAction sAction ,GetCardAction getCard) {
+		
+		new ConsoleLog().println("Una floorAction e' stata creata");
+		
 		this.aManager = aManager;
 		this.towerAction = tAction;
 		this.spaceAction = sAction;

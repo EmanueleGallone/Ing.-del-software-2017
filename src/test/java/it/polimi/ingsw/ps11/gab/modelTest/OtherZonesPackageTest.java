@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
@@ -56,7 +57,7 @@ public class OtherZonesPackageTest {
 				
 		councilPalace = new CouncilPalace();
 		market = new Market(players.size());
-		production = new Yield();
+		production = new Yield(YellowCard.class);
 		
 	}
 	

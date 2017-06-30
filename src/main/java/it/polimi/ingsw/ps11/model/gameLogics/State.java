@@ -24,7 +24,6 @@ public abstract class State implements ViewListener {
 	}
 	
 	public void notifyToClient() {
-		System.out.println("Notifico lo stato " + this.getClass().getSimpleName());
 		stateHandler().invoke(new TextualEvent("Sei nello stato: " + this.getClass().getSimpleName()));
 	}
 }
