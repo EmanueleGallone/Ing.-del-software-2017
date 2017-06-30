@@ -8,7 +8,10 @@ import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
-
+/**
+ * <h3> Yield </h3>
+ * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco. </p>
+ */
 public class Yield implements FamilyMemberSpace, Serializable {
 	
 	private ActionSpace singleActionSpace = new ActionSpace();

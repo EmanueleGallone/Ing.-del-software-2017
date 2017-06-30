@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Colors;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
 
 /**<h3>Player</h3>
  * <p>Classe che rappresenta il giocatore. Esso è composito da piu' oggetti in modo da suddividere la complessita':<ul>

@@ -7,7 +7,8 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 /**
  * <h3>Tower</h3>
- * <p> Classe rappresentante le torri del gioco. Ogni torre avra' una classe a se' stante le quali avranno tutte esattamente 4 Floor all'interno. </p>
+ * <p> Classe che rappresenta le torri del gioco. Per ogni torre è stata implementata una classe apposita, identificata dal tipo di carta
+ * che può contenere. Ogni torre ha esattamente 4 piani.</p>
  * @see YellowTower
  * @see BlueTower
  * @see GreenTower

@@ -3,8 +3,9 @@ package it.polimi.ingsw.ps11.model.familyMember.list;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 /**
  * <h3>NeutralFamilyMember</h3>
- * <p> Classe concreta che rappresenta il familiare neutro. </p>
+ * <p> Classe concreta che rappresenta il familiare di colore Neutro. Estende la classe FamilyMember.</p>
  * @version 1.0
+ * @see FamilyMember
  */
 public class NeutralFamilyMember extends FamilyMember {
 	

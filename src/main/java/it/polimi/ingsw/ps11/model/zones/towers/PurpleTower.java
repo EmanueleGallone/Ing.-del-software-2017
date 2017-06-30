@@ -3,7 +3,11 @@ package it.polimi.ingsw.ps11.model.zones.towers;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
+/**
+ * <h3> PurpleTower </h3>
+ * <p> Classe che rappresenta la torre contenente le carte di tipo "Impresa" e identificata dal colore Viola. Estende la classe Tower.</p>
+ * @see Tower
+ */
 public class PurpleTower extends Tower {
 
 	public PurpleTower() {

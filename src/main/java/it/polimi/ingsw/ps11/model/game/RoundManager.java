@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
 /**
  * <h3>RoundManager</h3>
- * <p> Classe che gestisce i turni di gioco </p>
+ * <p> Classe che gestisce e organizza i turni dei giocatori.</p>
  */
 public class RoundManager implements Serializable{
 

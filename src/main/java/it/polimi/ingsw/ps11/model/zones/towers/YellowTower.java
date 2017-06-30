@@ -3,7 +3,11 @@ package it.polimi.ingsw.ps11.model.zones.towers;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
+/**
+ * <h3> YellowTower </h3>
+ * <p> Classe che rappresenta la torre contenente le carte di tipo "Edificio" e identificata dal colore Giallo. Estende la classe Tower.</p>
+ * @see Tower
+ */
 public class YellowTower extends Tower {
 
 	public YellowTower() {

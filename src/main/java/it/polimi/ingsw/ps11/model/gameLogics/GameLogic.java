@@ -3,7 +3,6 @@ package it.polimi.ingsw.ps11.model.gameLogics;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.controller.ConsoleLog;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;

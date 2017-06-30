@@ -7,10 +7,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Board;
-
+/** <h3> Game </h3>
+ * <p> Classe che racchiude l'intera partita: la board, il roundManager e i giocatori</p>
+ * @version 1.0
+ * @see Board
+ * @see RoundManager
+ */
 public class Game implements Serializable  {
 	
 	private Board board;

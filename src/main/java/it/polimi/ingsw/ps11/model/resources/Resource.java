@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.model.resources;
 import java.io.Serializable;
 /**
  * <h3>Resource</h3>
- * <p>Classe astratta che rappresenta le risorse del gioco. Per ogni tipo di risorsa è stata creata una classe specifica.
+ * <p>Classe astratta che rappresenta le risorse del gioco. Per ogni tipo di risorsa è stata creata una classe concreta specifica.
  * Tali risorse sono state designate in modo tale da non poter avere valori negativi. Tutte le risorse erediteranno da questa classe un solo metodo
  * (oltre i canonici getter e setter), ovvero il metodo <code>increment</code> che permette di aggiungere o sottrarre risorse.
  * </p>

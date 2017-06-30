@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 /**
  * <h3> DiceManager </h3>
- * <p> Classe Manager per i dadi. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. </p>
+ * <p> Classe Manager per i <code>Dice</code>. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. </p>
  * @see DevelopmentCard
  */
 public class DiceManager implements Iterable<Dice>, Serializable{

@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.model.familyMember.list;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 /**
  * <h3>OrangeFamilyMember</h3>
- * <p> Classe concreta che rappresenta il familiare arancione. </p>
+ * <p> Classe concreta che rappresenta il familiare di colore Arancione. Estende la classe FamilyMember.</p>
  * @version 1.0
  */
 public class OrangeFamilyMember extends FamilyMember {

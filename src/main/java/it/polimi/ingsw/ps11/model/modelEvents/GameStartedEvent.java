@@ -2,7 +2,9 @@ package it.polimi.ingsw.ps11.model.modelEvents;
 
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.player.Player;
-
+/** <h3> GameStartedEvent </h3>
+ * <p> Classe evento che gestisce l'inizio di una partita</p>
+ */
 public class GameStartedEvent extends ModelEvent{
 
 	private Game game;

@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.Random;
 /**
  * <h3>Dice</h3>
- * <p> Classe astratta che rappresenta l'oggetto dado del gioco. I singoli dadi sono stati implementati usando classi concrete che estendono la sottoscritta. 
- * Contiene il valore del dado, compreso tra 1 e 6.</p>
+ * <p> Classe astratta che rappresenta l'oggetto dado del gioco. Contiene il valore del dado, compreso tra 1 e 6. 
+ * Per ogni dado è stata implementata una classe concreta apposita, figlia di Dice.</p>
  * @version 1.0
  * @see BlackDice
  * @see OrangeDice
  * @see WhiteDice
  */
+@SuppressWarnings("serial")
 public abstract class Dice implements Serializable{
 	protected static final int MAX_FACES = 6;
 	protected int value;

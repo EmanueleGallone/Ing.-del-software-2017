@@ -3,9 +3,11 @@ package it.polimi.ingsw.ps11.model.familyMember.list;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 /**
  * <h3>BlackFamilyMemberr</h3>
- * <p> Classe concreta che rappresenta il familiare nero. </p>
+ * <p> Classe concreta che rappresenta il familiare di colore Nero. Estende la classe FamilyMember</p>
  * @version 1.0
+ * @see FamilyMember
  */
+@SuppressWarnings("serial")
 public class BlackFamilyMember extends FamilyMember {
 	
 	public BlackFamilyMember(){

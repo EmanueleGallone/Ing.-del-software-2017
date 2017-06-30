@@ -1,7 +1,9 @@
 package it.polimi.ingsw.ps11.model.modelEvents;
 
 import it.polimi.ingsw.ps11.model.player.Player;
-
+/** <h3> PlayerUpdateEvent </h3>
+ * <p> Classe evento che notifica l'avvenimento di un cambiamento in un giocatore</p>
+ */
 public class PlayerUpdateEvent extends ModelEvent{
 
 	public PlayerUpdateEvent(Player player) {
