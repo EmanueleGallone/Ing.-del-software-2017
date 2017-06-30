@@ -22,6 +22,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
@@ -48,7 +49,6 @@ import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 public class MainTest {
 	
 	public static void main(String[] args){
-		
 
 	}	
 	
@@ -1397,50 +1397,51 @@ public class MainTest {
 		eroe.addCost(resourceList.clone());
 		eroe.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
 		eroe.addInstantEffect(new AnotherCard(PurpleCard.class.toString(),6));
-		//aggiungere il bonus che ti fa prendere una carta viola con valore 6
 		
 		//FINE SECONDO PERIODO
 		
 		BlueCard cardinale = new BlueCard();
-		cardinale.setName("Cardinale");
+		cardinale.setName("Cardinal");
 		cardinale.setPeriod(3);
 		resourceList = new ResourceList(new Coin(4));
 		cardinale.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(2));
-		cardinale.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		cardinale.addInstantBonus(new EnableHarvestBonus(4));
+		cardinale.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		cardinale.addInstantEffect(new ActiveYieldEffect(GreenCard.class.toString(), 4));
 		
 		BlueCard araldo = new BlueCard();
-		araldo.setName("Araldo");
+		araldo.setName("Herald");
 		araldo.setPeriod(3);
 		resourceList = new ResourceList(new Coin(6));
 		araldo.addCost(resourceList.clone());
-		//aggiungere il bonus instantaneo che per ogni carta viola hai +2 VP
+		resourceList = new ResourceList(new VictoryPoint(2));
+		araldo.addInstantEffect(new IncrementForCard(PurpleCard.class.toString(), resourceList.clone()));
 		
 		BlueCard vescovo = new BlueCard();
-		vescovo.setName("Vescovo");
+		vescovo.setName("Bishop");
 		vescovo.setPeriod(3);
 		resourceList = new ResourceList(new Coin(5));
 		vescovo.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(1));
-		vescovo.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
-		vescovo.addInstantBonus(new EnableProductionBonus(4));
+		vescovo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
+		vescovo.addInstantEffect(new ActiveYieldEffect(YellowCard.class.toString(), 4));
 		
 		BlueCard ambasciatore = new BlueCard();
-		ambasciatore.setName("Ambasciatore");
+		ambasciatore.setName("Ambassador");
 		ambasciatore.setPeriod(3);
 		resourceList = new ResourceList(new Coin(6));
 		ambasciatore.addCost(resourceList.clone());
-		resourceList = new ResourceList(new CouncilPrivilege(1));
-		ambasciatore.addInstantBonus(new IncrementResourceBonus(resourceList.clone()));
+		ambasciatore.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
+		ambasciatore.addInstantEffect(new AnotherCard(null,7));
 		//aggiungere che puoi pescare una qualsiasi carta con valore 7
 		
 		BlueCard cortigiana = new BlueCard();
-		cortigiana.setName("Cortigiana");
+		cortigiana.setName("Paramour");
 		cortigiana.setPeriod(3);
 		resourceList = new ResourceList(new Coin(7));
 		cortigiana.addCost(resourceList.clone());
-		//aggiungere bonus che per ogni carta blu hai +2 VP
+		resourceList = new ResourceList(new VictoryPoint(2));
+		cortigiana.addInstantEffect(new IncrementForCard(BlueCard.class.toString(), resourceList.clone()));
 		
 		BlueCard generale = new BlueCard();
 		generale.setName("Generale");
@@ -1454,14 +1455,16 @@ public class MainTest {
 		nobile.setPeriod(3);
 		resourceList = new ResourceList(new Coin(6));
 		nobile.addCost(resourceList.clone());
-		//bonus instantaneo che per ogni carta verde hai +2 VP
+		resourceList = new ResourceList(new VictoryPoint(2));
+		nobile.addInstantEffect(new IncrementForCard(GreenCard.class.toString(), resourceList.clone()));
 		
 		BlueCard governatore = new BlueCard();
-		governatore.setName("Governatore");
+		governatore.setName("Governor");
 		governatore.setPeriod(3);
 		resourceList = new ResourceList(new Coin(6));
 		governatore.addCost(resourceList.clone());
-		//bonus instantaneo che per ogni carta gialla hai +2 VP
+		resourceList = new ResourceList(new VictoryPoint(2));
+		governatore.addInstantEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
 		
 		ArrayList<BlueCard> bluDeck = new ArrayList<BlueCard>();
 		type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
