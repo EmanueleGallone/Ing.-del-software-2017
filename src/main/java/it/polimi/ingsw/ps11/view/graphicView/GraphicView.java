@@ -31,6 +31,7 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceLis
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicTurnPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
@@ -47,6 +48,7 @@ public class GraphicView extends View{
 	JFrame window = new JFrame();												//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
 	protected JPanel boardPanel, playerPanel;									//Pannelli boardPrincipale e boardPersonale
+	protected GraphicTurnPanel playersTurn = new GraphicTurnPanel();
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
 	protected JTextPane consolePanel;
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
@@ -86,7 +88,7 @@ public class GraphicView extends View{
         GraphicBoardView graphicBoardView = new GraphicBoardView();
         GraphicPlayerView graphicPlayerView = new GraphicPlayerView();
         GraphicConsole graphicConsole = new GraphicConsole();
-		JButton exitButton = new JButton("X");
+        JButton exit = new JButton("X"), minimize = new JButton("_");
                
         boardPanel = graphicBoardView.getMainBoard().getComponent();
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
@@ -96,6 +98,7 @@ public class GraphicView extends View{
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayers = new GridBagConstraints();
 		GridBagConstraints gbcConsole = new GridBagConstraints();
+		GridBagConstraints gbc = new GridBagConstraints();
         
 		gbcMainBoard.gridx = 0;
 		gbcMainBoard.gridy = 0;
@@ -117,12 +120,21 @@ public class GraphicView extends View{
 		consolePanel.setPreferredSize(new Dimension(10, 10));
 		window.add(consolePanel, gbcConsole);
 		
-		JPanel playersTurn = new JPanel();
 		GridBagConstraints gbcTurn = new GridBagConstraints();
 		gbcTurn.gridx = 2;
 		gbcTurn.gridy = 0;
 		gbcTurn.fill = GridBagConstraints.BOTH;
 		window.add(playersTurn, gbcTurn);
+		
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        playersTurn.add(minimize, gbc);
+        
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        playersTurn.add(exit, gbc);
 		
         slideDialog.setBounds(0, (int)Math.round(screenSize.getHeight()*0.695), 
 				(int)Math.round(screenSize.getWidth()*0.467), (int)Math.round(screenSize.getHeight()*0.305));
@@ -134,8 +146,8 @@ public class GraphicView extends View{
 		graphicConsole.println("Benvenuto ne: ");
 		graphicConsole.printError("\"Lorenzo il Magnifico\"");
 		
-		playersTurn.add(exitButton);
-		exitButton.addActionListener(new Close());
+		exit.addActionListener(new Close());
+		minimize.addActionListener(new Minimize());
 		
 		this.boardView = graphicBoardView;
 		this.you = graphicPlayerView;
@@ -153,21 +165,10 @@ public class GraphicView extends View{
 
 	@Override
 	public void run() {
+		
 		GraphicView tryout = new GraphicView();
 		tryout.print();
 		
-		BlueCard card = new BlueCard("name");
-		
-		ArrayList<Resource> array1 = new ArrayList<>();
-		array1.add(new Coin(3));
-		array1.add(new Wood(5));
-		array1.add(new FaithPoint(2));
-		array1.add(new VictoryPoint(4));
-		ResourceList resourceList1 = new ResourceList(array1);
-
-		Floor floor= new Floor();
-		floor.getActionSpace().setResources(resourceList1);
-		floor.setCard(card);
 	}
 	
 	@Override
@@ -179,14 +180,6 @@ public class GraphicView extends View{
 	@Override
 	public void confirm(ConfirmEvent confirm) {
 		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor());
-		confirmPanelView.setBounds((int)Math.round(screenSize.getHeight()*0.5), (int)Math.round(screenSize.getHeight()*0.3), 
-				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.462));
-		confirmPanelView.setUndecorated(true);
-		confirmPanelView.setVisible(true);		
-	}
-	
-	public void confirm(Floor floor) {
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent, floor);
 		confirmPanelView.setBounds((int)Math.round(screenSize.getHeight()*0.5), (int)Math.round(screenSize.getHeight()*0.3), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.462));
 		confirmPanelView.setUndecorated(true);
@@ -213,6 +206,13 @@ public class GraphicView extends View{
 					window.dispose();
 					slideDialog.dispose();
 					}
+		}
+	}
+	
+	private class Minimize implements ActionListener {			
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			window.setState(JFrame.ICONIFIED);
 		}
 	}
 	
