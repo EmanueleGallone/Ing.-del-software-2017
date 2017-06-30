@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.cards;
 /**
  * <h3>Card</h3>
- * <p> Classe astratta che modella qualsiasi tipo di carta </p>
+ * <p> Classe astratta che modella qualsiasi tipo di carta. Identificata da una string per il nome. </p>
  * @see DevelopmentCard
  */
 public abstract class Card{
@@ -20,9 +20,6 @@ public abstract class Card{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
 	
 //End setters
 //Start getters

@@ -10,19 +10,25 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
-
+/**
+ * <h3> GraphicHarvestView</h3>
+ * <p> Classe per la visualizzazione della zona Raccolta, presenta due action space distinti secondo le regole entrambi
+ * realizzati con GraphicPaintedButton</p>
+ * @see HarvestView 
+ * @see GraphicPaintedButton
+ */
 public class GraphicHarvestView extends HarvestView {
 	
 	//Zona raccolta, ha un single ActionSpace e un multiplo ActionSpace
 	
 	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
-	protected GraphicActionSpace singleActionSpace = new GraphicActionSpace("Harvest single"),
-			  					 multipleActionSpace = new GraphicActionSpace("Harvest multiple");
+	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton("Harvest single"),
+			  					 multipleActionSpace = new GraphicPaintedButton("Harvest multiple");
 	
 	public GraphicHarvestView() {
 		
-		singleActionSpace = new GraphicActionSpace("Harvest single");
-		multipleActionSpace = new GraphicActionSpace("Harvest multiple");
+		singleActionSpace = new GraphicPaintedButton("Harvest single");
+		multipleActionSpace = new GraphicPaintedButton("Harvest multiple");
 		
 		singleActionSpace.setContentAreaFilled(false);
 		multipleActionSpace.setContentAreaFilled(false);

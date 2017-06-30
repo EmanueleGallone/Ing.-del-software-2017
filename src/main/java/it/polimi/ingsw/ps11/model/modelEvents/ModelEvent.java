@@ -1,7 +1,9 @@
 package it.polimi.ingsw.ps11.model.modelEvents;
 
 import it.polimi.ingsw.ps11.model.player.Player;
-
+/** <h3> ModelEvent </h3>
+ * <p> Classe evento che notifica l'avvenimento di un cambiamento nel model</p>
+ */
 public abstract class ModelEvent implements ModelEventInterface {
 
 	private Player player;

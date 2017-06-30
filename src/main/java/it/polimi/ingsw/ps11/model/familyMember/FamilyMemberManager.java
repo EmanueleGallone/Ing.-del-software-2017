@@ -9,8 +9,7 @@ import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 /**
  * <h3>FamilyMemberManager</h3>
- * <p> Classe container per i vari <code>FamilyMember</code>
- * </p>
+ * <p> Classe Manager per i <code>FamilyMember</code>. Associa ad ogni tipo di familiare il familiare corrispondente. Uno per ogni giocatore.</p>
  * @see FamilyMember
  * @version 1.0
  */
@@ -26,7 +25,6 @@ public class FamilyMemberManager implements Serializable {
 		family.put(NeutralFamilyMember.class.toString(), new NeutralFamilyMember());
 	}
 	
-	@SuppressWarnings("unchecked")
 	public <T extends FamilyMember> T getFamilyMember(Class<T> familyMember){
 		return getFamilyMember(familyMember.toString());
 	}

@@ -15,14 +15,21 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.view.graphicView.components.GraphicActionSpace;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
+import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceListPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;
-import it.polimi.ingsw.ps11.view.graphicView.components.GraphicCooseResourceListPanel;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
@@ -150,6 +157,12 @@ public class GraphicView extends View{
 	}
 	
 	@Override
+	public void update(FamilyMemberManager familyMemberManager) {
+		FamilyMemberManager fManager = you.getPlayer().getFamilyManager();
+		fManager = familyMemberManager;
+	}
+	
+	@Override
 	public void confirm(ConfirmEvent confirm) {
 		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor());
 		confirmPanelView.setBounds((int)Math.round(screenSize.getHeight()*0.5), (int)Math.round(screenSize.getHeight()*0.3), 
@@ -158,20 +171,21 @@ public class GraphicView extends View{
 		confirmPanelView.setVisible(true);		
 	}
 	
-	@Override
-	public void update(FamilyMemberManager familyMemberManager) {
-		FamilyMemberManager fManager = you.getPlayer().getFamilyManager();
-		fManager = familyMemberManager;
+	public void confirm(Floor floor) {
+		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent, floor);
+		confirmPanelView.setBounds((int)Math.round(screenSize.getHeight()*0.5), (int)Math.round(screenSize.getHeight()*0.3), 
+				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.462));
+		confirmPanelView.setUndecorated(true);
+		confirmPanelView.setVisible(true);		
 	}
 
 	@Override
 	public void chooseResource(ArrayList<ResourceList> resource) {
-		GraphicCooseResourceListPanel chooseResource = new GraphicCooseResourceListPanel(viewEvent,resource);
-		chooseResource.setBounds((int)Math.round(screenSize.getHeight()*0.85), (int)Math.round(screenSize.getHeight()*0.4), 
+		GraphicChooseResourceListPanel chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource);
+		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.85), (int)Math.round(screenSize.getHeight()*0.4), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
-		chooseResource.setUndecorated(true);
-		chooseResource.setVisible(true);
-		window.setEnabled(true);
+		chooseResource.getComponent().setUndecorated(true);
+		chooseResource.getComponent().setVisible(true);
 	}
 	
 	private class Close implements ActionListener {			
@@ -199,7 +213,7 @@ public class GraphicView extends View{
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
-			int playerIndex = Integer.parseInt(((GraphicActionSpace) event.getSource()).getName());
+			int playerIndex = Integer.parseInt(((GraphicPaintedButton) event.getSource()).getName());
 			you.update(game.getRoundManager().getCurrentOrder().get(playerIndex));
 		}
 		
@@ -208,6 +222,19 @@ public class GraphicView extends View{
 	public static void main(String[] args) {
 		GraphicView tryout = new GraphicView();
 		tryout.print();
+		
+		BlueCard card = new BlueCard("name");
+		
+		ArrayList<Resource> array1 = new ArrayList<>();
+		array1.add(new Coin(3));
+		array1.add(new Wood(5));
+		array1.add(new FaithPoint(2));
+		array1.add(new VictoryPoint(4));
+		ResourceList resourceList1 = new ResourceList(array1);
+
+		Floor floor= new Floor();
+		floor.getActionSpace().setResources(resourceList1);
+		floor.setCard(card);
 		
 //		ArrayList<Resource> array1 = new ArrayList<>();
 //		array1.add(new Coin(3));

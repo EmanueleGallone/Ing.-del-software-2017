@@ -4,19 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.game.RoundManager;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**
  * <h3>CouncilPalace</h3>
- * <p> Classe che rappresenta il palazzo del consiglio. Permette di variare l'ordine in cui i giocatori possono compiere azioni.
- * </p>
- * 
+ * <p> Classe che rappresenta il palazzo del consiglio. Permette di variare l'ordine in cui i giocatori possono compiere azioni.</p>
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace MultipleActionSpace
+ * @see RoundManager
  */
 public class CouncilPalace extends MultipleActionSpace  implements Serializable{
 	

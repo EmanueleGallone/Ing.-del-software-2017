@@ -17,7 +17,15 @@ import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
-
+/**
+ * <h3> GraphicMainBoardView</h3>
+ * <p> Classe per la visualizzazione della parte sempre visibile della Board di gioco. Contiene le TowerViews, la ChurchView
+ * e il CouncilPalaceView</p>
+ * @see BoardView
+ * @see GraphicTowerView
+ * @see GraphicChurchView
+ * @see GraphicCouncilPalaceView
+ */
 public class GraphicMainBoardView extends BoardView{
 	
 	//Parte della board sempre visibile, contiene le torri, la chiesa e il palazzo del consiglio
@@ -88,7 +96,6 @@ public class GraphicMainBoardView extends BoardView{
 		GridBagConstraints gbcPurpleTower = new GridBagConstraints();
 		GridBagConstraints gbcChurch = new GridBagConstraints();
 		GridBagConstraints gbcCouncilPalace = new GridBagConstraints();
-		GridBagConstraints gbcSlideIn = new GridBagConstraints();
 		GridBagConstraints gbcPaddingSX = new GridBagConstraints();
 		GridBagConstraints gbcPaddingDX = new GridBagConstraints();
 

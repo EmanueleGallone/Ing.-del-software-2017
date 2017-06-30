@@ -6,7 +6,10 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
-
+/**
+ * <h3> Market </h3>
+ * <p> Classe che rappresenta la zona mercato del gioco con i relativi spazi in base al numero dei giocatori. </p>
+ */
 public class Market extends MultipleActionSpace implements Serializable  {
 	
 	private final int THRESHOLD = 2;

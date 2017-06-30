@@ -3,7 +3,11 @@ package it.polimi.ingsw.ps11.model.zones.towers;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
+/**
+ * <h3> BlueTower </h3>
+ * <p> Classe che rappresenta la torre contenente le carte di tipo "Personaggio" e identificata dal colore Blu. Estende la classe Tower.</p>
+ * @see Tower
+ */
 public class BlueTower extends Tower {
 
 	public BlueTower() {

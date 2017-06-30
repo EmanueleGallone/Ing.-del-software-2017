@@ -4,7 +4,7 @@ import java.io.Serializable;
 /**
  * <h3>FamilyMember</h3>
  * <p>
- * Classe astratta che rappresenta il familiare. Per ogni familiare e' stata creata una classe apposita.
+ * Classe astratta che rappresenta il familiare. Per ogni familiare è stata implementata una classe concreta apposita, figlia di FamilyMember.
  * </p>
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember OrangeFamilyMember

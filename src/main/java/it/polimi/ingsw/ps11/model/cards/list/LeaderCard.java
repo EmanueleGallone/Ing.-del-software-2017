@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Leader Card</h3>
- * <p> Classe che rappresenta le carte leader. </p>
+ * <p> Classe che rappresenta le carte leader. Identificata da una resourceList che rappresenta i requisiti, un bonus, un numero di carte richieste.</p>
  */
 public class LeaderCard extends Card {
 	private ResourceList requirements; //per i requisiti e/o il bonus

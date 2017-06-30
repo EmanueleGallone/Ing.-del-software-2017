@@ -6,11 +6,9 @@ import java.util.HashMap;
 
 /**
  * <h3>CardManager</h3>
- * <p> Classe container per le carte. Rappresenta una raccolta di carte. Ogni giocatore ne possiede uno.
- * </p>
+ * <p> Classe manager per le <code>DevelopmentCard</code>. Associa ad ogni tipo di carta l'elenco delle carte del giocatore appartenenti alla data classe. Ogni giocatore ne possiede uno. </p>
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.cards.DevelopmentCard DevelopmentCard
- *
  */
 public class CardManager implements Serializable {
 	

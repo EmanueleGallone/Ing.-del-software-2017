@@ -3,7 +3,11 @@ package it.polimi.ingsw.ps11.model.zones.towers;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Floor;
-
+/**
+ * <h3> GreenTower </h3>
+ * <p> Classe che rappresenta la torre contenente le carte di tipo "Territorio" e identificata dal colore Verde. Estende la classe Tower.</p>
+ * @see Tower
+ */
 public class GreenTower extends Tower {
 
 	public GreenTower() {

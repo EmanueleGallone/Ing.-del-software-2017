@@ -2,17 +2,26 @@ package it.polimi.ingsw.ps11.model.cards.list;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> BlueCard </h3>
+ * <p> Classe concreta che rappresenta le carte di tipo "Personaggio" con colore identificativo Blu. Estende la classe astratta DevelopmentCard. </p>
+ * @see DevelopmentCard
+ */
 public class BlueCard extends DevelopmentCard {
-	//carte PERSONAGGI
 
-	public BlueCard(){
-		
+	public BlueCard() {
+		super();
+		this.activeValue = DEFAULT_VALUE;
+		this.period = DEFAULT_VALUE;
 	}
 	
-	
-	public BlueCard(String name){
-		super(name);
+	public BlueCard(String name) {
+		this();
+		setName(name);
+	}
+
+	public void setActiveValue(int activeValue) {
+		this.activeValue = activeValue;
 	}
 
 	@Override

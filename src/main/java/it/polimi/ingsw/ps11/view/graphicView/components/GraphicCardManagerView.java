@@ -1,12 +1,14 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
@@ -15,28 +17,39 @@ import javax.swing.JToggleButton;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
-
+/**
+ * <h3> GraphicCardManagerView</h3>
+ * <p> Classe per la visualizzazione dei vari deck di un giocatore, ogni deck è realizzato con un JPanel vuoto a cui 
+ * vengono aggiunte le carte durante la partita. I deck sono organizzati su CardLayout, sovrapposti con un solo deck
+ * mostrato alla volta, selezionabile tramite gli appositi tasti colorati</p>
+ * @see CardManagerView
+ */
 public class GraphicCardManagerView extends CardManagerView implements ItemListener{
 
 	//mostra i deck di ogni giocatore attraverso dei pannelli sovrapposti comandati da una serie di tasti
 	
 	protected JPanel personalBoard = new JPanel();
 	protected JPanel overlayedDecksPanel;
-	protected String arrayDeckType[] = { "Territories Cards", "Characters Cards", 
-										 "Buildings Cards", "Ventures Cards"};
+	private HashMap<String, Color> colorMap = new HashMap<>();
+	
 	protected JToggleButton[] arrayJTButton;
 	protected ArrayList<GraphicPaintedPanel> allDecks = new ArrayList<>();
 	protected ButtonGroup buttonGroup;
 
 	public GraphicCardManagerView() {
 		
+		colorMap.put("Territories Cards", Color.GREEN);
+		colorMap.put("Characters Cards", Color.BLUE);
+		colorMap.put("Buildings Cards", Color.YELLOW);
+		colorMap.put("Ventures Cards", Color.PINK);
+
 		arrayJTButton = new JToggleButton[CARDTYPES];
 		buttonGroup = new ButtonGroup();
 	}
 	
 	@Override
 	public void print() {
-		
+
 		JPanel selectorButtonsPanel = new JPanel();
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -68,9 +81,11 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		gbcDecks.fill = GridBagConstraints.BOTH;
 		personalBoard.add(overlayedDecksPanel, gbcDecks);
 		
-		for(int i = 0; i<CARDTYPES; i++){
+		int i = 0;
+		for (String deckName : colorMap.keySet()) {
 			
 			JToggleButton selector = new JToggleButton();												//selettore
+			selector.setBackground(colorMap.get(deckName));
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
 			gbc.fill = GridBagConstraints.BOTH;
@@ -80,7 +95,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			buttonGroup.add(selector);																	//un solo selettore attivo alla volta
 			
 			GraphicPaintedPanel deck = new GraphicPaintedPanel();
-			deck.loadImage("boardImages/" + arrayDeckType[i] + ".png");
+			deck.loadImage("boardImages/" + deckName + ".png");
 			
 			GridBagLayout gblDecks = new GridBagLayout();												//Layout dei bottoni
 			gblDecks.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -89,8 +104,10 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			gblDecks.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 			deck.setLayout(gblDecks);
 			
-			overlayedDecksPanel.add(deck, arrayDeckType[i]);
+			overlayedDecksPanel.add(deck, deckName);
 			allDecks.add(deck);
+			
+			i++;
 		}
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -100,9 +117,11 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
     public void itemStateChanged(ItemEvent evt) {														//listener dei selectors, mostra il pannello corrispondente
     																									//al selector
     	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
-    	for(int i=0; i<CARDTYPES; i++){
-    		if(arrayJTButton[i].isSelected())cl.show(overlayedDecksPanel, arrayDeckType[i]);
-    	}
+    	int i = 0;
+    	for (String deckName : colorMap.keySet()) {
+    		if(arrayJTButton[i].isSelected())cl.show(overlayedDecksPanel, deckName);
+    		i++;
+		}
     }
 
 	public JPanel getComponent(){
@@ -122,8 +141,8 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
-				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView();
-				cardButton.getComponent().loadImage("cards/" + deck + "/" + card.getName());
+				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(card.getName());
+				cardButton.print();
 				GridBagConstraints gbcCard = new GridBagConstraints();
 				gbcCard.gridx = cards;
 				gbcCard.insets = new Insets(10, 10, 10, 10);

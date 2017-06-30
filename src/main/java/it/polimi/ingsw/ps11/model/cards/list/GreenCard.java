@@ -2,9 +2,12 @@ package it.polimi.ingsw.ps11.model.cards.list;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> GreenCard </h3>
+ * <p> Classe concreta che rappresenta le carte di tipo "Territorio" con colore identificativo Verde. Estende la classe astratta DevelopmentCard.</p>
+ * @see DevelopmentCard
+ */
 public class GreenCard extends DevelopmentCard{
-	//carte Territori	
 	
 	public GreenCard() {
 		super();

@@ -15,17 +15,20 @@ import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 /**
  * <h3>Board</h3>
  * <p> Classe che rappresenta il tabellone. e' composto da vari oggetti quali: <ul>
- * <code><b>DiceManager:</b></code> Classe contenente i dadi.
- * <br><code><b>Production:</b></code> Classe rappresentante la zona produzione.
- * <br><code><b>Harvest:</b></code> Classe rappresentante la zona raccolta.
- * <br><code><b>market:</b></code> Classe rappresentante la zona mercato.
+ * <br><code><b>Tower:</b></code> Classe contenente le 4 torri.
+ * <br><code><b>DiceManager:</b></code> Classe contenente i dadi.
+ * <br><code><b>Yield:</b></code> Classe rappresentante le zone raccolta e produzione.
+ * <br><code><b>Market:</b></code> Classe rappresentante la zona mercato.
+ * <br><code><b>CouncilPalace:</b></code> Classe rappresentante il palazzo del consiglio.
  * </p></ul>
- * 
  * @version 1.0
- * @see it.polimi.ingsw.ps11.model.dices.DiceManager DiceManager
- * @see it.polimi.ingsw.ps11.model.zones.towers.Tower Tower
- *
+ * @see Tower
+ * @see DiceManager
+ * @see Yield
+ * @see Market
+ * @see CouncilPalace
  */
+@SuppressWarnings("serial")
 public class Board implements Serializable{
 	
 	private HashMap<String, Tower> towers = new HashMap<>();

@@ -11,13 +11,19 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.MarketView;
-
+/**
+ * <h3> GraphicMarketView</h3>
+ * <p> Classe per la visualizzazione della zona mercato. Contiene un arraylist di actionspace, uno per ogni diversa zona
+ * del mercato </p>
+ * @see MarketView
+ * @see GraphicPaintedButton
+ */
 public class GraphicMarketView extends MarketView{
 	
 	//Zona mercato, ha un action space singolo per ogni zona intriore del mercato e un pannello che mostra i turni
 
 	protected GraphicPaintedPanel marketPanel = new GraphicPaintedPanel();
-	private ArrayList<GraphicActionSpace> marketSpaces;
+	private ArrayList<GraphicPaintedButton> marketSpaces;
 
 
 	public GraphicMarketView() {
@@ -25,7 +31,7 @@ public class GraphicMarketView extends MarketView{
 		marketSpaces = new ArrayList<>();
 		
 		for(int i = 0; i < market.getPlayerNumber(); i++){
-			GraphicActionSpace actionSpace = new GraphicActionSpace("Market space number " + i);
+			GraphicPaintedButton actionSpace = new GraphicPaintedButton("Market space number " + i);
 			actionSpace.addActionListener(new MarketSelectedListner(i));
 			actionSpace.setContentAreaFilled(false);
 			marketSpaces.add(actionSpace);

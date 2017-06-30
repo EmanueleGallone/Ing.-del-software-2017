@@ -1,9 +1,11 @@
 package it.polimi.ingsw.ps11.model.modelEvents;
 
-import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+/** <h3> ChooseResourceEvent </h3>
+ * <p> Classe evento che gestisce la scelta della resourceList per il pagamento dei costi.</p>
+ */
 public class ChooseResourceEvent extends ModelEvent {
 
 	private ArrayList<ResourceList> options;

@@ -8,7 +8,8 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 /**
  *<h3>MultipleActionSpace</h3>
- *<p> Oggetto che permette il posizionamento di più FamilyMember all'interno. </p>
+ *<p> Classe che rappresenta lo spazio azione del gioco dove e' possibile posizionare più di familiare, a patto che siano di giocatori diversi
+ *o siano del tipo NeutralFamilyMember. </p>
  */
 public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace>, Serializable {
 

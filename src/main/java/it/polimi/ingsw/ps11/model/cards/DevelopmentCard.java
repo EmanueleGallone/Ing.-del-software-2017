@@ -8,6 +8,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * <h3>Development Card</h3>
  * <p> Classe astratta che rappresenta le carte sviluppo. Estensione della classe Card. </p> 
  * @version 1.0
+ * @see Card
  * @see it.polimi.ingsw.ps11.model.cards.list.YellowCard YellowCard
  * @see it.polimi.ingsw.ps11.model.cards.list.GreenCard GreenCard
  * @see it.polimi.ingsw.ps11.model.cards.list.BlueCard BlueCard
@@ -105,6 +106,11 @@ public abstract class DevelopmentCard extends Card {
 	
 	
 // End setters
+	
+	public String toString(){
+		return this.getClass().getSimpleName() + "[DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
+	}
+	
 	
 	public int getPeriod() {
 		return period;

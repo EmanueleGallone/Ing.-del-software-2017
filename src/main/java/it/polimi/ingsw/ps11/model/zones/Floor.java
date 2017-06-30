@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace;
 /**
  *<h3>Floor</h3>
- *<p> Classe che contiene al suo interno una DevelopmentCard ed un ActionSpace. </p>
+ *<p> Classe che rappresenta un piano della torre e contiene al suo interno una DevelopmentCard ed un ActionSpace. </p>
  *@see it.polimi.ingsw.ps11.model.cards.DevelopmentCard DevelopmentCard
  *@see it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace ActionSpace.
  */

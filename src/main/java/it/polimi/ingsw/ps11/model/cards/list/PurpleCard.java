@@ -2,12 +2,26 @@ package it.polimi.ingsw.ps11.model.cards.list;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> PurpleCard </h3>
+ * <p> Classe concreta che rappresenta le carte di tipo "Impresa" con colore identificativo Viola. Estende la classe astratta DevelopmentCard. </p>
+ * @see DevelopmentCard
+ */
 public class PurpleCard extends DevelopmentCard {
-	//carte IMPRESE
 	
-	public PurpleCard(){
+	public PurpleCard() {
 		super();
+		this.activeValue = DEFAULT_VALUE;
+		this.period = DEFAULT_VALUE;
+	}
+	
+	public PurpleCard(String name) {
+		this();
+		setName(name);
+	}
+
+	public void setActiveValue(int activeValue) {
+		this.activeValue = activeValue;
 	}
 
 	@Override
