@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.zones.towers;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 /**
  * <h3>Tower</h3>
@@ -17,12 +18,16 @@ public class Tower implements Serializable{
 	
 	private static final int MAX_FLOORS = 4;
 	private ArrayList<Floor> floors = new ArrayList<>();
-	
+	private String cardType;
 	
 // Start constructors
 	
 	public Tower() {
 
+	}
+	
+	public Tower(Class<? extends DevelopmentCard> cardType) {
+		this.cardType = cardType.toString();
 	}
 	
 	public Tower(ArrayList<Floor> floors) {
@@ -48,6 +53,12 @@ public class Tower implements Serializable{
 			return floors.get(index);	
 		}
 		throw new IllegalArgumentException("Non hai selezionato un piano corretto");		
+	}
+	
+	public void setCard(ArrayList<DevelopmentCard> cards){
+		for(int i = 0; i < floors.size() && i < cards.size(); i++){
+			floors.get(i).setCard(cards.get(i));
+		}
 	}
 	
 	/*
@@ -82,6 +93,10 @@ public class Tower implements Serializable{
 	
 	public static int getMaxFloors() {
 		return MAX_FLOORS;
+	}
+	
+	public String getCardType() {
+		return cardType;
 	}
 	
 // End getters
