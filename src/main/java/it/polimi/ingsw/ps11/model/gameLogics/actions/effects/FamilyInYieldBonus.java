@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.effects;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyMemberAffecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInFloorAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.PlaceFamilyYieldAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.PlaceFamilyYieldAction;
