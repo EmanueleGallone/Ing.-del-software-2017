@@ -8,6 +8,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class GetCardAction implements Action<GetCardAction>{
@@ -16,10 +17,10 @@ public class GetCardAction implements Action<GetCardAction>{
 	protected DevelopmentCard card;
 	protected ResourceList cost;
 	
-	private ResourceList modifier;
+	private ResourceList modifier = new ResourceList();
 	
 	
-	EventHandler<ModelEvent> eventHandler = new EventHandler<>();
+	private EventHandler<ModelEvent> eventHandler = new EventHandler<>();
 	
 	public GetCardAction() {
 	
@@ -35,6 +36,9 @@ public class GetCardAction implements Action<GetCardAction>{
 	@Override
 	public boolean isLegal() {
 		
+		if(card == null)
+			return false;
+		
 		if(cost == null && !card.isMonoCost()){
 			ChooseResourceEvent c = new ChooseResourceEvent(card.getCosts());
 			c.setMessage("Seleziona uno dei costi da pagare");
@@ -49,7 +53,11 @@ public class GetCardAction implements Action<GetCardAction>{
 		ResourceList temp = cost.clone();
 		temp.subtract(modifier);
 		DecrementAction pay = aManager.newDecrementAction(temp);
-		return pay.isLegal() && aManager.getSubject().getCardManager().canAdd(card) ;
+		if(!pay.isLegal()){
+			result = false;
+			aManager.stateHandler().invoke(new TextualEvent("Non hai abbastanza risorse per prendere la carta"));
+		}
+		return result && aManager.getSubject().getCardManager().canAdd(card);
 	}
 
 	@Override
@@ -69,6 +77,9 @@ public class GetCardAction implements Action<GetCardAction>{
 	}
 	
 	
+	public void setCost(ResourceList cost) {
+		this.cost = cost;
+	}
 	public DevelopmentCard getCard() {
 		return card;
 	}

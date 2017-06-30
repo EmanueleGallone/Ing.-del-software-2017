@@ -11,6 +11,10 @@ public class WaitResource extends PlayState{
 
 	private ResourceListener action;
 	
+	public WaitResource(ResourceListener action) {
+		this.action = action;
+	}
+	
 	public WaitResource(ArrayList<ResourceList> choice, ResourceListener action) {
 		ChooseResourceEvent c = new ChooseResourceEvent(choice);
 		stateHandler().invoke(c);

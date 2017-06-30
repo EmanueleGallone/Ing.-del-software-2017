@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11.model.zones.towers;
 
-import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 /**
  * <h3> YellowTower </h3>
@@ -11,13 +10,14 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 public class YellowTower extends Tower {
 
 	public YellowTower() {
-		addFloor(new Floor(1));
-		addFloor(new Floor(3));
-		
-		ResourceList resource = new ResourceList(new MilitaryPoint(1));
-		addFloor(new Floor(5, resource.clone()));
-		resource.setResource(new MilitaryPoint(2));
-		addFloor(new Floor(7, resource.clone()));
+//		addFloor(new Floor(1));
+//		addFloor(new Floor(3));
+//		
+//		ResourceList resource = new ResourceList(new MilitaryPoint(1));
+//		addFloor(new Floor(5, resource.clone()));
+//		resource.setResource(new MilitaryPoint(2));
+//		addFloor(new Floor(7, resource.clone()));
+		setCardType(YellowCard.class);
 	}
 	
 	@Override

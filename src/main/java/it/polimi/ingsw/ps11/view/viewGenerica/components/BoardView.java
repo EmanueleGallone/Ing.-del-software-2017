@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.view.viewGenerica.components;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.zones.Board;
+import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class BoardView extends ViewComponent {

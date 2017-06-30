@@ -11,10 +11,6 @@ public class PlaceFamilyYieldAction implements Action<PlaceFamilyYieldAction> {
 	private Yield yield;
 	private FamilyMember familyMember;
 	
-	/*
-	 * SISTEMARE LA CLONE
-	 */
-	
 	public PlaceFamilyYieldAction() {
 	
 	}
@@ -72,8 +68,8 @@ public class PlaceFamilyYieldAction implements Action<PlaceFamilyYieldAction> {
 	
 	@Override
 	public PlaceFamilyYieldAction clone(){
-		//PlaceFamilyYield copy = new PlaceFamilyYield(aManager, yield.clone(), familyMember.clone());
-		return null;
+		PlaceFamilyYieldAction copy = new PlaceFamilyYieldAction(aManager, yield.clone(), familyMember.clone());
+		return copy;
 	}
 
 }

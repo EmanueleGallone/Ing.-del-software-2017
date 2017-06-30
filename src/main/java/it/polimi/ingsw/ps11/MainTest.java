@@ -10,6 +10,7 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
@@ -31,7 +32,6 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-import it.polimi.ingsw.ps11.model.zones.Board;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.Market;
@@ -43,9 +43,10 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
 public class MainTest {
-	
+
 	public static void main(String[] args){
-		inizializzaCarte();
+		//inizializzaCarte();
+		inizializzatore();
 	}	
 	
  
@@ -1552,7 +1553,8 @@ public class MainTest {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		CustomFileReaderWriter.writeFile("settings\\FirstPeriod", gAdapter.toJson(cardManager,CardManager.class));
+
+		CustomFileReaderWriter.writeFile("settings\\cards\\FirstPeriod", gAdapter.toJson(cardManager,CardManager.class));
 		
 		list.clear();
 		list = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
@@ -1564,7 +1566,8 @@ public class MainTest {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		CustomFileReaderWriter.writeFile("settings\\SecondPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		CustomFileReaderWriter.writeFile("settings\\cards\\SecondPeriod", gAdapter.toJson(cardManager,CardManager.class));
+
 		
 		list.clear();
 		list = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
@@ -1576,7 +1579,8 @@ public class MainTest {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		CustomFileReaderWriter.writeFile("settings\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
+
 		//Fine costruzione files
 		
 		//INIZIO CARTE LEADER

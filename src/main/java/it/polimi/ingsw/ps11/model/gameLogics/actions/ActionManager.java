@@ -27,10 +27,6 @@ public class ActionManager {
 	private StateHandler stateHandler;
 	private HashMap<String, Action<?>> actions = new HashMap<>();
 	
-	public StateHandler getStateHandler() {
-		return stateHandler;
-	}
-	
 	public ActionManager(StateHandler stateHandler) {
 		this.stateHandler = stateHandler;
 	}
@@ -67,6 +63,9 @@ public class ActionManager {
 		stateHandler.nextState(state);
 	}
 	
+	public StateHandler stateHandler() {
+		return stateHandler;
+	}
 // Actions constructors __________________
 	
 	

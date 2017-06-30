@@ -5,15 +5,15 @@ import it.polimi.ingsw.ps11.model.player.Player;
 /** <h3> GameStartedEvent </h3>
  * <p> Classe evento che gestisce l'inizio di una partita</p>
  */
-public class GameStartedEvent extends ModelEvent{
+public class GameUpdateEvent extends ModelEvent{
 
 	private Game game;
 	
-	public GameStartedEvent(Game game) {
+	public GameUpdateEvent(Game game) {
 		this.game = game;
 	}
 	
-	public GameStartedEvent(Game game, Player player) {
+	public GameUpdateEvent(Game game, Player player) {
 		super(player);
 		this.game = game;
 	}

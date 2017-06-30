@@ -23,29 +23,37 @@ public class ChangeStateAction implements Action<ChangeStateAction> {
 	public void perform() {
 		aManager.changeState(nextState);
 	}
+// _________________________ Method for action system ________________________
+
 
 	@Override
 	public ChangeStateAction decore(ChangeStateAction action) {
-		// TODO Auto-generated method stub
-		return null;
+		if(action != this){
+			return action.decore(this);
+		}
+		return this;
+	}
+	
+	@Override
+	public void attach(ActionManager aManager){
+		ChangeStateAction action = aManager.get(target());
+		if(action == null){
+			action = this;
+		}
+		aManager.add(action.decore(this));
 	}
 
 	@Override
-	public void attach(ActionManager aManager) {
-		// TODO Auto-generated method stub
-		
+	public Class<ChangeStateAction> target() {
+		return ChangeStateAction.class;
 	}
-
+	
+// ___________________________________________________
+	
 	@Override
-	public Class<? extends Action<?>> target() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Action<?> clone() {
-		// TODO Auto-generated method stub
-		return null;
+	public ChangeStateAction clone(){
+		ChangeStateAction copy = new ChangeStateAction(aManager, nextState);
+		return copy;
 	}
 
 }

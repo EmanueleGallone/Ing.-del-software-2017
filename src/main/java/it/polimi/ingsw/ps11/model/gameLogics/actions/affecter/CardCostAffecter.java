@@ -48,6 +48,11 @@ public class CardCostAffecter extends GetCardAction {
 		action.attach(listener);
 	}
 	
+	@Override
+	public void setCost(ResourceList cost) {
+		action.setCost(cost);
+	}
+	
 // Method for action system ____________	
 	
 	@Override

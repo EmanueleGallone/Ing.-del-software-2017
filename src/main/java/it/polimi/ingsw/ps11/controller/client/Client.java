@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
-import it.polimi.ingsw.ps11.model.modelEvents.GameStartedEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
 import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
@@ -84,7 +84,7 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	public void receive(ViewMessage viewMessage) {}
 
 	@Override
-	public void handle(GameStartedEvent gameStartedEvent) {
+	public void handle(GameUpdateEvent gameStartedEvent) {
 		view.update(gameStartedEvent.getGame());
 		view.update(gameStartedEvent.getReceiver());
 		//view.print();

@@ -50,7 +50,8 @@
               }
             }
           }
-        ]
+        ],
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard"
       }
     },
     "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower": {
@@ -103,7 +104,8 @@
               }
             }
           }
-        ]
+        ],
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard"
       }
     },
     "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower": {
@@ -156,7 +158,8 @@
               }
             }
           }
-        ]
+        ],
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard"
       }
     },
     "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower": {
@@ -209,39 +212,8 @@
               }
             }
           }
-        ]
-      }
-    }
-  },
-  "diceManager": {
-    "blackDice": {
-      "value": 0,
-      "gen": {
-        "seed": {
-          "value": 113972246586874
-        },
-        "nextNextGaussian": 0.0,
-        "haveNextNextGaussian": false
-      }
-    },
-    "whiteDice": {
-      "value": 0,
-      "gen": {
-        "seed": {
-          "value": 231730465358945
-        },
-        "nextNextGaussian": 0.0,
-        "haveNextNextGaussian": false
-      }
-    },
-    "orangeDice": {
-      "value": 0,
-      "gen": {
-        "seed": {
-          "value": 121130208656114
-        },
-        "nextNextGaussian": 0.0,
-        "haveNextNextGaussian": false
+        ],
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard"
       }
     }
   },
@@ -253,8 +225,11 @@
       }
     },
     "multipleActionSpace": {
+      "COST": 1,
+      "cost": 1,
       "multipleActionSpace": []
-    }
+    },
+    "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard"
   },
   "production": {
     "singleActionSpace": {
@@ -264,13 +239,18 @@
       }
     },
     "multipleActionSpace": {
+      "COST": 1,
+      "cost": 1,
       "multipleActionSpace": []
-    }
+    },
+    "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard"
   },
   "market": {
     "THRESHOLD": 2,
     "MAX_NUMBER": 4,
     "playerNumber": 2,
+    "COST": 1,
+    "cost": 1,
     "multipleActionSpace": [
       {
         "cost": 1,
@@ -316,23 +296,13 @@
             }
           }
         }
-      },
-      {
-        "cost": 1,
-        "resources": {
-          "resources": {
-            "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-              "INSTANCE": {
-                "value": 2
-              }
-            }
-          }
-        }
       }
     ]
   },
   "councilPalace": {
+    "COST": 1,
+    "cost": 1,
     "multipleActionSpace": []
-  }
+  },
+  "alreadyUsed": []
 }

@@ -49,6 +49,10 @@ public class Tower implements Serializable{
 		}
 	}
 	
+	public void setCardType(Class<? extends DevelopmentCard> cardType) {
+		this.cardType = cardType.toString();
+	}
+	
 	public Floor getFloor(int index){
 		if(index < floors.size()){
 			return floors.get(index);	
