@@ -12,6 +12,8 @@ import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.game.Board;
+import it.polimi.ingsw.ps11.model.game.RoundManager;
+import it.polimi.ingsw.ps11.model.gameLogics.RoundManagerTemp;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
@@ -24,6 +26,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -47,7 +50,7 @@ public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		//inizializzaCarte();
-		inizializzatore();
+		//inizializzatore();
 	}	
 	
  

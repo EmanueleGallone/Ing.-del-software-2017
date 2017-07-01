@@ -35,10 +35,10 @@ public class FamilyMemberTest {
 		DiceManager dice = new DiceManager();
 		dice.rollDices();
 		
-		black.setValue(dice.getDice(BlackDice.class).getValue());
-		white.setValue(dice.getDice(WhiteDice.class).getValue());
-		orange.setValue(dice.getDice(OrangeDice.class).getValue());
-		
+//		black.setValue(dice.getDice(BlackDice.class).getValue());
+//		white.setValue(dice.getDice(WhiteDice.class).getValue());
+//		orange.setValue(dice.getDice(OrangeDice.class).getValue());
+//		
 		BlackDice blackDice = dice.getDice(BlackDice.class);
 		BlackDice blackClone = blackDice.clone();
 		

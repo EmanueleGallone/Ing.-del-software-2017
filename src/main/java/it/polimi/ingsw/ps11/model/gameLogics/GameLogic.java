@@ -6,6 +6,7 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.controller.ConsoleLog;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.game.RoundManager;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
@@ -15,19 +16,18 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 public class GameLogic implements Runnable{
 
 	private Game game;
-	private RoundManager roundManager;
 
 	private HashMap<Player, StateHandler> playerStatus = new HashMap<>();
 	
 	public GameLogic(ArrayList<Player> players) {
 		
-		roundManager = new RoundManager(players);
 		game = new Game(players);
 		
 		for(Player player : players){
 			playerStatus.put(player, new StateHandler(this,player));
 		}
 		
+		RoundManager roundManager = game.getRoundManager();
 		roundManager.timeOutEvent(timeOutListener);
 		roundManager.newTurnEvent(endTurnListener);
 		roundManager.newPeriodEvent(endPeriodListener);
@@ -35,7 +35,7 @@ public class GameLogic implements Runnable{
 	}
 	
 	public void nextPlayer(){
-		Player nextPlayer = roundManager.next();
+		Player nextPlayer = game.getRoundManager().next();
 		for(StateHandler playerState : playerStatus.values()){
 			
 			if(playerState.getPlayer().equals(nextPlayer))
@@ -44,7 +44,7 @@ public class GameLogic implements Runnable{
 			    playerState.nextState(new DefaultState());
 			}
 		}
-		roundManager.startTimer();
+		game.getRoundManager().startTimer();
 	}
 
 	@Override

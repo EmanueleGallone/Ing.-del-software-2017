@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics;
+package it.polimi.ingsw.ps11.model.game;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
  * <h3>RoundManager</h3>
  * <p> Classe che gestisce e organizza i turni dei giocatori.</p>
  */
-public class RoundManager implements Serializable{
+public class RoundManagerOld implements Serializable{
 
 	private static final int MAX_ROUND_PER_TURN = 4;
 	private static final int MAX_PERIOD = 3;
@@ -29,12 +29,12 @@ public class RoundManager implements Serializable{
 	private int actualPlayer = -1; 
 
 	
-	private EventHandler<RoundManager> gameOver = new EventHandler<>();
-	private EventHandler<RoundManager> newPeriod = new EventHandler<>();
-	private EventHandler<RoundManager> newTurn = new EventHandler<>();
+	private EventHandler<RoundManagerOld> gameOver = new EventHandler<>();
+	private EventHandler<RoundManagerOld> newPeriod = new EventHandler<>();
+	private EventHandler<RoundManagerOld> newTurn = new EventHandler<>();
 	private EventHandler<Player> timerOut = new EventHandler<>();
 	
-	public RoundManager(ArrayList<Player> players){
+	public RoundManagerOld(ArrayList<Player> players){
 		this.players = players;
 	}
 	
@@ -117,15 +117,15 @@ public class RoundManager implements Serializable{
 		return period>MAX_PERIOD;
 	}
 	
-	public void newPeriodEvent(EventListener<RoundManager> listener){
+	public void newPeriodEvent(EventListener<RoundManagerOld> listener){
 		newPeriod.attach(listener);
 	}
 	
-	public void newTurnEvent(EventListener<RoundManager> listener){
+	public void newTurnEvent(EventListener<RoundManagerOld> listener){
 		newTurn.attach(listener);
 	}
 	
-	public void gameOverEvent(EventListener<RoundManager> listener){
+	public void gameOverEvent(EventListener<RoundManagerOld> listener){
 		gameOver.attach(listener);
 	}
 	

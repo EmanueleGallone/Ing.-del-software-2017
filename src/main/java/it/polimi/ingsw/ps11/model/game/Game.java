@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
-import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.player.Player;
 /** <h3> Game </h3>
@@ -20,10 +19,11 @@ import it.polimi.ingsw.ps11.model.player.Player;
 public class Game implements Serializable  {
 	
 	private Board board;
+	private RoundManager roundManager;
 	
 	public Game(ArrayList<Player> players) {
 		try {
-			
+			roundManager = new RoundManager(players);
 			board = initializeBoard();
 			board.getMarket().setPlayerNumber(players.size());
 			setDices(players);
@@ -68,5 +68,8 @@ public class Game implements Serializable  {
 		return board;
 	}
 
+	public RoundManager getRoundManager() {
+		return roundManager;
+	}
 
 }

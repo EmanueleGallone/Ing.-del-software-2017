@@ -59,14 +59,14 @@ public class TowersPackageTest {
 		player1 = new Player();
 		player2 = new Player();
 		
-		nFamilyMember = new NeutralFamilyMember();
-		nFamilyMember.setValue(0);
-		bFamilyMember = new BlackFamilyMember();
-		nFamilyMember.setValue(2);
-		oFamilyMember = new OrangeFamilyMember();
-		nFamilyMember.setValue(4);
-		wFamilyMember = new WhiteFamilyMember();
-		nFamilyMember.setValue(6);
+//		nFamilyMember = new NeutralFamilyMember();
+//		nFamilyMember.setValue(0);
+//		bFamilyMember = new BlackFamilyMember();
+//		nFamilyMember.setValue(2);
+//		oFamilyMember = new OrangeFamilyMember();
+//		nFamilyMember.setValue(4);
+//		wFamilyMember = new WhiteFamilyMember();
+//		nFamilyMember.setValue(6);
 		
 		coin = new Coin(2);
 		resourceOnFloor = new ResourceList(coin);

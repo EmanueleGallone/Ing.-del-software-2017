@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.game.Board;
-import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
+import it.polimi.ingsw.ps11.model.game.RoundManager;
 /** <h3> CardsLoader </h3>
  * <p> Classe usata per caricare le DevelopmentCard dai relativi file tramite path.</p>
  * @see DevelopmentCard
