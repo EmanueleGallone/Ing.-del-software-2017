@@ -20,5 +20,10 @@ public class DiscountLeaderCard extends LeaderCard {
 		
 		return clone;
 	}
+	
+	@Override
+	public CardDiscount getEffect() {
+		return this.effect;
+	}
 
 }

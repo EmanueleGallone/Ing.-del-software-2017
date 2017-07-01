@@ -161,7 +161,66 @@
     "INSTANCE": {
       "effect": {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
-        "INSTANCE": {}
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
       },
       "cardsNumber": {},
       "requiredResources": {

@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class ActiveYieldLeaderCard extends LeaderCard {
@@ -25,6 +26,11 @@ public class ActiveYieldLeaderCard extends LeaderCard {
 		clone.cardsNumber.putAll(this.cardsNumber);
 		
 		return clone;
+	}
+	
+	@Override
+	public ActiveYieldEffect getEffect() {
+		return this.effect;
 	}
 
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import it.polimi.ingsw.ps11.controller.Registration;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Board;
@@ -24,7 +23,6 @@ import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseFamilyView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
-import it.polimi.ingsw.ps11.view.textualView.components.TextualRegistationView;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
@@ -114,7 +112,6 @@ public class TextualView extends View {
 	
 //	public void registrate(Registration registration){
 //		TextualRegistationView registrate = new TextualRegistationView(registration,viewEvent,input);
-//		l'oggetto registration passato nella TextualRegistration non ha alcunEffetto. potrebbe essere tolto
 //		registrate.print();
 //		input.attach(registrate);
 //	}

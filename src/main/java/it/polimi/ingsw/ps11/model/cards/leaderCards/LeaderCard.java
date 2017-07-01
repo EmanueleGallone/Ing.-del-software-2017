@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
@@ -34,7 +35,7 @@ public abstract class LeaderCard extends Card {
 			checkResource = true;
 		
 		ArrayList<DevelopmentCard> deck;
-		howManyEntries = cardsNumber.size(); //deve scorrere tutta la mappa. i costi sono in AND
+		howManyEntries = cardsNumber.size(); //deve scorrere tutta la mappa. i costi sono in AND. c'e' un'unica carta con i costi in OR
 		
 		for(Entry<String, Integer> entry : cardsNumber.entrySet()){ 
 			deck = player.getCardManager().getCardList(entry.getKey());
@@ -51,9 +52,8 @@ public abstract class LeaderCard extends Card {
 		
 	}
 	
-	public Map<String, Integer> getCardsNumber() {
-		return cardsNumber;
-	}
+	
+	public abstract Effect getEffect();
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -69,6 +69,10 @@ public abstract class LeaderCard extends Card {
 	public ResourceList getRequiredResources() {
 		return requiredResources;
 	}
+	public Map<String, Integer> getCardsNumber() {
+		return cardsNumber;
+	}
+	
 	public void setRequiredResources(ResourceList resourceList) {
 		this.requiredResources = resourceList;
 	}

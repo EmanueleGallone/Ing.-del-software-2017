@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import com.google.gson.reflect.TypeToken;
 
-import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.ActiveYieldLeaderCard;
@@ -32,7 +31,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
-import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -56,23 +54,6 @@ public class MainTest {
 
 	public static void main(String[] args){
 		LeaderCardsInitializer();
-		
-		JsonAdapter gAdapter = new JsonAdapter();
-		PlayerFactory factory = new PlayerFactory();
-		Player player = factory.newPlayer(0);
-		
-		PurpleCard purpleCard = new PurpleCard();		
-		BlueCard blucard = new BlueCard();
-		
-		player.getCardManager().addCard(blucard);
-		player.getCardManager().addCard(purpleCard);
-		
-		ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
-		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
-		
-		leaderCards = gAdapter.fromJson(CustomFileReaderWriter.readFile("settings\\LeaderCards"), type);
-
-		System.out.println(leaderCards);
 	}
 	
  
@@ -1665,8 +1646,22 @@ public class MainTest {
 		resourceList = new ResourceList(new Stone(10));
 		michelangeloBuonarroti.setRequiredResources(resourceList.clone());
 		
+		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
+		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
+		resourceList.setResource(new Wood(1));
+		resourceList.setResource(new Stone(1));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new Servant(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new Coin(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new MilitaryPoint(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(1));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList();
 		
-		CouncilPrivilege councilPrivilegeEffect = new CouncilPrivilege();
+		CouncilPrivilege councilPrivilegeEffect = new CouncilPrivilege(councilPrivilegeResourceLists);
 		LeaderCard ludovicoIIIGonzaga = new UniqueEffectLeaderCard("Ludovico III Gonzaga", councilPrivilegeEffect);
 		resourceList = new ResourceList(new Servant(15));
 		ludovicoIIIGonzaga.setRequiredResources(resourceList.clone());

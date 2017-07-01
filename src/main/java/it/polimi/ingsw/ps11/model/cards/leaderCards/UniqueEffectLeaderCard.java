@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.cards.leaderCards;
 
-import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 
 public class UniqueEffectLeaderCard extends LeaderCard {
@@ -20,6 +19,11 @@ public class UniqueEffectLeaderCard extends LeaderCard {
 		clone.requiredResources = this.requiredResources.clone();
 		
 		return clone;
+	}
+	
+	@Override
+	public Effect getEffect() {
+		return this.effect;
 	}
 
 }
