@@ -35,10 +35,7 @@ public class GraphicHarvestView extends HarvestView {
 		
 		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
 		multipleActionSpace.addActionListener(new MultipleHarvestSelectedListener());
-		}
-	
-	@Override
-	public void print() {
+		
 		harvestPanel.loadImage("boardImages/Harvest.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -65,6 +62,17 @@ public class GraphicHarvestView extends HarvestView {
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
+		}
+	
+	@Override
+	public void print() {
+		
+		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
+			singleActionSpace.loadImage("playerImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
+					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
+		}
+		
+		harvestPanel.repaint();
 	}
 	
 	public JPanel getComponent(){
@@ -86,18 +94,4 @@ public class GraphicHarvestView extends HarvestView {
 			eventHandler.invoke(new HarvestSelectedEvent());
 		}
 	}
-	
-	@Override
-	public void update(Yield harvest) {
-		super.update(harvest);
-		
-		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
-			singleActionSpace.loadImage("playerImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
-					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
-		}
-		
-		harvestPanel.repaint();
-		//DA FARE IL MULTI
-	}
-
 }

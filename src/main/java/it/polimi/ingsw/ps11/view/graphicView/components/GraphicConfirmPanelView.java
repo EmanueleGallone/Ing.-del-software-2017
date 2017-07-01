@@ -31,21 +31,10 @@ public class GraphicConfirmPanelView extends JDialog{
 	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor) {
 		
 		this.eventHandler = viewEvent;
-		
 		this.floor = floor;
 		int cost = floor.getActionSpace().getActionCost();
-		ResourceList resourceList = floor.getActionSpace().getResources();
-		JLabel scrittaCosto = new JLabel("COSTO"),
-				   scrittaBonus = new JLabel("BONUS"),
-				   scrittaServitori = new JLabel("SERVITORI");
-		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView(floor.getCard().getName());
-		cardView.print();
-		GraphicPaintedPanel costo = new GraphicPaintedPanel();
-		GraphicResourceListView bonus = new GraphicResourceListView(resourceList);
-		addServitori = new JTextField("0");
-		JButton confirm = new JButton("Conferma"),
-				cancel = new JButton("Annulla");
-		cardView.print();
+		
+		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GridBagLayout gblConfirmpanel = new GridBagLayout();
 		gblConfirmpanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -53,6 +42,18 @@ public class GraphicConfirmPanelView extends JDialog{
 		gblConfirmpanel.columnWeights = new double[]{0.071429, 0.241429, 0.044286, 0.142857, 0.428571, 0.071429,Double.MIN_VALUE};
 		gblConfirmpanel.rowWeights = new double[]{0.142857, 0.142857, 0.142857, 0.142857, 0.142857, 0.142857, 0.142857, Double.MIN_VALUE};
 		setLayout(gblConfirmpanel);
+		
+		ResourceList resourceList = floor.getActionSpace().getResources();
+		JLabel scrittaCosto = new JLabel("COSTO"),
+			   scrittaBonus = new JLabel("BONUS"),
+			   scrittaServitori = new JLabel("SERVITORI");
+		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView(floor.getCard().getName());
+		cardView.print();
+		GraphicPaintedPanel costo = new GraphicPaintedPanel();
+		GraphicResourceListView bonus = new GraphicResourceListView(resourceList);
+		addServitori = new JTextField("0");
+		JButton confirm = new JButton("Conferma"),
+				cancel = new JButton("Annulla");
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
@@ -102,8 +103,10 @@ public class GraphicConfirmPanelView extends JDialog{
 		gbc.gridy = 5;
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.anchor = GridBagConstraints.WEST;
-		add(cancel, gbc);
+		add(cancel, gbc);		
 		
+		//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 		confirm.addActionListener(new Confirmed());
 		
 	}

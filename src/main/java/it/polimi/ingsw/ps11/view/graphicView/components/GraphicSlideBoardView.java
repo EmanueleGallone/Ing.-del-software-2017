@@ -35,10 +35,6 @@ public class GraphicSlideBoardView extends BoardView {
 		marketView = new GraphicMarketView();
 		diceView = new GraphicDiceView();
 					
-	}
-	
-	@Override
-	public void print() {	
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
@@ -53,11 +49,6 @@ public class GraphicSlideBoardView extends BoardView {
 		gblSlideBoard.columnWeights = new double[]{0.552052, 0.447948, Double.MIN_VALUE};
 		gblSlideBoard.rowWeights = new double[]{0.550992, 0.127311, 0.321697, Double.MIN_VALUE};
 		slideBoard.getContentPane().setLayout(gblSlideBoard);
-		
-		graphicProductionView.print();
-		graphicHarvestView.print();
-		graphicMarketView.print();
-		graphicDiceView.print();
 				
 		JPanel productionPanel = graphicProductionView.getComponent();
 		JPanel harvestPanel = graphicHarvestView.getComponent();
@@ -107,12 +98,22 @@ public class GraphicSlideBoardView extends BoardView {
 		slideOutButton.addActionListener(new CloseThis());
 		dicePanel.add(slideOutButton, gbcOutButton);*/
 		
-//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
 
 		this.productionView = graphicProductionView;
 		this.harvestView = graphicHarvestView;
 		this.marketView = graphicMarketView;
 		this.diceView = graphicDiceView;
+	}
+	
+	@Override
+	public void print() {	
+
+		productionView.print();
+		harvestView.print();
+		marketView.print();
+		diceView.print();
+		
 	}
 	
 	@Override

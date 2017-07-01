@@ -45,11 +45,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 
 		arrayJTButton = new JToggleButton[CARDTYPES];
 		buttonGroup = new ButtonGroup();
-	}
-	
-	@Override
-	public void print() {
-
+		
 		JPanel selectorButtonsPanel = new JPanel();
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -109,8 +105,34 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			i++;
 		}
-		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
+		
+	}
+	
+	@Override
+	public void print() {
+
+    	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
+    	int decks = 0;
+    	
+		for (String deck : cardManager.getAllCards().keySet()) {
+			
+			int cards = 0;
+			
+			for (DevelopmentCard card : cardManager.getCardList(deck)) {
+				
+				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(card.getName());
+				cardButton.print();
+				
+				GridBagConstraints gbcCard = new GridBagConstraints();
+				gbcCard.gridx = cards;
+				gbcCard.insets = new Insets(10, 10, 10, 10);
+				gbcCard.fill = GridBagConstraints.BOTH;
+				allDecks.get(decks).add(cardButton.getComponent(), gbcCard);
+				cards++;
+			}
+			decks++;
+		}
 
 	}
 	
@@ -127,29 +149,4 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	public JPanel getComponent(){
 		return personalBoard;
 	}
-
-	@Override
-	public void update(CardManager cardManager) {
-		super.update(cardManager);
-		
-    	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
-    	int decks = 0;
-    	
-		for (String deck : cardManager.getAllCards().keySet()) {
-			
-			int cards = 0;
-			
-			for (DevelopmentCard card : cardManager.getCardList(deck)) {
-				
-				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(card.getName());
-				cardButton.print();
-				GridBagConstraints gbcCard = new GridBagConstraints();
-				gbcCard.gridx = cards;
-				gbcCard.insets = new Insets(10, 10, 10, 10);
-				gbcCard.fill = GridBagConstraints.BOTH;
-				allDecks.get(decks).add(cardButton.getComponent(), gbcCard);				
-			}
-		}
-	}
-	
 }

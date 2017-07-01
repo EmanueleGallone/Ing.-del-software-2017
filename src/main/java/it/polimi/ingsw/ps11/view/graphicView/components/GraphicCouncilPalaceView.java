@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
+import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
@@ -27,13 +28,14 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
 	
 	protected GraphicPaintedPanel councilPalacePanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton multipleActionSpace;
+	protected GraphicMultipleActionSpaceButton multipleActionSpace;
 	protected JButton showPanelButton;
 	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
 	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
 	
 	public GraphicCouncilPalaceView() {
-		multipleActionSpace = new GraphicPaintedButton("Council");
+		
+		multipleActionSpace = new GraphicMultipleActionSpaceButton("Council");
 		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
@@ -54,10 +56,6 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		toPlayer3.setContentAreaFilled(false);
 		toPlayer4.setContentAreaFilled(false);
 		
-		}
-	
-	@Override
-	public void print(){
 		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -120,13 +118,34 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		toPlayer4.setPreferredSize(new Dimension(10, 10));
 		councilPalacePanel.add(toPlayer4, gbcToPlayer4);
 
-		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
+		
+		}
+	
+	@Override
+	public void print(){
+		int i = 0;
+		for (ActionSpace actionSpace : councilPalace.getAllSpace()) {
+			multipleActionSpace.putFamilyMember(actionSpace.getFamilyMember(), actionSpace.getOwner());
+		}
+		for (Player player : councilPalace.getNewOrder()) {
+			playerSelectors.get(i).loadImage("playerImages/Player color " + player.getColor().toString() + ".png");
+			i++;
+		}
 
 	}
 	
 	public void attachSlideListener(ShowPanel showPanel){					//Bottone che fa entrare la parte nascosta della board
 		showPanelButton.addActionListener(showPanel);
+	}
+	
+	public void attachChangePlayer(ChangePlayer changePlayer) {
+		
+		toPlayer1.addActionListener(changePlayer);
+		toPlayer2.addActionListener(changePlayer);
+		toPlayer3.addActionListener(changePlayer);
+		toPlayer4.addActionListener(changePlayer);
+
 	}
 
 	public JPanel getComponent() {
@@ -140,25 +159,4 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 			//eventHandler.invoke(new CouncilSelectedEvent());
 		}
 	}
-
-	public void attachChangePlayer(ChangePlayer changePlayer) {
-		
-		toPlayer1.addActionListener(changePlayer);
-		toPlayer2.addActionListener(changePlayer);
-		toPlayer3.addActionListener(changePlayer);
-		toPlayer4.addActionListener(changePlayer);
-
-	}
-	
-	@Override
-	public void update(CouncilPalace councilPalace) {
-		super.update(councilPalace);
-		int i = 0;
-		for (Player player : councilPalace.getNewOrder()) {
-			playerSelectors.get(i).loadImage("playerImages/Player color " + player.getColor().toString() + ".png");
-			i++;
-		}
-		
-	}
-
 }

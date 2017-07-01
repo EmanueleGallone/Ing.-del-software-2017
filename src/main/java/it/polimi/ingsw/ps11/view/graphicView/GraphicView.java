@@ -6,14 +6,16 @@ import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
+import javax.swing.KeyStroke;
 
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
@@ -47,18 +49,18 @@ public class GraphicView extends View{
 
 	JFrame window = new JFrame();												//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
-	protected JPanel boardPanel, playerPanel, consolePanel;									//Pannelli boardPrincipale e boardPersonale
-	protected GraphicTurnPanel playersTurn = new GraphicTurnPanel();
+	protected JPanel boardPanel, playerPanel, consolePanel;						//Pannelli boardPrincipale, boardPersonale e console
+	protected GraphicTurnPanel playersTurn;
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
 
 	public GraphicView() {
+		
 		you = new GraphicPlayerView();											//Board personale	
 		boardView = new GraphicBoardView();										//Board generale
 		console = new GraphicConsole();											//Console per la gestione dei messaggi
 		
-		
-		window.setTitle("Game Window");							//Setta la finestra principale del gioco
+		window.setTitle("Game Window");											//Setup la finestra principale del gioco
         window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
@@ -77,6 +79,7 @@ public class GraphicView extends View{
         GraphicPlayerView graphicPlayerView = new GraphicPlayerView();
         GraphicConsole graphicConsole = new GraphicConsole();
         JButton exit = new JButton("X"), minimize = new JButton("_");
+        playersTurn = new GraphicTurnPanel();
                
         boardPanel = graphicBoardView.getMainBoard().getComponent();
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
@@ -86,7 +89,8 @@ public class GraphicView extends View{
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayers = new GridBagConstraints();
 		GridBagConstraints gbcConsole = new GridBagConstraints();
-		GridBagConstraints gbc = new GridBagConstraints();
+		GridBagConstraints gbcMinimize = new GridBagConstraints();
+		GridBagConstraints gbcClose = new GridBagConstraints();
         
 		gbcMainBoard.gridx = 0;
 		gbcMainBoard.gridy = 0;
@@ -114,37 +118,49 @@ public class GraphicView extends View{
 		gbcTurn.fill = GridBagConstraints.BOTH;
 		playersTurn.setPreferredSize(new Dimension(10, 10));
 		window.add(playersTurn, gbcTurn);
-		
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.BOTH;
-        playersTurn.add(minimize, gbc);
+
+		gbcMinimize.gridx = 1;
+		gbcMinimize.gridy = 0;
+		gbcMinimize.fill = GridBagConstraints.BOTH;
+        playersTurn.add(minimize, gbcMinimize);
         
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.BOTH;
-        playersTurn.add(exit, gbc);
+        gbcClose.gridx = 2;
+        gbcClose.gridy = 0;
+        gbcClose.fill = GridBagConstraints.BOTH;
+        playersTurn.add(exit, gbcClose);
 		
         slideDialog.setBounds(0, (int)Math.round(screenSize.getHeight()*0.695), 
 				(int)Math.round(screenSize.getWidth()*0.477), (int)Math.round(screenSize.getHeight()*0.305));
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
+        
+//<-------------------------------INIZIO LISTENER------------------------------->
 		
 		exit.addActionListener(new Close());
 		minimize.addActionListener(new Minimize());
-		
-		this.boardView = graphicBoardView;
-		this.you = graphicPlayerView;
-		this.console = graphicConsole;
+				
+		consolePanel.registerKeyboardAction(e -> {
+			String toSend = graphicConsole.read();
+		}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
         
         graphicBoardView.attachSlideListener(new ShowPanel());						//listener per il bottone che fa entrare il pannello della slideBoardView
         graphicBoardView.attachChangePlayer(new ChangePlayer());
         
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
+      
+//<-------------------------------FINE LISTENER------------------------------->
+        
+		this.boardView = graphicBoardView;
+		this.you = graphicPlayerView;
+		this.console = graphicConsole;
         
         window.setVisible(true);
 
+	}
+	
+	public void send(){
+		
 	}
 	
 	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
@@ -167,7 +183,7 @@ public class GraphicView extends View{
 
 	@Override
 	public void run() {
-		
+
 		GraphicView tryout = new GraphicView();
 		tryout.print();
 		
@@ -234,46 +250,6 @@ public class GraphicView extends View{
 		}
 		
 	}
-
 	public static void main(String[] args) {
-		GraphicView tryout = new GraphicView();
-		tryout.print();
-		
-		BlueCard card = new BlueCard("name");
-		
-		ArrayList<Resource> array1 = new ArrayList<>();
-		array1.add(new Coin(3));
-		array1.add(new Wood(5));
-		array1.add(new FaithPoint(2));
-		array1.add(new VictoryPoint(4));
-		ResourceList resourceList1 = new ResourceList(array1);
-
-		Floor floor= new Floor();
-		floor.getActionSpace().setResources(resourceList1);
-		floor.setCard(card);
-		
-//		ArrayList<Resource> array1 = new ArrayList<>();
-//		array1.add(new Coin(3));
-//		array1.add(new Wood(5));
-//		array1.add(new FaithPoint(2));
-//		array1.add(new VictoryPoint(4));
-//		
-//		ArrayList<Resource> array2 = new ArrayList<>();
-//		array2.add(new Servant(3));
-//		array2.add(new Stone(5));
-//		array2.add(new MilitaryPoint(2));
-//		array2.add(new VictoryPoint(4));
-//		
-//		ResourceList resourceList1 = new ResourceList(array1), 
-//				resourceList2 = new ResourceList(array2);
-//		
-//		ArrayList<ResourceList> list = new ArrayList<>();
-//		list.add(resourceList1);
-//		list.add(resourceList2);
-//		
-//		System.out.println(tryout.update(list));
-
 	}
-
-
 }

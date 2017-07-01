@@ -36,10 +36,6 @@ public class GraphicMarketView extends MarketView{
 			actionSpace.setContentAreaFilled(false);
 			marketSpaces.add(actionSpace);
 		}	
-	}
-	
-	@Override
-	public void print(){
 		marketPanel.loadImage("boardImages/Market.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -82,6 +78,16 @@ public class GraphicMarketView extends MarketView{
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
 	}
+	
+	@Override
+	public void print(){
+		for(int i = 0; i < market.getPlayerNumber(); i++){
+			if(!(market.getActionSpace(i).getFamilyMember() == null)){
+				marketSpaces.get(i).loadImage("playerImages/" + market.getActionSpace(i).getOwner().getColor().toString() + 
+					" " + market.getActionSpace(i).getFamilyMember().getClass().getSimpleName() + ".png");
+			}
+		}
+	}
 
 	public JPanel getComponent() {
 		return marketPanel;
@@ -97,17 +103,6 @@ public class GraphicMarketView extends MarketView{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			eventHandler.invoke(new MarketSelectedEvent(marketType));
-		}
-	}
-	
-	@Override
-	public void update(Market market) {
-		super.update(market);
-		for(int i = 0; i < 4; i++){
-			if(!(market.getActionSpace(i).getFamilyMember() == null)){
-				marketSpaces.get(i).loadImage("playerImages/" + market.getActionSpace(i).getOwner().getColor().toString() + 
-					" " + market.getActionSpace(i).getFamilyMember().getClass().getSimpleName() + ".png");
-			}
 		}
 	}
 }

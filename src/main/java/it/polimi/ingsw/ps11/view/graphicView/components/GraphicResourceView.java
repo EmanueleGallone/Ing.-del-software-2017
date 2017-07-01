@@ -28,9 +28,7 @@ public class GraphicResourceView extends ResourceView {
 	protected GraphicPaintedPanel resourcesPanel = new GraphicPaintedPanel();
 	protected HashMap<String, JLabel> resources;
 
-	@Override
-	public void print(){
-		
+	public GraphicResourceView() {
 		resourcesPanel.loadImage("playerImages/Resources.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -50,20 +48,16 @@ public class GraphicResourceView extends ResourceView {
 		}
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
-
+	}
+	
+	@Override
+	public void print(){
+		for (String resource : resources.keySet()) {
+			resources.get(resource).setText("<html><font color='black'>" + resourceList.getValueOf(resource) + "</font></html>");
+		}	
 	}
 
 	public JPanel getComponent() {
 		return resourcesPanel;
 	}
-	
-	@Override
-	public void update(ResourceList resourceList) {
-		super.update(resourceList);
-		
-		for (String resource : resources.keySet()) {
-			resources.get(resource).setText("<html><font color='black'>" + resourceList.getValueOf(resource) + "</font></html>");
-		}		
-	}
-
 }

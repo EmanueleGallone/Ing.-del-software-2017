@@ -25,13 +25,14 @@ public class GraphicFloorView extends FloorView{
 	
 	//Piano della torre, ha la classe della torre e un int per il piano
 	
-	protected JPanel floor = new JPanel();
+	protected JPanel floorPanel = new JPanel();
 	protected GraphicDevelopmentCardView cardView;
 	protected GraphicPaintedButton actionSpace;
 	private Class<? extends Tower> whichTower;
 	private int whichFloor;
 	
 	public GraphicFloorView(Class<? extends Tower> whichTower, int whichFloor) {
+		
 		super(whichTower, whichFloor);
 		this.whichTower = whichTower;
 		this.whichFloor = whichFloor;
@@ -41,12 +42,8 @@ public class GraphicFloorView extends FloorView{
 		actionSpace.setContentAreaFilled(false);
 		actionSpace.addActionListener(new FloorSelectedListener());
 		cardView.getComponent().setContentAreaFilled(false);
-	}
-
-	@Override
-	public void print() {
 		
-		floor.setOpaque(false);
+		floorPanel.setOpaque(false);
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -55,7 +52,7 @@ public class GraphicFloorView extends FloorView{
 		gblFloor.rowHeights = new int[]{0, 0, 0, 0};
 		gblFloor.columnWeights = new double[]{0.6, 0.07, 0.257273, 0.072727, Double.MIN_VALUE};
 		gblFloor.rowWeights = new double[]{0.346939, 0.312925, 0.340136, Double.MIN_VALUE};
-		floor.setLayout(gblFloor);
+		floorPanel.setLayout(gblFloor);
 		
 		GridBagConstraints gbcCard = new GridBagConstraints();
 		GridBagConstraints gbcActionSPace = new GridBagConstraints();
@@ -65,33 +62,19 @@ public class GraphicFloorView extends FloorView{
 		gbcCard.gridheight = 3;
 		gbcCard.insets = new Insets(10, 7, 0, 0);
 		gbcCard.fill = GridBagConstraints.BOTH;
-		floor.add(cardView.getComponent(), gbcCard);
+		floorPanel.add(cardView.getComponent(), gbcCard);
 		
 		gbcActionSPace.gridx = 2;
 		gbcActionSPace.gridy = 1;
 		gbcActionSPace.fill = GridBagConstraints.BOTH;
-		floor.add(actionSpace, gbcActionSPace);
+		floorPanel.add(actionSpace, gbcActionSPace);
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
 	}
-	
-	public JPanel getComponent(){
-		return floor;
-	}
-	
-	private class FloorSelectedListener implements ActionListener{					//Se un piano viene selezionato invoca l'evento "Piano selezionato"
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			eventHandler.invoke(new FloorSelectedEvent(whichTower, whichFloor));			
-		}
-		
-	}
-	
 	@Override
-	public void update(Floor floor) {
-		super.update(floor);
+	public void print() {
 		
 		if(!(floor.getActionSpace().getFamilyMember() == null)){
 			actionSpace.loadImage("playerImages/" + floor.getActionSpace().getOwner().getColor().toString() + 
@@ -109,10 +92,24 @@ public class GraphicFloorView extends FloorView{
 			gbcCard.insets = new Insets(10, 7, 0, 0);
 			gbcCard.fill = GridBagConstraints.BOTH;
 			
-			this.floor.add(cardView.getComponent(), gbcCard);
+			this.floorPanel.add(cardView.getComponent(), gbcCard);
 			
 			};
 			
-			this.floor.repaint();
+			this.floorPanel.repaint();
 	}
+	
+	public JPanel getComponent(){
+		return floorPanel;
+	}
+	
+	private class FloorSelectedListener implements ActionListener{					//Se un piano viene selezionato invoca l'evento "Piano selezionato"
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			eventHandler.invoke(new FloorSelectedEvent(whichTower, whichFloor));			
+		}
+		
+	}
+
 }

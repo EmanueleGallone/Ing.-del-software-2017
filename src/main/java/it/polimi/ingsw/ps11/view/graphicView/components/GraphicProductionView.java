@@ -33,10 +33,7 @@ public class GraphicProductionView extends ProductionView {
 		
 		singleActionSpace.addActionListener(new SingleProductionSelectedListener());
 		multipleActionSpace.addActionListener(new MultipleProductionSelectedListener());
-	}
-	
-	@Override
-	public void print() {
+		
 		productionPanel.loadImage("boardImages/Production.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -65,6 +62,16 @@ public class GraphicProductionView extends ProductionView {
 
 	}
 	
+	@Override
+	public void print() {
+		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
+			singleActionSpace.loadImage("playerImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
+					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
+		}
+		productionPanel.repaint();
+		//DA FARE IL MULTI
+	}
+	
 	public JPanel getComponent(){
 		return productionPanel;
 	}
@@ -83,16 +90,5 @@ public class GraphicProductionView extends ProductionView {
 		public void actionPerformed(ActionEvent e) {
 			eventHandler.invoke(new ProductionSelectedEvent());
 		}
-	}
-	
-	@Override
-	public void update(Yield production) {
-		super.update(production);
-		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
-			singleActionSpace.loadImage("playerImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
-					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
-		}
-		productionPanel.repaint();
-		//DA FARE IL MULTI
 	}
 }

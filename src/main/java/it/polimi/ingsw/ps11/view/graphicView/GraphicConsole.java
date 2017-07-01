@@ -1,8 +1,10 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
 import java.awt.Color;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
@@ -28,25 +30,43 @@ public class GraphicConsole extends Console {
 	
 	public GraphicConsole() {
 		
+//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+		
 		GridBagLayout gblConsolePanel = new GridBagLayout();
 		gblConsolePanel.columnWidths = new int[]{0, 0};	
 		gblConsolePanel.rowHeights = new int[]{0, 0, 0};
 		gblConsolePanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gblConsolePanel.rowWeights = new double[]{0.833333, 0.166666, Double.MIN_VALUE};
         consolePanel.setLayout(gblConsolePanel);
+                
+        GridBagConstraints gbcOut = new GridBagConstraints();
+        GridBagConstraints gbcIn = new GridBagConstraints();
         
-        
-		 outPut = new JTextPane();
-		 doc = outPut.getStyledDocument();
-		 style = outPut.addStyle("Style", null);
-		 outPut.setEditable(false);
-		 outPut.setBackground(Color.LIGHT_GRAY);
-		 inPut = new JTextArea();
-		 inPut.setBackground(Color.WHITE);
-		 consolePanel.add(outPut);
-		 consolePanel.add(inPut);
-	}
+        gbcOut.gridx = 0;
+        gbcOut.gridy = 0;
+        gbcOut.fill = GridBagConstraints.BOTH;
+		outPut = new JTextPane();
+		doc = outPut.getStyledDocument();
+		style = outPut.addStyle("Style", null);
+		outPut.setEditable(false);
+		outPut.setBackground(Color.WHITE);
+        outPut.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		consolePanel.add(outPut, gbcOut);
+
+        gbcIn.gridx = 0;
+        gbcIn.gridy = 1;
+        gbcIn.fill = GridBagConstraints.BOTH;
+		inPut = new JTextArea();
+		inPut.setLineWrap(true);
+		inPut.setWrapStyleWord(true);
+		inPut.setBackground(Color.WHITE);
+        inPut.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		consolePanel.add(inPut, gbcIn);
 		
+//<-------------------------------FINE ALLINEAMENTO------------------------------->
+		
+	}
+	
 	@Override
 	public void println(String message) {
 	    StyleConstants.setForeground(style, Color.BLACK);
@@ -54,7 +74,8 @@ public class GraphicConsole extends Console {
 			doc.insertString(doc.getLength(), message + "\n", style);
 		} catch (BadLocationException e) {
 			e.printStackTrace();
-		}	}
+		}
+	}
 
 	@Override
 	public void print(String message) {
@@ -63,7 +84,23 @@ public class GraphicConsole extends Console {
 			doc.insertString(doc.getLength(), message, style);
 		} catch (BadLocationException e) {
 			e.printStackTrace();
-		}	}
+		}
+	}
+	
+	@Override
+	public String read() {
+		String toSend = inPut.getText();
+		inPut.setText("");
+		return toSend;
+	}
+
+	@Override
+	public String read(String message) {
+		println(message);
+		String toSend = inPut.getText();
+		inPut.setText("");
+		return toSend;
+	}
 
 	@Override
 	public void printError(String message) {
@@ -75,17 +112,7 @@ public class GraphicConsole extends Console {
 		}
 	}
 
-	@Override
-	public String read() {
-		inPut.setText("");
-		return inPut.getText();
-	}
 
-	@Override
-	public String read(String message) {
-		return null;
-	}
-	
 	public JPanel getComponent(){
 		return consolePanel;
 	}

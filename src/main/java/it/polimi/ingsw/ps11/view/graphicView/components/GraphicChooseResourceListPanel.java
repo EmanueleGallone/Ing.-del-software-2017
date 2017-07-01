@@ -39,6 +39,8 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		this.eventHandler = viewEvent;
 		this.costs = resourceLists;
 		
+		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
+
 		GridBagLayout gblDialog = new GridBagLayout();
 		gblDialog.columnWidths = new int[]{0, 0};
 		gblDialog.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
@@ -68,6 +70,8 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		gbc.anchor = GridBagConstraints.SOUTH;
 		dialog.getContentPane().add(confirm, gbc);
 		
+		//<-------------------------------FINE ALLINEAMENTO------------------------------->
+		
 	}
 	
 	
@@ -79,7 +83,6 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 			GraphicResourceListView resources = new GraphicResourceListView(resourceList);
 			setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 			
-			resources.print();
 			selectResourceList.add(selector);
 			add(selector);
 			add(resources);

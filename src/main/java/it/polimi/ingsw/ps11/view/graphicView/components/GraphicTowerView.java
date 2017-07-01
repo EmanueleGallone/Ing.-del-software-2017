@@ -30,15 +30,7 @@ public class GraphicTowerView extends TowerView{
 			floorViews.add(new GraphicFloorView(whichTower, i));
 		}
 		this.towerName = towerName;
-
-	}
-	
-	public GraphicTowerView(Class<? extends Tower> whichTower) {
-		this(whichTower, whichTower.getSimpleName());
-	}
-
-	@Override
-	public void print(){
+		
 		tower.loadImage("boardImages/" + towerName + ".png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -68,6 +60,17 @@ public class GraphicTowerView extends TowerView{
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
+	}
+	
+	public GraphicTowerView(Class<? extends Tower> whichTower) {
+		this(whichTower, whichTower.getSimpleName());
+	}
+
+	@Override
+	public void print(){
+		for(int i=0; i<TOWERNUMBER; i++){
+		floorViews.get(i).print();
+		}
 	}
 
 	public JPanel getComponent() {
