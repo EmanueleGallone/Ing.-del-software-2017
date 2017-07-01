@@ -69,17 +69,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege" project="ps11" 
-    file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/resources/list/CouncilPrivilege.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1133" y="2668"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="it.polimi.ingsw.ps11.model.resources.list.Stone" project="ps11" 
+  <class id="8" language="java" name="it.polimi.ingsw.ps11.model.resources.list.Stone" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/resources/list/Stone.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1124" y="2975"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -88,7 +78,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="it.polimi.ingsw.ps11.model.resources.Resource" project="ps11" 
+  <class id="9" language="java" name="it.polimi.ingsw.ps11.model.resources.Resource" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/resources/Resource.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1012" y="2311"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -97,7 +87,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="it.polimi.ingsw.ps11.model.player.Player" project="ps11" 
+  <class id="10" language="java" name="it.polimi.ingsw.ps11.model.player.Player" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/player/Player.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1035" y="1151"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -106,8 +96,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="it.polimi.ingsw.ps11.model.cards.list.LeaderCard" project="ps11" 
-    file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/list/LeaderCard.java" binary="false" 
+  <class id="11" language="java" name="it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard" project="ps11" 
+    file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/leaderCards/LeaderCard.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2905" y="2066"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -116,7 +106,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="it.polimi.ingsw.ps11.model.cards.Card" project="ps11" 
+  <class id="12" language="java" name="it.polimi.ingsw.ps11.model.cards.Card" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/Card.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3259" y="2084"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -125,7 +115,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="it.polimi.ingsw.ps11.model.cards.list.GreenCard" project="ps11" 
+  <class id="13" language="java" name="it.polimi.ingsw.ps11.model.cards.list.GreenCard" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/list/GreenCard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3440" y="2632"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -134,7 +124,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="it.polimi.ingsw.ps11.model.cards.list.BlueCard" project="ps11" 
+  <class id="14" language="java" name="it.polimi.ingsw.ps11.model.cards.list.BlueCard" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/list/BlueCard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3645" y="2623"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -143,7 +133,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="it.polimi.ingsw.ps11.model.cards.list.YellowCard" project="ps11" 
+  <class id="15" language="java" name="it.polimi.ingsw.ps11.model.cards.list.YellowCard" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/list/YellowCard.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3850" y="2641"/>    
@@ -153,7 +143,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="it.polimi.ingsw.ps11.model.cards.list.PurpleCard" project="ps11" 
+  <class id="16" language="java" name="it.polimi.ingsw.ps11.model.cards.list.PurpleCard" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/list/PurpleCard.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="4049" y="2605"/>    
@@ -163,7 +153,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="it.polimi.ingsw.ps11.model.cards.CardManager" project="ps11" 
+  <class id="17" language="java" name="it.polimi.ingsw.ps11.model.cards.CardManager" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/CardManager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1388" y="681"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -172,7 +162,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="it.polimi.ingsw.ps11.model.cards.DevelopmentCard" project="ps11" 
+  <class id="18" language="java" name="it.polimi.ingsw.ps11.model.cards.DevelopmentCard" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/cards/DevelopmentCard.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3793" y="2250"/>    
@@ -182,7 +172,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="it.polimi.ingsw.ps11.model.dices.DiceManager" project="ps11" 
+  <class id="19" language="java" name="it.polimi.ingsw.ps11.model.dices.DiceManager" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/dices/DiceManager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2005" y="146"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -191,7 +181,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="it.polimi.ingsw.ps11.model.dices.Dice" project="ps11" 
+  <class id="20" language="java" name="it.polimi.ingsw.ps11.model.dices.Dice" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/dices/Dice.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1703" y="128"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -200,7 +190,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="it.polimi.ingsw.ps11.model.dices.BlackDice" project="ps11" 
+  <class id="21" language="java" name="it.polimi.ingsw.ps11.model.dices.BlackDice" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/dices/BlackDice.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1903" y="390"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -209,7 +199,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="it.polimi.ingsw.ps11.model.dices.OrangeDice" project="ps11" 
+  <class id="22" language="java" name="it.polimi.ingsw.ps11.model.dices.OrangeDice" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/dices/OrangeDice.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1514" y="370"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -218,7 +208,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="it.polimi.ingsw.ps11.model.dices.WhiteDice" project="ps11" 
+  <class id="23" language="java" name="it.polimi.ingsw.ps11.model.dices.WhiteDice" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/dices/WhiteDice.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1698" y="397"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -227,7 +217,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="it.polimi.ingsw.ps11.model.familyMember.FamilyMember" project="ps11" 
+  <class id="24" language="java" name="it.polimi.ingsw.ps11.model.familyMember.FamilyMember" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/familyMember/FamilyMember.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="470" y="517"/>    
@@ -237,7 +227,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember" project="ps11" 
+  <class id="25" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/familyMember/list/NeutralFamilyMember.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="124" y="746"/>    
@@ -247,7 +237,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager" project="ps11" 
+  <class id="26" language="java" name="it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/familyMember/FamilyMemberManager.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="561" y="207"/>    
@@ -257,7 +247,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember" project="ps11" 
+  <class id="27" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/familyMember/list/BlackFamilyMember.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="113" y="363"/>    
@@ -267,7 +257,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember" project="ps11" 
+  <class id="28" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/familyMember/list/WhiteFamilyMember.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="122" y="497"/>    
@@ -277,7 +267,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember" project="ps11" 
+  <class id="29" language="java" name="it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/familyMember/list/OrangeFamilyMember.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="118" y="623"/>    
@@ -287,7 +277,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="it.polimi.ingsw.ps11.model.game.RoundManager" project="ps11" 
+  <class id="30" language="java" name="it.polimi.ingsw.ps11.model.game.RoundManager" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/game/RoundManager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="269" y="1179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -296,7 +286,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="32" language="java" name="it.polimi.ingsw.ps11.model.game.Game" project="ps11" 
+  <class id="31" language="java" name="it.polimi.ingsw.ps11.model.game.Game" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/game/Game.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="264" y="1644"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -305,7 +295,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace" project="ps11" 
+  <class id="32" language="java" name="it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/actionSpace/ActionSpace.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2545" y="672"/>    
@@ -315,7 +305,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace" project="ps11" 
+  <class id="33" language="java" name="it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/actionSpace/MultipleActionSpace.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2719" y="1608"/>    
@@ -325,7 +315,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="35" language="java" name="it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace" 
+  <interface id="34" language="java" name="it.polimi.ingsw.ps11.model.zones.actionSpace.FamilyMemberSpace" 
     project="ps11" file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/actionSpace/FamilyMemberSpace.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3314" y="577"/>    
@@ -335,7 +325,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="36" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.YellowTower" project="ps11" 
+  <class id="35" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.YellowTower" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/towers/YellowTower.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1933" y="2652"/>    
@@ -345,7 +335,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="37" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.BlueTower" project="ps11" 
+  <class id="36" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.BlueTower" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/towers/BlueTower.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2148" y="2652"/>    
@@ -355,7 +345,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="38" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.Tower" project="ps11" 
+  <class id="37" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.Tower" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/towers/Tower.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2256" y="2432"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -364,7 +354,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="39" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.PurpleTower" project="ps11" 
+  <class id="38" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.PurpleTower" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/towers/PurpleTower.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2363" y="2652"/>    
@@ -374,7 +364,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="40" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.GreenTower" project="ps11" 
+  <class id="39" language="java" name="it.polimi.ingsw.ps11.model.zones.towers.GreenTower" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/towers/GreenTower.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2578" y="2652"/>    
@@ -384,16 +374,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="41" language="java" name="it.polimi.ingsw.ps11.model.zones.Board" project="ps11" 
-    file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/Board.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="317" width="256" x="1489" y="1270"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="42" language="java" name="it.polimi.ingsw.ps11.model.zones.Market" project="ps11" 
+  <class id="40" language="java" name="it.polimi.ingsw.ps11.model.zones.Market" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/Market.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2009" y="1599"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -402,7 +383,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="43" language="java" name="it.polimi.ingsw.ps11.model.zones.Floor" project="ps11" 
+  <class id="41" language="java" name="it.polimi.ingsw.ps11.model.zones.Floor" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/Floor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3478" y="1160"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -411,7 +392,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="44" language="java" name="it.polimi.ingsw.ps11.model.zones.CouncilPalace" project="ps11" 
+  <class id="42" language="java" name="it.polimi.ingsw.ps11.model.zones.CouncilPalace" project="ps11" 
     file="/ps11/src/main/java/it/polimi/ingsw/ps11/model/zones/CouncilPalace.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2191" y="1412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -420,100 +401,108 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="45">    
+  <generalization id="43">    
     <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="TARGET" refId="9"/>  
   </generalization>  
-  <association id="46">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="47" name="requirements">        
+  <generalization id="44">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="33"/>  
+  </generalization>  
+  <association id="45">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="46" name="familyManager">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
+      <multiplicity id="47" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="49">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="21"/>  
-  </generalization>  
-  <association id="50">    
-    <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="51" name="multipleActionSpace">        
+  <association id="48">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="49" name="familyMember">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="52" minimum="0" maximum="2147483647">        
+      <multiplicity id="50" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
+    <end type="TARGET" refId="24" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="53">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="13"/>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="33"/>  
   </generalization>  
-  <generalization id="54">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="25"/>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="18"/>  
   </generalization>  
-  <generalization id="55">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
+  <association id="53">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="54" name="floors">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <generalization id="56">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="58">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="60">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="61">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <generalization id="62">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <generalization id="63">    
     <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="25"/>  
+    <end type="TARGET" refId="24"/>  
   </generalization>  
-  <association id="57">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="58" name="resourceList">        
+  <association id="64">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="65" name="multipleActionSpace">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="59" minimum="0" maximum="1">        
+      <multiplicity id="66" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="61" name="players">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <end type="SOURCE" refId="41" navigable="false">      
-      <attribute id="64" name="councilPalace">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="65" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="44" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="66">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
   <generalization id="67">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="25"/>  
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="9"/>  
   </generalization>  
   <association id="68">    
-    <end type="SOURCE" refId="43" navigable="false">      
+    <end type="SOURCE" refId="41" navigable="false">      
       <attribute id="69" name="card">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -521,277 +510,205 @@
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="71">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="34"/>  
-  </generalization>  
-  <generalization id="72">    
-    <end type="SOURCE" refId="40"/>    
-    <end type="TARGET" refId="38"/>  
-  </generalization>  
-  <association id="73">    
-    <end type="SOURCE" refId="41" navigable="false">      
-      <attribute id="74" name="towers">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="75" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="38" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="76">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="77">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="78">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="79" name="cardManager">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="80" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
     <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="81">    
-    <end type="SOURCE" refId="44"/>    
-    <end type="TARGET" refId="34"/>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="24"/>  
   </generalization>  
-  <association id="82">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="83" name="costs">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="84" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="85">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="86" name="roundManager">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="87" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="88">    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="38"/>  
-  </generalization>  
-  <association id="89">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="90" name="familyMember">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="91" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="92">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="93">    
-    <end type="SOURCE" refId="41" navigable="false">      
-      <attribute id="94" name="diceManager">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="95" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="96">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="97">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="98" name="family">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="99" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="101" name="floors">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="102" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="43" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="103">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="104">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="38"/>  
-  </generalization>  
-  <association id="105">    
-    <end type="SOURCE" refId="41" navigable="false">      
-      <attribute id="106" name="market">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="107" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="42" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="108">    
-    <end type="SOURCE" refId="34"/>    
-    <end type="TARGET" refId="35"/>  
-  </realization>  
-  <association id="109">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="110" name="resources">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="111" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="112">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="113" name="familyManager">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="114" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="115">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="116">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="117">    
-    <end type="SOURCE" refId="37"/>    
-    <end type="TARGET" refId="38"/>  
-  </generalization>  
-  <generalization id="118">    
-    <end type="SOURCE" refId="29"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <association id="119">    
-    <end type="SOURCE" refId="43" navigable="false">      
-      <attribute id="120" name="actionSpace">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="121" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="122">    
+  <association id="72">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="123" name="resources">        
+      <attribute id="73" name="resources">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="124" minimum="0" maximum="2147483647">        
+      <multiplicity id="74" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="76" name="cardManager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="77" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="79" name="family">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="80" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="82" name="resourceList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="85" name="resources">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="87">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <generalization id="88">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="89">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="90">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="91" name="costs">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="92" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="93">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="94">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <association id="95">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="96" name="players">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="97" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="125">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="21"/>  
-  </generalization>  
-  <association id="126">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="127" name="owner">        
+  <association id="98">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="99" name="actionSpace">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="128" minimum="0" maximum="1">        
+      <multiplicity id="100" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="129">    
-    <end type="SOURCE" refId="43"/>    
-    <end type="TARGET" refId="35"/>  
-  </realization>  
-  <realization id="130">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="35"/>  
-  </realization>  
-  <generalization id="131">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="21"/>  
+  <association id="101">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="102" name="roundManager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="103" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="132">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
+  <generalization id="105">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="20"/>  
   </generalization>  
-  <generalization id="133">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
+  <generalization id="106">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="134">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="10"/>  
+  <generalization id="107">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="20"/>  
   </generalization>  
-  <association id="135">    
+  <association id="108">    
     <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="136" name="board">        
+      <attribute id="109" name="owner">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="137" minimum="0" maximum="1">        
+      <multiplicity id="110" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="111">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="112">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="113" name="requirements">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="114" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="117">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <generalization id="118">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="119">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

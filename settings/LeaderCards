@@ -1,54 +1,32 @@
 [
   {
-    "counter": 5,
-    "cardClass": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard",
-    "name": "Francesco Sforza"
-  },
-  {
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
-          "resources": {
-            "class it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.CouncilPrivilege",
-              "INSTANCE": {
-                "value": 1
-              }
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.ActiveYieldLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+        "value": 1
+      },
+      "cardsNumber": {
+        "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": 5
+      },
+      "requiredResources": {
+        "resources": {
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+            "INSTANCE": {
+              "value": 1
             }
           }
         }
-      }
-    },
-    "counter": 5,
-    "cardClass": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-    "name": "Ludovico Ariosto"
+      },
+      "name": "Francesco Sforza"
+    }
   },
   {
-    "counter": 5,
-    "cardClass": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
-    "name": "Filippo Brunelleschi"
-  },
-  {
-    "counter": 5,
-    "cardClass": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
-    "name": "Federico Da Montefeltro"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-          "INSTANCE": {
-            "value": 18
-          }
-        }
-      }
-    },
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "resource": {
           "resources": {
             "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
@@ -58,26 +36,26 @@
             }
           }
         }
-      }
-    },
-    "counter": 0,
-    "name": "Girolamo Savonarola"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-          "INSTANCE": {
-            "value": 12
+      },
+      "cardsNumber": {},
+      "requiredResources": {
+        "resources": {
+          "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+            "INSTANCE": {
+              "value": 18
+            }
           }
         }
-      }
-    },
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
+      },
+      "name": "Girolamo Savonarola"
+    }
+  },
+  {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "resource": {
           "resources": {
             "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
@@ -99,26 +77,26 @@
             }
           }
         }
-      }
-    },
-    "counter": 0,
-    "name": "Giovanni Dalle Bande Nere"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-          "INSTANCE": {
-            "value": 10
+      },
+      "cardsNumber": {},
+      "requiredResources": {
+        "resources": {
+          "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+            "INSTANCE": {
+              "value": 12
+            }
           }
         }
-      }
-    },
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
+      },
+      "name": "Giovanni Dalle Bande Nere"
+    }
+  },
+  {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "resource": {
           "resources": {
             "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -134,26 +112,153 @@
             }
           }
         }
-      }
-    },
-    "counter": 0,
-    "name": "Sandro Botticelli"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-          "INSTANCE": {
-            "value": 10
+      },
+      "cardsNumber": {},
+      "requiredResources": {
+        "resources": {
+          "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+            "INSTANCE": {
+              "value": 10
+            }
           }
         }
-      }
-    },
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
+      },
+      "name": "Sandro Botticelli"
+    }
+  },
+  {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "resource": {
+          "resources": {
+            "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+              "INSTANCE": {
+                "value": 3
+              }
+            }
+          }
+        }
+      },
+      "cardsNumber": {},
+      "requiredResources": {
+        "resources": {
+          "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+            "INSTANCE": {
+              "value": 10
+            }
+          }
+        }
+      },
+      "name": "Michelangelo Buonarroti"
+    }
+  },
+  {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.UniqueEffectLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                },
+                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "cardsNumber": {},
+      "requiredResources": {
+        "resources": {
+          "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+            "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+            "INSTANCE": {
+              "value": 15
+            }
+          }
+        }
+      },
+      "name": "Ludovico III Gonzaga"
+    }
+  },
+  {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.ActiveYieldLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
+        "value": 0
+      },
+      "cardsNumber": {
+        "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": 4,
+        "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": 2
+      },
+      "requiredResources": {
+        "resources": {}
+      },
+      "name": "Leonardo Da Vinci"
+    }
+  },
+  {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.DiscountLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "cardType": "class it.polimi.ingsw.ps11.model.cards.DevelopmentCard",
+        "discount": {
           "resources": {
             "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
@@ -163,143 +268,22 @@
             }
           }
         }
-      }
-    },
-    "counter": 0,
-    "name": "Michelangelo Buonarroti"
+      },
+      "cardsNumber": {
+        "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": 4,
+        "class it.polimi.ingsw.ps11.model.cards.list.YellowCard": 2
+      },
+      "requiredResources": {
+        "resources": {}
+      },
+      "name": "Pico Della Mirandola"
+    }
   },
   {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-          "INSTANCE": {
-            "value": 15
-          }
-        }
-      }
-    },
-    "counter": 0,
-    "name": "Ludovico III Gonzaga"
-  },
-  {
-    "counter": 0,
-    "name": "Leonardo Da Vinci"
-  },
-  {
-    "counter": 0,
-    "name": "Pico Della Mirandola"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-          "INSTANCE": {
-            "value": 6
-          }
-        },
-        "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-          "INSTANCE": {
-            "value": 6
-          }
-        },
-        "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-          "INSTANCE": {
-            "value": 6
-          }
-        },
-        "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-          "INSTANCE": {
-            "value": 6
-          }
-        }
-      }
-    },
-    "counter": 0,
-    "name": "Sisto IV"
-  },
-  {
-    "counter": 0,
-    "name": "Lucrezia Borgia"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-          "INSTANCE": {
-            "value": 3
-          }
-        },
-        "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-          "INSTANCE": {
-            "value": 7
-          }
-        }
-      }
-    },
-    "counter": 0,
-    "name": "Sigismondo Malatesta"
-  },
-  {
-    "counter": 0,
-    "name": "Lorenzo de\u0027 Medici"
-  },
-  {
-    "counter": 0,
-    "name": "Ludovico Il Moro"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-          "INSTANCE": {
-            "value": 12
-          }
-        },
-        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
-          "INSTANCE": {
-            "value": 35
-          }
-        },
-        "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-          "INSTANCE": {
-            "value": 2
-          }
-        }
-      }
-    },
-    "counter": 3,
-    "cardClass": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
-    "name": "Cesare Borgia"
-  },
-  {
-    "requirements": {
-      "resources": {
-        "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-          "INSTANCE": {
-            "value": 8
-          }
-        }
-      }
-    },
-    "counter": 0,
-    "name": "Santa Rita"
-  },
-  {
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "resource": {
           "resources": {
             "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
@@ -315,16 +299,22 @@
             }
           }
         }
-      }
-    },
-    "counter": 0,
-    "name": "Cosimo de\u0027 Medici"
+      },
+      "cardsNumber": {
+        "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": 2,
+        "class it.polimi.ingsw.ps11.model.cards.list.YellowCard": 4
+      },
+      "requiredResources": {
+        "resources": {}
+      },
+      "name": "Cosimo de\u0027 Medici"
+    }
   },
   {
-    "bonus": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.model.bonus.IncrementResourceBonus",
-      "INSTANCE": {
-        "resourceList": {
+    "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard",
+    "INSTANCE": {
+      "effect": {
+        "resource": {
           "resources": {
             "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -334,9 +324,15 @@
             }
           }
         }
-      }
-    },
-    "counter": 0,
-    "name": "Bartolomeo Colleoni"
+      },
+      "cardsNumber": {
+        "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": 2,
+        "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": 4
+      },
+      "requiredResources": {
+        "resources": {}
+      },
+      "name": "Bartolomeo Colleoni"
+    }
   }
 ]

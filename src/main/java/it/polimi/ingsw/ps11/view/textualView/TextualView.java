@@ -30,14 +30,12 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelect
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3>TextualView</h3>
- * <p> 
-<<<<<<< HEAD
+ * <p>
  * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco. Il suo funzionamento e' semplice:
  * dal server arriva un oggetto del gioco e viene stampato a video; la console e' sempre in ascolto di eventuali input; se il giocatore
  * inserisce un comando contenuto nella Map allora viene invocato l'evento ed inviato al server
-=======
  * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco.
->>>>>>> GabLog
+
  * </p>
  */
 public class TextualView extends View {
@@ -45,7 +43,7 @@ public class TextualView extends View {
 	private Map<String, ViewEvent> commands = new HashMap<String, ViewEvent>();
 	private Input input;
 	
-	//le istruzioni vanno aggiornate allora
+	//le istruzioni vanno aggiornate
 	private String instructions = "\n\ninstruction:"
 			+ "\nif you want to select the floor of a tower type \" yellow tower 1 \""
 			+ "\nif you want to select a family member (e.g. orange) -> orange family "
@@ -110,6 +108,12 @@ public class TextualView extends View {
 		this.update(game.getBoard());
 		console.println(instructions);
 	}
+	
+//	public void registrate(Registration registration){
+//		TextualRegistationView registrate = new TextualRegistationView(registration,viewEvent,input);
+//		registrate.print();
+//		input.attach(registrate);
+//	}
 	
 	@Override
 	public void chooseResource(ArrayList<ResourceList> costs){ 

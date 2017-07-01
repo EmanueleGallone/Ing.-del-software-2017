@@ -102,7 +102,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		for(String key : otherResources.getResources().keySet()){
 			if (getResource(key) != null){
 				this.resources.get(key).increment(-otherResources.getValueOf(key));
-			}	
+			}
 		}
 	}
 	

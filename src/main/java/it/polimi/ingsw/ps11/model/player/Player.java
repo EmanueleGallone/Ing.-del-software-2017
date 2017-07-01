@@ -87,6 +87,8 @@ public class Player implements Serializable{
 	public Player clone(){
 		Player clone = new Player();
 		
+		clone.name = this.name;
+		
 		clone.resourceList = this.resourceList.clone();
 		clone.familyManager = this.familyManager.clone();
 		clone.cardManager = this.cardManager.clone();
@@ -99,9 +101,8 @@ public class Player implements Serializable{
 		if (obj == null)
 			return false;
 		
-		//Da decidere se basta solo il colore
 		if(this.getClass() == obj.getClass()){
-			return((Player)obj).getColor() == this.getColor();
+			return((Player)obj).getName() == this.getName();
 		}
 		return false;
 	}

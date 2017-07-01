@@ -1,24 +1,16 @@
 package it.polimi.ingsw.ps11.testEma;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.google.gson.reflect.TypeToken;
-
-import it.polimi.ingsw.ps11.MainTest;
-import it.polimi.ingsw.ps11.model.bonus.ema.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.model.bonus.ema.IncrementResourceBonus;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
@@ -110,27 +102,6 @@ public class TestCard {
 		Assert.assertTrue(clone.getCardList(PurpleCard.class.toString()).get(0).getPeriod() == 3);
 		String Class = GreenCard.class.toString();
 		System.out.println(manager.getCardList(Class).get(0).getName()); //testo il getCardList passando una stringa
-	}
-	
-	@Test
-	public void createFileTest(){
-		
-		MainTest.inizializzaCarte();
-		MainTest.inizializzatore();
-	}
-	
-	@Test
-	public void readCardsFileTest(){
-		JsonAdapter adapter = new JsonAdapter();
-		CustomFileReaderWriter reader = new CustomFileReaderWriter("settings//BlueCards");
-		String read = reader.readFile("settings//BlueCards");
-		
-		Type type = new TypeToken<ArrayList<BlueCard>>(){}.getType();
-		
-		ArrayList<BlueCard> cards = adapter.fromJson(read, type);
-		
-		Assert.assertEquals("Badessa", cards.get(0).getName()); //leggo la prima carta
-		Assert.assertEquals("Governatore", cards.get(23).getName()); //leggo ultima carta
 	}
 
 }
