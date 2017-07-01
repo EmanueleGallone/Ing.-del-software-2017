@@ -12,7 +12,7 @@ public class TextualCardManagerView extends CardManagerView{
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		TextualDevelopmentCardView developmentCardView = new TextualDevelopmentCardView();
+//		TextualDevelopmentCardView developmentCardView = new TextualDevelopmentCardView();
 		
 		for(ArrayList<DevelopmentCard> deck : cardManager.getAllCards().values()){
 			int i = 0;
@@ -21,9 +21,9 @@ public class TextualCardManagerView extends CardManagerView{
 					console.println(card.getClass().getSimpleName() + "s : ");
 					i++;
 				}
-				//console.print(card.getName() + "   ");
-				developmentCardView.update(card);
-				developmentCardView.print();
+				console.println("\n • "+card.getName());
+//				developmentCardView.update(card);
+//				developmentCardView.print();
 			}
 			console.print("\n");
 		}

@@ -4,6 +4,7 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -15,6 +16,7 @@ public class StateHandler {
 	private State mainState;
 	private Player player;
 	private GameLogic gameLogic;
+	private boolean suspended;
 	
 	private ActionManager aManager;
 	
@@ -54,6 +56,17 @@ public class StateHandler {
 		this.modelEvent.attach(listener);
 	}
 	
+	public void suspended(boolean value){
+		this.suspended = value;
+	}
+	
+	public boolean isSuspended() {
+		return suspended;
+	}
+	
+	public void play(){
+		nextState(new PlayState());
+	}
 // State handling 
 	
 	public void nextState(State state){

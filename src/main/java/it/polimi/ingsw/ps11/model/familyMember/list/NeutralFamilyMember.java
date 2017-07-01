@@ -16,15 +16,10 @@ public class NeutralFamilyMember extends FamilyMember {
 	@Override
 	public NeutralFamilyMember clone(){
 		NeutralFamilyMember clone = new NeutralFamilyMember();
-		clone.value = this.value;
+		clone.dice = this.dice;
 		clone.modifier = this.modifier;
 		
 		return clone;
-	}
-	
-	@Override
-	public void setValue(int value) {
-		return;
 	}
 
 	@Override

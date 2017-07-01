@@ -15,7 +15,7 @@ public class WhiteFamilyMember extends FamilyMember {
 	@Override
 	public WhiteFamilyMember clone(){
 		WhiteFamilyMember clone = new WhiteFamilyMember();
-		clone.value = this.value;
+		clone.dice = this.dice;
 		clone.modifier = this.modifier;
 		
 		return clone;

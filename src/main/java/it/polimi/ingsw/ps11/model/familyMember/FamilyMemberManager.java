@@ -3,6 +3,10 @@ package it.polimi.ingsw.ps11.model.familyMember;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.model.dices.BlackDice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.dices.OrangeDice;
+import it.polimi.ingsw.ps11.model.dices.WhiteDice;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
@@ -39,6 +43,12 @@ public class FamilyMemberManager implements Serializable {
 	
 	public HashMap<String, FamilyMember> getFamily(){
 		return this.family;
+	}
+	
+	public void setDices(DiceManager dices){
+		getFamilyMember(BlackFamilyMember.class).setDice(dices.getDice(BlackDice.class));
+		getFamilyMember(WhiteFamilyMember.class).setDice(dices.getDice(WhiteDice.class));
+		getFamilyMember(OrangeFamilyMember.class).setDice(dices.getDice(OrangeDice.class));
 	}
 	
 	@Override

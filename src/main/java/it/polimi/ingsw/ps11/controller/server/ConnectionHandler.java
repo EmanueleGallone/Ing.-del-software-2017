@@ -13,7 +13,7 @@ public class ConnectionHandler {
 	private final int MAX_SIZE = 4; 
 	private final int START_SIZE = 1;
 	private long delay = 1000; //60000; //va caricato da file
-	Timer timer;
+	private Timer timer;
 	
 	private ArrayList<Connection> lobby = new ArrayList<>();
 	private ArrayList<GameController> games = new ArrayList<>();

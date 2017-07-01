@@ -15,33 +15,36 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 public class GameLogic implements Runnable{
 
 	private Game game;
-	HashMap<Player, StateHandler> playerStatus = new HashMap<>();
+	private RoundManager roundManager;
+
+	private HashMap<Player, StateHandler> playerStatus = new HashMap<>();
 	
 	public GameLogic(ArrayList<Player> players) {
 		
+		roundManager = new RoundManager(players);
 		game = new Game(players);
+		
 		for(Player player : players){
 			playerStatus.put(player, new StateHandler(this,player));
 		}
-	}
-
-
-	public Game getGame() {
-		return game;
-	}
-	
-	public void attach(EventListener<ModelEventInterface> listener){
-		for(StateHandler playerState : playerStatus.values()){
-			playerState.attach(listener);
-		}
+		
+		roundManager.timeOutEvent(timeOutListener);
+		roundManager.newTurnEvent(endTurnListener);
+		roundManager.newPeriodEvent(endPeriodListener);
+		roundManager.gameOverEvent(endGameListener);
 	}
 	
 	public void nextPlayer(){
+		Player nextPlayer = roundManager.next();
 		for(StateHandler playerState : playerStatus.values()){
-			playerState.nextState(new DefaultState());
+			
+			if(playerState.getPlayer().equals(nextPlayer))
+				playerState.nextState(new PlayState());
+			else {
+			    playerState.nextState(new DefaultState());
+			}
 		}
-		Player player = game.getRoundManager().next();
-		playerStatus.get(player).nextState(new PlayState());
+		roundManager.startTimer();
 	}
 
 	@Override
@@ -51,6 +54,16 @@ public class GameLogic implements Runnable{
 			playerState.start();
 		}
 	}
+	
+	public Game getGame() {
+		return game;
+	}
+	
+	public void attach(EventListener<ModelEventInterface> listener){
+		for(StateHandler playerState : playerStatus.values()){
+			playerState.attach(listener);
+		}
+	}
 
 // Handle events from view
 	
@@ -58,4 +71,44 @@ public class GameLogic implements Runnable{
 		new ConsoleLog().println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
 		playerStatus.get(viewEvent.getSource()).handle(viewEvent);
 	}
+	
+	
+// Handle turn sequence
+	
+    private transient EventListener<Player> timeOutListener = new EventListener<Player>() {
+
+		@Override
+		public void handle(Player e) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+	
+	private transient EventListener<RoundManager> endGameListener = new EventListener<RoundManager>() {
+
+		@Override
+		public void handle(RoundManager e) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+	
+	private transient EventListener<RoundManager> endPeriodListener = new EventListener<RoundManager>() {
+
+		@Override
+		public void handle(RoundManager e) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+	
+	
+	private transient EventListener<RoundManager> endTurnListener = new EventListener<RoundManager>() {
+
+		@Override
+		public void handle(RoundManager e) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
 }

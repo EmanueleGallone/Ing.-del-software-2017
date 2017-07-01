@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import it.polimi.ingsw.ps11.model.game.RoundManager;
+import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 
 public class RoundManagerTest {
 

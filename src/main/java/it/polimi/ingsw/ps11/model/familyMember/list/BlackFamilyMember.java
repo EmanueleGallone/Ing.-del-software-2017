@@ -17,7 +17,7 @@ public class BlackFamilyMember extends FamilyMember {
 	@Override
 	public BlackFamilyMember clone(){
 		BlackFamilyMember clone = new BlackFamilyMember();
-		clone.value = this.value;
+		clone.dice = this.dice;
 		clone.modifier = this.modifier;
 		
 		return clone;

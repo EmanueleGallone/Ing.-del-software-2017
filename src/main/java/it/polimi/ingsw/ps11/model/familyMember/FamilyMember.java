@@ -12,18 +12,19 @@ import java.io.Serializable;
  * @see it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember WhiteFamilyMember
  * @see it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember NeutralFamilyMember
  */
+
+import it.polimi.ingsw.ps11.model.dices.Dice;
 public abstract class FamilyMember implements Serializable{
 	
 	private final int DEFAULT_MODIFIER = 0;
-	private final int DEFAULT_VALUE = 5;
 	
-	protected int value; 
+	//protected int value; 
+	protected transient Dice dice;
 	protected int modifier;
 	private boolean used = false;
 	
 	
 	public FamilyMember(){
-		value = DEFAULT_VALUE;
 		modifier = DEFAULT_MODIFIER;
 	}
 	
@@ -32,7 +33,10 @@ public abstract class FamilyMember implements Serializable{
 //end logics
 
 	public int getValue(){
-		return this.value + this.modifier;
+		int value = 0;
+		if(dice == null)
+			value = dice.getValue();
+		return value + this.modifier;
 	}
 
 	public void setModifier(int value){
@@ -43,8 +47,8 @@ public abstract class FamilyMember implements Serializable{
 		modifier = DEFAULT_MODIFIER;
 	}
 	
-	public void setValue(int value){
-		this.value = value;
+	public void setDice(Dice dice) {
+		this.dice = dice;
 	}
 	
 	public abstract boolean isNeutral();
@@ -62,7 +66,7 @@ public abstract class FamilyMember implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "FamilyMember [value=" + value + ", modifier=" + modifier + "]";
+		return "FamilyMember [value=" + getValue() + ", modifier=" + modifier + "]";
 	}
 	
 }

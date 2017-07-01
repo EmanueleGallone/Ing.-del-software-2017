@@ -29,9 +29,5 @@ public class TextualDevelopmentCardView extends DevelopmentCardView {
 				}
 			}
 		}
-		
-		console.println("\tBonus : ");
-		//mancano i bonus
-		
 	}
 }

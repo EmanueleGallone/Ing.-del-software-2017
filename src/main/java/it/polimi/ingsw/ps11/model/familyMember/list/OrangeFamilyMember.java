@@ -15,7 +15,7 @@ public class OrangeFamilyMember extends FamilyMember {
 	@Override
 	public OrangeFamilyMember clone(){
 		OrangeFamilyMember clone = new OrangeFamilyMember();
-		clone.value = this.value;
+		clone.dice = this.dice;
 		clone.modifier = this.modifier;
 		
 		return clone;
