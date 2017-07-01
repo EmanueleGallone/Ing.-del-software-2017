@@ -2,7 +2,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-
+/** <h3> DoSeveralTimesAction </h3>
+ * <p> Classe che rappresenta un <code>action</code> ripetuta un <code>iteration</code> numero di volte.</p>
+ * @see Action
+ */
 public class DoSeveralTimesAction implements Action<DoSeveralTimesAction>{
 
 	private ActionManager aManager;

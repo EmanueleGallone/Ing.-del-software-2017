@@ -2,7 +2,11 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
-
+/** <h3> EndGameAffecter </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse assegnate ad un giocatore a fine 
+ * partita. </p>
+ * @see EndGameAction
+ */
 public class EndGameAffecter extends EndGameAction {
 
 	private final boolean FORWARD = true;

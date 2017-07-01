@@ -7,7 +7,10 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.UseServantAction;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-
+/** <h3> FamilyInSpaceAction </h3>
+ * <p> Classe che rappresenta l'azione di posizionamento di un familiare i un generico actionspace.</p>
+ * @see Action
+ */
 public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	
 	protected ActionManager aManager;

@@ -8,7 +8,10 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> ExchangeAction </h3>
+ * <p> Classe che rappresenta l'azione di scambio di una ResourceList per un'altra.</p>
+ * @see Action
+ */
 public class ExchangeAction implements Action<ExchangeAction>, ResourceListener {
 
 	private ActionManager aManager;

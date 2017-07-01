@@ -6,8 +6,10 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
-
+/** <h3> IncrementAction </h3>
+ * <p> Classe che rappresenta l'azione di incremento di risorse in una ResourceList</p>
+ * @see Action
+ */
 public class IncrementAction implements Action<IncrementAction>, ResourceListener{
 
 	protected ActionManager aManager;

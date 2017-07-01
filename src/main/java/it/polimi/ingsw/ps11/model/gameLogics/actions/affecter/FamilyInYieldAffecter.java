@@ -4,6 +4,12 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInYieldAction;
 
+/** <h3> Nome </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare il valore di un familiare se quest'ultimo viene 
+ * posizionato sull'actionSpace di una zona Raccolta o Produzione </p>
+ * @see FamilyYieldAction
+ */
+
 public class FamilyInYieldAffecter extends FamilyInYieldAction{
 
 	private final boolean FORWARD = true;
@@ -11,7 +17,6 @@ public class FamilyInYieldAffecter extends FamilyInYieldAction{
 
 	private String cardType;
 	private int value;
-	
 	private FamilyInYieldAction action;
 	
 	public FamilyInYieldAffecter(String cardType, int value) {

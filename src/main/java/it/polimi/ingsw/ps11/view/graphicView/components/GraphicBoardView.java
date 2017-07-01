@@ -16,14 +16,35 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
  */
 public class GraphicBoardView extends BoardView {
 
-	GraphicMainBoardView mainBoard = new GraphicMainBoardView();		//Parte fissa della Board
-	GraphicSlideBoardView slideBoard = new GraphicSlideBoardView();		//Parte della Board che compare e scompare
+	GraphicMainBoardView mainBoard = new GraphicMainBoardView();	//Parte fissa della Board
+	GraphicSlideBoardView slideBoard = new GraphicSlideBoardView();	//Parte della Board che compare e scompare
 	
 	@Override
 	public void print() {
+		
 		mainBoard.print();
 		slideBoard.print();
+		
 	};
+	
+	//<-------------------------------INIZIO ATTACH------------------------------->
+		
+	@Override
+	public void attach(EventListener<ViewEventInterface> listener) {	//attach il listener ad ogni parte della board
+		super.attach(listener);
+		mainBoard.attach(listener);
+		slideBoard.attach(listener);
+	}
+
+	public void attachSlideListener(ShowPanel showPanel) {				//attach la finestra principale al bottone che 
+		mainBoard.attachSlideListener(showPanel);						//mostra la parte della board nascosta
+	}
+
+	public void attachChangePlayer(ChangePlayer changePlayer) {			//attacha la finestra principale ai bottoni che
+		mainBoard.attachChangePlayer(changePlayer);						//switchano tra le board dei player
+	}
+	
+	//<-------------------------------INIZIO GETTER------------------------------->
 	
 	public GraphicMainBoardView getMainBoard(){
 		return mainBoard;
@@ -32,21 +53,6 @@ public class GraphicBoardView extends BoardView {
 	public GraphicSlideBoardView getSlideBoard(){
 		return slideBoard;
 		
-	}
-	
-	@Override
-	public void attach(EventListener<ViewEventInterface> listener) {		//attach il listener ad ogni parte della board
-		super.attach(listener);
-		mainBoard.attach(listener);
-		slideBoard.attach(listener);
-	}
-
-	public void attachSlideListener(ShowPanel showPanel) {					//attach la finestra principale al bottone interno
-		mainBoard.attachSlideListener(showPanel);
-	}
-
-	public void attachChangePlayer(ChangePlayer changePlayer) {
-		mainBoard.attachChangePlayer(changePlayer);
 	}
 
 }

@@ -7,7 +7,6 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
  * @version 1.0
  * @see FamilyMember
  */
-@SuppressWarnings("serial")
 public class BlackFamilyMember extends FamilyMember {
 	
 	public BlackFamilyMember(){
@@ -21,10 +20,5 @@ public class BlackFamilyMember extends FamilyMember {
 		clone.modifier = this.modifier;
 		
 		return clone;
-	}
-
-	@Override
-	public boolean isNeutral() {
-		return false;
 	}
 }

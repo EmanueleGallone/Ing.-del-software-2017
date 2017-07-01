@@ -17,6 +17,7 @@ import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 /**
  * <h3> GraphicMainBoardView</h3>
  * <p> Classe per la visualizzazione della parte sempre visibile della Board di gioco. Contiene le TowerViews, la ChurchView
@@ -43,15 +44,6 @@ public class GraphicMainBoardView extends BoardView{
 		
 		churchView = new GraphicChurchView();
 		councilPalaceView = new GraphicCouncilPalaceView();
-
-	}
-	
-	public GraphicMainBoardView(Board board){
-		super(board);	
-	}
-	
-	@Override
-	public void print() {
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -73,12 +65,6 @@ public class GraphicMainBoardView extends BoardView{
 		gblMainBoard.rowWeights = new double[]{0.762163, 0.237837, Double.MIN_VALUE};
 		mainBoard.setLayout(gblMainBoard);
 		
-		graphicGreenTowerView.print();
-		graphicBlueTowerView.print();
-		graphicYellowTowerView.print();
-		graphicPurpleTowerView.print();
-		graphicChurchView.print();
-		graphicCouncilPalaceView.print();
 		paddingSX.loadImage("boardImages/Paddingsx.png");
 		paddingDX.loadImage("boardImages/Paddingdx.png");
 		
@@ -157,6 +143,19 @@ public class GraphicMainBoardView extends BoardView{
 		
 		this.churchView = graphicChurchView;
 		this.councilPalaceView = graphicCouncilPalaceView;
+
+	}
+	
+	public GraphicMainBoardView(Board board){
+		super(board);	
+	}
+	
+	@Override
+	public void print() {
+		for (TowerView towerView : towerViews) {
+			towerView.print();
+		}
+		graphicCouncilPalaceView.print();
 		
 	}
 	
@@ -175,11 +174,11 @@ public class GraphicMainBoardView extends BoardView{
 	}
 
 	public void attachSlideListener(ShowPanel showPanel) {				//Se viene cliccato il pulsante, mostra la parte nascosta della board
-		graphicCouncilPalaceView.attachSlideListener(showPanel);
+		//graphicCouncilPalaceView.attachSlideListener(showPanel);
 	}
 
 	public void attachChangePlayer(ChangePlayer changePlayer) {
-		graphicCouncilPalaceView.attachChangePlayer(changePlayer);
+		//graphicCouncilPalaceView.attachChangePlayer(changePlayer);
 	}
 
 }

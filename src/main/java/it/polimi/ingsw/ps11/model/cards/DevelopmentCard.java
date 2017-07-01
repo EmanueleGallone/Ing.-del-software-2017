@@ -51,12 +51,20 @@ public abstract class DevelopmentCard extends Card {
 	
 // Start Logics
 	
+	/**<h3> boolean checkCost(ResourceList, ResourceList) </h3>
+	 * <p> Compara due resourceList, la prima del giocatore e la seconda della carta,  
+	 * @return true se il giocatore ha abbastanza risorse, false altrimenti </p>
+	 */
 	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
 		if (costs.contains(cost) && playerResourceList.canSubtract(cost)) 
 			return true;
 		return false;
 	}
 	
+	/**<h3>  isMonoCost() </h3>
+	 * <p> Controlla che la carta abbia un solo tipo di risorsa come costo </p>
+	 * @return true se è solo un tipo, false altrimenti
+	 */
 	public boolean isMonoCost(){
 		return this.costs.size() <= 1;
 	}
@@ -88,10 +96,16 @@ public abstract class DevelopmentCard extends Card {
 		return permanentEffect;
 	}
 
+	/**<h3> addInstantEffect(Effect) </h3>
+	 * <p> Aggiunge un effetto istantaneo ad una carta </p>
+	 */
 	public void addInstantEffect(Effect istantEffect) {
 		this.instantEffect.add(istantEffect);
 	}
 	
+	/**<h3> addPermanentEffect(Effect) </h3>
+	 * <p> Aggiunge un'effetto permanente ad una carta </p>
+	 */
 	public void addPermanentEffect(Effect permanentEffect) {
 		this.permanentEffect.add(permanentEffect);
 	}
@@ -115,6 +129,9 @@ public abstract class DevelopmentCard extends Card {
 	
 // End setters
 	
+	/**<h3> String toString() </h3>
+	 * <p> TIPOCARTA [DEFAULT_VALUE= , activeValue= ] </p>
+	 */
 	public String toString(){
 		return this.getClass().getSimpleName() + "[DEFAULT_VALUE=" + DEFAULT_VALUE + ", activeValue=" + activeValue + "]";
 	}
@@ -126,7 +143,18 @@ public abstract class DevelopmentCard extends Card {
 	
 	@Override
 	public abstract DevelopmentCard clone();
-	
+	/**<h3> boolean euqals(Object) </h3>
+	 * <p> Compara due carte</p>
+	 * @return true se sono dello stesso tipo e hanno lo stesso nome, false altrimenti
+	 */
 	@Override
-	public abstract boolean equals(Object obj);
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		
+		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((DevelopmentCard) obj).getName()))
+				return true;
+		
+		return false;
+	}
 }

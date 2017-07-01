@@ -11,11 +11,6 @@ public class WhiteDice extends Dice {
 	}
 
 	@Override
-	public String toString() {
-		return "WhiteDice [value=" + value + "]";
-	}
-	
-	@Override
 	public WhiteDice clone() {
 		WhiteDice clone = new WhiteDice();
 		

@@ -54,6 +54,9 @@ public abstract class Resource implements Serializable {
 	@Override
 	public abstract Resource clone();
 	
+	/**<h3> boolean equals(Object) </h3>
+	 * <p>Compara due risorse, ritorna true se sono dello stesso tipo e hanno lo sstesso valore</p>
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if(obj == null)

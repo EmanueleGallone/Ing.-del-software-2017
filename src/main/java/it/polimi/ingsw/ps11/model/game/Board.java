@@ -45,7 +45,6 @@ public class Board implements Serializable{
 	ArrayList<DevelopmentCard> alreadyUsed = new ArrayList<>();
 	
 	public Board(){
-	
 	}
 	
 	public Board(ArrayList<Tower> towers, Market market, CouncilPalace councilPalace){
@@ -106,6 +105,13 @@ public class Board implements Serializable{
 		return diceManager;
 	}
 	
+	/**<h3> String toString() </h3>
+	 * <p>Board [tempTowers= </p>
+		, harvest= </p>
+		, production= </p>
+		, market= </p>
+		];</p>
+	 */
 	@Override
 	public String toString() {
 		return "Board [tempTowers=" + Arrays.asList(towers) + '\n'

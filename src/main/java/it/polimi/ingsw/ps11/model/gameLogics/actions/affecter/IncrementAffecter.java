@@ -2,7 +2,11 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> Nome </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse ottenute da un giocatore in seguito 
+ * ad una qualunque azione</p>
+ * @see IncrementAction
+ */
 public class IncrementAffecter extends IncrementAction {
 
 	private final boolean FORWARD = true;

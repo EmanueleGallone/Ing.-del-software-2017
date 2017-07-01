@@ -41,6 +41,9 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		return playerNumber;
 	}
 	
+	/**<h3> boolean placeFamilyMember(familyMember, Player) </h3>
+	 *<p> Piazza il familiare sull'actionspace selezionato, se questo non è già occupato </p> 
+	 */
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		//deve esserci override per il posizionamento del familiare su quale spazio azione

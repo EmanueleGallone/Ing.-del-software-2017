@@ -31,6 +31,7 @@ public class Game implements Serializable  {
 			e.printStackTrace();
 		}
 	}
+
 	
 	private void setDices(ArrayList<Player> players){
 		for(Player player: players){
@@ -39,6 +40,11 @@ public class Game implements Serializable  {
 		board.getDices().rollDices();
 	}
 	
+
+	/**<h3> Board initializeBoard() </h3>
+	 * <p> Crea una board caricandola da file</p>
+	 * @return una nuova board
+	 */
 	private Board initializeBoard() throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader("settings\\board"));
 		String line,strBoard = "";
@@ -51,13 +57,18 @@ public class Game implements Serializable  {
 		return jsonAdapter.fromJson(strBoard, Board.class);
 	}
 	
-	
+	/**<h3> CardManager loadCards(int period) </h3>
+	 * <p> Carica le carte sulle torri in base al periodo</p>
+	 */
 	private CardManager loadCards(int period) throws FileNotFoundException{
 		FileReader reader = new FileReader("settings\\cards\\"+period);
 		CardManager cardManager = new JsonAdapter().fromJson(reader, CardManager.class);
 		return cardManager;
 	}
 
+	/**<h3> void refreshCard(int Period) </h3>
+	 * <p>Posiziona le carte sulle torri in maniera casuale in base al periodo</p>
+	 */
 	public void refreshCard(int period) throws FileNotFoundException{
 		CardManager currentCard = loadCards(period);
 		//impostaOrdineCasuale();

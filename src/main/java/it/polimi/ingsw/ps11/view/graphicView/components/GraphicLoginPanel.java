@@ -41,6 +41,7 @@ public class GraphicLoginPanel{
 		JLabel scrittaUsername = new JLabel("<html><font color='white'>Username</font></html>"),
 		scrittaPassword = new JLabel("<html><font color='white'>Password</font></html>");
 		
+		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GridBagLayout gblLoginPanel = new GridBagLayout();
 		gblLoginPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -76,6 +77,8 @@ public class GraphicLoginPanel{
 		gbc.fill = GridBagConstraints.BOTH;
 		window.add(confirm, gbc);
 		
+		//<-------------------------------FINE ALLINEAMENTO------------------------------->
+
 		confirm.addActionListener(new LoginListener());
 		
 		window.setVisible(true);
@@ -105,10 +108,5 @@ public class GraphicLoginPanel{
 			}
 		}
 		
-	}
-	
-	public static void main(String[] args) {
-		
-		GraphicLoginPanel window = new GraphicLoginPanel();
 	}
 }

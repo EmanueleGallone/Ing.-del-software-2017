@@ -6,11 +6,16 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAction;
+/** <h3> Nome </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare il valore di un familiare se quest'ultimo viene 
+ * posizionato sull'actionSpace di un piano con una carta di un certo colore</p>
+ * @see PlaceFamilyYieldAction
+ */
+/**<h3> FamilyInFloorAffecter</h3>
+ * <p>Incrementa di un value il valore del familyMember se quest'ultimo viene piazzato 
+ * in un piano con una carta di un certo colore</p>
+ * @see FamilyInFloorAction
 
-
-/**
- * Incrementa di un tot (value) il valore del familyMember se quest'ultimo viene piazzato 
- * in un piano con una carta di un certo colore
  */
 public class FamilyInFloorAffecter extends FamilyInFloorAction {
 	

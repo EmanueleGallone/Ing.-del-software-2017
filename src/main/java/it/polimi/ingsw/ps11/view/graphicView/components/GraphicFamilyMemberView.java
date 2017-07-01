@@ -21,17 +21,12 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
  * @see GraphicPaintedButton
  */
 public class GraphicFamilyMemberView extends ChooseFamilyView {
-	
-	//Selettore del Familiare
-	
+		
 	protected JPanel familyMembers = new JPanel();
 	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
 	
 	public GraphicFamilyMemberView() {
-
-	}
-	
-	public void print() {
+		
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -61,7 +56,19 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		}
 
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
-			
+
+	}
+	
+	public void print() {
+		for(FamilyMember member : familyManager.getFamily().values()){
+			if(member.isUsed()){
+				familyMemberButtons.get(member).setBackground(Color.BLACK);
+				familyMemberButtons.get(member).setEnabled(false);
+			} else {
+			familyMemberButtons.get(member).loadImage("playerImages/" + member + ".png");
+			familyMemberButtons.get(member).setEnabled(true);
+			}
+		}
 		}
 
 	public JPanel getComponent() {
@@ -79,20 +86,6 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			eventHandler.invoke(new FamilySelectedEvent(familyMemberType));
-		}
-	}
-	
-	@Override
-	public void update(FamilyMemberManager familyMemberManager) {
-		super.update(familyMemberManager);
-		
-		for(FamilyMember member : familyMemberManager.getFamily().values()){
-			familyMemberButtons.get(member).loadImage("playerImages/" + member + ".png");
-			familyMemberButtons.get(member).setEnabled(true);
-			if(member.isUsed()){
-				familyMemberButtons.get(member).setBackground(Color.BLACK);
-				familyMemberButtons.get(member).setEnabled(false);
-			}
 		}
 	}
 	

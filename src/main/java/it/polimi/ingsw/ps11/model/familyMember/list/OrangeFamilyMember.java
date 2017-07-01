@@ -20,9 +20,4 @@ public class OrangeFamilyMember extends FamilyMember {
 		
 		return clone;
 	}
-
-	@Override
-	public boolean isNeutral() {
-		return false;
-	}
 }

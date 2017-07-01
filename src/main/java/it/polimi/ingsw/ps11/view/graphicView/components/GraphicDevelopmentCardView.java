@@ -32,7 +32,7 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 	}
 
 	public void print(){
-		//image.loadImage("/cards/" + cardName + ".png");
+		//image.loadImage("/cards/" + cardName + ".png");				DA DECOMMENTARE UNA VOLTA FATTE LE CARTE
 	}
 
 

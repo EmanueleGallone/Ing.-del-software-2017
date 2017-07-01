@@ -45,6 +45,9 @@ public class DiceManager implements Serializable{
 //End setters
 // start logic
 	
+	/**<h3> void rollDices() </h3>
+	 * <p> Assegna un valore random compreso tra 1 e 6 ad ogni dado contenuto nel Dicemanager</p>
+	 */
 	public void rollDices(){
 		for(String dice: dices.keySet()){
 			dices.get(dice).rollDice();
@@ -55,7 +58,6 @@ public class DiceManager implements Serializable{
 		return getDice(diceClass.toString());
 	}
 	
-	@SuppressWarnings("unchecked")
 	public <T extends Dice> T getDice(String diceClass){
 		return (T) dices.get(diceClass);
 	}
@@ -74,6 +76,10 @@ public class DiceManager implements Serializable{
 	public HashMap<String, Dice> getDices() {
 		return dices;
 	}
+	
+	/**<h3> String toString() </h3>
+	 * <p> Per ogni dado stampa : TIPODADO [value= ]\n </p>
+	 */
 	public String toString(){
 		String string = "";
 		
@@ -87,5 +93,4 @@ public class DiceManager implements Serializable{
 	public DiceManager clone(){
 		return new DiceManager(this);
 	}
-
 }

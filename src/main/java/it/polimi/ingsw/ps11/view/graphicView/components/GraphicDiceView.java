@@ -4,10 +4,12 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView;
 /**
@@ -18,18 +20,20 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView;
 public class GraphicDiceView extends DiceView {
 
 	protected GraphicPaintedPanel dice = new GraphicPaintedPanel();
-	protected JPanel blackDice, orangeDice, whiteDice;
+	protected ArrayList<GraphicPaintedPanel> dicePanels = new ArrayList<>();
 	protected JButton closeButton;
 	
 	public GraphicDiceView() {
-		blackDice = new JPanel();
-		orangeDice = new JPanel();
-		whiteDice = new JPanel();
+		
+		GraphicPaintedPanel blackDice = new GraphicPaintedPanel(),
+							orangeDice = new GraphicPaintedPanel(),
+							whiteDice = new GraphicPaintedPanel();
+		dicePanels.add(blackDice);
+		dicePanels.add(orangeDice);
+		dicePanels.add(whiteDice);
+		
 		closeButton = new JButton("X");
-	}
-	
-	@Override
-	public void print() {
+		
 		dice.loadImage("boardImages/Dices.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
@@ -72,15 +76,17 @@ public class GraphicDiceView extends DiceView {
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
 	}
+	
+	@Override
+	public void print() {
+		int i = 0;
+		for (Dice dice : dices.getDices().values()) {
+			dicePanels.get(i).loadImage("Dice type " + i + " value " + dice.getValue());
+		}
+	}
 
 	public JPanel getComponent(){
 		return dice;
-	}
-	
-	
-	@Override
-	public void update(DiceManager dices) {
-		super.update(dices);
 	}
 	
 	public void attachCloseButton(ActionListener listener){

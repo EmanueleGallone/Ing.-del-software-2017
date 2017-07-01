@@ -12,7 +12,11 @@ import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
-
+/** <h3> FamilyInFloorAction </h3>
+ * <p> Classe che rappresenta l'azione di posizionamento di un familiare di un giocatore in un actionspace appartenente
+ * ad un Floor di una torre.</p>
+ * @see Action
+ */
 public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedConfirm, ResourceListener{
 	
 	protected ActionManager aManager;

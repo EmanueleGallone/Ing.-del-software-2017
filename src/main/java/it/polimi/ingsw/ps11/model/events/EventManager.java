@@ -1,7 +1,11 @@
 package it.polimi.ingsw.ps11.model.events;
 
 import java.util.HashMap;
-
+/** <h3> EventManager </h3>
+ * <p> Classe Manager per gli <code>Eventi</code>. Associa ad ogni nome del tipo di evento l'EventHandler adibito alla
+ * sua gestione.</p>
+ * @see EventHandler
+ */
 public class EventManager {
 
 	private HashMap<String, EventHandler<?>> events = new HashMap<>();

@@ -5,6 +5,11 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
+/** <h3> PlaceFamilyYieldAction </h3>
+ * <p> Classe che rappresenta l'azione di posizionamento di un familiare di un giocatore in un actionspace appartenente
+ * ad una zona di Raccolta o Produzione.</p>
+ * @see Action
+ */
 
 public class FamilyInYieldAction implements Action<FamilyInYieldAction> {
 

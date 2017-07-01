@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
 /**
  * <h3>RoundManager</h3>
- * <p> Classe che gestisce e organizza i turni dei giocatori.</p>
+ * <p> Classe che gestisce e organizza i turni di gioco dei giocatori.</p>
  */
 public class RoundManager implements Serializable{
 
@@ -141,7 +141,6 @@ public class RoundManager implements Serializable{
 		return (turn() / TURN_PER_PERIOD)+1;
 	}
 
-	
 	public void newPeriodEvent(EventListener<RoundManager> listener){
 		newPeriod.attach(listener);
 	}

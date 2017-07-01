@@ -3,7 +3,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-
+/** <h3> EndTurnAction </h3>
+ * <p> Classe che rappresenta il termine di un turno.</p>
+ * @see Action
+ */
 public class EndTurnAction implements Action<EndTurnAction>{
 
 	protected ActionManager aManager;

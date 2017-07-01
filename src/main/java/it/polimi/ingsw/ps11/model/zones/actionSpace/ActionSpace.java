@@ -21,7 +21,7 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	private int cost;
 	private ResourceList resources; 
 	
-	/**
+	/**<h3> ActionSpace() </h3>
 	 * Costruttore per costruire un ActionSpace senza risorse e con costo = DEFAULT (1).
 	 */
 	public ActionSpace() {
@@ -44,7 +44,7 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	
 	/**
 	 * <h3>public boolean isFree()</h3>
-	 * <p> Permette di stabilire se è possibile piazzare un familiare o meno.</p>
+	 * <p> Indica è possibile piazzare un familiare o meno.</p>
 	 * @return true se lo spazio azione è vuoto, false altrimenti.
 	 */
 	public boolean isFree(){
@@ -53,6 +53,10 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		return false;
 	}
 	
+	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
+	/** <p> Se l'action space è libero, piazza il familiare</p>
+	 * @return true se il familiare è stato piazzato, false altrimenti
+	 */
 	@Override
 	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
 		if(isFree()){

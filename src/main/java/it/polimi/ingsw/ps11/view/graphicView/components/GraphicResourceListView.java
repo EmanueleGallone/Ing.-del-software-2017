@@ -20,9 +20,6 @@ public class GraphicResourceListView extends JPanel{
 	
 	public GraphicResourceListView(ResourceList resourceList) {
 		this.resourceList = resourceList;
-	}
-	
-	public void print(){
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
