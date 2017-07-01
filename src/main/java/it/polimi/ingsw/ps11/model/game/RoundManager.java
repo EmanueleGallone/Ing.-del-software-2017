@@ -43,6 +43,11 @@ public class RoundManager implements Serializable{
 			newTurn.invoke(this);
 			checkPeriod();
 		}
+		
+		Player player = currentPlayer();
+		if(suspended.contains(player)){
+			return next();
+		}
 		return currentPlayer();
 	}
 	

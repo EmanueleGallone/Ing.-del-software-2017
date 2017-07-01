@@ -79,8 +79,7 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(Player e) {
-			// TODO Auto-generated method stub
-			
+			nextPlayer();
 		}
 	};
 	
@@ -89,7 +88,7 @@ public class GameLogic implements Runnable{
 		@Override
 		public void handle(RoundManager e) {
 			// TODO Auto-generated method stub
-			
+			System.out.println("Il gioco è finito");
 		}
 	};
 	
@@ -98,7 +97,7 @@ public class GameLogic implements Runnable{
 		@Override
 		public void handle(RoundManager e) {
 			// TODO Auto-generated method stub
-			
+			//C'e' da fare tutta la roba delle scomuniche
 		}
 	};
 	
