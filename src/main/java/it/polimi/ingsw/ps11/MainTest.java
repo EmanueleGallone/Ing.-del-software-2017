@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.google.gson.reflect.TypeToken;
 
+import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.ActiveYieldLeaderCard;
@@ -30,7 +31,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
-import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

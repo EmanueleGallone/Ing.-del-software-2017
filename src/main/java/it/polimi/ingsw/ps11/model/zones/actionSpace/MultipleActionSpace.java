@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
  *<p> Classe che rappresenta lo spazio azione del gioco dove e' possibile posizionare più di familiare, a patto che siano di giocatori diversi
  *o siano del tipo NeutralFamilyMember. </p>
  */
-public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpace>, Serializable {
+public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable {
 
 	protected final int COST = 1;
 	private int cost;
@@ -25,21 +25,19 @@ public class MultipleActionSpace implements FamilyMemberSpace,Iterable<ActionSpa
 		this.cost = cost;
 	}
 	
-	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
-	 * <p> Piazza il familiare su un actionspace se ne ha la possibilità e aggiunge l'actionspace a quelli già presenti</p>
-	 * @return true se il familiare è stato piazzato, false altrimenti
-	 */
-	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-		ActionSpace actionSpace = new ActionSpace(3);
-		if(actionSpace.placeFamilyMember(familyMember, player)){
-			multipleActionSpace.add(actionSpace);
-			return true;
-		}
-		return false;
-	}
+//	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
+//	 * <p> Piazza il familiare su un actionspace se ne ha la possibilità e aggiunge l'actionspace a quelli già presenti</p>
+//	 * @return true se il familiare è stato piazzato, false altrimenti
+//	 */
+//	public void placeFamilyMember(FamilyMember familyMember, Player player) {
+//		ActionSpace actionSpace = new ActionSpace(3);
+//		if(actionSpace.placeFamilyMember(familyMember, player)){
+//			multipleActionSpace.add(actionSpace);
+//		}
+//	}
 	
 	/**<h3> ActionSpace getFreeSpace </h3>
-	 * <p> Restituisce il primo actionspace vuoto, se non sono presenti, ne crea uno nuovo.</p>
+	 * <p> Restituisce il primo actionSpace vuoto, se non sono presenti, ne crea uno nuovo.</p>
 	 */
 	public ActionSpace getFreeSpace(){
 		for(ActionSpace space : multipleActionSpace){

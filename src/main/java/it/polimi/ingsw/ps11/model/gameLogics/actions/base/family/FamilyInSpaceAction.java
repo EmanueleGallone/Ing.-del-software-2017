@@ -24,7 +24,7 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space) {
 		this.aManager = aManager;
-		this.familyMember = fMember.clone();
+		this.familyMember = fMember;
 		this.space = space;
 		useServantAction = aManager.newUseServant(new Servant(0), fMember);
 	}
@@ -107,7 +107,7 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	
 	@Override
 	public FamilyInSpaceAction clone() {
-		FamilyInSpaceAction copy = new FamilyInSpaceAction(aManager, familyMember.clone(), space.clone());
+		FamilyInSpaceAction copy = new FamilyInSpaceAction(aManager, familyMember, space);
 		return copy;
 	}
 

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gab.modelTest;
+package it.polimi.ingsw.ps11.gabTest;
 
 import static org.junit.Assert.*;
 
@@ -35,7 +35,7 @@ public class ProductionTest {
 	
 	@Test
 	public void ProductionTest(){
-		assertTrue(production.placeFamilyMember(f1, player1));
+		//assertTrue(production.placeFamilyMember(f1, player1));
 		//production.getSingleOwner e production.getMultipleOwners da aggiungere
 		//ogni volta crea tre nuovi action space??
 	}

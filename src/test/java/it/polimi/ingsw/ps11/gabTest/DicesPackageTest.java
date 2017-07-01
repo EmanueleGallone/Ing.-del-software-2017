@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gab.modelTest;
+package it.polimi.ingsw.ps11.gabTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

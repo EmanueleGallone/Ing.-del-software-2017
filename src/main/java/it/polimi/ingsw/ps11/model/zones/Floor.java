@@ -46,8 +46,8 @@ public class Floor implements FamilyMemberSpace, Serializable {
 	 *@return true se è stato piazzato, false altrimenti
 	 */
 	@Override
-	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-		return actionSpace.placeFamilyMember(familyMember, player);
+	public void placeFamilyMember(FamilyMember familyMember, Player player) {
+		actionSpace.placeFamilyMember(familyMember, player);
 	}
 	
 // End logic

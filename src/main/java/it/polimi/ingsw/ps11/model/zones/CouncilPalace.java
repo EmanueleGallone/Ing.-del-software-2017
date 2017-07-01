@@ -26,19 +26,19 @@ public class CouncilPalace extends MultipleActionSpace  implements Serializable{
 		return newOrder;
 	}
 	
-	/**<h3> boolean placeFamilyMember(FamilyMember) </h3>
-	 *<p> Piazza il familiare nell'actionspace se questo non contiene già un altro familiare dello stesso giocatore che non sia di 
-	 * tipo Neutral</p>
-	 * @return true se è stato piazzato, false se non è stato possibile
-	 */
-	@Override
-	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-		ActionSpace actionSpace = new ActionSpace(COST);
-		if(actionSpace.placeFamilyMember(familyMember, player)){
-			multipleActionSpace.add(actionSpace);
-			return true;
-		}
-		return false;
-	}
+//	/**<h3> boolean placeFamilyMember(FamilyMember) </h3>
+//	 *<p> Piazza il familiare nell'actionspace se questo non contiene già un altro familiare dello stesso giocatore che non sia di 
+//	 * tipo Neutral</p>
+//	 * @return true se è stato piazzato, false se non è stato possibile
+//	 */
+//	@Override
+//	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
+//		ActionSpace actionSpace = new ActionSpace(COST);
+//		if(actionSpace.placeFamilyMember(familyMember, player)){
+//			multipleActionSpace.add(actionSpace);
+//			return true;
+//		}
+//		return false;
+//	}
 
 }

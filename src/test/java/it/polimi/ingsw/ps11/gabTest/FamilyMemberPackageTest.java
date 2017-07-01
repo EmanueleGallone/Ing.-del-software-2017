@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gab.modelTest;
+package it.polimi.ingsw.ps11.gabTest;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
-import it.polimi.ingsw.ps11.model.json.JsonAdapter;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;

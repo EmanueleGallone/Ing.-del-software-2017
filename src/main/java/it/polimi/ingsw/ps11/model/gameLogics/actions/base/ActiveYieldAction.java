@@ -30,13 +30,10 @@ public class ActiveYieldAction implements Action<ActiveYieldAction> {
 
 	@Override
 	public void perform() {
-		
 		ArrayList<DevelopmentCard> cards = aManager.getSubject().getCardManager().getCardList(cardType);
-		if (cards != null){
-			for(DevelopmentCard card : cards){
-				if(card.getActiveValue() <= value)
-					active(card.getPermanentEffect());
-			}
+		for(DevelopmentCard card : cards){
+			if(card.getActiveValue() <= value)
+				active(card.getPermanentEffect());
 		}
 	}
 

@@ -78,16 +78,21 @@ public class CardManager implements Serializable {
 // End logic
 // Start getters
 	
+
 	public <T extends DevelopmentCard> ArrayList<T> getCardList (Class<T> cardClass){
-		return (ArrayList<T>) this.cards.get(cardClass.toString()); //forse il casting va messo fuori nel chiamante del metodo; come per clone!
+		return (ArrayList<T>) getCardList(cardClass.toString()); 
 	}
 	
 
-	public <T extends DevelopmentCard> ArrayList<T> getCardList (String cardClass){ //necessario per bypassare il problema della serializzazione
-		return (ArrayList<T>) this.cards.get(cardClass); 
+	public ArrayList<DevelopmentCard> getCardList (String cardClass){
+		ArrayList<DevelopmentCard> cards = this.cards.get(cardClass);
+		if(cards == null)
+			cards = new ArrayList<>();
+		return cards;
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public HashMap<String, ArrayList<DevelopmentCard>> getAllCards() {
 		return (HashMap<String, ArrayList<DevelopmentCard>>) cards.clone();
 	}
@@ -116,9 +121,5 @@ public class CardManager implements Serializable {
 		
 		return clone;
 	}
-	
-// End getters
-	
-	
 	
 }

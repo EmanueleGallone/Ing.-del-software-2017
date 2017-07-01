@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.json;
+package it.polimi.ingsw.ps11.model;
 
 import java.io.FileReader;
 import java.lang.reflect.Type;

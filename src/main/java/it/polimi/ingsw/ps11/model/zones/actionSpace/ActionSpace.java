@@ -53,18 +53,13 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		return false;
 	}
 	
-	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
-	/** <p> Se l'action space è libero, piazza il familiare</p>
-	 * @return true se il familiare è stato piazzato, false altrimenti
+	/**<h3> void placeFamilyMember(FamilyMember, Player) </h3>
+	/** <p> Setta il valore delle variabili familymember e player con i valori che vengono passati al metodo</p>
 	 */
 	@Override
-	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-		if(isFree()){
-			this.familyMember = familyMember;
-			this.owner = player;
-			return true;
-		}
-		return false;
+	public void placeFamilyMember(FamilyMember familyMember, Player player) {
+		this.familyMember = familyMember;
+		this.owner = player;
 	}
 
 //Start setters
