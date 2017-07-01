@@ -16,12 +16,11 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import it.polimi.ingsw.ps11.model.bonus.ema.Bonus;
-import it.polimi.ingsw.ps11.model.bonus.ema.actionsEma.Action;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
-import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
@@ -38,7 +37,8 @@ public class JsonAdapter {
 			DevelopmentCard.class,
 			FamilyMember.class,
 			Effect.class,
-			Action.class
+			Action.class,
+			LeaderCard.class
 			));
 	
 	public JsonAdapter() {

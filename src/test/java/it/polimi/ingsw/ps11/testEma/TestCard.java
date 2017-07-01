@@ -1,24 +1,16 @@
 package it.polimi.ingsw.ps11.testEma;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.google.gson.reflect.TypeToken;
-
-import it.polimi.ingsw.ps11.MainTest;
-import it.polimi.ingsw.ps11.model.bonus.ema.GainResourceForEveryCardYouHave;
-import it.polimi.ingsw.ps11.model.bonus.ema.IncrementResourceBonus;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.json.JsonAdapter;
-import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
