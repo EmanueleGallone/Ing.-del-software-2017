@@ -12,7 +12,7 @@ import java.util.Random;
  * @see WhiteDice
  */
 @SuppressWarnings("serial")
-public abstract class Dice implements Serializable{
+public class Dice implements Serializable{
 	protected static final int MAX_FACES = 6;
 	protected int value;
 	private transient Random gen = new Random();
@@ -33,7 +33,11 @@ public abstract class Dice implements Serializable{
 	
 	
 	@Override
-	public abstract Dice clone();
+	public  Dice clone(){
+		Dice copy = new Dice();
+		copy.value = value;
+		return copy;
+	}
 	
 	/**<h3> String toString() </h3>
 	 * <p> TIPODADO [value= ]</p>

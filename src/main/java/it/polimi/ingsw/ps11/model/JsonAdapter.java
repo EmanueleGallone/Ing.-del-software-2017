@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,7 +20,10 @@ import com.google.gson.JsonSerializer;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.Resource;
@@ -32,7 +36,7 @@ public class JsonAdapter {
 	
 	private static ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(
 			Resource.class,
-			Dice.class,
+//			Dice.class,
 			Tower.class,
 			DevelopmentCard.class,
 			FamilyMember.class,
@@ -105,6 +109,9 @@ public class JsonAdapter {
 	        JsonObject jsonObject = json.getAsJsonObject();
 	        JsonPrimitive prim = (JsonPrimitive) jsonObject.get(CLASSNAME);
 
+	        System.out.println(json);
+	        System.out.println(jsonObject);
+	        System.out.println(prim);
 	        String className = prim.getAsString();
 
 	        Class<?> klass = null;

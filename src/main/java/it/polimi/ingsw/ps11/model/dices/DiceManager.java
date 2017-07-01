@@ -13,14 +13,14 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 public class DiceManager implements Serializable{
 	
 	private static final int DEFAULT_VALUE = 0;
-	private HashMap<String, Dice> dices = new HashMap<>();
+	private HashMap<String, Dice> dices = new HashMap<String, Dice>();
 	
 // start constructor
 
 	public DiceManager() {
-		dices.put(BlackDice.class.toString(), new BlackDice());
-		dices.put(WhiteDice.class.toString(), new WhiteDice());
-		dices.put(OrangeDice.class.toString(), new OrangeDice());
+		dices.put(BlackDice.class.toString(), new Dice());
+		dices.put(WhiteDice.class.toString(), new Dice());
+		dices.put(OrangeDice.class.toString(), new Dice());
 	}
 	
 	private DiceManager(DiceManager toCopy){

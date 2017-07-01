@@ -20,6 +20,8 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
@@ -55,8 +57,13 @@ public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		//inizializzaCarte();
-		//inizializzatore();
-		LeaderCardsInitializer();
+		inizializzatore();
+		//LeaderCardsInitializer();
+		
+		DiceManager diceManager = new DiceManager();
+		
+		String string = new JsonAdapter().toJson(diceManager);
+		System.out.println(string);
 	}
 
 	

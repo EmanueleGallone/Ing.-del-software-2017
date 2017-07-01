@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
 import it.polimi.ingsw.ps11.model.dices.BlackDice;
+import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.OrangeDice;
 import it.polimi.ingsw.ps11.model.dices.WhiteDice;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
