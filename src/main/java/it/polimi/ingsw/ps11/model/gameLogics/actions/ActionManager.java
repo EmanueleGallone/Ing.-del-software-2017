@@ -10,12 +10,13 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndTurnAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.UseServantAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAction;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
@@ -65,6 +66,10 @@ public class ActionManager {
 	
 	public StateHandler stateHandler() {
 		return stateHandler;
+	}
+	
+	public void send(String message){
+		stateHandler().invoke(new TextualEvent(message));
 	}
 // Actions constructors __________________
 	

@@ -6,6 +6,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
+import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
@@ -36,30 +37,40 @@ public class GetCardAction implements Action<GetCardAction>{
 	@Override
 	public boolean isLegal() {
 		
-		if(card == null)
-			return false;
-		
-		if(!card.isMonoCost() && cost == null ){
-			ChooseResourceEvent c = new ChooseResourceEvent(card.getCosts());
-			c.setMessage("Seleziona uno dei costi da pagare");
-			eventHandler.invoke(c);
+		if(card == null){
+			aManager.send("Il piano è vuoto");
 			return false;
 		}
+		
+		if(isMultipleCost())
+			return false;
 		else if(cost == null && card.isMonoCost()){
 			cost = card.getFirstCost();
 		}
-		
-		boolean result = this.card.getCosts().contains(cost);
+
 		ResourceList temp = cost.clone();
 		temp.subtract(modifier);
 		DecrementAction pay = aManager.newDecrementAction(temp);
+		
 		if(!pay.isLegal()){
-			result = false;
-			aManager.stateHandler().invoke(new TextualEvent("Non hai abbastanza risorse per prendere la carta"));
+			aManager.send("Non hai abbastanza risorse per prendere la carta");
+			return false;
 		}
-		return result && aManager.getSubject().getCardManager().canAdd(card);
+		if(!aManager.getSubject().getCardManager().canAdd(card)){
+			aManager.send("Non puoi prendere un'altra carta di questo tipo");
+		}
+		return true;
 	}
 
+	
+	private boolean isMultipleCost(){
+		if(!card.isMonoCost() && cost == null ){
+			eventHandler.invoke(null); 			 //Serve solo a notificare il floorSelected state che deve andare in wait resource
+			return true;			 			 // Non faccio aManager.changeState(new WaitResource(this));	perchè non ci devo mettere "this" altrimenti salterebbe tutta la catena di invocazioni
+		}
+		return false;
+	}
+	
 	@Override
 	public void perform() {
 		DecrementAction pay = aManager.newDecrementAction(cost);
@@ -120,7 +131,7 @@ public class GetCardAction implements Action<GetCardAction>{
 		ResourceList resource = null;
 		if(cost != null)
 			resource = cost.clone();
-		GetCardAction copy = new GetCardAction(aManager, card.clone(), cost.clone());
+		GetCardAction copy = new GetCardAction(aManager, card.clone(), resource);
 		return copy;
 	}
 

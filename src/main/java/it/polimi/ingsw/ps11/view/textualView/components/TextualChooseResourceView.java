@@ -32,6 +32,7 @@ public class TextualChooseResourceView extends ChooseResourceView implements Eve
 	public void print(){
 		Console console = new TextualConsole();
 		console.print("Choose a cost: \n"); 
+		
 		int counter = costs.size();
 		int choice = 1;
 		

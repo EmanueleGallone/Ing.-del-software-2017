@@ -1,12 +1,14 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base.family;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
@@ -43,20 +45,32 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 	
 	@Override
 	public boolean isLegal() {
-		boolean result = towerAction.isLegal() &&  getCard.isLegal();
-		if(confermed == null){
+		
+		boolean result;
+		if(!towerAction.isLegal()){
+			aManager.send("Non puoi posizionare altri familiari su questa torre");
+			return false;
+		}
+		
+		checkFloorBonus();
+		
+		if((result = getCard.isLegal()) && confermed == null){
 			aManager.changeState(new WaitConfirm(this));
 			return false;
 		}
-		spaceAction.getServantAction().setServant(confermed.getServant());
+		if(confermed != null)
+			spaceAction.getUseServantAction().setServant(confermed.getServant());
+		return result && spaceAction.isLegal();
+	}
+	
+	private void checkFloorBonus(){
+	//Va fatto prima del getCard.isLegal perchè il giocatore può usare le risorse del piano per pagare la carta
 		ResourceList resource = spaceAction.getSpace().getResources();
 		if(resource != null){
-			getCard.getCostModifier().subtract(resource); 		// Questo perchè il giocatore può usare le risorse del piano per pagare la carta
+			getCard.getCostModifier().subtract(resource); 		
 		}
-		result = result && spaceAction.isLegal();
-		return result;
 	}
-
+	
 	public FamilyInTowerAction getTowerAction() {
 		return towerAction;
 	}
@@ -70,7 +84,7 @@ public class FamilyInFloorAction implements Action<FamilyInFloorAction>, NeedCon
 	@Override
 	public void notifyConfirm(ConfirmViewEvent confirm) {
 		this.confermed = confirm;
-		spaceAction.getServantAction().setServant(confirm.getServant());
+		spaceAction.getUseServantAction().setServant(confirm.getServant());
 		if(isLegal())
 			perform();
 	}

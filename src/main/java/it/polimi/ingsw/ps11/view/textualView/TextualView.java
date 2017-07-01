@@ -114,9 +114,11 @@ public class TextualView extends View {
 	
 	@Override
 	public void chooseResource(ArrayList<ResourceList> costs){ 
-		TextualChooseResourceView chooser = new TextualChooseResourceView(input, costs, this.viewEvent);
-		chooser.print();
-		input.attach(chooser);
+		if(costs != null){
+			TextualChooseResourceView chooser = new TextualChooseResourceView(input, costs, this.viewEvent);
+			chooser.print();
+			input.attach(chooser);
+		}
 	}
 	
 	@Override
@@ -150,27 +152,27 @@ public class TextualView extends View {
 	
 	private void initializeEventMap(){
 		
-		commands.put("yellow tower 1", new FloorSelectedEvent(YellowTower.class, 1));
-		commands.put("yellow tower 2", new FloorSelectedEvent(YellowTower.class, 2));
-		commands.put("yellow tower 3", new FloorSelectedEvent(YellowTower.class, 3));
-		commands.put("yellow tower 4", new FloorSelectedEvent(YellowTower.class, 4));
-		commands.put("green tower 1", new FloorSelectedEvent(GreenTower.class, 1));
-		commands.put("green tower 2", new FloorSelectedEvent(GreenTower.class, 2));
-		commands.put("green tower 3", new FloorSelectedEvent(GreenTower.class, 3));
-		commands.put("green tower 4", new FloorSelectedEvent(GreenTower.class, 4));
-		commands.put("blue tower 1", new FloorSelectedEvent(BlueTower.class, 1));
-		commands.put("blue tower 2", new FloorSelectedEvent(BlueTower.class, 2));
-		commands.put("blue tower 3", new FloorSelectedEvent(BlueTower.class, 3));
-		commands.put("blue tower 4", new FloorSelectedEvent(BlueTower.class, 4));
-		commands.put("purple tower 1", new FloorSelectedEvent(PurpleTower.class, 1));
-		commands.put("purple tower 2", new FloorSelectedEvent(PurpleTower.class, 2));
-		commands.put("purple tower 3", new FloorSelectedEvent(PurpleTower.class, 3));
-		commands.put("purple tower 4", new FloorSelectedEvent(PurpleTower.class, 4));
+		commands.put("yellow tower 1", new FloorSelectedEvent(YellowTower.class, 0));
+		commands.put("yellow tower 2", new FloorSelectedEvent(YellowTower.class, 1));
+		commands.put("yellow tower 3", new FloorSelectedEvent(YellowTower.class, 2));
+		commands.put("yellow tower 4", new FloorSelectedEvent(YellowTower.class, 3));
+		commands.put("green tower 1", new FloorSelectedEvent(GreenTower.class, 0));
+		commands.put("green tower 2", new FloorSelectedEvent(GreenTower.class, 1));
+		commands.put("green tower 3", new FloorSelectedEvent(GreenTower.class, 2));
+		commands.put("green tower 4", new FloorSelectedEvent(GreenTower.class, 3));
+		commands.put("blue tower 1", new FloorSelectedEvent(BlueTower.class, 0));
+		commands.put("blue tower 2", new FloorSelectedEvent(BlueTower.class, 1));
+		commands.put("blue tower 3", new FloorSelectedEvent(BlueTower.class, 2));
+		commands.put("blue tower 4", new FloorSelectedEvent(BlueTower.class, 3));
+		commands.put("purple tower 1", new FloorSelectedEvent(PurpleTower.class, 0));
+		commands.put("purple tower 2", new FloorSelectedEvent(PurpleTower.class, 1));
+		commands.put("purple tower 3", new FloorSelectedEvent(PurpleTower.class, 2));
+		commands.put("purple tower 4", new FloorSelectedEvent(PurpleTower.class, 3));
 		
-		commands.put("market 1", new MarketSelectedEvent(1));
-		commands.put("market 2", new MarketSelectedEvent(2));
-		commands.put("market 3", new MarketSelectedEvent(3));
-		commands.put("market 4", new MarketSelectedEvent(4));
+		commands.put("market 1", new MarketSelectedEvent(0));
+		commands.put("market 2", new MarketSelectedEvent(1));
+		commands.put("market 3", new MarketSelectedEvent(2));
+		commands.put("market 4", new MarketSelectedEvent(3));
 
 		commands.put("production" , new ProductionSelectedEvent()); //manca l'harvest
 	}

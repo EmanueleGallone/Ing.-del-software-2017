@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
-import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
@@ -15,7 +14,7 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.SpaceSelectedEve
 public class PlayState extends DefaultState{
 
 	
-	EventManager manager = new EventManager();
+	//EventManager manager = new EventManager();
 	
 	public PlayState() {
 	
@@ -62,7 +61,7 @@ public class PlayState extends DefaultState{
 	@Override
 	public void handle(ProductionSelectedEvent productionSelectedEvent) {
 		if(familySelectedCheck(productionSelectedEvent)){
-			manager.invoke(ProductionSelectedEvent.class, productionSelectedEvent);
+			//manager.invoke(ProductionSelectedEvent.class, productionSelectedEvent);
 		}
 	}
 

@@ -2,9 +2,9 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.PlaceFamilyYieldAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInYieldAction;
 
-public class PlaceFamilyYieldAffecter extends PlaceFamilyYieldAction{
+public class FamilyInYieldAffecter extends FamilyInYieldAction{
 
 	private final boolean FORWARD = true;
 	private boolean forward = FORWARD;
@@ -12,14 +12,14 @@ public class PlaceFamilyYieldAffecter extends PlaceFamilyYieldAction{
 	private String cardType;
 	private int value;
 	
-	private PlaceFamilyYieldAction action;
+	private FamilyInYieldAction action;
 	
-	public PlaceFamilyYieldAffecter(String cardType, int value) {
+	public FamilyInYieldAffecter(String cardType, int value) {
 		this.cardType = cardType;
 		this.value = value;
 	}
 	
-	public PlaceFamilyYieldAffecter(Class<? extends DevelopmentCard> cardType, int value) {
+	public FamilyInYieldAffecter(Class<? extends DevelopmentCard> cardType, int value) {
 		this(cardType.toString(), value);
 	}
 
@@ -43,7 +43,7 @@ public class PlaceFamilyYieldAffecter extends PlaceFamilyYieldAction{
 // Method for decorator system ____________	
 	
 	@Override
-	public PlaceFamilyYieldAction decore(PlaceFamilyYieldAction action) {
+	public FamilyInYieldAction decore(FamilyInYieldAction action) {
 		if(this.action == null && action != this){
 			this.action = action;
 			return this;
@@ -70,8 +70,8 @@ public class PlaceFamilyYieldAffecter extends PlaceFamilyYieldAction{
 // __________________________
 	
 	@Override
-	public PlaceFamilyYieldAction clone(){
-		PlaceFamilyYieldAffecter copy = new PlaceFamilyYieldAffecter(cardType,value);
+	public FamilyInYieldAction clone(){
+		FamilyInYieldAffecter copy = new FamilyInYieldAffecter(cardType,value);
 		copy.aManager = aManager;
 		if(action != null)
 			copy.action = action.clone();

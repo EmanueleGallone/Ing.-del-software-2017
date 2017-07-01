@@ -58,7 +58,7 @@ public abstract class DevelopmentCard extends Card {
 	}
 	
 	public boolean isMonoCost(){
-		return this.costs.size() > 1;
+		return this.costs.size() <= 1;
 	}
 	
 	public int getActiveValue() {

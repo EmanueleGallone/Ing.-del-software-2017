@@ -32,7 +32,9 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 		
 		int i = 1; 
 		for(FamilyMember member : familyManager.getFamily().values()){
-			console.print("\n "+i+") " + member.getClass().getSimpleName() + " value: "+ member.getValue());
+			if(!member.isUsed())
+				console.print("\n "+i+") " + member.getClass().getSimpleName() + " value: "+ member.getValue());
+			i++;
 		}
 		console.println("");
 	}

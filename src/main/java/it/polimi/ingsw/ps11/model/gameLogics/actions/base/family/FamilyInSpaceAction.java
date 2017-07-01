@@ -1,10 +1,10 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base.family;
 
-import it.polimi.ingsw.ps11.model.events.EventHandler;
-import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.UseServantAction;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 
@@ -13,7 +13,7 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 	protected ActionManager aManager;
 	protected FamilyMember familyMember;
 	protected ActionSpace space;
-	protected UseServantAction servantAction;
+	protected UseServantAction useServantAction;
 	
 	public FamilyInSpaceAction() {
 	
@@ -23,34 +23,40 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 		this.aManager = aManager;
 		this.familyMember = fMember.clone();
 		this.space = space;
-		servantAction = aManager.newUseServant(new Servant(0), fMember);
+		useServantAction = aManager.newUseServant(new Servant(0), fMember);
 	}
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space, UseServantAction servantAction) {
 		this(aManager,fMember,space);
-		this.servantAction = servantAction;
+		this.useServantAction = servantAction;
 	}
 	
 	@Override
 	public boolean isLegal() {
-		int mod = 0;
-		boolean result = true;
-		if(servantAction != null){
-			result = servantAction.isLegal();
-			mod = servantAction.getServant().getValue();
+		int servant = 0;
+		if(useServantAction != null && useServantAction.isLegal()){
+			servant = useServantAction.getServant().getValue();
 		}
-		if(space.isFree() && result){
-			result = space.getActionCost() <= (familyMember.getValue() + mod);
-			return result;
+		if(space.isFree()){
+			return checkActionCost(servant);
 		}
 		return false;
 	}
 
+	public boolean checkActionCost(int modifier){
+		if(space.getActionCost() > (familyMember.getValue() + modifier)){
+			aManager.send("Il familiare non ha un valore sufficiente");
+			return false;
+		}
+		return true;
+	}
+	
 	@Override
 	public void perform() {
-		if(servantAction!= null)
-			servantAction.perform();
+		if(useServantAction!= null)
+			useServantAction.perform();
 		space.placeFamilyMember(familyMember, aManager.getSubject());
+		familyMember.setUsed(true);
 		if(space.getResources()!=null){
 			IncrementAction increment = aManager.newIncrementAction(space.getResources());
 			increment.perform();
@@ -65,10 +71,9 @@ public class FamilyInSpaceAction implements Action<FamilyInSpaceAction>{
 		return familyMember;
 	}
 	
-	public UseServantAction getServantAction() {
-		return servantAction;
+	public UseServantAction getUseServantAction() {
+		return useServantAction;
 	}
-
 
 	// _________________________ Method for action system ________________________
 	

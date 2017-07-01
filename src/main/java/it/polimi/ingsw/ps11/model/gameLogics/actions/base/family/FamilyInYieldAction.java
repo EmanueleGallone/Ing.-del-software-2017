@@ -1,21 +1,22 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base.family;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
-public class PlaceFamilyYieldAction implements Action<PlaceFamilyYieldAction> {
+public class FamilyInYieldAction implements Action<FamilyInYieldAction> {
 
 	protected ActionManager aManager;
 	private Yield yield;
 	private FamilyMember familyMember;
 	
-	public PlaceFamilyYieldAction() {
+	public FamilyInYieldAction() {
 	
 	}
 	
-	public PlaceFamilyYieldAction(ActionManager aManager, Yield yield, FamilyMember familyMember) {
+	public FamilyInYieldAction(ActionManager aManager, Yield yield, FamilyMember familyMember) {
 		this.aManager = aManager;
 		this.yield = yield;
 		this.familyMember = familyMember;
@@ -43,7 +44,7 @@ public class PlaceFamilyYieldAction implements Action<PlaceFamilyYieldAction> {
 
 
 	@Override
-	public PlaceFamilyYieldAction decore(PlaceFamilyYieldAction action) {
+	public FamilyInYieldAction decore(FamilyInYieldAction action) {
 		if(action != this){
 			return action.decore(this);
 		}
@@ -52,7 +53,7 @@ public class PlaceFamilyYieldAction implements Action<PlaceFamilyYieldAction> {
 	
 	@Override
 	public void attach(ActionManager aManager){
-		PlaceFamilyYieldAction action = aManager.get(target());
+		FamilyInYieldAction action = aManager.get(target());
 		if(action == null){
 			action = this;
 		}
@@ -60,15 +61,15 @@ public class PlaceFamilyYieldAction implements Action<PlaceFamilyYieldAction> {
 	}
 
 	@Override
-	public Class<PlaceFamilyYieldAction> target() {
-		return PlaceFamilyYieldAction.class;
+	public Class<FamilyInYieldAction> target() {
+		return FamilyInYieldAction.class;
 	}
 	
 // ___________________________________________________
 	
 	@Override
-	public PlaceFamilyYieldAction clone(){
-		PlaceFamilyYieldAction copy = new PlaceFamilyYieldAction(aManager, yield.clone(), familyMember.clone());
+	public FamilyInYieldAction clone(){
+		FamilyInYieldAction copy = new FamilyInYieldAction(aManager, yield.clone(), familyMember.clone());
 		return copy;
 	}
 
