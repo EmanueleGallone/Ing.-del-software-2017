@@ -63,7 +63,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 			return (resources.size() == otherList.getResources().size());
 		
 		for(Resource r : this.resources.values()){
-			if( r.getValue() <  otherList.getValueOf(r.getClass())){
+			if( r.getValue() < otherList.getValueOf(r.getClass())){
 				return false;
 			}
 		}

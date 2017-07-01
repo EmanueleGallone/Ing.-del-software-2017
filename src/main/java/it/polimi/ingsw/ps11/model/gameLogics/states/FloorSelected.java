@@ -1,12 +1,14 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInFloorAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInSpaceAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -44,16 +46,14 @@ public class FloorSelected extends PlayState {
 		
 		if(action.isLegal()){
 			action.perform();
-			stateHandler().resetState();
 		}
 	}
 	
-	EventListener<ModelEvent> listener = new EventListener<ModelEvent>() {
+	EventListener<ArrayList<ResourceList>> listener = new EventListener<ArrayList<ResourceList>>() {
 
 		@Override
-		public void handle(ModelEvent e) {
-			stateHandler().nextState(new WaitResource(action));
-			stateHandler().invoke(e);
+		public void handle(ArrayList<ResourceList> e) {
+			stateHandler().nextState(new WaitResource(e,action));
 		}
 	};
 	

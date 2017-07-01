@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> DecrementAction </h3>
  * <p> Classe che rappresenta l'azione di decremento di risorse in una ResourceList.</p>
@@ -24,6 +25,7 @@ public class DecrementAction implements Action<DecrementAction> {
 	@Override
 	public void perform() {
 		aManager.getSubject().getResourceList().subtract(getResource());
+		aManager.stateHandler().invoke(new PlayerUpdateEvent(aManager.stateHandler().getPlayer()));
 	}
 	
 	@Override

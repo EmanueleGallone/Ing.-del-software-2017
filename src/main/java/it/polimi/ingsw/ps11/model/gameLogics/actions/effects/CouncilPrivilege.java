@@ -27,5 +27,4 @@ public class CouncilPrivilege implements Effect {
 	public ChangeStateAction get(ActionManager aManager) {
 		return new ChangeStateAction(aManager, new WaitResource(resources,aManager.newIncrementAction(null)));
 	}
-	
 }

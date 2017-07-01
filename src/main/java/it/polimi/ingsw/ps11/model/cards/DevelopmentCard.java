@@ -66,7 +66,7 @@ public abstract class DevelopmentCard extends Card {
 	 * @return true se è solo un tipo, false altrimenti
 	 */
 	public boolean isMonoCost(){
-		return this.costs.size() > 1;
+		return this.costs.size() <= 1;
 	}
 	
 	public int getActiveValue() {

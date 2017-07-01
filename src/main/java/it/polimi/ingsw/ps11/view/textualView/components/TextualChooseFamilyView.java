@@ -6,6 +6,7 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.view.textualView.Input;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -32,7 +33,9 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 		
 		int i = 1; 
 		for(FamilyMember member : familyManager.getFamily().values()){
-			console.print("\n "+i+") " + member.getClass().getSimpleName() + " value: "+ member.getValue());
+			if(!member.isUsed())
+				console.print("\n "+i+") " + member.getClass().getSimpleName() + " value: "+ member.getValue());
+			i++;
 		}
 		console.println("");
 	}
@@ -43,7 +46,8 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 		ArrayList<FamilyMember> family = new ArrayList<>(familyManager.getFamily().values());
 		try {
 			parsed = Integer.parseInt(e);
-			if((parsed +1) <= family.size() && parsed > 0){
+			parsed--;
+			if(parsed <= family.size() && parsed > 0){
 				eventHandler.invoke(new FamilySelectedEvent(family.get(parsed).getClass()));
 			}
 				

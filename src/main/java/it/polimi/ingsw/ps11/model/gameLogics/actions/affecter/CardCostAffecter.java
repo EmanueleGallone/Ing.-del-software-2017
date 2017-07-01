@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
@@ -47,7 +49,7 @@ public class CardCostAffecter extends GetCardAction {
 	}
 	
 	@Override
-	public void attach(EventListener<ModelEvent> listener){
+	public void attach(EventListener<ArrayList<ResourceList>> listener){
 		action.attach(listener);
 	}
 	

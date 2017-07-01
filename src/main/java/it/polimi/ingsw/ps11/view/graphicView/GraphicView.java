@@ -47,28 +47,16 @@ public class GraphicView extends View{
 
 	JFrame window = new JFrame();												//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
-	protected JPanel boardPanel, playerPanel;									//Pannelli boardPrincipale e boardPersonale
+	protected JPanel boardPanel, playerPanel, consolePanel;									//Pannelli boardPrincipale e boardPersonale
 	protected GraphicTurnPanel playersTurn = new GraphicTurnPanel();
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
-	protected JTextPane consolePanel;
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
 
 	public GraphicView() {
 		you = new GraphicPlayerView();											//Board personale	
 		boardView = new GraphicBoardView();										//Board generale
 		console = new GraphicConsole();											//Console per la gestione dei messaggi
-	}
-	
-	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
-
-		@Override
-		public void handle(ViewEventInterface e) {
-			viewEvent.invoke(e);
-		}
-	};
-
-	@Override
-	public void print() {
+		
 		
 		window.setTitle("Game Window");							//Setta la finestra principale del gioco
         window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -141,11 +129,6 @@ public class GraphicView extends View{
 				(int)Math.round(screenSize.getWidth()*0.477), (int)Math.round(screenSize.getHeight()*0.305));
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
-				    
-		graphicBoardView.print();
-		graphicPlayerView.print();
-		graphicConsole.println("Benvenuto ne: ");
-		graphicConsole.printError("\"Lorenzo il Magnifico\"");
 		
 		exit.addActionListener(new Close());
 		minimize.addActionListener(new Minimize());
@@ -161,6 +144,24 @@ public class GraphicView extends View{
         graphicPlayerView.attach(eventListener);
         
         window.setVisible(true);
+
+	}
+	
+	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
+
+		@Override
+		public void handle(ViewEventInterface e) {
+			viewEvent.invoke(e);
+		}
+	};
+
+	@Override
+	public void print() {
+
+		boardView.print();
+		you.print();
+		console.println("Benvenuto ne: ");
+		console.printError("\"Lorenzo il Magnifico\"");
 
 	}
 

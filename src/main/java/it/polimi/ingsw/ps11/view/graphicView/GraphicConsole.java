@@ -1,7 +1,10 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
 import java.awt.Color;
+import java.awt.GridBagLayout;
 
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
@@ -17,22 +20,36 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
  */
 public class GraphicConsole extends Console {
 	
+	private JPanel consolePanel = new JPanel();
 	protected JTextPane outPut;
 	private StyledDocument doc;
 	private Style style;
+	private JTextArea inPut;
 	
 	public GraphicConsole() {
+		
+		GridBagLayout gblConsolePanel = new GridBagLayout();
+		gblConsolePanel.columnWidths = new int[]{0, 0};	
+		gblConsolePanel.rowHeights = new int[]{0, 0, 0};
+		gblConsolePanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gblConsolePanel.rowWeights = new double[]{0.833333, 0.166666, Double.MIN_VALUE};
+        consolePanel.setLayout(gblConsolePanel);
+        
+        
 		 outPut = new JTextPane();
 		 doc = outPut.getStyledDocument();
 		 style = outPut.addStyle("Style", null);
-		 outPut.setBackground(Color.BLACK);
 		 outPut.setEditable(false);
-		 outPut.setVisible(true);
+		 outPut.setBackground(Color.LIGHT_GRAY);
+		 inPut = new JTextArea();
+		 inPut.setBackground(Color.WHITE);
+		 consolePanel.add(outPut);
+		 consolePanel.add(inPut);
 	}
 		
 	@Override
 	public void println(String message) {
-	    StyleConstants.setForeground(style, Color.white);
+	    StyleConstants.setForeground(style, Color.BLACK);
 	    try {
 			doc.insertString(doc.getLength(), message + "\n", style);
 		} catch (BadLocationException e) {
@@ -41,7 +58,7 @@ public class GraphicConsole extends Console {
 
 	@Override
 	public void print(String message) {
-	    StyleConstants.setForeground(style, Color.white);
+	    StyleConstants.setForeground(style, Color.BLACK);
 	    try {
 			doc.insertString(doc.getLength(), message, style);
 		} catch (BadLocationException e) {
@@ -50,7 +67,7 @@ public class GraphicConsole extends Console {
 
 	@Override
 	public void printError(String message) {
-	    StyleConstants.setForeground(style, Color.red);
+	    StyleConstants.setForeground(style, Color.RED);
 	    try {
 			doc.insertString(doc.getLength(), message, style);
 		} catch (BadLocationException e) {
@@ -60,7 +77,8 @@ public class GraphicConsole extends Console {
 
 	@Override
 	public String read() {
-		return "No Use";
+		inPut.setText("");
+		return inPut.getText();
 	}
 
 	@Override
@@ -68,7 +86,7 @@ public class GraphicConsole extends Console {
 		return null;
 	}
 	
-	public JTextPane getComponent(){
-		return outPut;
+	public JPanel getComponent(){
+		return consolePanel;
 	}
 }

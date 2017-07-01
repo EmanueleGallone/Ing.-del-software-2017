@@ -9,14 +9,21 @@ import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 
 public class WaitResource extends PlayState{
 
+	private ArrayList<ResourceList> choices;
 	private ResourceListener action;
 	
 	public WaitResource(ResourceListener action) {
 		this.action = action;
 	}
 	
-	public WaitResource(ArrayList<ResourceList> choice, ResourceListener action) {
-		ChooseResourceEvent c = new ChooseResourceEvent(choice);
+	public WaitResource(ArrayList<ResourceList> choices, ResourceListener action) {
+		this.action = action;
+		this.choices = choices;
+	}
+	
+	@Override
+	public void notifyToClient() {
+		ChooseResourceEvent c = new ChooseResourceEvent(choices);
 		stateHandler().invoke(c);
 	}
 	
@@ -24,6 +31,5 @@ public class WaitResource extends PlayState{
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
 		action.update(resourceSelectedEvent.getResourceList());
-		stateHandler().resetState();
 	}
 }

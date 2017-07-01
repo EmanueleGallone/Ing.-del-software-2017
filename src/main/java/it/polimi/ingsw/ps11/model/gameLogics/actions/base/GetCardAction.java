@@ -1,11 +1,14 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
+import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
@@ -23,7 +26,7 @@ public class GetCardAction implements Action<GetCardAction>{
 	private ResourceList modifier = new ResourceList();
 	
 	
-	private EventHandler<ModelEvent> eventHandler = new EventHandler<>();
+	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
 	public GetCardAction() {
 	
@@ -39,30 +42,40 @@ public class GetCardAction implements Action<GetCardAction>{
 	@Override
 	public boolean isLegal() {
 		
-		if(card == null)
-			return false;
-		
-		if(!card.isMonoCost() && cost == null ){
-			ChooseResourceEvent c = new ChooseResourceEvent(card.getCosts());
-			c.setMessage("Seleziona uno dei costi da pagare");
-			eventHandler.invoke(c);
+		if(card == null){
+			aManager.send("Il piano è vuoto");
 			return false;
 		}
+		
+		if(isMultipleCost())
+			return false;
 		else if(cost == null && card.isMonoCost()){
 			cost = card.getFirstCost();
 		}
-		
-		boolean result = this.card.getCosts().contains(cost);
+
 		ResourceList temp = cost.clone();
 		temp.subtract(modifier);
 		DecrementAction pay = aManager.newDecrementAction(temp);
+		
 		if(!pay.isLegal()){
-			result = false;
-			aManager.stateHandler().invoke(new TextualEvent("Non hai abbastanza risorse per prendere la carta"));
+			aManager.send("Non hai abbastanza risorse per prendere la carta");
+			return false;
 		}
-		return result && aManager.getSubject().getCardManager().canAdd(card);
+		if(!aManager.getSubject().getCardManager().canAdd(card)){
+			aManager.send("Non puoi prendere un'altra carta di questo tipo");
+		}
+		return true;
 	}
 
+	
+	private boolean isMultipleCost(){
+		if(!card.isMonoCost() && cost == null ){
+			eventHandler.invoke(card.getCosts());  // Non faccio aManager.changeState(new WaitResource(this));	perchè non ci devo mettere "this" altrimenti salterebbe tutta la catena di invocazioni
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public void perform() {
 		DecrementAction pay = aManager.newDecrementAction(cost);
@@ -90,7 +103,7 @@ public class GetCardAction implements Action<GetCardAction>{
 		return modifier;
 	}
 
-	public void attach(EventListener<ModelEvent> listener){
+	public void attach(EventListener<ArrayList<ResourceList>> listener){
 		eventHandler.attach(listener);
 	}
 	
@@ -123,7 +136,7 @@ public class GetCardAction implements Action<GetCardAction>{
 		ResourceList resource = null;
 		if(cost != null)
 			resource = cost.clone();
-		GetCardAction copy = new GetCardAction(aManager, card.clone(), cost.clone());
+		GetCardAction copy = new GetCardAction(aManager, card.clone(), resource);
 		return copy;
 	}
 
