@@ -27,7 +27,7 @@ public class DecrementAction implements Action<DecrementAction> {
 	
 	@Override
 	public boolean isLegal() {
-		return !getResource().greaterEquals(aManager.getSubject().getResourceList());
+		return aManager.getSubject().getResourceList().canSubtract(getResource());
 	}
 	
 	// _________________________ Method for action system ________________________
