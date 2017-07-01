@@ -87,6 +87,8 @@ public class Player implements Serializable{
 	public Player clone(){
 		Player clone = new Player();
 		
+		clone.name = this.name;
+		
 		clone.resourceList = this.resourceList.clone();
 		clone.familyManager = this.familyManager.clone();
 		clone.cardManager = this.cardManager.clone();
