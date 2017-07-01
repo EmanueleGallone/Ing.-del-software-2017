@@ -1,17 +1,16 @@
-package it.polimi.ingsw.ps11.view.textualView.components;
+package it.polimi.ingsw.ps11.view.textualView;
 
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 
 public class Input {
 	
 	private TextualConsole console;
 	private ArrayList<EventListener<String>> listenersToRemove = new ArrayList<>();
 	
-	private EventHandler<String> handler = new EventHandler<>();
+	private EventHandler<String> handler = new EventQueque<>();
 	
 	public Input(TextualConsole console) {
 		this.console = console;

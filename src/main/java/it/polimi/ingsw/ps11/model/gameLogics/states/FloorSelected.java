@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
@@ -44,15 +46,14 @@ public class FloorSelected extends PlayState {
 		
 		if(action.isLegal()){
 			action.perform();
-			stateHandler().resetState();
 		}
 	}
 	
-	EventListener<ModelEvent> listener = new EventListener<ModelEvent>() {
+	EventListener<ArrayList<ResourceList>> listener = new EventListener<ArrayList<ResourceList>>() {
 
 		@Override
-		public void handle(ModelEvent e) {
-			stateHandler().nextState(new WaitResource(action));
+		public void handle(ArrayList<ResourceList> e) {
+			stateHandler().nextState(new WaitResource(e,action));
 		}
 	};
 	

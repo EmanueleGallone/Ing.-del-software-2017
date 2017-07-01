@@ -17,8 +17,6 @@ public class WaitResource extends PlayState{
 	}
 	
 	public WaitResource(ArrayList<ResourceList> choices, ResourceListener action) {
-//		ChooseResourceEvent c = new ChooseResourceEvent(choice);
-//		stateHandler().invoke(c);
 		this.action = action;
 		this.choices = choices;
 	}
@@ -33,6 +31,5 @@ public class WaitResource extends PlayState{
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
 		action.update(resourceSelectedEvent.getResourceList());
-		stateHandler().resetState();
 	}
 }

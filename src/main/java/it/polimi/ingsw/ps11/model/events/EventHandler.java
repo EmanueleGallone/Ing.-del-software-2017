@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class EventHandler<PARAMETER_TYPE> implements Serializable {
 	
-	private ArrayList<EventListener<PARAMETER_TYPE>> eventListeners = new ArrayList<>();
+	protected ArrayList<EventListener<PARAMETER_TYPE>> eventListeners = new ArrayList<>();
 
 	public void attach(EventListener<PARAMETER_TYPE> eventListener) {
 		eventListeners.add(eventListener);

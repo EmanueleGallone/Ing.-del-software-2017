@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class DecrementAction implements Action<DecrementAction> {
@@ -21,11 +22,12 @@ public class DecrementAction implements Action<DecrementAction> {
 	@Override
 	public void perform() {
 		aManager.getSubject().getResourceList().subtract(getResource());
+		aManager.stateHandler().invoke(new PlayerUpdateEvent(aManager.stateHandler().getPlayer()));
 	}
 	
 	@Override
 	public boolean isLegal() {
-		return aManager.getSubject().getResourceList().canSubtract(getResource());
+		return !getResource().greaterEquals(aManager.getSubject().getResourceList());
 	}
 	
 	// _________________________ Method for action system ________________________

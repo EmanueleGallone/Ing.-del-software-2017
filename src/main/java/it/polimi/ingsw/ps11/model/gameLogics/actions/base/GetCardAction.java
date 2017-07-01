@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
@@ -21,7 +23,7 @@ public class GetCardAction implements Action<GetCardAction>{
 	private ResourceList modifier = new ResourceList();
 	
 	
-	private EventHandler<ModelEvent> eventHandler = new EventHandler<>();
+	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
 	public GetCardAction() {
 	
@@ -65,8 +67,8 @@ public class GetCardAction implements Action<GetCardAction>{
 	
 	private boolean isMultipleCost(){
 		if(!card.isMonoCost() && cost == null ){
-			eventHandler.invoke(null); 			 //Serve solo a notificare il floorSelected state che deve andare in wait resource
-			return true;			 			 // Non faccio aManager.changeState(new WaitResource(this));	perchè non ci devo mettere "this" altrimenti salterebbe tutta la catena di invocazioni
+			eventHandler.invoke(card.getCosts());  // Non faccio aManager.changeState(new WaitResource(this));	perchè non ci devo mettere "this" altrimenti salterebbe tutta la catena di invocazioni
+			return true;
 		}
 		return false;
 	}
@@ -98,7 +100,7 @@ public class GetCardAction implements Action<GetCardAction>{
 		return modifier;
 	}
 
-	public void attach(EventListener<ModelEvent> listener){
+	public void attach(EventListener<ArrayList<ResourceList>> listener){
 		eventHandler.attach(listener);
 	}
 	

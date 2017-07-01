@@ -17,7 +17,6 @@ import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.view.textualView.components.Input;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseFamilyView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceView;
