@@ -76,6 +76,8 @@ public class GraphicFloorView extends FloorView{
 	@Override
 	public void print() {
 		
+		if(floor == null)
+			return;
 		if(!(floor.getActionSpace().getFamilyMember() == null)){
 			actionSpace.loadImage("playerImages/" + floor.getActionSpace().getOwner().getColor().toString() + 
 					" " + floor.getActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");

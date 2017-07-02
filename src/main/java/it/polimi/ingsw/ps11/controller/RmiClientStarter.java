@@ -4,6 +4,7 @@ import java.util.Random;
 
 import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
 import it.polimi.ingsw.ps11.view.textualView.TextualView;
 
 public class RmiClientStarter {
@@ -16,10 +17,11 @@ public class RmiClientStarter {
 		while (i < max) {
 			try {
 				RMIConnection connection = new RMIConnection(port);
-				new Client(new TextualView(), connection).run();
+				//new Client(new TextualView(), connection).run();
+				new Client(new GraphicView(), connection).run();
 				i = max;
 			} catch (Exception e) {
-				System.out.println("errore");
+				e.printStackTrace();
 				port++;
 			}
 		}
