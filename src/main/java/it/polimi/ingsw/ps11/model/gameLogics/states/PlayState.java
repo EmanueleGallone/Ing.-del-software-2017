@@ -1,6 +1,9 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
@@ -57,11 +60,19 @@ public class PlayState extends DefaultState{
 			
 		}
 	}
-
+	
+	protected FamilyMember selectFMember(SpaceSelectedEvent event){
+		String fName= event.getFamilySelectedEvent().getFamilyMember();
+		return stateHandler().getPlayer().getFamilyManager().getFamilyMember(fName);	
+	}
+	
 	@Override
 	public void handle(ProductionSelectedEvent productionSelectedEvent) {
 		if(familySelectedCheck(productionSelectedEvent)){
-			//manager.invoke(ProductionSelectedEvent.class, productionSelectedEvent);
+			FamilyMember fMember = selectFMember(productionSelectedEvent);
+			Yield yield = stateHandler().getGame().getBoard().getProduction();
+			FamilyInYieldAction action = stateHandler().actions().newFamilyInYield(yield,fMember);
+			stateHandler().nextState(new WaitConfirm(action));
 		}
 	}
 

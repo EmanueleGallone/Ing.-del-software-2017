@@ -25,7 +25,7 @@ public class DecrementAction implements Action<DecrementAction> {
 	@Override
 	public void perform() {
 		aManager.getSubject().getResourceList().subtract(getResource());
-		aManager.stateHandler().invoke(new PlayerUpdateEvent(aManager.stateHandler().getPlayer()));
+		//aManager.stateHandler().invoke(new PlayerUpdateEvent(aManager.stateHandler().getPlayer()));
 	}
 	
 	@Override

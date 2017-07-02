@@ -23,8 +23,10 @@ import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceVie
 import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
@@ -44,9 +46,10 @@ public class TextualView extends View {
 	private Input input;
 	
 	//le istruzioni vanno aggiornate
-	private String instructions = "\n\ninstruction:"
-			+ "\nif you want to select the floor of a tower type \" yellow tower 1 \""
-			+ "\nif you want to select a family member (e.g. orange) -> orange family "
+	private String instructions = "\n\nINSTRUCTION:"
+			+ "\n • If you want select the floor of a tower type \" yellow tower 1 \""
+			+ "\n • If you want select a family member (e.g. orange) -> orange family "
+			+ "\n • If you want select production or harvest type \"production\" or \"harvest\""
 			+ "\n"; 
 	
 	public TextualView() {
@@ -62,8 +65,8 @@ public class TextualView extends View {
 	
 	@Override
 	public void print() {
-		boardView.print();
-		you.print();
+//		boardView.print();
+//		you.print();
 		console.println(instructions); 
 
 	}
@@ -99,14 +102,13 @@ public class TextualView extends View {
 	public void update(FamilyMemberManager familyMemberManager){
 		TextualChooseFamilyView chooser = new TextualChooseFamilyView(input, familyMemberManager, this.viewEvent);
 		chooser.print();
-		console.println("Press 1..4 to select the family member ");
+		console.println("\n Press 1..4 to select the family member ");
 		input.attach(chooser);
 	}
 	
 	@Override
 	public void update(Game game) {
 		this.update(game.getBoard());
-		console.println(instructions);
 	}
 	
 //	public void registrate(Registration registration){
@@ -127,7 +129,10 @@ public class TextualView extends View {
 	@Override
 	public void confirm(ConfirmEvent confirm) {
 		Floor floor = confirm.getFloor();
-		TextualFloorView floorView = new TextualFloorView(confirm.getTower(),0);
+		String tower = "";
+		if(confirm.getTower()!=null)
+			tower = confirm.getTower();
+		TextualFloorView floorView = new TextualFloorView(tower,0);
 		floorView.update(floor);
 		floorView.print();
 		console.println(confirm.getMessage());
@@ -177,7 +182,10 @@ public class TextualView extends View {
 		commands.put("market 3", new MarketSelectedEvent(2));
 		commands.put("market 4", new MarketSelectedEvent(3));
 
-		commands.put("production" , new ProductionSelectedEvent()); //manca l'harvest
+		commands.put("production" , new ProductionSelectedEvent());
+		commands.put("harvest" , new HarvestSelectedEvent());
+		
+		commands.put("update" , new AskUpdateEvent());
 	}
 	
 }

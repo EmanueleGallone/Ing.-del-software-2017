@@ -15,4 +15,5 @@ public interface ViewListener {
 	public void handle(ResourceSelectedEvent resourceSelectedEvent);
 	public void handle(ConfirmViewEvent confirmEvent);
 	public void handle(EndTurnEvent endTurnEvent);
+	public void handle(AskUpdateEvent updateEvent);
 }
