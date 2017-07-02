@@ -10,7 +10,11 @@ public class FloorSelectedEvent extends SpaceSelectedEvent {
 	private int floor;
 	
 	public FloorSelectedEvent(Class<? extends Tower> tower , int floor) {
-		this.tower = tower.toString();
+		this(tower.toString(),floor);
+	}
+	
+	public FloorSelectedEvent(String tower , int floor) {
+		this.tower = tower;
 		this.floor = floor;
 	}
 	

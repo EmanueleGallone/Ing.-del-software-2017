@@ -18,21 +18,20 @@ public class GraphicPaintedPanel extends JPanel {
 	
 	//JPanel con immagine fissa
 	
-	BufferedImage background;
-	
-	public GraphicPaintedPanel(){
-	}
+	private BufferedImage background;
+	private boolean painted = false;
 	
 	 @Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		if(painted){
 		Dimension size = getSize();
 		g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
-		
+		}
 	}
 	
 	public void loadImage(String url){
-		
+		painted = true;
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(getClass().getResource(url));

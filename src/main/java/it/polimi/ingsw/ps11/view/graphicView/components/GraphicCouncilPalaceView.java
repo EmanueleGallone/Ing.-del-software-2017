@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
@@ -35,14 +34,21 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
 	public GraphicCouncilPalaceView() {
 		
+		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
+		
 		multipleActionSpace = new GraphicMultipleActionSpaceButton("Council");
 		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
-		toPlayer1 = new GraphicPaintedButton("0");
-		toPlayer2 = new GraphicPaintedButton("1");
-		toPlayer3 = new GraphicPaintedButton("2");
-		toPlayer4 = new GraphicPaintedButton("3");
+//		toPlayer1 = new GraphicPaintedButton("0");
+//		toPlayer2 = new GraphicPaintedButton("1");
+//		toPlayer3 = new GraphicPaintedButton("2");
+//		toPlayer4 = new GraphicPaintedButton("3");
+		toPlayer1 = new GraphicPaintedButton();
+		toPlayer2 = new GraphicPaintedButton();
+		toPlayer3 = new GraphicPaintedButton();
+		toPlayer4 = new GraphicPaintedButton();
+		
 		
 		playerSelectors.add(toPlayer1);
 		playerSelectors.add(toPlayer2);
@@ -55,9 +61,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		toPlayer2.setContentAreaFilled(false);
 		toPlayer3.setContentAreaFilled(false);
 		toPlayer4.setContentAreaFilled(false);
-		
-		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
-		
+				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblCouncilPalace = new GridBagLayout();

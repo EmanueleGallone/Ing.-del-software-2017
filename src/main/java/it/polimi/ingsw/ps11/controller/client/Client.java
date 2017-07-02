@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.controller.client;
 import java.io.IOException;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
+import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
 import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
 import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
 import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
@@ -116,5 +117,11 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	@Override
 	public void handle(UpdateFamilyMemberEvent updateFamilyMemberEvent) {
 		view.update(updateFamilyMemberEvent.getManager());
+	}
+
+	@Override
+	public void receive(LogInMessage logInMessage) {
+		// TODO Auto-generated method stub
+		
 	}
 }

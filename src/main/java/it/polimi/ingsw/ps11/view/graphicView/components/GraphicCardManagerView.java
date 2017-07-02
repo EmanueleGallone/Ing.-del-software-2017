@@ -25,8 +25,6 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
  * @see CardManagerView
  */
 public class GraphicCardManagerView extends CardManagerView implements ItemListener{
-
-	//mostra i deck di ogni giocatore attraverso dei pannelli sovrapposti comandati da una serie di tasti
 	
 	protected JPanel personalBoard = new JPanel();
 	protected JPanel overlayedDecksPanel;
@@ -37,7 +35,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	protected ButtonGroup buttonGroup;
 
 	public GraphicCardManagerView() {
-		
+
 		colorMap.put("Territories Cards", Color.GREEN);
 		colorMap.put("Characters Cards", Color.BLUE);
 		colorMap.put("Buildings Cards", Color.YELLOW);
@@ -121,7 +119,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
-				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(card.getName());
+				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(/*card.getName()*/);
 				cardButton.print();
 				
 				GridBagConstraints gbcCard = new GridBagConstraints();

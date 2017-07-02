@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
+import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
 import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
@@ -81,6 +82,16 @@ public class GameController implements MessageListener,Runnable {
 		message.accept(this);
 	}
 	
+	public boolean search(Connection connection){
+		for(Connection c : clients.keySet()){
+			if(c.getId().equals(connection.getId())){
+				c = connection;
+				return true;
+			}
+		}
+		return false;
+	}
+	
 // Handle message from client 
 
 	@Override
@@ -99,5 +110,10 @@ public class GameController implements MessageListener,Runnable {
 		event.setSource(clients.get(viewMessage.getSource()));
 		//event.accept(gameLogic);
 		gameLogic.handle(event);
+	}
+
+	@Override
+	public void receive(LogInMessage logInMessage) {
+		// TODO Auto-generated method stub
 	}
 }

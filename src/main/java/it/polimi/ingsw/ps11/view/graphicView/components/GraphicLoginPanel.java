@@ -15,6 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
+
 /**
  * <h3> GraphicLoginPanel</h3>
  * <p> Classe per la visualizzazione del pannello di login, in cui vanno inseriti nome utente e password, con la possibile scelta tra 
@@ -28,6 +33,10 @@ public class GraphicLoginPanel{
 	public JPasswordField password = new JPasswordField();
 	public JButton confirm = new JButton("Confirm");
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
+    
+    
+    private EventHandler<Message> messageEvent = new EventHandler<>();
+    
 
 	public GraphicLoginPanel() {
 		
@@ -80,14 +89,17 @@ public class GraphicLoginPanel{
 		//<-------------------------------FINE ALLINEAMENTO------------------------------->
 
 		confirm.addActionListener(new LoginListener());
-		
-		window.setVisible(true);
 
+	}
+	
+	
+	public void attach(EventListener<Message> listener){
+		this.messageEvent.attach(listener);
 	}
 		
 	public HashMap<String, String> login(){
 		
-		if(username.getText().isEmpty() ||  password.getText().isEmpty()) 
+		if(username.getText().isEmpty() ||  password.getText().isEmpty())
 			return null;
 		else {
 			
@@ -98,12 +110,17 @@ public class GraphicLoginPanel{
 		
 	}
 	
+	public void show(){
+		window.setVisible(true);
+	}
+	
 	private class LoginListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(!(login() == null)){
-				System.out.println(login());
+				//System.out.println(login());
+				messageEvent.invoke(new LogInMessage(username.getText()));
 				window.dispose();
 			}
 		}

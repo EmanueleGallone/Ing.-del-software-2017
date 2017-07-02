@@ -5,12 +5,17 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
 /**
@@ -26,32 +31,38 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
 	
 	public GraphicFamilyMemberView() {
-		
-		
+
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GridBagLayout gblFamilyMembers = new GridBagLayout();
 		gblFamilyMembers.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblFamilyMembers.rowHeights = new int[]{0, 0};
-		gblFamilyMembers.columnWeights = new double[]{0.72, 0.07, 0.07, 0.07, 0.07, Double.MIN_VALUE};
+		gblFamilyMembers.columnWeights = new double[]{0.60, 0.07, 0.07, 0.07, 0.07, Double.MIN_VALUE};
 		gblFamilyMembers.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		familyMembers.setLayout(gblFamilyMembers);
+
 		int i = 1;
-		for (String familyMemberName : familyManager.getFamily().keySet()) {
-			
-			GraphicPaintedButton familyMember = new GraphicPaintedButton(familyManager.getFamily().get(familyMemberName).getClass().getSimpleName());
-			familyMember.loadImage("playerImages/" + familyManager.getFamily().get(familyMemberName).getClass().getSimpleName() + ".png");
+		
+		ArrayList<Class<? extends FamilyMember>> familyList = new ArrayList<>();
+		
+		familyList.add(BlackFamilyMember.class);
+		familyList.add(WhiteFamilyMember.class);
+		familyList.add(OrangeFamilyMember.class);
+		familyList.add(NeutralFamilyMember.class);
+		
+		for (Class<? extends FamilyMember> familyMemberName : familyList) {
+
+			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton(/*familyManager.getFamily().get(familyMemberName).getClass().getSimpleName()*/);
+			familyMemberPanel.loadImage("playerImages/" + familyMemberName.getSimpleName() + ".png");
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
 			gbc.fill = GridBagConstraints.BOTH;
-			familyMember.setContentAreaFilled(false);
-			familyMembers.add(familyMember, gbc);
+			familyMemberPanel.setContentAreaFilled(false);
+			familyMembers.add(familyMemberPanel, gbc);
 			i++;
 
-			familyMember.addActionListener(new ChooseFamillyMemberListener(familyManager.getFamily().get(familyMemberName).getClass()));
-			familyMemberButtons.put
-			(familyMemberName, 
-					familyMember);
+			familyMemberPanel.addActionListener(new ChooseFamillyMemberListener(familyMemberName));
+			familyMemberButtons.put(familyMemberName.toString(),familyMemberPanel);
 			
 		}
 
@@ -61,12 +72,13 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	
 	public void print() {
 		for(FamilyMember member : familyManager.getFamily().values()){
+			String memberName = member.getClass().toString();
 			if(member.isUsed()){
-				familyMemberButtons.get(member).setBackground(Color.BLACK);
-				familyMemberButtons.get(member).setEnabled(false);
+				familyMemberButtons.get(memberName).setBackground(Color.BLACK);
+				familyMemberButtons.get(memberName).setEnabled(false);
 			} else {
-			familyMemberButtons.get(member).loadImage("playerImages/" + member + ".png");
-			familyMemberButtons.get(member).setEnabled(true);
+			familyMemberButtons.get(memberName).loadImage("playerImages/" + member.getClass().getSimpleName() + ".png");
+			familyMemberButtons.get(memberName).setEnabled(true);
 			}
 		}
 		}
