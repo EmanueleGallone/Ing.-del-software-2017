@@ -72,7 +72,7 @@ public class MainTest {
 		//inizializzaCarte();
 		//inizializzatore();
 		//LeaderCardsInitializer();
-		initializeTextualCommands();
+		//initializeTextualCommands();
 	}
 
 	
