@@ -59,11 +59,6 @@ public class MainTest {
 		//inizializzaCarte();
 		inizializzatore();
 		//LeaderCardsInitializer();
-		
-		DiceManager diceManager = new DiceManager();
-		
-		String string = new JsonAdapter().toJson(diceManager);
-		System.out.println(string);
 	}
 
 	
@@ -151,8 +146,12 @@ public class MainTest {
 //		
   // ___________________________________________________
 		
+		ArrayList<Dice> dices = new ArrayList<>();
+		dices.add(new Dice("Black"));
+		dices.add(new Dice("White"));
+		dices.add(new Dice("Orange"));
 		
-		Board board = new Board(towers, market, new CouncilPalace());
+		Board board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
 		CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}

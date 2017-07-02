@@ -83,6 +83,10 @@ public class Player implements Serializable{
 		this.color = color;
 	}
 	
+	public void setFamilyManager(FamilyMemberManager familyManager) {
+		this.familyManager = familyManager;
+	}
+	
 	@Override
 	public Player clone(){
 		Player clone = new Player();

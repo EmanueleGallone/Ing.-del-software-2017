@@ -109,9 +109,6 @@ public class JsonAdapter {
 	        JsonObject jsonObject = json.getAsJsonObject();
 	        JsonPrimitive prim = (JsonPrimitive) jsonObject.get(CLASSNAME);
 
-	        System.out.println(json);
-	        System.out.println(jsonObject);
-	        System.out.println(prim);
 	        String className = prim.getAsString();
 
 	        Class<?> klass = null;

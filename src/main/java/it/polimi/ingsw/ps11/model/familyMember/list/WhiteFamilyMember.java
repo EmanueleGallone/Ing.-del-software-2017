@@ -11,6 +11,10 @@ public class WhiteFamilyMember extends FamilyMember {
 	public WhiteFamilyMember(){
 		super();
 	}
+	
+	public WhiteFamilyMember(String name){
+		super(name);
+	}
 
 	@Override
 	public WhiteFamilyMember clone(){

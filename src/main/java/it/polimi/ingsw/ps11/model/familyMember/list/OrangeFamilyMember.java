@@ -12,6 +12,10 @@ public class OrangeFamilyMember extends FamilyMember {
 		super();
 	}
 	
+	public OrangeFamilyMember(String name){
+		super(name);
+	}
+	
 	@Override
 	public OrangeFamilyMember clone(){
 		OrangeFamilyMember clone = new OrangeFamilyMember();

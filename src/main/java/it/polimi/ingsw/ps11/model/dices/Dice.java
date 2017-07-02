@@ -13,13 +13,23 @@ import java.util.Random;
  */
 @SuppressWarnings("serial")
 public class Dice implements Serializable{
-	protected static final int MAX_FACES = 6;
+	
+	protected final int MAX_FACES = 6;
+	private final int DEFAULT_VALUE = 0;
 	protected int value;
 	private transient Random gen = new Random();
+	private String name = "undefined";
 	
 	public Dice(){
-		this.value = 0;
+		this.value = DEFAULT_VALUE;
 	}	
+	
+	public Dice(String name){
+		this();
+		this.name = name;
+	}
+	
+	
 	/**<h3> void rollDice() </h3>
 	/** <p>Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.</p>
 	 */
@@ -31,6 +41,9 @@ public class Dice implements Serializable{
 		return this.value;
 	}
 	
+	public String getName() {
+		return name;
+	}
 	
 	@Override
 	public  Dice clone(){
