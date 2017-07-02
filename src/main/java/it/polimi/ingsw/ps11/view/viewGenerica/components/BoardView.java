@@ -46,6 +46,30 @@ public abstract class BoardView extends ViewComponent {
 	public void setTower(int index, TowerView t){
 		towerViews.set(index, t);
 	};
+	
+	
+	public DiceView getDiceView() {
+		return diceView;
+	}
+	
+	public HarvestView getHarvestView() {
+		return harvestView;
+	}
+	
+	public CouncilPalaceView getCouncilPalaceView() {
+		return councilPalaceView;
+	}
+	
+	public MarketView getMarketView() {
+		return marketView;
+	}
+	public ProductionView getProductionView() {
+		return productionView;
+	}
+	
+	public ChurchView getChurchView() {
+		return churchView;
+	}
 
 }
 

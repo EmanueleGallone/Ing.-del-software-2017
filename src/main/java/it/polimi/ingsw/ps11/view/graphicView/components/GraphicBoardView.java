@@ -19,6 +19,18 @@ public class GraphicBoardView extends BoardView {
 	GraphicMainBoardView mainBoard = new GraphicMainBoardView();	//Parte fissa della Board
 	GraphicSlideBoardView slideBoard = new GraphicSlideBoardView();	//Parte della Board che compare e scompare
 	
+	public GraphicBoardView() {
+		
+		this.councilPalaceView = mainBoard.getGraphicCouncilPalaceView();
+		this.towerViews = mainBoard.getTowerViews();
+		this.churchView = mainBoard.getChurchView();
+		
+		this.productionView = slideBoard.getProductionView();
+		this.harvestView = slideBoard.getHarvestView();
+		this.diceView = slideBoard.getDiceView();
+		this.marketView = slideBoard.getMarketView();
+	}
+	
 	@Override
 	public void print() {
 		

@@ -106,6 +106,7 @@ public class GraphicSlideBoardView extends BoardView {
 		this.diceView = graphicDiceView;
 	}
 	
+	
 	@Override
 	public void print() {	
 
@@ -113,7 +114,6 @@ public class GraphicSlideBoardView extends BoardView {
 		harvestView.print();
 		marketView.print();
 		diceView.print();
-		
 	}
 	
 	@Override

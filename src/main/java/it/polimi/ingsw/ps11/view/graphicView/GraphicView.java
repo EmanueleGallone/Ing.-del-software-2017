@@ -180,8 +180,8 @@ public class GraphicView extends View{
 	
 	@Override
 	public void update(FamilyMemberManager familyMemberManager) {
-		FamilyMemberManager fManager = you.getPlayer().getFamilyManager();
-		fManager = familyMemberManager;
+		you.getChooseFamilyView().update(familyMemberManager);
+		you.getChooseFamilyView().print();
 	}
 	
 	@Override

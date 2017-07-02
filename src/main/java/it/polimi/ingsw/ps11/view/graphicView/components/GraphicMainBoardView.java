@@ -151,6 +151,10 @@ public class GraphicMainBoardView extends BoardView{
 		
 	}
 	
+	public GraphicCouncilPalaceView getGraphicCouncilPalaceView() {
+		return graphicCouncilPalaceView;
+	}
+	
 	@Override
 	public void attach(EventListener<ViewEventInterface> listener){			//attach l'eventa handler ad ogni suo componente
 		super.attach(listener);

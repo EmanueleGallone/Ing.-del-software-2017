@@ -20,8 +20,8 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 public class GraphicHarvestView extends HarvestView {
 		
 	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton("Harvest single"),
-			  					 multipleActionSpace = new GraphicPaintedButton("Harvest multiple");
+	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton(),
+			  					 multipleActionSpace = new GraphicPaintedButton();
 	
 	public GraphicHarvestView() {
 		

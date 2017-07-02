@@ -19,11 +19,10 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
 	ViewCard dialog;
 	GraphicPaintedButton image;
-	String cardName;
+
 	
-	public GraphicDevelopmentCardView(String name) {
-		this.cardName = name;
-		image = new GraphicPaintedButton(cardName);
+	public GraphicDevelopmentCardView() {
+		image = new GraphicPaintedButton();
 		image.addActionListener(new Zoom());
 	}
 	
@@ -32,7 +31,9 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 	}
 
 	public void print(){
-		image.loadImage("/cards/" + cardName + ".png");
+//		image.setName(card.getName());
+		if(card!= null)
+			image.loadImage("/cards/" + card.getName() + ".png");
 	}
 
 
@@ -46,7 +47,8 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 			dialog.setLocationRelativeTo(null);
 			dialog.setUndecorated(true);
 			dialog.pack();
-			dialog.setVisible(true);		
+			if(card != null)
+				dialog.setVisible(true);		
 			
 		}
 	}
@@ -56,7 +58,8 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 		GraphicPaintedPanel image = new GraphicPaintedPanel();
 		
 		public ViewCard() {
-			image.loadImage(cardName);
+			if(card != null)
+				image.loadImage(card.getName());
 		}
 		
 		@Override

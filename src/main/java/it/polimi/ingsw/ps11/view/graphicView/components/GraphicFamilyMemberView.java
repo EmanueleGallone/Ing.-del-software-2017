@@ -5,12 +5,17 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
 /**
@@ -37,19 +42,27 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		familyMembers.setLayout(gblFamilyMembers);
 
 		int i = 1;
-		for (String familyMemberName : familyManager.getFamily().keySet()) {
+		
+		ArrayList<Class<? extends FamilyMember>> familyList = new ArrayList<>();
+		
+		familyList.add(BlackFamilyMember.class);
+		familyList.add(WhiteFamilyMember.class);
+		familyList.add(OrangeFamilyMember.class);
+		familyList.add(NeutralFamilyMember.class);
+		
+		for (Class<? extends FamilyMember> familyMemberName : familyList) {
 
-			GraphicPaintedButton familyMember = new GraphicPaintedButton(familyManager.getFamily().get(familyMemberName).getClass().getSimpleName());
-			familyMember.loadImage("playerImages/" + familyManager.getFamily().get(familyMemberName).getClass().getSimpleName() + ".png");
+			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton(/*familyManager.getFamily().get(familyMemberName).getClass().getSimpleName()*/);
+			familyMemberPanel.loadImage("playerImages/" + familyMemberName.getSimpleName() + ".png");
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
 			gbc.fill = GridBagConstraints.BOTH;
-			familyMember.setContentAreaFilled(false);
-			familyMembers.add(familyMember, gbc);
+			familyMemberPanel.setContentAreaFilled(false);
+			familyMembers.add(familyMemberPanel, gbc);
 			i++;
 
-			familyMember.addActionListener(new ChooseFamillyMemberListener(familyManager.getFamily().get(familyMemberName).getClass()));
-			familyMemberButtons.put(familyMemberName,familyMember);
+			familyMemberPanel.addActionListener(new ChooseFamillyMemberListener(familyMemberName));
+			familyMemberButtons.put(familyMemberName.toString(),familyMemberPanel);
 			
 		}
 
@@ -59,12 +72,13 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	
 	public void print() {
 		for(FamilyMember member : familyManager.getFamily().values()){
+			String memberName = member.getClass().toString();
 			if(member.isUsed()){
-				familyMemberButtons.get(member).setBackground(Color.BLACK);
-				familyMemberButtons.get(member).setEnabled(false);
+				familyMemberButtons.get(memberName).setBackground(Color.BLACK);
+				familyMemberButtons.get(memberName).setEnabled(false);
 			} else {
-			familyMemberButtons.get(member).loadImage("playerImages/" + member + ".png");
-			familyMemberButtons.get(member).setEnabled(true);
+			familyMemberButtons.get(memberName).loadImage("playerImages/" + member.getClass().getSimpleName() + ".png");
+			familyMemberButtons.get(memberName).setEnabled(true);
 			}
 		}
 		}

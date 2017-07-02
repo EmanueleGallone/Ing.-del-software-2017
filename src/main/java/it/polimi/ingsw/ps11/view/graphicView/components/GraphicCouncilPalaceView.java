@@ -40,10 +40,15 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
-		toPlayer1 = new GraphicPaintedButton("0");
-		toPlayer2 = new GraphicPaintedButton("1");
-		toPlayer3 = new GraphicPaintedButton("2");
-		toPlayer4 = new GraphicPaintedButton("3");
+//		toPlayer1 = new GraphicPaintedButton("0");
+//		toPlayer2 = new GraphicPaintedButton("1");
+//		toPlayer3 = new GraphicPaintedButton("2");
+//		toPlayer4 = new GraphicPaintedButton("3");
+		toPlayer1 = new GraphicPaintedButton();
+		toPlayer2 = new GraphicPaintedButton();
+		toPlayer3 = new GraphicPaintedButton();
+		toPlayer4 = new GraphicPaintedButton();
+		
 		
 		playerSelectors.add(toPlayer1);
 		playerSelectors.add(toPlayer2);

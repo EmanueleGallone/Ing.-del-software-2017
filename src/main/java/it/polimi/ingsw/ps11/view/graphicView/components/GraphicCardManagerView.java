@@ -119,7 +119,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
-				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(card.getName());
+				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(/*card.getName()*/);
 				cardButton.print();
 				
 				GridBagConstraints gbcCard = new GridBagConstraints();

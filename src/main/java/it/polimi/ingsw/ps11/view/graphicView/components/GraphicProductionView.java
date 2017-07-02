@@ -20,8 +20,8 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView;
 public class GraphicProductionView extends ProductionView {
 	
 	protected GraphicPaintedPanel productionPanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton("Production single"),
-								   multipleActionSpace = new GraphicPaintedButton("Production multiple");
+	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton(),
+								   multipleActionSpace = new GraphicPaintedButton();
 	
 	public GraphicProductionView() {
 		

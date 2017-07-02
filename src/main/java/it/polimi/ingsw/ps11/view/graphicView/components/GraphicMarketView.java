@@ -31,7 +31,7 @@ public class GraphicMarketView extends MarketView{
 		marketPanel.loadImage("boardImages/Market.png");
 
 		for(int i = 0; i < market.getPlayerNumber(); i++){
-			GraphicPaintedButton actionSpace = new GraphicPaintedButton("Market space number " + i);
+			GraphicPaintedButton actionSpace = new GraphicPaintedButton();
 			actionSpace.addActionListener(new MarketSelectedListner(i));
 			actionSpace.setContentAreaFilled(false);
 			marketSpaces.add(actionSpace);

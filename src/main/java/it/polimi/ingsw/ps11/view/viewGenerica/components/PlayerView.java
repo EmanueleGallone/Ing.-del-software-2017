@@ -22,4 +22,8 @@ public abstract class PlayerView extends ViewComponent {
 		return player;
 	}
 	
+	public ChooseFamilyView getChooseFamilyView() {
+		return chooseFamilyView;
+	}
+	
 }

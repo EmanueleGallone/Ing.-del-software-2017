@@ -47,7 +47,7 @@ public class GraphicConfirmPanelView extends JDialog{
 		JLabel scrittaCosto = new JLabel("COSTO"),
 			   scrittaBonus = new JLabel("BONUS"),
 			   scrittaServitori = new JLabel("SERVITORI");
-		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView(floor.getCard().getName());
+		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView(/*floor.getCard().getName()*/);
 		cardView.print();
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
 		GraphicResourceListView bonus = new GraphicResourceListView(resourceList);

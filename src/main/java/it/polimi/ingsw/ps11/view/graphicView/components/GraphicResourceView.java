@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.Font;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JLabel;
@@ -26,8 +27,11 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView;
 public class GraphicResourceView extends ResourceView {
 		
 	protected GraphicPaintedPanel resourcesPanel = new GraphicPaintedPanel();
-	protected HashMap<String, JLabel> resources;
+	protected HashMap<String, JLabel> resourcesPosition = new HashMap<>();
 
+	
+	
+	
 	public GraphicResourceView() {
 		resourcesPanel.loadImage("playerImages/Resources.png");
 		
@@ -40,11 +44,27 @@ public class GraphicResourceView extends ResourceView {
 		gblFloor.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 		resourcesPanel.setLayout(gblFloor);
 		
-		for (String resourceName : resourceList.getResources().keySet()) {
-			JLabel resource = new JLabel("<html><font color='black'>" + resourceName + "</font></html>");
-			resource.setFont(new Font("Arial", Font.PLAIN, 80));			
-			resources.put(resourceName, resource);
-			resourcesPanel.add(resource);
+//		for (String resourceName : resourceList.getResources().keySet()) {
+//			JLabel resource = new JLabel("<html><font color='black'>" + resourceName + "</font></html>");
+//			resource.setFont(new Font("Arial", Font.PLAIN, 80));			
+//			resources.put(resourceName, resource);
+//			resourcesPanel.add(resource);
+//		}
+		
+		ArrayList<String> rList = new ArrayList<>();
+		rList.add(Coin.class.toString());
+		rList.add(Wood.class.toString());
+		rList.add(Stone.class.toString());
+		rList.add(Servant.class.toString());
+		rList.add(FaithPoint.class.toString());
+		rList.add(MilitaryPoint.class.toString());
+		rList.add(VictoryPoint.class.toString());
+		
+		for(String resourceName : rList){
+			JLabel resourceLabel = new JLabel("<html><font color='black'>" + resourceName + "</font></html>");
+			resourceLabel.setFont(new Font("Arial", Font.PLAIN, 80));			
+			resourcesPosition.put(resourceName, resourceLabel);
+			resourcesPanel.add(resourceLabel);
 		}
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -52,9 +72,10 @@ public class GraphicResourceView extends ResourceView {
 	
 	@Override
 	public void print(){
-		for (String resource : resources.keySet()) {
-			resources.get(resource).setText("<html><font color='black'>" + resourceList.getValueOf(resource) + "</font></html>");
-		}	
+		for(Resource resource : this.resourceList){
+			JLabel label = resourcesPosition.get(resource.getClass().toString());
+			label.setText("<html><font color='black'>" + resource.getValue() + "</font></html>");
+		}
 	}
 
 	public JPanel getComponent() {

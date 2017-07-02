@@ -17,26 +17,21 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 	
 	//JButton con immagine fissa, usato per i familiari
 	
-	String name;
 	protected BufferedImage background;
 	private boolean painted = false;
 	
-	public GraphicPaintedButton(String name) {
-		this.name = name;
+	public GraphicPaintedButton() {
+		
 	}
-	
-	public String getName(){
-		return this.name;
-	}
-	
+
 	@Override
-		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			if(painted){
-			Dimension size = getSize();
-			g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
-			}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		if(painted){
+		Dimension size = getSize();
+		g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
 		}
+	}
 	
 	@Override
 	public void loadImage(String url){

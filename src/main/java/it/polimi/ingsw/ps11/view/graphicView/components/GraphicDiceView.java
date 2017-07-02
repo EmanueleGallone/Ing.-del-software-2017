@@ -81,7 +81,8 @@ public class GraphicDiceView extends DiceView {
 	public void print() {
 		int i = 0;
 		for (Dice dice : dices.getDices().values()) {
-			dicePanels.get(i).loadImage("Dice type " + i + " value " + dice.getValue());
+			//dicePanels.get(i).loadImage("Dice type " + i + " value " + dice.getValue());
+			System.out.println("GraphicDiceView nella print, riga 85, mancano le immagini da caricare quindi loadImage commentata");
 		}
 	}
 
