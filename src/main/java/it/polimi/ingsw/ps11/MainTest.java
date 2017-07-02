@@ -20,6 +20,8 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
+import it.polimi.ingsw.ps11.model.excommunications.TakeCardMinus4Excommunication;
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
@@ -56,7 +58,8 @@ public class MainTest {
 	public static void main(String[] args) throws FileNotFoundException{
 		//inizializzaCarte();
 		//inizializzatore();
-		LeaderCardsInitializer();
+		//LeaderCardsInitializer();	
+		
 	}
 
 	
@@ -1763,6 +1766,10 @@ public class MainTest {
 		CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
 		//FINE LEADER CARDS
 	 
+	}
+	
+	public static void initializeExcommunications(){
+		Excommunication yellowCardsMinus4 = new TakeCardMinus4Excommunication(YellowCard.class); 
 	}
 	
 }

@@ -40,7 +40,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
  */
 public class TextualView extends View {
 	
-	private Map<String, ViewEvent> commands = new HashMap<String, ViewEvent>();
+	private Map<String, ViewEvent> commands = new HashMap<>();
 	private Input input;
 	
 	//le istruzioni vanno aggiornate
