@@ -88,12 +88,13 @@ public class TextualView extends View {
 	public void run() {
 		//waitInput();
 		logIn();
+		waitInput();
 	}
 	
 	
 	private void logIn(){
-		String nickName = console.read("\n Inserisci il nome con cui vorresti loggare: ");
-		String pw = console.read("\n Inserisci la password: ");
+		String nickName = console.read("\nInserisci il nome con cui vorresti loggare: ");
+		String pw = console.read("\nInserisci la password: ");
 		messageHandler.invoke(new LogInMessage(nickName,pw));
 	}
 	

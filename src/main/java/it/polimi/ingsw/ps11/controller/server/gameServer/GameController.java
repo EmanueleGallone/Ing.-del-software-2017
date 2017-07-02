@@ -13,9 +13,12 @@ import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
 import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class GameController implements MessageListener,Runnable {
@@ -85,7 +88,14 @@ public class GameController implements MessageListener,Runnable {
 	public boolean search(Connection connection){
 		for(Connection c : clients.keySet()){
 			if(c.getId().equals(connection.getId())){
-				c = connection;
+				Player player = clients.get(c);
+				clients.remove(c);
+				clients.put(connection, player);
+				try {
+					connection.send(new ModelMessage(new GameUpdateEvent(gameLogic.getGame(), player)));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				return true;
 			}
 		}
@@ -113,7 +123,5 @@ public class GameController implements MessageListener,Runnable {
 	}
 
 	@Override
-	public void receive(LogInMessage logInMessage) {
-		// TODO Auto-generated method stub
-	}
+	public void receive(LogInMessage logInMessage) {}
 }
