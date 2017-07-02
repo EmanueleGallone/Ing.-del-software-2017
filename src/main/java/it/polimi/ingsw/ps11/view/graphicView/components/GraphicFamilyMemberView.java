@@ -37,7 +37,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		GridBagLayout gblFamilyMembers = new GridBagLayout();
 		gblFamilyMembers.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblFamilyMembers.rowHeights = new int[]{0, 0};
-		gblFamilyMembers.columnWeights = new double[]{0.72, 0.07, 0.07, 0.07, 0.07, Double.MIN_VALUE};
+		gblFamilyMembers.columnWeights = new double[]{0.60, 0.07, 0.07, 0.07, 0.07, Double.MIN_VALUE};
 		gblFamilyMembers.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		familyMembers.setLayout(gblFamilyMembers);
 

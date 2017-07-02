@@ -43,8 +43,8 @@ public class GraphicPlayerView extends PlayerView{
 		GridBagConstraints gbcResource = new GridBagConstraints();
 		GridBagConstraints gbcFamilyMember = new GridBagConstraints();
 				
-		gbcFamilyMember.gridy = 0;
-		gbcFamilyMember.gridy = 0;
+		gbcFamilyMember.gridx = 0;
+		gbcFamilyMember.gridx = 0;
 		gbcFamilyMember.fill = GridBagConstraints.BOTH;
 		personal.add(familyMemberPanel, gbcFamilyMember);
 				

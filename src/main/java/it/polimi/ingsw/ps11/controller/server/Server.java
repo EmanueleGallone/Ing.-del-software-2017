@@ -15,7 +15,8 @@ import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
 
 public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable {
 	
-	private ConnectionHandler connectionHandler = new ConnectionHandler();
+	//private ConnectionHandler connectionHandler = new ConnectionHandler();
+	private LogInHandler logInHandler = new LogInHandler();
 	private String serverName = "myServer";
 	private int rmiPort = 1099;
 	private int socketPort = 4099;
@@ -52,7 +53,7 @@ public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable 
 		while (true) {
 			Socket socket = server.accept();
 			SocketConnection client = new SocketConnection(socket);
-			connectionHandler.handle(client);
+			logInHandler.handle(client);
 		}
 	}
 
@@ -61,7 +62,7 @@ public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable 
 		RMIConnection client = new RMIConnection(connection);
 		UnicastRemoteObject.exportObject(client, rmiPort );
 		connection.connect(client);
-		connectionHandler.handle(client);
+		logInHandler.handle(client);
 	}
 	
 	protected void consoleLog(String message){

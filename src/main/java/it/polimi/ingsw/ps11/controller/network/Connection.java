@@ -12,6 +12,7 @@ public abstract class Connection implements ConnectionInterface {
 
 	private String serverAddress = "localhost";
 	private int port = 4099;
+	private String id;
 	
 	private EventHandler<MessageEvent> messageListener = new EventHandler<>();
 
@@ -19,13 +20,14 @@ public abstract class Connection implements ConnectionInterface {
 		
 	}
 	
+	public Connection(String id) {
+		this.id = id;
+	}
+	
 	public Connection(int port) {
 		this.port = port;
 	}
 	
-	public Connection(String serverAddress) {
-		this.serverAddress = serverAddress;
-	}
 	
 	public Connection(String serverAddress, int port) {
 		this.serverAddress = serverAddress;
@@ -36,12 +38,26 @@ public abstract class Connection implements ConnectionInterface {
 		send(new TextualMessage(message));
 	}
 	
+	public void setServerAddress(String serverAddress) {
+		this.serverAddress = serverAddress;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+	
 	public String getServerAddress() {
 		return serverAddress;
 	}
 	
 	public int getPort() {
 		return port;
+	}
+	
+	public String getId() {
+		return id;
 	}
 	
 	protected void invokeMessageEvent(Message message){

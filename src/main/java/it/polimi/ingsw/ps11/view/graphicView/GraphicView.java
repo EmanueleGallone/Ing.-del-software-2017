@@ -17,7 +17,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
@@ -31,6 +33,7 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceListPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicLoginPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicTurnPanel;
@@ -51,6 +54,10 @@ public class GraphicView extends View{
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
 
+    private GraphicLoginPanel loginPanel = new GraphicLoginPanel();
+    
+    private EventHandler<Message> messageHandler = new EventHandler<>();
+    
 	public GraphicView() {
 		
 		window = new JFrame();
@@ -174,9 +181,11 @@ public class GraphicView extends View{
 	@Override
 	public void run() {
 		
-        window.setVisible(true);
-        
+        //window.setVisible(true);
+        loginPanel.show();
 	}
+	
+	
 	
 	@Override
 	public void update(FamilyMemberManager familyMemberManager) {

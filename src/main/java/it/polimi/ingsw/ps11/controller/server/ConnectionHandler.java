@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.controller.server;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,12 +24,25 @@ public class ConnectionHandler {
 	}
 	
 	public void handle(Connection client) {
+		
+		if(checkPresence(client))
+			return;
+		
 		try {
 			client.send("Connesso, in attesa di altri giocatori");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		add(client);
+	}
+	
+	
+	public boolean checkPresence(Connection connection){
+		for(GameController controller : games){
+			if(controller.search(connection))
+				return true;
+		}
+		return false;
 	}
 	
 	public synchronized void add(Connection client){
