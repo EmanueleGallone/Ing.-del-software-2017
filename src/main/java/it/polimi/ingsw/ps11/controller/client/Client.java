@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
 import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
 import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
@@ -32,6 +33,7 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		this.view = view;
 		this.connection = connection;
 		view.attach(viewListener);
+		view.attachMessageListener(viewMessageListener);
 	}
 
 	@Override
@@ -59,6 +61,18 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		public void handle(ViewEventInterface e) {
 			try {
 				connection.send(new ViewMessage(e));
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	};
+	
+	private transient EventListener<Message> viewMessageListener = new EventListener<Message>() {
+
+		@Override
+		public void handle(Message e) {
+			try {
+				connection.send(e);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}

@@ -22,4 +22,5 @@ public interface ViewInterface {
 	public void chooseResource(ArrayList<ResourceList> options);
 	
 	public void confirm(ConfirmEvent confirm);
+	
 }

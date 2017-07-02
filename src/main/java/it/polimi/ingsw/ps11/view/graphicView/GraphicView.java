@@ -170,12 +170,12 @@ public class GraphicView extends View{
 
 	@Override
 	public void print() {
-
+		
 		boardView.print();
 		you.print();
 		console.println("Benvenuto ne: ");
 		console.printError("\"Lorenzo il Magnifico\"");
-
+		window.setVisible(true);
 	}
 
 	@Override
@@ -185,7 +185,10 @@ public class GraphicView extends View{
         loginPanel.show();
 	}
 	
-	
+	@Override
+	public void attachMessageListener(EventListener<Message> listener) {
+		loginPanel.attach(listener);
+	}
 	
 	@Override
 	public void update(FamilyMemberManager familyMemberManager) {

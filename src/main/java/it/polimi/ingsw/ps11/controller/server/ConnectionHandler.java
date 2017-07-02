@@ -28,15 +28,13 @@ public class ConnectionHandler {
 		if(checkPresence(client))
 			return;
 		
-		try {
-			client.send("Connesso, in attesa di altri giocatori");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		add(client);
+		addToLobby(client);
 	}
 	
 	
+	/**
+	 * Controlla se il giocatore era già in una partita, nel caso lo trovi aggiorna la connessione
+	 */
 	public boolean checkPresence(Connection connection){
 		for(GameController controller : games){
 			if(controller.search(connection))
@@ -45,7 +43,12 @@ public class ConnectionHandler {
 		return false;
 	}
 	
-	public synchronized void add(Connection client){
+	public synchronized void addToLobby(Connection client){
+		try {
+			client.send("Connesso, in attesa di altri giocatori");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		lobby.add(client);
 		System.out.println("  -> Nuovo " + client.getClass().getSimpleName() + "  ci sono:   " + lobby.size() + " client nella lobby");

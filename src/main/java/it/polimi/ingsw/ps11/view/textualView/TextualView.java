@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
+import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Board;
@@ -49,11 +52,8 @@ public class TextualView extends View {
 	private TextualCommands commands;
 	private transient Input input;
 	
-//	private String instructions = "\n\nINSTRUCTION:"
-//			+ "\n • If you want select the floor of a tower type \" yellow tower 1 \""
-//			+ "\n • If you want select a family member (e.g. orange) -> orange family "
-//			+ "\n • If you want select production or harvest type \"production\" or \"harvest\""
-//			+ "\n"; 
+	private EventHandler<Message> messageHandler = new EventHandler<>();
+	
 	
 	public TextualView() {
 		you = new TextualPlayerView();
@@ -86,15 +86,21 @@ public class TextualView extends View {
 
 	@Override
 	public void run() {
-		waitInput();
-		//logIn();
+		//waitInput();
+		logIn();
 	}
 	
 	
-//	private void logIn(){
-//		console.read("\n Inserisci il nome con cui vorresti loggare: ");
-//		viewEvent.invoke(parameter);
-//	}
+	private void logIn(){
+		String nickName = console.read("\n Inserisci il nome con cui vorresti loggare: ");
+		String pw = console.read("\n Inserisci la password: ");
+		messageHandler.invoke(new LogInMessage(nickName,pw));
+	}
+	
+	@Override
+	public void attachMessageListener(EventListener<Message> listener) {
+		this.messageHandler.attach(listener);
+	}
 	
 	private void waitInput(){
 		String command;

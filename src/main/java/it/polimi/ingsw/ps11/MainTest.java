@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.google.gson.reflect.TypeToken;
 
+import it.polimi.ingsw.ps11.controller.server.login.Register;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;

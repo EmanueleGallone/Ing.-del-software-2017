@@ -120,7 +120,7 @@ public class GraphicLoginPanel{
 		public void actionPerformed(ActionEvent e) {
 			if(!(login() == null)){
 				//System.out.println(login());
-				messageEvent.invoke(new LogInMessage(username.getText()));
+				messageEvent.invoke(new LogInMessage(username.getText(),password.getText()));
 				window.dispose();
 			}
 		}

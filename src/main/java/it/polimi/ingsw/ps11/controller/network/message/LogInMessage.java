@@ -6,14 +6,20 @@ public class LogInMessage implements Message{
 
 	private Connection connection;
 	private String id;
+	private String pw;
 	
-	public LogInMessage(String id) {
+	public LogInMessage(String id , String pw) {
 		this.id = id;
+		this.pw = pw;
 	}
 	
 	
 	public String getId() {
 		return id;
+	}
+	
+	public String getPw() {
+		return pw;
 	}
 	
 	@Override

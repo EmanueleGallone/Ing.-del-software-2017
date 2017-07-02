@@ -12,6 +12,7 @@ import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIReceiver;
 import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
+import it.polimi.ingsw.ps11.controller.server.login.LogInHandler;
 
 public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable {
 	
