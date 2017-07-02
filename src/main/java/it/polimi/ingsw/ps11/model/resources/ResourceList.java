@@ -107,7 +107,12 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	}
 	
 	public boolean canSubtract(ResourceList resourceList){
-		return this.equals(resourceList) || !resourceList.greaterEquals(this);
+		for(Resource resource : resourceList){
+			if(!(this.getResource(resource.getClass()).getValue() >= resource.getValue())){
+				return false;
+			}
+		}
+		return  true;//this.equals(resourceList) || !resourceList.greaterEquals(this);
 	}
 	
 

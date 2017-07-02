@@ -44,7 +44,7 @@ public class GameLogic implements Runnable{
 			    playerState.nextState(new DefaultState());
 			}
 		}
-		game.getRoundManager().startTimer();
+		//game.getRoundManager().startTimer();
 	}
 
 	@Override

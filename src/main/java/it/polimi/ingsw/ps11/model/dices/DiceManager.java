@@ -1,7 +1,9 @@
 package it.polimi.ingsw.ps11.model.dices;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 
@@ -10,40 +12,15 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
  * <p> Classe Manager per i <code>Dice</code>. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. </p>
  * @see DevelopmentCard
  */
-public class DiceManager implements Serializable{
+public class DiceManager implements Iterable<Dice>,Serializable{
 	
-	private static final int DEFAULT_VALUE = 0;
-	private HashMap<String, Dice> dices = new HashMap<>();
-	
-// start constructor
+	private HashMap<String, Dice> dices = new HashMap<String, Dice>();
 
-	public DiceManager() {
-		dices.put(BlackDice.class.toString(), new BlackDice());
-		dices.put(WhiteDice.class.toString(), new WhiteDice());
-		dices.put(OrangeDice.class.toString(), new OrangeDice());
+	public DiceManager(ArrayList<Dice> dices) {
+		for(Dice dice : dices){
+			this.dices.put(dice.getName(), dice);
+		}
 	}
-	
-	private DiceManager(DiceManager toCopy){
-		//copy constructor
-		//attenzione, bisogna fare così, ho già testato che in altri modi si passa semplicemente un riferimento invece che creare nuovi oggetti
-		for(Dice dice: toCopy.dices.values())
-			setDice(dice.clone()); // o si usa il setter, oppure si fa la put sulla map
-		
-	}
-
-// end constructor	
-// Start setters
-	
-	public <T extends Dice> void setDice(T dice){
-		this.dices.put(dice.getClass().toString() , dice.clone());
-	}
-	
-	protected void setDices(HashMap<String, Dice> dices) {
-		this.dices = dices;
-	}
-	
-//End setters
-// start logic
 	
 	/**<h3> void rollDices() </h3>
 	 * <p> Assegna un valore random compreso tra 1 e 6 ad ogni dado contenuto nel Dicemanager</p>
@@ -54,28 +31,26 @@ public class DiceManager implements Serializable{
 		}
 	}
 	
-	public <T extends Dice> T getDice(Class<T> diceClass){
-		return getDice(diceClass.toString());
-	}
-	
-	public <T extends Dice> T getDice(String diceClass){
-		return (T) dices.get(diceClass);
-	}
-	
-	public int getValueOf(String diceClass){
-		Dice d = this.getDice(diceClass);
-		if (d == null)
-			return DEFAULT_VALUE;
-		return d.getValue();
-	}
-	
-	public <T extends Dice> int getValueOf(Class<T> diceClass){
-		return getValueOf(diceClass.toString());
-	}
-	
 	public HashMap<String, Dice> getDices() {
 		return dices;
 	}
+	
+	@Override
+	public DiceManager clone(){
+		ArrayList<Dice> dices = new ArrayList<>(this.dices.values());
+		DiceManager copy = new DiceManager((ArrayList<Dice>)dices.clone());
+		return copy;
+	}
+
+	@Override
+	public Iterator<Dice> iterator() {
+		return new ArrayList<>(this.dices.values()).iterator();
+	}
+	
+	public DiceProxy get(String name){
+		return  new DiceProxy(dices.get(name));
+	}
+	
 	
 	/**<h3> String toString() </h3>
 	 * <p> Per ogni dado stampa : TIPODADO [value= ]\n </p>
@@ -89,8 +64,25 @@ public class DiceManager implements Serializable{
 		return string.substring(0, string.length() - 1)+ ".";
 	}
 	
-	@Override
-	public DiceManager clone(){
-		return new DiceManager(this);
-	}
+//	public <T extends Dice> void setDice(T dice){
+//	  this.dices.put(dice.getClass().toString() , dice.clone());
+//  }
+//	public <T extends Dice> T getDice(Class<T> diceClass){
+//		return getDice(diceClass.toString());
+//	}
+//	
+//	public <T extends Dice> T getDice(String diceClass){
+//		return (T) dices.get(diceClass);
+//	}
+//	
+//	public int getValueOf(String diceClass){
+//		Dice d = this.getDice(diceClass);
+//		if (d == null)
+//			return DEFAULT_VALUE;
+//		return d.getValue();
+//	}
+//	
+//	public <T extends Dice> int getValueOf(Class<T> diceClass){
+//		return getValueOf(diceClass.toString());
+//	}
 }

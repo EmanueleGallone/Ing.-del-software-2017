@@ -20,6 +20,8 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.model.excommunications.TakeCardMinus4Excommunication;
 import it.polimi.ingsw.ps11.model.game.Board;
@@ -52,16 +54,14 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.view.textualView.TextualCommands;
 
 public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
-		//inizializzaCarte();
-		//inizializzatore();
-		//LeaderCardsInitializer();	
-		
+		//LeaderCardsInitializer();
+		initializeTextualCommands();
 	}
-
 	
  
  
@@ -147,10 +147,22 @@ public class MainTest {
 //		
   // ___________________________________________________
 		
+		ArrayList<Dice> dices = new ArrayList<>();
+		dices.add(new Dice("Black"));
+		dices.add(new Dice("White"));
+		dices.add(new Dice("Orange"));
 		
-		Board board = new Board(towers, market, new CouncilPalace());
+		Board board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
 		CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
+	}
+	
+	
+	public static void initializeTextualCommands(){
+		
+		TextualCommands commands = new TextualCommands();
+		
+		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
 	}
 	
 	public static void inizializzaCarte(){

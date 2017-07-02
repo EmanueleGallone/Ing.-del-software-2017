@@ -51,15 +51,15 @@ public abstract class DevelopmentCard extends Card {
 	
 // Start Logics
 	
-	/**<h3> boolean checkCost(ResourceList, ResourceList) </h3>
-	 * <p> Compara due resourceList, la prima del giocatore e la seconda della carta,  
-	 * @return true se il giocatore ha abbastanza risorse, false altrimenti </p>
-	 */
-	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
-		if (costs.contains(cost) && playerResourceList.canSubtract(cost)) 
-			return true;
-		return false;
-	}
+//	/**<h3> boolean checkCost(ResourceList, ResourceList) </h3>
+//	 * <p> Compara due resourceList, la prima del giocatore e la seconda della carta,  
+//	 * @return true se il giocatore ha abbastanza risorse, false altrimenti </p>
+//	 */
+//	public boolean checkCost(ResourceList playerResourceList, ResourceList cost){
+//		if (costs.contains(cost) && playerResourceList.canSubtract(cost)) 
+//			return true;
+//		return false;
+//	}
 	
 	/**<h3>  isMonoCost() </h3>
 	 * <p> Controlla che la carta abbia un solo tipo di risorsa come costo </p>

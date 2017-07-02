@@ -16,12 +16,14 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.UseServantAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class ActionManager {
 	
@@ -115,6 +117,11 @@ public class ActionManager {
 		return make(FamilyInTowerAction.class, action);
 	}
 	
+	
+	public FamilyInYieldAction newFamilyInYield(Yield yield, FamilyMember fMember){
+		FamilyInYieldAction action = new FamilyInYieldAction(this, yield, fMember);
+		return make(FamilyInYieldAction.class, action);
+	}
 	
 // ___________________________________________________________________________________________
 	

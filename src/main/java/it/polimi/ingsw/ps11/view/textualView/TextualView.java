@@ -1,10 +1,14 @@
 package it.polimi.ingsw.ps11.view.textualView;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import it.polimi.ingsw.ps11.model.JsonAdapter;
+import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Board;
@@ -23,8 +27,10 @@ import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceVie
 import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
@@ -40,14 +46,14 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
  */
 public class TextualView extends View {
 	
-	private Map<String, ViewEvent> commands = new HashMap<>();
-	private Input input;
+	private TextualCommands commands;
+	private transient Input input;
 	
-	//le istruzioni vanno aggiornate
-	private String instructions = "\n\ninstruction:"
-			+ "\nif you want to select the floor of a tower type \" yellow tower 1 \""
-			+ "\nif you want to select a family member (e.g. orange) -> orange family "
-			+ "\n"; 
+//	private String instructions = "\n\nINSTRUCTION:"
+//			+ "\n • If you want select the floor of a tower type \" yellow tower 1 \""
+//			+ "\n • If you want select a family member (e.g. orange) -> orange family "
+//			+ "\n • If you want select production or harvest type \"production\" or \"harvest\""
+//			+ "\n"; 
 	
 	public TextualView() {
 		you = new TextualPlayerView();
@@ -55,16 +61,26 @@ public class TextualView extends View {
 		TextualConsole c = new TextualConsole();
 		console = c;
 		input = new Input(c);
-		
-		initializeEventMap();
+	
+		try {
+			commands = loadCommands();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private TextualCommands loadCommands() throws FileNotFoundException{
+		FileReader reader = new FileReader("settings\\textualCommands");
+		TextualCommands commands = new JsonAdapter().fromJson(reader, TextualCommands.class);
+		return commands;
 	}
 	
 	
 	@Override
 	public void print() {
-		boardView.print();
-		you.print();
-		console.println(instructions); 
+//		boardView.print();
+//		you.print();
+		console.println(commands.getInstructions()); 
 
 	}
 
@@ -99,14 +115,13 @@ public class TextualView extends View {
 	public void update(FamilyMemberManager familyMemberManager){
 		TextualChooseFamilyView chooser = new TextualChooseFamilyView(input, familyMemberManager, this.viewEvent);
 		chooser.print();
-		console.println("Press 1..4 to select the family member ");
+		console.println("\n Press 1..4 to select the family member ");
 		input.attach(chooser);
 	}
 	
 	@Override
 	public void update(Game game) {
 		this.update(game.getBoard());
-		console.println(instructions);
 	}
 	
 //	public void registrate(Registration registration){
@@ -127,7 +142,10 @@ public class TextualView extends View {
 	@Override
 	public void confirm(ConfirmEvent confirm) {
 		Floor floor = confirm.getFloor();
-		TextualFloorView floorView = new TextualFloorView(confirm.getTower(),0);
+		String tower = "";
+		if(confirm.getTower()!=null)
+			tower = confirm.getTower();
+		TextualFloorView floorView = new TextualFloorView(tower,0);
 		floorView.update(floor);
 		floorView.print();
 		console.println(confirm.getMessage());
@@ -151,33 +169,6 @@ public class TextualView extends View {
 				}
 			}
 		});
-	}
-	
-	private void initializeEventMap(){
-		
-		commands.put("yellow tower 1", new FloorSelectedEvent(YellowTower.class, 0));
-		commands.put("yellow tower 2", new FloorSelectedEvent(YellowTower.class, 1));
-		commands.put("yellow tower 3", new FloorSelectedEvent(YellowTower.class, 2));
-		commands.put("yellow tower 4", new FloorSelectedEvent(YellowTower.class, 3));
-		commands.put("green tower 1", new FloorSelectedEvent(GreenTower.class, 0));
-		commands.put("green tower 2", new FloorSelectedEvent(GreenTower.class, 1));
-		commands.put("green tower 3", new FloorSelectedEvent(GreenTower.class, 2));
-		commands.put("green tower 4", new FloorSelectedEvent(GreenTower.class, 3));
-		commands.put("blue tower 1", new FloorSelectedEvent(BlueTower.class, 0));
-		commands.put("blue tower 2", new FloorSelectedEvent(BlueTower.class, 1));
-		commands.put("blue tower 3", new FloorSelectedEvent(BlueTower.class, 2));
-		commands.put("blue tower 4", new FloorSelectedEvent(BlueTower.class, 3));
-		commands.put("purple tower 1", new FloorSelectedEvent(PurpleTower.class, 0));
-		commands.put("purple tower 2", new FloorSelectedEvent(PurpleTower.class, 1));
-		commands.put("purple tower 3", new FloorSelectedEvent(PurpleTower.class, 2));
-		commands.put("purple tower 4", new FloorSelectedEvent(PurpleTower.class, 3));
-		
-		commands.put("market 1", new MarketSelectedEvent(0));
-		commands.put("market 2", new MarketSelectedEvent(1));
-		commands.put("market 3", new MarketSelectedEvent(2));
-		commands.put("market 4", new MarketSelectedEvent(3));
-
-		commands.put("production" , new ProductionSelectedEvent()); //manca l'harvest
 	}
 	
 }

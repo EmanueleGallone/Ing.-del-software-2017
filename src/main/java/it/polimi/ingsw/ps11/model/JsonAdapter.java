@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,11 +20,16 @@ import com.google.gson.JsonSerializer;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 
 public class JsonAdapter {
 
@@ -32,13 +38,14 @@ public class JsonAdapter {
 	
 	private static ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(
 			Resource.class,
-			Dice.class,
+//			Dice.class,
 			Tower.class,
 			DevelopmentCard.class,
 			FamilyMember.class,
 			Effect.class,
 			Action.class,
-			LeaderCard.class
+			LeaderCard.class,
+			ViewEvent.class
 			));
 	
 	public JsonAdapter() {

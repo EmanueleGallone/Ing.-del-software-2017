@@ -219,14 +219,23 @@
   },
   "diceManager": {
     "dices": {
-      "class it.polimi.ingsw.ps11.model.dices.WhiteDice": {
-        "value": 0
+      "White": {
+        "MAX_FACES": 6,
+        "DEFAULT_VALUE": 0,
+        "value": 0,
+        "name": "White"
       },
-      "class it.polimi.ingsw.ps11.model.dices.BlackDice": {
-        "value": 0
+      "Black": {
+        "MAX_FACES": 6,
+        "DEFAULT_VALUE": 0,
+        "value": 0,
+        "name": "Black"
       },
-      "class it.polimi.ingsw.ps11.model.dices.OrangeDice": {
-        "value": 0
+      "Orange": {
+        "MAX_FACES": 6,
+        "DEFAULT_VALUE": 0,
+        "value": 0,
+        "name": "Orange"
       }
     }
   },

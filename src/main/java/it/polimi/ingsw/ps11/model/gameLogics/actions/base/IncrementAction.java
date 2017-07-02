@@ -40,7 +40,7 @@ public class IncrementAction implements Action<IncrementAction>, ResourceListene
 	@Override
 	public void perform() {
 		aManager.getSubject().getResourceList().sum(resource);
-		aManager.stateHandler().invoke(new PlayerUpdateEvent(aManager.stateHandler().getPlayer()));
+		//aManager.stateHandler().invoke(new PlayerUpdateEvent(aManager.stateHandler().getPlayer()));
 	}
 	
 	@Override

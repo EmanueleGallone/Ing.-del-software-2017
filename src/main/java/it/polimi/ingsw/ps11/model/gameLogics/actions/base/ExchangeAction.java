@@ -36,7 +36,13 @@ public class ExchangeAction implements Action<ExchangeAction>, ResourceListener 
 	
 	@Override
 	public void update(ResourceList resource) {
-		ResourceList rewards = exchange.get(resource);
+		ResourceList rewards = exchange.get(resource); // A quanto pare la get() della map non usa l'equals, va fatto manualmente
+		for(ResourceList resourceList : exchange.keySet()){
+			if(resourceList.equals(resource))
+				rewards = exchange.get(resourceList);
+		}
+		
+		
 		if(rewards != null){
 			DecrementAction decrement = aManager.newDecrementAction(resource);
 			IncrementAction increment = aManager.newIncrementAction(rewards);

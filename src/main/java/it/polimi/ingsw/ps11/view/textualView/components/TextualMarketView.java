@@ -20,25 +20,23 @@ public class TextualMarketView extends MarketView{
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
-		TextualResourceView resourceView = new TextualResourceView();
-		String owner= "Nobody";
+		String owner;
 		console.print("Market\n");
 		
-		for(ActionSpace space : market.getAllSpace()){
-			if(space.getOwner() != null)
+		
+		for(ActionSpace space : market){
+
+			if(space.getOwner()!= null)
 				owner = space.getOwner().getName();
+			else
+				owner = "Nobody";
 			
 			console.print("Player: " + owner + "   ");
 			
-			if(space.getResources() != null){
-				resourceView.update(space.getResources());
-				resourceView.print();
-				console.println("");
-			}
-			
-			
+			if(space.getResources()!= null)
+				new TextualResourceView(space.getResources()).print();
+			console.print("\n");
 		}
-		console.print("\n");
 	}
 
 }

@@ -13,6 +13,10 @@ public class NeutralFamilyMember extends FamilyMember {
 		super();
 	}
 	
+	public NeutralFamilyMember(String name){
+		super(name);
+	}
+	
 	@Override
 	public NeutralFamilyMember clone(){
 		NeutralFamilyMember clone = new NeutralFamilyMember();

@@ -28,10 +28,10 @@ public class RoundManager implements Serializable{
 	private int actualPlayer = 0; 
 
 	
-	private EventHandler<RoundManager> gameOver = new EventHandler<>();
-	private EventHandler<RoundManager> newPeriod = new EventHandler<>();
-	private EventHandler<RoundManager> newTurn = new EventHandler<>();
-	private EventHandler<Player> timerOut = new EventHandler<>();
+	private transient EventHandler<RoundManager> gameOver = new EventHandler<>();
+	private transient EventHandler<RoundManager> newPeriod = new EventHandler<>();
+	private transient EventHandler<RoundManager> newTurn = new EventHandler<>();
+	private transient EventHandler<Player> timerOut = new EventHandler<>();
 	
 	public RoundManager(ArrayList<Player> players){
 		this.players = players;

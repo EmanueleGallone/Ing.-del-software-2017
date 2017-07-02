@@ -13,6 +13,10 @@ public class BlackFamilyMember extends FamilyMember {
 		super();
 	}
 	
+	public BlackFamilyMember(String name){
+		super(name);
+	}
+	
 	@Override
 	public BlackFamilyMember clone(){
 		BlackFamilyMember clone = new BlackFamilyMember();

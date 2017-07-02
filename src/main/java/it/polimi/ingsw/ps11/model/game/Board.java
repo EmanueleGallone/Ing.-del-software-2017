@@ -34,7 +34,7 @@ import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 public class Board implements Serializable{
 	
 	private HashMap<String, Tower> towers = new HashMap<>();
-	private DiceManager diceManager = new DiceManager();
+	private DiceManager diceManager;
 	
 	private Yield harvest = new Yield(GreenCard.class);
 	private Yield production = new Yield(YellowCard.class);
@@ -45,12 +45,13 @@ public class Board implements Serializable{
 	ArrayList<DevelopmentCard> alreadyUsed = new ArrayList<>();
 	
 	public Board(){
+		
 	}
 	
-	public Board(ArrayList<Tower> towers, Market market, CouncilPalace councilPalace){
+	public Board(ArrayList<Tower> towers, Market market, DiceManager diceManager ,CouncilPalace councilPalace){
 		this.market = market;
+		this.diceManager = diceManager;
 		this.councilPalace = councilPalace;
-		
 		for(Tower t : towers){
 			this.towers.put(t.getClass().toString(), t);
 		}

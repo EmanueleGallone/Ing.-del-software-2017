@@ -16,27 +16,34 @@ import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
  */
 
 import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceProxy;
 public abstract class FamilyMember implements Serializable{
 	
 	private final int DEFAULT_MODIFIER = 0;
 	
 	//protected int value; 
-	protected transient Dice dice;
+	protected DiceProxy dice;
 	protected int modifier;
 	private boolean used = false;
-	
+	private String name;
 	
 	public FamilyMember(){
 		modifier = DEFAULT_MODIFIER;
 	}
 	
-//start logics
+
+	public FamilyMember(String name){
+		this();
+		this.name = name;
+	}
 	
-//end logics
+	public String getName() {
+		return name;
+	}
 
 	public int getValue(){
 		int value = 0;
-		if(dice == null)
+		if(dice != null)
 			value = dice.getValue();
 		return value + this.modifier;
 	}
@@ -49,7 +56,7 @@ public abstract class FamilyMember implements Serializable{
 		modifier = DEFAULT_MODIFIER;
 	}
 	
-	public void setDice(Dice dice) {
+	public void setDice(DiceProxy dice) {
 		this.dice = dice;
 	}
 	

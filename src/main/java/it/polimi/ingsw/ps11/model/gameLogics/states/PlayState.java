@@ -1,6 +1,13 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.model.zones.Market;
+import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
+import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
@@ -54,21 +61,35 @@ public class PlayState extends DefaultState{
 	@Override
 	public void handle(MarketSelectedEvent marketSelectedEvent) {
 		if(familySelectedCheck(marketSelectedEvent)){
-			
+			Market market = stateHandler().getGame().getBoard().getMarket();
+			ActionSpace space = market.getActionSpace(marketSelectedEvent.getActionSpace());
+			FamilyInSpaceAction action = stateHandler().actions().newFamilyInSpace(selectFMember(marketSelectedEvent), space);
+			stateHandler().nextState(new WaitConfirm(action));
 		}
 	}
-
+	
+	protected FamilyMember selectFMember(SpaceSelectedEvent event){
+		String fName= event.getFamilySelectedEvent().getFamilyMember();
+		return stateHandler().getPlayer().getFamilyManager().getFamilyMember(fName);	
+	}
+	
 	@Override
 	public void handle(ProductionSelectedEvent productionSelectedEvent) {
 		if(familySelectedCheck(productionSelectedEvent)){
-			//manager.invoke(ProductionSelectedEvent.class, productionSelectedEvent);
+			FamilyMember fMember = selectFMember(productionSelectedEvent);
+			Yield yield = stateHandler().getGame().getBoard().getProduction();
+			FamilyInYieldAction action = stateHandler().actions().newFamilyInYield(yield,fMember);
+			stateHandler().nextState(new WaitConfirm(action));
 		}
 	}
 
 	@Override
 	public void handle(HarvestSelectedEvent harvestSelectedEvent) {
 		if(familySelectedCheck(harvestSelectedEvent)){
-			
+			FamilyMember fMember = selectFMember(harvestSelectedEvent);
+			Yield yield = stateHandler().getGame().getBoard().getHarvest();
+			FamilyInYieldAction action = stateHandler().actions().newFamilyInYield(yield,fMember);
+			stateHandler().nextState(new WaitConfirm(action));
 		}
 	}
 
