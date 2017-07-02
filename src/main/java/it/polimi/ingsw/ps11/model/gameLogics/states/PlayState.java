@@ -64,10 +64,7 @@ public class PlayState extends DefaultState{
 			Market market = stateHandler().getGame().getBoard().getMarket();
 			ActionSpace space = market.getActionSpace(marketSelectedEvent.getActionSpace());
 			FamilyInSpaceAction action = stateHandler().actions().newFamilyInSpace(selectFMember(marketSelectedEvent), space);
-			if(action.isLegal()){
-				action.perform();
-				this.handle(new AskUpdateEvent());
-			}
+			stateHandler().nextState(new WaitConfirm(action));
 		}
 	}
 	

@@ -28,6 +28,8 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
+import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 
 public class JsonAdapter {
 
@@ -42,7 +44,8 @@ public class JsonAdapter {
 			FamilyMember.class,
 			Effect.class,
 			Action.class,
-			LeaderCard.class
+			LeaderCard.class,
+			ViewEvent.class
 			));
 	
 	public JsonAdapter() {

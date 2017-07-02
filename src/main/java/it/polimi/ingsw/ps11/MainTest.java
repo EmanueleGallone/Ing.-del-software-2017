@@ -1,9 +1,14 @@
 package it.polimi.ingsw.ps11;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.google.gson.reflect.TypeToken;
@@ -52,13 +57,22 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.view.textualView.TextualCommands;
+import it.polimi.ingsw.ps11.view.textualView.TextualView;
+import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 
 public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		//inizializzaCarte();
-		inizializzatore();
+		//inizializzatore();
 		//LeaderCardsInitializer();
+		initializeTextualCommands();
 	}
 
 	
@@ -154,6 +168,14 @@ public class MainTest {
 		Board board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
 		CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
+	}
+	
+	
+	public static void initializeTextualCommands(){
+		
+		TextualCommands commands = new TextualCommands();
+		
+		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
 	}
 	
 	public static void inizializzaCarte(){

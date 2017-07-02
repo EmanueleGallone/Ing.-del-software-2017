@@ -67,4 +67,10 @@ public class DefaultState extends State {
 		stateHandler().invoke(new GameUpdateEvent(stateHandler().getGame()));
 	}
 
+	@Override
+	public void notifyToClient() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

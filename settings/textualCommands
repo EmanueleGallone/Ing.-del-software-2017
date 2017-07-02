@@ -1,0 +1,153 @@
+{
+  "commands": {
+    "harvest": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent",
+      "INSTANCE": {}
+    },
+    "production": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent",
+      "INSTANCE": {}
+    },
+    "yellow tower 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "floor": 3
+      }
+    },
+    "market 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
+      "INSTANCE": {
+        "actionSpace": 3
+      }
+    },
+    "yellow tower 3": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "floor": 2
+      }
+    },
+    "update": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent",
+      "INSTANCE": {}
+    },
+    "green tower 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "floor": 3
+      }
+    },
+    "green tower 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "floor": 1
+      }
+    },
+    "green tower 3": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "floor": 2
+      }
+    },
+    "green tower 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "floor": 0
+      }
+    },
+    "market 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
+      "INSTANCE": {
+        "actionSpace": 0
+      }
+    },
+    "yellow tower 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "floor": 1
+      }
+    },
+    "purple tower 3": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "floor": 2
+      }
+    },
+    "market 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
+      "INSTANCE": {
+        "actionSpace": 1
+      }
+    },
+    "yellow tower 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "floor": 0
+      }
+    },
+    "purple tower 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "floor": 3
+      }
+    },
+    "market 3": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
+      "INSTANCE": {
+        "actionSpace": 2
+      }
+    },
+    "blue tower 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "floor": 0
+      }
+    },
+    "purple tower 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "floor": 0
+      }
+    },
+    "blue tower 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "floor": 1
+      }
+    },
+    "purple tower 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "floor": 1
+      }
+    },
+    "blue tower 3": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "floor": 2
+      }
+    },
+    "blue tower 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "floor": 3
+      }
+    }
+  },
+  "instructions": "\n\nINSTRUCTION:\n • If you want select the floor of a tower type \" yellow tower 1 \"\n • If you want select a family member (e.g. orange) -\u003e orange family \n • If you want select production or harvest type \"production\" or \"harvest\"\n"
+}
