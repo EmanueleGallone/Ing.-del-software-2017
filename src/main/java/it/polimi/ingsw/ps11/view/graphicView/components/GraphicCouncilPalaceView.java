@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
@@ -35,6 +34,8 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
 	public GraphicCouncilPalaceView() {
 		
+		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
+		
 		multipleActionSpace = new GraphicMultipleActionSpaceButton("Council");
 		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
 		
@@ -55,9 +56,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		toPlayer2.setContentAreaFilled(false);
 		toPlayer3.setContentAreaFilled(false);
 		toPlayer4.setContentAreaFilled(false);
-		
-		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
-		
+				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblCouncilPalace = new GridBagLayout();

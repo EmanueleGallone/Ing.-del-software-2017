@@ -20,22 +20,19 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView;
 public class GraphicProductionView extends ProductionView {
 	
 	protected GraphicPaintedPanel productionPanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton singleActionSpace,
-			  					 multipleActionSpace;
+	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton("Production single"),
+								   multipleActionSpace = new GraphicPaintedButton("Production multiple");
 	
 	public GraphicProductionView() {
 		
-		singleActionSpace = new GraphicPaintedButton("Production single");
-		multipleActionSpace = new GraphicPaintedButton("Production multiple");
+		productionPanel.loadImage("boardImages/Production.png");
 		
 		singleActionSpace.setContentAreaFilled(false);
 		multipleActionSpace.setContentAreaFilled(false);
 		
 		singleActionSpace.addActionListener(new SingleProductionSelectedListener());
 		multipleActionSpace.addActionListener(new MultipleProductionSelectedListener());
-		
-		productionPanel.loadImage("boardImages/Production.png");
-		
+				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblProduction = new GridBagLayout();

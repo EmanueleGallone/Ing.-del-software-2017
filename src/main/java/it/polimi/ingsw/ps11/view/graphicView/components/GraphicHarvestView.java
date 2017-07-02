@@ -18,26 +18,21 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
  * @see GraphicPaintedButton
  */
 public class GraphicHarvestView extends HarvestView {
-	
-	//Zona raccolta, ha un single ActionSpace e un multiplo ActionSpace
-	
+		
 	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
 	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton("Harvest single"),
 			  					 multipleActionSpace = new GraphicPaintedButton("Harvest multiple");
 	
 	public GraphicHarvestView() {
 		
-		singleActionSpace = new GraphicPaintedButton("Harvest single");
-		multipleActionSpace = new GraphicPaintedButton("Harvest multiple");
-		
+		harvestPanel.loadImage("boardImages/Harvest.png");
+
 		singleActionSpace.setContentAreaFilled(false);
 		multipleActionSpace.setContentAreaFilled(false);
 		
 		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
 		multipleActionSpace.addActionListener(new MultipleHarvestSelectedListener());
-		
-		harvestPanel.loadImage("boardImages/Harvest.png");
-		
+				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblProduction = new GridBagLayout();

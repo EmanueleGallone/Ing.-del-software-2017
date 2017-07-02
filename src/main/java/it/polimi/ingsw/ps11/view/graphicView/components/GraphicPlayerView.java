@@ -21,17 +21,13 @@ public class GraphicPlayerView extends PlayerView{
 	protected JPanel personal = new JPanel();
 	
 	public GraphicPlayerView() {
-			
-		cardManagerView = new GraphicCardManagerView();
-		resourceView = new GraphicResourceView();
-		chooseFamilyView = new GraphicFamilyMemberView();
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
 		GraphicResourceView graphicResourceView = new GraphicResourceView();
 		GraphicFamilyMemberView graphicFamilyMemberView = new GraphicFamilyMemberView();
-				
+
 		GridBagLayout gblPersonal = new GridBagLayout();
 		gblPersonal.columnWidths = new int[]{0, 0, 0};
 		gblPersonal.rowHeights = new int[]{0, 0, 0};

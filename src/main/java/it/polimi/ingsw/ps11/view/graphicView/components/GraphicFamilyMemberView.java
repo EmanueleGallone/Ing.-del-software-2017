@@ -26,8 +26,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
 	
 	public GraphicFamilyMemberView() {
-		
-		
+
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GridBagLayout gblFamilyMembers = new GridBagLayout();
@@ -36,9 +35,10 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		gblFamilyMembers.columnWeights = new double[]{0.72, 0.07, 0.07, 0.07, 0.07, Double.MIN_VALUE};
 		gblFamilyMembers.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		familyMembers.setLayout(gblFamilyMembers);
+
 		int i = 1;
 		for (String familyMemberName : familyManager.getFamily().keySet()) {
-			
+
 			GraphicPaintedButton familyMember = new GraphicPaintedButton(familyManager.getFamily().get(familyMemberName).getClass().getSimpleName());
 			familyMember.loadImage("playerImages/" + familyManager.getFamily().get(familyMemberName).getClass().getSimpleName() + ".png");
 			GridBagConstraints gbc = new GridBagConstraints();
@@ -49,9 +49,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 			i++;
 
 			familyMember.addActionListener(new ChooseFamillyMemberListener(familyManager.getFamily().get(familyMemberName).getClass()));
-			familyMemberButtons.put
-			(familyMemberName, 
-					familyMember);
+			familyMemberButtons.put(familyMemberName,familyMember);
 			
 		}
 

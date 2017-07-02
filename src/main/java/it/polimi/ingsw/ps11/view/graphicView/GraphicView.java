@@ -36,8 +36,7 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicTurnPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
-/**
- * <h3> Graphic View</h3>
+/**<h3> Graphic View</h3>
  * <p> Classe che rappresenta la finestra generale della GUI, contiene un JPanel per la board Superiore(torri, chiesa e consiglio),
  * un JDialog per la board Inferiore(zone raccolta e produzione, mercato e dadi) un JPanel per la board Personale e un JTextPane per
  * la console vhe visualizza i messaggi  </p>
@@ -47,19 +46,14 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
  */
 public class GraphicView extends View{
 
-	JFrame window = new JFrame();												//Finestra Generale				
+	JFrame window;												//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
-	protected JPanel boardPanel, playerPanel, consolePanel;						//Pannelli boardPrincipale, boardPersonale e console
-	protected GraphicTurnPanel playersTurn;
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
 
 	public GraphicView() {
 		
-		you = new GraphicPlayerView();											//Board personale	
-		boardView = new GraphicBoardView();										//Board generale
-		console = new GraphicConsole();											//Console per la gestione dei messaggi
-		
+		window = new JFrame();
 		window.setTitle("Game Window");											//Setup la finestra principale del gioco
         window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,12 +73,12 @@ public class GraphicView extends View{
         GraphicPlayerView graphicPlayerView = new GraphicPlayerView();
         GraphicConsole graphicConsole = new GraphicConsole();
         JButton exit = new JButton("X"), minimize = new JButton("_");
-        playersTurn = new GraphicTurnPanel();
+        GraphicTurnPanel playersTurn = new GraphicTurnPanel();
                
-        boardPanel = graphicBoardView.getMainBoard().getComponent();
+        JPanel boardPanel = graphicBoardView.getMainBoard().getComponent(),
+        	   playerPanel = graphicPlayerView.getComponent(),
+        	   consolePanel = graphicConsole.getComponent();
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
-        playerPanel = graphicPlayerView.getComponent();
-        consolePanel = graphicConsole.getComponent();
                
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
 		GridBagConstraints gbcPlayers = new GridBagConstraints();
@@ -138,13 +132,10 @@ public class GraphicView extends View{
 		
 		exit.addActionListener(new Close());
 		minimize.addActionListener(new Minimize());
-				
-		consolePanel.registerKeyboardAction(e -> {
-			String toSend = graphicConsole.read();
-		}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
         
         graphicBoardView.attachSlideListener(new ShowPanel());						//listener per il bottone che fa entrare il pannello della slideBoardView
         graphicBoardView.attachChangePlayer(new ChangePlayer());
+        graphicConsole.attach(this);
         
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
@@ -155,12 +146,11 @@ public class GraphicView extends View{
 		this.you = graphicPlayerView;
 		this.console = graphicConsole;
         
-        window.setVisible(true);
-
 	}
 	
-	public void send(){
-		
+	public void send(String string){
+		String toSend = string;
+		System.out.println(toSend);
 	}
 	
 	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
@@ -183,10 +173,9 @@ public class GraphicView extends View{
 
 	@Override
 	public void run() {
-
-		GraphicView tryout = new GraphicView();
-		tryout.print();
 		
+        window.setVisible(true);
+        
 	}
 	
 	@Override
@@ -251,5 +240,7 @@ public class GraphicView extends View{
 		
 	}
 	public static void main(String[] args) {
+		GraphicView view = new GraphicView();
+		view.run();
 	}
 }

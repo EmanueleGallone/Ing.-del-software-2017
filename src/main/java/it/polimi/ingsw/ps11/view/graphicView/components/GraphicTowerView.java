@@ -20,15 +20,10 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 public class GraphicTowerView extends TowerView{
 	
 	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
-	protected Class<? extends Tower> towerClass;
 	
 	public GraphicTowerView(Class<? extends Tower> whichTower, String towerName) {
 
 		super(whichTower,towerName);
-		this.towerClass = whichTower;
-		for(int i = 0; i< TOWERNUMBER; i++){
-			floorViews.add(new GraphicFloorView(whichTower, i));
-		}
 		this.towerName = towerName;
 		
 		tower.loadImage("boardImages/" + towerName + ".png");
@@ -36,12 +31,7 @@ public class GraphicTowerView extends TowerView{
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		ArrayList<GraphicFloorView> graphicFloorViews = new ArrayList<>();
-		
-		for(int i=0; i<TOWERNUMBER; i++){
-		graphicFloorViews.add(new GraphicFloorView(towerClass, i));
-		graphicFloorViews.get(i).print();
-		}
-		
+
 		GridBagLayout gblTower = new GridBagLayout();
 		gblTower.columnWidths = new int[]{0, 0};
 		gblTower.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
@@ -50,15 +40,21 @@ public class GraphicTowerView extends TowerView{
 		tower.setLayout(gblTower);
 		
 		for(int i = 0; i < TOWERNUMBER; i++){
+			
+			graphicFloorViews.add(new GraphicFloorView(whichTower, i));
 			GridBagConstraints gbcFloor = new GridBagConstraints();
 			gbcFloor.gridy = (4-i);
 			gbcFloor.fill = GridBagConstraints.BOTH;
 			graphicFloorViews.get(i).getComponent().setPreferredSize(new Dimension(10, 10));
 			tower.add(graphicFloorViews.get(i).getComponent(), gbcFloor);
-			this.setFloor(i, graphicFloorViews.get(i));
-		}
+			floorViews.add(graphicFloorViews.get(i));		
+			}
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
+		
+		for(int i = 0; i< TOWERNUMBER; i++){
+			floorViews.add(graphicFloorViews.get(0));
+		}
 
 	}
 	

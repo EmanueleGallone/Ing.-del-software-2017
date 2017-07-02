@@ -23,20 +23,19 @@ public class GraphicMarketView extends MarketView{
 	//Zona mercato, ha un action space singolo per ogni zona intriore del mercato e un pannello che mostra i turni
 
 	protected GraphicPaintedPanel marketPanel = new GraphicPaintedPanel();
-	private ArrayList<GraphicPaintedButton> marketSpaces;
+	private ArrayList<GraphicPaintedButton> marketSpaces = new ArrayList<>();
 
 
 	public GraphicMarketView() {
-				
-		marketSpaces = new ArrayList<>();
-		
+
+		marketPanel.loadImage("boardImages/Market.png");
+
 		for(int i = 0; i < market.getPlayerNumber(); i++){
 			GraphicPaintedButton actionSpace = new GraphicPaintedButton("Market space number " + i);
 			actionSpace.addActionListener(new MarketSelectedListner(i));
 			actionSpace.setContentAreaFilled(false);
 			marketSpaces.add(actionSpace);
 		}	
-		marketPanel.loadImage("boardImages/Market.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 

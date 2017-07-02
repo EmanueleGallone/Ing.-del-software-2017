@@ -41,7 +41,7 @@ public class GraphicResourceView extends ResourceView {
 		resourcesPanel.setLayout(gblFloor);
 		
 		for (String resourceName : resourceList.getResources().keySet()) {
-			JLabel resource = new JLabel("<html><font color='black'>" + resourceList.getValueOf(resourceName) + "</font></html>");
+			JLabel resource = new JLabel("<html><font color='black'>" + resourceName + "</font></html>");
 			resource.setFont(new Font("Arial", Font.PLAIN, 80));			
 			resources.put(resourceName, resource);
 			resourcesPanel.add(resource);

@@ -6,10 +6,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
@@ -36,8 +34,8 @@ public class GraphicFloorView extends FloorView{
 		super(whichTower, whichFloor);
 		this.whichTower = whichTower;
 		this.whichFloor = whichFloor;
+		
 		cardView = new GraphicDevelopmentCardView(null);
-		cardView.print();
 		actionSpace = new GraphicPaintedButton(whichTower.getClass().getSimpleName() + " " + (4-whichFloor));
 		actionSpace.setContentAreaFilled(false);
 		actionSpace.addActionListener(new FloorSelectedListener());
