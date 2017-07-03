@@ -35,10 +35,10 @@ public class Game implements Serializable  {
 
 	
 	private void setDices(ArrayList<Player> players){
+		board.getDices().rollDices();
 		for(Player player: players){
 			player.getFamilyManager().setDices(board.getDices());
 		}
-		board.getDices().rollDices();
 	}
 	
 

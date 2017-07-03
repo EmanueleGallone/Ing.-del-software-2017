@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.excommunications;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
+import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 /**
  * <h3>Excommunication</h3>
  * <p>

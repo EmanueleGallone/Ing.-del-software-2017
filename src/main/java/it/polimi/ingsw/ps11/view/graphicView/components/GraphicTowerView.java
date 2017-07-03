@@ -54,10 +54,6 @@ public class GraphicTowerView extends TowerView{
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
-		for(int i = 0; i< TOWERNUMBER; i++){
-			floorViews.add(graphicFloorViews.get(i));
-		}
-
 	}
 	
 	public GraphicTowerView(Class<? extends Tower> whichTower) {

@@ -21,6 +21,8 @@ public class BlackFamilyMember extends FamilyMember {
 	public BlackFamilyMember clone(){
 		BlackFamilyMember clone = new BlackFamilyMember();
 		clone.dice = this.dice;
+		clone.name = this.name;
+		clone.used = this.used;
 		clone.modifier = this.modifier;
 		
 		return clone;

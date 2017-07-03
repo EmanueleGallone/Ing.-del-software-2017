@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.cards.leaderCards;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
+import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
 
 public class DiscountLeaderCard extends LeaderCard {
 	

@@ -24,8 +24,8 @@ public abstract class FamilyMember implements Serializable{
 	//protected int value; 
 	protected DiceProxy dice;
 	protected int modifier;
-	private boolean used = false;
-	private String name;
+	protected boolean used = false;
+	protected String name;
 	
 	public FamilyMember(){
 		modifier = DEFAULT_MODIFIER;

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.actions.effects;
+package it.polimi.ingsw.ps11.model.cards.effects;
 
 import java.util.ArrayList;
 import java.util.HashMap;

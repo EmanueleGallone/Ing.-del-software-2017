@@ -192,8 +192,8 @@ public class GraphicView extends View{
 	@Override
 	public void run() {
 		
-        window.setVisible(true);
-        //loginPanel.show();
+        //window.setVisible(true);
+        loginPanel.show();
 	}
 	
 	@Override
@@ -240,8 +240,10 @@ public class GraphicView extends View{
 
 		@Override
 		public void handle(Card e) {
+			System.out.println("Carta cliccata " + e.getName());
 			String cardType = e.getClass().getSimpleName();
-			cardZoomPanel.loadImage(cardType+"\\"+ e.getName()+".png");
+			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
+			cardZoomPanel.repaint();
 		}
 	};
 	

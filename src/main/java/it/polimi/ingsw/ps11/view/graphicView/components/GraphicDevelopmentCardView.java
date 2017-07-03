@@ -30,8 +30,9 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
 	public void print(){
 //		image.setName(card.getName());
-		if(card!= null)
-			image.loadImage("/cards/" + card.getName() + ".png");
+		if(developmentCard!= null)
+			image.loadImage(developmentCard.getClass().getSimpleName() +"/" + developmentCard.getName() + ".png");
+		//image.repaint();
 	}
 
 	public void attachCardListener(EventListener<Card> zoomCardListener) {
@@ -43,8 +44,8 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
-			if(card != null)
-				cardClickEvent.invoke(card);
+			if(developmentCard != null)
+				cardClickEvent.invoke(developmentCard);
 		}
 	}
 	

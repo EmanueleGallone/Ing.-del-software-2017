@@ -40,8 +40,9 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(imagePath);
-		} catch (IOException e) {
+		} catch (IOException | IllegalArgumentException e) {
 			System.err.println("Errore, immagine non trovata");
+			e.printStackTrace();
 		}
 		
 		background = result;

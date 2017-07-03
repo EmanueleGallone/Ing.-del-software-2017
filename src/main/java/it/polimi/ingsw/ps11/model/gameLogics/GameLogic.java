@@ -89,7 +89,10 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(Player e) {
-			System.out.println("Timer scattato");
+			System.out.println("Timer scattato per il player " + e.getName());
+			for(StateHandler player : playerStatus.values()){
+				player.invoke(new TextualEvent("Il giocatore " + e.getName() + " è inattivo"));
+			}
 			nextPlayer();
 		}
 	};

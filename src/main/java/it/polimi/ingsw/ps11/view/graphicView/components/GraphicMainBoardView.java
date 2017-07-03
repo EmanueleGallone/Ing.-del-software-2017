@@ -146,9 +146,6 @@ public class GraphicMainBoardView extends BoardView{
 
 	}
 	
-	public GraphicMainBoardView(Board board){
-		super(board);	
-	}
 	
 	@Override
 	public void print() {

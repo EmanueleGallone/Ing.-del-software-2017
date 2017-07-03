@@ -22,7 +22,8 @@ public class NeutralFamilyMember extends FamilyMember {
 		NeutralFamilyMember clone = new NeutralFamilyMember();
 		clone.dice = this.dice;
 		clone.modifier = this.modifier;
-		
+		clone.name = this.name;
+		clone.used = this.used;
 		return clone;
 	}
 	@Override

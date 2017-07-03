@@ -81,6 +81,7 @@ public class GraphicFloorView extends FloorView{
 		
 		if(!(floor.getCard() == null)) {
 			graphicCardView = new GraphicDevelopmentCardView(/*floor.getCard().getName()*/);
+			graphicCardView.update(this.floor.getCard());
 			graphicCardView.print();
 			
 			GridBagConstraints gbcCard = new GridBagConstraints();

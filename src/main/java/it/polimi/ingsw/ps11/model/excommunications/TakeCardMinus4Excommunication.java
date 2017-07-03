@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.excommunications;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
 /**
  * Classe che rappresenta le prime 4 scomuniche contenute nel regolamento del gioco. Il giocatore che ha questa scomunica
  * dovrà pagare 4 servitori in più per prendere la carta dello stesso colore della scomunica
