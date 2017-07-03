@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
@@ -23,6 +24,7 @@ import javax.swing.text.StyledDocument;
 
 import org.omg.CORBA.PRIVATE_MEMBER;
 
+import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 /**
  * <h3> GraphicConsole</h3>
@@ -34,8 +36,8 @@ public class GraphicConsole extends Console {
 	
 	private JPanel consolePanel = new JPanel();
 	protected JTextPane outPut;
-	//private StyledDocument doc;
-	//private Style style;
+//	private StyledDocument doc;
+//	private Style style;
 	private JTextField inPut;
 	
 	public GraphicConsole() {
@@ -55,17 +57,18 @@ public class GraphicConsole extends Console {
         gbcOut.gridx = 0;
         gbcOut.gridy = 0;
         gbcOut.fill = GridBagConstraints.BOTH;		
-		JPanel outPutPanel = new JPanel();
-		outPutPanel.setLayout(new BoxLayout(outPutPanel, BoxLayout.LINE_AXIS));
-		consolePanel.add(new JScrollPane(outPut, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER), gbcOut);
+//		JPanel outPutPanel = new JPanel();
+//		outPutPanel.setLayout(new BoxLayout(outPutPanel, BoxLayout.LINE_AXIS));
+//		consolePanel.add(new JScrollPane(outPut, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER), gbcOut);
 		
 		outPut = new JTextPane();
 //		doc = outPut.getStyledDocument();
 //		style = outPut.addStyle("Style", null);
 		outPut.setEditable(false);
+		gbcOut.insets = new Insets(0, 4, 0, 0);
 		outPut.setBackground(Color.WHITE);
         outPut.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		outPutPanel.add(outPut);
+		consolePanel.add(outPut,gbcOut);
 
         gbcIn.gridx = 0;
         gbcIn.gridy = 1;
@@ -94,8 +97,9 @@ public class GraphicConsole extends Console {
 	
 	@Override
 	public void println(String message) {
-		outPut.setText(message);
-//
+		new TextualConsole().println(message);
+		outPut.setText(outPut.getText() + message + "\n");
+
 //	    StyleConstants.setForeground(style, Color.BLACK);
 //	    try {
 //			doc.insertString(doc.getLength(), message + "\n", style);
@@ -106,7 +110,8 @@ public class GraphicConsole extends Console {
 
 	@Override
 	public void print(String message) {
-		outPut.setText(message);
+		new TextualConsole().print(message);
+		outPut.setText(outPut.getText() + message);
 //	    StyleConstants.setForeground(style, Color.BLACK);
 //	    try {
 //			doc.insertString(doc.getLength(), message, style);

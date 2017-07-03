@@ -30,8 +30,6 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.game.Board;
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
@@ -44,7 +42,7 @@ import it.polimi.ingsw.ps11.model.resources.list.Wood;
 public class InitializeCards {
 	
 	public static void main(String[] args) {
-		//inizializzaCarte();
+		inizializzaCarte();
 		//LeaderCardsInitializer();
 	}
 	
@@ -1463,7 +1461,7 @@ public class InitializeCards {
 			cardManager.addCard(c);
 		
 
-		new Loader(FileRegistry.cards+"firstPeriod").write(cardManager);
+		new Loader(FileRegistry.cards+"1").write(cardManager);
 		//CustomFileReaderWriter.writeFile("settings\\cards\\FirstPeriod", gAdapter.toJson(cardManager,CardManager.class));
 		
 		list.clear();
@@ -1476,7 +1474,7 @@ public class InitializeCards {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		new Loader(FileRegistry.cards+"secondPeriod").write(cardManager);
+		new Loader(FileRegistry.cards+"2").write(cardManager);
 		//CustomFileReaderWriter.writeFile("settings\\cards\\SecondPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		
@@ -1490,7 +1488,7 @@ public class InitializeCards {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		new Loader(FileRegistry.cards+"thirdPeriod").write(cardManager);
+		new Loader(FileRegistry.cards+"3").write(cardManager);
 		//CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		//Fine costruzione files

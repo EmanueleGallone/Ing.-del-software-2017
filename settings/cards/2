@@ -22,7 +22,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -62,7 +62,7 @@
           "instantEffect": [],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
                 "value": 3
@@ -92,7 +92,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
               "INSTANCE": {
                 "resources": [
                   {
@@ -155,7 +155,7 @@
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
               "INSTANCE": {
                 "resources": [
                   {
@@ -218,7 +218,7 @@
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
               "INSTANCE": {
                 "resources": [
                   {
@@ -305,14 +305,14 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
                 "value": 6
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
                 "discount": {
@@ -352,7 +352,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -367,7 +367,7 @@
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
                 "value": 6
@@ -399,7 +399,7 @@
           "instantEffect": [],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
                 "value": 3
@@ -429,14 +429,14 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
                 "value": 6
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
                 "discount": {
@@ -482,7 +482,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
               "INSTANCE": {
                 "resources": [
                   {
@@ -545,7 +545,7 @@
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard",
                 "value": 6
@@ -578,7 +578,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -595,7 +595,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -633,7 +633,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -648,7 +648,7 @@
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
               "INSTANCE": {
                 "resources": [
                   {
@@ -713,7 +713,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -751,7 +751,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -774,7 +774,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -834,7 +834,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -851,7 +851,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -889,7 +889,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -904,7 +904,7 @@
               }
             },
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
               "INSTANCE": {
                 "resources": [
                   {
@@ -969,7 +969,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1019,7 +1019,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1036,7 +1036,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1080,7 +1080,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect",
               "INSTANCE": {
                 "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
                 "value": 4
@@ -1089,7 +1089,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1127,7 +1127,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1144,7 +1144,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1194,7 +1194,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1211,7 +1211,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [
                   {
@@ -1263,7 +1263,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1280,7 +1280,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [
                   {
@@ -1372,7 +1372,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1389,7 +1389,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1433,7 +1433,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1456,7 +1456,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [],
                 "res2": []
@@ -1496,7 +1496,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1513,7 +1513,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [
                   {
@@ -1597,7 +1597,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1614,7 +1614,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [
                   {
@@ -1696,7 +1696,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1713,7 +1713,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [
                   {
@@ -1777,7 +1777,7 @@
           ],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1794,7 +1794,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect",
               "INSTANCE": {
                 "res1": [
                   {
@@ -1857,7 +1857,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1874,7 +1874,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1901,7 +1901,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1918,7 +1918,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1945,7 +1945,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1962,7 +1962,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -1995,7 +1995,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2018,7 +2018,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2052,7 +2052,7 @@
           "instantEffect": [],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2085,7 +2085,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2102,7 +2102,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2141,7 +2141,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2164,7 +2164,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2197,7 +2197,7 @@
           "costs": [],
           "instantEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {
@@ -2214,7 +2214,7 @@
           ],
           "permanentEffect": [
             {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect",
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
               "INSTANCE": {
                 "resource": {
                   "resources": {

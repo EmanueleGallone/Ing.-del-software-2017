@@ -9,7 +9,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAction;
-import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
