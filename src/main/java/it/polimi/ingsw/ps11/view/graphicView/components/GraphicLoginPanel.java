@@ -2,18 +2,23 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
@@ -31,7 +36,7 @@ public class GraphicLoginPanel{
 	public JFrame window = new JFrame();
 	public JTextField username  = new JTextField();
 	public JPasswordField password = new JPasswordField();
-	public JButton confirm = new JButton("Confirm");
+	public JButton confirm = new JButton("Cancel");
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
     
     
@@ -41,54 +46,74 @@ public class GraphicLoginPanel{
 	public GraphicLoginPanel() {
 		
 		window.setTitle("Game Window");							//Setta la finestra principale del gioco
-		window.setBounds((int)Math.round(screenSize.getWidth()*0.33), (int)Math.round(screenSize.getHeight()*0.33),
-				(int)Math.round(screenSize.getWidth()*0.33), (int)Math.round(screenSize.getHeight()*0.30));        
+		window.setBounds((int)Math.round(screenSize.getWidth()*0.239583), (int)Math.round(screenSize.getHeight()*0.15),
+						 (int)Math.round(screenSize.getWidth()*0.520833), (int)Math.round(screenSize.getHeight()*0.678703));        
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
-        window.getContentPane().setBackground(new Color(153, 204, 255));
+        
+        GraphicPaintedPanel image = new GraphicPaintedPanel();
+        window.setContentPane(image);
+        image.loadImage("boardImages/Lorenzo LogIn.png");
+		image.setBorder(BorderFactory.createLineBorder(Color.BLACK, 7));
 		
 		JLabel scrittaUsername = new JLabel("<html><font color='white'>Username</font></html>"),
-		scrittaPassword = new JLabel("<html><font color='white'>Password</font></html>");
+			   scrittaPassword = new JLabel("<html><font color='white'>Password</font></html>");
+		scrittaUsername.setFont(new Font("Times New Roman", Font.PLAIN, 35));
+		scrittaPassword.setFont(new Font("Times New Roman", Font.PLAIN, 35));
+		username.setFont(new Font("Times New Roman", Font.PLAIN, 35));
+		password.setFont(new Font("Times New Roman", Font.PLAIN, 35));
+		
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GridBagLayout gblLoginPanel = new GridBagLayout();
 		gblLoginPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gblLoginPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gblLoginPanel.columnWeights = new double[]{0.1, 0.1, 0.555, 0.05, 0.1, 0.1, Double.MIN_VALUE};
-		gblLoginPanel.rowWeights = new double[]{0.2, 0.125, 0.125, 0.125, 0.06, 0.1, Double.MIN_VALUE};
-		window.getContentPane().setLayout(gblLoginPanel);
+		gblLoginPanel.columnWeights = new double[]{0.2, 0.2, 0.555, 0.05, 0.1, 0.2, Double.MIN_VALUE};
+		gblLoginPanel.rowWeights = new double[]{0.8, 0.1, 0.1, 0.1, 0.04, 0.1, Double.MIN_VALUE};
+		image.setLayout(gblLoginPanel);
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		gbc.gridx = 1;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		window.add(scrittaUsername, gbc);
+		scrittaUsername.setPreferredSize(new Dimension(10, 10));
+		image.add(scrittaUsername, gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
 		gbc.fill = GridBagConstraints.BOTH;
-		window.add(scrittaPassword, gbc);
+		scrittaPassword.setPreferredSize(new Dimension(10, 10));
+		image.add(scrittaPassword, gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		window.add(username, gbc);
+		username.setPreferredSize(new Dimension(10, 10));
+		image.add(username, gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 2;
 		gbc.fill = GridBagConstraints.BOTH;
-		window.add(password, gbc);
+		password.setPreferredSize(new Dimension(10, 10));
+		image.add(password, gbc);
 		
 		gbc.gridx = 4;
 		gbc.gridy = 4;
 		gbc.fill = GridBagConstraints.BOTH;
-		window.add(confirm, gbc);
+		image.add(confirm, gbc);
 		
 		//<-------------------------------FINE ALLINEAMENTO------------------------------->
 
-		confirm.addActionListener(new LoginListener());
+		confirm.addActionListener(new CancelListener());
+		image.registerKeyboardAction(e -> {
+			if(!(login() == null)){
+				System.out.println(login());
+				messageEvent.invoke(new LogInMessage(username.getText(),password.getText()));
+				window.dispose();
+			}
+		}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
 
 	}
 	
@@ -114,16 +139,11 @@ public class GraphicLoginPanel{
 		window.setVisible(true);
 	}
 	
-	private class LoginListener implements ActionListener{
+	private class CancelListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(!(login() == null)){
-				//System.out.println(login());
-				messageEvent.invoke(new LogInMessage(username.getText(),password.getText()));
 				window.dispose();
-			}
 		}
-		
 	}
 }

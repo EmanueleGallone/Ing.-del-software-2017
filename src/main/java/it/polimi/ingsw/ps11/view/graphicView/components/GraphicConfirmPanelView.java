@@ -42,6 +42,7 @@ public class GraphicConfirmPanelView {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
         window.pack();
+        window.setOpacity(0.8f);
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -91,7 +92,7 @@ public class GraphicConfirmPanelView {
 		GridBagConstraints gbcCancel = new GridBagConstraints();
 		GridBagConstraints gbcConfirm = new GridBagConstraints();
 
-		if(!(floor == null)){
+		if(floor.getCard() != null){
 		gbcCard.gridx = 1;
 		gbcCard.gridy = 1;
 		gbcCard.gridheight = 5;

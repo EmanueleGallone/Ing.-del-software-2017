@@ -72,7 +72,7 @@ public class GraphicView extends View{
 		GridBagLayout gblView = new GridBagLayout();
 		gblView.columnWidths = new int[]{0, 0, 0, 0};		//QUI VANNNO LE LARGHEZZE IN PIXEL DELLE COLONNE, MA CONSIGLIO DI NN USARLO, CAMBIANDO SCHERMO VIENE TUTTO SBALLATO
 		gblView.rowHeights = new int[]{0, 0, 0};			//QUI LE ALTEZZE DELLE RIGHE, SEMPRE IN PIXEL
-		gblView.columnWeights = new double[]{0.469271, 0.192933, 0.313838, Double.MIN_VALUE};	//USA QUESTI, LARGHEZZE IN "PESO", VEDILE COME PERCENTUALI, LA SOMMA DEVE FARE 1
+		gblView.columnWeights = new double[]{0.469271, 0.152933, 0.353838, Double.MIN_VALUE};	//USA QUESTI, LARGHEZZE IN "PESO", VEDILE COME PERCENTUALI, LA SOMMA DEVE FARE 1
 		gblView.rowWeights = new double[]{0.44074, 0.55926, Double.MIN_VALUE};		//COME SOPRA
         window.setLayout(gblView);
         

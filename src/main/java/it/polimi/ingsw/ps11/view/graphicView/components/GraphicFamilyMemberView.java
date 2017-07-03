@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -11,7 +10,6 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
@@ -27,6 +25,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
  */
 public class GraphicFamilyMemberView extends ChooseFamilyView {
 		
+	String color;
 	protected JPanel familyMembers = new JPanel();
 	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
 	
@@ -52,8 +51,8 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		
 		for (Class<? extends FamilyMember> familyMemberName : familyList) {
 
-			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton(/*familyManager.getFamily().get(familyMemberName).getClass().getSimpleName()*/);
-			familyMemberPanel.loadImage("playerImages/" + familyMemberName.getSimpleName() + ".png");
+			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton();
+//			familyMemberPanel.loadImage("playerImages/" + color + familyMemberName.getSimpleName() + ".png");
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
 			gbc.fill = GridBagConstraints.BOTH;
@@ -74,10 +73,10 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		for(FamilyMember member : familyManager.getFamily().values()){
 			String memberName = member.getClass().toString();
 			if(member.isUsed()){
-				familyMemberButtons.get(memberName).setBackground(Color.BLACK);
+				familyMemberButtons.get(memberName).loadImage("playerImages/BLANK.png");
 				familyMemberButtons.get(memberName).setEnabled(false);
 			} else {
-			familyMemberButtons.get(memberName).loadImage("playerImages/" + member.getClass().getSimpleName() + ".png");
+			familyMemberButtons.get(memberName).loadImage("playerImages/RED " + member.getClass().getSimpleName() + ".png");
 			familyMemberButtons.get(memberName).setEnabled(true);
 			}
 		}
@@ -99,6 +98,10 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		public void actionPerformed(ActionEvent e) {
 			eventHandler.invoke(new FamilySelectedEvent(familyMemberType));
 		}
+	}
+	
+	public void setColor(String color){
+		this.color = color;
 	}
 	
 }

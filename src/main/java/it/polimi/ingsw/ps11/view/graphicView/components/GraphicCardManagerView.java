@@ -92,9 +92,9 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			deck.loadImage("boardImages/" + deckName + ".png");
 			
 			GridBagLayout gblDecks = new GridBagLayout();												//Layout dei bottoni
-			gblDecks.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
+			gblDecks.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 			gblDecks.rowHeights = new int[]{0, 0};
-			gblDecks.columnWeights = new double[]{0.1666, 0.1666, 0.1666, 0.1666, 0.1666, 0.1666, Double.MIN_VALUE};
+			gblDecks.columnWeights = new double[]{0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, Double.MIN_VALUE};
 			gblDecks.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 			deck.setLayout(gblDecks);
 			
@@ -119,12 +119,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
-				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView(/*card.getName()*/);
+				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView();
+				cardButton.update(card);
 				cardButton.print();
 				
 				GridBagConstraints gbcCard = new GridBagConstraints();
 				gbcCard.gridx = cards;
-				gbcCard.insets = new Insets(10, 10, 10, 10);
+				gbcCard.insets = new Insets(20, 0, 20, 0);
 				gbcCard.fill = GridBagConstraints.BOTH;
 				allDecks.get(decks).add(cardButton.getComponent(), gbcCard);
 				cards++;
