@@ -13,8 +13,10 @@ import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
 import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.controller.server.ConnectionHandler;
+import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 
 public class LogInHandler implements MessageListener, EventListener<MessageEvent> {
 
@@ -26,9 +28,8 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 	
 	public LogInHandler() {
 		try {
-			FileReader reader = new FileReader(Register.getRegisterurl());
-			register = new JsonAdapter().fromJson(reader,Register.class);
-		} catch (FileNotFoundException e) {
+			register = new Loader(FileRegistry.login_registry).load(Register.class);
+		} catch (FileNotFoundException | ClassCastException e) {
 			e.printStackTrace();
 		}
 	}
@@ -61,7 +62,7 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 				connectionHandler.handle(connection);
 				return;
 			}else {
-				connection.send("Dati non validi per il login");
+				connection.send("\nDati non validi per il login, procedo con la registrazione\n");
 			}
 			
 			if(register.addNew(user)){

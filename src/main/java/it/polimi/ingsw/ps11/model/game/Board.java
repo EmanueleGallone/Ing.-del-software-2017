@@ -32,7 +32,7 @@ import it.polimi.ingsw.ps11.model.zones.yield.Yield;
  */
 @SuppressWarnings("serial")
 public class Board implements Serializable{
-	
+		
 	private HashMap<String, Tower> towers = new HashMap<>();
 	private DiceManager diceManager;
 	

@@ -1,12 +1,15 @@
 package it.polimi.ingsw.ps11.model.gameLogics;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 /**
  * <h3>RoundManager</h3>
@@ -18,7 +21,7 @@ public class RoundManager implements Serializable{
 	private static final int TURN_PER_PERIOD = 2;
 	private static final int MAX_PERIOD = 3;
 	
-	private long delay = 15000; //va caricato da file, Tempo a disposizione di ciascun player per fare la propria mossa
+	private long delay = 60000; //Viene caricato da file, Tempo a disposizione di ciascun player per fare la propria mossa
 	private transient Timer timer;
 
 	private ArrayList<Player> players = new ArrayList<>();
@@ -38,6 +41,11 @@ public class RoundManager implements Serializable{
 	
 	public RoundManager(ArrayList<Player> players){
 		this.players = players;
+		try {
+			delay = new Loader(FileRegistry.timers_turn).load(Integer.class);
+		} catch (FileNotFoundException | ClassCastException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public Player next(){
@@ -185,6 +193,7 @@ public class RoundManager implements Serializable{
 		timer = new Timer();
 		TimerTask task = new StartingMatch();
 		timer.schedule(task, delay);
+		System.err.println("\nTimer started, next turn in : " + delay/1000 + " seconds\n");
 	}
 	
 	class StartingMatch extends TimerTask{

@@ -1,0 +1,95 @@
+{
+  "name": "Predefinito",
+  "color": "RED",
+  "resourceList": {
+    "resources": {
+      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+        "INSTANCE": {
+          "value": 2
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+        "INSTANCE": {
+          "value": 3
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+        "INSTANCE": {
+          "value": 5
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+        "INSTANCE": {
+          "value": 0
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+        "INSTANCE": {
+          "value": 2
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+        "INSTANCE": {
+          "value": 0
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+        "INSTANCE": {
+          "value": 0
+        }
+      }
+    }
+  },
+  "familyManager": {
+    "family": {
+      "class it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember",
+        "INSTANCE": {
+          "DEFAULT_MODIFIER": 0,
+          "modifier": 0,
+          "used": false,
+          "name": "Neutral"
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember",
+        "INSTANCE": {
+          "DEFAULT_MODIFIER": 0,
+          "modifier": 0,
+          "used": false,
+          "name": "Black"
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember",
+        "INSTANCE": {
+          "DEFAULT_MODIFIER": 0,
+          "modifier": 0,
+          "used": false,
+          "name": "White"
+        }
+      },
+      "class it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember": {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember",
+        "INSTANCE": {
+          "DEFAULT_MODIFIER": 0,
+          "modifier": 0,
+          "used": false,
+          "name": "Orange"
+        }
+      }
+    }
+  },
+  "cardManager": {
+    "MAX_CARD": 6,
+    "cards": {},
+    "limited": true
+  }
+}

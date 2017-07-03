@@ -2,11 +2,12 @@ package it.polimi.ingsw.ps11.controller.server.login;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.JsonAdapter;
-import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
+import it.polimi.ingsw.ps11.model.FileRegistry;
+import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 
 public class Register {
-	private static final String registerUrl = "settings\\register";
+
 	private ArrayList<User> users = new ArrayList<>();
 	
 	public Register() {
@@ -19,10 +20,6 @@ public class Register {
 				return u;
 		}
 		return null;
-	}
-	
-	public static String getRegisterurl() {
-		return registerUrl;
 	}
 	
 	public boolean search(User user){
@@ -44,7 +41,8 @@ public class Register {
 	}
 	
 	public void save(){
-		String reg = new JsonAdapter().toJson(this);
-		CustomFileReaderWriter.writeFile(this.registerUrl, reg);
+//		String reg = new JsonAdapter().toJson(this);
+//		CustomFileReaderWriter.writeFile(this.registerUrl, reg);
+		new Loader(FileRegistry.login_registry).write(this);
 	}
 }

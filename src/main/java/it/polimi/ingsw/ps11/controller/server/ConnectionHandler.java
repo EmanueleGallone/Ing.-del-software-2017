@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.controller.server;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,20 +11,27 @@ import javax.naming.InsufficientResourcesException;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
+import it.polimi.ingsw.ps11.model.FileRegistry;
+import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class ConnectionHandler {
 	
 	private final int MAX_SIZE = 4; 
 	private final int START_SIZE = 2;
-	private long delay = 1000; //60000; //va caricato da file
+	private long delay = 30000;  //Viene caricato da file, tempo di attesa prima che una partita cominci dopo aver raggiunto i 2 giocatori
 	private Timer timer;
 	
 	private ArrayList<Connection> lobby = new ArrayList<>();
 	private ArrayList<GameController> games = new ArrayList<>();
 	
 	public ConnectionHandler() {
-		
+		try {
+			delay = new Loader(FileRegistry.timers_lobby).load(Integer.class);
+		} catch (FileNotFoundException | ClassCastException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void handle(Connection client) {

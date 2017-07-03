@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.google.gson.reflect.TypeToken;
 
+import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
@@ -19,6 +20,8 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.game.Board;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
@@ -1460,7 +1463,8 @@ public class InitializeCards {
 			cardManager.addCard(c);
 		
 
-		CustomFileReaderWriter.writeFile("settings\\cards\\FirstPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		new Loader(FileRegistry.cards+"firstPeriod").write(cardManager);
+		//CustomFileReaderWriter.writeFile("settings\\cards\\FirstPeriod", gAdapter.toJson(cardManager,CardManager.class));
 		
 		list.clear();
 		list = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
@@ -1472,7 +1476,8 @@ public class InitializeCards {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		CustomFileReaderWriter.writeFile("settings\\cards\\SecondPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		new Loader(FileRegistry.cards+"secondPeriod").write(cardManager);
+		//CustomFileReaderWriter.writeFile("settings\\cards\\SecondPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		
 		list.clear();
@@ -1485,7 +1490,8 @@ public class InitializeCards {
 		for(DevelopmentCard c : list)
 			cardManager.addCard(c);
 		
-		CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
+		new Loader(FileRegistry.cards+"thirdPeriod").write(cardManager);
+		//CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		//Fine costruzione files
 	
@@ -1655,7 +1661,8 @@ public class InitializeCards {
 		leaderCards.add(cosimoDeMedici);
 		leaderCards.add(bartolomeoColleoni);
 		
-		CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
+		new Loader(FileRegistry.cards+"leaderCards").write(leaderCards);
+		//CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
 		//FINE LEADER CARDS
 	 
 	}

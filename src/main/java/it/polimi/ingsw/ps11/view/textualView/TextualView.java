@@ -9,6 +9,7 @@ import java.util.Map;
 
 import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
+import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
@@ -16,6 +17,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -70,9 +72,7 @@ public class TextualView extends View {
 	}
 	
 	private TextualCommands loadCommands() throws FileNotFoundException{
-		FileReader reader = new FileReader("settings\\textualCommands");
-		TextualCommands commands = new JsonAdapter().fromJson(reader, TextualCommands.class);
-		return commands;
+		return new Loader(FileRegistry.view_commands).load(TextualCommands.class);
 	}
 	
 	

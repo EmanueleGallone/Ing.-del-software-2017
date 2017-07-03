@@ -1,50 +1,24 @@
 package it.polimi.ingsw.ps11;
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
-import com.google.gson.reflect.TypeToken;
-
-import it.polimi.ingsw.ps11.controller.server.login.Register;
+import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
+import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
-import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.ActiveYieldLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.DiscountLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.UniqueEffectLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
-import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
-import it.polimi.ingsw.ps11.model.excommunications.TakeCardMinus4Excommunication;
 import it.polimi.ingsw.ps11.model.game.Board;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ActiveYieldEffect;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AddResourceEffect;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.AnotherCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CardDiscount;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.CouncilPrivilege;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ExchangeEffect;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInFloorBonus;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.FamilyInYieldBonus;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.IncrementForCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.ResourceAtTheEnd;
-import it.polimi.ingsw.ps11.model.loaders.CustomFileReaderWriter;
+import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
-import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
-import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Floor;
@@ -55,16 +29,21 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.view.textualView.TextualCommands;
 
 public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		//LeaderCardsInitializer();
 		//initializeTextualCommands();
+
 	}
 	
- 
+
+	public void initializePlayer(){
+
+		Player defaultPlayer = new PlayerFactory().newPlayer(0);
+		new Loader(FileRegistry.player).write(defaultPlayer);
+	}
  
 	public static Board inizializzatore(){
 		
@@ -154,17 +133,19 @@ public class MainTest {
 		dices.add(new Dice("Orange"));
 		
 		Board board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
-		CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
+		
+		new Loader(FileRegistry.board).write(board);
+		//CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}
 	
 	
-	public static void initializeTextualCommands(){
-		
-		TextualCommands commands = new TextualCommands();
-		
-		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
-	}
+//	public static void initializeTextualCommands(){
+//		
+//		TextualCommands commands = new TextualCommands();
+//		
+//		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
+//	}
 	
 }
 
