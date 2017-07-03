@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 /** <h3> Game </h3>
  * <p> Classe che racchiude l'intera partita: la board, il roundManager e i giocatori</p>

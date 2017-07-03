@@ -72,7 +72,7 @@ public class StateHandler {
 	public void nextState(State state){
 		state.setStateHandler(this);
 		this.currState = state;
-		System.out.println(" • Stato corrente: " + state.getClass().getSimpleName());
+		System.out.println(" • Player: "+ this.getPlayer().getName() + " -> Stato: " + state.getClass().getSimpleName());
 		state.notifyToClient();
 	}
 	

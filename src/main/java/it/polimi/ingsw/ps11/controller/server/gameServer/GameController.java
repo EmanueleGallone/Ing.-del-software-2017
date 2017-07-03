@@ -31,11 +31,11 @@ public class GameController implements MessageListener,Runnable {
 		int i = 0;
 		PlayerFactory pFactory = new PlayerFactory();
 		
-		for(Connection client : clients){
-			client.attachListener(messageListener);
+		for(Connection connection : clients){
+			connection.attachListener(messageListener);
 			Player player = pFactory.newPlayer(i);
-			player.setName("Giocatore " + (i + 1));
-			this.clients.put(client, player);
+			player.setName(connection.getId());
+			this.clients.put(connection, player);
 			i++;
 		}
 		
@@ -96,6 +96,7 @@ public class GameController implements MessageListener,Runnable {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				gameLogic.notifyNewConnection(player);
 				return true;
 			}
 		}

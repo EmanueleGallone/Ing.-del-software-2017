@@ -5,17 +5,17 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.game.RoundManager;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class GameLogic implements Runnable{
 
 	private Game game;
-
+	private boolean stopTimer  = false;
 	private HashMap<Player, StateHandler> playerStatus = new HashMap<>();
 	
 	public GameLogic(ArrayList<Player> players) {
@@ -31,19 +31,24 @@ public class GameLogic implements Runnable{
 		roundManager.newTurnEvent(endTurnListener);
 		roundManager.newPeriodEvent(endPeriodListener);
 		roundManager.gameOverEvent(endGameListener);
+		roundManager.nobodyOnEvent(nobodyOnListener);
 	}
 	
 	public void nextPlayer(){
 		Player nextPlayer = game.getRoundManager().next();
 		for(StateHandler playerState : playerStatus.values()){
 			
-			if(playerState.getPlayer().equals(nextPlayer))
+			if(playerState.getPlayer().equals(nextPlayer)){
 				playerState.nextState(new PlayState());
+				playerState.invoke(new TextualEvent("E' il tuo turno!"));
+			}
 			else {
 			    playerState.nextState(new DefaultState());
+			    playerState.invoke(new TextualEvent("Non è il tuo turno"));
 			}
 		}
-		//game.getRoundManager().startTimer();
+		if(!stopTimer)
+			game.getRoundManager().startTimer();
 	}
 
 	@Override
@@ -63,6 +68,12 @@ public class GameLogic implements Runnable{
 			playerState.attach(listener);
 		}
 	}
+	
+	public void notifyNewConnection(Player newPlayer){
+		stopTimer = false;
+		game.getRoundManager().removeFromAfk(newPlayer);
+		nextPlayer();
+	}
 
 // Handle events from view
 	
@@ -78,6 +89,7 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(Player e) {
+			System.out.println("Timer scattato");
 			nextPlayer();
 		}
 	};
@@ -107,6 +119,16 @@ public class GameLogic implements Runnable{
 		public void handle(RoundManager e) {
 			// TODO Auto-generated method stub
 			
+		}
+	};
+	
+	private transient EventListener<RoundManager> nobodyOnListener = new EventListener<RoundManager>() {
+
+		@Override
+		public void handle(RoundManager e) {
+			stopTimer = true;
+			game.getRoundManager().stopTimer();
+			System.err.println("\nPartita sospesa, nessuno sta giocando\n");
 		}
 	};
 }

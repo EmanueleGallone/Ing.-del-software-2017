@@ -6,8 +6,11 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.naming.InsufficientResourcesException;
+
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
+import it.polimi.ingsw.ps11.model.player.Player;
 
 public class ConnectionHandler {
 	
@@ -43,12 +46,20 @@ public class ConnectionHandler {
 		return false;
 	}
 	
-	public synchronized void addToLobby(Connection client){
-		try {
-			client.send("Connesso, in attesa di altri giocatori");
-		} catch (IOException e) {
-			e.printStackTrace();
+	public void checkPresenceInLobby(Connection connection){
+		for(int i = 0; i<lobby.size();i++){
+			Connection c = lobby.get(i);
+			if(c.getId().equals(connection.getId())){
+				lobby.remove(c);
+				c.send("Un'altro giocatore ha effettuato l'accesso con le tue credenziali");
+			}
 		}
+	}
+	
+	public synchronized void addToLobby(Connection client){
+	
+		checkPresenceInLobby(client);
+		client.send("Connesso, in attesa di altri giocatori");
 		
 		lobby.add(client);
 		System.out.println("  -> Nuovo " + client.getClass().getSimpleName() + "  ci sono:   " + lobby.size() + " client nella lobby");

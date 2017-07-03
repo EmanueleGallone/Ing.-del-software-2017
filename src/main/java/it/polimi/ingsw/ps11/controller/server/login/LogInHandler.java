@@ -50,10 +50,7 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 
 	
 	@Override
-	public void receive(LogInMessage logInMessage) {
-		
-		System.out.println("Arrivato messaggio di login da " + logInMessage.getId());
-		
+	public void receive(LogInMessage logInMessage) {		
 		if(logInMessage.getId() != null && logInMessage.getPw() != null){
 			User user = new User(logInMessage.getId(), logInMessage.getPw());
 			Connection connection = logInMessage.getSource();
@@ -64,28 +61,20 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 				connectionHandler.handle(connection);
 				return;
 			}else {
-				send("Dati non validi per il login", connection);
+				connection.send("Dati non validi per il login");
 			}
 			
 			if(register.addNew(user)){
 				waitingClient.remove(connection);
 				connectionHandler.addToLobby(connection);
-				send("Ti sei registrato con successo, il tuo nome è: " + user.getId(), connection);
+				connection.send("Ti sei registrato con successo, il tuo nome è: " + user.getId());
 				return;
 			}
 			else {
-				send("Registrazione fallita, nome utente già in uso", connection);
+				connection.send("Registrazione fallita, nome utente già in uso");
 			}
 			
 
-		}
-	}
-
-	private void send(String message, Connection connection){
-		try {
-			connection.send(new TextualMessage(message));
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.game;
+package it.polimi.ingsw.ps11.model.gameLogics;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class RoundManager implements Serializable{
 	private static final int TURN_PER_PERIOD = 2;
 	private static final int MAX_PERIOD = 3;
 	
-	private long delay = 60000; //va caricato da file, Tempo a disposizione di ciascun player per fare la propria mossa
+	private long delay = 15000; //va caricato da file, Tempo a disposizione di ciascun player per fare la propria mossa
 	private transient Timer timer;
 
 	private ArrayList<Player> players = new ArrayList<>();
@@ -32,12 +32,16 @@ public class RoundManager implements Serializable{
 	private transient EventHandler<RoundManager> newPeriod = new EventHandler<>();
 	private transient EventHandler<RoundManager> newTurn = new EventHandler<>();
 	private transient EventHandler<Player> timerOut = new EventHandler<>();
+	private transient EventHandler<RoundManager> nobodyOn = new EventHandler<>();
+
+	
 	
 	public RoundManager(ArrayList<Player> players){
 		this.players = players;
 	}
 	
 	public Player next(){
+		System.out.println("Faccio la next, siamo al round: " + currentRound() + " | turn: " + currentTurn() + " | period: " + currentPeriod());
 		actions++;
 		if(roundIsOver() && turnIsOver()){
 			newTurn.invoke(this);
@@ -45,10 +49,14 @@ public class RoundManager implements Serializable{
 		}
 		
 		Player player = currentPlayer();
-		if(suspended.contains(player)){
-			return next();
+		
+		if(players.size() == suspended.size()){
+			nobodyOn.invoke(this);
+			return player;
 		}
-		return currentPlayer();
+		if(suspended.contains(player) && !gameIsOver())
+			return next();
+		return player;
 	}
 	
 	private void checkPeriod(){
@@ -141,6 +149,15 @@ public class RoundManager implements Serializable{
 		return (turn() / TURN_PER_PERIOD)+1;
 	}
 
+	
+	public void removeFromAfk(Player player){
+		suspended.remove(player);
+	}
+	
+	
+// Envents attach ______________________________________________________________-
+	
+	
 	public void newPeriodEvent(EventListener<RoundManager> listener){
 		newPeriod.attach(listener);
 	}
@@ -156,6 +173,11 @@ public class RoundManager implements Serializable{
 	public void timeOutEvent(EventListener<Player> listener){
 		timerOut.attach(listener);
 	}
+	
+	public void nobodyOnEvent(EventListener<RoundManager> listener){
+		nobodyOn.attach(listener);
+	}
+	
 	
 // Timer handling ______________________________
 	
@@ -175,6 +197,12 @@ public class RoundManager implements Serializable{
 		}
 	}
 	
+	public void stopTimer(){
+		if(timer!= null){
+			timer.cancel();
+			timer.purge();
+		}
+	}
 	
 //	private void tempTest(){
 //		if(roundIsOver()){

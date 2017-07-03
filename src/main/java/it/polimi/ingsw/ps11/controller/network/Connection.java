@@ -34,8 +34,12 @@ public abstract class Connection implements ConnectionInterface {
 		this.port = port;
 	}
 	
-	public void send(String message) throws IOException{
-		send(new TextualMessage(message));
+	public void send(String message) {
+		try {
+			send(new TextualMessage(message));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void setServerAddress(String serverAddress) {
