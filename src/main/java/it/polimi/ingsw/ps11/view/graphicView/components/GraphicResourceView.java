@@ -61,8 +61,8 @@ public class GraphicResourceView extends ResourceView {
 		rList.add(VictoryPoint.class.toString());
 		
 		for(String resourceName : rList){
-			JLabel resourceLabel = new JLabel("<html><font color='black'>" + resourceName + "</font></html>");
-			resourceLabel.setFont(new Font("Arial", Font.PLAIN, 80));			
+			JLabel resourceLabel = new JLabel("<html><font color='black'>" + 0 + "</font></html>");
+			resourceLabel.setFont(new Font("Arial", Font.PLAIN, 50));			
 			resourcesPosition.put(resourceName, resourceLabel);
 			resourcesPanel.add(resourceLabel);
 		}

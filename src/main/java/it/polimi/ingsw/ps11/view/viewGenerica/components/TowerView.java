@@ -49,6 +49,5 @@ public abstract class TowerView extends ViewComponent {
 	public ArrayList<FloorView> getFloorViews() {
 		return floorViews;
 	}
-
 	
 }

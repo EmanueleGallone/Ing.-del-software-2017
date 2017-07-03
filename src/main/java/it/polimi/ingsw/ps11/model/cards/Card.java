@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public abstract class Card implements Serializable{
 	
-	protected String name; //Va visto come un identificatore unico
+	protected String name = "Default"; //Va visto come un identificatore unico
 	
 	public Card() {
 	}

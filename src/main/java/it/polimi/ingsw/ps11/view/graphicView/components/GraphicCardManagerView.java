@@ -52,13 +52,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		gblPersonalBoard.columnWidths = new int[]{0, 0};
 		gblPersonalBoard.rowHeights = new int[]{0, 0, 0};
 		gblPersonalBoard.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gblPersonalBoard.rowWeights = new double[]{0.175, 0.825, Double.MIN_VALUE};
+		gblPersonalBoard.rowWeights = new double[]{0.06, 0.94, Double.MIN_VALUE};
 		personalBoard.setLayout(gblPersonalBoard);
 		
 		GridBagLayout gblSelectors = new GridBagLayout();												//Layout dei bottoni
 		gblSelectors.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblSelectors.rowHeights = new int[]{0, 0};
-		gblSelectors.columnWeights = new double[]{0.02, 0.02, 0.02, 0.02, 0.92, Double.MIN_VALUE};
+		gblSelectors.columnWeights = new double[]{0.1, 0.1, 0.1, 0.1, 0.6, Double.MIN_VALUE};
 		gblSelectors.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		selectorButtonsPanel.setLayout(gblSelectors);
 				

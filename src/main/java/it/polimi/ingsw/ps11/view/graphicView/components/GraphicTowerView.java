@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -20,6 +21,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 public class GraphicTowerView extends TowerView{
 	
 	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
+	ArrayList<GraphicFloorView> graphicFloorViews;
 	
 	public GraphicTowerView(Class<? extends Tower> whichTower, String towerName) {
 
@@ -30,7 +32,7 @@ public class GraphicTowerView extends TowerView{
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
-		ArrayList<GraphicFloorView> graphicFloorViews = new ArrayList<>();
+		graphicFloorViews = new ArrayList<>();
 
 		GridBagLayout gblTower = new GridBagLayout();
 		gblTower.columnWidths = new int[]{0, 0};
@@ -79,6 +81,12 @@ public class GraphicTowerView extends TowerView{
 		for(int i = 0; i < TOWERNUMBER; i++){
 			floorViews.get(i).attach(listener);
 		}
+	}
+
+	public void attachCardListener(EventListener<Card> zoomCard) {
+		for(int i = 0; i < TOWERNUMBER; i++){
+			graphicFloorViews.get(i).attachCardListener(zoomCard);
+		}		
 	}
 
 }

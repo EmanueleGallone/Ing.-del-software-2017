@@ -1,8 +1,11 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -19,6 +22,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 public class GraphicPlayerView extends PlayerView{
 		
 	protected JPanel personal = new JPanel();
+	JLabel playersName;
 	
 	public GraphicPlayerView() {
 		
@@ -32,31 +36,42 @@ public class GraphicPlayerView extends PlayerView{
 		gblPersonal.columnWidths = new int[]{0, 0, 0};
 		gblPersonal.rowHeights = new int[]{0, 0, 0};
 		gblPersonal.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gblPersonal.rowWeights = new double[]{0.20, 0.465116, 0.334884, Double.MIN_VALUE};
+		gblPersonal.rowWeights = new double[]{0.15, 0.515116, 0.234884, Double.MIN_VALUE};
 		personal.setLayout(gblPersonal);
 				
 		JPanel personalPanel = graphicCardManagerView.getComponent();
 		JPanel resourcePanel = graphicResourceView.getComponent();
 		JPanel familyMemberPanel = graphicFamilyMemberView.getComponent();
+		playersName = new JLabel("Player's Name");
+		playersName.setFont(new Font("Times New Roman", Font.PLAIN, 30));	
 			
 		GridBagConstraints gbcPersonal = new GridBagConstraints();
 		GridBagConstraints gbcResource = new GridBagConstraints();
 		GridBagConstraints gbcFamilyMember = new GridBagConstraints();
+		GridBagConstraints gbcName = new GridBagConstraints();
 				
 		gbcFamilyMember.gridx = 0;
 		gbcFamilyMember.gridx = 0;
 		gbcFamilyMember.fill = GridBagConstraints.BOTH;
+		familyMemberPanel.setPreferredSize(new Dimension(10, 10));
 		personal.add(familyMemberPanel, gbcFamilyMember);
+		
+		gbcName.gridx = 0;
+		gbcName.gridy = 0;
+		gbcName.fill = GridBagConstraints.BOTH;
+		familyMemberPanel.add(playersName, gbcName);
 				
 		gbcPersonal.gridx = 0;
 		gbcPersonal.gridy = 1;
 		gbcPersonal.gridwidth = 2;
 		gbcPersonal.fill = GridBagConstraints.BOTH;
+		personalPanel.setPreferredSize(new Dimension(10, 10));
 		personal.add(personalPanel, gbcPersonal);
 				
 		gbcResource.gridx = 0;
 		gbcResource.gridy = 2;
 		gbcResource.fill = GridBagConstraints.BOTH;
+		resourcePanel.setPreferredSize(new Dimension(10, 10));
 		personal.add(resourcePanel, gbcResource);
 				
 		//<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -69,6 +84,7 @@ public class GraphicPlayerView extends PlayerView{
 	
 	@Override
 	public void print() {
+		playersName.setText(player.getName());
 		cardManagerView.print();
 		resourceView.print();
 		chooseFamilyView.print();

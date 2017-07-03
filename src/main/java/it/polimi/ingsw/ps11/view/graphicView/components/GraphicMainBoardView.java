@@ -3,10 +3,12 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
@@ -34,6 +36,7 @@ public class GraphicMainBoardView extends BoardView{
 	protected JPanel mainBoard = new JPanel();
 	protected JButton slideInButton;
 	protected GraphicCouncilPalaceView graphicCouncilPalaceView = new GraphicCouncilPalaceView();
+	protected ArrayList<GraphicTowerView> graphicTowerViews = new ArrayList<>();
 	
 	public GraphicMainBoardView() {
 		
@@ -128,6 +131,11 @@ public class GraphicMainBoardView extends BoardView{
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
+		graphicTowerViews.add(graphicGreenTowerView);
+		graphicTowerViews.add(graphicBlueTowerView);
+		graphicTowerViews.add(graphicYellowTowerView);
+		graphicTowerViews.add(graphicPurpleTowerView);
+		
 		towerViews.add(graphicGreenTowerView);
 		towerViews.add(graphicBlueTowerView);
 		towerViews.add(graphicYellowTowerView);
@@ -175,6 +183,12 @@ public class GraphicMainBoardView extends BoardView{
 
 	public void attachChangePlayer(ChangePlayer changePlayer) {
 		graphicCouncilPalaceView.attachChangePlayer(changePlayer);
+	}
+
+	public void attachCardListener(EventListener<Card> zoomCard) {
+		for(int i = 0; i < towerViews.size(); i++){
+			graphicTowerViews.get(i).attachCardListener(zoomCard);
+		}
 	}
 
 }
