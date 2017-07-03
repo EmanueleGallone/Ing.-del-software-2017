@@ -6,9 +6,12 @@ public class FamilySelectedEvent extends ViewEvent {
 
 	private String familyMember;
 	
+	public FamilySelectedEvent(String familyMemberType) {
+		this.familyMember = familyMemberType;
+	}
 
 	public FamilySelectedEvent(Class<? extends FamilyMember> familyMember) {
-		this.familyMember = familyMember.toString();
+		this(familyMember.toString());
 	}
 
 	@Override

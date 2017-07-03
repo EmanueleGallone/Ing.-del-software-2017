@@ -87,7 +87,14 @@ public class TextualView extends View {
 	@Override
 	public void run() {
 		waitInput();
+		//logIn();
 	}
+	
+	
+//	private void logIn(){
+//		console.read("\n Inserisci il nome con cui vorresti loggare: ");
+//		viewEvent.invoke(parameter);
+//	}
 	
 	private void waitInput(){
 		String command;

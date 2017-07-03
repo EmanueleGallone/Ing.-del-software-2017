@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.model.excommunications;
 
-import java.time.Period;
-
 import it.polimi.ingsw.ps11.model.gameLogics.actions.effects.Effect;
 /**
  * <h3>Excommunication</h3>

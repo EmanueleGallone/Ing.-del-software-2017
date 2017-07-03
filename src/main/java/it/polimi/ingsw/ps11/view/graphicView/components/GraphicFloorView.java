@@ -6,10 +6,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
@@ -26,22 +24,17 @@ public class GraphicFloorView extends FloorView{
 	//Piano della torre, ha la classe della torre e un int per il piano
 	
 	protected JPanel floorPanel = new JPanel();
-	protected GraphicDevelopmentCardView cardView;
+	protected GraphicDevelopmentCardView graphicCardView;
 	protected GraphicPaintedButton actionSpace;
-	private Class<? extends Tower> whichTower;
-	private int whichFloor;
 	
 	public GraphicFloorView(Class<? extends Tower> whichTower, int whichFloor) {
 		
 		super(whichTower, whichFloor);
-		this.whichTower = whichTower;
-		this.whichFloor = whichFloor;
-		cardView = new GraphicDevelopmentCardView(null);
-		cardView.print();
-		actionSpace = new GraphicPaintedButton(whichTower.getClass().getSimpleName() + " " + (4-whichFloor));
+		graphicCardView = new GraphicDevelopmentCardView();
+		actionSpace = new GraphicPaintedButton(/*whichTower.getClass().getSimpleName() + " " + (4-whichFloor)*/);
 		actionSpace.setContentAreaFilled(false);
 		actionSpace.addActionListener(new FloorSelectedListener());
-		cardView.getComponent().setContentAreaFilled(false);
+		graphicCardView.getComponent().setContentAreaFilled(false);
 		
 		floorPanel.setOpaque(false);
 		
@@ -62,7 +55,7 @@ public class GraphicFloorView extends FloorView{
 		gbcCard.gridheight = 3;
 		gbcCard.insets = new Insets(10, 7, 0, 0);
 		gbcCard.fill = GridBagConstraints.BOTH;
-		floorPanel.add(cardView.getComponent(), gbcCard);
+		floorPanel.add(graphicCardView.getComponent(), gbcCard);
 		
 		gbcActionSPace.gridx = 2;
 		gbcActionSPace.gridy = 1;
@@ -71,6 +64,7 @@ public class GraphicFloorView extends FloorView{
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
+		this.cardView = graphicCardView;
 	}
 
 	@Override
@@ -84,8 +78,8 @@ public class GraphicFloorView extends FloorView{
 		}
 		
 		if(!(floor.getCard() == null)) {
-			cardView = new GraphicDevelopmentCardView(floor.getCard().getName());
-			cardView.print();
+			graphicCardView = new GraphicDevelopmentCardView(/*floor.getCard().getName()*/);
+			graphicCardView.print();
 			
 			GridBagConstraints gbcCard = new GridBagConstraints();
 			gbcCard.gridx = 0;
@@ -94,7 +88,7 @@ public class GraphicFloorView extends FloorView{
 			gbcCard.insets = new Insets(10, 7, 0, 0);
 			gbcCard.fill = GridBagConstraints.BOTH;
 			
-			this.floorPanel.add(cardView.getComponent(), gbcCard);
+			this.floorPanel.add(graphicCardView.getComponent(), gbcCard);
 			
 			};
 			
@@ -109,7 +103,7 @@ public class GraphicFloorView extends FloorView{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			eventHandler.invoke(new FloorSelectedEvent(whichTower, whichFloor));			
+			eventHandler.invoke(new FloorSelectedEvent(tower, whichFloor));			
 		}
 		
 	}

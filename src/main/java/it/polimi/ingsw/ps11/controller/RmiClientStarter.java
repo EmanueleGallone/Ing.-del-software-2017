@@ -17,8 +17,8 @@ public class RmiClientStarter {
 		while (i < max) {
 			try {
 				RMIConnection connection = new RMIConnection(port);
-				new Client(new TextualView(), connection).run();
-				//new Client(new GraphicView(), connection).run();
+				//new Client(new TextualView(), connection).run();
+				new Client(new GraphicView(), connection).run();
 				i = max;
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -15,7 +15,7 @@ public class GraphicTurnPanel extends JPanel{
 		gblTurnPanel.columnWidths = new int[]{0, 0, 0, 0};
 		gblTurnPanel.rowHeights = new int[]{0, 0, 0};
 		gblTurnPanel.columnWeights = new double[]{0.9, 0.05, 0.05, Double.MIN_VALUE};
-		gblTurnPanel.rowWeights = new double[]{0.1, 0.9, Double.MIN_VALUE};
+		gblTurnPanel.rowWeights = new double[]{0.05, 0.95, Double.MIN_VALUE};
         setLayout(gblTurnPanel);
         
         JLabel playerTurn = new JLabel("'s Turn!");
