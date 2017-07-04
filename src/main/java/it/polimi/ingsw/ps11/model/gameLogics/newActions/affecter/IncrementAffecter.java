@@ -24,9 +24,9 @@ public class IncrementAffecter implements Affecter<IncrementAction> {
 
 	@Override
 	public IncrementAction affect(IncrementAction action) {
-		
-		action.getModifier().subtract(resources);
-		return action;
+		ResourceList resourceList = action.getResources().clone();
+		resourceList.subtract(resources);
+		return new IncrementAction(action.getaManager(), resourceList);
 	}
 
 }

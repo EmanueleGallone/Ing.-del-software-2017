@@ -9,14 +9,10 @@ public class IncrementAction implements Action{
 	protected ActionManager aManager;
 	protected ResourceList resources;
 	
-	protected ResourceList modifier;
-	
 	public IncrementAction(ActionManager aManager, ResourceList resources) {
 		this.aManager = aManager;
-		if(resources!= null){
+		if(resources!= null)
 			this.resources = resources.clone();
-			modifier = resources.clone();
-		}	
 	}
 	
 	
@@ -27,18 +23,22 @@ public class IncrementAction implements Action{
 
 	@Override
 	public void perform() {
-		aManager.state().getPlayer().getResourceList().sum(modifier);
+		aManager.state().getPlayer().getResourceList().sum(getResources());
 	}
 
-	public ResourceList getModifier() {
-		return modifier;
+	public ResourceList getResources() {
+		return resources;
+	}
+	
+	public ActionManager getaManager() {
+		return aManager;
 	}
 	
 	@Override
-	public Action clone() {
-		IncrementAction copy = new IncrementAction(aManager, resources.clone());
-		if(modifier != null)
-			copy.modifier = modifier.clone();
-		return copy;
+	public IncrementAction clone() {
+		ResourceList resourceList = resources;
+		if(resources != null)
+			resourceList = resources.clone();
+		return new IncrementAction(aManager, resourceList);
 	}
 }

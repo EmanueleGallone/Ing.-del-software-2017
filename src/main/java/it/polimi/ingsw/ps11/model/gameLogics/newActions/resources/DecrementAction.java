@@ -13,19 +13,19 @@ public class DecrementAction extends IncrementAction{
 	@Override
 	public boolean isLegal() {
 		Player player = aManager.state().getPlayer();
-		return super.isLegal() &&  player.getResourceList().canSubtract(getModifier());
+		return super.isLegal() &&  player.getResourceList().canSubtract(getResources());
 	}
 	
 	@Override
 	public void perform() {
-		aManager.state().getPlayer().getResourceList().subtract(getModifier());
+		aManager.state().getPlayer().getResourceList().subtract(getResources());
 	}
 	
 	@Override
 	public DecrementAction clone() {
-		DecrementAction copy = new DecrementAction(aManager, resources.clone());
-		if(modifier != null)
-			copy.modifier = modifier.clone();
-		return copy;
+		ResourceList resourceList = resources;
+		if(resources != null)
+			resourceList = resources.clone();
+		return new DecrementAction(aManager, resourceList);
 	}
 }

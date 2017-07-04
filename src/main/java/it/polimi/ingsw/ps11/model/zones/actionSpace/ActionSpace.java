@@ -48,7 +48,7 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	 * @return true se lo spazio azione è vuoto, false altrimenti.
 	 */
 	public boolean isFree(){
-		if (familyMember == null)
+		if (familyMember == null && owner == null)
 			return true;
 		return false;
 	}

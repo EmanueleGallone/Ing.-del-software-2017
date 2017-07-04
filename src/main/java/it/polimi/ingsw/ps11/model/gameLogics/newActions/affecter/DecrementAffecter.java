@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter;
 
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class DecrementAffecter implements Affecter<DecrementAction>{
@@ -24,8 +25,9 @@ public class DecrementAffecter implements Affecter<DecrementAction>{
 
 	@Override
 	public DecrementAction affect(DecrementAction action) {
-		action.getModifier().sum(resources);
-		return action;
+		ResourceList resourceList = action.getResources().clone();
+		resourceList.sum(resources);
+		return new DecrementAction(action.getaManager(), resourceList);
 	}
 	
 }
