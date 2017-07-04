@@ -50,8 +50,7 @@ public class MainTest {
 		
 		//Oppure 
 		
-		ResourceList resourceList_2 = new ResourceList(new Coin(1),new Wood(3));
-		
+		ResourceList resourceList_2 = new ResourceList(new Wood(3));
 	}
 	
 

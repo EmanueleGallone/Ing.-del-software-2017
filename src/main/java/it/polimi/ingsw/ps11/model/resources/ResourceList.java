@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Optional;
 
 /**
  * <h3>ResourceList</h3>
@@ -83,12 +84,14 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param otherResources è la resourceList da sommare al chiamante della sum
 	 */
 	public void sum(ResourceList otherResources){
-		for(String key : otherResources.getResources().keySet()){
-			if (get(key) == null){
-				this.resources.put(key, otherResources.get(key).clone());
+		
+		for(Resource resource : otherResources){
+			Resource toAdd = this.resources.get(resource.getClass());
+			if(toAdd!= null){
+				toAdd.increment(resource.getValue());
 			}
 			else {
-				this.resources.get(key).increment(otherResources.getValueOf(key));
+				this.setResource(resource);
 			}
 		}
 	}
@@ -146,14 +149,25 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 // end logic
 // Start getters
 	/**
-	 * Metodo che permette di ottenere della resourceList una risorsa.
-	 * Per indicare quale risorsa si passa il tipo di quest'ultima come parametro. 
-	 * Se essa e' presenta nella resourceList allora verra' restituita una sua copia altrimenti un null
-	 * @param rClass classe del tipo di risorsa che si vuole ottenere
-	 * @return T
+	 * Metodo che permette di ottenere della resourceList una risorsa passando il tipo di quest'ultima come parametro. 
+	 * Se la risorsa e' presenta nella resourceList allora verra' restituita una sua copia altrimenti verra' restituito il valore null
+	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
+	 * @return <T extends Resource>
 	 */
 	public <T extends Resource> T get(Class<T> rClass){
 		return get(rClass.toString());
+	}
+	
+	
+	
+	/**
+	 * Metodo che permette di ottenere della resourceList una risorsa passando il tipo di quest'ultima come parametro. 
+	 * Questo metodo non ritorna mai null bensi ritorna un Optional che puo' contenere o meno la risorsa cercata.
+	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
+	 * @return Optional<T extends Resource>
+	 */
+	public <T extends Resource> Optional<T> getResource(Class<T> rClass){
+		return Optional.ofNullable(get(rClass));
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -171,9 +185,6 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		return r.getValue();
 	}
 	
-	private <T extends Resource> int getValueOf(Class<T> rClass){
-		return getValueOf(rClass.toString());
-	}
 	
 	public HashMap<String, Resource> getResources() {
 		return resources;
