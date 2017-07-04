@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gabTest;
+package it.polimi.ingsw.ps11.old.gabTest;
 
 public class DicesPackageTest {
 	

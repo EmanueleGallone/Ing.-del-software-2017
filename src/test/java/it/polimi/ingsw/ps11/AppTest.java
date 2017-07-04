@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11;
 
-import it.polimi.ingsw.ps11.testEma.FamilyMemberTest;
-import it.polimi.ingsw.ps11.testEma.ResourceListTest;
+import it.polimi.ingsw.ps11.old.testEma.FamilyMemberTest;
+import it.polimi.ingsw.ps11.old.testEma.ResourceListTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

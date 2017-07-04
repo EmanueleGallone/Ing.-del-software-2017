@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.testEma;
+package it.polimi.ingsw.ps11.old.testEma;
 
 import org.junit.Assert;
 import org.junit.Test;
