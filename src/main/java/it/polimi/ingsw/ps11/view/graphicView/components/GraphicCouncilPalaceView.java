@@ -36,14 +36,10 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		
 		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
 		
-		multipleActionSpace = new GraphicMultipleActionSpaceButton("Council");
-		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
+		multipleActionSpace = new GraphicMultipleActionSpaceButton();
+		multipleActionSpace.addListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
-//		toPlayer1 = new GraphicPaintedButton("0");
-//		toPlayer2 = new GraphicPaintedButton("1");
-//		toPlayer3 = new GraphicPaintedButton("2");
-//		toPlayer4 = new GraphicPaintedButton("3");
 		toPlayer1 = new GraphicPaintedButton();
 		toPlayer2 = new GraphicPaintedButton();
 		toPlayer3 = new GraphicPaintedButton();
@@ -55,7 +51,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		playerSelectors.add(toPlayer3);
 		playerSelectors.add(toPlayer4);
 		
-		multipleActionSpace.setContentAreaFilled(false);
+		//multipleActionSpace.setContentAreaFilled(false);
 		
 		toPlayer1.setContentAreaFilled(false);
 		toPlayer2.setContentAreaFilled(false);
@@ -83,7 +79,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		gbcMultipleActionSpace.gridheight = 3;
 		gbcMultipleActionSpace.fill = GridBagConstraints.BOTH;
 		multipleActionSpace.setPreferredSize(new Dimension(10, 10));
-		councilPalacePanel.add(multipleActionSpace, gbcMultipleActionSpace);
+		councilPalacePanel.add(multipleActionSpace.getComponent(), gbcMultipleActionSpace);
 		
 		gbcSlideIn.gridx = 4;
 		gbcSlideIn.gridy = 7;
@@ -124,19 +120,18 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
+		multipleActionSpace.setFamilySize(multipleActionSpace.getComponent().getWidth(), multipleActionSpace.getComponent().getHeight());
 		}
 	
 	@Override
 	public void print(){
+		multipleActionSpace.print(councilPalace.getAllSpace());
 		int i = 0;
-		for (ActionSpace actionSpace : councilPalace.getAllSpace()) {
-			multipleActionSpace.putFamilyMember(actionSpace.getFamilyMember(), actionSpace.getOwner());
-		}
 		for (Player player : councilPalace.getNewOrder()) {
+			System.out.println("playerImages/Player color " + player.getColor().toString() + ".png");
 			playerSelectors.get(i).loadImage("playerImages/Player color " + player.getColor().toString() + ".png");
 			i++;
 		}
-
 	}
 	
 	public void attachSlideListener(ShowPanel showPanel){					//Bottone che fa entrare la parte nascosta della board
@@ -156,7 +151,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		return councilPalacePanel;
 	}
 
-	private class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
+	public class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

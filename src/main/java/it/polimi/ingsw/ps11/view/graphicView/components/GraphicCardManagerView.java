@@ -115,8 +115,9 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
     	
 		for (String deck : cardManager.getAllCards().keySet()) {
 			
+			allDecks.get(decks).removeAll();
 			int cards = 0;
-			
+				
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
 				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView();

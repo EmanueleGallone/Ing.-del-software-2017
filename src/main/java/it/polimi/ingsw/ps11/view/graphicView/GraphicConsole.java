@@ -52,7 +52,7 @@ public class GraphicConsole extends Console {
 		gblConsolePanel.columnWidths = new int[]{0, 0};	
 		gblConsolePanel.rowHeights = new int[]{0, 0, 0};
 		gblConsolePanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gblConsolePanel.rowWeights = new double[]{0.5, 0.5, Double.MIN_VALUE};
+		gblConsolePanel.rowWeights = new double[]{0.9, 0.1, Double.MIN_VALUE};
         consolePanel.setLayout(gblConsolePanel);
                 
         GridBagConstraints gbcOut = new GridBagConstraints();
@@ -70,6 +70,7 @@ public class GraphicConsole extends Console {
 	
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
+		consolePanel.repaint();		
 	}
 
 	@Override
