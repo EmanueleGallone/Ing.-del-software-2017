@@ -29,6 +29,8 @@ public class ActionManager {
 	
 	private StateHandler stateHandler;
 	private HashMap<String, Action<?>> actions = new HashMap<>();
+
+	
 	
 	public ActionManager(StateHandler stateHandler) {
 		this.stateHandler = stateHandler;
@@ -73,6 +75,7 @@ public class ActionManager {
 	public void send(String message){
 		stateHandler().invoke(new TextualEvent(message));
 	}
+	
 // Actions constructors __________________
 	
 	

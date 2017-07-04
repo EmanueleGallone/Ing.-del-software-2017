@@ -86,7 +86,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	public void sum(ResourceList otherResources){
 		
 		for(Resource resource : otherResources){
-			Resource toAdd = this.resources.get(resource.getClass());
+			Resource toAdd = this.resources.get(resource.getClass().toString());
 			if(toAdd!= null){
 				toAdd.increment(resource.getValue());
 			}
@@ -115,7 +115,8 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	
 	public boolean canSubtract(ResourceList resourceList){
 		for(Resource resource : resourceList){
-			if(!(this.get(resource.getClass()).getValue() >= resource.getValue())){
+			Resource playerResource = this.get(resource.getClass());
+			if(playerResource == null || playerResource.getValue() < resource.getValue()){
 				return false;
 			}
 		}

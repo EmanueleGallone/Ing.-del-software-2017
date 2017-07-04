@@ -22,6 +22,7 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceListPanel;
@@ -266,7 +267,10 @@ public class GraphicView extends View{
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			int playerIndex = Integer.parseInt(((GraphicPaintedButton) event.getSource()).getName());
-			you.update(game.getRoundManager().getCurrentOrder().get(playerIndex));
+			ArrayList<Player> players = game.getRoundManager().getCurrentOrder();
+			if(playerIndex < players.size()){
+				you.update(players.get(playerIndex));
+			}
 		}
 		
 	}
