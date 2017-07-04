@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
@@ -77,15 +78,21 @@ public class GraphicConsole extends Console {
 	public void println(String message) {
 		new TextualConsole().println(message);
 		//appendToPane(outPut, message, Color.BLUE);
-		outPut.setText(outPut.getText() + message + "\n");
+		Calendar rightNow = Calendar.getInstance();
+		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
+			minute = rightNow.get(Calendar.MINUTE);
+		outPut.setText(outPut.getText() + "   ["+ hour + ", " + minute + "] : " + message + "\n");
 	}
 
 	@Override
 	public void print(String message) {
 		new TextualConsole().print(message);
 		//appendToPane(outPut, message, Color.BLUE);
-		outPut.setText(outPut.getText() + message);
-	}
+		Calendar rightNow = Calendar.getInstance();
+		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
+			minute = rightNow.get(Calendar.MINUTE);
+		outPut.setText(outPut.getText() + "   ["+ hour + ", " + minute + "] : " + message );
+		}
 	
 	@Override
 	public String read() {
@@ -107,7 +114,7 @@ public class GraphicConsole extends Console {
 	@Override
 	public void printError(String message) {
 		//appendToPane(outPut, message, Color.RED);
-		outPut.setText(outPut.getText() + "\n<ERRORE> : " + message);
+		outPut.setText(outPut.getText() + "\n   <ERRORE> : " + message);
 	}
 
 

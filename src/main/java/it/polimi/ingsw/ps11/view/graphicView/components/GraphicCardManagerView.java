@@ -114,7 +114,12 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
     	int decks = 0;
     	
 		for (String deck : cardManager.getAllCards().keySet()) {
-			
+			switch(deck){
+			case "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": decks = 0; break;
+			case "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": decks = 1; break;
+			case "class it.polimi.ingsw.ps11.model.cards.list.YellowCard": decks = 2; break;
+			case "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": decks = 3; break;
+			}
 			allDecks.get(decks).removeAll();
 			int cards = 0;
 				
@@ -128,6 +133,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 				gbcCard.gridx = cards;
 				gbcCard.insets = new Insets(20, 0, 20, 0);
 				gbcCard.fill = GridBagConstraints.BOTH;
+
 				allDecks.get(decks).add(cardButton.getComponent(), gbcCard);
 				cards++;
 			}
