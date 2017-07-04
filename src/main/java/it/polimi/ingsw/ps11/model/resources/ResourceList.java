@@ -146,10 +146,11 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 // end logic
 // Start getters
 	/**
-	 * Metodo che permette il recupero della risorsa inserita come parametro. 
-	 * Se essa e' presenta nella resourceList allora verra' restituito un oggetto altrimenti un null
-	 * @param rClass classe del tipo di risorsa
-	 * @return
+	 * Metodo che permette di ottenere della resourceList una risorsa.
+	 * Per indicare quale risorsa si passa il tipo di quest'ultima come parametro. 
+	 * Se essa e' presenta nella resourceList allora verra' restituita una sua copia altrimenti un null
+	 * @param rClass classe del tipo di risorsa che si vuole ottenere
+	 * @return T
 	 */
 	public <T extends Resource> T get(Class<T> rClass){
 		return get(rClass.toString());
@@ -157,7 +158,10 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	
 	@SuppressWarnings("unchecked")
 	public <T extends Resource> T get(String rType){
-		return (T) resources.get(rType);
+		Resource resource = resources.get(rType);
+		if(resource != null)
+			return (T) resource.clone();
+		return null;
 	}
 	
 	private int getValueOf(String rType){
@@ -184,7 +188,12 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 			this.setResource(r);
 		}
 	}
-
+	
+	
+	/**
+	 * 
+	 * @param resource
+	 */
 	public void setResource(Resource resource){
 		this.resources.put(resource.getClass().toString() , resource.clone());
 	}

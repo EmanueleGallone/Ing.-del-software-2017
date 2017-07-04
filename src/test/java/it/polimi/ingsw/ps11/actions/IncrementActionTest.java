@@ -15,19 +15,18 @@ public class IncrementActionTest {
 		
 		ResourceList resourceList_1 = new ResourceList();
 		
-		resourceList_1.setResource(new Coin(5));
-		resourceList_1.setResource(new Stone(2));
-		resourceList_1.setResource(new Wood(2));
+//		resourceList_1.setResource(new Coin(5));
+//		resourceList_1.setResource(new Stone(2));
+//		resourceList_1.setResource(new Wood(2));
+		
+		resourceList_1.setResource(new Coin(5),new Stone(2),new Wood(2));
 		
 			//Resource list inizializzata 
 		
 		//Creo l'azione che incrementa la resourceList_1 di 2 coin e 3 wood
 		
 		//Prima di tutto bisogna definire la resourceList che andrà sommata a resourceList_1
-		ResourceList resourceToAdd = new ResourceList();
-		
-		resourceToAdd.setResource(new Coin(2));
-		resourceToAdd.setResource(new Wood(3));
+		ResourceList resourceToAdd = new ResourceList(new Coin(2),new Wood(3));
 	}
 	
 	
