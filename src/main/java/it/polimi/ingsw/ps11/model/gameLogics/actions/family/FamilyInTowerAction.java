@@ -68,6 +68,10 @@ public class FamilyInTowerAction implements Action {
 		return false;
 	}
 	
+	public void setTaxIfNotFree(ResourceList taxIfNotFree) {
+		this.taxIfNotFree = taxIfNotFree;
+	}
+	
 	public Tower getTower() {
 		return tower;
 	}

@@ -52,6 +52,10 @@ public abstract class FamilyMember implements Serializable{
 		this.modifier = value;
 	}
 	
+	public int getModifier() {
+		return modifier;
+	}
+	
 	public void resetModifier(){
 		modifier = DEFAULT_MODIFIER;
 	}

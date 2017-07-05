@@ -48,7 +48,7 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 
 	@Override
 	public void notifyConfirm(ConfirmViewEvent confirm) {
-		spaceAction.setServant(confirm.getServant());
+		spaceAction.incrementServant(confirm.getServant());
 		if(isLegal())
 			perform();
 	}

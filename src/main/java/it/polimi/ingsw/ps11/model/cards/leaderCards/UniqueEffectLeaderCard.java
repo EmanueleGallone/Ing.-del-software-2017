@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.cards.leaderCards;
 
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 
-public class UniqueEffectLeaderCard extends LeaderCard {
+public class UniqueEffectLeaderCard extends oldLeaderCard {
 	
 	private Effect effect;
 

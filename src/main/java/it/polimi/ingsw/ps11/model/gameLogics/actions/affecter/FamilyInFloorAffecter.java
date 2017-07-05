@@ -29,7 +29,7 @@ public class FamilyInFloorAffecter implements Affecter<FamilyInFloorAction>{
 		FamilyMember familyMember = action.getSpaceAction().getFamilyMember();
 		DevelopmentCard card = action.getCardAction().getCard();
 		if(card.getClass().toString().equals(this.cardType)){
-			familyMember.setModifier(value);
+			familyMember.setModifier(familyMember.getModifier() + value);
 			return action.clone();
 		}
 		return action;

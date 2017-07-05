@@ -24,7 +24,7 @@ import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.ActiveYieldLeaderCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.AddResourceLeaderCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.DiscountLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.oldLeaderCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.UniqueEffectLeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
@@ -1500,7 +1500,7 @@ public class InitializeCards {
 		ResourceList resourceList = new ResourceList(new Coin(1));
 		
 		ActiveYieldEffect activeYieldEffect = new ActiveYieldEffect(GreenCard.class.toString(), 1);
-		LeaderCard francescoSforza = new ActiveYieldLeaderCard("Francesco Sforza",activeYieldEffect);
+		oldLeaderCard francescoSforza = new ActiveYieldLeaderCard("Francesco Sforza",activeYieldEffect);
 		francescoSforza.getCardsNumber().put(PurpleCard.class.toString(), 5);
 		francescoSforza.setRequiredResources(resourceList.clone());
 		
@@ -1523,7 +1523,7 @@ public class InitializeCards {
 		*/
 		resourceList = new ResourceList(new FaithPoint(1));
 		AddResourceEffect addResourceEffect = new AddResourceEffect(resourceList.clone());
-		LeaderCard girolamoSavonarola = new AddResourceLeaderCard("Girolamo Savonarola",addResourceEffect);
+		oldLeaderCard girolamoSavonarola = new AddResourceLeaderCard("Girolamo Savonarola",addResourceEffect);
 		resourceList = new ResourceList(new Coin(18));
 		girolamoSavonarola.setRequiredResources(resourceList.clone());
 	
@@ -1531,21 +1531,21 @@ public class InitializeCards {
 		resourceList.setResource(new Wood(1));
 		resourceList.setResource(new Stone(1));
 		AddResourceEffect addResourceEffect3 = new AddResourceEffect(resourceList.clone());
-		LeaderCard giovanniDalleBandeNere = new AddResourceLeaderCard("Giovanni Dalle Bande Nere",addResourceEffect3);
+		oldLeaderCard giovanniDalleBandeNere = new AddResourceLeaderCard("Giovanni Dalle Bande Nere",addResourceEffect3);
 		resourceList = new ResourceList(new MilitaryPoint(12));
 		giovanniDalleBandeNere.setRequiredResources(resourceList.clone());
 
 		resourceList = new ResourceList(new MilitaryPoint(2));
 		resourceList.setResource(new VictoryPoint(1));
 		AddResourceEffect addResourceE = new AddResourceEffect(resourceList.clone());
-		LeaderCard sandroBotticelli = new AddResourceLeaderCard("Sandro Botticelli",addResourceE);
+		oldLeaderCard sandroBotticelli = new AddResourceLeaderCard("Sandro Botticelli",addResourceE);
 		resourceList = new ResourceList(new Wood(10));
 		sandroBotticelli.setRequiredResources(resourceList.clone());
 		
 		
 		resourceList = new ResourceList(new Stone(3));
 		AddResourceEffect addResourceEffect2 = new AddResourceEffect(resourceList.clone());
-		LeaderCard michelangeloBuonarroti = new AddResourceLeaderCard("Michelangelo Buonarroti",addResourceEffect2);
+		oldLeaderCard michelangeloBuonarroti = new AddResourceLeaderCard("Michelangelo Buonarroti",addResourceEffect2);
 		resourceList = new ResourceList(new Stone(10));
 		michelangeloBuonarroti.setRequiredResources(resourceList.clone());
 		
@@ -1565,18 +1565,18 @@ public class InitializeCards {
 		resourceList = new ResourceList();
 		
 		CouncilPrivilege councilPrivilegeEffect = new CouncilPrivilege(councilPrivilegeResourceLists);
-		LeaderCard ludovicoIIIGonzaga = new UniqueEffectLeaderCard("Ludovico III Gonzaga", councilPrivilegeEffect);
+		oldLeaderCard ludovicoIIIGonzaga = new UniqueEffectLeaderCard("Ludovico III Gonzaga", councilPrivilegeEffect);
 		resourceList = new ResourceList(new Servant(15));
 		ludovicoIIIGonzaga.setRequiredResources(resourceList.clone());
 		
 		ActiveYieldEffect activeYieldEffect2 = new ActiveYieldEffect(YellowCard.class.toString(), 0);
-		LeaderCard leonardoDaVinci = new ActiveYieldLeaderCard("Leonardo Da Vinci",activeYieldEffect2);
+		oldLeaderCard leonardoDaVinci = new ActiveYieldLeaderCard("Leonardo Da Vinci",activeYieldEffect2);
 		leonardoDaVinci.getCardsNumber().put(BlueCard.class.toString(), 4);
 		leonardoDaVinci.getCardsNumber().put(GreenCard.class.toString(), 2);
 		
 		resourceList = new ResourceList(new Coin(3));
 		CardDiscount cardDiscount = new CardDiscount(DevelopmentCard.class.toString(), resourceList.clone());
-		LeaderCard picoDellaMirandola = new DiscountLeaderCard("Pico Della Mirandola",cardDiscount);
+		oldLeaderCard picoDellaMirandola = new DiscountLeaderCard("Pico Della Mirandola",cardDiscount);
 		picoDellaMirandola.getCardsNumber().put(PurpleCard.class.toString(), 4);
 		picoDellaMirandola.getCardsNumber().put(YellowCard.class.toString(), 2);
 		
@@ -1623,19 +1623,19 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Servant(3));
 		resourceList.setResource(new VictoryPoint(1));
 		AddResourceEffect addResourceEffect5 = new AddResourceEffect(resourceList.clone());
-		LeaderCard cosimoDeMedici = new AddResourceLeaderCard("Cosimo de' Medici",addResourceEffect5);
+		oldLeaderCard cosimoDeMedici = new AddResourceLeaderCard("Cosimo de' Medici",addResourceEffect5);
 		cosimoDeMedici.getCardsNumber().put(BlueCard.class.toString(), 2);
 		cosimoDeMedici.getCardsNumber().put(YellowCard.class.toString(), 4);
 		
 		
 		resourceList = new ResourceList(new VictoryPoint(4));
 		AddResourceEffect addResourceEffect4 = new AddResourceEffect(resourceList.clone());
-		LeaderCard bartolomeoColleoni = new AddResourceLeaderCard("Bartolomeo Colleoni",addResourceEffect4);
+		oldLeaderCard bartolomeoColleoni = new AddResourceLeaderCard("Bartolomeo Colleoni",addResourceEffect4);
 		bartolomeoColleoni.getCardsNumber().put(GreenCard.class.toString(), 4);
 		bartolomeoColleoni.getCardsNumber().put(PurpleCard.class.toString(), 2);
 		
-		ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
-		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
+		ArrayList<oldLeaderCard> leaderCards = new ArrayList<oldLeaderCard>();
+		Type type = new TypeToken<ArrayList<oldLeaderCard>>(){}.getType();
 		JsonAdapter gAdapter = new JsonAdapter();
 		
 		leaderCards.add(francescoSforza);

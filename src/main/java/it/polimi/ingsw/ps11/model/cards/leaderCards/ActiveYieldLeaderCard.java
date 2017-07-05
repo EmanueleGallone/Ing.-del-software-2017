@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.player.Player;
 
-public class ActiveYieldLeaderCard extends LeaderCard {
+public class ActiveYieldLeaderCard extends oldLeaderCard {
 	
 	private ActiveYieldEffect effect;
 

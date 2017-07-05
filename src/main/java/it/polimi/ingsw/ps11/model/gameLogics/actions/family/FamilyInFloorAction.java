@@ -59,7 +59,7 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 			return false;
 		}
 		if(confermed != null)
-			spaceAction.setServant(confermed.getServant());
+			spaceAction.incrementServant(confermed.getServant());
 		return result && spaceAction.isLegal();
 	}
 	
@@ -86,7 +86,7 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	@Override
 	public void notifyConfirm(ConfirmViewEvent confirm) {
 		this.confermed = confirm;
-		spaceAction.setServant(confirm.getServant());
+		spaceAction.incrementServant(confirm.getServant());
 		if(isLegal())
 			perform();
 	}

@@ -2,7 +2,7 @@ package it.polimi.ingsw.ps11.model.cards.leaderCards;
 
 import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
 
-public class DiscountLeaderCard extends LeaderCard {
+public class DiscountLeaderCard extends oldLeaderCard {
 	
 	private CardDiscount effect;
 	
