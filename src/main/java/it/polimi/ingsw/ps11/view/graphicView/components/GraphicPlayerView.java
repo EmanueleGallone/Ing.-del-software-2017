@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
@@ -22,13 +24,13 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 public class GraphicPlayerView extends PlayerView{
 		
 	protected JPanel personal = new JPanel();
+	GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
 	JLabel playersName;
 	
 	public GraphicPlayerView() {
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
-		GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
 		GraphicResourceView graphicResourceView = new GraphicResourceView();
 		GraphicFamilyMemberView graphicFamilyMemberView = new GraphicFamilyMemberView();
 		
@@ -98,5 +100,9 @@ public class GraphicPlayerView extends PlayerView{
 	
 	public JPanel getComponent() {
 		return personal;
+	}
+
+	public void attachCardListener(EventListener<Card> zoomCard) {
+		graphicCardManagerView.attachCardListener(zoomCard);
 	}
 }

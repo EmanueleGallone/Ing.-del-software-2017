@@ -44,7 +44,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
  * @see GraphicPlayerView 
  * @see GraphicConsole
  */
-public class GraphicView extends View implements FocusListener{
+public class GraphicView extends View{
 
 	JFrame window;																//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
@@ -160,6 +160,7 @@ public class GraphicView extends View implements FocusListener{
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
         graphicBoardView.attachCardListener(cardClickListener);
+        graphicPlayerView.attachCardListener(cardClickListener);
       
 //<-------------------------------FINE LISTENER------------------------------->
         
@@ -245,7 +246,6 @@ public class GraphicView extends View implements FocusListener{
 
 		@Override
 		public void handle(Card e) {
-			System.out.println("Carta cliccata " + e.getName());
 			String cardType = e.getClass().getSimpleName();
 			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
 			cardZoomPanel.repaint();
@@ -284,13 +284,4 @@ public class GraphicView extends View implements FocusListener{
 		view.run();
 	}
 
-	@Override
-	public void focusGained(FocusEvent e) {
-		window.setEnabled(true);
-	}
-
-	@Override
-	public void focusLost(FocusEvent e) {
-		window.setEnabled(false);
-	}
 }
