@@ -41,7 +41,7 @@ import it.polimi.ingsw.ps11.model.resources.list.Wood;
 public class InitializeCards {
 	
 	public static void main(String[] args) {
-		//inizializzaCarte();
+		inizializzaCarte();
 		//LeaderCardsInitializer();
 	}
 	
@@ -1478,10 +1478,10 @@ public class InitializeCards {
 
 		
 		list.clear();
-		list = greenDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList());
-		list.addAll(bluDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
-		list.addAll(yellowDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
-		list.addAll(purpleDeck.stream().filter(c -> c.getPeriod()==2).collect(Collectors.toList()));
+		list = greenDeck.stream().filter(c -> c.getPeriod()==3).collect(Collectors.toList());
+		list.addAll(bluDeck.stream().filter(c -> c.getPeriod()==3).collect(Collectors.toList()));
+		list.addAll(yellowDeck.stream().filter(c -> c.getPeriod()==3).collect(Collectors.toList()));
+		list.addAll(purpleDeck.stream().filter(c -> c.getPeriod()==3).collect(Collectors.toList()));
 		
 		cardManager = new CardManager(false);
 		for(DevelopmentCard c : list)
