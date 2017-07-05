@@ -6,13 +6,12 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 /** <h3> ActiveYieldAction </h3>
  * <p> Classe che rappresenta l'azione di attivazione delle carte appartenenti alla classe "Territorio" o "Edificio", 
  * dovuto al piazzamento di un familiare nella zona racolta o Produzione o all'attivazione di una carta</p>
  * @see Action
  */
-public class ActiveYieldAction implements Action<ActiveYieldAction> {
+public class ActiveYieldAction implements Action {
 
 	private ActionManager aManager;
 	private int value;
@@ -31,7 +30,7 @@ public class ActiveYieldAction implements Action<ActiveYieldAction> {
 
 	@Override
 	public void perform() {
-		ArrayList<DevelopmentCard> cards = aManager.getSubject().getCardManager().getCardList(cardType);
+		ArrayList<DevelopmentCard> cards = aManager.state().getPlayer().getCardManager().getCardList(cardType);
 		for(DevelopmentCard card : cards){
 			if(card.getActiveValue() <= value)
 				active(card.getPermanentEffect());
@@ -40,44 +39,16 @@ public class ActiveYieldAction implements Action<ActiveYieldAction> {
 
 	public void active(ArrayList<Effect> effects){
 		for(Effect effect : effects){
-			Action<?> action = effect.get(aManager);
+			Action action = effect.get(aManager); 
 			if(action.isLegal()){
 				action.perform();
 			}
 		}
 	}
-	
-// _________________________ Method for action system ________________________
-
 
 	@Override
-	public ActiveYieldAction decore(ActiveYieldAction action) {
-		if(action != this){
-			return action.decore(this);
-		}
-		return this;
-	}
-	
-	@Override
-	public void attach(ActionManager aManager){
-		ActiveYieldAction action = aManager.get(target());
-		if(action == null){
-			action = this;
-		}
-		aManager.add(action.decore(this));
-	}
-
-	@Override
-	public Class<ActiveYieldAction> target() {
-		return ActiveYieldAction.class;
-	}
-	
-// ___________________________________________________
-	
-	@Override
-	public ActiveYieldAction clone(){
-		ActiveYieldAction copy = new ActiveYieldAction(aManager,cardType,value);
-		return copy;
+	public ActiveYieldAction clone() {
+		return new ActiveYieldAction(aManager, cardType, value);
 	}
 
 }

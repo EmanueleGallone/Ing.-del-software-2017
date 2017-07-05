@@ -2,10 +2,8 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInFloorAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInYieldAffecter;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInYieldAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 
 public class FamilyInYieldBonus implements Effect{
 
@@ -22,8 +20,14 @@ public class FamilyInYieldBonus implements Effect{
 	}
 	
 	@Override
-	public FamilyInYieldAction get(ActionManager aManager) {
-		return new FamilyInYieldAffecter(cardType, value);
+	public EmptyAction get(ActionManager aManager) {
+		return new EmptyAction();
+	}
+
+	@Override
+	public void attach(ActionManager aManager) {
+		FamilyInYieldAffecter affecter = new FamilyInYieldAffecter(cardType, value);
+		aManager.add(affecter);	
 	}
 
 }

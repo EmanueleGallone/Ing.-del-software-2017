@@ -8,33 +8,25 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
-import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
-import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
-import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> GetCardAction </h3>
  * <p> Classe che rappresenta l'azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
  * @see Action
  */
-public class GetCardAction implements Action<GetCardAction>{
-
-	protected ActionManager aManager;
-	protected DevelopmentCard card;
-	protected ResourceList cost;
+public class GetCardAction implements Action {
 	
-	private ResourceList modifier = new ResourceList();
+	private ActionManager aManager;
+	private DevelopmentCard card;
+	private ResourceList cost;
 	
+	//private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
-	public GetCardAction() {
-	
-	}
-
 	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList cost) {
 		this.aManager = aManager;
-		this.card = card;
+		this.card = card.clone();
 		if(cost != null)
 			this.cost = cost.clone();
 	}
@@ -43,7 +35,7 @@ public class GetCardAction implements Action<GetCardAction>{
 	public boolean isLegal() {
 		
 		if(card == null){
-			aManager.send("Il piano è vuoto");
+			aManager.state().invoke("Il piano è vuoto");
 			return false;
 		}
 		
@@ -53,20 +45,21 @@ public class GetCardAction implements Action<GetCardAction>{
 			cost = card.getFirstCost();
 		}
 
-		ResourceList temp = cost.clone();
-		temp.subtract(modifier);
-		DecrementAction pay = aManager.newDecrementAction(temp);
-		
+		DecrementAction pay = makePayAction();
 		if(!pay.isLegal()){
-			aManager.send("Non hai abbastanza risorse per prendere la carta");
+			aManager.state().invoke("Non hai abbastanza risorse per prendere la carta");
 			return false;
 		}
-		if(!aManager.getSubject().getCardManager().canAdd(card)){
-			aManager.send("Non puoi prendere un'altra carta di questo tipo");
+		if(!aManager.state().getPlayer().getCardManager().canAdd(card)){
+			aManager.state().invoke("Non puoi prendere un'altra carta di questo tipo");
 		}
 		return true;
 	}
 
+	private DecrementAction makePayAction(){
+		DecrementAction pay = new DecrementAction(aManager,cost);
+		return aManager.affect(pay);
+	}
 	
 	private boolean isMultipleCost(){
 		if(!card.isMonoCost() && cost == null ){
@@ -78,66 +71,42 @@ public class GetCardAction implements Action<GetCardAction>{
 	
 	@Override
 	public void perform() {
-		DecrementAction pay = aManager.newDecrementAction(cost);
+		DecrementAction pay = makePayAction();
 		pay.perform();
-		aManager.getSubject().getCardManager().addCard(card);
+		aManager.state().getPlayer().getCardManager().addCard(card);
 		
 		for(Effect effect: card.getInstantEffect()){
-			Action<?> action = effect.get(aManager);
+			Action action = effect.get(aManager);
 			if(action.isLegal())
 				action.perform();
 		}
 		for(Effect permaEffect: card.getPermanentEffect()){
-			permaEffect.get(aManager).attach(aManager);
+			permaEffect.attach(aManager);
 		}
 	}
 	
-	
-	public void setCost(ResourceList cost) {
-		this.cost = cost;
-	}
 	public DevelopmentCard getCard() {
 		return card;
 	}
-	public ResourceList getCostModifier() {
-		return modifier;
+	
+	public ResourceList getCost() {
+		return cost;
+	}
+	
+	public void setCost(ResourceList cost) {
+		this.cost = cost;
 	}
 
 	public void attach(EventListener<ArrayList<ResourceList>> listener){
 		eventHandler.attach(listener);
 	}
-	
-	// _________________________ Method for action system ________________________
-	
-	@Override
-	public void attach(ActionManager aManager) {
-		GetCardAction increment = aManager.get(target());
-		if(increment == null){
-			increment = this;
-		}
-		aManager.add(increment.decore(this));
-	}
 
 	@Override
-	public Class<GetCardAction> target() {
-		return GetCardAction.class;
-	}
-	
-	@Override
-	public GetCardAction decore(GetCardAction action) {
-		if(action != this){
-			return action.decore(this);
-		}
-		return this;
-	}
-	
-	@Override
 	public GetCardAction clone() {
-		ResourceList resource = null;
+		ResourceList c = cost;
 		if(cost != null)
-			resource = cost.clone();
-		GetCardAction copy = new GetCardAction(aManager, card.clone(), resource);
-		return copy;
+			c = cost.clone();
+		return new GetCardAction(aManager, card.clone(), c);
 	}
 
 }

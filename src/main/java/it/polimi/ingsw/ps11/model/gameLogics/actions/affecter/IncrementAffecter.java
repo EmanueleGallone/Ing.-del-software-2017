@@ -1,81 +1,32 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> Nome </h3>
  * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse ottenute da un giocatore in seguito 
  * ad una qualunque azione</p>
  * @see IncrementAction
  */
-public class IncrementAffecter extends IncrementAction {
+public class IncrementAffecter implements Affecter<IncrementAction> {
 
-	private final boolean FORWARD = true;
-	private boolean forward = FORWARD;
+	private ResourceList resources;
 	
-	private IncrementAction action;
-	
-	public IncrementAffecter(ResourceList resource) {
-		this.resource = resource;
-	}
-
-	@Override
-	public void setResource(ResourceList resource) {
-		action.setResource(resource);
+	public IncrementAffecter(ResourceList resources) {
+		if(resources!= null)
+			this.resources = resources.clone();
 	}
 	
 	@Override
-	public ResourceList getResource() {
-		return action.getResource();
-	}
-	
-	@Override
-	public boolean isLegal() {
-		return action.isLegal();
-	}
-	
-	@Override
-	public void perform() {
-		ResourceList resourceList = action.getResource();
-		resourceList.subtract(resource);
-		action.setResource(resourceList);
-		forward();
-	}
-	
-// Method for decorator system ____________	
-	
-	@Override
-	public IncrementAction decore(IncrementAction action) {
-		if(this.action == null && action != this){
-			this.action = action;
-			return this;
-		}
-		else if(this.action != null){
-			this.action.decore(action);
-			return this;
-		}
-		return this;
+	public Class<IncrementAction> target() {
+		return IncrementAction.class;
 	}
 
-	public void forward(){
-		if (action!= null)
-			action.perform(forward && FORWARD);
-		this.forward = FORWARD;
-	}
-	
 	@Override
-	public void perform(boolean forward) {
-		this.forward = forward;
-		perform();
+	public IncrementAction affect(IncrementAction action) {
+		ResourceList resourceList = action.getResources().clone();
+		resourceList.subtract(resources);
+		return new IncrementAction(action.getaManager(), resourceList);
 	}
-	
-// __________________________
-	
-	@Override
-	public IncrementAffecter clone(){
-		IncrementAffecter copy = new IncrementAffecter(resource.clone());
-		copy.aManager = aManager;
-		if(action != null)
-			copy.action = action.clone();
-		return copy;
-	}
+
 }

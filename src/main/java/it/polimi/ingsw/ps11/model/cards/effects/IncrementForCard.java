@@ -1,8 +1,8 @@
 package it.polimi.ingsw.ps11.model.cards.effects;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DoSeveralTimesAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.DoSeveralTimeAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class IncrementForCard implements Effect {
@@ -15,11 +15,18 @@ public class IncrementForCard implements Effect {
 		this.resource = resource;
 	}
 	
+
 	@Override
-	public DoSeveralTimesAction get(ActionManager aManager) {
-		IncrementAction action = aManager.newIncrementAction(resource);
-		int iterationNumber = aManager.getSubject().getCardManager().getCardList(cardType).size();
-		return new DoSeveralTimesAction(aManager, action, iterationNumber);
+	public DoSeveralTimeAction get(ActionManager aManager) {
+		IncrementAction action = new IncrementAction(aManager, resource);
+		action = aManager.affect(action);
+		int iterationNumber = aManager.state().getPlayer().getCardManager().getCardList(cardType).size();
+		return new DoSeveralTimeAction(aManager, action, iterationNumber);
+	}
+
+	@Override
+	public void attach(ActionManager aManager) {
+
 	}
 
 }

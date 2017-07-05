@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.actions;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
 

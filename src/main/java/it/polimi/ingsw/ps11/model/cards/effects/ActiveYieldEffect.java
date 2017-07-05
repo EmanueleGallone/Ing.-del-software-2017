@@ -15,7 +15,13 @@ public class ActiveYieldEffect implements Effect {
 	
 	@Override
 	public ActiveYieldAction get(ActionManager aManager) {
-		return aManager.newActiveYield(cardType, value);
+		ActiveYieldAction action = new ActiveYieldAction(aManager, cardType, value);
+		return aManager.affect(action);
+	}
+
+	@Override
+	public void attach(ActionManager aManager) {
+		
 	}
 
 }

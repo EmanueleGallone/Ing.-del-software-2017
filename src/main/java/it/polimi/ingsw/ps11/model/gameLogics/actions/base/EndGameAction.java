@@ -1,15 +1,24 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 /** <h3> EndGameAction </h3>
- * <p> Classe che rappresenta il termine di un'azione.</p>
+ * <p> E' l'azione da compiere per terminare il Game. Al suo interno contiene una serie di azioni da fare alla fine della partita.</p>
  * @see Action
  */
-public class EndGameAction implements Action<EndGameAction> {
+public class EndGameAction implements Action {
 
-	public EndGameAction() {
+	private ActionManager aManager;
+	private ArrayList<Action> doAtTheEnd = new ArrayList<>();
 	
+	public EndGameAction(ActionManager actionManager) {
+		this.aManager = actionManager;
+	}
+	
+	public EndGameAction(ActionManager aManager, ArrayList<Action> doAtTheEnd) {
+		this.doAtTheEnd = doAtTheEnd;
 	}
 	
 	@Override
@@ -19,37 +28,20 @@ public class EndGameAction implements Action<EndGameAction> {
 
 	@Override
 	public void perform() {
-		
+		for(Action action : doAtTheEnd){
+			Action a = aManager.affect(action);
+			if(action.isLegal())
+				action.perform();
+		}
 	}
 	
-// _________________________ Method for action system ________________________
-
-
-	@Override
-	public EndGameAction decore(EndGameAction action) {
-		if(action != this){
-			return action.decore(this);
-		}
-		return this;
-	}
-	
-	@Override
-	public void attach(ActionManager aManager){
-		EndGameAction action = aManager.get(target());
-		if(action == null){
-			action = this;
-		}
-		aManager.add(action.decore(this));
+	public void add(Action action){
+		this.doAtTheEnd.add(action);
 	}
 
 	@Override
-	public Class<EndGameAction> target() {
-		return EndGameAction.class;
-	}
-
-	@Override
-	public EndGameAction clone() {
-		return new EndGameAction();
+	public Action clone() {
+		return new EndGameAction(aManager, doAtTheEnd);
 	}
 
 }

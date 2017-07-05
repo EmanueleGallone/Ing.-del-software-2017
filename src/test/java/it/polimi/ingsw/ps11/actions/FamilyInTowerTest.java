@@ -1,15 +1,17 @@
 package it.polimi.ingsw.ps11.actions;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
+import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -22,14 +24,6 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 public class FamilyInTowerTest {
 
 	
-	
-	public void initializeTower(Tower tower){
-		tower.addFloor(new Floor());
-		tower.addFloor(new Floor());
-		tower.addFloor(new Floor());
-		tower.addFloor(new Floor());
-	}
-	
 	@Test
 	public void familyInTowerTest(){
 		
@@ -39,11 +33,18 @@ public class FamilyInTowerTest {
 		ArrayList<Player> players = new ArrayList<>();
 		players.add(player);
 		players.add(player_2);
-		
+			
 		GameLogic gameLogic = new GameLogic(players);
-		ActionManager aManager = gameLogic.getPlayerStatus().get(0).actions();
+		ActionManager aManager = null;
 		
-		//Inizializzo le risorse del player
+		//Prendo l'action manager del Giocatore 1 
+		for(StateHandler stateHandler : gameLogic.getPlayerStatus()){
+			if(stateHandler.getPlayer().getName().equals("Giocatore 1"))
+				aManager = stateHandler.actions();
+		}
+		
+		//Inizializzo le risorse del Giocatore 1
+
 		ResourceList playerResources = player.getResourceList();
 		playerResources.setResource(new Coin(3));
 		
@@ -52,11 +53,14 @@ public class FamilyInTowerTest {
 		//initializeTower(tower);
 		
 		
-		FamilyMember familyMember = player.getFamilyManager().getFamilyMember(BlackFamilyMember.class);
+
+		FamilyMember familyMember = new NeutralFamilyMember();
 		
 		FamilyInTowerAction towerAction = new FamilyInTowerAction(aManager, tower, familyMember);
 		
 		//Non c'e' nessuno sulla torre quindi il giocatore non dovra' pagare la tassa e avra' sempre 3 coin
+
+		assertTrue(towerAction.isLegal());
 		if(towerAction.isLegal())
 			towerAction.perform();
 		
@@ -68,7 +72,7 @@ public class FamilyInTowerTest {
 		//In questo caso invece sulla torre c'e' gia' un giocatore percio' dovra' pagare 3 monete
 		
 		Floor floor = tower.getFloor(0); // prendo il primo piano
-		floor.getActionSpace().placeFamilyMember(familyMember, player_2);
+		floor.getActionSpace().placeFamilyMember(new BlackFamilyMember(), player_2);
 		
 		if(towerAction.isLegal())
 			towerAction.perform();
