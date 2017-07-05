@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInFloorAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInSpaceAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -36,12 +36,16 @@ public class FloorSelected extends PlayState {
 		
 		ActionManager aManager = stateHandler().actions();
 		
-		FamilyInTowerAction tAction = aManager.newFamilyInTower(tower, fMember);
-		FamilyInSpaceAction sAction = aManager.newFamilyInSpace(fMember, floor.getActionSpace());
-		GetCardAction getCard = aManager.newGetCardAction(floor.getCard(), cost);
+		FamilyInTowerAction tAction = new FamilyInTowerAction(aManager,tower, fMember);
+		FamilyInSpaceAction sAction = new FamilyInSpaceAction(aManager,fMember, floor.getActionSpace());
+		GetCardAction getCard = new GetCardAction(aManager,floor.getCard(), cost);
+		
+		tAction = aManager.affect(tAction);
+		sAction = aManager.affect(sAction);
+		getCard = aManager.affect(getCard);
 		getCard.attach(listener);
 
-		action = aManager.newFamilyInFloorAction(tAction, sAction, getCard);
+		action = aManager.affect(new FamilyInFloorAction(aManager, tAction, sAction, getCard));
 		
 		if(action.isLegal()){
 			action.perform();
@@ -70,7 +74,7 @@ public class FloorSelected extends PlayState {
 	
 	@Override
 	public void notifyToClient() {
-		Player player = stateHandler().actions().getSubject();
+		Player player = stateHandler().actions().state().getPlayer();
 		stateHandler().invoke(new UpdateFamilyMemberEvent(player.getFamilyManager()));
 	}
 	

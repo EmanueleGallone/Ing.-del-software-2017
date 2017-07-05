@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.actions;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,7 @@ import org.junit.Test;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter.DecrementAffecter;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter.IncrementAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;

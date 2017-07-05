@@ -18,7 +18,7 @@ public class WaitingActionSpace extends PlayState {
 	
 	public void actionSpaceSelected(SpaceSelectedEvent event){
 		event.setFamilySelectedEvent(familyMember);
-		stateHandler().resetState();
+		stateHandler().nextState(new PlayState());
 		event.accept(stateHandler().currentState());
 	}
 	
