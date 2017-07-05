@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Affecter;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> CardCostAffecter </h3>
  * <p> Classe che rappresenta il bonus che ha il compito di modificare il costo della ResourceList di una carta</p>

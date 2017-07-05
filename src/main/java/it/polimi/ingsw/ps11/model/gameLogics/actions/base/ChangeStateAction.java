@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import it.polimi.ingsw.ps11.model.gameLogics.State;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 /** <h3> ChangeStateAction </h3>
  * <p> Classe che rappresenta l'azione di passaggio di stato.</p>
  * @see Action

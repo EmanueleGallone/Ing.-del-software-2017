@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter.DecrementAffecter;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.DecrementAffecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;

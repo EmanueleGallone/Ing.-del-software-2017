@@ -2,11 +2,11 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.GetCardAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInFloorAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInSpaceAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInTowerAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

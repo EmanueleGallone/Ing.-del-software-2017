@@ -1,9 +1,9 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInSpaceAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInYieldAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;

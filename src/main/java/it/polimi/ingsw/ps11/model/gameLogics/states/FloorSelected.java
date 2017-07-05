@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.GetCardAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInFloorAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInSpaceAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.family.FamilyInTowerAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

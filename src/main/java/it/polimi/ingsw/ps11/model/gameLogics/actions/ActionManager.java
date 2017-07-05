@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions;
+package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
 import java.util.ArrayList;
 import java.util.HashMap;

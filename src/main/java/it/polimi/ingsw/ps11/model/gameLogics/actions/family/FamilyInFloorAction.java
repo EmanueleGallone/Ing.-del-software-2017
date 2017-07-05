@@ -1,11 +1,11 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.family;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.family;
 
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.NeedConfirm;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ResourceListener;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;

@@ -1,9 +1,9 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.family;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.family;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;

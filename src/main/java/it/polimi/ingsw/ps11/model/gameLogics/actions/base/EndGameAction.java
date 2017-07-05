@@ -1,9 +1,9 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 /** <h3> EndGameAction </h3>
  * <p> E' l'azione da compiere per terminare il Game. Al suo interno contiene una serie di azioni da fare alla fine della partita.</p>
  * @see Action

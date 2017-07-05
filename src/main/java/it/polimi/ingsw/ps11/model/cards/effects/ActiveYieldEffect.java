@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.cards.effects;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.ActiveYieldAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 
 public class ActiveYieldEffect implements Effect {
 

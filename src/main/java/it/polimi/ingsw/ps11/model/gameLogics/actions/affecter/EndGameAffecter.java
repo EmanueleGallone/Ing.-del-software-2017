@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Affecter;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.EndGameAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
 /** <h3> EndGameAffecter </h3>
  * <p> Classe che rappresenta il bonus che ha il compito di modificare le azioni compiute a fine 
  * partita. </p>

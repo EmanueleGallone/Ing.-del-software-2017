@@ -1,5 +1,5 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.resources;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.resources;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 

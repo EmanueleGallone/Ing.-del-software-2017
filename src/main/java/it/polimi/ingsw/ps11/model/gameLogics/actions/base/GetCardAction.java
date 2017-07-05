@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import java.util.ArrayList;
 
@@ -6,9 +6,9 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> GetCardAction </h3>
  * <p> Classe che rappresenta l'azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>

@@ -1,13 +1,13 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.base;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ResourceListener;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> ExchangeAction </h3>

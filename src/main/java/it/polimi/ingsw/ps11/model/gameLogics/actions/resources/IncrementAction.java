@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.resources;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.resources;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ResourceListener;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> IncrementAction </h3>
  * <p> Classe che rappresenta l'azione di incremento di risorse in una ResourceList</p>

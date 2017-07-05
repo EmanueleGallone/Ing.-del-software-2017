@@ -1,10 +1,10 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.family;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.family;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.NeedConfirm;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.ActiveYieldAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;

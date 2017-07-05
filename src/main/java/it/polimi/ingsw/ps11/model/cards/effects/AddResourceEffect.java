@@ -1,8 +1,8 @@
 package it.polimi.ingsw.ps11.model.cards.effects;
 
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class AddResourceEffect implements Effect {

@@ -1,7 +1,7 @@
 package it.polimi.ingsw.ps11.model.cards.effects;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.ChangeStateAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ChangeStateAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitCard;
 
 public class AnotherCard implements Effect{

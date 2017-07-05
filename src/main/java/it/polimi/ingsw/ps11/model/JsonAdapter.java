@@ -20,7 +20,7 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;

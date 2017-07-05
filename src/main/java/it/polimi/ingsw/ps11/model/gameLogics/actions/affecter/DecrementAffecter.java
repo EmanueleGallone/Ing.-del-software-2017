@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter;
+package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.Affecter;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
-import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class DecrementAffecter implements Affecter<DecrementAction>{

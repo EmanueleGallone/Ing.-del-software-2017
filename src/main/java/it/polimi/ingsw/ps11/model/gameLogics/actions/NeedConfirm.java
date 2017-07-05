@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.gameLogics.newActions;
+package it.polimi.ingsw.ps11.model.gameLogics.actions;
 
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.zones.Floor;
