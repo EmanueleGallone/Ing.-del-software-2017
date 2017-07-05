@@ -3,13 +3,13 @@ package it.polimi.ingsw.ps11.model.gameLogics.newActions.affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> Nome </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse ottenute da un giocatore in seguito 
+ * ad una qualunque azione</p>
+ * @see IncrementAction
+ */
 public class IncrementAffecter implements Affecter<IncrementAction> {
 
-	/*
-	 * Rappresenta quel bonus che ogni volta che prendi +x risorse te ne sottrae un tot
-	 */
-	
 	private ResourceList resources;
 	
 	public IncrementAffecter(ResourceList resources) {

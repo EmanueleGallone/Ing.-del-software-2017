@@ -1,14 +1,17 @@
 package it.polimi.ingsw.ps11.model.gameLogics.newActions.family;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-
+/** <h3> FamilyInSpaceAction </h3>
+ * <p> Classe che rappresenta l'azione di posizionamento di un familiare i un generico actionspace.</p>
+ * @see Action
+ */
 public class FamilyInSpaceAction implements Action{
 
 	
@@ -29,12 +32,16 @@ public class FamilyInSpaceAction implements Action{
 		this.servant = servant;
 	}
 	
+	private DecrementAction makeServantAction (){
+		DecrementAction servantAction = new DecrementAction(aManager, new ResourceList(new Servant(servant)));
+		return aManager.affect(servantAction);
+	}
+	
 	@Override
 	public boolean isLegal() {
 		
-		DecrementAction servantAction = new DecrementAction(aManager, new ResourceList(new Servant(servant)));
-		servantAction = aManager.affect(servantAction);
-		if(space.isFree() && servantAction.isLegal()){
+		
+		if(space.isFree() && makeServantAction().isLegal()){
 			return checkActionCost(servant);
 		}
 		return false;
@@ -42,7 +49,7 @@ public class FamilyInSpaceAction implements Action{
 
 	public boolean checkActionCost(int modifier){
 		if(space.getActionCost() > (familyMember.getValue() + modifier)){
-			aManager.send("Il familiare non ha un valore sufficiente");
+			aManager.state().invoke("Il familiare non ha un valore sufficiente");
 			return false;
 		}
 		return true;
@@ -50,20 +57,40 @@ public class FamilyInSpaceAction implements Action{
 	
 	@Override
 	public void perform() {
-		if(useServantAction!= null)
-			useServantAction.perform();
-		space.placeFamilyMember(familyMember, aManager.getSubject());
+		if(servant>0)
+			makeServantAction().perform();
+		
+		space.placeFamilyMember(familyMember, aManager.state().getPlayer());
 		familyMember.setUsed(true);
 		if(space.getResources()!=null){
-			IncrementAction increment = aManager.newIncrementAction(space.getResources());
+			IncrementAction increment = new IncrementAction(aManager,space.getResources());
+			increment = aManager.affect(increment);
 			increment.perform();
 		}
 	}
+	
+	public void setServant(int servant) {
+		this.servant = servant;
+	}
+	
+	public ActionSpace getSpace() {
+		return space;
+	}
+	
+	public FamilyMember getFamilyMember() {
+		return familyMember;
+	}
 
 	@Override
-	public Action clone() {
-		// TODO Auto-generated method stub
-		return null;
+	public FamilyInSpaceAction clone() {
+		ActionSpace s = space;
+		FamilyMember fMember = familyMember;
+		if(space!= null)
+			s = space.clone();
+		if(familyMember != null)
+			fMember = familyMember.clone();
+			
+		return new FamilyInSpaceAction(aManager, fMember, s, servant);
 	}
 
 }

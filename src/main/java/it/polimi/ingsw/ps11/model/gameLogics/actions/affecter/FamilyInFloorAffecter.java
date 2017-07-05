@@ -15,7 +15,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.family.FamilyInTowerAc
  * <p>Incrementa di un value il valore del familyMember se quest'ultimo viene piazzato 
  * in un piano con una carta di un certo colore</p>
  * @see FamilyInFloorAction
-
  */
 public class FamilyInFloorAffecter extends FamilyInFloorAction {
 	

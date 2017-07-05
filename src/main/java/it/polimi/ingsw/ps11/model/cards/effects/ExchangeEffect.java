@@ -3,8 +3,9 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ExchangeAction;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.base.ExchangeAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class ExchangeEffect implements Effect{
@@ -35,6 +36,11 @@ public class ExchangeEffect implements Effect{
 			exchange.put(res1.get(i), res2.get(i));
 		
 		return new ExchangeAction(aManager, exchange);
+	}
+
+	@Override
+	public void attach(ActionManager aManager) {
+
 	}
 	
 }

@@ -2,9 +2,13 @@ package it.polimi.ingsw.ps11.model.gameLogics.newActions.resources;
 
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.ResourceListener;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
-public class IncrementAction implements Action{
+/** <h3> IncrementAction </h3>
+ * <p> Classe che rappresenta l'azione di incremento di risorse in una ResourceList</p>
+ * @see Action
+ */
+public class IncrementAction implements Action, ResourceListener{
 
 	protected ActionManager aManager;
 	protected ResourceList resources;
@@ -32,6 +36,14 @@ public class IncrementAction implements Action{
 	
 	public ActionManager getaManager() {
 		return aManager;
+	}
+	
+	@Override
+	public void update(ResourceList resource) {
+		IncrementAction action = new IncrementAction(aManager, resource);
+		action = aManager.affect(action);
+		if(action.isLegal())
+			action.perform();
 	}
 	
 	@Override

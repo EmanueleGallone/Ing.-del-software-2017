@@ -1,6 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
+import it.polimi.ingsw.ps11.model.gameLogics.newActions.NeedConfirm;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
 public class WaitConfirm extends PlayState {
