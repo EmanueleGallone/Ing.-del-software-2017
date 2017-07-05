@@ -32,6 +32,7 @@ public class GraphicConsole extends Console {
 	private JPanel consolePanel = new JPanel();
 	protected JTextPane outPut;
 	private JTextField inPut;
+	Calendar rightNow;
 	
 	public GraphicConsole() {
 	
@@ -78,20 +79,20 @@ public class GraphicConsole extends Console {
 	public void println(String message) {
 		new TextualConsole().println(message);
 		//appendToPane(outPut, message, Color.BLUE);
-		Calendar rightNow = Calendar.getInstance();
+		rightNow = Calendar.getInstance();
 		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
 			minute = rightNow.get(Calendar.MINUTE);
-		outPut.setText(outPut.getText() + "   ["+ hour + ", " + minute + "] : " + message + "\n");
+		outPut.setText(outPut.getText() + "   ["+ hour + ": " + minute + "]  " + message + "\n");
 	}
 
 	@Override
 	public void print(String message) {
 		new TextualConsole().print(message);
 		//appendToPane(outPut, message, Color.BLUE);
-		Calendar rightNow = Calendar.getInstance();
+		rightNow = Calendar.getInstance();
 		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
 			minute = rightNow.get(Calendar.MINUTE);
-		outPut.setText(outPut.getText() + "   ["+ hour + ", " + minute + "] : " + message );
+		outPut.setText(outPut.getText() + "   ["+ hour + ": " + minute + "]  " + message );
 		}
 	
 	@Override
@@ -114,7 +115,10 @@ public class GraphicConsole extends Console {
 	@Override
 	public void printError(String message) {
 		//appendToPane(outPut, message, Color.RED);
-		outPut.setText(outPut.getText() + "\n   <ERRORE> : " + message);
+		rightNow = Calendar.getInstance();
+		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
+			minute = rightNow.get(Calendar.MINUTE);
+		outPut.setText(outPut.getText() + "   ["+ hour + ": " + minute + "]  <ERRORE> : " + message);
 	}
 
 

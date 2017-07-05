@@ -20,18 +20,17 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 public class GraphicHarvestView extends HarvestView {
 		
 	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton(),
-			  					 multipleActionSpace = new GraphicPaintedButton();
+	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton();
+	protected GraphicMultipleActionSpace multipleActionSpace = new GraphicMultipleActionSpace();
 	
 	public GraphicHarvestView() {
 		
 		harvestPanel.loadImage("boardImages/Harvest.png");
 
 		singleActionSpace.setContentAreaFilled(false);
-		multipleActionSpace.setContentAreaFilled(false);
 		
 		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
-		multipleActionSpace.addActionListener(new MultipleHarvestSelectedListener());
+		multipleActionSpace.attachListener(new MultipleHarvestSelectedListener());
 				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
@@ -66,7 +65,7 @@ public class GraphicHarvestView extends HarvestView {
 			singleActionSpace.loadImage("playerImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
-		
+		multipleActionSpace.print(harvest.getMultipleActionSpace().getAllSpace());
 		harvestPanel.repaint();
 	}
 	

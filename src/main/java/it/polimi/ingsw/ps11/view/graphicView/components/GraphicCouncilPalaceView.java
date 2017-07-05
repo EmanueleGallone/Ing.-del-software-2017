@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
@@ -27,7 +26,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
 	
 	protected GraphicPaintedPanel councilPalacePanel = new GraphicPaintedPanel();
-	protected GraphicMultipleActionSpaceButton multipleActionSpace;
+	protected GraphicMultipleActionSpace multipleActionSpace;
 	protected JButton showPanelButton;
 	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
 	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
@@ -36,8 +35,8 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		
 		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
 		
-		multipleActionSpace = new GraphicMultipleActionSpaceButton();
-		multipleActionSpace.addListener(new CouncilPalaceSelectedListener());
+		multipleActionSpace = new GraphicMultipleActionSpace();
+		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
 		toPlayer1 = new GraphicPaintedButton();
@@ -79,7 +78,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		gbcMultipleActionSpace.gridheight = 3;
 		gbcMultipleActionSpace.fill = GridBagConstraints.BOTH;
 		multipleActionSpace.setPreferredSize(new Dimension(10, 10));
-		councilPalacePanel.add(multipleActionSpace.getComponent(), gbcMultipleActionSpace);
+		councilPalacePanel.add(multipleActionSpace, gbcMultipleActionSpace);
 		
 		gbcSlideIn.gridx = 4;
 		gbcSlideIn.gridy = 7;
@@ -120,7 +119,8 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
-		multipleActionSpace.setFamilySize(multipleActionSpace.getComponent().getWidth(), multipleActionSpace.getComponent().getHeight());
+		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
+		councilPalacePanel.repaint();
 		}
 	
 	@Override
@@ -128,7 +128,6 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		multipleActionSpace.print(councilPalace.getAllSpace());
 		int i = 0;
 		for (Player player : councilPalace.getNewOrder()) {
-			System.out.println("playerImages/Player color " + player.getColor().toString() + ".png");
 			playerSelectors.get(i).loadImage("playerImages/Player color " + player.getColor().toString() + ".png");
 			i++;
 		}

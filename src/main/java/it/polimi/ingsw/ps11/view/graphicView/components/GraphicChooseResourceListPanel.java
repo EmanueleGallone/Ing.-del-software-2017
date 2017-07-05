@@ -14,6 +14,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -33,18 +34,20 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 	JDialog dialog = new JDialog();
 	private ButtonGroup selectResourceList = new ButtonGroup(); 
 	private EventHandler<ViewEventInterface> eventHandler;
+	JFrame mainWindow;
 	
-	public GraphicChooseResourceListPanel(EventHandler<ViewEventInterface> viewEvent, ArrayList<ResourceList> resourceLists) {
+	public GraphicChooseResourceListPanel(EventHandler<ViewEventInterface> viewEvent, ArrayList<ResourceList> resourceLists, JFrame mainWindow) {
 		
+		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.costs = resourceLists;
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblDialog = new GridBagLayout();
-		gblDialog.columnWidths = new int[]{0, 0};
+		gblDialog.columnWidths = new int[]{0, 0, 0};
 		gblDialog.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
-		gblDialog.columnWeights = new double[]{1.0,  Double.MIN_VALUE};
+		gblDialog.columnWeights = new double[]{0.9, 0.1,  Double.MIN_VALUE};
 		gblDialog.rowWeights = new double[]{0.2, 0.2, 0.2, 0.2, 0.2, Double.MIN_VALUE};
 		dialog.getContentPane().setLayout(gblDialog);		
 
@@ -56,19 +59,20 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 			list.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			gbc.gridx = 0;
 			gbc.gridy = i;
+			gbc.gridwidth = 3;
 			gbc.fill = GridBagConstraints.BOTH;
 			dialog.getContentPane().add(list, gbc);
 			i++;
 			
 		}
 		
-		JButton confirm = new JButton("CONFIRM");
-		confirm.addActionListener(new ChoiceMade());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		gbc.anchor = GridBagConstraints.SOUTH;
-		dialog.getContentPane().add(confirm, gbc);
+		JButton cancel = new JButton("CANCEL");
+		cancel.addActionListener(new Cancel());
+		GridBagConstraints gbcCancel = new GridBagConstraints();
+		gbcCancel.gridx = 1;
+		gbcCancel.gridy = 4;
+		gbcCancel.anchor = GridBagConstraints.EAST;
+		dialog.getContentPane().add(cancel, gbcCancel);
 		
 		//<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
@@ -80,6 +84,7 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		public ShowResourceList(ResourceList resourceList) {
 			
 			JRadioButton selector = new JRadioButton();
+			selector.addActionListener(new ChoiceMade());
 			GraphicResourceListView resources = new GraphicResourceListView(resourceList);
 			setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 			
@@ -89,6 +94,16 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		}
 	}
 	
+	public class Cancel implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			mainWindow.setEnabled(true);
+			dialog.dispose();
+		}
+		
+	}
+	
 	public class ChoiceMade implements ActionListener{
 
 		@Override
@@ -96,6 +111,7 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 			int i = getChoice();
 			if(i >= 0){
 				eventHandler.invoke(new ResourceSelectedEvent(costs.get(i)));
+				mainWindow.setEnabled(true);
 				dialog.dispose();
 				}
 		}

@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -41,9 +43,9 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
  * @see GraphicPlayerView 
  * @see GraphicConsole
  */
-public class GraphicView extends View{
+public class GraphicView extends View implements FocusListener{
 
-	JFrame window;												//Finestra Generale				
+	JFrame window;																//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
@@ -209,17 +211,19 @@ public class GraphicView extends View{
 	
 	@Override
 	public void confirm(ConfirmEvent confirm) {
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor());
+		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor(), window);
 		confirmPanelView.show();
+		window.setEnabled(false);
 	}
 
 	@Override
 	public void chooseResource(ArrayList<ResourceList> resource) {
-		GraphicChooseResourceListPanel chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource);
-		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.85), (int)Math.round(screenSize.getHeight()*0.4), 
+		GraphicChooseResourceListPanel chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource, window);
+		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.25), (int)Math.round(screenSize.getHeight()*0.4), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
 		chooseResource.getComponent().setUndecorated(true);
 		chooseResource.getComponent().setVisible(true);
+		window.setEnabled(false);
 	}
 	
 	private class Close implements ActionListener {			
@@ -274,5 +278,15 @@ public class GraphicView extends View{
 	public static void main(String[] args) {
 		GraphicView view = new GraphicView();
 		view.run();
+	}
+
+	@Override
+	public void focusGained(FocusEvent e) {
+		window.setEnabled(true);
+	}
+
+	@Override
+	public void focusLost(FocusEvent e) {
+		window.setEnabled(false);
 	}
 }

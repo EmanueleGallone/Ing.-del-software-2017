@@ -31,9 +31,11 @@ public class GraphicConfirmPanelView {
 	private Floor floor; 
 	private JTextField addServitori;
 	private EventHandler<ViewEventInterface> eventHandler;
+	private JFrame mainWindow;
 	
-	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor) {
+	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor, JFrame mainWindow) {
 		
+		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.floor = floor;
 		
@@ -207,6 +209,7 @@ public class GraphicConfirmPanelView {
 		public void actionPerformed(ActionEvent e) {
 			int servant = getConfirm();
 			eventHandler.invoke(new ConfirmViewEvent(true, servant));
+			mainWindow.setEnabled(true);
 			window.dispose();
 		}
 	}
@@ -215,6 +218,7 @@ public class GraphicConfirmPanelView {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			mainWindow.setEnabled(true);
 			window.dispose();
 		}
 		
@@ -232,12 +236,5 @@ public class GraphicConfirmPanelView {
 	
 	public void show(){
 		window.setVisible(true);
-	}
-	
-	public static void main(String[] args) {
-		EventHandler<ViewEventInterface> viewEvent = new EventHandler<>();
-		Floor floor = new Floor();
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent, floor);
-		confirmPanelView.show();
 	}
 }
