@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.model.cards.leaderCards;
+package it.polimi.ingsw.ps11.model.cards.leaderCards.old;
 
 import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
 
