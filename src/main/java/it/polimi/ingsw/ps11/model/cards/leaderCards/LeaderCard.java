@@ -31,7 +31,10 @@ public abstract class LeaderCard extends Card {
 		//sono tutte uguali. va ridefinita solo per quella carta che vuole 6 carte dello stesso tipo, di qualunque colore.
 		int howManyEntries;
 		boolean checkResource = false;
-		if (player.getResourceList().greaterEquals(requiredResources)) 
+//		if (player.getResourceList().greaterEquals(requiredResources)) 
+//			checkResource = true;
+		
+		if (player.getResourceList().canSubtract(requiredResources)) 
 			checkResource = true;
 		
 		ArrayList<DevelopmentCard> deck;

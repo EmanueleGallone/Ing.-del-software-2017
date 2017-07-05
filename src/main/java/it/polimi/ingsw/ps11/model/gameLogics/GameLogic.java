@@ -16,14 +16,14 @@ public class GameLogic implements Runnable{
 
 	private Game game;
 	private boolean stopTimer  = false;
-	private HashMap<Player, StateHandler> playerStatus = new HashMap<>();
+	private HashMap<String, StateHandler> playerStatus = new HashMap<>();
 	
 	public GameLogic(ArrayList<Player> players) {
 		
 		game = new Game(players);
 		
 		for(Player player : players){
-			playerStatus.put(player, new StateHandler(this,player));
+			playerStatus.put(player.getName(), new StateHandler(this,player));
 		}
 		
 		RoundManager roundManager = game.getRoundManager();
@@ -35,18 +35,20 @@ public class GameLogic implements Runnable{
 	}
 	
 	public void nextPlayer(){
-		Player nextPlayer = game.getRoundManager().next();
-		for(StateHandler playerState : playerStatus.values()){
+		String nextPlayerName = game.getRoundManager().next().getName();
+		StateHandler nextPlayer = playerStatus.get(nextPlayerName);
+		
+		nextPlayer.nextState(new PlayState());
+		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
+		
+		for(StateHandler pState : playerStatus.values()){
 			
-			if(playerState.getPlayer().equals(nextPlayer)){
-				playerState.nextState(new PlayState());
-				playerState.invoke(new TextualEvent("E' il tuo turno!"));
-			}
-			else {
-			    playerState.nextState(new DefaultState());
-			    playerState.invoke(new TextualEvent("Non è il tuo turno"));
+			if(pState != nextPlayer ){
+			    pState.nextState(new DefaultState());
+			    pState.invoke(new TextualEvent("Non è il tuo turno"));
 			}
 		}
+		
 		if(!stopTimer)
 			game.getRoundManager().startTimer();
 	}
@@ -61,6 +63,10 @@ public class GameLogic implements Runnable{
 	
 	public Game getGame() {
 		return game;
+	}
+	
+	public ArrayList<StateHandler> getPlayerStatus() {
+		return new ArrayList<>(playerStatus.values());
 	}
 	
 	public void attach(EventListener<ModelEventInterface> listener){
@@ -79,7 +85,7 @@ public class GameLogic implements Runnable{
 	
 	public void handle(ViewEventInterface viewEvent){
 		System.out.println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
-		playerStatus.get(viewEvent.getSource()).handle(viewEvent);
+		playerStatus.get(viewEvent.getSource().getName()).handle(viewEvent);
 	}
 	
 	
@@ -89,9 +95,9 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(Player e) {
-			System.out.println("Timer scattato per il player " + e.getName());
+			System.out.println("Timer scattato per il player " + e);
 			for(StateHandler player : playerStatus.values()){
-				player.invoke(new TextualEvent("Il giocatore " + e.getName() + " è inattivo"));
+				player.invoke(new TextualEvent("Il giocatore " + e + " è inattivo"));
 			}
 			nextPlayer();
 		}

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.posTest;
+package it.polimi.ingsw.ps11.old;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.posTest;
+package it.polimi.ingsw.ps11.actions;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,7 +25,7 @@ import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
-public class ActionsTest {
+public class oldActionsTest {
 	
 	/*
 	@Test

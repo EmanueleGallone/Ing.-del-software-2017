@@ -36,6 +36,21 @@ public class MainTest {
 		//LeaderCardsInitializer();
 		//initializeTextualCommands();
 
+		
+		//______________ Prima __________________________
+		ResourceList resourceList = new ResourceList();
+		
+		resourceList.setResource(new Coin(1));
+		resourceList.setResource(new Wood(3));
+		
+		//______________ Dopo ___________________________
+	 
+		ResourceList resourceListNuova = new ResourceList();
+		resourceListNuova.setResource(new Coin(1),new Wood(3));
+		
+		//Oppure 
+		
+		ResourceList resourceList_2 = new ResourceList(new Coin(1),new Wood(3));
 	}
 	
 

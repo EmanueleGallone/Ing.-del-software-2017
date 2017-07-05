@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.gabTest;
+package it.polimi.ingsw.ps11.old.gabTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -122,37 +122,37 @@ public class ResourcesPackageTest {
 	@Test
 	public void GreaterEqualsTest(){
 		
-		ResourceList resourceListCoinTest = new ResourceList(new Coin(2));
-		
-		assertFalse(resourceListCoin.greaterEquals(resourceListCoinTest));	//RESOURCE LIST CON RESOURCE DELLO STESSO TIPO GUARDANO AL VALORE
-		assertTrue(resourceListCoinTest.greaterEquals(resourceListCoin));
-
-		assertFalse(emptyResourceList.greaterEquals(resourceListCoin));		//OGNI RESOURCE LIST E' >= DI QUELLA VUOTA
-		assertTrue(resourceListCoin.greaterEquals(emptyResourceList));
-		
-		assertTrue(resourceListCoin.greaterEquals(resourceListWood));		//RESOURCELIST CON RESOURCES DIVERSE SONO UNA >= DELL'ATLRA
-		assertTrue(resourceListWood.greaterEquals(resourceListCoin));
-		assertTrue(mixed1.greaterEquals(mixed2));
-		assertTrue(mixed2.greaterEquals(mixed1));
-		assertTrue(mixed1.greaterEquals(resourceListCoin));
-		System.out.println(resourceListCoin.toString());
-		System.out.println(mixed1.toString());
-		assertTrue(resourceListCoin.greaterEquals(mixed1));
-		
-		assertTrue(resourceListCoin.greaterEquals(resourceListCoin));		//OGNI RESOURCELIST è >= A SE STESSA
-		assertTrue(emptyResourceList.greaterEquals(emptyResourceList));
-		assertTrue(resourceListCoin.greaterEquals(resourceListCoin.clone()));
+//		ResourceList resourceListCoinTest = new ResourceList(new Coin(2));
+//		
+//		assertFalse(resourceListCoin.greaterEquals(resourceListCoinTest));	//RESOURCE LIST CON RESOURCE DELLO STESSO TIPO GUARDANO AL VALORE
+//		assertTrue(resourceListCoinTest.greaterEquals(resourceListCoin));
+//
+//		assertFalse(emptyResourceList.greaterEquals(resourceListCoin));		//OGNI RESOURCE LIST E' >= DI QUELLA VUOTA
+//		assertTrue(resourceListCoin.greaterEquals(emptyResourceList));
+//		
+//		assertTrue(resourceListCoin.greaterEquals(resourceListWood));		//RESOURCELIST CON RESOURCES DIVERSE SONO UNA >= DELL'ATLRA
+//		assertTrue(resourceListWood.greaterEquals(resourceListCoin));
+//		assertTrue(mixed1.greaterEquals(mixed2));
+//		assertTrue(mixed2.greaterEquals(mixed1));
+//		assertTrue(mixed1.greaterEquals(resourceListCoin));
+//		System.out.println(resourceListCoin.toString());
+//		System.out.println(mixed1.toString());
+//		assertTrue(resourceListCoin.greaterEquals(mixed1));
+//		
+//		assertTrue(resourceListCoin.greaterEquals(resourceListCoin));		//OGNI RESOURCELIST è >= A SE STESSA
+//		assertTrue(emptyResourceList.greaterEquals(emptyResourceList));
+//		assertTrue(resourceListCoin.greaterEquals(resourceListCoin.clone()));
 
 	}
 	
 	@Test
 	public void SumTest(){
 		
-		resourceListCoin.sum(resourceListCoin);
-		assertEquals(2, resourceListCoin.getValueOf(Coin.class));			//SOMMA DI RESOURCES UGUALI SOMMA I VALORI
-		
-		resourceListCoin.sum(resourceListServant);							//SOMMA DI RESOURCES DIVERSE COPIA IL VALORE IN QUELLO NULLO
-		assertEquals(1, resourceListCoin.getValueOf(Servant.class));
+//		resourceListCoin.sum(resourceListCoin);
+//		assertEquals(2, resourceListCoin.getValueOf(Coin.class));			//SOMMA DI RESOURCES UGUALI SOMMA I VALORI
+//		
+//		resourceListCoin.sum(resourceListServant);							//SOMMA DI RESOURCES DIVERSE COPIA IL VALORE IN QUELLO NULLO
+//		assertEquals(1, resourceListCoin.getValueOf(Servant.class));
 		
 		ResourceList resourceListClone = resourceListCoin.clone();		
 		resourceListClone.sum(emptyResourceList);
@@ -179,22 +179,22 @@ public class ResourcesPackageTest {
 	@Test
 	public void SubstractTest(){
 		
-		Coin coinTest = new Coin(2);
-		ResourceList test = new ResourceList(coinTest);
-		test.subtract(resourceListCoin);								//SOTTRAZIONE TRA STESSE RESOURCES SOTTRAZIONE TRA VALORI
-		assertEquals(1, test.getValueOf(Coin.class));
-		
-		test.setResource(coinTest);										//1-2=0 0 MINIMO VALORE
-		resourceListCoin.subtract(test);
-		assertEquals(0, resourceListCoin.getValueOf(Coin.class));
-		
-		test.subtract(mixed1);											//RISORSE DIVERSE, TEST HA 0 WOOD, MIXED 1, TEST RESTA CON 0 WOOD
-		assertEquals(1, test.getValueOf(Coin.class));
-		assertEquals(0, test.getValueOf(Wood.class));	
-		
-		resourceListCoin.setResource(test.getResource(Coin.class));	
-		test.subtract(emptyResourceList);
-		assertEquals(resourceListCoin, test);
+//		Coin coinTest = new Coin(2);
+//		ResourceList test = new ResourceList(coinTest);
+//		test.subtract(resourceListCoin);								//SOTTRAZIONE TRA STESSE RESOURCES SOTTRAZIONE TRA VALORI
+//		assertEquals(1, test.getValueOf(Coin.class));
+//		
+//		test.setResource(coinTest);										//1-2=0 0 MINIMO VALORE
+//		resourceListCoin.subtract(test);
+//		assertEquals(0, resourceListCoin.getValueOf(Coin.class));
+//		
+//		test.subtract(mixed1);											//RISORSE DIVERSE, TEST HA 0 WOOD, MIXED 1, TEST RESTA CON 0 WOOD
+//		assertEquals(1, test.getValueOf(Coin.class));
+//		assertEquals(0, test.getValueOf(Wood.class));	
+//		
+//		resourceListCoin.setResource(test.get(Coin.class));	
+//		test.subtract(emptyResourceList);
+//		assertEquals(resourceListCoin, test);
 	}
 	
 	@Test

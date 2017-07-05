@@ -15,6 +15,7 @@ import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
+import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -119,7 +120,6 @@ public class GameController implements MessageListener,Runnable {
 	public void receive(ViewMessage viewMessage) {
 		ViewEventInterface event =  viewMessage.getEvent();
 		event.setSource(clients.get(viewMessage.getSource()));
-		//event.accept(gameLogic);
 		gameLogic.handle(event);
 	}
 

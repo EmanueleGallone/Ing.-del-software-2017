@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.posTest;
+package it.polimi.ingsw.ps11.game;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

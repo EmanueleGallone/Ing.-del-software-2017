@@ -39,8 +39,9 @@ public class RoundManager implements Serializable{
 
 	
 	
+	@SuppressWarnings("unchecked")
 	public RoundManager(ArrayList<Player> players){
-		this.players = players;
+		this.players = (ArrayList<Player>) players.clone();
 		try {
 			delay = new Loader(FileRegistry.timers_turn).load(Integer.class);
 		} catch (FileNotFoundException | ClassCastException e) {

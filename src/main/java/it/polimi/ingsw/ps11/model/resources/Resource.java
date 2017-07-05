@@ -46,9 +46,7 @@ public abstract class Resource implements Serializable {
 	 * @param value è il valore di incremento per la risorsa.
 	 */
 	public void increment(int value){
-		this.value += value;
-		if (this.value < 0)
-			this.value = 0;
+		setValue(value + getValue());
 	}
 	
 	@Override

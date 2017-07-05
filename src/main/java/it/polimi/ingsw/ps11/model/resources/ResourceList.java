@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Optional;
 
 /**
  * <h3>ResourceList</h3>
@@ -18,6 +19,10 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	
 // start constructor
 
+	
+	/**
+	 * Crea una ResourceList vuota
+	 */
 	public ResourceList() {
 
 	}
@@ -39,36 +44,36 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * </p>
 	 * @param resource risorsa singola da aggiungere nella ResourceList
 	 */
-	public ResourceList(Resource resource) {
+	public ResourceList(Resource ... resources) {
 		this();
-		this.setResource(resource);
+		this.setResource(resources);
 	}
 	
 
 // end constructor
 // start logic
 	
-	/**<h3>greaterEquals(ResourceList otherList)</h3>
-	 * <p>
-	 * Metodo che ritorna <code>true</code> se tutti i campi della ResourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'otherList.
-	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di default (zero).
-	 * </p>
-	 * @param otherList ResourceList da comparare
-	 */
-	public boolean greaterEquals(ResourceList otherList){
-		if(otherList == null)
-			return true;
-		
-		if (resources.size() == 0)
-			return (resources.size() == otherList.getResources().size());
-		
-		for(Resource r : this.resources.values()){
-			if( r.getValue() < otherList.getValueOf(r.getClass())){
-				return false;
-			}
-		}
-		return true;			
-	}
+//	/**<h3>greaterEquals(ResourceList otherList)</h3>
+//	 * <p>
+//	 * Metodo che ritorna <code>true</code> se tutti i campi della ResourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'otherList.
+//	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di default (zero).
+//	 * </p>
+//	 * @param otherList ResourceList da comparare
+//	 */
+//	public boolean greaterEquals(ResourceList otherList){
+//		if(otherList == null)
+//			return true;
+//		
+//		if (resources.size() == 0)
+//			return (resources.size() == otherList.getResources().size());
+//		
+//		for(Resource r : this.resources.values()){
+//			if( r.getValue() < otherList.getValueOf(r.getClass())){
+//				return false;
+//			}
+//		}
+//		return true;			
+//	}
 	
 	/**<h3>public void sum(ResourceList otherResources)</h3>
 	 * <p>
@@ -79,12 +84,14 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param otherResources è la resourceList da sommare al chiamante della sum
 	 */
 	public void sum(ResourceList otherResources){
-		for(String key : otherResources.getResources().keySet()){
-			if (getResource(key) == null){
-				this.resources.put(key, otherResources.getResource(key).clone());
+		
+		for(Resource resource : otherResources){
+			Resource toAdd = this.resources.get(resource.getClass().toString());
+			if(toAdd!= null){
+				toAdd.increment(resource.getValue());
 			}
 			else {
-				this.resources.get(key).increment(otherResources.getValueOf(key));
+				this.setResource(resource);
 			}
 		}
 	}
@@ -100,7 +107,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 */
 	public void subtract(ResourceList otherResources){
 		for(String key : otherResources.getResources().keySet()){
-			if (getResource(key) != null){
+			if (get(key) != null){
 				this.resources.get(key).increment(-otherResources.getValueOf(key));
 			}
 		}
@@ -108,11 +115,13 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	
 	public boolean canSubtract(ResourceList resourceList){
 		for(Resource resource : resourceList){
-			if(!(this.getResource(resource.getClass()).getValue() >= resource.getValue())){
+			Resource playerResource = this.get(resource.getClass());
+			if(playerResource == null || playerResource.getValue() < resource.getValue()){
 				return false;
 			}
 		}
-		return  true;//this.equals(resourceList) || !resourceList.greaterEquals(this);
+		return  true;
+		//return this.equals(resourceList) || !resourceList.greaterEquals(this);
 	}
 	
 
@@ -122,7 +131,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 			ResourceList other = (ResourceList) obj;
 			if(resources.values().size() == other.getResources().size()){
 				for(Resource r : resources.values()){
-					Resource r2 = other.getResource(r.getClass());
+					Resource r2 = other.get(r.getClass());
 					if( !(r2 != null && r.equals(r2)))
 						return false;
 				}
@@ -141,30 +150,42 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 // end logic
 // Start getters
 	/**
-	 * Metodo che permette il recupero della risorsa inserita come parametro. 
-	 * Se essa e' presenta nella resourceList allora verra' restituito un oggetto altrimenti un null
-	 * @param rClass classe del tipo di risorsa
-	 * @return
+	 * Metodo che permette di ottenere della resourceList una risorsa passando il tipo di quest'ultima come parametro. 
+	 * Se la risorsa e' presenta nella resourceList allora verra' restituita una sua copia altrimenti verra' restituito il valore null
+	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
+	 * @return <T extends Resource>
 	 */
-	public <T extends Resource> T getResource(Class<T> rClass){
-		return getResource(rClass.toString());
+	public <T extends Resource> T get(Class<T> rClass){
+		return get(rClass.toString());
+	}
+	
+	
+	
+	/**
+	 * Metodo che permette di ottenere della resourceList una risorsa passando il tipo di quest'ultima come parametro. 
+	 * Questo metodo non ritorna mai null bensi ritorna un Optional che puo' contenere o meno la risorsa cercata.
+	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
+	 * @return Optional<T extends Resource>
+	 */
+	public <T extends Resource> Optional<T> getResource(Class<T> rClass){
+		return Optional.ofNullable(get(rClass));
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends Resource> T getResource(String rType){
-		return (T) resources.get(rType);
+	public <T extends Resource> T get(String rType){
+		Resource resource = resources.get(rType);
+		if(resource != null)
+			return (T) resource.clone();
+		return null;
 	}
 	
-	public int getValueOf(String rType){
-		Resource r = this.getResource(rType);
+	private int getValueOf(String rType){
+		Resource r = this.get(rType);
 		if (r == null)
 			return DEFAULT_VALUE;
 		return r.getValue();
 	}
 	
-	public <T extends Resource> int getValueOf(Class<T> rClass){
-		return getValueOf(rClass.toString());
-	}
 	
 	public HashMap<String, Resource> getResources() {
 		return resources;
@@ -173,14 +194,25 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 //End getters
 	
 // Start setters
-
-	public <T extends Resource> void setResource(T resource){
+	
+	public void setResource(Resource...resources){
+		for(Resource r : resources){
+			this.setResource(r);
+		}
+	}
+	
+	
+	/**
+	 * 
+	 * @param resource
+	 */
+	public void setResource(Resource resource){
 		this.resources.put(resource.getClass().toString() , resource.clone());
 	}
 	
-	protected void setResources(HashMap<String, Resource> resources) {
-		this.resources = resources;
-	}
+//	protected void setResources(HashMap<String, Resource> resources) {
+//		this.resources = resources;
+//	}
 //End setters
 	
 	@Override
