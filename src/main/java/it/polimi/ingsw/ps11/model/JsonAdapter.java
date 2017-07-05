@@ -18,7 +18,7 @@ import com.google.gson.JsonSerializer;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.old.oldLeaderCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.resources.Resource;
@@ -38,7 +38,7 @@ public class JsonAdapter {
 			FamilyMember.class,
 			Effect.class,
 			Action.class,
-			LeaderCard.class,
+			oldLeaderCard.class,
 			ViewEvent.class
 			));
 	

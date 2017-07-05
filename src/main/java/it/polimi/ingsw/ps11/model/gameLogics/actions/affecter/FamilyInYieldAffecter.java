@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 /** <h3> Nome </h3>
@@ -26,7 +27,8 @@ public class FamilyInYieldAffecter implements Affecter<FamilyInYieldAction> {
 	public FamilyInYieldAction affect(FamilyInYieldAction action) {
 		String cType = action.getYield().getActiveCard();
 		if(cType.equals(cardType)){
-			action.getFamilyMember().setModifier(value);
+			FamilyMember fMember = action.getFamilyMember();
+			fMember.setModifier(fMember.getModifier() + value);
 			return action.clone();
 		}
 		return action;

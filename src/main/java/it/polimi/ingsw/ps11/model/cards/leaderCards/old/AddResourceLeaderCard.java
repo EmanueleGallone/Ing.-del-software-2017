@@ -1,8 +1,8 @@
-package it.polimi.ingsw.ps11.model.cards.leaderCards;
+package it.polimi.ingsw.ps11.model.cards.leaderCards.old;
 
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 
-public class AddResourceLeaderCard extends LeaderCard {
+public class AddResourceLeaderCard extends oldLeaderCard {
 	
 	private AddResourceEffect effect;
 
