@@ -8,7 +8,6 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
-import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -17,7 +16,8 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 public class GameLogic implements Runnable{
 
 	private Game game;
-	private boolean stopTimer  = false;
+	private boolean stopTimer  = false, periodEnd = false;;
+	
 	private HashMap<String, StateHandler> playerStatus = new HashMap<>();
 	
 	public GameLogic(ArrayList<Player> players) {
@@ -35,16 +35,23 @@ public class GameLogic implements Runnable{
 		roundManager.gameOverEvent(endGameListener);
 		roundManager.nobodyOnEvent(nobodyOnListener);
 	}
-	
-	int i = 0;
-	
+		
 	public void nextPlayer(){
 		String nextPlayerName = game.getRoundManager().next().getName();
 		StateHandler nextPlayer = playerStatus.get(nextPlayerName);
-		
+		if(periodEnd){
+			
+		}
+		else {
+			round(nextPlayer);
+		}
+
+	}
+	
+	private void round(StateHandler nextPlayer){
 		nextPlayer.nextState(new PlayState());
 		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
-		nextPlayer.invoke(new GameUpdateEvent(game));
+		//nextPlayer.invoke(new GameUpdateEvent(game));
 		
 		for(StateHandler pState : playerStatus.values()){
 			
@@ -56,9 +63,6 @@ public class GameLogic implements Runnable{
 		
 		if(!stopTimer)
 			game.getRoundManager().startTimer();
-	i++;
-	if(i<25)
-		nextPlayer();
 	}
 
 	@Override
@@ -124,8 +128,7 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(RoundManager e) {
-			// TODO Auto-generated method stub
-			//C'e' da fare tutta la roba delle scomuniche
+			periodEnd = true;
 		}
 	};
 	
@@ -137,7 +140,6 @@ public class GameLogic implements Runnable{
 			try {
 				if(!e.isOver()){
 					game.refreshCard(e.currentPeriod());
-					System.out.println("refreshate " + e.currentPeriod());
 				}
 				
 			} catch (FileNotFoundException e1) {
