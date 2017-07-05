@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -7,6 +8,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -34,12 +36,15 @@ public class GameLogic implements Runnable{
 		roundManager.nobodyOnEvent(nobodyOnListener);
 	}
 	
+	int i = 0;
+	
 	public void nextPlayer(){
 		String nextPlayerName = game.getRoundManager().next().getName();
 		StateHandler nextPlayer = playerStatus.get(nextPlayerName);
 		
 		nextPlayer.nextState(new PlayState());
 		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
+		nextPlayer.invoke(new GameUpdateEvent(game));
 		
 		for(StateHandler pState : playerStatus.values()){
 			
@@ -51,6 +56,9 @@ public class GameLogic implements Runnable{
 		
 		if(!stopTimer)
 			game.getRoundManager().startTimer();
+	i++;
+	if(i<25)
+		nextPlayer();
 	}
 
 	@Override
@@ -95,9 +103,9 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(Player e) {
-			System.out.println("Timer scattato per il player " + e);
+			System.out.println("Timer scattato per il player " + e.getName());
 			for(StateHandler player : playerStatus.values()){
-				player.invoke(new TextualEvent("Il giocatore " + e + " è inattivo"));
+				player.invoke(new TextualEvent("Il giocatore " + e.getName() + " è inattivo"));
 			}
 			nextPlayer();
 		}
@@ -126,8 +134,15 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(RoundManager e) {
-			// TODO Auto-generated method stub
-			
+			try {
+				if(!e.isOver()){
+					game.refreshCard(e.currentPeriod());
+					System.out.println("refreshate " + e.currentPeriod());
+				}
+				
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
 		}
 	};
 	

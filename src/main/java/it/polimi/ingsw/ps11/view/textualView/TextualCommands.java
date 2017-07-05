@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.zones.towers.*;
 import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.*;
 
@@ -17,9 +19,10 @@ public class TextualCommands {
 	private String instructions ;
 	
 	public TextualCommands() {
-	  // initializeEventMap();
-	  // initializeInstruction();
+//	   initializeEventMap();
+//	   initializeInstruction();
 	}
+
 	
 	public ViewEvent get(String input){
 		return commands.get(input);
@@ -35,6 +38,7 @@ public class TextualCommands {
 //				+ "\n • If you want select the floor of a tower type \" yellow tower 1 \""
 //				+ "\n • If you want select a family member (e.g. orange) -> orange family "
 //				+ "\n • If you want select production or harvest type \"production\" or \"harvest\""
+//				+ "\n • If you want end the turn type \"pass\""
 //				+ "\n"; 
 //	}
 //	
@@ -66,5 +70,14 @@ public class TextualCommands {
 //	commands.put("harvest" , new HarvestSelectedEvent());
 //	
 //	commands.put("update" , new AskUpdateEvent());
+//	
+//	commands.put("pass" , new EndTurnEvent());
 //}
+//	
+//	
+//	public static void main(String[] args) {
+//		TextualCommands commands = new TextualCommands();
+//		
+//		new Loader("settings\\view\\commands").write(commands);
+//	}
 }

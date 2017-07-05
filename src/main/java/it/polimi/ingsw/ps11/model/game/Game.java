@@ -27,7 +27,7 @@ public class Game implements Serializable  {
 			board = initializeBoard();
 			board.getMarket().setPlayerNumber(players.size());
 			setDices(players);
-			board.setCard(loadCards(roundManager.currentPeriod()));
+			refreshCard(roundManager.currentPeriod());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
