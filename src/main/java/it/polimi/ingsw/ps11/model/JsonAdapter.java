@@ -38,7 +38,6 @@ public class JsonAdapter {
 			FamilyMember.class,
 			Effect.class,
 			Action.class,
-			oldLeaderCard.class,
 			ViewEvent.class
 			));
 	
