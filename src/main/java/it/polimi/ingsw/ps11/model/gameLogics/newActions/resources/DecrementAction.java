@@ -13,7 +13,12 @@ public class DecrementAction extends IncrementAction{
 	@Override
 	public boolean isLegal() {
 		Player player = aManager.state().getPlayer();
-		return super.isLegal() &&  player.getResourceList().canSubtract(getResources());
+		boolean result = super.isLegal() &&  player.getResourceList().canSubtract(getResources());
+		
+		if(!result)
+			aManager.state().invoke("Le risorse che hai non sono abbastanza");
+		
+		return result;
 	}
 	
 	@Override

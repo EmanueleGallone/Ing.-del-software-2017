@@ -7,6 +7,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.newActions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
@@ -50,6 +51,10 @@ public class StateHandler {
 	public void invoke(ModelEventInterface event){
 		event.setReceiver(player);
 		modelEvent.invoke(event);
+	}
+	
+	public void invoke(String message){
+		this.invoke(new TextualEvent(message));
 	}
 	
 	public void attach(EventListener<ModelEventInterface> listener){
