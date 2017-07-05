@@ -16,13 +16,13 @@ public class WaitingFamilyMember extends PlayState{
 	@Override
 	public void handle(FamilySelectedEvent familySelectedEvent) {
 		event.setFamilySelectedEvent(familySelectedEvent);
-		stateHandler().resetState();
+		stateHandler().nextState(new PlayState());
 		event.accept(stateHandler().currentState());
 	}
 	
 	@Override
 	public void notifyToClient() {
-		Player player = stateHandler().actions().getSubject();
+		Player player = stateHandler().getPlayer();
 		stateHandler().invoke(new UpdateFamilyMemberEvent(player.getFamilyManager()));
 	}
 }

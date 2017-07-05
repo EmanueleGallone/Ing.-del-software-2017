@@ -6,13 +6,15 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> ExchangeAction </h3>
- * <p> Classe che rappresenta l'azione di scambio di una ResourceList per un'altra.</p>
+ * <p> Classe che rappresenta il bonus di scambio di una ResourceList per un'altra.</p>
  * @see Action
  */
-public class ExchangeAction implements Action<ExchangeAction>, ResourceListener {
+public class ExchangeAction implements Action, ResourceListener {
 
 	private ActionManager aManager;
 	private HashMap<ResourceList, ResourceList> exchange = new HashMap<>();
@@ -22,7 +24,6 @@ public class ExchangeAction implements Action<ExchangeAction>, ResourceListener 
 		this.exchange = exchange;
 	}
 	
-	
 	@Override
 	public boolean isLegal() {
 		return true;
@@ -31,7 +32,7 @@ public class ExchangeAction implements Action<ExchangeAction>, ResourceListener 
 	@Override
 	public void perform() {
 		ArrayList<ResourceList> choice = new ArrayList<>(exchange.keySet());
-		aManager.changeState(new WaitResource(choice, this));
+		aManager.state().nextState(new WaitResource(choice, this));
 	}
 	
 	@Override
@@ -44,45 +45,21 @@ public class ExchangeAction implements Action<ExchangeAction>, ResourceListener 
 		
 		
 		if(rewards != null){
-			DecrementAction decrement = aManager.newDecrementAction(resource);
-			IncrementAction increment = aManager.newIncrementAction(rewards);
+			DecrementAction decrement = new DecrementAction(aManager,resource);
+			IncrementAction increment = new IncrementAction(aManager,rewards);
+			decrement = aManager.affect(decrement);
+			increment = aManager.affect(increment);
+			
 			if(decrement.isLegal() && increment.isLegal()){
 				decrement.perform();
 				increment.perform();
 			}
 		}
 	}
-	
-// _________________________ Method for action system ________________________
-
 
 	@Override
-	public ExchangeAction decore(ExchangeAction action) {
-		if(action != this){
-			return action.decore(this);
-		}
-		return this;
-	}
-	
-	@Override
-	public void attach(ActionManager aManager){
-		ExchangeAction action = aManager.get(target());
-		if(action == null){
-			action = this;
-		}
-		aManager.add(action.decore(this));
+	public ExchangeAction clone() {
+		return new ExchangeAction(aManager, exchange);
 	}
 
-	@Override
-	public Class<ExchangeAction> target() {
-		return ExchangeAction.class;
-	}
-	
-// _______________________S____________________________
-	
-	@Override
-	public ExchangeAction clone(){
-		ExchangeAction copy = new ExchangeAction(aManager, exchange);
-		return copy;
-	}
 }

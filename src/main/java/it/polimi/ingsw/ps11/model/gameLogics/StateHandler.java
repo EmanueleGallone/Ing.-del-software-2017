@@ -7,13 +7,14 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class StateHandler {
 
 	private State currState;
-	private State mainState;
+	//private State mainState;
 	private Player player;
 	private GameLogic gameLogic;
 	private boolean suspended;
@@ -29,7 +30,7 @@ public class StateHandler {
 	}
 	
 	public void start(){
-		this.mainState = currState;
+		//this.mainState = currState;
 		invoke(new GameUpdateEvent(gameLogic.getGame()));
 	}
 	
@@ -50,6 +51,10 @@ public class StateHandler {
 	public void invoke(ModelEventInterface event){
 		event.setReceiver(player);
 		modelEvent.invoke(event);
+	}
+	
+	public void invoke(String message){
+		this.invoke(new TextualEvent(message));
 	}
 	
 	public void attach(EventListener<ModelEventInterface> listener){
@@ -76,9 +81,9 @@ public class StateHandler {
 		state.notifyToClient();
 	}
 	
-	public void resetState(){
-		this.nextState(mainState);
-	}
+//	public void resetState(){
+//		this.nextState(mainState);
+//	}
 	
 	public State currentState() {
 		return currState;
@@ -87,9 +92,9 @@ public class StateHandler {
 	
 // _________________________________________
 	
-	public void setMainState(State mainState) {
-		this.mainState = mainState;
-	}
+//	public void setMainState(State mainState) {
+//		this.mainState = mainState;
+//	}
 	public void setPlayer(Player player) {
 		this.player = player;
 	}

@@ -7,5 +7,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 
 public interface Effect extends Serializable{
 
-	public Action<?> get(ActionManager aManager);
+	public Action get(ActionManager aManager);
+	public void attach(ActionManager aManager);
 }

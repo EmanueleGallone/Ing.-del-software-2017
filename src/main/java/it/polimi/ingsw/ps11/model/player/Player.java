@@ -35,7 +35,11 @@ public class Player implements Serializable{
 // Start constructors
 	
 	public Player(){
-		name = DEFAULT_NAME;
+		this(DEFAULT_NAME);
+	}
+	
+	public Player(String name){
+		this.name = name;
 		this.resourceList = new ResourceList();
 		this.cardManager = new CardManager();
 		this.familyManager = new FamilyMemberManager();

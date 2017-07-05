@@ -7,8 +7,8 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
  * <p> Classe che rappresenta l'azione di passaggio di stato.</p>
  * @see Action
  */
-public class ChangeStateAction implements Action<ChangeStateAction> {
-
+public class ChangeStateAction implements Action {
+	
 	private ActionManager aManager;
 	private State nextState;
 	
@@ -17,6 +17,7 @@ public class ChangeStateAction implements Action<ChangeStateAction> {
 		this.nextState = state;
 	}
 	
+	
 	@Override
 	public boolean isLegal() {
 		return true;
@@ -24,39 +25,12 @@ public class ChangeStateAction implements Action<ChangeStateAction> {
 
 	@Override
 	public void perform() {
-		aManager.changeState(nextState);
+		aManager.state().nextState(nextState);
 	}
-// _________________________ Method for action system ________________________
 
-
-	@Override
-	public ChangeStateAction decore(ChangeStateAction action) {
-		if(action != this){
-			return action.decore(this);
-		}
-		return this;
-	}
 	
 	@Override
-	public void attach(ActionManager aManager){
-		ChangeStateAction action = aManager.get(target());
-		if(action == null){
-			action = this;
-		}
-		aManager.add(action.decore(this));
+	public ChangeStateAction clone() {
+		return new ChangeStateAction(aManager, nextState);
 	}
-
-	@Override
-	public Class<ChangeStateAction> target() {
-		return ChangeStateAction.class;
-	}
-	
-// ___________________________________________________
-	
-	@Override
-	public ChangeStateAction clone(){
-		ChangeStateAction copy = new ChangeStateAction(aManager, nextState);
-		return copy;
-	}
-
 }

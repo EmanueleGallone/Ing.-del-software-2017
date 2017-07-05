@@ -2,8 +2,8 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.EndGameAffecter;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.IncrementAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class ResourceAtTheEnd implements Effect {
@@ -15,10 +15,15 @@ public class ResourceAtTheEnd implements Effect {
 	}
 	
 	@Override
-	public EndGameAction get(ActionManager aManager) {
-		IncrementAction action = aManager.newIncrementAction(resource);
-		EndGameAffecter endAction = new EndGameAffecter(action);
-		return endAction;
+	public EmptyAction get(ActionManager aManager) {
+		return new EmptyAction();
+	}
+
+	@Override
+	public void attach(ActionManager aManager) {
+		IncrementAction action = new IncrementAction(aManager, resource);
+		EndGameAffecter affecter = new EndGameAffecter(action);
+		aManager.add(affecter);
 	}
 
 }
