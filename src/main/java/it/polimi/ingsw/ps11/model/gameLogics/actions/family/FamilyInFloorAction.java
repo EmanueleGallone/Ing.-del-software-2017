@@ -67,10 +67,9 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	//Va fatto prima del getCard.isLegal perchè il giocatore può usare le risorse del piano per pagare la carta
 		ResourceList resource = spaceAction.getSpace().getResources();
 		if(resource != null){
-			ResourceList cardCost = getCard.getCost();
-			cardCost.subtract(resource);
-			getCard.setCost(cardCost);		
+			getCard.setModifier(resource.clone());	
 		}
+		
 	}
 	
 	public FamilyInTowerAction getTowerAction() {

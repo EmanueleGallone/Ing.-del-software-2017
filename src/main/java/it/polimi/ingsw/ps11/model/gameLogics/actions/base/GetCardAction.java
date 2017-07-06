@@ -20,7 +20,7 @@ public class GetCardAction implements Action {
 	private DevelopmentCard card;
 	private ResourceList cost;
 	
-	//private ResourceList modifier = new ResourceList();
+	private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
@@ -57,7 +57,9 @@ public class GetCardAction implements Action {
 	}
 
 	private DecrementAction makePayAction(){
-		DecrementAction pay = new DecrementAction(aManager,cost);
+		ResourceList totalCost = this.cost.clone();
+		totalCost.subtract(modifier);
+		DecrementAction pay = new DecrementAction(aManager,totalCost);
 		return aManager.affect(pay);
 	}
 	
@@ -91,6 +93,10 @@ public class GetCardAction implements Action {
 	
 	public ResourceList getCost() {
 		return cost;
+	}
+	
+	public void setModifier(ResourceList modifier) {
+		this.modifier = modifier;
 	}
 	
 	public void setCost(ResourceList cost) {
