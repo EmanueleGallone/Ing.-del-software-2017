@@ -7,6 +7,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
@@ -42,7 +43,8 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	
 	@Override
 	public boolean isLegal() {
-		
+		if(aManager.state().isDone())
+			return false;
 		if(space.isFree() && makeServantAction().isLegal()){
 			return checkActionCost(servant);
 		}
@@ -69,6 +71,8 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 			increment = aManager.affect(increment);
 			increment.perform();
 		}
+		aManager.state().setActionDone(true);
+		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 	}
 	
 	public void incrementServant(int servant) {

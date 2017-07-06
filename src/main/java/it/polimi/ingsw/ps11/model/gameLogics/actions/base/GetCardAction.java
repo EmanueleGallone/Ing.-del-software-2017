@@ -41,7 +41,7 @@ public class GetCardAction implements Action {
 		
 		if(isMultipleCost())
 			return false;
-		else if(cost == null && card.isMonoCost()){
+		else if(card.isMonoCost()){
 			cost = card.getFirstCost();
 		}
 

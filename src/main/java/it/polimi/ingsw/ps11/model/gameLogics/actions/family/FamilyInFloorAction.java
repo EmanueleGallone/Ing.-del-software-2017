@@ -38,9 +38,9 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	@Override
 	public void perform() {
 		towerAction.perform();
-		spaceAction.perform();
 		getCard.perform();
-		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
+		spaceAction.perform();
+		//aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 	}
 	
 	@Override
@@ -58,8 +58,6 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 			aManager.state().nextState(new WaitConfirm(this));
 			return false;
 		}
-		if(confermed != null)
-			spaceAction.incrementServant(confermed.getServant());
 		return result && spaceAction.isLegal();
 	}
 	
