@@ -6,8 +6,8 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 
 public class FamilyInSpaceBonus implements Effect {
 
-	private String familyType;
-	private int value;
+	protected String familyType;
+	protected int value;
 	
 	public FamilyInSpaceBonus(String familyType, int value) {
 		this.value = value;

@@ -8,6 +8,10 @@
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent",
       "INSTANCE": {}
     },
+    "pass": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent",
+      "INSTANCE": {}
+    },
     "yellow tower 4": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
@@ -149,5 +153,5 @@
       }
     }
   },
-  "instructions": "\n\nINSTRUCTION:\n • If you want select the floor of a tower type \" yellow tower 1 \"\n • If you want select a family member (e.g. orange) -\u003e orange family \n • If you want select production or harvest type \"production\" or \"harvest\"\n"
+  "instructions": "\n\nINSTRUCTION:\n • If you want select the floor of a tower type \" yellow tower 1 \"\n • If you want select a family member (e.g. orange) -\u003e orange family \n • If you want select production or harvest type \"production\" or \"harvest\"\n • If you want end the turn type \"pass\"\n"
 }

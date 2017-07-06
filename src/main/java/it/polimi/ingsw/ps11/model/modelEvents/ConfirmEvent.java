@@ -10,6 +10,11 @@ public class ConfirmEvent extends ModelEvent {
 	private Floor floor;
 	private String tower;
 	
+	
+	public ConfirmEvent(String message){
+		super(message);
+	}
+	
 	public ConfirmEvent(ActionSpace space){
 		floor = new Floor();
 		floor.setActionSpace(space);
