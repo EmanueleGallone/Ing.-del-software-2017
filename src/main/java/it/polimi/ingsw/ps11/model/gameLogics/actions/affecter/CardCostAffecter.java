@@ -4,8 +4,12 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-/** <h3> CardCostAffecter </h3>
- * <p> Classe che rappresenta il bonus che ha il compito di modificare il costo della ResourceList di una carta</p>
+/**
+ * <h3> CardCostAffecter </h3>
+ * <p> Bonus: modifica le reosurceLists dei costi di una carta attraverso una <code>GetCardAction</code>.</p>
+ * <p> Richiede: DevelopmentCard (carta a cui va modificato il costo), resourceList (valori delle risorse che modificano le
+ * resourceList dei costi della carta).</p>
+ * @see Affecter
  * @see GetCardAction
  */
 public class CardCostAffecter implements Affecter<GetCardAction> {

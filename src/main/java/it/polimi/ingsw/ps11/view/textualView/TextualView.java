@@ -159,11 +159,16 @@ public class TextualView extends View {
 		String tower = "";
 		if(confirm.getTower()!=null)
 			tower = confirm.getTower();
-		TextualFloorView floorView = new TextualFloorView(tower,0);
-		floorView.update(floor);
-		floorView.print();
+		if(confirm.getFloor() != null){
+			TextualFloorView floorView = new TextualFloorView(tower,0);
+			floorView.update(floor);
+			floorView.print();
+			console.println(confirm.getMessage());
+			console.println("Select servant number");
+		}
+
 		console.println(confirm.getMessage());
-		console.println("Select servant number or press -1 to abort");
+		console.println("Digita un numero maggiore di zero per confermare, altrimenti digita -1");
 		
 		input.attach(new EventListener<String>() {
 			
@@ -175,7 +180,7 @@ public class TextualView extends View {
 					if(parsed >= 0){
 						viewEvent.invoke(new ConfirmViewEvent(true,parsed));
 					}
-						
+					viewEvent.invoke(new ConfirmViewEvent(false));
 				} catch (NumberFormatException e1) {
 					new TextualConsole().println("Choice not valid!");
 				}finally{

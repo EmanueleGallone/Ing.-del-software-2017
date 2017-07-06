@@ -3,9 +3,13 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
-/** <h3> Nome </h3>
- * <p> Classe che rappresenta il bonus che ha il compito di modificare il valore di un familiare se quest'ultimo viene 
- * posizionato sull'actionSpace di una zona Raccolta o Produzione </p>
+/**
+ * <h3> FamilyInYieldAffecter </h3>
+ * <p> Bonus: modifica il valore di un familiar se questo viene posizionato sull'actionspace appartenente alla zona Raccolta
+ * o Produzione attraverso una <code>FamilyInYieldAction</code>.</p>
+ * <p> Richiede: string (tipo della carta associato alla zona dell'actionspace), int (quantità del modificatore del valore 
+ * del familiare).</p>
+ * @see Affecter
  * @see FamilyYieldAction
  */
 public class FamilyInYieldAffecter implements Affecter<FamilyInYieldAction> {

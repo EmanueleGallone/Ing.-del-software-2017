@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -30,9 +31,11 @@ public class GraphicConfirmPanelView {
 	private Floor floor; 
 	private JTextField addServitori;
 	private EventHandler<ViewEventInterface> eventHandler;
+	private JFrame mainWindow;
 	
-	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor) {
+	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor, JFrame mainWindow) {
 		
+		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.floor = floor;
 		
@@ -42,6 +45,7 @@ public class GraphicConfirmPanelView {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setUndecorated(true);
         window.pack();
+        window.setBackground(new Color(0, 0, 0, 0));
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -52,31 +56,66 @@ public class GraphicConfirmPanelView {
 		gblConfirmpanel.rowWeights = new double[]{0.2, 0.6, 0.2, Double.MIN_VALUE};
 		window.getContentPane().setLayout(gblConfirmpanel);
 		
-		JPanel interPanel = new JPanel();
+		GraphicPaintedPanel interPanel = new GraphicPaintedPanel();
+		interPanel.loadImage("boardImages/Lorenzo LogIn.png");
+		JPanel padding1 = new JPanel(),padding2 = new JPanel(),padding3 = new JPanel(),padding4 = new JPanel();
+		padding1.setOpaque(false);
+		padding2.setOpaque(false);
+		padding3.setOpaque(false);
+		padding4.setOpaque(false);
+
 		GridBagConstraints gbcInterPanel = new GridBagConstraints();
+		GridBagConstraints gbcpadding1 = new GridBagConstraints();
+		GridBagConstraints gbcpadding2 = new GridBagConstraints();
+		GridBagConstraints gbcpadding3 = new GridBagConstraints();
+		GridBagConstraints gbcpadding4 = new GridBagConstraints();
+
 		gbcInterPanel.gridx = 1;
 		gbcInterPanel.gridy = 1;
 		gbcInterPanel.fill = GridBagConstraints.BOTH;
 		interPanel.setBorder(BorderFactory.createLoweredBevelBorder());
 		window.getContentPane().add(interPanel, gbcInterPanel);
 		
+		gbcpadding1.gridx = 0;
+		gbcpadding1.gridy = 0;
+		gbcpadding1.gridheight = 3;
+		gbcpadding1.fill = GridBagConstraints.BOTH;
+		window.getContentPane().add(padding1, gbcpadding1);
+		
+		gbcpadding2.gridx = 1;
+		gbcpadding2.gridy = 0;
+		gbcpadding2.fill = GridBagConstraints.BOTH;
+		window.getContentPane().add(padding2, gbcpadding2);
+		
+		gbcpadding3.gridx = 2;
+		gbcpadding3.gridy = 0;
+		gbcpadding3.gridheight = 3;
+		gbcpadding3.fill = GridBagConstraints.BOTH;
+		window.getContentPane().add(padding3, gbcpadding3);
+		
+		gbcpadding4.gridx = 1;
+		gbcpadding4.gridy = 2;
+		gbcpadding4.fill = GridBagConstraints.BOTH;
+		window.getContentPane().add(padding4, gbcpadding4);
+		
 		GridBagLayout gblInternPanel = new GridBagLayout();
 		gblInternPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gblInternPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gblInternPanel.columnWeights = new double[]{0.025, 0.20, 0.025, 0.025, 0.075, 
+		gblInternPanel.columnWeights = new double[]{0.023, 0.25, 0.025, 0.025, 0.075, 
 													0.0375, 0.0375, 0.025,Double.MIN_VALUE};
 		gblInternPanel.rowWeights = new double[]{0.05, 0.1, 0.1, 0.1, 0.15, 0.05, 0.05, Double.MIN_VALUE};
 		interPanel.setLayout(gblInternPanel);
 		
-		JLabel scrittaCosto = new JLabel("COSTO"),
-			   scrittaBonus = new JLabel("BONUS"),
-			   scrittaServitori = new JLabel("SERVITORI");
-		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView(/*floor.getCard().getName()*/);
+		JLabel scrittaCosto = new JLabel("<html><font color='white'>COSTO</font></html>"),
+			   scrittaBonus = new JLabel("<html><font color='white'>BONUS</font></html>"),
+			   scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
+		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
+		cardView.update(floor.getCard());
 		cardView.print();
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
 		GraphicResourceListView bonus = new GraphicResourceListView(floor.getActionSpace().getResources());
 		addServitori = new JTextField("0");
-		JTextArea messaggio = new JTextArea("INSERIRE QUI IL MESSAGGIO");
+		JTextArea messaggio = new JTextArea("MESSAGGIO");			//DOVE SI TROVA ILMESSAGGIO?
 		JButton confirm = new JButton("Conferma"),
 				cancel = new JButton("Annulla");
 		
@@ -91,7 +130,7 @@ public class GraphicConfirmPanelView {
 		GridBagConstraints gbcCancel = new GridBagConstraints();
 		GridBagConstraints gbcConfirm = new GridBagConstraints();
 
-		if(!(floor == null)){
+		if(floor.getCard() != null){
 		gbcCard.gridx = 1;
 		gbcCard.gridy = 1;
 		gbcCard.gridheight = 5;
@@ -104,11 +143,12 @@ public class GraphicConfirmPanelView {
 			gbcScrittaCosto.gridx = 3;
 			gbcScrittaCosto.gridy = 1;
 			gbcScrittaCosto.anchor = GridBagConstraints.WEST;
-			scrittaCosto.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			scrittaCosto.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 			interPanel.add(scrittaCosto, gbcScrittaCosto);
 			
 			gbcCosto.gridx = 4;
 			gbcCosto.gridy = 1;
+			costo.setOpaque(false);
 			gbcCosto.fill = GridBagConstraints.BOTH;
 			interPanel.add(costo, gbcCosto);
 			}
@@ -119,13 +159,13 @@ public class GraphicConfirmPanelView {
 		gbcScrittaBonus.gridx = 3;
 		gbcScrittaBonus.gridy = 2;
 		gbcScrittaBonus.anchor = GridBagConstraints.WEST;
-		scrittaBonus.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		scrittaBonus.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 		interPanel.add(scrittaBonus, gbcScrittaBonus);
 		
 		gbcScrittaServitori.gridx = 3;
 		gbcScrittaServitori.gridy = 3;
 		gbcScrittaServitori.anchor = GridBagConstraints.WEST;
-		scrittaServitori.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		scrittaServitori.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 		interPanel.add(scrittaServitori, gbcScrittaServitori);
 		
 		gbcBonus.gridx = 4;
@@ -169,6 +209,7 @@ public class GraphicConfirmPanelView {
 		public void actionPerformed(ActionEvent e) {
 			int servant = getConfirm();
 			eventHandler.invoke(new ConfirmViewEvent(true, servant));
+			mainWindow.setEnabled(true);
 			window.dispose();
 		}
 	}
@@ -177,6 +218,7 @@ public class GraphicConfirmPanelView {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			mainWindow.setEnabled(true);
 			window.dispose();
 		}
 		
@@ -194,12 +236,5 @@ public class GraphicConfirmPanelView {
 	
 	public void show(){
 		window.setVisible(true);
-	}
-	
-	public static void main(String[] args) {
-		EventHandler<ViewEventInterface> viewEvent = new EventHandler<>();
-		Floor floor = new Floor();
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent, floor);
-		confirmPanelView.show();
 	}
 }

@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
@@ -35,22 +36,7 @@ public class MainTest {
 	public static void main(String[] args) throws FileNotFoundException{
 		//LeaderCardsInitializer();
 		//initializeTextualCommands();
-
-		
-		//______________ Prima __________________________
-		ResourceList resourceList = new ResourceList();
-		
-		resourceList.setResource(new Coin(1));
-		resourceList.setResource(new Wood(3));
-		
-		//______________ Dopo ___________________________
-	 
-		ResourceList resourceListNuova = new ResourceList();
-		resourceListNuova.setResource(new Coin(1),new Wood(3));
-		
-		//Oppure 
-		
-		ResourceList resourceList_2 = new ResourceList(new Coin(1),new Wood(3));
+		inizializzatoreBoard();
 	}
 	
 
@@ -60,7 +46,7 @@ public class MainTest {
 		new Loader(FileRegistry.player).write(defaultPlayer);
 	}
  
-	public static Board inizializzatore(){
+	public static Board inizializzatoreBoard(){
 		
 		ArrayList<Class<?>> list = new ArrayList<>();
 		list.add(DevelopmentCard.class);
@@ -147,7 +133,13 @@ public class MainTest {
 		dices.add(new Dice("White"));
 		dices.add(new Dice("Orange"));
 		
-		Board board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
+		Board board = null;
+		try {
+			board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		new Loader(FileRegistry.board).write(board);
 		//CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));

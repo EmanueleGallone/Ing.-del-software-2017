@@ -1,32 +1,59 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridLayout;
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 @SuppressWarnings("serial")
 public class TestIt2 extends JPanel {
-   private static final Dimension BUTTON_SIZE = new Dimension(100, 700);
+   private static final Dimension BUTTON_SIZE = new Dimension(200, 200);
    private Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
    JPanel holderPanel;
 
    public TestIt2() {
-      holderPanel = new JPanel();
-	  holderPanel.setLayout(new BoxLayout(holderPanel, BoxLayout.LINE_AXIS));
+
+	  holderPanel = new JPanel();
+      holderPanel.setLayout(new FlowLayout());
       holderPanel.add(Box.createGlue(), BorderLayout.CENTER);
 
       setLayout(new BorderLayout());
       add(new JScrollPane(holderPanel,
-              JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-              JScrollPane.HORIZONTAL_SCROLLBAR_NEVER), BorderLayout.CENTER);
-      JTextArea fields = new JTextArea();
-      holderPanel.add(fields);
+              JScrollPane.VERTICAL_SCROLLBAR_NEVER,
+              JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS), BorderLayout.CENTER);
+      createButton();
+   }
+
+   public class addButton implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        createButton();     
+    }
+   }
+
+   protected void createButton() {
+      JButton button = new JButton("click me");
+      button.addActionListener(new addButton());
+      button.setPreferredSize(BUTTON_SIZE);
+      holderPanel.add(button);
+      revalidate();
+      repaint();
+   }
+
+   @Override
+   public Dimension getPreferredSize() {
+      return new Dimension(200, 300);
    }
 
    private static void createAndShowGui() {
@@ -38,12 +65,14 @@ public class TestIt2 extends JPanel {
       frame.pack();
       frame.setLocationByPlatform(true);
       frame.setVisible(true);
+	  System.out.println(frame.getContentPane().getWidth() + ", " + frame.getContentPane().getHeight());
    }
 
    public static void main(String[] args) {
       SwingUtilities.invokeLater(new Runnable() {
          public void run() {
             createAndShowGui();
+            
          }
       });
    }

@@ -4,8 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
-
-
+import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
+/**
+ * <h3> ActionManager </h3>
+ * <p> Classe Manager per le <code>Action</code>. Associa ad ogni tipo di dato azione l'affecter corrispondente. Gestisce
+ * i vari stati di gioco</p>
+ * @see Action
+ * @see DefaultState
+ */
 public class ActionManager {
 
 	private StateHandler stateHandler;
@@ -30,8 +36,7 @@ public class ActionManager {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends Action> T affect(T a){
-		T action = (T) a.clone();
+	public <T extends Action> T affect(T action){
 		ArrayList<Affecter<?>> aList = this.get(action.getClass());
 		for(Affecter<?> aff : aList){
 			Affecter<T> affecter = (Affecter<T>)aff;

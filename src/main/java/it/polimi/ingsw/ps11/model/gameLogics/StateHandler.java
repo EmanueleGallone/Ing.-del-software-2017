@@ -14,10 +14,9 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 public class StateHandler {
 
 	private State currState;
-	//private State mainState;
 	private Player player;
 	private GameLogic gameLogic;
-	private boolean suspended;
+	private boolean actionDone;
 	
 	private ActionManager aManager;
 	
@@ -30,7 +29,6 @@ public class StateHandler {
 	}
 	
 	public void start(){
-		//this.mainState = currState;
 		invoke(new GameUpdateEvent(gameLogic.getGame()));
 	}
 	
@@ -61,16 +59,11 @@ public class StateHandler {
 		this.modelEvent.attach(listener);
 	}
 	
-	public void suspended(boolean value){
-		this.suspended = value;
-	}
-	
-	public boolean isSuspended() {
-		return suspended;
-	}
-	
 	public void play(){
+		actionDone = false;
 		nextState(new PlayState());
+		invoke(new TextualEvent("E' il tuo turno!"));
+		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 	}
 // State handling 
 	
@@ -81,20 +74,20 @@ public class StateHandler {
 		state.notifyToClient();
 	}
 	
-//	public void resetState(){
-//		this.nextState(mainState);
-//	}
 	
 	public State currentState() {
 		return currState;
 	}
 	
-	
+	public boolean isDone() {
+		return actionDone;
+	}
+	public void setActionDone(boolean actionDone) {
+		this.actionDone = actionDone;
+	}
 // _________________________________________
 	
-//	public void setMainState(State mainState) {
-//		this.mainState = mainState;
-//	}
+
 	public void setPlayer(Player player) {
 		this.player = player;
 	}

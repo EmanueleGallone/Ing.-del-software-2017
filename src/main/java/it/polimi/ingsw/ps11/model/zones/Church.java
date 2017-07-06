@@ -1,18 +1,17 @@
 package it.polimi.ingsw.ps11.model.zones;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 
 /**
  * <h3> Church </h3>
  * <p> Classe che rappresenta la zona della Chiesa del gioco con le carte scomunica associate</p>
  */
-public class Church {
+public class Church implements Serializable {
 	
 	private ArrayList<Excommunication> excomunications;
 	private HashMap<Integer, ResourceList> requirements = new HashMap<>();
@@ -27,7 +26,7 @@ public class Church {
 	}
 	
 	public void addRequirement(int period, ResourceList reward) {
-		this.rewards.put(period, reward);
+		this.requirements.put(period, reward);
 	}
 	
 	public ResourceList getReward(int i) {
@@ -36,6 +35,10 @@ public class Church {
 	
 	public ResourceList getRequirements(int period) {
 		return requirements.get(period);
+	}
+	
+	public void setExcomunications(ArrayList<Excommunication> excomunications) {
+		this.excomunications = excomunications;
 	}
 	
 	public Excommunication getExcomunications(int period) throws IllegalArgumentException {
@@ -50,7 +53,7 @@ public class Church {
 	
 	//Salvataggio su file
 	
-//	
+	
 //	public static void main(String[] args) {
 //		Church church = new Church(new ArrayList<>());
 //		
@@ -59,16 +62,21 @@ public class Church {
 //		church.addRequirement(3,new ResourceList(new FaithPoint(5)));
 //		
 //		
-//		for(int i = 0; i < 5; i++){
-//			church.addRequirement(i, new ResourceList(new VictoryPoint(i)));
+//		for(int i = 0; i <= 5; i++){
+//			church.addRewards(i, new ResourceList(new VictoryPoint(i)));
 //		}
 //		
 //		int c = 1;
-//		for(int i = 6; i < 15; i++){
-//			church.addRequirement(i, new ResourceList(new VictoryPoint(i+c)));
+//		for(int i = 6; i <= 12; i++){
+//			church.addRewards(i, new ResourceList(new VictoryPoint(i+c)));
 //			c++;
 //		}
 //		
+//		church.addRewards(13, new ResourceList(new VictoryPoint(22)));
+//		church.addRewards(14, new ResourceList(new VictoryPoint(25)));
+//		church.addRewards(15, new ResourceList(new VictoryPoint(30)));
+//		
+//		new Loader(FileRegistry.church).write(church);
 //	}
-	
+//	
 }

@@ -68,6 +68,6 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	
 	@Override
 	public FamilyInYieldAction clone() {
-		return new FamilyInYieldAction(aManager, yield.clone(), familyMember.clone());
+		return new FamilyInYieldAction(aManager, yield, familyMember);
 	}
 }

@@ -50,19 +50,22 @@ public class GraphicDiceView extends DiceView {
 		GridBagConstraints gbcWhite = new GridBagConstraints();
 		GridBagConstraints gbcCloseButton = new GridBagConstraints();
 		
-		gbcBlackDice.gridx = 1;
+		gbcBlackDice.gridx = 3;
 		gbcBlackDice.gridy = 1;
 		gbcBlackDice.fill = GridBagConstraints.BOTH;
+		blackDice.setOpaque(false);
 		dice.add(blackDice, gbcBlackDice);
 		
-		gbcOrangeDice.gridx = 3;
+		gbcOrangeDice.gridx = 1;
 		gbcOrangeDice.gridy = 1;
 		gbcOrangeDice.fill = GridBagConstraints.BOTH;
+		orangeDice.setOpaque(false);
 		dice.add(orangeDice, gbcOrangeDice);
 
 		gbcWhite.gridx = 5;
 		gbcWhite.gridy = 1;
 		gbcWhite.fill = GridBagConstraints.BOTH;
+		whiteDice.setOpaque(false);
 		dice.add(whiteDice, gbcWhite);
 		
 		gbcCloseButton.gridx = 7;
@@ -76,13 +79,13 @@ public class GraphicDiceView extends DiceView {
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 
 	}
-	
+	//zampiero camilla
 	@Override
 	public void print() {
 		int i = 0;
 		for (Dice dice : dices.getDices().values()) {
-			//dicePanels.get(i).loadImage("Dice type " + i + " value " + dice.getValue());
-			System.out.println("GraphicDiceView nella print, riga 85, mancano le immagini da caricare quindi loadImage commentata");
+			dicePanels.get(i).loadImage("boardImages/" + dice.getName() + " " + dice.getValue() + ".png");
+			i++;
 		}
 	}
 

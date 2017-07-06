@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> GetCardAction </h3>
- * <p> Classe che rappresenta l'azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
+ * <p> Azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
  * @see Action
  */
 public class GetCardAction implements Action {
@@ -20,7 +20,7 @@ public class GetCardAction implements Action {
 	private DevelopmentCard card;
 	private ResourceList cost;
 	
-	//private ResourceList modifier = new ResourceList();
+	private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
@@ -41,7 +41,7 @@ public class GetCardAction implements Action {
 		
 		if(isMultipleCost())
 			return false;
-		else if(cost == null && card.isMonoCost()){
+		else if(card.isMonoCost()){
 			cost = card.getFirstCost();
 		}
 
@@ -57,7 +57,9 @@ public class GetCardAction implements Action {
 	}
 
 	private DecrementAction makePayAction(){
-		DecrementAction pay = new DecrementAction(aManager,cost);
+		ResourceList totalCost = this.cost.clone();
+		totalCost.subtract(modifier);
+		DecrementAction pay = new DecrementAction(aManager,totalCost);
 		return aManager.affect(pay);
 	}
 	
@@ -91,6 +93,10 @@ public class GetCardAction implements Action {
 	
 	public ResourceList getCost() {
 		return cost;
+	}
+	
+	public void setModifier(ResourceList modifier) {
+		this.modifier = modifier;
 	}
 	
 	public void setCost(ResourceList cost) {

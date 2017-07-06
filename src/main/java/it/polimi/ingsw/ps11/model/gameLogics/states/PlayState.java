@@ -17,7 +17,10 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedE
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.SpaceSelectedEvent;
-
+/**
+ * <h3> PlayState </h3>
+ * <p> Classe che rappresenta lo stato che segue la selezione di un familiare e un actionspace in cui posizionarlo.</p>
+ */
 public class PlayState extends DefaultState{
 
 	

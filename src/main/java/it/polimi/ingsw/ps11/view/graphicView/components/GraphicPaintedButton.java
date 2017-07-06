@@ -14,9 +14,7 @@ import javax.swing.JButton;
  * un'immagine al pulsante se richiesto senza l'ulteriore aggiunta di componenti </p>
  */
 public class GraphicPaintedButton extends JButton implements ToPaint{
-	
-	//JButton con immagine fissa, usato per i familiari
-	
+		
 	protected BufferedImage background;
 	private boolean painted = false;
 	

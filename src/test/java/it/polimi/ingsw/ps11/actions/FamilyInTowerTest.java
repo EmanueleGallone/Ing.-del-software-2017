@@ -1,8 +1,8 @@
 package it.polimi.ingsw.ps11.actions;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -33,9 +33,7 @@ public class FamilyInTowerTest {
 		ArrayList<Player> players = new ArrayList<>();
 		players.add(player);
 		players.add(player_2);
-		
-		
-		
+			
 		GameLogic gameLogic = new GameLogic(players);
 		ActionManager aManager = null;
 		
@@ -46,6 +44,7 @@ public class FamilyInTowerTest {
 		}
 		
 		//Inizializzo le risorse del Giocatore 1
+
 		ResourceList playerResources = player.getResourceList();
 		playerResources.setResource(new Coin(3));
 		
@@ -54,11 +53,13 @@ public class FamilyInTowerTest {
 		//initializeTower(tower);
 		
 		
+
 		FamilyMember familyMember = new NeutralFamilyMember();
 		
 		FamilyInTowerAction towerAction = new FamilyInTowerAction(aManager, tower, familyMember);
 		
 		//Non c'e' nessuno sulla torre quindi il giocatore non dovra' pagare la tassa e avra' sempre 3 coin
+
 		assertTrue(towerAction.isLegal());
 		if(towerAction.isLegal())
 			towerAction.perform();

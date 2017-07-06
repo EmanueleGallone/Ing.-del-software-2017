@@ -1,15 +1,19 @@
 package it.polimi.ingsw.ps11.model.game;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.zones.Church;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Market;
@@ -49,19 +53,18 @@ public class Board implements Serializable{
 		
 	}
 	
-	public Board(ArrayList<Tower> towers, Market market, DiceManager diceManager ,CouncilPalace councilPalace){
+	public Board(ArrayList<Tower> towers, Market market, DiceManager diceManager ,CouncilPalace councilPalace) throws IOException{
 		this.market = market;
 		this.diceManager = diceManager;
 		this.councilPalace = councilPalace;
-		church = loadChurch();
 		
 		for(Tower t : towers){
 			this.towers.put(t.getClass().toString(), t);
 		}
 	}
 	
-	public Church loadChurch(){
-		return null;
+	public void setChurch(Church church) {
+		this.church = church;
 	}
 	
 	public void setCard(CardManager cards){

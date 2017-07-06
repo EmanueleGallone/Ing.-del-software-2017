@@ -4,7 +4,13 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> DecrementAffecter </h3>
+ * <p> Malus: aumenta permanentemente ogni il costo di ogni cosa (carte, azioni, ecc) attraverso una <code>DecrementAction</codde>.</p>
+ * <p> Richiede: resourceList (valori delle risorse ch vanno applicate ad ogni costo).</p>
+ * @see Affecter
+ * @see DecrementAction
+ */
 public class DecrementAffecter implements Affecter<DecrementAction>{
 
 	/*
