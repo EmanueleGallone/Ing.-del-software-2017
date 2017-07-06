@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.loaders;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,11 +22,9 @@ import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.old.ActiveYieldLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.old.AddResourceLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.old.DiscountLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.old.UniqueEffectLeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.old.oldLeaderCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
@@ -1498,11 +1497,13 @@ public class InitializeCards {
 	public static void LeaderCardsInitializer(){
 		//INIZIO CARTE LEADER
 		ResourceList resourceList = new ResourceList(new Coin(1));
+		HashMap<String, Integer> map = new HashMap<>();
 		
 		ActiveYieldEffect activeYieldEffect = new ActiveYieldEffect(GreenCard.class.toString(), 1);
-		oldLeaderCard francescoSforza = new ActiveYieldLeaderCard("Francesco Sforza",activeYieldEffect);
-		francescoSforza.getCardsNumber().put(PurpleCard.class.toString(), 5);
-		francescoSforza.setRequiredResources(resourceList.clone());
+		LeaderCard francescoSforza = new LeaderCard("Francesco Sforza");
+		map.put(PurpleCard.class.toString(), 5);
+		francescoSforza.addRequirement(new CardNumberRequirement(map));
+		francescoSforza.addEffect(activeYieldEffect);
 		
 		/*
 		LeaderCard ludovicoAriosto = new LeaderCard("Ludovico Ariosto"); //io questa carta non la includerei proprio nel gioco
@@ -1523,31 +1524,35 @@ public class InitializeCards {
 		*/
 		resourceList = new ResourceList(new FaithPoint(1));
 		AddResourceEffect addResourceEffect = new AddResourceEffect(resourceList.clone());
-		oldLeaderCard girolamoSavonarola = new AddResourceLeaderCard("Girolamo Savonarola",addResourceEffect);
+		LeaderCard girolamoSavonarola = new LeaderCard("Girolamo Savonarola");
 		resourceList = new ResourceList(new Coin(18));
-		girolamoSavonarola.setRequiredResources(resourceList.clone());
+		girolamoSavonarola.addRequirement(new ResourceRequirement(resourceList.clone()));
+		girolamoSavonarola.addEffect(addResourceEffect);
 	
 		resourceList = new ResourceList(new Coin(1));
 		resourceList.setResource(new Wood(1));
 		resourceList.setResource(new Stone(1));
 		AddResourceEffect addResourceEffect3 = new AddResourceEffect(resourceList.clone());
-		oldLeaderCard giovanniDalleBandeNere = new AddResourceLeaderCard("Giovanni Dalle Bande Nere",addResourceEffect3);
+		LeaderCard giovanniDalleBandeNere = new LeaderCard("Giovanni Dalle Bande Nere");
 		resourceList = new ResourceList(new MilitaryPoint(12));
-		giovanniDalleBandeNere.setRequiredResources(resourceList.clone());
+		giovanniDalleBandeNere.addRequirement(new ResourceRequirement(resourceList.clone()));
+		giovanniDalleBandeNere.addEffect(addResourceEffect3);
 
 		resourceList = new ResourceList(new MilitaryPoint(2));
 		resourceList.setResource(new VictoryPoint(1));
 		AddResourceEffect addResourceE = new AddResourceEffect(resourceList.clone());
-		oldLeaderCard sandroBotticelli = new AddResourceLeaderCard("Sandro Botticelli",addResourceE);
+		LeaderCard sandroBotticelli = new LeaderCard("Sandro Botticelli");
 		resourceList = new ResourceList(new Wood(10));
-		sandroBotticelli.setRequiredResources(resourceList.clone());
+		sandroBotticelli.addRequirement(new ResourceRequirement(resourceList.clone()));
+		sandroBotticelli.addEffect(addResourceE);
 		
 		
 		resourceList = new ResourceList(new Stone(3));
 		AddResourceEffect addResourceEffect2 = new AddResourceEffect(resourceList.clone());
-		oldLeaderCard michelangeloBuonarroti = new AddResourceLeaderCard("Michelangelo Buonarroti",addResourceEffect2);
+		LeaderCard michelangeloBuonarroti = new LeaderCard("Michelangelo Buonarroti");
 		resourceList = new ResourceList(new Stone(10));
-		michelangeloBuonarroti.setRequiredResources(resourceList.clone());
+		michelangeloBuonarroti.addRequirement(new ResourceRequirement(resourceList.clone()));
+		michelangeloBuonarroti.addEffect(addResourceEffect2);
 		
 		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
 		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
@@ -1565,20 +1570,33 @@ public class InitializeCards {
 		resourceList = new ResourceList();
 		
 		CouncilPrivilege councilPrivilegeEffect = new CouncilPrivilege(councilPrivilegeResourceLists);
-		oldLeaderCard ludovicoIIIGonzaga = new UniqueEffectLeaderCard("Ludovico III Gonzaga", councilPrivilegeEffect);
+		LeaderCard ludovicoIIIGonzaga = new LeaderCard("Ludovico III Gonzaga");
 		resourceList = new ResourceList(new Servant(15));
-		ludovicoIIIGonzaga.setRequiredResources(resourceList.clone());
+		ludovicoIIIGonzaga.addRequirement(new ResourceRequirement(resourceList.clone()));
+		ludovicoIIIGonzaga.addEffect(councilPrivilegeEffect);
 		
 		ActiveYieldEffect activeYieldEffect2 = new ActiveYieldEffect(YellowCard.class.toString(), 0);
-		oldLeaderCard leonardoDaVinci = new ActiveYieldLeaderCard("Leonardo Da Vinci",activeYieldEffect2);
-		leonardoDaVinci.getCardsNumber().put(BlueCard.class.toString(), 4);
-		leonardoDaVinci.getCardsNumber().put(GreenCard.class.toString(), 2);
+		LeaderCard leonardoDaVinci = new LeaderCard("Leonardo Da Vinci");
+		leonardoDaVinci.addEffect(activeYieldEffect2);
+		HashMap<String, Integer> map2 = new HashMap<>();
+		map2.put(BlueCard.class.toString(), 4);
+		map2.put(GreenCard.class.toString(), 2);
+		leonardoDaVinci.addRequirement(new CardNumberRequirement(map2));
 		
 		resourceList = new ResourceList(new Coin(3));
-		CardDiscount cardDiscount = new CardDiscount(DevelopmentCard.class.toString(), resourceList.clone());
-		oldLeaderCard picoDellaMirandola = new DiscountLeaderCard("Pico Della Mirandola",cardDiscount);
-		picoDellaMirandola.getCardsNumber().put(PurpleCard.class.toString(), 4);
-		picoDellaMirandola.getCardsNumber().put(YellowCard.class.toString(), 2);
+		CardDiscount cardDiscount = new CardDiscount(PurpleCard.class.toString(), resourceList.clone());
+		CardDiscount cardDiscount2 = new CardDiscount(BlueCard.class.toString(), resourceList.clone());
+		CardDiscount cardDiscount3 = new CardDiscount(GreenCard.class.toString(), resourceList.clone());
+		CardDiscount cardDiscount4 = new CardDiscount(YellowCard.class.toString(), resourceList.clone());
+		LeaderCard picoDellaMirandola = new LeaderCard("Pico Della Mirandola"); //VERIFICA. sconto su tutte le carte
+		HashMap<String, Integer> map3 = new HashMap<>();
+		map3.put(BlueCard.class.toString(), 4);
+		map3.put(GreenCard.class.toString(), 2);
+		picoDellaMirandola.addRequirement(new CardNumberRequirement(map3));
+		picoDellaMirandola.addEffect(cardDiscount);
+		picoDellaMirandola.addEffect(cardDiscount2);
+		picoDellaMirandola.addEffect(cardDiscount3);
+		picoDellaMirandola.addEffect(cardDiscount4);
 		
 		/*
 		LeaderCard sistoIV = new LeaderCard("Sisto IV");
@@ -1623,19 +1641,25 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Servant(3));
 		resourceList.setResource(new VictoryPoint(1));
 		AddResourceEffect addResourceEffect5 = new AddResourceEffect(resourceList.clone());
-		oldLeaderCard cosimoDeMedici = new AddResourceLeaderCard("Cosimo de' Medici",addResourceEffect5);
-		cosimoDeMedici.getCardsNumber().put(BlueCard.class.toString(), 2);
-		cosimoDeMedici.getCardsNumber().put(YellowCard.class.toString(), 4);
+		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de' Medici");
+		HashMap<String, Integer> map4 = new HashMap<>();
+		map4.put(BlueCard.class.toString(), 2);
+		map4.put(YellowCard.class.toString(), 4);
+		cosimoDeMedici.addRequirement(new CardNumberRequirement(map4));
+		cosimoDeMedici.addEffect(addResourceEffect5);
 		
 		
 		resourceList = new ResourceList(new VictoryPoint(4));
 		AddResourceEffect addResourceEffect4 = new AddResourceEffect(resourceList.clone());
-		oldLeaderCard bartolomeoColleoni = new AddResourceLeaderCard("Bartolomeo Colleoni",addResourceEffect4);
-		bartolomeoColleoni.getCardsNumber().put(GreenCard.class.toString(), 4);
-		bartolomeoColleoni.getCardsNumber().put(PurpleCard.class.toString(), 2);
+		LeaderCard bartolomeoColleoni = new LeaderCard("Bartolomeo Colleoni");
+		HashMap<String, Integer> map5 = new HashMap<>();
+		map5.put(PurpleCard.class.toString(), 2);
+		map5.put(GreenCard.class.toString(), 4);
+		bartolomeoColleoni.addRequirement(new CardNumberRequirement(map5));
+		bartolomeoColleoni.addEffect(addResourceEffect4);
 		
-		ArrayList<oldLeaderCard> leaderCards = new ArrayList<oldLeaderCard>();
-		Type type = new TypeToken<ArrayList<oldLeaderCard>>(){}.getType();
+		ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
+		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
 		JsonAdapter gAdapter = new JsonAdapter();
 		
 		leaderCards.add(francescoSforza);
@@ -1659,6 +1683,7 @@ public class InitializeCards {
 		leaderCards.add(cosimoDeMedici);
 		leaderCards.add(bartolomeoColleoni);
 		
+		//occhio che così il loader non accetta un type. nel file va salvato il type!
 		new Loader(FileRegistry.cards+"leaderCards").write(leaderCards);
 		//CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
 		//FINE LEADER CARDS

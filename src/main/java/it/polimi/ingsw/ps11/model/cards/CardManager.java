@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+
 /**
  * <h3>CardManager</h3>
  * <p> Classe manager per le <code>DevelopmentCard</code>. Associa ad ogni tipo di carta un arrayList contenente le carte del giocatore 
@@ -20,6 +22,7 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 	
 	private final int MAX_CARD = 6;
 	private HashMap<String , ArrayList<DevelopmentCard>> cards = new HashMap<>();
+	private ArrayList<LeaderCard> leaderCards = new ArrayList<>();
 	private boolean limited = true;
 	
 	public CardManager() {
@@ -96,6 +99,13 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		return cards;
 	}
 	
+	public ArrayList<LeaderCard> getLeaderCards() {
+		return leaderCards;
+	}
+	
+	public void setLeaderCards(ArrayList<LeaderCard> leaderCards) {
+		this.leaderCards = leaderCards;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public HashMap<String, ArrayList<DevelopmentCard>> getAllCards() {

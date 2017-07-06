@@ -1,5 +1,8 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
@@ -15,12 +18,17 @@ import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
  */
 public class VaticanReport extends DefaultState {
 
+	private transient Timer timer;
+	private int delay = 60000;
+	
 	private StateHandler sHandler;
 	private Church church;
+	private int period;
 	
 	public VaticanReport(StateHandler stateHandler) {
 		this.sHandler = stateHandler;
 		church = stateHandler.getGame().getBoard().getChurch();
+		period = stateHandler.getGame().getRoundManager().currentPeriod()-1;
 	}
 	
 	@Override
@@ -29,6 +37,7 @@ public class VaticanReport extends DefaultState {
 			ResourceList playerResource = sHandler.getPlayer().getResourceList();
 			ResourceList reward = church.getReward(playerResource.get(FaithPoint.class).getValue());
 			IncrementAction action = new IncrementAction(sHandler.actions(), reward);
+			playerResource.setResource(new FaithPoint());
 			action = sHandler.actions().affect(action);
 			if(action.isLegal())
 				action.perform();
@@ -40,16 +49,11 @@ public class VaticanReport extends DefaultState {
 	
 	
 	private boolean checkFaithPoints() {
-		Excommunication e = getExcomunication();
 		ResourceList playerResource = sHandler.getPlayer().getResourceList();
-		
-		if(e != null && playerResource.canSubtract(e.getRequirement()))
-			return true;
-		return false;
+		return playerResource.canSubtract(church.getRequirements(period));
 	}
 	
 	private Excommunication getExcomunication(){
-		int period = sHandler.getGame().getRoundManager().currentPeriod()-1;
 		try {
 			Excommunication e = church.getExcomunications(period);
 			return e;
@@ -61,20 +65,48 @@ public class VaticanReport extends DefaultState {
 	
 	private void addExcomunication(){
 		Excommunication e = getExcomunication();
-		e.getEffect().attach(sHandler.actions());
+		if(e != null)
+			e.getEffect().attach(sHandler.actions());
 		completePhases();
 	}
 	
 	private void completePhases(){
-		
+		stopTimer();
+		sHandler.getGameLogic().notifyVaticanReportConclusion(sHandler);
 	}
 	
 	@Override
 	public void notifyToClient() {
-		if(checkFaithPoints())
+		if(checkFaithPoints()){
 			sHandler.invoke(new ConfirmEvent("Vuoi mostrare il tuo sostegno alla chiesa?"));
+			startTimer();
+		}
 		else {
 			addExcomunication();
+		}
+	}
+	
+	
+	private void startTimer(){
+		stopTimer();
+		timer = new Timer();
+		TimerTask task = new StartingMatch();
+		timer.schedule(task, delay);
+		System.out.println("\nTimer for excomunication choice started, next turn in : " + delay/1000 + " seconds\n");
+	}
+	
+	private class StartingMatch extends TimerTask{
+
+		@Override
+		public void run() {
+			completePhases();
+		}
+	}
+	
+	private void stopTimer(){
+		if(timer!= null){
+			timer.cancel();
+			timer.purge();
 		}
 	}
 	
