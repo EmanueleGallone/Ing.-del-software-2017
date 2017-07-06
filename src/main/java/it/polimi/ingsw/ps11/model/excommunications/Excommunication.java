@@ -27,18 +27,18 @@ public abstract class Excommunication {
 	 */
 	
 	
+	private String id;
 	private int period;
 	private Effect effect;
-	private ResourceList  requirement;
 	
 	
-	public Excommunication(int period, ResourceList requirement) {
+	public Excommunication(String id, int period) {
+		this.id = id;
 		this.period = period;
-		this.requirement = requirement;
 	}
 	
-	public Excommunication(int period, ResourceList requirement, Effect effect) {
-		this(period, requirement);
+	public Excommunication(int period, String id ,Effect effect) {
+		this(id,period);
 		this.effect = effect;
 	}
 	
@@ -47,10 +47,6 @@ public abstract class Excommunication {
 	}
 	public int getPeriod() {
 		return period;
-	}
-	
-	public ResourceList getRequirement() {
-		return requirement;
 	}
 	
 	public void setEffect(Effect effect) {
