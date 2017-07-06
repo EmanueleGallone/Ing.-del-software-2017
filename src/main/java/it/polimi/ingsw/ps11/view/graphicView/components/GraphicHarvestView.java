@@ -62,7 +62,7 @@ public class GraphicHarvestView extends HarvestView {
 	public void print() {
 		
 		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
-			singleActionSpace.loadImage("playerImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
+			singleActionSpace.loadImage("pImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
 		multipleActionSpace.print(harvest.getMultipleActionSpace().getAllSpace());

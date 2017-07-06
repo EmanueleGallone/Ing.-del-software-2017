@@ -128,7 +128,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		multipleActionSpace.print(councilPalace.getAllSpace());
 		int i = 0;
 		for (Player player : councilPalace.getNewOrder()) {
-			playerSelectors.get(i).loadImage("playerImages/Player color " + player.getColor().toString() + ".png");
+			playerSelectors.get(i).loadImage("pImages/Player color " + player.getColor().toString() + ".png");
 			i++;
 		}
 	}

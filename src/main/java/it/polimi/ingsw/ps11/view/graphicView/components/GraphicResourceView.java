@@ -34,7 +34,7 @@ public class GraphicResourceView extends ResourceView {
 	
 	public GraphicResourceView() {
 		
-		resourcesPanel.loadImage("playerImages/Resources.png");
+		resourcesPanel.loadImage("pImages/Resources.png");
 		resourcesPanel.setOpaque(false);
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->

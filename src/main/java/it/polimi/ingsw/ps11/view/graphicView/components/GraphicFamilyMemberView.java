@@ -74,10 +74,10 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		for(FamilyMember member : familyManager.getFamily().values()){
 			String memberName = member.getClass().toString();
 			if(member.isUsed()){
-				familyMemberButtons.get(memberName).loadImage("playerImages/BLANK.png");
+				familyMemberButtons.get(memberName).loadImage("pImages/BLANK.png");
 				familyMemberButtons.get(memberName).setEnabled(false);
 			} else {
-			familyMemberButtons.get(memberName).loadImage("playerImages/RED " + member.getClass().getSimpleName() + ".png");
+			familyMemberButtons.get(memberName).loadImage("pImages/RED " + member.getClass().getSimpleName() + ".png");
 			familyMemberButtons.get(memberName).setEnabled(true);
 			}
 		}

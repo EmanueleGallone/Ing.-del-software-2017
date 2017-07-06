@@ -31,7 +31,7 @@ public class GraphicPlayerView extends PlayerView{
 	
 	public GraphicPlayerView() {
 		
-		personal.loadImage("playerImages/baseBoard.png");
+		personal.loadImage("pImages/baseBoard.png");
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		

@@ -56,7 +56,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		JPanel selectorButtonsPanel = new JPanel();
 		GraphicPaintedPanel tile = new GraphicPaintedPanel();
 		//tile.loadImage("playerImages/" + cardManager.getTile() + ".png");
-		tile.loadImage("playerImages/Tile 1.png");
+		tile.loadImage("pImages/Tile 1.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -119,7 +119,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			if(cardType.equals("LeaderCard")){
 				GraphicPaintedButton activate= new GraphicPaintedButton();
-				activate.loadImage("playerImages/Activate.png");
+				activate.loadImage("pImages/Activate.png");
 //				activate.addActionListener(new LeaderAction());
 				GridBagConstraints gbcActivate = new GridBagConstraints();
 				gbcActivate.gridx = 5;
