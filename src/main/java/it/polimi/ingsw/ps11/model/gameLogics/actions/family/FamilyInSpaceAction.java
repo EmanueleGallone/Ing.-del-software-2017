@@ -43,15 +43,14 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	@Override
 	public boolean isLegal() {
 		
-		
 		if(space.isFree() && makeServantAction().isLegal()){
 			return checkActionCost(servant);
 		}
 		return false;
 	}
 
-	public boolean checkActionCost(int modifier){
-		if(space.getActionCost() > (familyMember.getValue() + modifier)){
+	public boolean checkActionCost(int mod){
+		if(space.getActionCost() > (familyMember.getValue() + mod)){
 			aManager.state().invoke("Il familiare non ha un valore sufficiente");
 			return false;
 		}
@@ -72,8 +71,8 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		}
 	}
 	
-	public void setServant(int servant) {
-		this.servant = servant;
+	public void incrementServant(int servant) {
+		this.servant = this.servant + servant;
 	}
 	
 	public ActionSpace getSpace() {
@@ -86,7 +85,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 
 	@Override
 	public void notifyConfirm(ConfirmViewEvent confirm) {
-		this.setServant(confirm.getServant());
+		this.incrementServant(confirm.getServant());
 		if(isLegal())
 			perform();
 	}

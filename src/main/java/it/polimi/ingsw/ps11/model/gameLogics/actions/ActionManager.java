@@ -9,7 +9,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 public class ActionManager {
 
 	private StateHandler stateHandler;
-
 	private HashMap<String, ArrayList<Affecter<?>>> actions = new HashMap<>();
 
 	public ActionManager(StateHandler stateHandler) {
@@ -44,4 +43,5 @@ public class ActionManager {
 	public StateHandler state() {
 		return stateHandler;
 	}
+	
 }

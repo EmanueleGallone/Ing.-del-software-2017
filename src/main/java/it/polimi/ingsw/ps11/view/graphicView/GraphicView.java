@@ -278,10 +278,4 @@ public class GraphicView extends View{
 		}
 		
 	}
-	
-	public static void main(String[] args) {
-		GraphicView view = new GraphicView();
-		view.run();
-	}
-
 }

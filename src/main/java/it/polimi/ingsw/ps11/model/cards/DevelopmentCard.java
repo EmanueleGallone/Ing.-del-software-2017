@@ -61,7 +61,7 @@ public abstract class DevelopmentCard extends Card {
 //	}
 	
 	/**<h3>  isMonoCost() </h3>
-	 * <p> Controlla che la carta abbia un solo tipo di risorsa come costo </p>
+	 * <p> Controlla che la carta abbia una sola resource List come costo </p>
 	 * @return true se è solo un tipo, false altrimenti
 	 */
 	public boolean isMonoCost(){

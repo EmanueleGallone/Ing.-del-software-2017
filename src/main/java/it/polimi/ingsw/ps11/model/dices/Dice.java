@@ -31,7 +31,7 @@ public class Dice implements Serializable{
 	
 	
 	/**<h3> void rollDice() </h3>
-	/** <p>Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.</p>
+	 * <p>Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.</p>
 	 */
 	public void rollDice(){
 		this.value = gen.nextInt(MAX_FACES) +1;
