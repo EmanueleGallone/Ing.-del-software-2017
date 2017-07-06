@@ -89,6 +89,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 			Resource toAdd = this.resources.get(resource.getClass().toString());
 			if(toAdd!= null){
 				toAdd.increment(resource.getValue());
+				this.setResource(toAdd);
 			}
 			else {
 				this.setResource(resource);

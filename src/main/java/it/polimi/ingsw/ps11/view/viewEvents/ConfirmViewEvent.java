@@ -7,6 +7,10 @@ public class ConfirmViewEvent extends ViewEvent{
 	private int servant = 0;
 	
 	
+	public ConfirmViewEvent(boolean confirmed) {
+		this.confirm = confirmed;
+	}
+	
 	public ConfirmViewEvent(boolean confirmed, int servant) {
 		this.confirm = confirmed;
 		this.servant = servant;

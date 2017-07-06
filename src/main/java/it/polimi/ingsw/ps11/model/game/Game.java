@@ -14,6 +14,7 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.zones.Church;
 /** <h3> Game </h3>
  * <p> Classe che racchiude l'intera partita: la board, il roundManager e i giocatori</p>
  * @version 1.0
@@ -32,6 +33,7 @@ public class Game implements Serializable  {
 			board.getMarket().setPlayerNumber(players.size());
 			setDices(players);
 			refreshCard(roundManager.currentPeriod());
+			board.setChurch(loadChurch());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -71,6 +73,14 @@ public class Game implements Serializable  {
 		}
 		board.setCard(currentCard);
 	}
+	
+	
+	public Church loadChurch() throws FileNotFoundException, ClassCastException{
+		Church church = new Loader(FileRegistry.church).load(Church.class);
+		//church.setExcomunications(/* caricare da file 3 scomuniche, 1 per periodo*/);
+		return church;
+	}
+	
 	
 	public Board getBoard() {
 		return board;

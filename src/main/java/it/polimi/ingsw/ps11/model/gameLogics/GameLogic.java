@@ -42,6 +42,7 @@ public class GameLogic implements Runnable{
 		StateHandler nextPlayer = playerStatus.get(nextPlayerName);
 		if(periodEnd){
 			playerStatus.values().stream().forEach(s -> s.nextState(new VaticanReport(s)));
+			return;
 		}
 		round(nextPlayer);
 	}
@@ -88,7 +89,18 @@ public class GameLogic implements Runnable{
 	public void notifyNewConnection(Player newPlayer){
 		stopTimer = false;
 		game.getRoundManager().removeFromAfk(newPlayer);
-		nextPlayer();
+		nextPlayer();  //Mmmm
+	}
+	
+	public void notifyVaticanReportConclusion(StateHandler sHandler){
+		periodEnd = false;
+		Player currentPlayer = game.getRoundManager().currentPlayer();
+		if(sHandler.getPlayer().equals(currentPlayer)){
+			sHandler.nextState(new PlayState());
+			sHandler.invoke(new TextualEvent("E' il tuo turno!"));
+			game.getRoundManager().startTimer();
+		}
+		sHandler.nextState(new DefaultState());
 	}
 
 // Handle events from view

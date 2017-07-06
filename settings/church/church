@@ -1,0 +1,197 @@
+{
+  "excomunications": [],
+  "requirements": {
+    "1": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+          "INSTANCE": {
+            "value": 3
+          }
+        }
+      }
+    },
+    "2": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+          "INSTANCE": {
+            "value": 4
+          }
+        }
+      }
+    },
+    "3": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+          "INSTANCE": {
+            "value": 5
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "0": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 0
+          }
+        }
+      }
+    },
+    "1": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 1
+          }
+        }
+      }
+    },
+    "2": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 2
+          }
+        }
+      }
+    },
+    "3": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 3
+          }
+        }
+      }
+    },
+    "4": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 4
+          }
+        }
+      }
+    },
+    "5": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 5
+          }
+        }
+      }
+    },
+    "6": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 7
+          }
+        }
+      }
+    },
+    "7": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 9
+          }
+        }
+      }
+    },
+    "8": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 11
+          }
+        }
+      }
+    },
+    "9": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 13
+          }
+        }
+      }
+    },
+    "10": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 15
+          }
+        }
+      }
+    },
+    "11": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 17
+          }
+        }
+      }
+    },
+    "12": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 19
+          }
+        }
+      }
+    },
+    "13": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 22
+          }
+        }
+      }
+    },
+    "14": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 25
+          }
+        }
+      }
+    },
+    "15": {
+      "resources": {
+        "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+          "INSTANCE": {
+            "value": 30
+          }
+        }
+      }
+    }
+  }
+}
