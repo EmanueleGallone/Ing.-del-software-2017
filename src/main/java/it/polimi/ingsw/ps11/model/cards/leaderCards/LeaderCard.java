@@ -64,8 +64,14 @@ public class LeaderCard extends Card implements Requirement{
 	
 	@Override
 	public LeaderCard clone() {
-		// TODO Auto-generated method stub
-		return null;
+		LeaderCard clone = new LeaderCard(this.name);
+		
+		clone.requirements.addAll(this.requirements);
+		clone.effects.addAll(this.effects);
+		
+		clone.activated = this.activated;
+				
+		return clone;
 	}
 
 }

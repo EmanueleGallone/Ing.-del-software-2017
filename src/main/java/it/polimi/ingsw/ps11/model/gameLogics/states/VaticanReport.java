@@ -13,10 +13,12 @@ public class VaticanReport extends DefaultState {
 
 	private StateHandler sHandler;
 	private Church church;
+	private int period;
 	
 	public VaticanReport(StateHandler stateHandler) {
 		this.sHandler = stateHandler;
 		church = stateHandler.getGame().getBoard().getChurch();
+		period = stateHandler.getGame().getRoundManager().currentPeriod()-1;
 	}
 	
 	@Override
@@ -36,16 +38,11 @@ public class VaticanReport extends DefaultState {
 	
 	
 	private boolean checkFaithPoints() {
-		Excommunication e = getExcomunication();
 		ResourceList playerResource = sHandler.getPlayer().getResourceList();
-		
-		if(e != null && playerResource.canSubtract(e.getRequirement()))
-			return true;
-		return false;
+		return playerResource.canSubtract(church.getRequirements(period));
 	}
 	
 	private Excommunication getExcomunication(){
-		int period = sHandler.getGame().getRoundManager().currentPeriod()-1;
 		try {
 			Excommunication e = church.getExcomunications(period);
 			return e;
@@ -57,7 +54,8 @@ public class VaticanReport extends DefaultState {
 	
 	private void addExcomunication(){
 		Excommunication e = getExcomunication();
-		e.getEffect().attach(sHandler.actions());
+		if(e != null)
+			e.getEffect().attach(sHandler.actions());
 		completePhases();
 	}
 	
