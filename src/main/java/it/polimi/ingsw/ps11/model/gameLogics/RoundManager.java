@@ -76,6 +76,10 @@ public class RoundManager implements Serializable{
 		}
 	}
 	
+	public boolean isOver(){
+		return currentPeriod() > MAX_PERIOD;
+	}
+	
 	
 	public ArrayList<Player> getCurrentOrder(){
 		return players;
@@ -191,6 +195,7 @@ public class RoundManager implements Serializable{
 // Timer handling ______________________________
 	
 	public void startTimer(){
+		stopTimer();
 		timer = new Timer();
 		TimerTask task = new StartingMatch();
 		timer.schedule(task, delay);

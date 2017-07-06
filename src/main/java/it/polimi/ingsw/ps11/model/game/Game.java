@@ -4,9 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Random;
 
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -27,7 +31,7 @@ public class Game implements Serializable  {
 			board = initializeBoard();
 			board.getMarket().setPlayerNumber(players.size());
 			setDices(players);
-			board.setCard(loadCards(roundManager.currentPeriod()));
+			refreshCard(roundManager.currentPeriod());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -62,7 +66,9 @@ public class Game implements Serializable  {
 	 */
 	public void refreshCard(int period) throws FileNotFoundException{
 		CardManager currentCard = loadCards(period);
-		//impostaOrdineCasuale();
+		for(ArrayList<DevelopmentCard> deck: currentCard){
+			Collections.shuffle(deck);
+		}
 		board.setCard(currentCard);
 	}
 	

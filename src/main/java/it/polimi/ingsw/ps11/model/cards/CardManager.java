@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.cards;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * <h3>CardManager</h3>
@@ -10,7 +11,7 @@ import java.util.HashMap;
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.cards.DevelopmentCard DevelopmentCard
  */
-public class CardManager implements Serializable {
+public class CardManager implements Serializable, Iterable<ArrayList<DevelopmentCard>> {
 	
 	
 	private final int MAX_CARD = 6;
@@ -120,6 +121,10 @@ public class CardManager implements Serializable {
 				clone.addCard(card.clone());	
 		
 		return clone;
+	}
+	@Override
+	public Iterator<ArrayList<DevelopmentCard>> iterator() {
+		return cards.values().iterator();
 	}
 	
 }
