@@ -97,14 +97,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	
 	@Override
 	public FamilyInSpaceAction clone() {
-		ActionSpace s = space;
-		FamilyMember fMember = familyMember;
-		if(space!= null)
-			s = space.clone();
-		if(familyMember != null)
-			fMember = familyMember.clone();
-			
-		return new FamilyInSpaceAction(aManager, fMember, s, servant);
+		return new FamilyInSpaceAction(aManager, familyMember, space, servant);
 	}
 
 }
