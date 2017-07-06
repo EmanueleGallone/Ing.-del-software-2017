@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> ExchangeAction </h3>
- * <p> Classe che rappresenta il bonus di scambio di una ResourceList per un'altra.</p>
+ * <p> Azione di scambio di una ResourceList per un'altra.</p>
  * @see Action
  */
 public class ExchangeAction implements Action, ResourceListener {

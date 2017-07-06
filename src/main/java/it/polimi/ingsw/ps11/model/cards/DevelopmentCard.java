@@ -7,6 +7,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Development Card</h3>
  * <p> Classe astratta che rappresenta le carte sviluppo. Estensione della classe Card. </p> 
+ * <p>Il costruttore accetta: string (per il nome), resourceList o array di resourcelist (per il/i costo/i).</p>
  * @version 1.0
  * @see Card
  * @see it.polimi.ingsw.ps11.model.cards.list.YellowCard YellowCard
@@ -40,7 +41,11 @@ public abstract class DevelopmentCard extends Card {
 	public DevelopmentCard(ArrayList<ResourceList> costs){
 		this.costs = costs;
 	}
-	
+	/**
+	 * <h3> ResourceList getFirstCost() </h3>
+	 * <p> Ritorna la prima resourceList rappresentatnte il costo</p>
+	 * @return ResourceList: la prima dell'array, se già presente, ne creauna nuova altrimenti. 
+	 */
 	public ResourceList getFirstCost(){
 		if(costs.size()>0){
 			return costs.get(0);
@@ -61,8 +66,8 @@ public abstract class DevelopmentCard extends Card {
 //	}
 	
 	/**<h3>  isMonoCost() </h3>
-	 * <p> Controlla che la carta abbia una sola resource List come costo </p>
-	 * @return true se è solo un tipo, false altrimenti
+	 * <p> Controlla che la carta abbia una sola resource List per il costo. </p>
+	 * @return true se è solo una resource List, false altrimenti.
 	 */
 	public boolean isMonoCost(){
 		return this.costs.size() <= 1;
@@ -97,6 +102,7 @@ public abstract class DevelopmentCard extends Card {
 
 	/**<h3> addInstantEffect(Effect) </h3>
 	 * <p> Aggiunge un effetto istantaneo ad una carta </p>
+	 * @see Effect
 	 */
 	public void addInstantEffect(Effect istantEffect) {
 		this.instantEffect.add(istantEffect);
@@ -104,6 +110,7 @@ public abstract class DevelopmentCard extends Card {
 	
 	/**<h3> addPermanentEffect(Effect) </h3>
 	 * <p> Aggiunge un'effetto permanente ad una carta </p>
+	 * @see Effect
 	 */
 	public void addPermanentEffect(Effect permanentEffect) {
 		this.permanentEffect.add(permanentEffect);

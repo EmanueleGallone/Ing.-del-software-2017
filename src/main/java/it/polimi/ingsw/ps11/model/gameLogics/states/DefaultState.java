@@ -11,7 +11,11 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEve
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
-
+/**
+ * <h3> DefaultState </h3>
+ * <p> Classe che rappresenta raccoglie ogni altro State. </p>
+ * @see State
+ */
 public class DefaultState extends State {
 
 	@Override

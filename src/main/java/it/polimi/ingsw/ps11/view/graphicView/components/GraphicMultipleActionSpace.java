@@ -1,26 +1,15 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
-import it.polimi.ingsw.ps11.view.graphicView.TestIt2;
-import it.polimi.ingsw.ps11.view.graphicView.components.GraphicCouncilPalaceView.CouncilPalaceSelectedListener;
-//ANCORA DA FARE, JPANEL CON CAMBIAMENTO DI DIMENSIONE DINAMICO
 public class GraphicMultipleActionSpace  extends JPanel{
 	
 	MultipleActionSpace multipleActionSpace;

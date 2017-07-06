@@ -2,8 +2,16 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
-
+/**
+ * <h3> FamilyInSpaceAffecter </h3>
+ * <p> Bonus: modifica il valore di un familiare se questo viene posizionato su un qualunque actionspace 
+ * attraverso un <code>FamilyInFloorAction</code>.</p>
+ * <p> Richiede: string (tipo del familiare), int (quantità che modifica il valore del familiare).</p>
+ * @see Affecter
+ * @see FamilyInFloorAction
+ */
 public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 
 	private String familyType;

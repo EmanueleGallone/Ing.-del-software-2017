@@ -7,10 +7,14 @@ import java.util.Iterator;
 
 /**
  * <h3>CardManager</h3>
- * <p> Classe manager per le <code>DevelopmentCard</code>. Associa ad ogni tipo di carta l'elenco delle carte del giocatore appartenenti alla data classe. Ogni giocatore ne possiede uno. </p>
+ * <p> Classe manager per le <code>DevelopmentCard</code>. Associa ad ogni tipo di carta un arrayList contenente le carte del giocatore 
+ * appartenenti a quel dato tipo. Può imporre un limite di 6 carte per ogni tipoo di carta. Ogni giocatore ne possiede uno.</p> 
+ * <p>Il costruttore accetta: boolean (indica se è presente il limite di carte), array di development card (distribuisce le carte
+ * nel CardManager).</p>
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.cards.DevelopmentCard DevelopmentCard
  */
+@SuppressWarnings("serial")
 public class CardManager implements Serializable, Iterable<ArrayList<DevelopmentCard>> {
 	
 	
@@ -22,7 +26,7 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		
 	}
 	/**<h3> CardManager(boolean) </h3>
-	 * <p> Impone un limite di 6 carte per tipo </p>
+	 * <p> Costruttore per CardManager che impone o mone un limite superiore al numero di carte per ogni tipo di carta </p>
 	 */
 	public CardManager(boolean limited) {
 		setLimited(limited);

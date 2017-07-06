@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.base;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 /** <h3> DoSeveralTimesAction </h3>
- * <p> Azione che permette di ripetere un' <code>action</code> un certo numero di volte numero di volte.</p>
+ * <p> Azione che permette di ripetere un' <code>action</code> un certo numero di volte.</p>
  * @see Action
  */
 public class DoSeveralTimeAction implements Action{
