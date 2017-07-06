@@ -48,9 +48,10 @@ public class GameLogic implements Runnable{
 	}
 	
 	private void round(StateHandler nextPlayer){
-		nextPlayer.nextState(new PlayState());
-		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
+//		nextPlayer.nextState(new PlayState());
+//		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
 		//nextPlayer.invoke(new GameUpdateEvent(game));
+		nextPlayer.play();
 		
 		for(StateHandler pState : playerStatus.values()){
 			
