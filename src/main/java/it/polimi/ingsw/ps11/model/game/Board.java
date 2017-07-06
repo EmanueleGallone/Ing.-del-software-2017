@@ -10,6 +10,7 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.zones.Church;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
@@ -40,7 +41,7 @@ public class Board implements Serializable{
 	private Yield production = new Yield(YellowCard.class);
 	private Market market;
 	private CouncilPalace councilPalace;
-	//manca la church
+	private Church church;
 	
 	ArrayList<DevelopmentCard> alreadyUsed = new ArrayList<>();
 	
@@ -52,9 +53,15 @@ public class Board implements Serializable{
 		this.market = market;
 		this.diceManager = diceManager;
 		this.councilPalace = councilPalace;
+		church = loadChurch();
+		
 		for(Tower t : towers){
 			this.towers.put(t.getClass().toString(), t);
 		}
+	}
+	
+	public Church loadChurch(){
+		return null;
 	}
 	
 	public void setCard(CardManager cards){
@@ -93,6 +100,10 @@ public class Board implements Serializable{
 	
 	public Market getMarket() {
 		return this.market;
+	}
+	
+	public Church getChurch() {
+		return church;
 	}
 	
 	public Yield getProduction() {

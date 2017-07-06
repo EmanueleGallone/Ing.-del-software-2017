@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.model.excommunications;
 
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Excommunication</h3>
  * <p>
@@ -26,14 +27,30 @@ public abstract class Excommunication {
 	 */
 	
 	
-	protected int period;
-	protected Effect effect;
+	private int period;
+	private Effect effect;
+	private ResourceList  requirement;
+	
+	
+	public Excommunication(int period, ResourceList requirement) {
+		this.period = period;
+		this.requirement = requirement;
+	}
+	
+	public Excommunication(int period, ResourceList requirement, Effect effect) {
+		this(period, requirement);
+		this.effect = effect;
+	}
 	
 	public Effect getEffect() {
 		return effect;
 	}
 	public int getPeriod() {
 		return period;
+	}
+	
+	public ResourceList getRequirement() {
+		return requirement;
 	}
 	
 	public void setEffect(Effect effect) {

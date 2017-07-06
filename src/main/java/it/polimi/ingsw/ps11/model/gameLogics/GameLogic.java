@@ -7,7 +7,9 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
+import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
+import it.polimi.ingsw.ps11.model.gameLogics.states.WaitCard;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -40,12 +42,9 @@ public class GameLogic implements Runnable{
 		String nextPlayerName = game.getRoundManager().next().getName();
 		StateHandler nextPlayer = playerStatus.get(nextPlayerName);
 		if(periodEnd){
-			
+			playerStatus.values().stream().forEach(s -> s.nextState(new VaticanReport(s)));
 		}
-		else {
-			round(nextPlayer);
-		}
-
+		round(nextPlayer);
 	}
 	
 	private void round(StateHandler nextPlayer){

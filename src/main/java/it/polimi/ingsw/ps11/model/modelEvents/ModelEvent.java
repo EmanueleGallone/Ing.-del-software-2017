@@ -13,6 +13,11 @@ public abstract class ModelEvent implements ModelEventInterface {
 
 	}
 	
+	public ModelEvent(String message) {
+		this.message = message;
+	}
+	
+	
 	public ModelEvent(Player player){
 		setReceiver(player);
 	}
