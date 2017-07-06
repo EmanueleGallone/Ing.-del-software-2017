@@ -7,7 +7,10 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView.EndTurn;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
 /**
@@ -21,17 +24,20 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
  */
 public class GraphicPlayerView extends PlayerView{
 		
-	protected JPanel personal = new JPanel();
+	protected GraphicPaintedPanel personal = new GraphicPaintedPanel();
+	GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
+	GraphicPaintedButton endTurn = new GraphicPaintedButton();
 	JLabel playersName;
 	
 	public GraphicPlayerView() {
 		
+		personal.loadImage("pImages/baseBoard.png");
+		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
-		GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
 		GraphicResourceView graphicResourceView = new GraphicResourceView();
 		GraphicFamilyMemberView graphicFamilyMemberView = new GraphicFamilyMemberView();
-
+		
 		GridBagLayout gblPersonal = new GridBagLayout();
 		gblPersonal.columnWidths = new int[]{0, 0, 0};
 		gblPersonal.rowHeights = new int[]{0, 0, 0};
@@ -39,9 +45,10 @@ public class GraphicPlayerView extends PlayerView{
 		gblPersonal.rowWeights = new double[]{0.15, 0.515116, 0.234884, Double.MIN_VALUE};
 		personal.setLayout(gblPersonal);
 				
-		JPanel personalPanel = graphicCardManagerView.getComponent();
+		JPanel cardPanel = graphicCardManagerView.getComponent();
 		JPanel resourcePanel = graphicResourceView.getComponent();
 		JPanel familyMemberPanel = graphicFamilyMemberView.getComponent();
+		endTurn.loadImage("boardImages/endTurn.png");
 		playersName = new JLabel("Player's Name");
 		playersName.setFont(new Font("Times New Roman", Font.PLAIN, 30));	
 			
@@ -49,6 +56,7 @@ public class GraphicPlayerView extends PlayerView{
 		GridBagConstraints gbcResource = new GridBagConstraints();
 		GridBagConstraints gbcFamilyMember = new GridBagConstraints();
 		GridBagConstraints gbcName = new GridBagConstraints();
+		GridBagConstraints gbcEndTurn = new GridBagConstraints();
 				
 		gbcFamilyMember.gridx = 0;
 		gbcFamilyMember.gridx = 0;
@@ -56,17 +64,22 @@ public class GraphicPlayerView extends PlayerView{
 		familyMemberPanel.setPreferredSize(new Dimension(10, 10));
 		personal.add(familyMemberPanel, gbcFamilyMember);
 		
-		gbcName.gridx = 0;
+		gbcName.gridx = 1;
 		gbcName.gridy = 0;
 		gbcName.fill = GridBagConstraints.BOTH;
 		familyMemberPanel.add(playersName, gbcName);
+		
+		gbcEndTurn.gridx = 0;
+		gbcEndTurn.gridy = 0;
+		gbcEndTurn.fill = GridBagConstraints.BOTH;
+		familyMemberPanel.add(endTurn, gbcEndTurn);
 				
 		gbcPersonal.gridx = 0;
 		gbcPersonal.gridy = 1;
 		gbcPersonal.gridwidth = 2;
 		gbcPersonal.fill = GridBagConstraints.BOTH;
-		personalPanel.setPreferredSize(new Dimension(10, 10));
-		personal.add(personalPanel, gbcPersonal);
+		cardPanel.setPreferredSize(new Dimension(10, 10));
+		personal.add(cardPanel, gbcPersonal);
 				
 		gbcResource.gridx = 0;
 		gbcResource.gridy = 2;
@@ -84,7 +97,7 @@ public class GraphicPlayerView extends PlayerView{
 	
 	@Override
 	public void print() {
-		playersName.setText(player.getName());
+		playersName.setText("     " + player.getName());
 		cardManagerView.print();
 		resourceView.print();
 		chooseFamilyView.print();
@@ -98,5 +111,13 @@ public class GraphicPlayerView extends PlayerView{
 	
 	public JPanel getComponent() {
 		return personal;
+	}
+
+	public void attachCardListener(EventListener<Card> zoomCard) {
+		graphicCardManagerView.attachCardListener(zoomCard);
+	}
+
+	public void attachEndTurnListener(EndTurn endTurn2) {
+		endTurn.addActionListener(endTurn2);
 	}
 }

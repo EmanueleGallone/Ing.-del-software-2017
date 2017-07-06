@@ -33,7 +33,9 @@ public class GraphicResourceView extends ResourceView {
 	
 	
 	public GraphicResourceView() {
-		resourcesPanel.loadImage("playerImages/Resources.png");
+		
+		resourcesPanel.loadImage("pImages/Resources.png");
+		resourcesPanel.setOpaque(false);
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -41,7 +43,7 @@ public class GraphicResourceView extends ResourceView {
 		gblFloor.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 		gblFloor.rowHeights = new int[]{0, 0, 0};
 		gblFloor.columnWeights = new double[]{0.142857, 0.142857, 0.142857, 0.142857, 0.142857, 0.142857, 0.142857, Double.MIN_VALUE};
-		gblFloor.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+		gblFloor.rowWeights = new double[]{0.15, 0.85, Double.MIN_VALUE};
 		resourcesPanel.setLayout(gblFloor);
 		
 //		for (String resourceName : resourceList.getResources().keySet()) {

@@ -21,6 +21,7 @@ public class GraphicResourceListView extends JPanel{
 	public GraphicResourceListView(ResourceList resourceList) {
 		this.resourceList = resourceList;
 		
+		this.setOpaque(false);
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		GridBagLayout gblResourceList = new GridBagLayout();

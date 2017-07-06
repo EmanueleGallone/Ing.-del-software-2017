@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
@@ -27,7 +26,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
 	
 	protected GraphicPaintedPanel councilPalacePanel = new GraphicPaintedPanel();
-	protected GraphicMultipleActionSpaceButton multipleActionSpace;
+	protected GraphicMultipleActionSpace multipleActionSpace;
 	protected JButton showPanelButton;
 	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
 	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
@@ -36,14 +35,10 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		
 		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
 		
-		multipleActionSpace = new GraphicMultipleActionSpaceButton("Council");
-		multipleActionSpace.addActionListener(new CouncilPalaceSelectedListener());
+		multipleActionSpace = new GraphicMultipleActionSpace();
+		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
-//		toPlayer1 = new GraphicPaintedButton("0");
-//		toPlayer2 = new GraphicPaintedButton("1");
-//		toPlayer3 = new GraphicPaintedButton("2");
-//		toPlayer4 = new GraphicPaintedButton("3");
 		toPlayer1 = new GraphicPaintedButton();
 		toPlayer2 = new GraphicPaintedButton();
 		toPlayer3 = new GraphicPaintedButton();
@@ -55,7 +50,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		playerSelectors.add(toPlayer3);
 		playerSelectors.add(toPlayer4);
 		
-		multipleActionSpace.setContentAreaFilled(false);
+		//multipleActionSpace.setContentAreaFilled(false);
 		
 		toPlayer1.setContentAreaFilled(false);
 		toPlayer2.setContentAreaFilled(false);
@@ -124,19 +119,18 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
+		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
+		councilPalacePanel.repaint();
 		}
 	
 	@Override
 	public void print(){
+		multipleActionSpace.print(councilPalace.getAllSpace());
 		int i = 0;
-		for (ActionSpace actionSpace : councilPalace.getAllSpace()) {
-			multipleActionSpace.putFamilyMember(actionSpace.getFamilyMember(), actionSpace.getOwner());
-		}
 		for (Player player : councilPalace.getNewOrder()) {
-			playerSelectors.get(i).loadImage("playerImages/Player color " + player.getColor().toString() + ".png");
+			playerSelectors.get(i).loadImage("pImages/Player color " + player.getColor().toString() + ".png");
 			i++;
 		}
-
 	}
 	
 	public void attachSlideListener(ShowPanel showPanel){					//Bottone che fa entrare la parte nascosta della board
@@ -156,7 +150,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		return councilPalacePanel;
 	}
 
-	private class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
+	public class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

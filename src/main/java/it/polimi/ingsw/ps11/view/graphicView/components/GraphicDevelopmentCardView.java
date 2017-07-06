@@ -29,14 +29,11 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 	}
 
 	public void print(){
-//		image.setName(card.getName());
 		if(developmentCard!= null)
 			image.loadImage(developmentCard.getClass().getSimpleName() +"/" + developmentCard.getName() + ".png");
-		//image.repaint();
 	}
 
 	public void attachCardListener(EventListener<Card> zoomCardListener) {
-		//image.addActionListener(zoomCard);
 		cardClickEvent.attach(zoomCardListener);
 	}	
 	

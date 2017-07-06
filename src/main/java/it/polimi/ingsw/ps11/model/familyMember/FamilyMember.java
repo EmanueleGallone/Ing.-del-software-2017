@@ -42,6 +42,7 @@ public abstract class FamilyMember implements Serializable{
 	}
 
 	public int getValue(){
+		System.out.println("PROVA");
 		int value = 0;
 		if(dice != null)
 			value = dice.getValue();

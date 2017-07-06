@@ -82,7 +82,7 @@ public class GraphicMarketView extends MarketView{
 	public void print(){
 		for(int i = 0; i < market.getPlayerNumber(); i++){
 			if(!(market.getActionSpace(i).getFamilyMember() == null)){
-				marketSpaces.get(i).loadImage("playerImages/" + market.getActionSpace(i).getOwner().getColor().toString() + 
+				marketSpaces.get(i).loadImage("pImages/" + market.getActionSpace(i).getOwner().getColor().toString() + 
 					" " + market.getActionSpace(i).getFamilyMember().getClass().getSimpleName() + ".png");
 			}
 		}

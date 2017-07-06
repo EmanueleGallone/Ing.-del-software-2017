@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * <h3>Card</h3>
  * <p> Classe astratta che modella qualsiasi tipo di carta. Identificata da una string per il nome. </p>
+ * <p>Il costruttore accetta: string (nome della carta).</p>
  * @see DevelopmentCard
  */
 public abstract class Card implements Serializable{

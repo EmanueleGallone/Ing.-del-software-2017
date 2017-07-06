@@ -4,14 +4,9 @@ import java.io.Serializable;
 import java.util.Random;
 /**
  * <h3>Dice</h3>
- * <p> Classe astratta che rappresenta l'oggetto dado del gioco. Contiene il valore del dado, compreso tra 1 e 6. 
- * Per ogni dado è stata implementata una classe concreta apposita, figlia di Dice.</p>
- * @version 1.0
- * @see BlackDice
- * @see OrangeDice
- * @see WhiteDice
+ * <p> Classe che rappresenta l'oggetto dado del gioco. Contiene un int per il value del dado, compreso tra 1 e 6, una string   
+ * identificativa per il nome del dado.</p>
  */
-@SuppressWarnings("serial")
 public class Dice implements Serializable{
 	
 	protected final int MAX_FACES = 6;
@@ -31,7 +26,7 @@ public class Dice implements Serializable{
 	
 	
 	/**<h3> void rollDice() </h3>
-	/** <p>Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.</p>
+	 * <p>Permette di emulare il lancio del dado. Viene assegnato alla variabile <code>value</code> un valore random compreso tra 1 e 6.</p>
 	 */
 	public void rollDice(){
 		this.value = gen.nextInt(MAX_FACES) +1;

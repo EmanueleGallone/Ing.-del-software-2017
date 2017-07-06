@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 /** <h3> EndGameAction </h3>
- * <p> E' l'azione da compiere per terminare il Game. Al suo interno contiene una serie di azioni da fare alla fine della partita.</p>
+ * <p> Azione da compiere per terminare il Game. Al suo interno può contenere una serie di azioni da fare alla fine della partita.</p>
  * @see Action
  */
 public class EndGameAction implements Action {

@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> GetCardAction </h3>
- * <p> Classe che rappresenta l'azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
+ * <p> Azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
  * @see Action
  */
 public class GetCardAction implements Action {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
@@ -17,7 +18,10 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
-
+/**
+ * <h3> State </h3>
+ * <p> Classe che rappresenta lo stato che segue l'azione di selezione di un piano da parte di un giocatore.</p>
+ */
 public class FloorSelected extends PlayState {
 
 	private FloorSelectedEvent floorSelectedEvent;

@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
-
+/**
+ * <h3> BoardView</h3>
+ * <p> Classe astratta che rappesenta la view del tabellone di gioco generale.</p>
+ * @see Board
+ */
 public abstract class BoardView extends ViewComponent {
 
 	protected ArrayList<TowerView> towerViews = new ArrayList<>(); 

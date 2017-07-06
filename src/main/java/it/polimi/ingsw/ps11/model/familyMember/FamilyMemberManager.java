@@ -54,7 +54,7 @@ public class FamilyMemberManager implements Iterable<FamilyMember>,Serializable 
 	}
 	
 	public <T extends FamilyMember> T getFamilyMember(String familyMember){
-		return (T) this.family.get(familyMember.toString());
+		return (T) this.family.get(familyMember);
 	}
 		
 	public <T extends FamilyMember> void setFamilyMember(T familyMember){

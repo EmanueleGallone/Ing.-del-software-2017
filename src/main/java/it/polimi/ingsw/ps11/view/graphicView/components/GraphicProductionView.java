@@ -20,18 +20,17 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView;
 public class GraphicProductionView extends ProductionView {
 	
 	protected GraphicPaintedPanel productionPanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton(),
-								   multipleActionSpace = new GraphicPaintedButton();
+	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton();
+	protected GraphicMultipleActionSpace multipleActionSpace = new GraphicMultipleActionSpace();
 	
 	public GraphicProductionView() {
 		
 		productionPanel.loadImage("boardImages/Production.png");
 		
 		singleActionSpace.setContentAreaFilled(false);
-		multipleActionSpace.setContentAreaFilled(false);
 		
-		singleActionSpace.addActionListener(new SingleProductionSelectedListener());
-		multipleActionSpace.addActionListener(new MultipleProductionSelectedListener());
+		singleActionSpace.addActionListener(new ProductionSelectedListener());
+		multipleActionSpace.attachListener(new ProductionSelectedListener());
 				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
@@ -62,26 +61,20 @@ public class GraphicProductionView extends ProductionView {
 	@Override
 	public void print() {
 		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
-			singleActionSpace.loadImage("playerImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
+			System.out.println("pImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
+					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
+			singleActionSpace.loadImage("pImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
+		multipleActionSpace.print(production.getMultipleActionSpace().getAllSpace());
 		productionPanel.repaint();
-		//DA FARE IL MULTI
 	}
 	
 	public JPanel getComponent(){
 		return productionPanel;
 	}
 	
-	private class SingleProductionSelectedListener implements ActionListener{		//Se il single action space viene selezionato invoca l'evento "spazio singolo produzione selezionato"
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			eventHandler.invoke(new ProductionSelectedEvent());
-		}
-	}
-	
-	private class MultipleProductionSelectedListener implements ActionListener{		//Se il multiple action space viene selezionato invoca l'evento "spazio multiplo produzione selezionato"
+	private class ProductionSelectedListener implements ActionListener{		//Se un action space viene selezionato invoca l'evento "spazio singolo produzione selezionato"
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

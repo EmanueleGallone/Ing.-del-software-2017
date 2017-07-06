@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -31,9 +30,9 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicLoginPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
-import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
 /**<h3> Graphic View</h3>
  * <p> Classe che rappresenta la finestra generale della GUI, contiene un JPanel per la board Superiore(torri, chiesa e consiglio),
  * un JDialog per la board Inferiore(zone raccolta e produzione, mercato e dadi) un JPanel per la board Personale e un JTextPane per
@@ -44,7 +43,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
  */
 public class GraphicView extends View{
 
-	JFrame window;												//Finestra Generale				
+	JFrame window;																//Finestra Generale				
 	protected JOptionPane exit;													//Finestra che si apre quando si vuole chiudere il gioco
 	protected JDialog slideDialog;												//Pannello interno alla slideBoardView
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
@@ -73,7 +72,7 @@ public class GraphicView extends View{
 		GridBagLayout gblView = new GridBagLayout();
 		gblView.columnWidths = new int[]{0, 0, 0, 0};		//QUI VANNNO LE LARGHEZZE IN PIXEL DELLE COLONNE, MA CONSIGLIO DI NN USARLO, CAMBIANDO SCHERMO VIENE TUTTO SBALLATO
 		gblView.rowHeights = new int[]{0, 0, 0};			//QUI LE ALTEZZE DELLE RIGHE, SEMPRE IN PIXEL
-		gblView.columnWeights = new double[]{0.469271, 0.192933, 0.313838, Double.MIN_VALUE};	//USA QUESTI, LARGHEZZE IN "PESO", VEDILE COME PERCENTUALI, LA SOMMA DEVE FARE 1
+		gblView.columnWeights = new double[]{0.469271, 0.152933, 0.353838, Double.MIN_VALUE};	//USA QUESTI, LARGHEZZE IN "PESO", VEDILE COME PERCENTUALI, LA SOMMA DEVE FARE 1
 		gblView.rowWeights = new double[]{0.44074, 0.55926, Double.MIN_VALUE};		//COME SOPRA
         window.setLayout(gblView);
         
@@ -88,6 +87,7 @@ public class GraphicView extends View{
         	   playerPanel = graphicPlayerView.getComponent(),
         	   consolePanel = graphicConsole.getComponent();
         cardZoomPanel = new GraphicPaintedPanel();
+        cardZoomPanel.loadImage("boardImages/baseCard.jpg");
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
                
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
@@ -158,6 +158,8 @@ public class GraphicView extends View{
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
         graphicBoardView.attachCardListener(cardClickListener);
+        graphicPlayerView.attachCardListener(cardClickListener);
+        graphicPlayerView.attachEndTurnListener(new EndTurn());
       
 //<-------------------------------FINE LISTENER------------------------------->
         
@@ -210,17 +212,19 @@ public class GraphicView extends View{
 	
 	@Override
 	public void confirm(ConfirmEvent confirm) {
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor());
+		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor(), window);
 		confirmPanelView.show();
+		window.setEnabled(false);
 	}
 
 	@Override
 	public void chooseResource(ArrayList<ResourceList> resource) {
-		GraphicChooseResourceListPanel chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource);
-		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.85), (int)Math.round(screenSize.getHeight()*0.4), 
+		GraphicChooseResourceListPanel chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource, window);
+		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.25), (int)Math.round(screenSize.getHeight()*0.4), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
 		chooseResource.getComponent().setUndecorated(true);
 		chooseResource.getComponent().setVisible(true);
+		window.setEnabled(false);
 	}
 	
 	private class Close implements ActionListener {			
@@ -241,7 +245,6 @@ public class GraphicView extends View{
 
 		@Override
 		public void handle(Card e) {
-			System.out.println("Carta cliccata " + e.getName());
 			String cardType = e.getClass().getSimpleName();
 			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
 			cardZoomPanel.repaint();
@@ -262,6 +265,14 @@ public class GraphicView extends View{
 			}
 		}
 	
+	public class EndTurn implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("Turno finito");
+			viewEvent.invoke(new EndTurnEvent());
+			}
+	}
+	
 	public class ChangePlayer implements ActionListener{
 
 		@Override
@@ -273,10 +284,5 @@ public class GraphicView extends View{
 			}
 		}
 		
-	}
-	
-	public static void main(String[] args) {
-		GraphicView view = new GraphicView();
-		view.run();
 	}
 }
