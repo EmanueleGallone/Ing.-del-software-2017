@@ -35,6 +35,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	private LinkedHashMap<String, Color> colorMap = new LinkedHashMap<>();
 	private ArrayList<GraphicPaintedPanel> allDecks = new ArrayList<>();
 
+	public EventListener<Card> zoomCard;
 	private ArrayList<GraphicDevelopmentCardView> allCards = new ArrayList<>();
 	private LinkedHashMap<JToggleButton, LeaderCard> leaderButtonCards;
 	private ArrayList<JToggleButton> arrayJTButton;
@@ -218,6 +219,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	}
 
 	public void attachCardListener(EventListener<Card> zoomCard) {
+		this.zoomCard = zoomCard;
 		for (GraphicDevelopmentCardView graphicDevelopmentCardView : allCards) {
 			graphicDevelopmentCardView.attachCardListener(zoomCard);
 		}

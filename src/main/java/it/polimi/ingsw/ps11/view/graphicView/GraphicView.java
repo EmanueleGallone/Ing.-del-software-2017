@@ -1,14 +1,11 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -33,9 +30,9 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicLoginPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
-import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
 /**<h3> Graphic View</h3>
  * <p> Classe che rappresenta la finestra generale della GUI, contiene un JPanel per la board Superiore(torri, chiesa e consiglio),
  * un JDialog per la board Inferiore(zone raccolta e produzione, mercato e dadi) un JPanel per la board Personale e un JTextPane per
@@ -90,6 +87,7 @@ public class GraphicView extends View{
         	   playerPanel = graphicPlayerView.getComponent(),
         	   consolePanel = graphicConsole.getComponent();
         cardZoomPanel = new GraphicPaintedPanel();
+        cardZoomPanel.loadImage("boardImages/baseCard.jpg");
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
                
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
@@ -161,6 +159,7 @@ public class GraphicView extends View{
         graphicPlayerView.attach(eventListener);
         graphicBoardView.attachCardListener(cardClickListener);
         graphicPlayerView.attachCardListener(cardClickListener);
+        graphicPlayerView.attachEndTurnListener(new EndTurn());
       
 //<-------------------------------FINE LISTENER------------------------------->
         
@@ -265,6 +264,14 @@ public class GraphicView extends View{
 			slideDialog.setVisible(true);
 			}
 		}
+	
+	public class EndTurn implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("Turno finito");
+			viewEvent.invoke(new EndTurnEvent());
+			}
+	}
 	
 	public class ChangePlayer implements ActionListener{
 

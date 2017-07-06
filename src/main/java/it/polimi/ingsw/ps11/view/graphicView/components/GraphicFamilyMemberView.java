@@ -30,17 +30,18 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
 	
 	public GraphicFamilyMemberView() {
+		familyMembers.setOpaque(false);
 
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
 		GridBagLayout gblFamilyMembers = new GridBagLayout();
-		gblFamilyMembers.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
+		gblFamilyMembers.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gblFamilyMembers.rowHeights = new int[]{0, 0};
-		gblFamilyMembers.columnWeights = new double[]{0.80, 0.04, 0.04, 0.04, 0.04, Double.MIN_VALUE};
+		gblFamilyMembers.columnWeights = new double[]{0.2, 0.6, 0.04, 0.04, 0.04, 0.04, Double.MIN_VALUE};
 		gblFamilyMembers.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		familyMembers.setLayout(gblFamilyMembers);
 
-		int i = 1;
+		int i = 2;
 		
 		ArrayList<Class<? extends FamilyMember>> familyList = new ArrayList<>();
 		
