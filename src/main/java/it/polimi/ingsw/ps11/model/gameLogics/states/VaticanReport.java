@@ -2,9 +2,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
-import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.zones.Church;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
@@ -21,8 +22,16 @@ public class VaticanReport extends DefaultState {
 	@Override
 	public void handle(ConfirmViewEvent confirmEvent) {
 		if(confirmEvent.getConfirm()){
-			
+			ResourceList playerResource = sHandler.getPlayer().getResourceList();
+			ResourceList reward = church.getReward(playerResource.get(FaithPoint.class).getValue());
+			IncrementAction action = new IncrementAction(sHandler.actions(), reward);
+			action = sHandler.actions().affect(action);
+			if(action.isLegal())
+				action.perform();
+			completePhases();
+			return;
 		}
+		addExcomunication();
 	}
 	
 	
@@ -49,6 +58,11 @@ public class VaticanReport extends DefaultState {
 	private void addExcomunication(){
 		Excommunication e = getExcomunication();
 		e.getEffect().attach(sHandler.actions());
+		completePhases();
+	}
+	
+	private void completePhases(){
+		
 	}
 	
 	@Override
