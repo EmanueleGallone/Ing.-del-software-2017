@@ -4,13 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Random;
 
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -23,17 +22,19 @@ import it.polimi.ingsw.ps11.model.zones.Church;
  */
 public class Game implements Serializable  {
 	
+	private final int LEADER_CARD = 4;
+	
 	private Board board;
 	private RoundManager roundManager;
 	
 	public Game(ArrayList<Player> players) {
 		try {
 			roundManager = new RoundManager(players);
-			board = initializeBoard();
-			board.getMarket().setPlayerNumber(players.size());
+			board = initializeBoard(players);
 			setDices(players);
+			assignLeaderCard(players);
+			
 			refreshCard(roundManager.currentPeriod());
-			board.setChurch(loadChurch());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -52,8 +53,13 @@ public class Game implements Serializable  {
 	 * <p> Crea una board caricandola da file</p>
 	 * @return una nuova board
 	 */
-	private Board initializeBoard() throws IOException{
-		return new Loader(FileRegistry.board).load(Board.class);
+	private Board initializeBoard(ArrayList<Player> players) throws IOException{
+		Board board = new Loader(FileRegistry.board).load(Board.class);
+		board.getMarket().setPlayerNumber(players.size());
+		Church church = new Loader(FileRegistry.church).load(Church.class);
+		//Manca la parte in cui si settano le scomuniche
+		board.setChurch(church);
+		return board;
 	}
 	
 	/**<h3> CardManager loadCards(int period) </h3>
@@ -73,12 +79,23 @@ public class Game implements Serializable  {
 		}
 		board.setCard(currentCard);
 	}
+
 	
+	private void assignLeaderCard(ArrayList<Player> players) throws FileNotFoundException, ClassCastException{
+		CardManager cManager = new Loader(FileRegistry.leaderCards).load(CardManager.class);
+		Collections.shuffle(cManager.getLeaderCards());
+		for(Player player: players){
+			assignLeaderCard(player,cManager.getLeaderCards());
+		}
+	}
 	
-	public Church loadChurch() throws FileNotFoundException, ClassCastException{
-		Church church = new Loader(FileRegistry.church).load(Church.class);
-		//church.setExcomunications(/* caricare da file 3 scomuniche, 1 per periodo*/);
-		return church;
+	private void assignLeaderCard(Player player, ArrayList<LeaderCard> cards){
+		ArrayList<LeaderCard> leaderCards = new ArrayList<>();
+		for(int i = 0; i < LEADER_CARD && i<cards.size(); i++){
+			leaderCards.add(cards.get(i));
+		}
+		cards.removeAll(leaderCards);
+		player.getCardManager().setLeaderCards(leaderCards);
 	}
 	
 	
