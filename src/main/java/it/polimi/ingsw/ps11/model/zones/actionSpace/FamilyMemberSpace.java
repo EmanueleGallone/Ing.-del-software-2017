@@ -16,4 +16,5 @@ public interface FamilyMemberSpace {
 	 * @param player è il giocatore proprietario del familiare
 	 */
 	public void placeFamilyMember(FamilyMember familyMember, Player player);
+	public void clean();
 }

@@ -161,7 +161,7 @@ public class GameLogic implements Runnable{
 				if(!e.isOver()){
 					game.refreshCard(e.currentPeriod());
 					game.getBoard().getDices().rollDices();
-					//game.resetFamilyMember();
+					game.getBoard().resetTower();
 				}
 				
 			} catch (FileNotFoundException e1) {
