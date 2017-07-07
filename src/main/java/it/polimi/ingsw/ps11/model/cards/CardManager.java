@@ -56,6 +56,12 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		return false;
 	}
 	
+	public void addCard(LeaderCard card){
+		//va opportunamente limitato il numero di leader cards
+		leaderCards.add(card);
+		
+	}
+	
 	/**<h3> boolean canAdd(T)</h3>
 	 * <p> Controlla che il mazzo corrispondente ad una carta non abbia già il numero massimo di elementi. </p>
 	 * @return true se il limite non è ancora stato raggiunto, false altrimenti

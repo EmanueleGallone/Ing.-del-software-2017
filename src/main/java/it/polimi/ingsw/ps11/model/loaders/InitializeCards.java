@@ -51,16 +51,6 @@ public class InitializeCards {
 		//inizializzaCarte();
 		//LeaderCardsInitializer();
 		//initializeExcommunication();
-		
-//		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
-//		try {
-//			ArrayList<Excommunication> e = new Loader(FileRegistry.excommunication).load(type);
-//			System.out.println(e.get(8).getPeriod());
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (ClassCastException e) {
-//			e.printStackTrace();
-//		}
 	}
 	
 	public static void inizializzaCarte(){
@@ -1676,9 +1666,8 @@ public class InitializeCards {
 		bartolomeoColleoni.addRequirement(new CardNumberRequirement(map5));
 		bartolomeoColleoni.addEffect(addResourceEffect4);
 		
-		ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
+		ArrayList<LeaderCard> leaderCards = new ArrayList<>();
 		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
-		JsonAdapter gAdapter = new JsonAdapter();
 		
 		leaderCards.add(francescoSforza);
 //		leaderCards.add(ludovicoAriosto);
@@ -1701,9 +1690,11 @@ public class InitializeCards {
 		leaderCards.add(cosimoDeMedici);
 		leaderCards.add(bartolomeoColleoni);
 		
-		//occhio che così il loader non accetta un type. nel file va salvato il type!
-		new Loader(FileRegistry.cards+"leaderCards").write(leaderCards);
-		//CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
+		CardManager cardManager = new CardManager();
+		for(LeaderCard cards : leaderCards)
+			cardManager.addCard(cards);
+		
+		new Loader(FileRegistry.leaderCards).write(cardManager,CardManager.class);
 		//FINE LEADER CARDS
 	 
 	}
