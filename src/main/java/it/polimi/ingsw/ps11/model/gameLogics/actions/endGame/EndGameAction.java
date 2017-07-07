@@ -51,6 +51,8 @@ public class EndGameAction implements Action {
 			PointByCardAction characters = new Loader(FileRegistry.charactersAction).load(PointByCardAction.class);
 			characters.setActionManager(aManager);
 			
+			
+			this.doAtTheEnd.add(new IncrementEvryResource(aManager));
 			this.doAtTheEnd.add(territories);
 			this.doAtTheEnd.add(characters);
 			
