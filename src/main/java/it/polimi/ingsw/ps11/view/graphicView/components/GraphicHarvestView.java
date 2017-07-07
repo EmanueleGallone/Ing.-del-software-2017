@@ -65,6 +65,9 @@ public class GraphicHarvestView extends HarvestView {
 			singleActionSpace.loadImage("pImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
+		else {
+			singleActionSpace.loadImage("pImages/BLANK.png");
+		}
 		multipleActionSpace.print(harvest.getMultipleActionSpace().getAllSpace());
 		harvestPanel.repaint();
 	}

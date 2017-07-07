@@ -78,6 +78,9 @@ public class GraphicFloorView extends FloorView{
 			actionSpace.loadImage("pImages/" + floor.getActionSpace().getOwner().getColor().toString() + 
 					" " + floor.getActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
+		else {
+			actionSpace.loadImage("pImages/BLANK.png");
+		}
 		
 		if(!(floor.getCard() == null)) {
 			graphicCardView = new GraphicDevelopmentCardView();
