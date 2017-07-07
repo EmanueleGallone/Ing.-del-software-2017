@@ -42,7 +42,6 @@ public class FamilyInTowerAction implements Action {
 
 	@Override
 	public boolean isLegal() {
-		System.out.println(contains(tower, aManager.state().getPlayer()));
 		if(contains(tower, aManager.state().getPlayer()) && !familyMember.isNeutral()){
 			return false;
 		}

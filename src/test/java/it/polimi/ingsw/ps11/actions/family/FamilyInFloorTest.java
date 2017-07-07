@@ -71,7 +71,9 @@ public class FamilyInFloorTest {
 		players.add(player2);
 		
 		familyMember1 = new NeutralFamilyMember();	
+		familyMember1.setModifier(1);
 		orangeFamilyMember = new OrangeFamilyMember();
+		orangeFamilyMember.setModifier(6);
 		
 		familyMember2 = new NeutralFamilyMember();	
 		blackFamilyMember = new BlackFamilyMember();
@@ -94,8 +96,12 @@ public class FamilyInFloorTest {
 		player1.getResourceList().setResource(new Coin(3));
 						
 		gCard1 = new GreenCard(); gCard2 = new GreenCard();
+		actionSpace1 = new ActionSpace(1);
+		actionSpace2 = new ActionSpace(3);
+		
 		floor1 = new Floor(); floor2 = new Floor();
 		floor1.setCard(gCard1); floor2.setCard(gCard2);
+		floor1.setActionSpace(actionSpace1); floor2.setActionSpace(actionSpace2);
 		floors = new ArrayList<>();
 		floors.add(floor1);
 		floors.add(floor2);
@@ -120,9 +126,13 @@ public class FamilyInFloorTest {
 		ConfirmViewEvent confirmViewEvent = new ConfirmViewEvent(true);
 		
 		towerAction = new FamilyInTowerAction(aManager1, tower, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class));
+		assertTrue(towerAction.isLegal());
 		getCardAction = new GetCardAction(aManager1, tower.getFloor(0).getCard(), cost1);
+		assertTrue(getCardAction.isLegal());
 		spaceAction = new FamilyInSpaceAction(aManager1, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), tower.getFloor(0).getActionSpace());
-		
+		System.out.println(player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).getValue() + ", " + tower.getFloor(0).getActionSpace().getActionCost());
+		assertTrue(spaceAction.isLegal());
+
 		floorAction = new FamilyInFloorAction(aManager1, towerAction, spaceAction, getCardAction);
 		floorAction.notifyConfirm(confirmViewEvent);
 		assertTrue(floorAction.isLegal());

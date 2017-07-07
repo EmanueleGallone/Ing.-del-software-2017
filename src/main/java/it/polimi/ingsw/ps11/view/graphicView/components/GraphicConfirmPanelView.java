@@ -244,8 +244,4 @@ public class GraphicConfirmPanelView {
 	public void show(){
 		window.setVisible(true);
 	}
-	
-	public JFrame getComponent(){
-		return window;
-	}
 }

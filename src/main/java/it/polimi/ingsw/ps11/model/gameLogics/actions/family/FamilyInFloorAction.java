@@ -45,7 +45,6 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	
 	@Override
 	public boolean isLegal() {
-		
 		boolean result;
 		if(!towerAction.isLegal()){
 			aManager.state().invoke("Non puoi posizionare altri familiari su questa torre");
@@ -54,7 +53,6 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 		
 		checkFloorBonus();
 		if((result = getCard.isLegal()) && confermed == null){
-			System.out.println(confermed);
 			aManager.state().nextState(new WaitConfirm(this));
 			return false;
 		}

@@ -76,13 +76,13 @@ public class Game implements Serializable  {
 		
 		ArrayList<Integer> needExc = new ArrayList<>(Arrays.asList(1,2,3));
 		
-		for(int i = 0; i < exc.size(); i++){
-			Excommunication e = exc.get(i);
-			if(needExc.contains(e.getPeriod())){
-				church.addExcomunication(e);
-				needExc.remove(e.getPeriod());
-			}
-		}
+//		for(int i = 0; i < exc.size(); i++){
+//			Excommunication e = exc.get(i);
+//			if(needExc.contains(e.getPeriod())){
+//				church.addExcomunication(e);
+//				needExc.remove(e.getPeriod());
+//			}
+//		}
 	}
 	
 	
