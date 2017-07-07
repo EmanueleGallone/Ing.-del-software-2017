@@ -162,7 +162,7 @@ public class GameLogic implements Runnable{
 				if(!e.isOver()){
 					game.refreshCard(e.currentPeriod());
 					game.getBoard().getDices().rollDices();
-					game.getBoard().resetTower();
+					game.getBoard().resetFamilyMember();
 					ArrayList<Player> newOrder = game.getBoard().getCouncilPalace().getNewOrder();
 					game.getRoundManager().setNewOrder(newOrder);
 				}

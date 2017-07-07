@@ -77,10 +77,13 @@ public class Board implements Serializable{
 	}
 	
 	
-	public void resetTower(){
+	public void resetFamilyMember(){
 		for(Tower tower : towers.values()){
 			tower.resetFloors();
 		}
+		production.resetFamilyMember();
+		harvest.resetFamilyMember();
+		market.clean();
 	}
 
 

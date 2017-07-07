@@ -25,17 +25,6 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 		this.cost = cost;
 	}
 	
-//	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
-//	 * <p> Piazza il familiare su un actionspace se ne ha la possibilità e aggiunge l'actionspace a quelli già presenti</p>
-//	 * @return true se il familiare è stato piazzato, false altrimenti
-//	 */
-//	public void placeFamilyMember(FamilyMember familyMember, Player player) {
-//		ActionSpace actionSpace = new ActionSpace(3);
-//		if(actionSpace.placeFamilyMember(familyMember, player)){
-//			multipleActionSpace.add(actionSpace);
-//		}
-//	}
-	
 	/**<h3> ActionSpace getFreeSpace </h3>
 	 * <p> Restituisce il primo actionSpace vuoto, se non sono presenti, ne crea uno nuovo.</p>
 	 */
@@ -72,6 +61,13 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 	 */
 	public void addActionSpace(ActionSpace actionSpace){
 		multipleActionSpace.add(actionSpace);
+	}
+	
+	
+	public void clean(){
+		for(ActionSpace space : this){
+			space.clean();
+		}
 	}
 	
 	public ActionSpace getActionSpace(int index){

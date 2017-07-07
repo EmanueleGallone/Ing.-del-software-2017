@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
  * <h3> Yield </h3>
  * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco. </p>
  */
-public class Yield implements  Serializable {
+public class Yield implements Serializable {
 	
 	private ActionSpace singleActionSpace = new ActionSpace();
 	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace();
@@ -35,25 +35,15 @@ public class Yield implements  Serializable {
 		return multipleActionSpace.getFreeSpace();
 	}
 	
+	
+	public void resetFamilyMember(){
+		singleActionSpace.clean();
+		multipleActionSpace.clean();
+	}
+	
 	public String getActiveCard(){
 		return cardType;
 	}
-	
-//	/**<h3> boolean placeFamilyMember(FamilyMember, Player) </h3>
-//	 * <p> Se il sigle action space è libero, vi piazza il familiare, altrimenti lo mette nel multiple actionspace se questo non
-//	 * contiene già un altro familiare dello stesso giocatore che non sia di tipo Neutral</p>
-//	 * @return true se è stato piazzato, false se non è stato possibile
-//	 */
-//	@Override
-//	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-//		if(singleActionSpace.isFree())
-//			return singleActionSpace.placeFamilyMember(familyMember, player);
-//		else {
-//			if(player.equals(singleActionSpace.getOwner()) || multipleActionSpace.contains(player))
-//				return false;
-//			return multipleActionSpace.placeFamilyMember(familyMember, player);
-//		}
-//	}
 	
 	public ActionSpace getSingleActionSpace() {
 		return singleActionSpace;

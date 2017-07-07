@@ -24,6 +24,7 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		this.playerNumber = playerNumber;
 	}
 	
+	
 	@Override
 	public ActionSpace getActionSpace(int index) throws IllegalArgumentException {
 	
@@ -40,13 +41,5 @@ public class Market extends MultipleActionSpace implements Serializable  {
 	public int getPlayerNumber() {
 		return playerNumber;
 	}
-	
-//	/**<h3> boolean placeFamilyMember(familyMember, Player) </h3>
-//	 *<p> Piazza il familiare sull'actionspace selezionato, se questo non è già occupato </p> 
-//	 */
-//	@Override
-//	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-//		//deve esserci override per il posizionamento del familiare su quale spazio azione
-//		return super.placeFamilyMember(familyMember, player);
-//	}		
+			
 }
