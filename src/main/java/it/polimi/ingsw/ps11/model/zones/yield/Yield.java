@@ -91,9 +91,10 @@ public class Yield implements Serializable, Iterable<ActionSpace> {
 
 			@Override
 			public ActionSpace next() {
-				index++;
-				if(index == 0 && singleActionSpace != null)
+				if(index == 0 && singleActionSpace != null){
+					index++;
 					return singleActionSpace;
+				}
 				return multipleActionSpace.iterator().next();
 			}
 		};

@@ -52,9 +52,10 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			if(actionSpace != null && actionSpace.getOwner() != null  && actionSpace.getFamilyMember() != null){
 				String familyName = actionSpace.getFamilyMember().getClass().getSimpleName();
 				familyMember.loadImage("pImages/" + actionSpace.getOwner().getColor().toString() + " " + familyName + ".png");
+				add(familyMember, gbc);
+				i++;
 			}
-			add(familyMember, gbc);
-			i++;
+
 		}
 		if(i<4){
 			
