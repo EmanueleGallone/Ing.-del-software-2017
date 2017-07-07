@@ -31,6 +31,7 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.TextualViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**<h3> Graphic View</h3>
@@ -50,7 +51,10 @@ public class GraphicView extends View{
 
     private GraphicPaintedPanel cardZoomPanel;
     private GraphicLoginPanel loginPanel = new GraphicLoginPanel();
-    private EventHandler<Message> messageHandler = new EventHandler<>();
+    //private EventHandler<Message> messageHandler = new EventHandler<>();
+    
+    private GraphicChooseResourceListPanel chooseResource;
+    private GraphicConfirmPanelView confirmPanelView;
     
 	public GraphicView() {
 		
@@ -171,7 +175,7 @@ public class GraphicView extends View{
 	
 	public void send(String string){
 		String toSend = string;
-		System.out.println(toSend);
+		viewEvent.invoke(new TextualViewEvent(toSend));
 	}
 	
 	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
@@ -187,14 +191,12 @@ public class GraphicView extends View{
 		
 		boardView.print();
 		you.print();
-		console.println("Benvenuto ne: ");
-		console.printError("\"Lorenzo il Magnifico\"");
 		window.setVisible(true);
+		checkPanel();
 	}
 
 	@Override
-	public void run() {
-		
+	public void run() {	
         //window.setVisible(true);
         loginPanel.show();
 	}
@@ -208,18 +210,27 @@ public class GraphicView extends View{
 	public void update(FamilyMemberManager familyMemberManager) {
 		you.getChooseFamilyView().update(familyMemberManager);
 		you.getChooseFamilyView().print();
+		checkPanel();
+	}
+	
+	
+	public void checkPanel(){
+		if(chooseResource != null && chooseResource.getComponent().isVisible())
+			chooseResource.getComponent().setVisible(true);
+		if(confirmPanelView != null && confirmPanelView.getComponent().isVisible())
+			confirmPanelView.show();
 	}
 	
 	@Override
 	public void confirm(ConfirmEvent confirm) {
-		GraphicConfirmPanelView confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor(), window);
+		confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor(), window);
 		confirmPanelView.show();
 		window.setEnabled(false);
 	}
-
+	
 	@Override
 	public void chooseResource(ArrayList<ResourceList> resource) {
-		GraphicChooseResourceListPanel chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource, window);
+		chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource, window);
 		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.25), (int)Math.round(screenSize.getHeight()*0.4), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
 		chooseResource.getComponent().setUndecorated(true);

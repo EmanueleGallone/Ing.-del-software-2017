@@ -9,7 +9,10 @@ import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
+import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -108,6 +111,13 @@ public class GameLogic implements Runnable{
 	public void handle(ViewEventInterface viewEvent){
 		System.out.println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
 		playerStatus.get(viewEvent.getSource().getName()).handle(viewEvent);
+		notifyAllClients(new GameUpdateEvent(game));
+	}
+	
+	public void notifyAllClients(ModelEvent event){
+		for(StateHandler sHandler : playerStatus.values()){
+			sHandler.invoke(event);
+		}
 	}
 	
 	
@@ -150,6 +160,8 @@ public class GameLogic implements Runnable{
 			try {
 				if(!e.isOver()){
 					game.refreshCard(e.currentPeriod());
+					game.getBoard().getDices().rollDices();
+					//game.resetFamilyMember();
 				}
 				
 			} catch (FileNotFoundException e1) {

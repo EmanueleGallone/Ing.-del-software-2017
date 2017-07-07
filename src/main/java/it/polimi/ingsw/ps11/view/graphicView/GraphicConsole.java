@@ -77,6 +77,9 @@ public class GraphicConsole extends Console {
 
 	@Override
 	public void println(String message) {
+		if(message == null || message.equals(""))
+			return;
+		
 		new TextualConsole().println(message);
 		//appendToPane(outPut, message, Color.BLUE);
 		rightNow = Calendar.getInstance();
@@ -87,6 +90,8 @@ public class GraphicConsole extends Console {
 
 	@Override
 	public void print(String message) {
+		if(message == null || message.equals(""))
+			return;
 		new TextualConsole().print(message);
 		//appendToPane(outPut, message, Color.BLUE);
 		rightNow = Calendar.getInstance();

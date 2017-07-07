@@ -31,10 +31,10 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseResourceView;
  */
 public class GraphicChooseResourceListPanel extends ChooseResourceView{
 	
-	JDialog dialog = new JDialog();
+	private JDialog dialog = new JDialog();
 	private ButtonGroup selectResourceList = new ButtonGroup(); 
 	private EventHandler<ViewEventInterface> eventHandler;
-	JFrame mainWindow;
+	private JFrame mainWindow;
 	
 	public GraphicChooseResourceListPanel(EventHandler<ViewEventInterface> viewEvent, ArrayList<ResourceList> resourceLists, JFrame mainWindow) {
 		
@@ -42,6 +42,7 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		this.eventHandler = viewEvent;
 		this.costs = resourceLists;
 		
+		dialog.setAlwaysOnTop(true);
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblDialog = new GridBagLayout();
