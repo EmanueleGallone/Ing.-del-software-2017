@@ -44,7 +44,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
-			gbc.gridx = 0;
+			gbc.gridy = 0;
 			gbc.fill = GridBagConstraints.BOTH;
 			
 			GraphicPaintedPanel familyMember = new GraphicPaintedPanel();
@@ -57,7 +57,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = i;
-		gbc.gridx = 0;
+		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.BOTH;
 		add(selector, gbc);
 		i++;
@@ -66,7 +66,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
-			gbc.gridx = 0;
+			gbc.gridy = 0;
 			gbc.fill = GridBagConstraints.BOTH;
 			
 			GraphicPaintedPanel empty = new GraphicPaintedPanel();
