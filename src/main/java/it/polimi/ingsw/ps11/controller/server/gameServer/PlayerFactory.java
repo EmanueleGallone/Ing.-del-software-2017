@@ -50,9 +50,6 @@ public class PlayerFactory {
 	
 	
 	
-	
-	
-	
 //	private static final ArrayList<Resource> DEFAULT_RESOURCE = new ArrayList<>(Arrays.asList(new Wood(2),new Stone(2),new Servant(3),new Coin(5),new VictoryPoint(0),new FaithPoint(0),new MilitaryPoint(0)));	
 //
 //	public FamilyMemberManager familyMemberManager(){

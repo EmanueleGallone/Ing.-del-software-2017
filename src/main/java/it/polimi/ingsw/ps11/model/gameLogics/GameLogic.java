@@ -6,13 +6,13 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
-import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
-import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -29,7 +29,8 @@ public class GameLogic implements Runnable{
 		game = new Game(players);
 		
 		for(Player player : players){
-			playerStatus.put(player.getName(), new StateHandler(this,player));
+			StateHandler sHandler = new StateHandler(this,player);
+			playerStatus.put(player.getName(), sHandler);
 		}
 		
 		RoundManager roundManager = game.getRoundManager();
@@ -162,6 +163,8 @@ public class GameLogic implements Runnable{
 					game.refreshCard(e.currentPeriod());
 					game.getBoard().getDices().rollDices();
 					game.getBoard().resetTower();
+					ArrayList<Player> newOrder = game.getBoard().getCouncilPalace().getNewOrder();
+					game.getRoundManager().setNewOrder(newOrder);
 				}
 				
 			} catch (FileNotFoundException e1) {
@@ -179,4 +182,5 @@ public class GameLogic implements Runnable{
 			System.err.println("\nPartita sospesa, nessuno sta giocando\n");
 		}
 	};
+	
 }

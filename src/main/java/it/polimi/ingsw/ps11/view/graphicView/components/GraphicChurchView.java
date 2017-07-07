@@ -65,30 +65,16 @@ public class GraphicChurchView extends ChurchView {
 		gbcCard3.fill = GridBagConstraints.BOTH;
 		card3.setOpaque(false);
 		churchPanel.add(card3, gbcCard3);
-		
-		for(int i = 0; i < 3; i++){
-		cards.get(i).loadImage("exCards/" + (i+1) + ".png");
-		
-		}
-
 	}
 	
 	@Override
 	public void print(){
 		
-//		for(int i = 0; i < church.gsetCards().length(); i++){
-//			cards.get(i).loadImage("excomunicationCards/" + church.getCards.get(i).getname() + ".png");
-//			
-//		}
 		for(int i = 0; i < church.getMaxExcomunication(); i++){
 			Excommunication excommunication = church.getExcomunications(i);
 			cards.get(i).loadImage("excommunicationCard/" + excommunication.getPeriod() + "/.png");
 
 		}
-//		church.loadImage("resources\\Church.PNG");
-//		church.loadImage("..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\settings\\boardImages\\Church.png");
-//		church.loadImage("C:\\Users\\Gabs3\\Desktop\\ProgettoIngSoft\\Ing.-del-software-2017\\src\\main\\java\\it\\polimi\\ingsw\\ps11\\view\\graphicView\\components\\boardImages\\Church.png");
-//		church.loadImage("./../../../../../../../it/polimi/ingsw/ps11/view/graphicView/components/boardImages/Church.png");
 	}
 
 	public JPanel getComponent() {

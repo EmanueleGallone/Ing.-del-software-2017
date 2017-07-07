@@ -3,7 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EndGameAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.EndGameAction;
 /**
  * <h3> EndGameAffecter </h3>
  * <p> Bonus: modifica le azioni che vengo eseguite automaticamente a fine partita attraverso una <code>EndGameAction</code>.</p>
