@@ -53,8 +53,8 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 		}
 		
 		checkFloorBonus();
-		
 		if((result = getCard.isLegal()) && confermed == null){
+			System.out.println(confermed);
 			aManager.state().nextState(new WaitConfirm(this));
 			return false;
 		}

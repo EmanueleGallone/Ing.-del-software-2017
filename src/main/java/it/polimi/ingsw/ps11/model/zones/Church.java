@@ -16,6 +16,10 @@ public class Church implements Serializable {
 	private ArrayList<Excommunication> excomunications;
 	private HashMap<Integer, ResourceList> requirements = new HashMap<>();
 	private HashMap<Integer, ResourceList> rewards = new HashMap<>();
+	private final int MAX_EXCOMUNICATION = 3;                        
+	public int getMaxExcomunication() {
+			return MAX_EXCOMUNICATION;
+		}
 	
 	public Church(ArrayList<Excommunication> excomunications) {
 		this.excomunications = excomunications;

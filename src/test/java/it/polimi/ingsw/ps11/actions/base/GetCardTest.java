@@ -114,7 +114,8 @@ public class GetCardTest {
 		assertEquals(0, player.getResourceList().get(Coin.class).getValue());
 		assertEquals(2, player.getResourceList().get(Wood.class).getValue());
 		assertEquals(1, player.getResourceList().get(Servant.class).getValue());
-
+		
+		assertEquals(card1 ,player.getCardManager().getCardList(GreenCard.class).get(0));
 
 	}
 	

@@ -66,7 +66,7 @@ public class GraphicChurchView extends ChurchView {
 		churchPanel.add(card3, gbcCard3);
 		
 		for(int i = 0; i < 3; i++){
-		cards.get(i).loadImage("excomunicationCards/" + (i+1) + ".png");
+		cards.get(i).loadImage("exCards/" + (i+1) + ".png");
 		
 		}
 
@@ -79,9 +79,8 @@ public class GraphicChurchView extends ChurchView {
 //			cards.get(i).loadImage("excomunicationCards/" + church.getCards.get(i).getname() + ".png");
 //			
 //		}
-		for(int i = 0; i < 3; i++){
-		cards.get(i).loadImage("excomunicationCards/" + (i+1) + ".png");
-		
+		for(int i = 0; i < church.getMaxExcomunication(); i++){
+		cards.get(i).loadImage("exCards/" + church.getExcomunications(i) + ".png");
 		}
 //		church.loadImage("resources\\Church.PNG");
 //		church.loadImage("..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\settings\\boardImages\\Church.png");

@@ -23,6 +23,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
@@ -30,17 +31,16 @@ import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 
 public class FamilyInSpaceTest {
 
-	Player player1, player2;
+	Player player;
 	
 	ArrayList<Player> players;
 	
 	FamilyMember familyMember1, orangeFamilyMember;
-	FamilyMember familyMember2, blackFamilyMember;
 			
 	GameLogic gameLogic;
 	FamilyInSpaceAction action1;
-	StateHandler handler1, handler2;
-	ActionManager aManager1, aManager2;
+	StateHandler handler;
+	ActionManager aManager;
 		
 	ActionSpace actionSpace = new ActionSpace();
 	
@@ -51,35 +51,26 @@ public class FamilyInSpaceTest {
 	public void setting(){
 		
 		//Inizializzo l'action manager e il player
-		player1 = new Player("Giocatore 1");
-		player2 = new Player("Giocatore 2");
+		player = new Player("Giocatore 1");
 		
 		players = new ArrayList<>();
-		players.add(player1);
-		players.add(player2);
+		players.add(player);
 		
 		familyMember1 = new NeutralFamilyMember();	
 		orangeFamilyMember = new OrangeFamilyMember();
 		
-		familyMember2 = new NeutralFamilyMember();	
-		blackFamilyMember = new BlackFamilyMember();
-		
-		player1.getFamilyManager().setFamilyMember(familyMember1);
-		player1.getFamilyManager().setFamilyMember(orangeFamilyMember);
+		player.getFamilyManager().setFamilyMember(familyMember1);
+		player.getFamilyManager().setFamilyMember(orangeFamilyMember);
 
-		player2.getFamilyManager().setFamilyMember(familyMember2);
-		player2.getFamilyManager().setFamilyMember(blackFamilyMember);
 			
 		gameLogic = new GameLogic(players);
-		handler1 = new StateHandler(gameLogic, player1);
-		handler2 = new StateHandler(gameLogic, player2);
+		handler = new StateHandler(gameLogic, player);
 		
 		//Prendo l'action manager del Giocatore 1 
-		aManager1 = handler1.actions();
-		aManager2 = handler2.actions();
+		aManager = handler.actions();
 		//Inizializzo le risorse del Giocatore 1
 			
-		player1.getResourceList().setResource(new Coin(3));
+		player.getResourceList().setResource(new Coin(3), new Servant(3));		//ERRORE, chiede servitori anche se c'è il modifier
 						
 		//initializeTower(tower);	
 	}
@@ -87,22 +78,22 @@ public class FamilyInSpaceTest {
 	@Test
 	public void isLegalandCheckCostTest(){
 		
-		actionSpace = new ActionSpace(3);
-													//il primo piano ha costo 3
-		player1.getFamilyManager().getFamilyMember(NeutralFamilyMember.class).setModifier(0);	//il familiare neutro ha valore 0
-		player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(3);	//il familiare arancione ha valore 3
+		actionSpace = new ActionSpace(3);														//il primo piano ha costo 3
+													
+		player.getFamilyManager().getFamilyMember(NeutralFamilyMember.class).setModifier(0);	//il familiare neutro ha valore 0
+		player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(4);		//il familiare arancione ha valore 4
 		
-		action1 = new FamilyInSpaceAction(aManager1, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
+		action1 = new FamilyInSpaceAction(aManager, player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
 		assertTrue(action1.isLegal());															//valore sufficiente
 		
-		action1 = new FamilyInSpaceAction(aManager1, player1.getFamilyManager().getFamilyMember(NeutralFamilyMember.class), actionSpace);
+		action1 = new FamilyInSpaceAction(aManager, player.getFamilyManager().getFamilyMember(NeutralFamilyMember.class), actionSpace);
 		assertFalse(action1.isLegal()); 														//valore troppo basso
 		
 		action1.incrementServant(3); 															//aggiungo 3 servitori
 		assertTrue(action1.isLegal());															//valore sufficiente
 		
 		action1.perform();
-		action1 = new FamilyInSpaceAction(aManager1, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
+		action1 = new FamilyInSpaceAction(aManager, player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
 		assertFalse(action1.isLegal());															//il costo è sufficiente, ma lo spazio è occupato
 	
 	}
@@ -113,19 +104,19 @@ public class FamilyInSpaceTest {
 		ResourceList resourceList = new ResourceList(new Coin(3));
 		actionSpace = new ActionSpace(resourceList);
 		
-		player1.getFamilyManager().getFamilyMember(NeutralFamilyMember.class).setModifier(0);
-		player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(3);
+		player.getFamilyManager().getFamilyMember(NeutralFamilyMember.class).setModifier(0);
+		player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(3);
 		
-		assertEquals(0, player1.getResourceList().get(Coin.class));
+		assertEquals(3, player.getResourceList().get(Coin.class).getValue());
 		
-		action1 = new FamilyInSpaceAction(aManager1, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
+		action1 = new FamilyInSpaceAction(aManager, player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
 		action1.perform();
 		
-		assertEquals(player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class),actionSpace.getFamilyMember());
-		assertEquals(player1,actionSpace.getOwner());
+		assertEquals(player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class),actionSpace.getFamilyMember());
+		assertEquals(player,actionSpace.getOwner());
 		
-		assertTrue(player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).isUsed());
-		assertEquals(3, player1.getResourceList().getResource(Coin.class));
+		assertTrue(player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).isUsed());
+		assertEquals(6, player.getResourceList().getResource(Coin.class).get().getValue());
 		
 	}
 }

@@ -63,9 +63,9 @@ public class FamilyMemberManagerTest {
 		
 		diceManager.rollDices();
 		
-//		assertEquals(diceManager.get("Orange").getValue(),familyManager.getFamilyMember("Orange").getValue());		
-//		assertEquals(diceManager.get("Black").getValue(),familyManager.getFamilyMember("Black").getValue());
-//		assertEquals(diceManager.get("White").getValue(),familyManager.getFamilyMember("White").getValue());
+		assertEquals(diceManager.get("Orange").getValue(),familyManager.getFamilyMember(OrangeFamilyMember.class).getValue());		
+		assertEquals(diceManager.get("Black").getValue(),familyManager.getFamilyMember(BlackFamilyMember.class).getValue());
+		assertEquals(diceManager.get("White").getValue(),familyManager.getFamilyMember(WhiteFamilyMember.class).getValue());
 
 	}
 	
