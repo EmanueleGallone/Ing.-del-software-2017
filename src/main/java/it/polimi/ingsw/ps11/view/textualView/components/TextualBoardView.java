@@ -24,7 +24,7 @@ public class TextualBoardView extends BoardView {
 		productionView = new TextualProductionView();
 		councilPalaceView = new TextualCouncilPalaceView();
 		marketView = new TextualMarketView();
-		//churchView = new TextualChurchView();
+		churchView = new TextualChurchView();
 	}
 	
 	public TextualBoardView(Board board){
@@ -50,8 +50,8 @@ public class TextualBoardView extends BoardView {
 		console.print("\n");
 		marketView.print();
 		console.print("\n");
-		//churchView.print();
-		//console.print("\n");
+		churchView.print();
+		console.print("\n");
 	}
 
 }
