@@ -50,6 +50,11 @@ public class Floor implements FamilyMemberSpace, Serializable {
 		actionSpace.placeFamilyMember(familyMember, player);
 	}
 	
+	@Override
+	public void clean() {
+		this.actionSpace.clean();
+	}
+	
 // End logic
 // Start setters
 	

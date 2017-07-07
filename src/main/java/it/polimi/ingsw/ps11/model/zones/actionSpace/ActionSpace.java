@@ -60,8 +60,16 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	public void placeFamilyMember(FamilyMember familyMember, Player player) {
 		this.familyMember = familyMember;
 		this.owner = player;
+		this.familyMember.setUsed(true);
 	}
 
+	@Override
+	public void clean() {
+		if(familyMember!=null)
+			familyMember.setUsed(false);
+		familyMember = null;
+		owner = null;
+	}
 //Start setters
 	
 	public void setResources(ResourceList resourceList){

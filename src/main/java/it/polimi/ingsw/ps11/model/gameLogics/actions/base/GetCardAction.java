@@ -52,6 +52,7 @@ public class GetCardAction implements Action {
 		}
 		if(!aManager.state().getPlayer().getCardManager().canAdd(card)){
 			aManager.state().invoke("Non puoi prendere un'altra carta di questo tipo");
+			return false;
 		}
 		return true;
 	}

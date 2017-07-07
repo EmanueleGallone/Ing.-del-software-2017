@@ -49,6 +49,13 @@ public class Tower implements Serializable{
 		}
 	}
 	
+	public void resetFloors(){
+		for(Floor floor: floors){
+			floor.clean();
+		}
+	}
+	
+	
 	public void setCardType(Class<? extends DevelopmentCard> cardType) {
 		this.cardType = cardType.toString();
 	}

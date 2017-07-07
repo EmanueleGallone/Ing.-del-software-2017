@@ -76,12 +76,14 @@ public class Board implements Serializable{
 		}
 	}
 	
-// End constructors
-// Start setters
 	
-	
-// End setters
-// Start getters
+	public void resetTower(){
+		for(Tower tower : towers.values()){
+			tower.resetFloors();
+		}
+	}
+
+
 	
 	public ArrayList<Tower> getTowers() {
 		return new ArrayList<Tower>(towers.values());
@@ -137,5 +139,4 @@ public class Board implements Serializable{
 		+ "]";
 	}
 	
-// End getters
 }
