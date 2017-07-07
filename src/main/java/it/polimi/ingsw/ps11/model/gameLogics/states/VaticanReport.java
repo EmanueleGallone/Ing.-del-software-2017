@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
@@ -64,9 +65,11 @@ public class VaticanReport extends DefaultState {
 	}
 	
 	private void addExcomunication(){
-		Excommunication e = getExcomunication();
-		if(e != null)
-			e.getEffect().attach(sHandler.actions());
+		Excommunication excommunication = getExcomunication();
+		for(Effect e : excommunication){
+			e.attach(sHandler.actions());
+		}
+		
 		completePhases();
 	}
 	

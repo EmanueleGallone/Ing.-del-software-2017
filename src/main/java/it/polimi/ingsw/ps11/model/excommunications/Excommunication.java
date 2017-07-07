@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.excommunications;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -11,7 +12,7 @@ import it.polimi.ingsw.ps11.model.cards.effects.Effect;
  * </p>
  *
  */
-public class Excommunication implements Iterable<Effect>{
+public class Excommunication implements Serializable,Iterable<Effect>{
 	
 	/*
 	 * effetti che mancano:
