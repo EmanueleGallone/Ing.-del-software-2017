@@ -45,7 +45,7 @@ public class GraphicChurchView extends ChurchView {
 		GridBagConstraints gbcCard2 = new GridBagConstraints();
 		GridBagConstraints gbcCard3 = new GridBagConstraints();
 		
-		gbcCard1.gridx = 3;
+		gbcCard1.gridx = 1;
 		gbcCard1.gridy = 1;
 		gbcCard1.gridheight = 2;
 		gbcCard1.fill = GridBagConstraints.BOTH;
@@ -59,7 +59,7 @@ public class GraphicChurchView extends ChurchView {
 		card2.setOpaque(false);
 		churchPanel.add(card2, gbcCard2);
 		
-		gbcCard3.gridx = 1;
+		gbcCard3.gridx = 3;
 		gbcCard3.gridy = 1;
 		gbcCard3.gridheight = 2;
 		gbcCard3.fill = GridBagConstraints.BOTH;
@@ -71,9 +71,9 @@ public class GraphicChurchView extends ChurchView {
 	public void print(){
 		
 		for(int i = 0; i < church.getMaxExcomunication(); i++){
-			Excommunication excommunication = church.getExcomunications(i);
-			cards.get(i).loadImage("excommunicationCard/" + excommunication.getPeriod() + "/.png");
-
+			Excommunication excommunication = church.getExcomunications(i+1);
+			if(excommunication != null)
+				cards.get(i).loadImage("exCards/" + excommunication.getId() + ".png");
 		}
 	}
 

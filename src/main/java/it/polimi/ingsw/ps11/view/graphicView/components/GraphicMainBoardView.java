@@ -153,7 +153,7 @@ public class GraphicMainBoardView extends BoardView{
 			towerView.print();
 		}
 		councilPalaceView.print();
-		
+		churchView.print();
 	}
 	
 	public GraphicCouncilPalaceView getGraphicCouncilPalaceView() {

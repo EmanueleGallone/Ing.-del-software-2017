@@ -55,6 +55,10 @@ public class Excommunication implements Serializable,Iterable<Effect>{
 		this.period = period;
 	}
 	
+	public String getId() {
+		return id;
+	}
+	
 	@Override
 	public Excommunication clone(){
 		Excommunication clone = new Excommunication(this.id, this.period);

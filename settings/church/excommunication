@@ -190,5 +190,31 @@
     "id": "11",
     "period": 2,
     "effect": []
+  },
+  {
+    "id": "15",
+    "period": 3,
+    "effect": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint",
+        "INSTANCE": {
+          "card": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+          "rewards": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "period": 3,
+    "effect": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint",
+        "INSTANCE": {
+          "card": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+          "rewards": {}
+        }
+      }
+    ]
   }
 ]

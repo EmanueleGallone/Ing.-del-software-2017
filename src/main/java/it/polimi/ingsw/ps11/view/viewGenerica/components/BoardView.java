@@ -30,7 +30,7 @@ public abstract class BoardView extends ViewComponent {
 		diceView.update(board.getDices());
 		councilPalaceView.update(board.getCouncilPalace());
 		marketView.update(board.getMarket());
-		//churchView.update(board.getChurch());
+		churchView.update(board.getChurch());
 		
 		for(TowerView t : towerViews){
 			t.update(board.getTower(t.getTower()));
