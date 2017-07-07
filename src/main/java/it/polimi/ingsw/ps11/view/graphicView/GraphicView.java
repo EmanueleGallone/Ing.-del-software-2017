@@ -90,7 +90,7 @@ public class GraphicView extends View{
         	   playerPanel = graphicPlayerView.getComponent(),
         	   consolePanel = graphicConsole.getComponent();
         cardZoomPanel = new GraphicPaintedPanel();
-        cardZoomPanel.loadImage("boardImages/baseCard.jpg");
+        cardZoomPanel.loadImage("BoardImages/baseCard.jpg");
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
                
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();

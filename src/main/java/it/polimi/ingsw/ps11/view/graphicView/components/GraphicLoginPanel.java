@@ -53,7 +53,7 @@ public class GraphicLoginPanel{
         
         GraphicPaintedPanel image = new GraphicPaintedPanel();
         window.setContentPane(image);
-        image.loadImage("boardImages/Lorenzo LogIn.png");
+        image.loadImage("BoardImages/Lorenzo LogIn.png");
 		image.setBorder(BorderFactory.createLineBorder(Color.BLACK, 7));
 		
 		JLabel scrittaUsername = new JLabel("<html><font color='white'>Username</font></html>"),

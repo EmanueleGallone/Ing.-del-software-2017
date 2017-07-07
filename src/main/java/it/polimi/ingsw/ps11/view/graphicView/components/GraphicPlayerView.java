@@ -31,7 +31,7 @@ public class GraphicPlayerView extends PlayerView{
 	
 	public GraphicPlayerView() {
 		
-		personal.loadImage("pImages/baseBoard.png");
+		personal.loadImage("PlayerImages/baseBoard.png");
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -48,7 +48,7 @@ public class GraphicPlayerView extends PlayerView{
 		JPanel cardPanel = graphicCardManagerView.getComponent();
 		JPanel resourcePanel = graphicResourceView.getComponent();
 		JPanel familyMemberPanel = graphicFamilyMemberView.getComponent();
-		endTurn.loadImage("boardImages/endTurn.png");
+		endTurn.loadImage("BoardImages/endTurn.png");
 		playersName = new JLabel("Player's Name");
 		playersName.setFont(new Font("Times New Roman", Font.PLAIN, 30));	
 			

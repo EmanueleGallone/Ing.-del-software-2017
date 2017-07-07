@@ -34,7 +34,7 @@ public class GraphicDiceView extends DiceView {
 		
 		closeButton = new JButton("X");
 		
-		dice.loadImage("boardImages/Dices.png");
+		dice.loadImage("BoardImages/Dices.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -84,7 +84,7 @@ public class GraphicDiceView extends DiceView {
 	public void print() {
 		int i = 0;
 		for (Dice dice : dices.getDices().values()) {
-			dicePanels.get(i).loadImage("boardImages/" + dice.getName() + " " + dice.getValue() + ".png");
+			dicePanels.get(i).loadImage("BoardImages/" + dice.getName() + " " + dice.getValue() + ".png");
 			i++;
 		}
 	}

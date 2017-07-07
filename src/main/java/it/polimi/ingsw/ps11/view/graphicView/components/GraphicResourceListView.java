@@ -37,7 +37,7 @@ public class GraphicResourceListView extends JPanel{
 			
 			GraphicPaintedPanel img = new GraphicPaintedPanel();
 			JLabel value = new JLabel("" + resource.getValue());
-			img.loadImage("boardImages/" + resource.getClass().getSimpleName() + ".png");
+			img.loadImage("BoardImages/" + resource.getClass().getSimpleName() + ".png");
 			
 			gbc.gridx = i;
 			gbc.gridy = 0;

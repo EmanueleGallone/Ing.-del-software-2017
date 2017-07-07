@@ -33,7 +33,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	
 	public GraphicCouncilPalaceView() {
 		
-		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
+		councilPalacePanel.loadImage("BoardImages/CouncilPalace.png");
 		
 		multipleActionSpace = new GraphicMultipleActionSpace();
 		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
@@ -128,7 +128,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		multipleActionSpace.print(councilPalace.getAllSpace());
 		int i = 0;
 		for (Player player : councilPalace.getNewOrder()) {
-			playerSelectors.get(i).loadImage("pImages/Player color " + player.getColor().toString() + ".png");
+			playerSelectors.get(i).loadImage("PlayerImages/Player color " + player.getColor().toString() + ".png");
 			i++;
 		}
 	}

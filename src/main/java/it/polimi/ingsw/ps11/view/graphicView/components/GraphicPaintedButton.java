@@ -33,7 +33,7 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 	
 	@Override
 	public void loadImage(String url){
-		URL imagePath = getClass().getResource(url);
+		URL imagePath = getClass().getClassLoader().getResource(url);
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(imagePath);

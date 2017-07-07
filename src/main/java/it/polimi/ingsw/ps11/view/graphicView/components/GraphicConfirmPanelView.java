@@ -60,7 +60,7 @@ public class GraphicConfirmPanelView {
 		window.getContentPane().setLayout(gblConfirmpanel);
 		
 		GraphicPaintedPanel interPanel = new GraphicPaintedPanel();
-		interPanel.loadImage("boardImages/Lorenzo LogIn.png");
+		interPanel.loadImage("BoardImages/Lorenzo LogIn.png");
 		JPanel padding1 = new JPanel(),padding2 = new JPanel(),padding3 = new JPanel(),padding4 = new JPanel();
 		padding1.setOpaque(false);
 		padding2.setOpaque(false);
