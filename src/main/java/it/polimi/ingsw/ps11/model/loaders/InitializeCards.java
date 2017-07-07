@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.loaders;
 
+import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,8 +48,19 @@ import it.polimi.ingsw.ps11.model.resources.list.Wood;
 public class InitializeCards {
 	
 	public static void main(String[] args) {
-		inizializzaCarte();
+		//inizializzaCarte();
 		//LeaderCardsInitializer();
+		//initializeExcommunication();
+		
+		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
+		try {
+			ArrayList<Excommunication> e = new Loader(FileRegistry.excommunication).load(type);
+			System.out.println(e.get(8).getPeriod());
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (ClassCastException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void inizializzaCarte(){
@@ -351,7 +363,7 @@ public class InitializeCards {
 		resourceList.setResource(new Wood(2));
 		tenuta.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
-		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
+		ArrayList<GreenCard> greenDeck = new ArrayList<>(); 
 		greenDeck.add(tenuta); 
 		greenDeck.add(cittaMercantile); 
 		greenDeck.add(provincia);
@@ -1428,7 +1440,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new VictoryPoint(2));
 		governatore.addInstantEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
 		
-		ArrayList<BlueCard> bluDeck = new ArrayList<BlueCard>();		
+		ArrayList<BlueCard> bluDeck = new ArrayList<>();
 		bluDeck.add(badessa);
 		bluDeck.add(predicatore);
 		bluDeck.add(dama);
@@ -1697,6 +1709,9 @@ public class InitializeCards {
 	}
 
 	public static void initializeExcommunication(){
+		ArrayList<Excommunication> list = new ArrayList<>();
+		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
+		
 		Excommunication first = new Excommunication("1", 1);
 		ResourceList resourceList = new ResourceList(new MilitaryPoint(1));
 		DecrementResourceEffect decrementResourceEffect = new DecrementResourceEffect(resourceList.clone());
@@ -1768,5 +1783,19 @@ public class InitializeCards {
 //		ResourceAtTheEnd resourceAtTheEnd = new ResourceAtTheEnd(new ResourceList(new VictoryPoint(0)));
 //		fifteenth.setEffect(resourceAtTheEnd);
 		
+		list.add(first);
+		list.add(second);
+		list.add(third);
+		list.add(fourth);
+		list.add(fifth);
+		list.add(sixth);
+		list.add(seventh);
+		list.add(eighth);
+		list.add(ninth);
+		list.add(tenth);
+		list.add(eleventh);
+		
+		Loader loader = new Loader(FileRegistry.excommunication);
+		loader.write(list,type);
 	}
 }

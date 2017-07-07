@@ -12,5 +12,5 @@ public class FileRegistry {
 	public static final String player = FileRegistry.root + "player";
 	public static final String church = FileRegistry.root + "church\\" + "church";
 	public static final String leaderCards = cards + "leaderCards";
-	public static final String Excommunication = cards + "Excommunication";
+	public static final String excommunication = FileRegistry.root + "church\\" + "excommunication";
 }

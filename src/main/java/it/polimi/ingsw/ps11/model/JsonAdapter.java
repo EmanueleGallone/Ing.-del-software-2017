@@ -77,6 +77,10 @@ public class JsonAdapter {
 		return gson.fromJson(json, classOfT);
 	}
 	
+	public <T extends Object> T fromJson(FileReader json, Type classOfT){
+		return gson.fromJson(json, classOfT);
+	}
+	
 	public <T extends Object> T fromJson(String string, Type type) {
 		return gson.fromJson(string, type);
 	}
