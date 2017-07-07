@@ -19,7 +19,7 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	protected FamilyMember familyMember;
 	protected Player owner;
 	private int cost;
-	private ResourceList resources; 
+	private ResourceList resources = new ResourceList(); 
 	
 	/**<h3> ActionSpace() </h3>
 	 * Costruttore per costruire un ActionSpace senza risorse e con costo = DEFAULT (1).

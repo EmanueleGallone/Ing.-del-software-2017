@@ -35,8 +35,9 @@ public class GraphicPaintedPanel extends JPanel {
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(getClass().getResource(url));
-		} catch (IOException e) {
-			System.err.println("Errore, immagine non trovata");
+		} catch (IOException | IllegalArgumentException e) {
+			System.err.println("Errore, immagine non trovata, url: " + url);
+			e.printStackTrace();
 		}
 		
 		background = result;

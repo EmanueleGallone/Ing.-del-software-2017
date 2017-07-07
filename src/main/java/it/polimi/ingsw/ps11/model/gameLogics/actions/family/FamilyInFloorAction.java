@@ -51,7 +51,8 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 			return false;
 		}
 		
-		checkFloorBonus();
+		//checkFloorBonus();
+		
 		if((result = getCard.isLegal()) && confermed == null){
 			aManager.state().nextState(new WaitConfirm(this));
 			return false;
@@ -59,14 +60,14 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 		return result && spaceAction.isLegal();
 	}
 	
-	private void checkFloorBonus(){
-	//Va fatto prima del getCard.isLegal perchè il giocatore può usare le risorse del piano per pagare la carta
-		ResourceList resource = spaceAction.getSpace().getResources();
-		if(resource != null){
-			getCard.setModifier(resource.clone());	
-		}
-		
-	}
+//	private void checkFloorBonus(){
+//	//Va fatto prima del getCard.isLegal perchè il giocatore può usare le risorse del piano per pagare la carta
+//		ResourceList resource = spaceAction.getSpace().getResources();
+//		if(resource != null){
+//			getCard.setModifier(resource.clone());	
+//		}
+//		
+//	}
 	
 	public FamilyInTowerAction getTowerAction() {
 		return towerAction;
