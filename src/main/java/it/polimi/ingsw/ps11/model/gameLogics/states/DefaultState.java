@@ -2,10 +2,12 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.gameLogics.State;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
+import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.TextualViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
@@ -75,6 +77,11 @@ public class DefaultState extends State {
 	public void notifyToClient() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void handle(TextualViewEvent textualViewEvent) {
+		stateHandler().getGameLogic().notifyAllClients(new TextualEvent(textualViewEvent.getMessage()));
 	}
 
 }

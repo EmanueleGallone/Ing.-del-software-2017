@@ -63,7 +63,7 @@ public class GraphicTowerView extends TowerView{
 	@Override
 	public void print(){
 		for(int i=0; i<TOWERNUMBER; i++){
-		floorViews.get(i).print();
+			floorViews.get(i).print();
 		}
 	}
 

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 
 import it.polimi.ingsw.ps11.model.JsonAdapter;
 
@@ -22,8 +23,17 @@ public class Loader {
 		return new JsonAdapter().fromJson(reader, returnType);
 	}
 	
+	public <T> T load(Type type) throws FileNotFoundException,ClassCastException{
+		FileReader reader = new FileReader(path);
+		return new JsonAdapter().fromJson(reader, type);
+	}
+	
 	public void write(Object object){
 		write(new JsonAdapter().toJson(object));
+	}
+	
+	public void write(Object object, Type type){
+		write(new JsonAdapter().toJson(object,type));
 	}
 	
 	public void write(String text){

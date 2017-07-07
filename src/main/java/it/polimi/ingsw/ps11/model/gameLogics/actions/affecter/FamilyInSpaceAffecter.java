@@ -15,7 +15,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 
 	private String familyType;
-
 	protected int value;
 	
 	public FamilyInSpaceAffecter(String familyType, int value) {

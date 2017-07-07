@@ -40,6 +40,8 @@ public class GraphicConfirmPanelView {
 		this.floor = floor;
 		window.setAlwaysOnTop(true);
 		
+		window.setAlwaysOnTop(true);
+		
 		window = new JFrame();
 		window.setTitle("Game Window");											//Setup la finestra principale del gioco
         window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -233,6 +235,10 @@ public class GraphicConfirmPanelView {
 			servitori = 0;
 		}
 		return servitori;
+	}
+	
+	public JFrame getComponent(){
+		return window;
 	}
 	
 	public void show(){

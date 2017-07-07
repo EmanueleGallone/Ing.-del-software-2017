@@ -100,7 +100,6 @@ public class GraphicSlideBoardView extends BoardView {
 	
 	@Override
 	public void print() {	
-		System.out.println("QUII");
 		productionView.print();
 		harvestView.print();
 		marketView.print();

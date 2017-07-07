@@ -16,4 +16,5 @@ public interface ViewListener {
 	public void handle(ConfirmViewEvent confirmEvent);
 	public void handle(EndTurnEvent endTurnEvent);
 	public void handle(AskUpdateEvent updateEvent);
+	public void handle(TextualViewEvent textualViewEvent);
 }

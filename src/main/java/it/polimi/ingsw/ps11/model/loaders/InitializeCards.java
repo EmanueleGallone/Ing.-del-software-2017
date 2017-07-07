@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.loaders;
 
+import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,8 +18,10 @@ import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.AnotherCard;
 import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.cards.effects.DecrementResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
@@ -29,6 +32,10 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
@@ -41,8 +48,19 @@ import it.polimi.ingsw.ps11.model.resources.list.Wood;
 public class InitializeCards {
 	
 	public static void main(String[] args) {
-		inizializzaCarte();
+		//inizializzaCarte();
 		//LeaderCardsInitializer();
+		//initializeExcommunication();
+		
+//		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
+//		try {
+//			ArrayList<Excommunication> e = new Loader(FileRegistry.excommunication).load(type);
+//			System.out.println(e.get(8).getPeriod());
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (ClassCastException e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	public static void inizializzaCarte(){
@@ -345,7 +363,7 @@ public class InitializeCards {
 		resourceList.setResource(new Wood(2));
 		tenuta.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
 		
-		ArrayList<GreenCard> greenDeck = new ArrayList<GreenCard>(); 
+		ArrayList<GreenCard> greenDeck = new ArrayList<>(); 
 		greenDeck.add(tenuta); 
 		greenDeck.add(cittaMercantile); 
 		greenDeck.add(provincia);
@@ -1422,7 +1440,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new VictoryPoint(2));
 		governatore.addInstantEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
 		
-		ArrayList<BlueCard> bluDeck = new ArrayList<BlueCard>();		
+		ArrayList<BlueCard> bluDeck = new ArrayList<>();
 		bluDeck.add(badessa);
 		bluDeck.add(predicatore);
 		bluDeck.add(dama);
@@ -1688,5 +1706,96 @@ public class InitializeCards {
 		//CustomFileReaderWriter.writeFile("settings/LeaderCards", gAdapter.toJson(leaderCards,type));
 		//FINE LEADER CARDS
 	 
+	}
+
+	public static void initializeExcommunication(){
+		ArrayList<Excommunication> list = new ArrayList<>();
+		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
+		
+		Excommunication first = new Excommunication("1", 1);
+		ResourceList resourceList = new ResourceList(new MilitaryPoint(1));
+		DecrementResourceEffect decrementResourceEffect = new DecrementResourceEffect(resourceList.clone());
+		first.addEffect(decrementResourceEffect);
+		
+		Excommunication second = new Excommunication("2", 1);
+		resourceList = new ResourceList(new Coin(1));
+		DecrementResourceEffect decrementResourceEffect2 = new DecrementResourceEffect(resourceList.clone());
+		second.addEffect(decrementResourceEffect2);
+		
+		Excommunication third = new Excommunication("3", 1);
+		resourceList = new ResourceList(new Servant(1));
+		DecrementResourceEffect decrementResourceEffect3 = new DecrementResourceEffect(resourceList.clone());
+		third.addEffect(decrementResourceEffect3);
+		
+		Excommunication fourth = new Excommunication("4", 1);
+		resourceList = new ResourceList(new Wood(1));
+		resourceList.setResource(new Stone(1));
+		DecrementResourceEffect decrementResourceEffect4 = new DecrementResourceEffect(resourceList.clone());
+		fourth.addEffect(decrementResourceEffect4);
+		
+		Excommunication fifth = new Excommunication("5", 1);
+		FamilyInFloorBonus familyInFloorBonus = new FamilyInFloorBonus(GreenCard.class.toString(), -3);
+		fifth.addEffect(familyInFloorBonus);
+		
+		Excommunication sixth = new Excommunication("6", 1);
+		FamilyInFloorBonus familyInFloorBonus2 = new FamilyInFloorBonus(YellowCard.class.toString(), -3);
+		sixth.addEffect(familyInFloorBonus2);
+		
+		
+		Excommunication seventh = new Excommunication("7", 1);
+		FamilyInSpaceBonus familyInSpaceBonus3 = new FamilyInSpaceBonus(BlackFamilyMember.class.toString(), -1);
+		FamilyInSpaceBonus familyInSpaceBonus4 = new FamilyInSpaceBonus(WhiteFamilyMember.class.toString(), -1);
+		FamilyInSpaceBonus familyInSpaceBonus5 = new FamilyInSpaceBonus(OrangeFamilyMember.class.toString(), -1);
+		seventh.addEffect(familyInSpaceBonus3); 
+		seventh.addEffect(familyInSpaceBonus4);
+		seventh.addEffect(familyInSpaceBonus5);
+		
+		
+		//SECONDO PERIODO
+		Excommunication eighth = new Excommunication("8", 2);
+		FamilyInFloorBonus FB = new FamilyInFloorBonus(GreenCard.class.toString(), -4);
+		eighth.addEffect(FB);
+		
+		Excommunication ninth = new Excommunication("9", 2);
+		FamilyInFloorBonus FB2 = new FamilyInFloorBonus(YellowCard.class.toString(), -4);
+		eighth.addEffect(FB2);
+		
+		Excommunication tenth = new Excommunication("10", 2);
+		FamilyInFloorBonus FB3 = new FamilyInFloorBonus(BlueCard.class.toString(), -4);
+		eighth.addEffect(FB3);
+		
+		Excommunication eleventh = new Excommunication("11", 2);
+		FamilyInFloorBonus FB4 = new FamilyInFloorBonus(PurpleCard.class.toString(), -4);
+		eighth.addEffect(FB4);
+		
+		Excommunication twelveth = new Excommunication("12", 2);
+		//non puoi posizionare nel mercato
+		
+		Excommunication thirteenth = new Excommunication("13", 2);
+		//invece che 1 servitore devi spenderne 2
+		
+		Excommunication fourtheenth = new Excommunication("14", 2);
+		//salta la tua prima azione
+		
+		//INIZIO TERZO PERIODO
+		
+//		Excommunication fifteenth = new Excommunication("15", 3);
+//		ResourceAtTheEnd resourceAtTheEnd = new ResourceAtTheEnd(new ResourceList(new VictoryPoint(0)));
+//		fifteenth.setEffect(resourceAtTheEnd);
+		
+		list.add(first);
+		list.add(second);
+		list.add(third);
+		list.add(fourth);
+		list.add(fifth);
+		list.add(sixth);
+		list.add(seventh);
+		list.add(eighth);
+		list.add(ninth);
+		list.add(tenth);
+		list.add(eleventh);
+		
+		Loader loader = new Loader(FileRegistry.excommunication);
+		loader.write(list,type);
 	}
 }

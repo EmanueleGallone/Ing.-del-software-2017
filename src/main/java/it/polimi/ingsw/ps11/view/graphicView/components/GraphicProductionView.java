@@ -61,10 +61,11 @@ public class GraphicProductionView extends ProductionView {
 	@Override
 	public void print() {
 		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
-			System.out.println("pImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
-					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 			singleActionSpace.loadImage("pImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
+		}
+		else {
+			singleActionSpace.loadImage("pImages/BLANK.png");
 		}
 		multipleActionSpace.print(production.getMultipleActionSpace().getAllSpace());
 		productionPanel.repaint();

@@ -6,6 +6,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.EndGameAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.IncrementAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
+
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 public class DecrementResourceEffect implements Effect{
