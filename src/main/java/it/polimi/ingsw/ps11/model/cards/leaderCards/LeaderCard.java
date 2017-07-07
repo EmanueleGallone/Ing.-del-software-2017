@@ -17,6 +17,7 @@ public class LeaderCard extends Card implements Requirement{
 	
 	
 	public LeaderCard() {
+		//apparantemente inutile
 		super();
 	}
 	

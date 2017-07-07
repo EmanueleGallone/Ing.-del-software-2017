@@ -59,7 +59,7 @@ public class Excommunication implements Serializable,Iterable<Effect>{
 	public Excommunication clone(){
 		Excommunication clone = new Excommunication(this.id, this.period);
 		
-		clone.effect = this.effect;
+		clone.effect.addAll(this.effect);
 		
 		return clone;
 		
