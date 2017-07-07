@@ -12,7 +12,7 @@ public class TextualChurchView extends ChurchView{
 		
 		for(int i = 0; i < this.church.getMaxExcomunication(); i++){
 			if (church.getExcomunications(i) != null) 
-				console.println(i + " Period: " + church.getExcomunications(i));
+				console.println(i + " Period: " + church.getExcomunications(i).getId());
 		}
 		
 	}
