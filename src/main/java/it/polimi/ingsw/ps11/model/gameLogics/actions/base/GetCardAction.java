@@ -20,7 +20,7 @@ public class GetCardAction implements Action {
 	private DevelopmentCard card;
 	private ResourceList cost;
 	
-	//private ResourceList modifier = new ResourceList();
+	private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
@@ -41,7 +41,7 @@ public class GetCardAction implements Action {
 		
 		if(isMultipleCost())
 			return false;
-		else if(cost == null && card.isMonoCost()){
+		else if(card.isMonoCost()){
 			cost = card.getFirstCost();
 		}
 
@@ -52,12 +52,15 @@ public class GetCardAction implements Action {
 		}
 		if(!aManager.state().getPlayer().getCardManager().canAdd(card)){
 			aManager.state().invoke("Non puoi prendere un'altra carta di questo tipo");
+			return false;
 		}
 		return true;
 	}
 
 	private DecrementAction makePayAction(){
-		DecrementAction pay = new DecrementAction(aManager,cost);
+		ResourceList totalCost = this.cost.clone();
+		totalCost.subtract(modifier);
+		DecrementAction pay = new DecrementAction(aManager,totalCost);
 		return aManager.affect(pay);
 	}
 	
@@ -91,6 +94,10 @@ public class GetCardAction implements Action {
 	
 	public ResourceList getCost() {
 		return cost;
+	}
+	
+	public void setModifier(ResourceList modifier) {
+		this.modifier = modifier;
 	}
 	
 	public void setCost(ResourceList cost) {

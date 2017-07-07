@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
@@ -37,6 +38,7 @@ public class ActiveYieldTest {
 		
 	Yield harvest;
 	GreenCard card1, card2;
+	BlueCard card3;
 	
 	ResourceList resourceListCoin, resourceListWood;
 	
@@ -57,6 +59,10 @@ public class ActiveYieldTest {
 		resourceListCoin = new ResourceList(new Coin(3));
 		resourceListWood = new ResourceList(new Wood(3));
 		
+		card3 = new BlueCard();
+		card3.addPermanentEffect(new AddResourceEffect(resourceListCoin));
+		player.getCardManager().addCard(card3);
+		
 		card1 = new GreenCard();
 		card1.addPermanentEffect(new AddResourceEffect(resourceListCoin));
 		card1.setActiveValue(2);
@@ -72,13 +78,15 @@ public class ActiveYieldTest {
 	
 	@Test
 	public void isLegalTest(){
+		
 		action = new ActiveYieldAction(aManager, "GreenCard", 0);
-		assertTrue(action.isLegal());
+		assertTrue(action.isLegal());							//sempre true
 	}
 	
 	@Test
 	public void performTest(){
-		action = new ActiveYieldAction(aManager, "GreenCard", 3);
+		
+		action = new ActiveYieldAction(aManager, GreenCard.class.toString(), 3);
 		action.perform();
 
 		assertEquals(4, player.getResourceList().get(Coin.class).getValue());

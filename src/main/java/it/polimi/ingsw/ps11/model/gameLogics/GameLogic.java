@@ -48,9 +48,10 @@ public class GameLogic implements Runnable{
 	}
 	
 	private void round(StateHandler nextPlayer){
-		nextPlayer.nextState(new PlayState());
-		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
+//		nextPlayer.nextState(new PlayState());
+//		nextPlayer.invoke(new TextualEvent("E' il tuo turno!"));
 		//nextPlayer.invoke(new GameUpdateEvent(game));
+		nextPlayer.play();
 		
 		for(StateHandler pState : playerStatus.values()){
 			
@@ -96,8 +97,7 @@ public class GameLogic implements Runnable{
 		periodEnd = false;
 		Player currentPlayer = game.getRoundManager().currentPlayer();
 		if(sHandler.getPlayer().equals(currentPlayer)){
-			sHandler.nextState(new PlayState());
-			sHandler.invoke(new TextualEvent("E' il tuo turno!"));
+			sHandler.play();
 			game.getRoundManager().startTimer();
 		}
 		sHandler.nextState(new DefaultState());

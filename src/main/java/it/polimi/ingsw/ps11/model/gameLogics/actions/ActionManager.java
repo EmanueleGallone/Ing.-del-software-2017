@@ -36,8 +36,7 @@ public class ActionManager {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends Action> T affect(T a){
-		T action = (T) a.clone();
+	public <T extends Action> T affect(T action){
 		ArrayList<Affecter<?>> aList = this.get(action.getClass());
 		for(Affecter<?> aff : aList){
 			Affecter<T> affecter = (Affecter<T>)aff;

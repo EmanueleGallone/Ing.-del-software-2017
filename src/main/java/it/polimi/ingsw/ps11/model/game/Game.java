@@ -32,7 +32,8 @@ public class Game implements Serializable  {
 			roundManager = new RoundManager(players);
 			board = initializeBoard(players);
 			setDices(players);
-			assignLeaderCard(players);
+
+			//assignLeaderCard(players);
 			
 			refreshCard(roundManager.currentPeriod());
 		} catch (IOException e) {

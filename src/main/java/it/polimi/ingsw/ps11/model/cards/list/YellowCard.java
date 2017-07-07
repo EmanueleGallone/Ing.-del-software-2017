@@ -33,14 +33,10 @@ public class YellowCard extends DevelopmentCard{
 		clone.period = this.period;
 		
 		for(ResourceList r : this.getCosts())
-			clone.addCost(r.clone()); //copio i costi
+			clone.addCost(r.clone());
 		
-		//for(Bonus bonus : this.instantBonus)
-			//clone.addInstantBonus(bonus.clone());
-		
-		//for(Bonus bonus : this.permanentBonus)
-		//clone.addPermanentBonus(bonus.clone());
-		//aspetto per i bonus; saranno cambiati
+		clone.instantEffect = instantEffect;
+		clone.permanentEffect = permanentEffect;
 		
 		return clone;
 	}

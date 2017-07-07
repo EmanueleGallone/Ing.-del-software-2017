@@ -38,6 +38,7 @@ public class GraphicConfirmPanelView {
 		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.floor = floor;
+		window.setAlwaysOnTop(true);
 		
 		window = new JFrame();
 		window.setTitle("Game Window");											//Setup la finestra principale del gioco
@@ -236,5 +237,9 @@ public class GraphicConfirmPanelView {
 	
 	public void show(){
 		window.setVisible(true);
+	}
+	
+	public JFrame getComponent(){
+		return window;
 	}
 }

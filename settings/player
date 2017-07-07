@@ -36,7 +36,7 @@
       "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
         "INSTANCE": {
-          "value": 3
+          "value": 0
         }
       },
       "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {

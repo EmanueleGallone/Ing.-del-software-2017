@@ -41,6 +41,7 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.costs = resourceLists;
+		dialog.isAlwaysOnTop();
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 

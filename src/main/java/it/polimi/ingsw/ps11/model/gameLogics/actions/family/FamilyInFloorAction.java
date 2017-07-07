@@ -38,9 +38,9 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	@Override
 	public void perform() {
 		towerAction.perform();
-		spaceAction.perform();
 		getCard.perform();
-		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
+		spaceAction.perform();
+		//aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 	}
 	
 	@Override
@@ -58,8 +58,6 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 			aManager.state().nextState(new WaitConfirm(this));
 			return false;
 		}
-		if(confermed != null)
-			spaceAction.incrementServant(confermed.getServant());
 		return result && spaceAction.isLegal();
 	}
 	
@@ -67,10 +65,9 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	//Va fatto prima del getCard.isLegal perchè il giocatore può usare le risorse del piano per pagare la carta
 		ResourceList resource = spaceAction.getSpace().getResources();
 		if(resource != null){
-			ResourceList cardCost = getCard.getCost();
-			cardCost.subtract(resource);
-			getCard.setCost(cardCost);		
+			getCard.setModifier(resource.clone());	
 		}
+		
 	}
 	
 	public FamilyInTowerAction getTowerAction() {
@@ -109,6 +106,6 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	
 	@Override
 	public FamilyInFloorAction clone() {
-		return null;
+		return new FamilyInFloorAction(aManager, towerAction.clone(), spaceAction.clone(), getCard.clone());
 	}
 }

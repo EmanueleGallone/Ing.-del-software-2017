@@ -5,10 +5,10 @@ import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
 import it.polimi.ingsw.ps11.view.textualView.TextualView;
 
-public class SocketClientStarter {
+public class SocketClientStarter_testuale_temp {
 	public static void main(String[] args) {
-	//	new Client(new TextualView(), new SocketConnection()).run();
-		new Client(new GraphicView(), new SocketConnection()).run();
+		new Client(new TextualView(), new SocketConnection()).run();
+	//	new Client(new GraphicView(), new SocketConnection()).run();
 		
 	}
 }
