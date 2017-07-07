@@ -1,15 +1,21 @@
 package it.polimi.ingsw.ps11.model.game;
 
+import java.awt.List;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+
+import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -58,10 +64,22 @@ public class Game implements Serializable  {
 		Board board = new Loader(FileRegistry.board).load(Board.class);
 		board.getMarket().setPlayerNumber(players.size());
 		Church church = new Loader(FileRegistry.church).load(Church.class);
-		//Manca la parte in cui si settano le scomuniche
+		setExcomunications(church);
 		board.setChurch(church);
 		return board;
 	}
+	
+	private void setExcomunications(Church church) throws FileNotFoundException, ClassCastException{
+		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
+		ArrayList<Excommunication> exc = new Loader(FileRegistry.excommunication).load(type);
+		Collections.shuffle(exc);
+		
+		for(Excommunication e : exc){
+			church.addExcomunication(e);
+		}
+	}
+	
+	
 	
 	/**<h3> CardManager loadCards(int period) </h3>
 	 * <p> Carica le carte sulle torri in base al periodo</p>

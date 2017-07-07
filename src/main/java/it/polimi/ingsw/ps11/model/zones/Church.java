@@ -13,6 +13,8 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class Church implements Serializable {
 	
+	private final int MAX_EXCOMUNICATION = 3;
+	
 	private ArrayList<Excommunication> excomunications;
 	private HashMap<Integer, ResourceList> requirements = new HashMap<>();
 	private HashMap<Integer, ResourceList> rewards = new HashMap<>();
@@ -37,19 +39,26 @@ public class Church implements Serializable {
 		return requirements.get(period);
 	}
 	
-	public void setExcomunications(ArrayList<Excommunication> excomunications) {
-		this.excomunications = excomunications;
+	public boolean addExcomunication(Excommunication e) {
+		Excommunication temp = this.getExcomunications(e.getPeriod());
+		if(temp == null && excomunications.size() <= MAX_EXCOMUNICATION){
+			this.excomunications.add(e);
+			return true;
+		}
+		return false;
 	}
 	
-	public Excommunication getExcomunications(int period) throws IllegalArgumentException {
+	public Excommunication getExcomunications(int period){
 		for(Excommunication e : excomunications){
 			if(e.getPeriod() == period)
 				return e;
 		}
-		throw new IllegalArgumentException();
+		return null;
 	}
 	
-	
+	public int getMaxExcomunication() {
+		return MAX_EXCOMUNICATION;
+	}
 	
 	//Salvataggio su file
 	

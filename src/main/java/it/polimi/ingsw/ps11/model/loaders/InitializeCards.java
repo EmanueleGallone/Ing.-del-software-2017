@@ -52,15 +52,15 @@ public class InitializeCards {
 		//LeaderCardsInitializer();
 		//initializeExcommunication();
 		
-		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
-		try {
-			ArrayList<Excommunication> e = new Loader(FileRegistry.excommunication).load(type);
-			System.out.println(e.get(8).getPeriod());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (ClassCastException e) {
-			e.printStackTrace();
-		}
+//		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
+//		try {
+//			ArrayList<Excommunication> e = new Loader(FileRegistry.excommunication).load(type);
+//			System.out.println(e.get(8).getPeriod());
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (ClassCastException e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	public static void inizializzaCarte(){
