@@ -39,16 +39,21 @@ public class Church implements Serializable {
 		return requirements.get(period);
 	}
 	
-	public void addExcomunication(Excommunication e) {
-		this.excomunications.add(e);
+	public boolean addExcomunication(Excommunication e) {
+		Excommunication temp = this.getExcomunications(e.getPeriod());
+		if(temp == null && excomunications.size() <= MAX_EXCOMUNICATION){
+			this.excomunications.add(e);
+			return true;
+		}
+		return false;
 	}
 	
-	public Excommunication getExcomunications(int period) throws IllegalArgumentException {
+	public Excommunication getExcomunications(int period){
 		for(Excommunication e : excomunications){
 			if(e.getPeriod() == period)
 				return e;
 		}
-		throw new IllegalArgumentException();
+		return null;
 	}
 	
 	public int getMaxExcomunication() {
