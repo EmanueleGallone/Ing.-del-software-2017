@@ -55,9 +55,9 @@ public class InitializeCards {
 	
 	public static void inizializzaCarte(){
 		
-		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
+//		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
 		
-		ResourceList resourceList = new ResourceList();
+//		ResourceList resourceList = new ResourceList();
 		
 		/*
 		 * esempio
@@ -72,6 +72,7 @@ public class InitializeCards {
 		
 		*/
 		
+		/*
 		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
 		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
 		resourceList.setResource(new Wood(1));
@@ -1499,12 +1500,13 @@ public class InitializeCards {
 		//CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		//Fine costruzione files
-	
+*/
 	}
 
+	
 	public static void LeaderCardsInitializer(){
 		//INIZIO CARTE LEADER
-		ResourceList resourceList = new ResourceList(new Coin(1));
+		ResourceList resourceList;
 		HashMap<String, Integer> map = new HashMap<>();
 		
 		ActiveYieldEffect activeYieldEffect = new ActiveYieldEffect(GreenCard.class.toString(), 1);
@@ -1625,7 +1627,7 @@ public class InitializeCards {
 		sigismondoMalatesta.setRequirement(resourceList.clone());
 		//il neutrale ha permanentemente +3
 		
-		LeaderCard lorenzoDeMedici = new LeaderCard("Lorenzo de' Medici");
+		LeaderCard lorenzoDeMedici = new LeaderCard("Lorenzo de Medici");
 		resourceList = new ResourceList(new VictoryPoint(35));
 		//copia l'abilita' di un altro leader
 		
@@ -1649,7 +1651,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Servant(3));
 		resourceList.setResource(new VictoryPoint(1));
 		AddResourceEffect addResourceEffect5 = new AddResourceEffect(resourceList.clone());
-		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de' Medici");
+		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de Medici");
 		HashMap<String, Integer> map4 = new HashMap<>();
 		map4.put(BlueCard.class.toString(), 2);
 		map4.put(YellowCard.class.toString(), 4);
@@ -1800,4 +1802,6 @@ public class InitializeCards {
 		Loader loader = new Loader(FileRegistry.excommunication);
 		loader.write(list,type);
 	}
+	
+	
 }
