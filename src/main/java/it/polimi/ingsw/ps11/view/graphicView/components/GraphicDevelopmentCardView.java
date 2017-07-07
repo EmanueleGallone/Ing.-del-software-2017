@@ -16,6 +16,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
 public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
 	GraphicPaintedButton image;
+	int cont = 0;
 	
 	private EventHandler<Card> cardClickEvent = new EventHandler<>();
 	
@@ -29,7 +30,16 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 	}
 
 	public void print(){
+		
+//		if(cont == 2){
+//			image = new GraphicPaintedButton();
+//			System.out.println("Immagine cancellata");
+//			return;
+//		}
+//		System.out.println(cont);
+//		cont++;
 		if(developmentCard!= null){
+			//image = new GraphicPaintedButton();
 			image.loadImage(developmentCard.getClass().getSimpleName() +"/" + developmentCard.getName() + ".png");
 			image.repaint();
 		}

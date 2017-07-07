@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.JButton;
 /**
  * <h3> GraphicPaintedButton</h3>
@@ -16,7 +17,6 @@ import javax.swing.JButton;
 public class GraphicPaintedButton extends JButton implements ToPaint{
 		
 	protected BufferedImage background;
-	private boolean painted = false;
 	
 	public GraphicPaintedButton() {
 		
@@ -25,15 +25,14 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if(painted){
-		Dimension size = getSize();
-		g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
+		if(background!=null){
+			Dimension size = getSize();
+			g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
 		}
 	}
 	
 	@Override
 	public void loadImage(String url){
-		painted = true;
 		URL imagePath = getClass().getResource(url);
 		BufferedImage result = null;
 		try {
