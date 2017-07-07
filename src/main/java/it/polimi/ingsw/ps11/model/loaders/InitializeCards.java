@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.loaders;
 
-import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +18,7 @@ import it.polimi.ingsw.ps11.model.cards.effects.AnotherCard;
 import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.cards.effects.DecrementResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint;
 import it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus;
@@ -1770,9 +1770,17 @@ public class InitializeCards {
 		
 		//INIZIO TERZO PERIODO
 		
-//		Excommunication fifteenth = new Excommunication("15", 3);
-//		ResourceAtTheEnd resourceAtTheEnd = new ResourceAtTheEnd(new ResourceList(new VictoryPoint(0)));
-//		fifteenth.setEffect(resourceAtTheEnd);
+		Excommunication fifteenth = new Excommunication("15", 3);
+		DisableCardVictoryPoint disableCardVictoryPoint = new DisableCardVictoryPoint(BlueCard.class.toString());
+		fifteenth.addEffect(disableCardVictoryPoint);
+		
+//		Excommunication sixteen = new Excommunication("16", 3);
+//		ResourceAtTheEnd r = new ResourceAtTheEnd(new ResourceList(new VictoryPoint(0)));
+//		sixteen.setEffect(r);
+		
+		Excommunication seventeen = new Excommunication("17", 3);
+		DisableCardVictoryPoint disableCardVictoryPoint2 = new DisableCardVictoryPoint(GreenCard.class.toString());
+		seventeen.addEffect(disableCardVictoryPoint2);
 		
 		list.add(first);
 		list.add(second);
@@ -1785,6 +1793,9 @@ public class InitializeCards {
 		list.add(ninth);
 		list.add(tenth);
 		list.add(eleventh);
+		//vanno aggiunte altre
+		list.add(fifteenth);
+		list.add(seventeen);
 		
 		Loader loader = new Loader(FileRegistry.excommunication);
 		loader.write(list,type);
