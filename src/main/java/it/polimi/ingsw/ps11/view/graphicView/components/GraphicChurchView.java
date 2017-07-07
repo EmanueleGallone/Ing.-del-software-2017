@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
+import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView;
 /**
  * <h3> GraphicChurchView</h3>
@@ -66,7 +67,7 @@ public class GraphicChurchView extends ChurchView {
 		churchPanel.add(card3, gbcCard3);
 		
 		for(int i = 0; i < 3; i++){
-		cards.get(i).loadImage("excomunicationCards/" + (i+1) + ".png");
+		cards.get(i).loadImage("exCards/" + (i+1) + ".png");
 		
 		}
 
@@ -79,9 +80,10 @@ public class GraphicChurchView extends ChurchView {
 //			cards.get(i).loadImage("excomunicationCards/" + church.getCards.get(i).getname() + ".png");
 //			
 //		}
-		for(int i = 0; i < 3; i++){
-		cards.get(i).loadImage("excomunicationCards/" + (i+1) + ".png");
-		
+		for(int i = 0; i < church.getMaxExcomunication(); i++){
+			Excommunication excommunication = church.getExcomunications(i);
+			cards.get(i).loadImage("excommunicationCard/" + excommunication.getPeriod() + "/.png");
+
 		}
 //		church.loadImage("resources\\Church.PNG");
 //		church.loadImage("..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\settings\\boardImages\\Church.png");

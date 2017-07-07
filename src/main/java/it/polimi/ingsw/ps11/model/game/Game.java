@@ -73,7 +73,7 @@ public class Game implements Serializable  {
 		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
 		ArrayList<Excommunication> exc = new Loader(FileRegistry.excommunication).load(type);
 		Collections.shuffle(exc);
-
+		
 		for(Excommunication e : exc){
 			church.addExcomunication(e);
 		}

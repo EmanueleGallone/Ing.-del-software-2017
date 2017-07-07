@@ -38,6 +38,7 @@ public class GraphicConfirmPanelView {
 		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.floor = floor;
+		window.setAlwaysOnTop(true);
 		
 		window.setAlwaysOnTop(true);
 		
