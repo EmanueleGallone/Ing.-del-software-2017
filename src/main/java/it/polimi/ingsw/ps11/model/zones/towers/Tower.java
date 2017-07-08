@@ -19,7 +19,7 @@ public class Tower implements Serializable{
 	
 	private static final int MAX_FLOORS = 4;
 	private ArrayList<Floor> floors = new ArrayList<>();
-	private String cardType;
+	private String name;
 	
 // Start constructors
 	
@@ -28,7 +28,7 @@ public class Tower implements Serializable{
 	}
 	
 	public Tower(Class<? extends DevelopmentCard> cardType) {
-		this.cardType = cardType.toString();
+		this.name = cardType.toString();
 	}
 	
 	public Tower(ArrayList<Floor> floors) {
@@ -57,7 +57,7 @@ public class Tower implements Serializable{
 	
 	
 	public void setCardType(Class<? extends DevelopmentCard> cardType) {
-		this.cardType = cardType.toString();
+		this.name = cardType.toString();
 	}
 	
 	public Floor getFloor(int index){
@@ -113,7 +113,7 @@ public class Tower implements Serializable{
 	}
 	
 	public String getCardType() {
-		return cardType;
+		return name;
 	}
 	
 // End getters

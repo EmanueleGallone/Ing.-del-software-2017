@@ -14,7 +14,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
  */
 public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 
-	private String familyType;
+	protected String familyType;
 	protected int value;
 	
 	public FamilyInSpaceAffecter(String familyType, int value) {
@@ -30,7 +30,7 @@ public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 	@Override
 	public FamilyInSpaceAction affect(FamilyInSpaceAction action) {
 		FamilyMember familyMember = action.getFamilyMember();
-		if(familyMember.getClass().toString().equals(familyType))
+		if(familyMember.getId().equals(familyType))
 			action.addModifier(value);
 		return action;
 	}

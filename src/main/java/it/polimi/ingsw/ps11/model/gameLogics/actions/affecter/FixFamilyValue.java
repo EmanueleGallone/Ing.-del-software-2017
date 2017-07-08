@@ -15,9 +15,12 @@ public class FixFamilyValue extends FamilyInSpaceAffecter {
 
 	@Override
 	public FamilyInSpaceAction affect(FamilyInSpaceAction action) {
-		int currentValue = action.getFamilyMember().getValue();
-		int difference = this.value - currentValue;							
-		action.addModifier(difference);
+		if(action.getFamilyMember().getId().equals(familyType)){
+			int currentValue = action.getFamilyMember().getValue();
+			int difference = this.value - currentValue;							
+			action.addModifier(difference);	
+		}
+		
 		return action;
 	}
 }
