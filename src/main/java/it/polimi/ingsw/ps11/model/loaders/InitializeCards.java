@@ -1506,6 +1506,7 @@ public class InitializeCards {
 	
 	public static void LeaderCardsInitializer(){
 		//INIZIO CARTE LEADER
+		/*
 		ResourceList resourceList;
 		HashMap<String, Integer> map = new HashMap<>();
 		
@@ -1515,23 +1516,7 @@ public class InitializeCards {
 		francescoSforza.addRequirement(new CardNumberRequirement(map));
 		francescoSforza.addEffect(activeYieldEffect);
 		
-		/*
-		LeaderCard ludovicoAriosto = new LeaderCard("Ludovico Ariosto"); //io questa carta non la includerei proprio nel gioco
-		ludovicoAriosto.setCounter(5);
-		ludovicoAriosto.setCardClass(BlueCard.class.toString());
-		//effetti: puoi posizionare in uno spazio azione già occupato; permanente
-		*/
-		/*
-		LeaderCard filippoBrunelleschi = new LeaderCard("Filippo Brunelleschi");
-		costs.clear();
-		costs.put(YellowCard.class.toString(), 5);
-		//effetti: non paghi più le 3 monete se posizioni il familiare in una torre già occupata; permanente
 		
-		LeaderCard federicoDaMontefeltro = new LeaderCard("Federico Da Montefeltro");
-		federicoDaMontefeltro.setCounter(5);
-		federicoDaMontefeltro.setCardClass(GreenCard.class.toString());
-		//effetto : un familiare ha valore 6 una volta per turno
-		*/
 		resourceList = new ResourceList(new FaithPoint(1));
 		AddResourceEffect addResourceEffect = new AddResourceEffect(resourceList.clone());
 		LeaderCard girolamoSavonarola = new LeaderCard("Girolamo Savonarola");
@@ -1608,7 +1593,44 @@ public class InitializeCards {
 		picoDellaMirandola.addEffect(cardDiscount3);
 		picoDellaMirandola.addEffect(cardDiscount4);
 		
+		
+		resourceList = new ResourceList(new Servant(3));
+		resourceList.setResource(new VictoryPoint(1));
+		AddResourceEffect addResourceEffect5 = new AddResourceEffect(resourceList.clone());
+		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de Medici");
+		HashMap<String, Integer> map4 = new HashMap<>();
+		map4.put(BlueCard.class.toString(), 2);
+		map4.put(YellowCard.class.toString(), 4);
+		cosimoDeMedici.addRequirement(new CardNumberRequirement(map4));
+		cosimoDeMedici.addEffect(addResourceEffect5);
+		
+		
+		resourceList = new ResourceList(new VictoryPoint(4));
+		AddResourceEffect addResourceEffect4 = new AddResourceEffect(resourceList.clone());
+		LeaderCard bartolomeoColleoni = new LeaderCard("Bartolomeo Colleoni");
+		HashMap<String, Integer> map5 = new HashMap<>();
+		map5.put(PurpleCard.class.toString(), 2);
+		map5.put(GreenCard.class.toString(), 4);
+		bartolomeoColleoni.addRequirement(new CardNumberRequirement(map5));
+		bartolomeoColleoni.addEffect(addResourceEffect4);
+		*/
 		/*
+		LeaderCard ludovicoAriosto = new LeaderCard("Ludovico Ariosto"); //io questa carta non la includerei proprio nel gioco
+		ludovicoAriosto.setCounter(5);
+		ludovicoAriosto.setCardClass(BlueCard.class.toString());
+		//effetti: puoi posizionare in uno spazio azione già occupato; permanente
+		*/
+		/*
+		LeaderCard filippoBrunelleschi = new LeaderCard("Filippo Brunelleschi");
+		costs.clear();
+		costs.put(YellowCard.class.toString(), 5);
+		//effetti: non paghi più le 3 monete se posizioni il familiare in una torre già occupata; permanente
+		
+		LeaderCard federicoDaMontefeltro = new LeaderCard("Federico Da Montefeltro");
+		federicoDaMontefeltro.setCounter(5);
+		federicoDaMontefeltro.setCardClass(GreenCard.class.toString());
+		//effetto : un familiare ha valore 6 una volta per turno	
+		
 		LeaderCard sistoIV = new LeaderCard("Sisto IV");
 		resourceList = new ResourceList(new Wood(6));
 		resourceList.setResource(new Stone(6));
@@ -1648,26 +1670,7 @@ public class InitializeCards {
 		santaRita.setRequirement(resourceList.clone());
 		//ensures ogni volta che prendi instantBonus ricevi il bonus 2 volte
 		*/
-		resourceList = new ResourceList(new Servant(3));
-		resourceList.setResource(new VictoryPoint(1));
-		AddResourceEffect addResourceEffect5 = new AddResourceEffect(resourceList.clone());
-		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de Medici");
-		HashMap<String, Integer> map4 = new HashMap<>();
-		map4.put(BlueCard.class.toString(), 2);
-		map4.put(YellowCard.class.toString(), 4);
-		cosimoDeMedici.addRequirement(new CardNumberRequirement(map4));
-		cosimoDeMedici.addEffect(addResourceEffect5);
-		
-		
-		resourceList = new ResourceList(new VictoryPoint(4));
-		AddResourceEffect addResourceEffect4 = new AddResourceEffect(resourceList.clone());
-		LeaderCard bartolomeoColleoni = new LeaderCard("Bartolomeo Colleoni");
-		HashMap<String, Integer> map5 = new HashMap<>();
-		map5.put(PurpleCard.class.toString(), 2);
-		map5.put(GreenCard.class.toString(), 4);
-		bartolomeoColleoni.addRequirement(new CardNumberRequirement(map5));
-		bartolomeoColleoni.addEffect(addResourceEffect4);
-		
+		/*
 		ArrayList<LeaderCard> leaderCards = new ArrayList<>();
 		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
 		
@@ -1698,7 +1701,7 @@ public class InitializeCards {
 		
 		new Loader(FileRegistry.leaderCards).write(cardManager,CardManager.class);
 		//FINE LEADER CARDS
-	 
+	 */
 	}
 
 	public static void initializeExcommunication(){
