@@ -28,11 +28,9 @@ public class CardCostAffecter implements Affecter<GetCardAction> {
 
 	@Override
 	public GetCardAction affect(GetCardAction action) {
-		String card = action.getCard().getClass().toString();
+		String card = action.getCard().getId();
 		if(card.equals(cardType)){
-			GetCardAction cardAction = action.clone();
-			cardAction.getCost().subtract(modifier);
-			return cardAction;
+			action.getCost().subtract(modifier);
 		}
 		return action;
 	}

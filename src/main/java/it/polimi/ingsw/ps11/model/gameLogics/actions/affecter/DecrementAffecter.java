@@ -16,10 +16,6 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class DecrementAffecter implements Affecter<DecrementAction>{
 
-	/*
-	 * Rappresenta quel malus che ti aumenta i costi delle cose, ad esempio invece di pagare 1 servitore ne spendi 2
-	 */
-	
 	private String condiction;
 	private int increment;
 	

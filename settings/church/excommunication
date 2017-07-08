@@ -8,10 +8,11 @@
         "INSTANCE": {
           "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+              "MilitaryPoint": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                 "INSTANCE": {
-                  "value": 1
+                  "value": 1,
+                  "id": "MilitaryPoint"
                 }
               }
             }
@@ -29,10 +30,11 @@
         "INSTANCE": {
           "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+              "Coin": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                 "INSTANCE": {
-                  "value": 1
+                  "value": 1,
+                  "id": "Coin"
                 }
               }
             }
@@ -50,10 +52,11 @@
         "INSTANCE": {
           "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+              "Servant": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                 "INSTANCE": {
-                  "value": 1
+                  "value": 1,
+                  "id": "Servant"
                 }
               }
             }
@@ -71,16 +74,18 @@
         "INSTANCE": {
           "resource": {
             "resources": {
-              "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+              "Wood": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                 "INSTANCE": {
-                  "value": 1
+                  "value": 1,
+                  "id": "Wood"
                 }
               },
-              "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+              "Stone": {
                 "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                 "INSTANCE": {
-                  "value": 1
+                  "value": 1,
+                  "id": "Stone"
                 }
               }
             }
@@ -96,7 +101,7 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
-          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+          "cardType": "GreenCard",
           "value": -3
         }
       }
@@ -109,7 +114,7 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
-          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
+          "cardType": "YellowCard",
           "value": -3
         }
       }
@@ -149,28 +154,28 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
-          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+          "cardType": "GreenCard",
           "value": -4
         }
       },
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
-          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
+          "cardType": "YellowCard",
           "value": -4
         }
       },
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
-          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+          "cardType": "BlueCard",
           "value": -4
         }
       },
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
-          "cardType": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard",
+          "cardType": "PurpleCard",
           "value": -4
         }
       }
@@ -198,7 +203,7 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint",
         "INSTANCE": {
-          "card": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+          "card": "BlueCard",
           "rewards": {}
         }
       }
@@ -211,7 +216,7 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint",
         "INSTANCE": {
-          "card": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+          "card": "GreenCard",
           "rewards": {}
         }
       }

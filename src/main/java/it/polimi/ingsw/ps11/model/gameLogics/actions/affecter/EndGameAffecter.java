@@ -19,7 +19,6 @@ public class EndGameAffecter implements Affecter<EndGameAction>{
 		this.doAtTheEnd = doAtTheEnd;
 	}
 	
-	
 	@Override
 	public String target() {
 		return EndGameAction.class.toString();

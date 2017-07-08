@@ -1,19 +1,16 @@
 package it.polimi.ingsw.ps11.model.game;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
-import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.zones.Church;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Market;
@@ -41,8 +38,8 @@ public class Board implements Serializable{
 	private HashMap<String, Tower> towers = new HashMap<>();
 	private DiceManager diceManager;
 	
-	private Yield harvest = new Yield(GreenCard.class);
-	private Yield production = new Yield(YellowCard.class);
+	private Yield harvest = new Yield(new GreenCard().getId());
+	private Yield production = new Yield(new YellowCard().getId());
 	private Market market;
 	private CouncilPalace councilPalace;
 	private Church church;
@@ -59,7 +56,7 @@ public class Board implements Serializable{
 		this.councilPalace = councilPalace;
 		
 		for(Tower t : towers){
-			this.towers.put(t.getClass().toString(), t);
+			this.towers.put(t.getName(), t);
 		}
 	}
 	
@@ -69,7 +66,7 @@ public class Board implements Serializable{
 	
 	public void setCard(CardManager cards){
 		for(Tower tower : towers.values()){
-			ArrayList<DevelopmentCard> c = cards.getCardList(tower.getCardType());
+			ArrayList<DevelopmentCard> c = cards.getCardList(tower.getName());
 			c.removeAll(alreadyUsed);
 			alreadyUsed.addAll(tower.setCard(c));
 			
@@ -90,13 +87,7 @@ public class Board implements Serializable{
 	
 	public ArrayList<Tower> getTowers() {
 		return new ArrayList<Tower>(towers.values());
-	}
-	
-	
-	public <T extends Tower> T getTower(Class<T> tower){
-		return (T) this.getTower(tower.toString());
-	}
-	
+	}	
 	
 	public Tower getTower(String tower){
 		return this.towers.get(tower);

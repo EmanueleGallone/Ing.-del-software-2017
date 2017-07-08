@@ -26,9 +26,8 @@ public class FamilyInTowerAffecter implements Affecter<FamilyInTowerAction>{
 
 	@Override
 	public FamilyInTowerAction affect(FamilyInTowerAction action) {
-		FamilyInTowerAction newAction = action.clone();
-		newAction.setTaxIfNotFree(resource);
-		return newAction;
+		action.setTaxIfNotFree(resource);
+		return action;
 	}
 
 }

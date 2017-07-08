@@ -1,563 +1,7 @@
 {
   "MAX_CARD": 6,
   "cards": {
-    "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": [
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 5
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
-              "INSTANCE": {
-                "resource": {
-                  "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-                      "INSTANCE": {
-                        "value": 3
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ],
-          "permanentEffect": [],
-          "name": "Papal Messenger"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 4
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [],
-          "permanentEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
-                "value": 3
-              }
-            }
-          ],
-          "name": "Peasant"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 5
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
-              "INSTANCE": {
-                "resources": [
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
-              "INSTANCE": {
-                "resources": [
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
-              "INSTANCE": {
-                "resources": [
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "permanentEffect": [],
-          "name": "Royal Messenger"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 3
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-                "value": 6
-              }
-            },
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-                "discount": {
-                  "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ],
-          "permanentEffect": [],
-          "name": "Patron"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 4
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
-              "INSTANCE": {
-                "resource": {
-                  "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
-                "value": 6
-              }
-            }
-          ],
-          "permanentEffect": [],
-          "name": "Captain"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 4
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [],
-          "permanentEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
-                "value": 3
-              }
-            }
-          ],
-          "name": "Scholar"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 4
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
-                "value": 6
-              }
-            },
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
-                "discount": {
-                  "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                      "INSTANCE": {
-                        "value": 1
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                      "INSTANCE": {
-                        "value": 1
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ],
-          "permanentEffect": [],
-          "name": "Architect"
-        }
-      },
-      {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
-        "INSTANCE": {
-          "DEFAULT_VALUE": 1,
-          "period": 2,
-          "activeValue": 1,
-          "costs": [
-            {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                  "INSTANCE": {
-                    "value": 4
-                  }
-                }
-              }
-            }
-          ],
-          "instantEffect": [
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
-              "INSTANCE": {
-                "resources": [
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
-                        "INSTANCE": {
-                          "value": 2
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
-              "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard",
-                "value": 6
-              }
-            }
-          ],
-          "permanentEffect": [],
-          "name": "Hero"
-        }
-      }
-    ],
-    "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": [
+    "PurpleCard": [
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.PurpleCard",
         "INSTANCE": {
@@ -567,10 +11,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "Wood"
                   }
                 }
               }
@@ -582,10 +27,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                    "Servant": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "Servant"
                       }
                     }
                   }
@@ -599,10 +45,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 4
+                        "value": 4,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -610,7 +57,8 @@
               }
             }
           ],
-          "name": "Hosting Foreigners"
+          "name": "Hosting Foreigners",
+          "id": "PurpleCard"
         }
       },
       {
@@ -622,10 +70,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "Stone"
                   }
                 }
               }
@@ -637,10 +86,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "MilitaryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                       "INSTANCE": {
-                        "value": 3
+                        "value": 3,
+                        "id": "MilitaryPoint"
                       }
                     }
                   }
@@ -653,56 +103,62 @@
                 "resources": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                      "Wood": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Wood"
                         }
                       },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                      "Stone": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Stone"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                      "Servant": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Servant"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Coin"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                      "MilitaryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "MilitaryPoint"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                      "FaithPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "FaithPoint"
                         }
                       }
                     }
@@ -717,10 +173,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -728,7 +185,8 @@
               }
             }
           ],
-          "name": "Building the Bastions"
+          "name": "Building the Bastions",
+          "id": "PurpleCard"
         }
       },
       {
@@ -740,10 +198,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "MilitaryPoint": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "MilitaryPoint"
                   }
                 }
               }
@@ -755,16 +214,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "Coin"
                       }
                     },
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                    "FaithPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "FaithPoint"
                       }
                     }
                   }
@@ -778,10 +239,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -789,7 +251,8 @@
               }
             }
           ],
-          "name": "Crusade"
+          "name": "Crusade",
+          "id": "PurpleCard"
         }
       },
       {
@@ -801,32 +264,36 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "MilitaryPoint": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "MilitaryPoint"
                   }
                 }
               }
             },
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                  "INSTANCE": {
-                    "value": 2
-                  }
-                },
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Coin"
                   }
                 },
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 2,
+                    "id": "Wood"
+                  }
+                },
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Stone"
                   }
                 }
               }
@@ -838,10 +305,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                    "FaithPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                       "INSTANCE": {
-                        "value": 3
+                        "value": 3,
+                        "id": "FaithPoint"
                       }
                     }
                   }
@@ -855,10 +323,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 4
+                        "value": 4,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -866,7 +335,8 @@
               }
             }
           ],
-          "name": "Support to the Cardinal"
+          "name": "Support to the Cardinal",
+          "id": "PurpleCard"
         }
       },
       {
@@ -878,10 +348,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "MilitaryPoint": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "MilitaryPoint"
                   }
                 }
               }
@@ -893,10 +364,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "Coin"
                       }
                     }
                   }
@@ -909,56 +381,62 @@
                 "resources": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                      "Wood": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Wood"
                         }
                       },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                      "Stone": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Stone"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                      "Servant": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Servant"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Coin"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                      "MilitaryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "MilitaryPoint"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                      "FaithPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "FaithPoint"
                         }
                       }
                     }
@@ -973,10 +451,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 3
+                        "value": 3,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -984,7 +463,8 @@
               }
             }
           ],
-          "name": "Support to the King"
+          "name": "Support to the King",
+          "id": "PurpleCard"
         }
       },
       {
@@ -996,22 +476,25 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                  "INSTANCE": {
-                    "value": 2
-                  }
-                },
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Coin"
                   }
                 },
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 2,
+                    "id": "Wood"
+                  }
+                },
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1023,10 +506,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                    "FaithPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "FaithPoint"
                       }
                     }
                   }
@@ -1040,10 +524,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 6
+                        "value": 6,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1051,7 +536,8 @@
               }
             }
           ],
-          "name": "Repairing the Abbey"
+          "name": "Repairing the Abbey",
+          "id": "PurpleCard"
         }
       },
       {
@@ -1063,16 +549,18 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                  "INSTANCE": {
-                    "value": 2
-                  }
-                },
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Coin"
+                  }
+                },
+                "Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2,
+                    "id": "Servant"
                   }
                 }
               }
@@ -1082,7 +570,7 @@
             {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect",
               "INSTANCE": {
-                "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+                "cardType": "GreenCard",
                 "value": 4
               }
             }
@@ -1093,10 +581,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1104,7 +593,8 @@
               }
             }
           ],
-          "name": "Improving the Canals"
+          "name": "Improving the Canals",
+          "id": "PurpleCard"
         }
       },
       {
@@ -1116,10 +606,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 6
+                    "value": 6,
+                    "id": "Coin"
                   }
                 }
               }
@@ -1131,10 +622,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "MilitaryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                       "INSTANCE": {
-                        "value": 6
+                        "value": 6,
+                        "id": "MilitaryPoint"
                       }
                     }
                   }
@@ -1148,10 +640,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1159,11 +652,12 @@
               }
             }
           ],
-          "name": "Hiring Soldiers"
+          "name": "Hiring Soldiers",
+          "id": "PurpleCard"
         }
       }
     ],
-    "class it.polimi.ingsw.ps11.model.cards.list.YellowCard": [
+    "YellowCard": [
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.YellowCard",
         "INSTANCE": {
@@ -1173,20 +667,22 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "Wood"
                   }
                 }
               }
             },
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1198,10 +694,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 3
+                        "value": 3,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1216,10 +713,11 @@
                 "res1": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Coin"
                         }
                       }
                     }
@@ -1228,10 +726,11 @@
                 "res2": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                      "MilitaryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "MilitaryPoint"
                         }
                       }
                     }
@@ -1240,7 +739,8 @@
               }
             }
           ],
-          "name": "Barracks"
+          "name": "Barracks",
+          "id": "YellowCard"
         }
       },
       {
@@ -1252,10 +752,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Wood"
                   }
                 }
               }
@@ -1267,10 +768,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 4
+                        "value": 4,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1285,20 +787,22 @@
                 "res1": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Coin"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Coin"
                         }
                       }
                     }
@@ -1307,20 +811,22 @@
                 "res2": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 5
+                          "value": 5,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
@@ -1329,7 +835,8 @@
               }
             }
           ],
-          "name": "Treasury"
+          "name": "Treasury",
+          "id": "YellowCard"
         }
       },
       {
@@ -1341,30 +848,33 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Coin"
                   }
                 }
               }
             },
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Wood"
                   }
                 }
               }
             },
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1376,10 +886,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 8
+                        "value": 8,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1393,16 +904,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "MilitaryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "MilitaryPoint"
+                      }
+                    },
+                    "VictoryPoint": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1410,7 +923,8 @@
               }
             }
           ],
-          "name": "Stronghold"
+          "name": "Stronghold",
+          "id": "YellowCard"
         }
       },
       {
@@ -1422,10 +936,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1437,16 +952,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                    "FaithPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "FaithPoint"
+                      }
+                    },
+                    "VictoryPoint": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1463,7 +980,8 @@
               }
             }
           ],
-          "name": "Baptistery"
+          "name": "Baptistery",
+          "id": "YellowCard"
         }
       },
       {
@@ -1475,20 +993,22 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Wood"
                   }
                 }
               }
             },
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1500,10 +1020,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 3
+                        "value": 3,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1518,20 +1039,22 @@
                 "res1": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "Coin"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                      "FaithPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "FaithPoint"
                         }
                       }
                     }
@@ -1540,32 +1063,36 @@
                 "res2": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                      "Wood": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Wood"
                         }
                       },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                      "Stone": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Stone"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                      "Coin": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "Coin"
                         }
                       },
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 2
+                          "value": 2,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
@@ -1574,7 +1101,8 @@
               }
             }
           ],
-          "name": "Marketplace"
+          "name": "Marketplace",
+          "id": "YellowCard"
         }
       },
       {
@@ -1586,10 +1114,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "Wood"
                   }
                 }
               }
@@ -1601,10 +1130,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 5
+                        "value": 5,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1619,20 +1149,22 @@
                 "res1": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                      "Wood": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Wood"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                      "Wood": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "Wood"
                         }
                       }
                     }
@@ -1641,20 +1173,22 @@
                 "res2": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 7
+                          "value": 7,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
@@ -1663,7 +1197,8 @@
               }
             }
           ],
-          "name": "Painters\u0027 Guild"
+          "name": "Painters\u0027 Guild",
+          "id": "YellowCard"
         }
       },
       {
@@ -1675,20 +1210,22 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "Wood"
                   }
                 }
               }
             },
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 2,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1700,10 +1237,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 4
+                        "value": 4,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1718,22 +1256,25 @@
                 "res1": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                      "Wood": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Wood"
                         }
                       },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                        "INSTANCE": {
-                          "value": 1
-                        }
-                      },
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                      "Stone": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Stone"
+                        }
+                      },
+                      "Servant": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Servant"
                         }
                       }
                     }
@@ -1742,10 +1283,11 @@
                 "res2": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
@@ -1754,7 +1296,8 @@
               }
             }
           ],
-          "name": "Stonemasons\u0027 Guild"
+          "name": "Stonemasons\u0027 Guild",
+          "id": "YellowCard"
         }
       },
       {
@@ -1766,10 +1309,11 @@
           "costs": [
             {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                "Stone": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "Stone"
                   }
                 }
               }
@@ -1781,10 +1325,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                    "VictoryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                       "INSTANCE": {
-                        "value": 6
+                        "value": 6,
+                        "id": "VictoryPoint"
                       }
                     }
                   }
@@ -1799,20 +1344,22 @@
                 "res1": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                      "Stone": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                         "INSTANCE": {
-                          "value": 1
+                          "value": 1,
+                          "id": "Stone"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                      "Stone": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "Stone"
                         }
                       }
                     }
@@ -1821,20 +1368,22 @@
                 "res2": [
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 3
+                          "value": 3,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
                   },
                   {
                     "resources": {
-                      "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                      "VictoryPoint": {
                         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                         "INSTANCE": {
-                          "value": 7
+                          "value": 7,
+                          "id": "VictoryPoint"
                         }
                       }
                     }
@@ -1843,11 +1392,12 @@
               }
             }
           ],
-          "name": "Sculptors\u0027 Guild"
+          "name": "Sculptors\u0027 Guild",
+          "id": "YellowCard"
         }
       }
     ],
-    "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": [
+    "GreenCard": [
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.GreenCard",
         "INSTANCE": {
@@ -1861,10 +1411,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Coin"
                       }
                     }
                   }
@@ -1878,10 +1429,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "Coin"
                       }
                     }
                   }
@@ -1889,7 +1441,8 @@
               }
             }
           ],
-          "name": "Gold Mine"
+          "name": "Gold Mine",
+          "id": "GreenCard"
         }
       },
       {
@@ -1905,10 +1458,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                    "Wood": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Wood"
                       }
                     }
                   }
@@ -1922,10 +1476,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "Stone": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                       "INSTANCE": {
-                        "value": 3
+                        "value": 3,
+                        "id": "Stone"
                       }
                     }
                   }
@@ -1933,7 +1488,8 @@
               }
             }
           ],
-          "name": "Rock Pit"
+          "name": "Rock Pit",
+          "id": "GreenCard"
         }
       },
       {
@@ -1949,10 +1505,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                    "Servant": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Servant"
                       }
                     }
                   }
@@ -1966,16 +1523,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "MilitaryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "MilitaryPoint"
+                      }
+                    },
+                    "Wood": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "Wood"
                       }
                     }
                   }
@@ -1983,7 +1542,8 @@
               }
             }
           ],
-          "name": "Mountain Town"
+          "name": "Mountain Town",
+          "id": "GreenCard"
         }
       },
       {
@@ -1999,16 +1559,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                    "Wood": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Wood"
                       }
                     },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                    "Servant": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "Servant"
                       }
                     }
                   }
@@ -2022,16 +1584,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Coin"
+                      }
+                    },
+                    "Wood": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "Wood"
                       }
                     }
                   }
@@ -2039,7 +1603,8 @@
               }
             }
           ],
-          "name": "Estate"
+          "name": "Estate",
+          "id": "GreenCard"
         }
       },
       {
@@ -2056,16 +1621,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                    "MilitaryPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "MilitaryPoint"
+                      }
+                    },
+                    "Servant": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "Servant"
                       }
                     }
                   }
@@ -2073,7 +1640,8 @@
               }
             }
           ],
-          "name": "Manor House"
+          "name": "Manor House",
+          "id": "GreenCard"
         }
       },
       {
@@ -2089,10 +1657,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 4
+                        "value": 4,
+                        "id": "Coin"
                       }
                     }
                   }
@@ -2106,22 +1675,25 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                      "INSTANCE": {
-                        "value": 2
-                      }
-                    },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                    "Coin": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Coin"
                       }
                     },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "Wood": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "Wood"
+                      }
+                    },
+                    "Stone": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Stone"
                       }
                     }
                   }
@@ -2129,7 +1701,8 @@
               }
             }
           ],
-          "name": "Dukedom"
+          "name": "Dukedom",
+          "id": "GreenCard"
         }
       },
       {
@@ -2145,16 +1718,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                    "Servant": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "Servant"
                       }
                     },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "Stone": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Stone"
                       }
                     }
                   }
@@ -2168,16 +1743,18 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                    "Servant": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "Servant"
                       }
                     },
-                    "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                    "Stone": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                       "INSTANCE": {
-                        "value": 2
+                        "value": 2,
+                        "id": "Stone"
                       }
                     }
                   }
@@ -2185,7 +1762,8 @@
               }
             }
           ],
-          "name": "Mining Town"
+          "name": "Mining Town",
+          "id": "GreenCard"
         }
       },
       {
@@ -2201,10 +1779,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                    "FaithPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "FaithPoint"
                       }
                     }
                   }
@@ -2218,10 +1797,11 @@
               "INSTANCE": {
                 "resource": {
                   "resources": {
-                    "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                    "FaithPoint": {
                       "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                       "INSTANCE": {
-                        "value": 1
+                        "value": 1,
+                        "id": "FaithPoint"
                       }
                     }
                   }
@@ -2229,10 +1809,613 @@
               }
             }
           ],
-          "name": "Hermitage"
+          "name": "Hermitage",
+          "id": "GreenCard"
+        }
+      }
+    ],
+    "BlueCard": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 5,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
+              "INSTANCE": {
+                "resource": {
+                  "resources": {
+                    "FaithPoint": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                      "INSTANCE": {
+                        "value": 3,
+                        "id": "FaithPoint"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "permanentEffect": [],
+          "name": "Papal Messenger",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 4,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [],
+          "permanentEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
+              "INSTANCE": {
+                "cardType": "GreenCard",
+                "value": 3
+              }
+            }
+          ],
+          "name": "Peasant",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 5,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
+              "INSTANCE": {
+                "resources": [
+                  {
+                    "resources": {
+                      "Wood": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Wood"
+                        }
+                      },
+                      "Stone": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Stone"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Servant": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Servant"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Coin": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Coin"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "MilitaryPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "MilitaryPoint"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "FaithPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "FaithPoint"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
+              "INSTANCE": {
+                "resources": [
+                  {
+                    "resources": {
+                      "Wood": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Wood"
+                        }
+                      },
+                      "Stone": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Stone"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Servant": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Servant"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Coin": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Coin"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "MilitaryPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "MilitaryPoint"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "FaithPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "FaithPoint"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
+              "INSTANCE": {
+                "resources": [
+                  {
+                    "resources": {
+                      "Wood": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Wood"
+                        }
+                      },
+                      "Stone": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Stone"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Servant": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Servant"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Coin": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Coin"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "MilitaryPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "MilitaryPoint"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "FaithPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "FaithPoint"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "permanentEffect": [],
+          "name": "Royal Messenger",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 3,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
+              "INSTANCE": {
+                "cardType": "BlueCard",
+                "value": 6
+              }
+            },
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
+              "INSTANCE": {
+                "cardType": "BlueCard",
+                "discount": {
+                  "resources": {
+                    "Coin": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "Coin"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "permanentEffect": [],
+          "name": "Patron",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 4,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
+              "INSTANCE": {
+                "resource": {
+                  "resources": {
+                    "MilitaryPoint": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                      "INSTANCE": {
+                        "value": 2,
+                        "id": "MilitaryPoint"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
+              "INSTANCE": {
+                "cardType": "GreenCard",
+                "value": 6
+              }
+            }
+          ],
+          "permanentEffect": [],
+          "name": "Captain",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 4,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [],
+          "permanentEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
+              "INSTANCE": {
+                "cardType": "YellowCard",
+                "value": 3
+              }
+            }
+          ],
+          "name": "Scholar",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 4,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
+              "INSTANCE": {
+                "cardType": "YellowCard",
+                "value": 6
+              }
+            },
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
+              "INSTANCE": {
+                "cardType": "YellowCard",
+                "discount": {
+                  "resources": {
+                    "Wood": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                      "INSTANCE": {
+                        "value": 1,
+                        "id": "Wood"
+                      }
+                    },
+                    "Stone": {
+                      "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                      "INSTANCE": {
+                        "value": 1,
+                        "id": "Stone"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "permanentEffect": [],
+          "name": "Architect",
+          "id": "BlueCard"
+        }
+      },
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+        "INSTANCE": {
+          "DEFAULT_VALUE": 1,
+          "period": 2,
+          "activeValue": 1,
+          "costs": [
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 4,
+                    "id": "Coin"
+                  }
+                }
+              }
+            }
+          ],
+          "instantEffect": [
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
+              "INSTANCE": {
+                "resources": [
+                  {
+                    "resources": {
+                      "Wood": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Wood"
+                        }
+                      },
+                      "Stone": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "Stone"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Servant": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Servant"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "Coin": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "Coin"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "MilitaryPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                        "INSTANCE": {
+                          "value": 2,
+                          "id": "MilitaryPoint"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "resources": {
+                      "FaithPoint": {
+                        "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                        "INSTANCE": {
+                          "value": 1,
+                          "id": "FaithPoint"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AnotherCard",
+              "INSTANCE": {
+                "cardType": "PurpleCard",
+                "value": 6
+              }
+            }
+          ],
+          "permanentEffect": [],
+          "name": "Hero",
+          "id": "BlueCard"
         }
       }
     ]
   },
+  "leaderCards": [],
   "limited": false
 }

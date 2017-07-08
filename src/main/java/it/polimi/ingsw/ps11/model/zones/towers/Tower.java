@@ -27,8 +27,8 @@ public class Tower implements Serializable{
 
 	}
 	
-	public Tower(Class<? extends DevelopmentCard> cardType) {
-		this.name = cardType.toString();
+	public Tower(String towerName) {
+		this.name = towerName;
 	}
 	
 	public Tower(ArrayList<Floor> floors) {
@@ -77,18 +77,6 @@ public class Tower implements Serializable{
 		return cardUsed;
 	}
 	
-	/*
-	public boolean contains(Player player){
-		// Ritorna true se c'e' un familyMember di un giocatore che non sia il familiare neutro
-		for(Floor floor : floors){
-			ActionSpace aSpace = floor.getActionSpace();
-			if (aSpace.getOwner().equals(player) && aSpace.getFamilyMember().getClass() != NeutralFamilyMember.class){
-				return true;
-			}
-		}
-		return false;
-	}
-	*/
 	/** <p> Indica se la torre ha tutti gli actionspace vuoti. </p>
 	 */
 	public boolean isFree(){
@@ -112,7 +100,7 @@ public class Tower implements Serializable{
 		return MAX_FLOORS;
 	}
 	
-	public String getCardType() {
+	public String getName() {
 		return name;
 	}
 	

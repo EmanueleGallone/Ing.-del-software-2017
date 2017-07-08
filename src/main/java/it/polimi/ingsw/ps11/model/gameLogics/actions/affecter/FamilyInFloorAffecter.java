@@ -33,7 +33,7 @@ public class FamilyInFloorAffecter implements Affecter<FamilyInFloorAction>{
 		FamilyInSpaceAction spaceAction = action.getSpaceAction();
 		DevelopmentCard card = action.getCardAction().getCard();
 	
-		if(card.getClass().toString().equals(this.cardType)){
+		if(card.getId().equals(this.cardType)){
 			spaceAction.addModifier(value);
 		}
 		return action;

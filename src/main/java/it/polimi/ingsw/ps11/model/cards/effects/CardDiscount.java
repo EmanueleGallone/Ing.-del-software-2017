@@ -18,10 +18,6 @@ public class CardDiscount implements Effect {
 	private String cardType;
 	private ResourceList discount;
 	
-	public CardDiscount(Class<? extends DevelopmentCard> cardType,ResourceList discount){
-		this(cardType.toString(),discount);
-	}
-	
 	public CardDiscount(String cardType,ResourceList discount) {
 		this.discount = discount;
 		this.cardType = cardType;
