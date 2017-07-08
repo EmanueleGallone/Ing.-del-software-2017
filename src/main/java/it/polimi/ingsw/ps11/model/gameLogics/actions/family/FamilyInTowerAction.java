@@ -42,7 +42,8 @@ public class FamilyInTowerAction implements Action {
 
 	@Override
 	public boolean isLegal() {
-		if(contains(tower, aManager.state().getPlayer()) && !familyMember.isNeutral()){
+		if(!familyMember.isNeutral() && contains(tower, aManager.state().getPlayer())){
+			aManager.state().invoke("Non puoi posizionare altri familiari su questa torre");
 			return false;
 		}
 		return checkTax();
@@ -78,12 +79,6 @@ public class FamilyInTowerAction implements Action {
 	
 	@Override
 	public FamilyInTowerAction clone(){
-		Tower t = tower;
-		FamilyMember f = familyMember;
-		if(t != null)
-			t = tower.clone();
-		if(f != null)
-			f = f.clone();
-		return new FamilyInTowerAction(aManager, t, f);
+		return new FamilyInTowerAction(aManager, tower, familyMember);
 	}
 }

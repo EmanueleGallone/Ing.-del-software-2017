@@ -55,7 +55,6 @@ public class GraphicMultipleActionSpace  extends JPanel{
 				add(familyMember, gbc);
 				i++;
 			}
-
 		}
 		if(i<4){
 			
