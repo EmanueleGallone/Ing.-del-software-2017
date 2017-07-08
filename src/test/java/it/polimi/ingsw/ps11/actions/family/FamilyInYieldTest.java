@@ -61,6 +61,7 @@ public class FamilyInYieldTest {
 	
 	@Test
 	public void isLegalTest(){
+		
 		//MANCA IL NEUTRALE PIù SERVITORI, SEMPREPOSSIBILE
 		ArrayList<Player> players = playersSetting();
 		GameLogic gameLogic = new GameLogic(players);
@@ -68,16 +69,20 @@ public class FamilyInYieldTest {
 		Player player1 = players.get(0);
 		Player player2 = players.get(1);
 		Yield harvest = gameLogic.getGame().getBoard().getHarvest();
+		
 		//valore del familiare troppo basso
-		FamilyInYieldAction familyInYieldAction = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(NeutralFamilyMember.class));
-		assertFalse(familyInYieldAction.isLegal());
+		FamilyInYieldAction familyInYieldAction1 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(NeutralFamilyMember.class));
+		assertFalse(familyInYieldAction1.isLegal());
+		
 		//valore opportuno, eseguito
 		FamilyInYieldAction familyInYieldAction2 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(BlackFamilyMember.class));
 		assertTrue(familyInYieldAction2.isLegal());
 		familyInYieldAction2.perform();
+		
 		//valore opportuno, ma player già presente nella zona
 		FamilyInYieldAction familyInYieldAction3 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class));
 		assertFalse(familyInYieldAction3.isLegal());
+		
 		//valore opportuno, altro giocatore eseguito
 		FamilyInYieldAction familyInYieldAction4 = new FamilyInYieldAction(getActionManager(player2, gameLogic), harvest, player2.getFamilyManager().getFamilyMember(OrangeFamilyMember.class));
 		assertTrue(familyInYieldAction4.isLegal());
@@ -94,6 +99,8 @@ public class FamilyInYieldTest {
 		Player player2 = players.get(1);
 		Yield harvest = gameLogic.getGame().getBoard().getHarvest();
 		
+		FamilyInYieldAction familyInYieldAction1 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class));
+		familyInYieldAction1.perform();
 	}
 	
 	
