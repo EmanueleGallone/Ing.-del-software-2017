@@ -18,6 +18,10 @@ import javax.swing.JToggleButton;
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 /**
@@ -45,11 +49,11 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		
 		personalBoard.setOpaque(false);
 		
-		colorMap.put("GreenCard", Color.GREEN); 
-		colorMap.put("BlueCard", Color.BLUE); 
-		colorMap.put("YellowCard", Color.YELLOW); 
-		colorMap.put("PurpleCard", Color.PINK);
-		colorMap.put("LeaderCard", Color.BLACK);
+		colorMap.put(new GreenCard().getId(), Color.GREEN); 
+		colorMap.put(new BlueCard().getId(), Color.BLUE); 
+		colorMap.put(new YellowCard().getId(), Color.YELLOW); 
+		colorMap.put(new PurpleCard().getId(), Color.PINK);
+		colorMap.put(new LeaderCard("").getId(), Color.BLACK);
 
 		arrayJTButton = new ArrayList<>();
 		buttonGroupSelectors = new ButtonGroup();
@@ -150,13 +154,11 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 
 		for (String deck : cardManager.getAllCards().keySet()) {
 			
-			int name = deck.lastIndexOf(".") + 1;
-			String deckType = deck.substring(name, deck.length());
-	    	int deckPosition = deckTypesList.indexOf(deckType);
+	    	int deckPosition = deckTypesList.indexOf(deck);
 			allDecks.get(deckPosition).removeAll();
 			
 			int cards = 0;
-			if(!deckType.equals("LeaderCard")){
+			if(!deck.equals("LeaderCard")){
 			for (DevelopmentCard card : cardManager.getCardList(deck)) {
 				
 				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView();

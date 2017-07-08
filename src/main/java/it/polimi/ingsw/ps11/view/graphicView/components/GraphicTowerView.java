@@ -23,9 +23,9 @@ public class GraphicTowerView extends TowerView{
 	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
 	ArrayList<GraphicFloorView> graphicFloorViews;
 	
-	public GraphicTowerView(Class<? extends Tower> whichTower, String towerName) {
+	public GraphicTowerView(String towerName) {
 
-		super(whichTower,towerName);
+		super(towerName);
 		this.towerName = towerName;
 		
 		tower.loadImage("BoardImages/" + towerName + ".png");
@@ -43,7 +43,7 @@ public class GraphicTowerView extends TowerView{
 		
 		for(int i = 0; i < TOWERNUMBER; i++){
 			
-			graphicFloorViews.add(new GraphicFloorView(whichTower, i));
+			graphicFloorViews.add(new GraphicFloorView(towerName, i));
 			GridBagConstraints gbcFloor = new GridBagConstraints();
 			gbcFloor.gridy = (4-i);
 			gbcFloor.fill = GridBagConstraints.BOTH;
@@ -54,10 +54,6 @@ public class GraphicTowerView extends TowerView{
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
-	}
-	
-	public GraphicTowerView(Class<? extends Tower> whichTower) {
-		this(whichTower, whichTower.getSimpleName());
 	}
 
 	@Override

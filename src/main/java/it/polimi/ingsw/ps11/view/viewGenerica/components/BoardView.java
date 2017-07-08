@@ -19,7 +19,6 @@ public abstract class BoardView extends ViewComponent {
 	protected CouncilPalaceView councilPalaceView;
 	protected MarketView marketView;
 	protected ArrayList<Player> currentOrder;
-
 	protected ChurchView churchView;
 	
 	public BoardView() {

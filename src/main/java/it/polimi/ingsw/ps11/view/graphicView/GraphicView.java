@@ -255,7 +255,7 @@ public class GraphicView extends View{
 
 		@Override
 		public void handle(Card e) {
-			String cardType = e.getClass().getSimpleName();
+			String cardType = e.getId();
 			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
 			cardZoomPanel.repaint();
 		}

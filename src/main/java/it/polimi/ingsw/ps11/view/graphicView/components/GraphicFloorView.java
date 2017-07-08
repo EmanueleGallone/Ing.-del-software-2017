@@ -30,7 +30,7 @@ public class GraphicFloorView extends FloorView{
 	protected GraphicDevelopmentCardView graphicCardView;
 	protected GraphicPaintedButton actionSpace;
 	
-	public GraphicFloorView(Class<? extends Tower> whichTower, int whichFloor) {
+	public GraphicFloorView(String whichTower, int whichFloor) {
 		
 		super(whichTower, whichFloor);
 		graphicCardView = new GraphicDevelopmentCardView();
@@ -78,7 +78,7 @@ public class GraphicFloorView extends FloorView{
 			return;
 		if(!(floor.getActionSpace().getFamilyMember() == null)){
 			actionSpace.loadImage("PlayerImages/" + floor.getActionSpace().getOwner().getColor().toString() + 
-					" " + floor.getActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
+					" " + floor.getActionSpace().getFamilyMember().getId() + ".png");
 		}
 		else {
 			actionSpace.loadImage("PlayerImages/BLANK.png");
