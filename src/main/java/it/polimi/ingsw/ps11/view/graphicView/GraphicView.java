@@ -241,14 +241,13 @@ public class GraphicView extends View{
 	private class Close implements ActionListener {			
 		@Override
 		public void actionPerformed(ActionEvent e) {		
-				exit = new JOptionPane();
-				exit.setVisible(true);
-				if (JOptionPane.showOptionDialog(null, "Are you sure?", "Closing Game", JOptionPane.OK_CANCEL_OPTION, 
-					JOptionPane.ERROR_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) 
-					{
+			exit = new JOptionPane();
+			exit.setVisible(true);
+			if (JOptionPane.showOptionDialog(null, "Are you sure?", "Closing Game", JOptionPane.OK_CANCEL_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) {
 					window.dispose();
 					slideDialog.dispose();
-					}
+			}
 		}
 	}
 	
@@ -265,7 +264,6 @@ public class GraphicView extends View{
 	private transient EventListener<Player> changePlayerListener = new EventListener<Player>() {
 		@Override
 		public void handle(Player e) {
-			System.out.println(e.getName());
 			you.update(e);
 			you.print();
 		}
@@ -282,15 +280,14 @@ public class GraphicView extends View{
 		@Override
 		public void actionPerformed(ActionEvent e) {			
 			slideDialog.setVisible(true);
-			}
 		}
+	}
 	
 	public class EndTurn implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("Turno finito");
 			viewEvent.invoke(new EndTurnEvent());
-			}
+		}
 	}
 	
 }
