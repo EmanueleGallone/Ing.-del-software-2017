@@ -36,6 +36,7 @@ public class GraphicBoardView extends BoardView {
 	@Override
 	public void print() {
 		
+		mainBoard.getCouncilPalaceView().setCurrentOrder(this.currentOrder);
 		mainBoard.print();
 		slideBoard.print();
 		

@@ -58,6 +58,7 @@ public abstract class View implements ViewInterface, Runnable {
 	@Override
 	public void update(Game game) {
 		boardView.update(game.getBoard());
+		boardView.update(game.getRoundManager().getCurrentOrder());
 		
 	}
 
