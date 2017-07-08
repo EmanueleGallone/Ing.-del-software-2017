@@ -23,6 +23,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	private FamilyMember familyMember;
 	private ActionSpace space;
 	private int servant;
+	private int modifier;
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space) {
 		this.aManager = aManager;
@@ -54,6 +55,10 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		return false;
 	}
 
+	public void addModifier(int modifier){
+		this.modifier = this.modifier + modifier;
+	}
+	
 	public boolean checkActionCost(int mod){
 		if(space.getActionCost() > (familyMember.getValue() + mod)){
 			aManager.state().invoke("Il familiare non ha un valore sufficiente");

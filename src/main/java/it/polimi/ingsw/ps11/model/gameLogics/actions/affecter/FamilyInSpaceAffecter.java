@@ -29,11 +29,10 @@ public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 
 	@Override
 	public FamilyInSpaceAction affect(FamilyInSpaceAction action) {
-		FamilyInSpaceAction newAction = action.clone();
-		FamilyMember familyMember = newAction.getFamilyMember();
+		FamilyMember familyMember = action.getFamilyMember();
 		if(familyMember.getClass().toString().equals(familyType))
-			familyMember.setModifier(familyMember.getModifier() + value);
-		return newAction;
+			action.addModifier(value);
+		return action;
 	}
 
 }

@@ -23,12 +23,11 @@ public abstract class FamilyMember implements Serializable{
 	
 	//protected int value; 
 	protected DiceProxy dice;
-	protected int modifier;
 	protected boolean used = false;
 	protected String name;
 	
 	public FamilyMember(){
-		modifier = DEFAULT_MODIFIER;
+	
 	}
 	
 
@@ -45,19 +44,7 @@ public abstract class FamilyMember implements Serializable{
 		int value = 0;
 		if(dice != null)
 			value = dice.getValue();
-		return value + this.modifier;
-	}
-
-	public void setModifier(int value){
-		this.modifier = value;
-	}
-	
-	public int getModifier() {
-		return modifier;
-	}
-	
-	public void resetModifier(){
-		modifier = DEFAULT_MODIFIER;
+		return value;
 	}
 	
 	public void setDice(DiceProxy dice) {
@@ -83,7 +70,7 @@ public abstract class FamilyMember implements Serializable{
 	 * <p>TIPOFAMILIARE "[value=" + value + ", modifier=" + modifier + "]"</p>
 	 */
 	public String toString() {
-		return "FamilyMember [value=" + getValue() + ", modifier=" + modifier + "]";
+		return "FamilyMember [value=" + getValue() + "]";
 	}
 	
 	/**<h3> boolean isNeutral() </h3>

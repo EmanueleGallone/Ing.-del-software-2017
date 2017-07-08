@@ -23,7 +23,6 @@ public class BlackFamilyMember extends FamilyMember {
 		clone.dice = this.dice;
 		clone.name = this.name;
 		clone.used = this.used;
-		clone.modifier = this.modifier;
 		
 		return clone;
 	}

@@ -20,7 +20,6 @@ public class OrangeFamilyMember extends FamilyMember {
 	public OrangeFamilyMember clone(){
 		OrangeFamilyMember clone = new OrangeFamilyMember();
 		clone.dice = this.dice;
-		clone.modifier = this.modifier;
 		clone.name = this.name;
 		clone.used = this.used;
 		return clone;

@@ -4,6 +4,7 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 /**
  * <h3> FamilyInFloorAffecter </h3>
  * <p> Bonus: modifica il valore di un familiare se questo viene posizionato sull'actionspace di un piano contenente un determinato
@@ -29,11 +30,11 @@ public class FamilyInFloorAffecter implements Affecter<FamilyInFloorAction>{
 
 	@Override
 	public FamilyInFloorAction affect(FamilyInFloorAction action) {
-		FamilyMember familyMember = action.getSpaceAction().getFamilyMember();
+		FamilyInSpaceAction spaceAction = action.getSpaceAction();
 		DevelopmentCard card = action.getCardAction().getCard();
+	
 		if(card.getClass().toString().equals(this.cardType)){
-			familyMember.setModifier(familyMember.getModifier() + value);
-			return action.clone();
+			spaceAction.addModifier(value);
 		}
 		return action;
 	}

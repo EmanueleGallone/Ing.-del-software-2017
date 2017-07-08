@@ -52,10 +52,10 @@ public class WaitCard extends PlayState{
 	
 	public void getCard(ResourceList cost){
 		NeutralFamilyMember fMember = new NeutralFamilyMember();
-		fMember.setModifier(value);
 		ActionManager aManager = stateHandler().actions();
 		
 		FamilyInSpaceAction sAction = new FamilyInSpaceAction(aManager,fMember, floor.getActionSpace());
+		sAction.addModifier(value);
 		FamilyInTowerAction tAction = new FamilyInTowerAction(aManager, tower, fMember);
 		GetCardAction getCard = new GetCardAction(aManager, floor.getCard(), cost);
 		

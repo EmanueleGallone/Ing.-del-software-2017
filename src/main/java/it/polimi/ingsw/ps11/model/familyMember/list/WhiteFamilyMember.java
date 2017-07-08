@@ -20,7 +20,6 @@ public class WhiteFamilyMember extends FamilyMember {
 	public WhiteFamilyMember clone(){
 		WhiteFamilyMember clone = new WhiteFamilyMember();
 		clone.dice = this.dice;
-		clone.modifier = this.modifier;
 		clone.name = this.name;
 		clone.used = this.used;
 		return clone;

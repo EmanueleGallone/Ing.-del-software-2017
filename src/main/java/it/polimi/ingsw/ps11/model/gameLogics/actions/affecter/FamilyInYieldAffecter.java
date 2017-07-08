@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 /**
  * <h3> FamilyInYieldAffecter </h3>
@@ -31,9 +32,7 @@ public class FamilyInYieldAffecter implements Affecter<FamilyInYieldAction> {
 	public FamilyInYieldAction affect(FamilyInYieldAction action) {
 		String cType = action.getYield().getActiveCard();
 		if(cType.equals(cardType)){
-			FamilyMember fMember = action.getFamilyMember();
-			fMember.setModifier(fMember.getModifier() + value);
-			return action.clone();
+			action.getSpaceAction().addModifier(value);
 		}
 		return action;
 	}
