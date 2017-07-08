@@ -47,7 +47,7 @@ public class EndGameTest {
 		handler = new StateHandler(gameLogic, player);
 		aManager = handler.actions();
 		
-		familyMember = new NeutralFamilyMember("Neutral");
+		familyMember = new NeutralFamilyMember();
 		cost1 = new ResourceList(new Coin(3));
 		cost2 = new ResourceList(new Stone(3), new Wood(3));
 
@@ -70,9 +70,9 @@ public class EndGameTest {
 		DecrementAction action2 = new DecrementAction(aManager, cost2);
 		DecrementAction action3 = new DecrementAction(aManager, cost2);
 
-		assertEquals(3, player.getResourceList().get(new Coin().getId()).getValue());
-		assertEquals(4, player.getResourceList().get(new Wood().getId()).getValue());
-		assertEquals(4, player.getResourceList().get(new Stone().getId()).getValue());
+		assertEquals(3, new Coin().set(player.getResourceList()).getValue());
+		assertEquals(4, new Wood().set(player.getResourceList()).getValue());
+		assertEquals(4, new Stone().set(player.getResourceList()).getValue());
 		
 		action = new EndGameAction(aManager);
 		action.add(action1);		//viene eseguita
@@ -81,9 +81,9 @@ public class EndGameTest {
 		
 		action.perform();
 		
-		assertEquals(6, player.getResourceList().get(new Coin().getId()).getValue());
-		assertEquals(1, player.getResourceList().get(new Wood().getId()).getValue());
-		assertEquals(1, player.getResourceList().get(new Stone().getId()).getValue());
+		assertEquals(6, new Coin().set(player.getResourceList()).getValue());
+		assertEquals(1, new Wood().set(player.getResourceList()).getValue());
+		assertEquals(1, new Stone().set(player.getResourceList()).getValue());
 		
 	}
 	

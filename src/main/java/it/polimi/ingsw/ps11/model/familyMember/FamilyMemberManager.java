@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
+import it.polimi.ingsw.ps11.model.dices.DiceProxy;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
@@ -22,7 +24,7 @@ public class FamilyMemberManager implements Iterable<FamilyMember>,Serializable 
 	
 	public FamilyMemberManager(ArrayList<FamilyMember> family){
 		for(FamilyMember fMember : family){
-			this.family.put(fMember.getClass().toString(), fMember);
+			this.family.put(fMember.getId(), fMember);
 		}
 	}
 	
@@ -40,8 +42,8 @@ public class FamilyMemberManager implements Iterable<FamilyMember>,Serializable 
 	}
 	
 	public void setDices(DiceManager dices){
-		for(FamilyMember familyMember: this){
-			familyMember.setDice(dices.get(familyMember.getName()));
+		for(Dice d: dices){
+			this.family.get(d.getName() + "FamilyMember").setDice(new DiceProxy(d));
 		}
 	}
 	
@@ -49,16 +51,12 @@ public class FamilyMemberManager implements Iterable<FamilyMember>,Serializable 
 // ________________________________
 	
 	
-	public <T extends FamilyMember> T getFamilyMember(Class<T> familyMember){
-		return getFamilyMember(familyMember.toString());
-	}
-	
 	public <T extends FamilyMember> T getFamilyMember(String familyMember){
 		return (T) this.family.get(familyMember);
 	}
 		
 	public <T extends FamilyMember> void setFamilyMember(T familyMember){
-		this.family.put(familyMember.getClass().toString(), familyMember);
+		this.family.put(familyMember.getId(), familyMember);
 	}
 	
 	

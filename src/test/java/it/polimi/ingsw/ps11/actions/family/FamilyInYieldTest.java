@@ -9,6 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
@@ -37,9 +38,6 @@ public class FamilyInYieldTest {
 	Player player1, player2;
 	
 	ArrayList<Player> players;
-	
-	FamilyMember familyMember1, orangeFamilyMember;
-	FamilyMember familyMember2, blackFamilyMember;
 			
 	GameLogic gameLogic;
 	FamilyInYieldAction action1;
@@ -57,24 +55,13 @@ public class FamilyInYieldTest {
 	public void setting(){
 		
 		//Inizializzo l'action manager e il player
-		player1 = new Player("Giocatore 1");
-		player2 = new Player("Giocatore 2");
+		PlayerFactory factory = new PlayerFactory();
+		player1 = factory.newPlayer("Giocatore 1", 0);
+		player2 = factory.newPlayer("Giocatore 2", 1);
 		
 		players = new ArrayList<>();
 		players.add(player1);
 		players.add(player2);
-		
-		familyMember1 = new NeutralFamilyMember();	
-		orangeFamilyMember = new OrangeFamilyMember();
-		
-		familyMember2 = new NeutralFamilyMember();	
-		blackFamilyMember = new BlackFamilyMember();
-		
-		player1.getFamilyManager().setFamilyMember(familyMember1);
-		player1.getFamilyManager().setFamilyMember(orangeFamilyMember);
-
-		player2.getFamilyManager().setFamilyMember(familyMember2);
-		player2.getFamilyManager().setFamilyMember(blackFamilyMember);
 			
 		gameLogic = new GameLogic(players);
 		handler1 = new StateHandler(gameLogic, player1);
@@ -104,17 +91,11 @@ public class FamilyInYieldTest {
 	@Test
 	public void isLegalTest(){
 		
-		action1 = new FamilyInYieldAction(aManager1, harvest, orangeFamilyMember);
 		//assertTrue(action1.isLegal()); 			//il controllo è nel FamilyInSpaceTest
 	}
 	
 	@Test
 	public void performTest(){
-		
-		orangeFamilyMember.setModifier(3);
-		action1 = new FamilyInYieldAction(aManager1, harvest, orangeFamilyMember);
-		action1.perform();
-		
 		//assertEquals(3, player1.getResourceList().get(Coin.class).getValue());		//la prima carta viene attivata
 		//assertNull(player1.getResourceList().get(Wood.class).getValue());			//la seconda carta non viene attivata
 	}

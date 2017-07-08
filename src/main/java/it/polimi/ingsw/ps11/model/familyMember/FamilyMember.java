@@ -2,43 +2,23 @@ package it.polimi.ingsw.ps11.model.familyMember;
 
 import java.io.Serializable;
 
-import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
-/**
- * <h3>FamilyMember</h3>
- * <p>
- * Classe astratta che rappresenta il familiare. Per ogni familiare è stata implementata una classe concreta apposita, figlia di FamilyMember.
- * </p>
- * @version 1.0
- * @see it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember OrangeFamilyMember
- * @see it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember BlackFamilyMember
- * @see it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember WhiteFamilyMember
- * @see it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember NeutralFamilyMember
- */
-
-import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceProxy;
 public abstract class FamilyMember implements Serializable{
 	
 	private final int DEFAULT_MODIFIER = 0;
+	private String id;
 	
-	//protected int value; 
 	protected DiceProxy dice;
 	protected int modifier;
 	protected boolean used = false;
-	protected String name;
 	
-	public FamilyMember(){
+	public FamilyMember(String id){
 		modifier = DEFAULT_MODIFIER;
+		this.id = id;
 	}
 	
-
-	public FamilyMember(String name){
-		this();
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
+	public String getId() {
+		return id;
 	}
 
 	public int getValue(){
@@ -75,6 +55,8 @@ public abstract class FamilyMember implements Serializable{
 	public void setUsed(boolean used) {
 		this.used = used;
 	}
+	
+	public abstract FamilyMember set(FamilyMemberManager familyMemberManager);
 	
 	@Override
 	public abstract FamilyMember clone();

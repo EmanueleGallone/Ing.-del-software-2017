@@ -29,8 +29,8 @@ public class CouncilPalaceTest {
 		Assert.assertEquals(players.get(1), game.getRoundManager().getCurrentOrder().get(1)); //testo la posizione nel roundManager
 		
 		//posiziono dei familiari
-		councilPalace.getFreeSpace().placeFamilyMember(players.get(3).getFamilyManager().getFamilyMember(OrangeFamilyMember.class), players.get(3));
-		councilPalace.getFreeSpace().placeFamilyMember(players.get(1).getFamilyManager().getFamilyMember(OrangeFamilyMember.class), players.get(1));
+		councilPalace.getFreeSpace().placeFamilyMember(new OrangeFamilyMember().set(players.get(3).getFamilyManager()), players.get(3));
+		councilPalace.getFreeSpace().placeFamilyMember(new OrangeFamilyMember().set(players.get(1).getFamilyManager()), players.get(1));
 		
 		Assert.assertTrue(councilPalace.contains(players.get(3)));
 		Assert.assertFalse(councilPalace.contains(players.get(0))); //il palazzo non deve contenere il primo giocatore. Non ha posizionato
