@@ -16,6 +16,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ExchangeAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 public class ExchangeTest {
@@ -72,8 +73,8 @@ public class ExchangeTest {
 		exchangelist.put(resourceListCoin, resourceListWood);
 		action = new ExchangeAction(aManager, exchangelist);
 		action.update(resourceListCoin);
-		assertEquals(0,aManager.state().getPlayer().getResourceList().getResource(Coin.class).get().getValue());
-		assertEquals(6,aManager.state().getPlayer().getResourceList().getResource(Wood.class).get().getValue());
+		assertEquals(0,aManager.state().getPlayer().getResourceList().getResource(new Coin().getId()).get().getValue());
+		assertEquals(6,aManager.state().getPlayer().getResourceList().getResource(new Wood().getId()).get().getValue());
 		
 	}
 }

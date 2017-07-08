@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 /**
  * <h3> GraphicPaintedButton</h3>
  * <p> Classe che estende JButton. Aggiunge la possibilità di assegnare un nome al pulsante tramite costruttore e aggiunge
@@ -17,9 +17,11 @@ import javax.swing.JButton;
 public class GraphicPaintedButton extends JButton implements ToPaint{
 		
 	protected BufferedImage background;
+	private JLabel text;
 	
 	public GraphicPaintedButton() {
-		
+		text = new JLabel();
+		add(this.text);
 	}
 
 	@Override
@@ -33,16 +35,15 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 	
 	@Override
 	public void loadImage(String url){
-		URL imagePath = getClass().getResource(url);
+		URL imagePath = getClass().getClassLoader().getResource(url);
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(imagePath);
 		} catch (IOException | IllegalArgumentException e) {
-			System.err.println("Errore, immagine non trovata");
+			System.err.println("Errore, immagine non trovata url: " + url);
 			e.printStackTrace();
 		}
 		
 		background = result;
 	}
-
 }

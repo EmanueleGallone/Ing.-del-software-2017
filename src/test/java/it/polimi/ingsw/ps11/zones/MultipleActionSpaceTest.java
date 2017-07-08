@@ -30,10 +30,11 @@ public class MultipleActionSpaceTest {
 		multipleActionSpace.addActionSpace(single); //aggiungo un actionspace al multiple
 		clone = multipleActionSpace.clone();
 		
-		
+		ResourceList list = clone.getActionSpace(0).getResources();
+		FaithPoint faithPoint = new FaithPoint().set(list);
 		
 		Assert.assertTrue(clone.getAllSpace().size() != multipleActionSpace.getAllSpace().size()); 
-		Assert.assertEquals(1, clone.getActionSpace(0).getResources().get(FaithPoint.class).getValue());
+		Assert.assertEquals(1, faithPoint.getValue());
 		Assert.assertNull(clone.getActionSpace(2));
 		
 		multipleActionSpace.addActionSpace(new ActionSpace());
@@ -46,9 +47,9 @@ public class MultipleActionSpaceTest {
 		PlayerFactory factory = new PlayerFactory();
 		Player player = factory.newPlayer(0);
 		
-		ActionSpace actionSpace = new ActionSpace(new ResourceList(new Stone(1)));
+		ActionSpace actionSpace = new ActionSpace(new ResourceList(new Stone(1))); //creo uno spazio azione con una stone
 		
-		multipleActionSpace.addActionSpace(actionSpace);
+		multipleActionSpace.addActionSpace(actionSpace); //aggiungo lo spazio azione creato nell multiplo
 		
 		multipleActionSpace.getFreeSpace().placeFamilyMember(player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), player); // occupo l'unico spazioazione disponibile
 		multipleActionSpace.getFreeSpace().placeFamilyMember(player.getFamilyManager().getFamilyMember(WhiteFamilyMember.class), player); //per l'altro branch della freeSpace

@@ -70,9 +70,9 @@ public class EndGameTest {
 		DecrementAction action2 = new DecrementAction(aManager, cost2);
 		DecrementAction action3 = new DecrementAction(aManager, cost2);
 
-		assertEquals(3, player.getResourceList().get(Coin.class).getValue());
-		assertEquals(4, player.getResourceList().get(Wood.class).getValue());
-		assertEquals(4, player.getResourceList().get(Stone.class).getValue());
+		assertEquals(3, player.getResourceList().get(new Coin().getId()).getValue());
+		assertEquals(4, player.getResourceList().get(new Wood().getId()).getValue());
+		assertEquals(4, player.getResourceList().get(new Stone().getId()).getValue());
 		
 		action = new EndGameAction(aManager);
 		action.add(action1);		//viene eseguita
@@ -81,9 +81,9 @@ public class EndGameTest {
 		
 		action.perform();
 		
-		assertEquals(6, player.getResourceList().get(Coin.class).getValue());
-		assertEquals(1, player.getResourceList().get(Wood.class).getValue());
-		assertEquals(1, player.getResourceList().get(Stone.class).getValue());
+		assertEquals(6, player.getResourceList().get(new Coin().getId()).getValue());
+		assertEquals(1, player.getResourceList().get(new Wood().getId()).getValue());
+		assertEquals(1, player.getResourceList().get(new Stone().getId()).getValue());
 		
 	}
 	

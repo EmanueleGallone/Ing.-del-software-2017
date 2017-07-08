@@ -19,6 +19,7 @@ import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -90,7 +91,7 @@ public class GraphicView extends View{
         	   playerPanel = graphicPlayerView.getComponent(),
         	   consolePanel = graphicConsole.getComponent();
         cardZoomPanel = new GraphicPaintedPanel();
-        cardZoomPanel.loadImage("boardImages/baseCard.jpg");
+        cardZoomPanel.loadImage("BoardImages/baseCard.jpg");
         slideDialog = graphicBoardView.getSlideBoard().getComponent();
                
 		GridBagConstraints gbcMainBoard = new GridBagConstraints();
@@ -155,11 +156,11 @@ public class GraphicView extends View{
 		minimize.addActionListener(new Minimize());
         
         graphicBoardView.attachSlideListener(new ShowPanel());						//listener per il bottone che fa entrare il pannello della slideBoardView
-        graphicBoardView.attachChangePlayer(new ChangePlayer());
         graphicConsole.attach(this);
         
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
+        graphicBoardView.attachChangePlayer(changePlayerListener);
         graphicBoardView.attachCardListener(cardClickListener);
         graphicPlayerView.attachCardListener(cardClickListener);
         graphicPlayerView.attachEndTurnListener(new EndTurn());
@@ -174,7 +175,7 @@ public class GraphicView extends View{
 	
 	public void send(String string){
 		String toSend = string;
-		viewEvent.invoke(new TextualViewEvent(toSend));
+		viewEvent.invoke(new TextualViewEvent(you.getPlayer().getName() +" : " + toSend));
 	}
 	
 	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
@@ -261,6 +262,15 @@ public class GraphicView extends View{
 		}
 	};
 	
+	private transient EventListener<Player> changePlayerListener = new EventListener<Player>() {
+		@Override
+		public void handle(Player e) {
+			System.out.println(e.getName());
+			you.update(e);
+			you.print();
+		}
+	};
+	
 	private class Minimize implements ActionListener {			
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -283,16 +293,4 @@ public class GraphicView extends View{
 			}
 	}
 	
-	public class ChangePlayer implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent event) {
-			int playerIndex = Integer.parseInt(((GraphicPaintedButton) event.getSource()).getName());
-			ArrayList<Player> players = game.getRoundManager().getCurrentOrder();
-			if(playerIndex < players.size()){
-				you.update(players.get(playerIndex));
-			}
-		}
-		
-	}
 }

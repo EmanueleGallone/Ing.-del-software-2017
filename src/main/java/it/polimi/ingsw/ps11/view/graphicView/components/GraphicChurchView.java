@@ -24,7 +24,7 @@ public class GraphicChurchView extends ChurchView {
 	private ArrayList<GraphicPaintedPanel> cards = new ArrayList<>();
 	
 	public GraphicChurchView() {
-		churchPanel.loadImage("boardImages/Church.png");
+		churchPanel.loadImage("BoardImages/Church.png");
 		
 		GraphicPaintedPanel card1 = new GraphicPaintedPanel();
 		GraphicPaintedPanel card2 = new GraphicPaintedPanel();
@@ -73,7 +73,7 @@ public class GraphicChurchView extends ChurchView {
 		for(int i = 0; i < church.getMaxExcomunication(); i++){
 			Excommunication excommunication = church.getExcomunications(i+1);
 			if(excommunication != null)
-				cards.get(i).loadImage("exCards/" + excommunication.getId() + ".png");
+				cards.get(i).loadImage("ExcomunicationCard/" + excommunication.getId() + ".png");
 		}
 	}
 

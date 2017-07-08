@@ -86,7 +86,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	public void sum(ResourceList otherResources){
 		
 		for(Resource resource : otherResources){
-			Resource toAdd = this.resources.get(resource.getClass().toString());
+			Resource toAdd = this.resources.get(resource.getId());
 			if(toAdd!= null){
 				toAdd.increment(resource.getValue());
 				this.setResource(toAdd);
@@ -116,13 +116,12 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	
 	public boolean canSubtract(ResourceList resourceList){
 		for(Resource resource : resourceList){
-			Resource playerResource = this.get(resource.getClass());
+			Resource playerResource = this.get(resource.getId());
 			if(playerResource == null || playerResource.getValue() < resource.getValue()){
 				return false;
 			}
 		}
 		return  true;
-		//return this.equals(resourceList) || !resourceList.greaterEquals(this);
 	}
 	
 
@@ -132,7 +131,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 			ResourceList other = (ResourceList) obj;
 			if(resources.values().size() == other.getResources().size()){
 				for(Resource r : resources.values()){
-					Resource r2 = other.get(r.getClass());
+					Resource r2 = other.get(r.getId());
 					if( !(r2 != null && r.equals(r2)))
 						return false;
 				}
@@ -149,18 +148,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	}
 	
 // end logic
-// Start getters
-	/**
-	 * Metodo che permette di ottenere della resourceList una risorsa passando il tipo di quest'ultima come parametro. 
-	 * Se la risorsa e' presenta nella resourceList allora verra' restituita una sua copia altrimenti verra' restituito il valore null
-	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
-	 * @return <T extends Resource>
-	 */
-	public <T extends Resource> T get(Class<T> rClass){
-		return get(rClass.toString());
-	}
-	
-	
+// Start getters	
 	
 	/**
 	 * Metodo che permette di ottenere della resourceList una risorsa passando il tipo di quest'ultima come parametro. 
@@ -168,7 +156,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
 	 * @return Optional<T extends Resource>
 	 */
-	public <T extends Resource> Optional<T> getResource(Class<T> rClass){
+	public <T extends Resource> Optional<T> getResource(String rClass){
 		return Optional.ofNullable(get(rClass));
 	}
 	
@@ -208,13 +196,8 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param resource
 	 */
 	public void setResource(Resource resource){
-		this.resources.put(resource.getClass().toString() , resource.clone());
+		this.resources.put(resource.getId() , resource.clone());
 	}
-	
-//	protected void setResources(HashMap<String, Resource> resources) {
-//		this.resources = resources;
-//	}
-//End setters
 	
 	@Override
 	public  String toString() {

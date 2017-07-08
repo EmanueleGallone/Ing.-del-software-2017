@@ -22,11 +22,13 @@ public class ActionSpaceTest {
 		ActionSpace clone = actionSpace.clone(); //testo la clone
 		
 		Assert.assertEquals(actionSpace.getActionCost(), clone.getActionCost());
-		Assert.assertEquals(actionSpace.getResources().get(Coin.class).getValue(), clone.getResources().get(Coin.class).getValue());
+		Coin coin = new Coin().set(actionSpace.getResources());
+		Assert.assertEquals(coin.getValue(), clone.getResources().get(coin.getId()).getValue());
 		Assert.assertNull(actionSpace.getOwner());
 		
 		PlayerFactory factory = new PlayerFactory();
 		Player player = factory.newPlayer(0);
+		
 		
 		actionSpace.placeFamilyMember(player.getFamilyManager().getFamilyMember(BlackFamilyMember.class), player);
 		clone = actionSpace.clone();

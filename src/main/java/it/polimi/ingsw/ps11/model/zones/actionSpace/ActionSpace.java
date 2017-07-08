@@ -65,8 +65,10 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 
 	@Override
 	public void clean() {
-		if(familyMember!=null)
+		if(familyMember!=null){
 			familyMember.setUsed(false);
+			familyMember.resetModifier();
+		}
 		familyMember = null;
 		owner = null;
 	}

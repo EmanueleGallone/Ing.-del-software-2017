@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -10,8 +11,9 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 /**
@@ -30,26 +32,34 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	protected JButton showPanelButton;
 	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
 	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
+	private EventHandler<Player> changePlayerEvent = new EventHandler<>();
 	
 	public GraphicCouncilPalaceView() {
 		
-		councilPalacePanel.loadImage("boardImages/CouncilPalace.png");
+		councilPalacePanel.loadImage("BoardImages/CouncilPalace.png");
 		
 		multipleActionSpace = new GraphicMultipleActionSpace();
 		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
+		
 		toPlayer1 = new GraphicPaintedButton();
 		toPlayer2 = new GraphicPaintedButton();
 		toPlayer3 = new GraphicPaintedButton();
 		toPlayer4 = new GraphicPaintedButton();
-		
 		
 		playerSelectors.add(toPlayer1);
 		playerSelectors.add(toPlayer2);
 		playerSelectors.add(toPlayer3);
 		playerSelectors.add(toPlayer4);
 		
+		Integer i=0;
+		for (GraphicPaintedButton button : playerSelectors) {
+			button.setName(i.toString());
+			button.addActionListener(changePlayerListener);
+			i++;
+		}
+	
 		//multipleActionSpace.setContentAreaFilled(false);
 		
 		toPlayer1.setContentAreaFilled(false);
@@ -127,8 +137,8 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	public void print(){
 		multipleActionSpace.print(councilPalace.getAllSpace());
 		int i = 0;
-		for (Player player : councilPalace.getNewOrder()) {
-			playerSelectors.get(i).loadImage("pImages/Player color " + player.getColor().toString() + ".png");
+		for (Player player : currentOrder) {
+			playerSelectors.get(i).loadImage("BoardImages/Player color " + player.getColor().toString() + ".png");
 			i++;
 		}
 	}
@@ -137,17 +147,37 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		showPanelButton.addActionListener(showPanel);
 	}
 	
-	public void attachChangePlayer(ChangePlayer changePlayer) {
-		
-		toPlayer1.addActionListener(changePlayer);
-		toPlayer2.addActionListener(changePlayer);
-		toPlayer3.addActionListener(changePlayer);
-		toPlayer4.addActionListener(changePlayer);
-
+	public void attachChangePlayer(EventListener<Player> changePlayer) {
+		changePlayerEvent.attach(changePlayer);
 	}
 
 	public JPanel getComponent() {
 		return councilPalacePanel;
+	}
+	
+	private  transient ActionListener changePlayerListener = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JButton button = (JButton) e.getSource();
+			try {
+				int i = new Integer(button.getName());
+				Player player = currentOrder.get(i);
+				changePlayerEvent.invoke(player);
+			} catch (NumberFormatException exception) {
+				exception.printStackTrace();
+			}
+		}
+	};
+	
+	public class ChangePlayer implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for(int i=0; i<currentOrder.size(); i++){
+				if(e.getSource().equals(playerSelectors.get(i)))
+					changePlayerEvent.invoke(currentOrder.get(i));
+			}
+		}
 	}
 
 	public class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"

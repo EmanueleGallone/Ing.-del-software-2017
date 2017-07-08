@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Board;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
 import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
-import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
@@ -60,8 +60,8 @@ public class GraphicMainBoardView extends BoardView{
 		gblMainBoard.rowWeights = new double[]{0.762163, 0.237837, Double.MIN_VALUE};
 		mainBoard.setLayout(gblMainBoard);
 		
-		paddingSX.loadImage("boardImages/Paddingsx.png");
-		paddingDX.loadImage("boardImages/Paddingdx.png");
+		paddingSX.loadImage("BoardImages/Paddingsx.png");
+		paddingDX.loadImage("BoardImages/Paddingdx.png");
 		
 		JPanel greenTowerPanel = graphicGreenTowerView.getComponent();
 		JPanel blueTowerPanel = graphicBlueTowerView.getComponent();
@@ -178,7 +178,7 @@ public class GraphicMainBoardView extends BoardView{
 		graphicCouncilPalaceView.attachSlideListener(showPanel);
 	}
 
-	public void attachChangePlayer(ChangePlayer changePlayer) {
+	public void attachChangePlayerListener(EventListener<Player> changePlayer) {
 		graphicCouncilPalaceView.attachChangePlayer(changePlayer);
 	}
 

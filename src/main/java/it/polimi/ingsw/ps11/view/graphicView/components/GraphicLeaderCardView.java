@@ -25,7 +25,7 @@ public class GraphicLeaderCardView extends JToggleButton{
 	
 	public void loadImage(String url){
 		painted = true;
-		URL imagePath = getClass().getResource(url);
+		URL imagePath = getClass().getClassLoader().getResource(url);
 		BufferedImage result = null;
 		try {
 			result = ImageIO.read(imagePath);

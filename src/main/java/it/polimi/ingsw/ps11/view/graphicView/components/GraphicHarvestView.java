@@ -25,7 +25,7 @@ public class GraphicHarvestView extends HarvestView {
 	
 	public GraphicHarvestView() {
 		
-		harvestPanel.loadImage("boardImages/Harvest.png");
+		harvestPanel.loadImage("BoardImages/Harvest.png");
 
 		singleActionSpace.setContentAreaFilled(false);
 		
@@ -62,11 +62,11 @@ public class GraphicHarvestView extends HarvestView {
 	public void print() {
 		
 		if(!(harvest.getSingleActionSpace().getFamilyMember() == null)){
-			singleActionSpace.loadImage("pImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
+			singleActionSpace.loadImage("PlayerImages/" + harvest.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + harvest.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
 		else {
-			singleActionSpace.loadImage("pImages/BLANK.png");
+			singleActionSpace.loadImage("PlayerImages/BLANK.png");
 		}
 		multipleActionSpace.print(harvest.getMultipleActionSpace().getAllSpace());
 		harvestPanel.repaint();
