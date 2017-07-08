@@ -34,7 +34,6 @@ public class JsonAdapter {
 	
 	private static ArrayList<Class<?>> list = new ArrayList<>(Arrays.asList(
 			Resource.class,
-//			Dice.class,
 			Requirement.class,
 			DevelopmentCard.class,
 			FamilyMember.class,
