@@ -54,13 +54,13 @@ public class GraphicResourceView extends ResourceView {
 //		}
 		
 		ArrayList<String> rList = new ArrayList<>();
-		rList.add(Coin.class.toString());
-		rList.add(Wood.class.toString());
-		rList.add(Stone.class.toString());
-		rList.add(Servant.class.toString());
-		rList.add(FaithPoint.class.toString());
-		rList.add(MilitaryPoint.class.toString());
-		rList.add(VictoryPoint.class.toString());
+		rList.add(new Coin().getId());
+		rList.add(new Wood().getId());
+		rList.add(new Stone().getId());
+		rList.add(new Servant().getId());
+		rList.add(new FaithPoint().getId());
+		rList.add(new MilitaryPoint().getId());
+		rList.add(new VictoryPoint().getId());
 		
 		for(String resourceName : rList){
 			JLabel resourceLabel = new JLabel("<html><font color='black'>" + 0 + "</font></html>");
@@ -75,7 +75,7 @@ public class GraphicResourceView extends ResourceView {
 	@Override
 	public void print(){
 		for(Resource resource : this.resourceList){
-			JLabel label = resourcesPosition.get(resource.getClass().toString());
+			JLabel label = resourcesPosition.get(resource.getId());
 			label.setText("<html><font color='black'>" + resource.getValue() + "</font></html>");
 		}
 	}

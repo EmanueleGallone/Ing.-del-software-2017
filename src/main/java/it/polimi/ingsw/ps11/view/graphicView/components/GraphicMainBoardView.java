@@ -9,13 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
-import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
-import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
@@ -42,10 +41,10 @@ public class GraphicMainBoardView extends BoardView{
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
-		GraphicTowerView graphicGreenTowerView = new GraphicTowerView(GreenTower.class);
-		GraphicTowerView graphicBlueTowerView = new GraphicTowerView(BlueTower.class);
-		GraphicTowerView graphicYellowTowerView = new GraphicTowerView(YellowTower.class);
-		GraphicTowerView graphicPurpleTowerView = new GraphicTowerView(PurpleTower.class);
+		GraphicTowerView graphicGreenTowerView = new GraphicTowerView("GreenTower");
+		GraphicTowerView graphicBlueTowerView = new GraphicTowerView("BlueTower");
+		GraphicTowerView graphicYellowTowerView = new GraphicTowerView("YellowTower");
+		GraphicTowerView graphicPurpleTowerView = new GraphicTowerView("PurpleTower");
 
 		GraphicChurchView graphicChurchView = new GraphicChurchView();
 		graphicCouncilPalaceView = new GraphicCouncilPalaceView();

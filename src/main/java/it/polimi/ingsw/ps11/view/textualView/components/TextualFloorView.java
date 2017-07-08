@@ -8,10 +8,6 @@ public class TextualFloorView extends FloorView {
 
 	private final int SPACE = 30;
 	
-	public TextualFloorView(Class<? extends Tower> whichTower, int whichFloor) {
-		this(whichTower.toString(), whichFloor);
-	}
-	
 	public TextualFloorView(String whichTower, int whichFloor) {
 		super(whichTower, whichFloor);
 		this.cardView = new TextualDevelopmentCardView();

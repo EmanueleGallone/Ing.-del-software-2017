@@ -32,7 +32,7 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 	public void print(){
 
 		if(developmentCard!= null){
-			image.loadImage(developmentCard.getClass().getSimpleName() +"/" + developmentCard.getName() + ".png");
+			image.loadImage(developmentCard.getId() +"/" + developmentCard.getName() + ".png");
 			image.repaint();
 		}
 	}

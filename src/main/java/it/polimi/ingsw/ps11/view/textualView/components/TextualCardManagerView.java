@@ -18,7 +18,7 @@ public class TextualCardManagerView extends CardManagerView{
 			int i = 0;
 			for(DevelopmentCard card : deck){
 				if (i == 0){
-					console.println(card.getClass().getSimpleName() + "s : ");
+					console.println(card.getId() + "s : ");
 					i++;
 				}
 				console.println("\n • "+card.getName());

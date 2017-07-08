@@ -24,12 +24,12 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
@@ -82,9 +82,7 @@ public class FamilyInYieldTest {
 //		players = new ArrayList<>();
 //		players.add(player1);
 //		players.add(player2);
-//>>>>>>> 82987cfac442955eab8507997141a4aa6c23c24d
-			
-			
+//>>>>>>> 82987cfac442955eab8507997141a4aa6c23c24d	
 //			
 //		}
 //		return null;
