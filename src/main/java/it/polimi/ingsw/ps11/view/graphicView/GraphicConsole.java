@@ -109,7 +109,7 @@ public class GraphicConsole extends Console {
 					+ " you want to confirm and proceed, or cancel tha action and rethink about your plan. If you confirm get"
 					+ " sure to press the \"End Turn\" button to terminate your turn");
 		}
-		else println(toSend);
+		//else println(toSend);
 		inPut.setText("");
 		return toSend;
 	}
@@ -118,7 +118,7 @@ public class GraphicConsole extends Console {
 	public String read(String message) {
 		println(message);
 		String toSend = inPut.getText();
-		println(toSend);
+		//println(toSend);
 		inPut.setText("");
 		return toSend;
 	}

@@ -2,13 +2,11 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Label;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 /**
@@ -42,7 +40,7 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 		try {
 			result = ImageIO.read(imagePath);
 		} catch (IOException | IllegalArgumentException e) {
-			System.err.println("Errore, immagine non trovata");
+			System.err.println("Errore, immagine non trovata url: " + url);
 			e.printStackTrace();
 		}
 		

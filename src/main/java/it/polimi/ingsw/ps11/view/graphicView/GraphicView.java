@@ -156,11 +156,11 @@ public class GraphicView extends View{
 		minimize.addActionListener(new Minimize());
         
         graphicBoardView.attachSlideListener(new ShowPanel());						//listener per il bottone che fa entrare il pannello della slideBoardView
-        graphicBoardView.attachChangePlayer(new ChangePlayer());
         graphicConsole.attach(this);
         
         graphicBoardView.attach(eventListener);
         graphicPlayerView.attach(eventListener);
+        graphicBoardView.attachChangePlayer(changePlayerListener);
         graphicBoardView.attachCardListener(cardClickListener);
         graphicPlayerView.attachCardListener(cardClickListener);
         graphicPlayerView.attachEndTurnListener(new EndTurn());
@@ -262,6 +262,21 @@ public class GraphicView extends View{
 		}
 	};
 	
+	private transient EventListener<Player> changePlayerListener = new EventListener<Player>() {
+//
+//		@Override
+//		public void handle(Card e) {
+//			String cardType = e.getClass().getSimpleName();
+//			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
+//			cardZoomPanel.repaint();
+//		}
+
+		@Override
+		public void handle(Player e) {
+			you.update(e);
+		}
+	};
+	
 	private class Minimize implements ActionListener {			
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -284,16 +299,4 @@ public class GraphicView extends View{
 			}
 	}
 	
-	public class ChangePlayer implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent event) {
-			int playerIndex = Integer.parseInt(((GraphicPaintedButton) event.getSource()).getName());
-			ArrayList<Player> players = game.getRoundManager().getCurrentOrder();
-			if(playerIndex < players.size()){
-				you.update(players.get(playerIndex));
-			}
-		}
-		
-	}
 }

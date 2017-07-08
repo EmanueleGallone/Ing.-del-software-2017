@@ -49,7 +49,7 @@ public class GraphicPlayerView extends PlayerView{
 		JPanel cardPanel = graphicCardManagerView.getComponent();
 		JPanel resourcePanel = graphicResourceView.getComponent();
 		JPanel familyMemberPanel = graphicFamilyMemberView.getComponent();
-		endTurn.loadImage("BoardImages/endTurn.png");
+		endTurn.loadImage("PlayerImages/endTurn.png");
 		playersName = new JLabel("Player's Name");
 		playersName.setFont(new Font("Times New Roman", Font.PLAIN, 30));	
 			

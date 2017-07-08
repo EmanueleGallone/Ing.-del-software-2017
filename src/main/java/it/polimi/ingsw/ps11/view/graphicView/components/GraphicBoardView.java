@@ -3,8 +3,7 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.game.Board;
-import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
@@ -55,8 +54,8 @@ public class GraphicBoardView extends BoardView {
 		mainBoard.attachSlideListener(showPanel);						//mostra la parte della board nascosta
 	}
 
-	public void attachChangePlayer(ChangePlayer changePlayer) {			//attacha la finestra principale ai bottoni che
-		mainBoard.attachChangePlayer(changePlayer);						//switchano tra le board dei player
+	public void attachChangePlayer(EventListener<Player> changePlayer) {			//attacha la finestra principale ai bottoni che
+		mainBoard.attachChangePlayerListener(changePlayer);						//switchano tra le board dei player
 	}
 	
 	public void attachCardListener(EventListener<Card> zoomCard) {

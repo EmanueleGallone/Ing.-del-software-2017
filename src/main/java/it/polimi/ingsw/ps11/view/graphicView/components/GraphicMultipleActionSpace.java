@@ -48,12 +48,13 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			gbc.fill = GridBagConstraints.BOTH;
 			
 			GraphicPaintedPanel familyMember = new GraphicPaintedPanel();
-			String familyName = actionSpace.getFamilyMember().getClass().getSimpleName();
-			familyMember.setOpaque(false);
-			familyMember.loadImage("PlayerImages/" + actionSpace.getOwner().getColor().toString() + " " + familyName + ".png");
-			add(familyMember, gbc);
-			i++;
-
+			if(actionSpace != null && actionSpace.getOwner() != null  && actionSpace.getFamilyMember() != null){
+				String familyName = actionSpace.getFamilyMember().getClass().getSimpleName();
+				familyMember.setOpaque(false);
+				familyMember.loadImage("PlayerImages/" + actionSpace.getOwner().getColor().toString() + " " + familyName + ".png");
+				add(familyMember, gbc);
+				i++;
+			}
 		}
 		if(i<3){
 			
