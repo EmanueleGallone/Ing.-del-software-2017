@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.ps11.model.cards.Card;
+import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ChangePlayer;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 /**
@@ -30,6 +32,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	protected JButton showPanelButton;
 	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
 	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
+	private EventHandler<Player> changePlayerEvent = new EventHandler<>();
 	
 	public GraphicCouncilPalaceView() {
 		
@@ -137,17 +140,23 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		showPanelButton.addActionListener(showPanel);
 	}
 	
-	public void attachChangePlayer(ChangePlayer changePlayer) {
-		
-		toPlayer1.addActionListener(changePlayer);
-		toPlayer2.addActionListener(changePlayer);
-		toPlayer3.addActionListener(changePlayer);
-		toPlayer4.addActionListener(changePlayer);
-
+	public void attachChangePlayer(EventListener<Player> changePlayer) {
+		changePlayerEvent.attach(changePlayer);
 	}
 
 	public JPanel getComponent() {
 		return councilPalacePanel;
+	}
+	
+	public class ChangePlayer implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for(int i=0; i<currentOrder.size(); i++){
+				if(e.getSource().equals(playerSelectors.get(i)));
+				changePlayerEvent.invoke(currentOrder.get(i));
+			}
+		}
 	}
 
 	public class CouncilPalaceSelectedListener implements ActionListener{	//Se selezionato invoca l'evento "Palazzo del consiglio selezionato"
