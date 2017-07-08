@@ -57,9 +57,12 @@ public class Yield implements Serializable, Iterable<ActionSpace> {
 	
 	public boolean search(Player player){
 		for(ActionSpace aSpace : this){
+			FamilyMember familyMember = aSpace.getFamilyMember();
 			Player owner = aSpace.getOwner();
-			if(owner!= null && owner.equals(player))
-				return true;
+			if(familyMember!=null && !familyMember.isNeutral()){
+				if(owner!= null && owner.equals(player))
+					return true;
+				}
 		}
 		return false;
 	}

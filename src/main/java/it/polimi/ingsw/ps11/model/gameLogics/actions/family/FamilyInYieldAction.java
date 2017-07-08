@@ -6,8 +6,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
-import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 /** <h3> PlaceFamilyYieldAction </h3>
@@ -35,8 +33,7 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	
 	@Override
 	public boolean isLegal() {
-		
-		if(yield.search(aManager.state().getPlayer())){
+		if(!familyMember.isNeutral() && yield.search(aManager.state().getPlayer())){
 			aManager.state().invoke("Non puoi piazzare un'altro familiare in questa zona");
 			return false;
 		}
