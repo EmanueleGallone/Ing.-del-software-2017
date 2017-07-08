@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.view.viewGenerica.components;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.game.Board;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 /**
  * <h3> BoardView</h3>
@@ -17,6 +18,7 @@ public abstract class BoardView extends ViewComponent {
 	protected DiceView diceView;
 	protected CouncilPalaceView councilPalaceView;
 	protected MarketView marketView;
+	protected ArrayList<Player> currentOrder;
 
 	protected ChurchView churchView;
 	
@@ -73,35 +75,8 @@ public abstract class BoardView extends ViewComponent {
 		return churchView;
 	}
 
+	public void update(ArrayList<Player> currentOrder) {
+		this.currentOrder = currentOrder;
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
