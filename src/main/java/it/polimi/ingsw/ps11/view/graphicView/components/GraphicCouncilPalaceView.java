@@ -47,6 +47,10 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		toPlayer3 = new GraphicPaintedButton();
 		toPlayer4 = new GraphicPaintedButton();
 		
+		toPlayer1.addActionListener(new ChangePlayer());
+		toPlayer2.addActionListener(new ChangePlayer());
+		toPlayer3.addActionListener(new ChangePlayer());
+		toPlayer4.addActionListener(new ChangePlayer());
 		
 		playerSelectors.add(toPlayer1);
 		playerSelectors.add(toPlayer2);
