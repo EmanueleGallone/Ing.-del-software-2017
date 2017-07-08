@@ -25,7 +25,7 @@ public class WhiteFamilyMember extends FamilyMember {
 	}
 
 	@Override
-	public WhiteFamilyMember set(FamilyMemberManager familyMemberManager) {
+	public WhiteFamilyMember getFrom(FamilyMemberManager familyMemberManager) {
 		return familyMemberManager.getFamilyMember(id);
 	}
 }

@@ -51,8 +51,8 @@ public class MultipleActionSpaceTest {
 		
 		multipleActionSpace.addActionSpace(actionSpace); //aggiungo lo spazio azione creato nell multiplo
 		
-		multipleActionSpace.getFreeSpace().placeFamilyMember(new OrangeFamilyMember().set(player.getFamilyManager()), player); // occupo l'unico spazioazione disponibile
-		multipleActionSpace.getFreeSpace().placeFamilyMember(new WhiteFamilyMember().set(player.getFamilyManager()), player); //per l'altro branch della freeSpace
+		multipleActionSpace.getFreeSpace().placeFamilyMember(new OrangeFamilyMember().getFrom(player.getFamilyManager()), player); // occupo l'unico spazioazione disponibile
+		multipleActionSpace.getFreeSpace().placeFamilyMember(new WhiteFamilyMember().getFrom(player.getFamilyManager()), player); //per l'altro branch della freeSpace
 		
 		Assert.assertTrue(multipleActionSpace.contains(player));
 		Assert.assertFalse(multipleActionSpace.contains(null));

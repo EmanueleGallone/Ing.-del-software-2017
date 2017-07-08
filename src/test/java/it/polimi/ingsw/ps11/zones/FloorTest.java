@@ -37,7 +37,7 @@ public class FloorTest {
 		Floor floor = new Floor(new YellowCard("card"));
 		floor.setActionSpace(new ActionSpace(new ResourceList(new Coin(1))));
 		
-		floor.placeFamilyMember(new WhiteFamilyMember().set(player.getFamilyManager()), player);
+		floor.placeFamilyMember(new WhiteFamilyMember().getFrom(player.getFamilyManager()), player);
 		
 		Assert.assertEquals(player, floor.getActionSpace().getOwner());
 		floor.clean();

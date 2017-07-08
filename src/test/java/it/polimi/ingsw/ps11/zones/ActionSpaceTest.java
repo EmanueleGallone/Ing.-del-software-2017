@@ -30,7 +30,7 @@ public class ActionSpaceTest {
 		Player player = factory.newPlayer(0);
 		
 		
-		actionSpace.placeFamilyMember(new BlackFamilyMember().set(player.getFamilyManager()), player);
+		actionSpace.placeFamilyMember(new BlackFamilyMember().getFrom(player.getFamilyManager()), player);
 		clone = actionSpace.clone();
 		
 		Assert.assertEquals(clone.getOwner(), actionSpace.getOwner());
@@ -49,7 +49,7 @@ public class ActionSpaceTest {
 		
 		PlayerFactory factory = new PlayerFactory();
 		Player player = factory.newPlayer(0);
-		actionSpace.placeFamilyMember(new OrangeFamilyMember().set(player.getFamilyManager()), player);
+		actionSpace.placeFamilyMember(new OrangeFamilyMember().getFrom(player.getFamilyManager()), player);
 		
 		Assert.assertFalse(actionSpace.isFree());
 		

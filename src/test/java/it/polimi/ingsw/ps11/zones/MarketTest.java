@@ -33,16 +33,16 @@ public class MarketTest {
 		market.addActionSpace(new ActionSpace(new ResourceList(new MilitaryPoint(5)))); //creo le altre due action sapce
 		market.addActionSpace(new ActionSpace(new ResourceList(new Wood(5)))); //fittizio. dovrebbero esserci due councilPrivilege
 		
-		market.getActionSpace(0).placeFamilyMember(new OrangeFamilyMember().set(player1.getFamilyManager()), player1);
+		market.getActionSpace(0).placeFamilyMember(new OrangeFamilyMember().getFrom(player1.getFamilyManager()), player1);
 		
 		try {
-			market.getActionSpace(3).placeFamilyMember(new OrangeFamilyMember().set(player1.getFamilyManager()), player1);			
+			market.getActionSpace(3).placeFamilyMember(new OrangeFamilyMember().getFrom(player1.getFamilyManager()), player1);			
 		} catch (IllegalArgumentException e) {
 			Assert.assertTrue(true); //verifico che è stata lanciata l'eccezione
 		}
 		
 		try {
-			market.getActionSpace(-1).placeFamilyMember(new OrangeFamilyMember().set(player1.getFamilyManager()), player1);			
+			market.getActionSpace(-1).placeFamilyMember(new OrangeFamilyMember().getFrom(player1.getFamilyManager()), player1);			
 		} catch (IllegalArgumentException e) {
 			Assert.assertTrue(true); //verifico che è stata lanciata l'eccezione. per l'altro branch dell'if
 		}
@@ -51,7 +51,7 @@ public class MarketTest {
 		Player player4 = factory.newPlayer(3);
 		
 		market.setPlayerNumber(4);
-		market.getActionSpace(3).placeFamilyMember(new NeutralFamilyMember().set(player4.getFamilyManager()), player4);
+		market.getActionSpace(3).placeFamilyMember(new NeutralFamilyMember().getFrom(player4.getFamilyManager()), player4);
 	}
 
 }
