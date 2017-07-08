@@ -111,7 +111,7 @@ public class Tower implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + "[floors=" + floors + "]";
+		return this.name + "[floors=" + floors + "]";
 	}
 	
 	@Override

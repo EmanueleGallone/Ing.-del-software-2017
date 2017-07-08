@@ -33,7 +33,7 @@ public class WaitCard extends PlayState{
 		Tower tower = stateHandler().getGame().getBoard().getTower(floorSelectedEvent.getTower());
 		this.tower = tower;
 		floor = tower.getFloor(floorSelectedEvent.getFloor());
-		String card = floor.getCard().getClass().toString();
+		String card = floor.getCard().getId();
 
 		if(floor.getCard() != null && (card.equals(cardType) || cardType == null)){
 				getCard(null);

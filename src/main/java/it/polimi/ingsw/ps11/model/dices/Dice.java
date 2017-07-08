@@ -51,7 +51,7 @@ public class Dice implements Serializable{
 	 * <p> TIPODADO [value= ]</p>
 	 */
 	public String toString(){
-		return this.getClass().getSimpleName() + "[value=" + value + "]";
+		return this.name + "[value=" + value + "]";
 	};
 
 }

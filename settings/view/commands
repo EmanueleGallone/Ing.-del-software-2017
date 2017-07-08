@@ -15,7 +15,7 @@
     "yellow tower 4": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "tower": "YellowTower",
         "floor": 3
       }
     },
@@ -28,7 +28,7 @@
     "yellow tower 3": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "tower": "YellowTower",
         "floor": 2
       }
     },
@@ -39,28 +39,28 @@
     "green tower 4": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "tower": "GreenTower",
         "floor": 3
       }
     },
     "green tower 2": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "tower": "GreenTower",
         "floor": 1
       }
     },
     "green tower 3": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "tower": "GreenTower",
         "floor": 2
       }
     },
     "green tower 1": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.GreenTower",
+        "tower": "GreenTower",
         "floor": 0
       }
     },
@@ -73,14 +73,14 @@
     "yellow tower 2": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "tower": "YellowTower",
         "floor": 1
       }
     },
     "purple tower 3": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "tower": "PurpleTower",
         "floor": 2
       }
     },
@@ -93,14 +93,14 @@
     "yellow tower 1": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.YellowTower",
+        "tower": "YellowTower",
         "floor": 0
       }
     },
     "purple tower 4": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "tower": "PurpleTower",
         "floor": 3
       }
     },
@@ -113,42 +113,42 @@
     "blue tower 1": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "tower": "BlueTower",
         "floor": 0
       }
     },
     "purple tower 1": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "tower": "PurpleTower",
         "floor": 0
       }
     },
     "blue tower 2": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "tower": "BlueTower",
         "floor": 1
       }
     },
     "purple tower 2": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.PurpleTower",
+        "tower": "PurpleTower",
         "floor": 1
       }
     },
     "blue tower 3": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "tower": "BlueTower",
         "floor": 2
       }
     },
     "blue tower 4": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
-        "tower": "class it.polimi.ingsw.ps11.model.zones.towers.BlueTower",
+        "tower": "BlueTower",
         "floor": 3
       }
     }

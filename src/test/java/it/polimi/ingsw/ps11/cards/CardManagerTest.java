@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
@@ -53,7 +54,7 @@ public class CardManagerTest {
 		
 		bCard = new BlueCard();
 
-		player = new Player(arrayListResourcePlayer);
+		//player = new Player(arrayListResourcePlayer);
 		
 	}
 	@Test
@@ -63,8 +64,8 @@ public class CardManagerTest {
 		arrayListResourceList1.add(resourceList1);
 		
 		bCard.setCosts(arrayListResourceList1);
-		
-		player = new Player(arrayListResource1);
+		PlayerFactory factory = new PlayerFactory();
+		player = factory.newPlayer(0);
 		
 		for(int i = 0; i<6; i++){
 			assertTrue(player.getCardManager().canAdd(bCard));			//player ha 7 coin, la carta costa 1 coin, può prendere la carta		
