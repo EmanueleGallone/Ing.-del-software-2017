@@ -28,7 +28,7 @@ public class GraphicTowerView extends TowerView{
 		super(whichTower,towerName);
 		this.towerName = towerName;
 		
-		tower.loadImage("boardImages/" + towerName + ".png");
+		tower.loadImage("BoardImages/" + towerName + ".png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 

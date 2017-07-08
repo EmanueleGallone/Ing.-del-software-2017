@@ -25,7 +25,7 @@ public class GraphicProductionView extends ProductionView {
 	
 	public GraphicProductionView() {
 		
-		productionPanel.loadImage("boardImages/Production.png");
+		productionPanel.loadImage("BoardImages/Production.png");
 		
 		singleActionSpace.setContentAreaFilled(false);
 		
@@ -61,11 +61,11 @@ public class GraphicProductionView extends ProductionView {
 	@Override
 	public void print() {
 		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
-			singleActionSpace.loadImage("pImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
+			singleActionSpace.loadImage("PlayerImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + production.getSingleActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
 		}
 		else {
-			singleActionSpace.loadImage("pImages/BLANK.png");
+			singleActionSpace.loadImage("PlayerImages/BLANK.png");
 		}
 		multipleActionSpace.print(production.getMultipleActionSpace().getAllSpace());
 		productionPanel.repaint();

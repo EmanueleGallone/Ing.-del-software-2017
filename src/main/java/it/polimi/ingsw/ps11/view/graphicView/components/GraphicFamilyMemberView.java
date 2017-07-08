@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -7,7 +9,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
@@ -25,9 +29,9 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
  */
 public class GraphicFamilyMemberView extends ChooseFamilyView {
 		
-	String color;
 	protected JPanel familyMembers = new JPanel();
 	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
+	private HashMap<String, JLabel> familyMemberValues = new HashMap<>();
 	
 	public GraphicFamilyMemberView() {
 		familyMembers.setOpaque(false);
@@ -38,7 +42,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		gblFamilyMembers.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gblFamilyMembers.rowHeights = new int[]{0, 0};
 		gblFamilyMembers.columnWeights = new double[]{0.2, 0.6, 0.04, 0.04, 0.04, 0.04, Double.MIN_VALUE};
-		gblFamilyMembers.rowWeights = new double[]{1.0, Double.MIN_VALUE};
+		gblFamilyMembers.rowWeights = new double[]{0.9, 0.1, Double.MIN_VALUE};
 		familyMembers.setLayout(gblFamilyMembers);
 
 		int i = 2;
@@ -53,16 +57,30 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		for (Class<? extends FamilyMember> familyMemberName : familyList) {
 
 			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton();
+			JLabel value = new JLabel("0", SwingConstants.CENTER);
+			value.setBackground(Color.WHITE);
 //			familyMemberPanel.loadImage("playerImages/" + color + familyMemberName.getSimpleName() + ".png");
-			GridBagConstraints gbc = new GridBagConstraints();
-			gbc.gridx = i;
-			gbc.fill = GridBagConstraints.BOTH;
+			GridBagConstraints gbcButton = new GridBagConstraints();
+			GridBagConstraints gbcValue = new GridBagConstraints();
+			gbcButton.gridx = i;
+			gbcButton.gridy = 0;
+			gbcButton.fill = GridBagConstraints.BOTH;
 			familyMemberPanel.setContentAreaFilled(false);
-			familyMembers.add(familyMemberPanel, gbc);
-			i++;
-
+			familyMembers.add(familyMemberPanel, gbcButton);
+			
+			gbcValue.gridx = i;
+			gbcValue.gridy = 1;
+			gbcValue.fill = GridBagConstraints.BOTH;
+			familyMemberPanel.setContentAreaFilled(false);
+			familyMembers.add(value, gbcValue);
+			
 			familyMemberPanel.addActionListener(new ChooseFamillyMemberListener(familyMemberName));
-			familyMemberButtons.put(familyMemberName.toString(),familyMemberPanel);
+			String memberName = familyMemberName.toString();
+			familyMemberButtons.put(memberName,familyMemberPanel);
+			familyMemberValues.put(memberName,
+					value);
+			
+			i++;
 			
 		}
 
@@ -74,11 +92,14 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		for(FamilyMember member : familyManager.getFamily().values()){
 			String memberName = member.getClass().toString();
 			if(member.isUsed()){
-				familyMemberButtons.get(memberName).loadImage("pImages/BLANK.png");
+				familyMemberButtons.get(memberName).loadImage("PlayerImages/BLANK.png");
 				familyMemberButtons.get(memberName).setEnabled(false);
+				familyMemberValues.get(memberName).setText("Used");
 			} else {
-			familyMemberButtons.get(memberName).loadImage("pImages/RED " + member.getClass().getSimpleName() + ".png");
+			familyMemberButtons.get(memberName).loadImage("PlayerImages/" + playerColor + " " + member.getClass().getSimpleName() + ".png");
 			familyMemberButtons.get(memberName).setEnabled(true);
+			familyMemberValues.get(memberName).setFont(new Font("Arial", Font.PLAIN, 13));
+			familyMemberValues.get(memberName).setText("<html><font color='" + playerColor + "'>" + member.getValue() + "</font></html>");
 			}
 		}
 		}
@@ -100,9 +121,4 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 			eventHandler.invoke(new FamilySelectedEvent(familyMemberType));
 		}
 	}
-	
-	public void setColor(String color){
-		this.color = color;
-	}
-	
 }

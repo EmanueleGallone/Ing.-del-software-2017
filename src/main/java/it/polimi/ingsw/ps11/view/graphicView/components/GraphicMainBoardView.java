@@ -60,8 +60,8 @@ public class GraphicMainBoardView extends BoardView{
 		gblMainBoard.rowWeights = new double[]{0.762163, 0.237837, Double.MIN_VALUE};
 		mainBoard.setLayout(gblMainBoard);
 		
-		paddingSX.loadImage("boardImages/Paddingsx.png");
-		paddingDX.loadImage("boardImages/Paddingdx.png");
+		paddingSX.loadImage("BoardImages/Paddingsx.png");
+		paddingDX.loadImage("BoardImages/Paddingdx.png");
 		
 		JPanel greenTowerPanel = graphicGreenTowerView.getComponent();
 		JPanel blueTowerPanel = graphicBlueTowerView.getComponent();

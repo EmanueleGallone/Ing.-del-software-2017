@@ -43,6 +43,8 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 
 	public GraphicCardManagerView() {
 		
+		personalBoard.setOpaque(false);
+		
 		colorMap.put("GreenCard", Color.GREEN); 
 		colorMap.put("BlueCard", Color.BLUE); 
 		colorMap.put("YellowCard", Color.YELLOW); 
@@ -54,9 +56,10 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		
 		overlayedDecksPanel = new JPanel(new CardLayout());												//Pannello dei deck sovrapposti
 		JPanel selectorButtonsPanel = new JPanel();
+		selectorButtonsPanel.setOpaque(false);
 		GraphicPaintedPanel tile = new GraphicPaintedPanel();
 		//tile.loadImage("playerImages/" + cardManager.getTile() + ".png");
-		tile.loadImage("pImages/Tile 1.png");
+		tile.loadImage("playerImages/Tile 1.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -108,7 +111,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			buttonGroupSelectors.add(selector);																	//un solo selettore attivo alla volta
 			
 			GraphicPaintedPanel deck = new GraphicPaintedPanel();
-			deck.loadImage("boardImages/" + cardType + ".png");
+			deck.loadImage("PlayerImages/" + cardType + ".png");
 			
 			GridBagLayout gblDecks = new GridBagLayout();												//Layout dei bottoni
 			gblDecks.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -119,7 +122,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			
 			if(cardType.equals("LeaderCard")){
 				GraphicPaintedButton activate= new GraphicPaintedButton();
-				activate.loadImage("pImages/Activate.png");
+				activate.loadImage("PlayerImages/Activate.png");
 //				activate.addActionListener(new LeaderAction());
 				GridBagConstraints gbcActivate = new GridBagConstraints();
 				gbcActivate.gridx = 5;

@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.EndTurn;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
@@ -31,7 +32,7 @@ public class GraphicPlayerView extends PlayerView{
 	
 	public GraphicPlayerView() {
 		
-		personal.loadImage("pImages/baseBoard.png");
+		personal.loadImage("PlayerImages/baseBoard.png");
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -42,13 +43,13 @@ public class GraphicPlayerView extends PlayerView{
 		gblPersonal.columnWidths = new int[]{0, 0, 0};
 		gblPersonal.rowHeights = new int[]{0, 0, 0};
 		gblPersonal.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gblPersonal.rowWeights = new double[]{0.15, 0.515116, 0.234884, Double.MIN_VALUE};
+		gblPersonal.rowWeights = new double[]{0.17, 0.515116, 0.214884, Double.MIN_VALUE};
 		personal.setLayout(gblPersonal);
 				
 		JPanel cardPanel = graphicCardManagerView.getComponent();
 		JPanel resourcePanel = graphicResourceView.getComponent();
 		JPanel familyMemberPanel = graphicFamilyMemberView.getComponent();
-		endTurn.loadImage("boardImages/endTurn.png");
+		endTurn.loadImage("BoardImages/endTurn.png");
 		playersName = new JLabel("Player's Name");
 		playersName.setFont(new Font("Times New Roman", Font.PLAIN, 30));	
 			
@@ -71,6 +72,7 @@ public class GraphicPlayerView extends PlayerView{
 		
 		gbcEndTurn.gridx = 0;
 		gbcEndTurn.gridy = 0;
+		gbcEndTurn.gridheight = 2;
 		gbcEndTurn.fill = GridBagConstraints.BOTH;
 		familyMemberPanel.add(endTurn, gbcEndTurn);
 				
@@ -95,6 +97,11 @@ public class GraphicPlayerView extends PlayerView{
 		
 	}
 	
+	 @Override
+	public void update(Player player) {
+		super.update(player);
+		chooseFamilyView.setPlayerColor(player.getColor().toString());
+	}
 	@Override
 	public void print() {
 		playersName.setText("     " + player.getName());
