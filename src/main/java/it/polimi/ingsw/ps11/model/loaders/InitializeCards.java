@@ -1,49 +1,7 @@
 package it.polimi.ingsw.ps11.model.loaders;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.google.gson.reflect.TypeToken;
-
-import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.JsonAdapter;
-import it.polimi.ingsw.ps11.model.cards.CardManager;
-import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect;
-import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
-import it.polimi.ingsw.ps11.model.cards.effects.AnotherCard;
-import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
-import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
-import it.polimi.ingsw.ps11.model.cards.effects.DecrementResourceEffect;
-import it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint;
-import it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect;
-import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
-import it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus;
-import it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus;
-import it.polimi.ingsw.ps11.model.cards.effects.IncrementForCard;
-import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement;
-import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
-import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.Coin;
-import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
-import it.polimi.ingsw.ps11.model.resources.list.Servant;
-import it.polimi.ingsw.ps11.model.resources.list.Stone;
-import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
-import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
 public class InitializeCards {
 	
@@ -72,7 +30,7 @@ public class InitializeCards {
 		
 		*/
 		
-		
+		/*
 		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
 		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
 		resourceList.setResource(new Wood(1));
@@ -1500,13 +1458,13 @@ public class InitializeCards {
 		//CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		//Fine costruzione files
-
+*/
 	}
 
 	
 	public static void LeaderCardsInitializer(){
 		//INIZIO CARTE LEADER
-		
+		/*
 		ResourceList resourceList;
 		HashMap<String, Integer> map = new HashMap<>();
 		
@@ -1670,7 +1628,7 @@ public class InitializeCards {
 		santaRita.setRequirement(resourceList.clone());
 		//ensures ogni volta che prendi instantBonus ricevi il bonus 2 volte
 		*/
-		
+		/*
 		ArrayList<LeaderCard> leaderCards = new ArrayList<>();
 		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
 		
@@ -1701,10 +1659,11 @@ public class InitializeCards {
 		
 		new Loader(FileRegistry.leaderCards).write(cardManager,CardManager.class);
 		//FINE LEADER CARDS
-	 
+	 */
 	}
 
 	public static void initializeExcommunication(){
+		/*
 		ArrayList<Excommunication> list = new ArrayList<>();
 		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
 		
@@ -1804,6 +1763,7 @@ public class InitializeCards {
 		
 		Loader loader = new Loader(FileRegistry.excommunication);
 		loader.write(list,type);
+		*/
 	}
 	
 	

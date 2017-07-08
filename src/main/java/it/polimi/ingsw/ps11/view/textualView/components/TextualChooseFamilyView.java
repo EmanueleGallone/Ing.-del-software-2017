@@ -52,7 +52,7 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 			}
 				
 		} catch (NumberFormatException e1) {
-			new TextualConsole().println("Nessun familiare selezionato");
+			new TextualConsole().println("No family member selected");
 		}finally{
 			input.detach(this);
 		}

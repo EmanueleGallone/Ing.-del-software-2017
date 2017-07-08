@@ -39,7 +39,7 @@ public class MainTest {
 		Player defaultPlayer = new PlayerFactory().newPlayer(0);
 		new Loader(FileRegistry.player).write(defaultPlayer);
 	}
- 
+ /*
 	public static Board inizializzatoreBoard(){
 		
 // ___________ TUTTE LE TORRI ____________________________
@@ -142,7 +142,7 @@ public class MainTest {
 //		
 //		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
 //	}
-	
+	*/
 }
 
 

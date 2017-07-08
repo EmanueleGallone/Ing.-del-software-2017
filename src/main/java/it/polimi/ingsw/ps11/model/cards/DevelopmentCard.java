@@ -147,13 +147,5 @@ public abstract class DevelopmentCard extends Card {
 	 * @return true se sono dello stesso tipo e hanno lo stesso nome, false altrimenti
 	 */
 	@Override
-	public boolean equals(Object obj) {
-		if(obj == null)
-			return false;
-		
-		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((DevelopmentCard) obj).getName()))
-				return true;
-		
-		return false;
-	}
+	public abstract boolean equals(Object obj);
 }

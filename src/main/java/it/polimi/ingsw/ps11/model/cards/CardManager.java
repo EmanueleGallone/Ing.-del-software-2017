@@ -133,7 +133,7 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		
 		for(ArrayList<DevelopmentCard> a : this.cards.values())
 			for(DevelopmentCard card : a)
-				clone.addCard(card.clone());	
+				clone.addCard(card.clone());			
 		
 		return clone;
 	}

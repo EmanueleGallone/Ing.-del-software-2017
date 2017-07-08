@@ -2,16 +2,11 @@ package it.polimi.ingsw.ps11.view.textualView;
 
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import it.polimi.ingsw.ps11.controller.network.message.LogInMessage;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.FileRegistry;
-import it.polimi.ingsw.ps11.model.JsonAdapter;
-import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
@@ -25,15 +20,10 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseFamilyView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceView;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualDevelopmentCardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3>TextualView</h3>
@@ -49,6 +39,7 @@ public class TextualView extends View {
 	
 	private TextualCommands commands;
 	private transient Input input;
+	private boolean block = false;
 	
 	private EventHandler<Message> messageHandler = new EventHandler<>();
 	
@@ -74,10 +65,12 @@ public class TextualView extends View {
 	
 	@Override
 	public void print() {
-//		boardView.print();
-//		you.print();
-		console.println(commands.getInstructions()); 
-
+		if (!block) {
+			boardView.print();
+			you.print();
+			console.println(commands.getInstructions()); 
+			block = true;
+		}
 	}
 
 	@Override
@@ -104,6 +97,9 @@ public class TextualView extends View {
 		while (!(command = input.read()).equals("q")){
 			if(commands.get(command) != null){
 				viewEvent.invoke(commands.get(command));
+				if (command.equals("update")){
+					block = false;
+				}
 			}
 		}
 	}
@@ -111,13 +107,11 @@ public class TextualView extends View {
 	@Override
 	public void update(Board board){
 		this.boardView.update(board);
-		new TextualBoardView(board).print();
 	}
 
 	@Override
 	public void update(Player player){
 		this.you.update(player);
-		new TextualPlayerView(player).print();
 	}
 	
 	@Override
@@ -132,12 +126,6 @@ public class TextualView extends View {
 	public void update(Game game) {
 		this.update(game.getBoard());
 	}
-	
-//	public void registrate(Registration registration){
-//		TextualRegistationView registrate = new TextualRegistationView(registration,viewEvent,input);
-//		registrate.print();
-//		input.attach(registrate);
-//	}
 	
 	@Override
 	public void chooseResource(ArrayList<ResourceList> costs){ 
@@ -154,16 +142,18 @@ public class TextualView extends View {
 		String tower = "";
 		if(confirm.getTower()!=null)
 			tower = confirm.getTower();
-		if(confirm.getFloor() != null){
-			TextualFloorView floorView = new TextualFloorView(tower,0);
-			floorView.update(floor);
-			floorView.print();
+		if(confirm.getFloor() != null && confirm.getFloor().getCard() != null){
+			TextualDevelopmentCardView developmentCardView = new TextualDevelopmentCardView();
+			developmentCardView.update(confirm.getFloor().getCard());
+			developmentCardView.print();
+			
 			console.println(confirm.getMessage());
 			console.println("Select servant number");
 		}
 
+		console.println("type zero for confirm, type a number greater than zero to confirm and use the typed number of servant, otherwise type -1");
 		console.println(confirm.getMessage());
-		console.println("Digita un numero maggiore di zero per confermare, altrimenti digita -1");
+		
 		
 		input.attach(new EventListener<String>() {
 			

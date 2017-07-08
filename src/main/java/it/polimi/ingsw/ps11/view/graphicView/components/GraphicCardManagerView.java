@@ -199,8 +199,6 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		for (GraphicPaintedPanel deckPanel : allDecks) {
 			setCard(deckPanel, cardManager.getCardList(allDecks2.get(deckPanel)));
 		}
-		
-		
 	}
 				
     public void itemStateChanged(ItemEvent evt) {														//listener dei selectors, mostra il pannello corrispondente
