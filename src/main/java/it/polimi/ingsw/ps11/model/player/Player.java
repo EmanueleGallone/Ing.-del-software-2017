@@ -45,13 +45,13 @@ public class Player implements Serializable{
 		this.familyManager = new FamilyMemberManager();
 	}
 	
-	public Player( ArrayList<Resource> resources ) {
+	public Player( ArrayList<Resource> resources , FamilyMemberManager familyManager) {
 		
 		name = DEFAULT_NAME;
 		
 		this.resourceList = new ResourceList(resources);
 		this.cardManager = new CardManager();
-		this.familyManager = new FamilyMemberManager();
+		this.familyManager = familyManager;
 	}
 
 	
@@ -85,10 +85,6 @@ public class Player implements Serializable{
 	
 	public void setColor(Colors color) {
 		this.color = color;
-	}
-	
-	public void setFamilyManager(FamilyMemberManager familyManager) {
-		this.familyManager = familyManager;
 	}
 	
 	@Override
