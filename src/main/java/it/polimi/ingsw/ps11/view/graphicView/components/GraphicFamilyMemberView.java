@@ -47,14 +47,14 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 
 		int i = 2;
 		
-		ArrayList<Class<? extends FamilyMember>> familyList = new ArrayList<>();
+		ArrayList<String> familyList = new ArrayList<>();
 		
-		familyList.add(BlackFamilyMember.class);
-		familyList.add(WhiteFamilyMember.class);
-		familyList.add(OrangeFamilyMember.class);
-		familyList.add(NeutralFamilyMember.class);
+		familyList.add(new BlackFamilyMember().getId());
+		familyList.add(new WhiteFamilyMember().getId());
+		familyList.add(new OrangeFamilyMember().getId());
+		familyList.add(new NeutralFamilyMember().getId());
 		
-		for (Class<? extends FamilyMember> familyMemberName : familyList) {
+		for (String familyMemberName : familyList) {
 
 			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton();
 			JLabel value = new JLabel("0", SwingConstants.CENTER);
@@ -90,14 +90,14 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	
 	public void print() {
 		for(FamilyMember member : familyManager.getFamily().values()){
-			String memberName = member.getClass().toString();
+			String memberName = member.getId();
 			if(member.isUsed()){
 				familyMemberButtons.get(memberName).loadImage("PlayerImages/BLANK.png");
 				familyMemberButtons.get(memberName).repaint();
 				familyMemberButtons.get(memberName).setEnabled(false);
 				familyMemberValues.get(memberName).setText("Used");
 			} else {
-			familyMemberButtons.get(memberName).loadImage("PlayerImages/" + playerColor + " " + member.getClass().getSimpleName() + ".png");
+			familyMemberButtons.get(memberName).loadImage("PlayerImages/" + playerColor + " " + memberName + ".png");
 			familyMemberButtons.get(memberName).repaint();
 			familyMemberButtons.get(memberName).setEnabled(true);
 			familyMemberValues.get(memberName).setFont(new Font("Arial", Font.PLAIN, 13));
@@ -112,10 +112,10 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 
 	private class ChooseFamillyMemberListener implements ActionListener{			//Se un familiare è selezionato invoca l'evento "Familiare selezionato"
 		
-		Class<? extends FamilyMember> familyMemberType;
+		String familyMemberType = "";
 		
-		public ChooseFamillyMemberListener(Class<? extends FamilyMember> familyMember) {
-			this.familyMemberType = familyMember;
+		public ChooseFamillyMemberListener(String familyMemberName) {
+			this.familyMemberType = familyMemberName;
 		}
 		
 		@Override

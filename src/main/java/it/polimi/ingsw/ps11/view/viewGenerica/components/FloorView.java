@@ -13,11 +13,6 @@ public abstract class FloorView extends ViewComponent{
 	protected DevelopmentCardView cardView;
 	protected ResourceView resourceView;
 
-	
-	public FloorView(Class<? extends Tower> whichTower,int whichFloor) {
-		this(whichTower.toString(), whichFloor);
-	}
-	
 	public FloorView(String whichTower,int whichFloor) {
 		updateWhichFloor(whichFloor);
 		this.tower = whichTower;

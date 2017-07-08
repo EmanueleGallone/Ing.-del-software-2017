@@ -49,7 +49,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			
 			GraphicPaintedPanel familyMember = new GraphicPaintedPanel();
 			if(actionSpace != null && actionSpace.getOwner() != null  && actionSpace.getFamilyMember() != null){
-				String familyName = actionSpace.getFamilyMember().getClass().getSimpleName();
+				String familyName = actionSpace.getFamilyMember().getId();
 				familyMember.setOpaque(false);
 				familyMember.loadImage("PlayerImages/" + actionSpace.getOwner().getColor().toString() + " " + familyName + ".png");
 				add(familyMember, gbc);

@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -29,7 +30,7 @@ public class GraphicFloorView extends FloorView{
 	protected GraphicDevelopmentCardView graphicCardView;
 	protected GraphicPaintedButton actionSpace;
 	
-	public GraphicFloorView(Class<? extends Tower> whichTower, int whichFloor) {
+	public GraphicFloorView(String whichTower, int whichFloor) {
 		
 		super(whichTower, whichFloor);
 		graphicCardView = new GraphicDevelopmentCardView();
@@ -45,7 +46,7 @@ public class GraphicFloorView extends FloorView{
 		GridBagLayout gblFloor = new GridBagLayout();
 		gblFloor.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gblFloor.rowHeights = new int[]{0, 0, 0, 0};
-		gblFloor.columnWeights = new double[]{0.6, 0.07, 0.257273, 0.072727, Double.MIN_VALUE};
+		gblFloor.columnWeights = new double[]{0.53, 0.07, 0.327273, 0.072727, Double.MIN_VALUE};
 		gblFloor.rowWeights = new double[]{0.346939, 0.312925, 0.340136, Double.MIN_VALUE};
 		floorPanel.setLayout(gblFloor);
 		
@@ -62,6 +63,7 @@ public class GraphicFloorView extends FloorView{
 		gbcActionSPace.gridx = 2;
 		gbcActionSPace.gridy = 1;
 		gbcActionSPace.fill = GridBagConstraints.BOTH;
+		actionSpace.setPreferredSize(new Dimension(10, 10));
 		floorPanel.add(actionSpace, gbcActionSPace);
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -76,7 +78,7 @@ public class GraphicFloorView extends FloorView{
 			return;
 		if(!(floor.getActionSpace().getFamilyMember() == null)){
 			actionSpace.loadImage("PlayerImages/" + floor.getActionSpace().getOwner().getColor().toString() + 
-					" " + floor.getActionSpace().getFamilyMember().getClass().getSimpleName() + ".png");
+					" " + floor.getActionSpace().getFamilyMember().getId() + ".png");
 		}
 		else {
 			actionSpace.loadImage("PlayerImages/BLANK.png");
@@ -98,7 +100,9 @@ public class GraphicFloorView extends FloorView{
 			this.floorPanel.add(graphicCardView.getComponent(), gbcCard);	
 		}
 		else {
-			graphicCardView.getComponent().setVisible(false);
+			graphicCardView.getComponent().loadImage("PlayerImages/BLANK.png");
+			graphicCardView.getComponent().setOpaque(false);
+			graphicCardView.getComponent().setEnabled(false);
 		}
 			
 		this.floorPanel.repaint();

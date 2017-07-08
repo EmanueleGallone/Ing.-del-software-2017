@@ -10,19 +10,10 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
  */
 public class TextualTowerView extends TowerView {
 
-	
-	public TextualTowerView(Class<? extends Tower> whichTower, String towerName) {
-		super(whichTower,towerName);
-		
-		for(int i = 0; i< TOWERNUMBER; i++){
-			floorViews.add(new TextualFloorView(whichTower, i));
-		}
+	public TextualTowerView(String towername) {
+		super(towername);
 	}
-	
-	public TextualTowerView(Class<? extends Tower> whichTower) {
-		this(whichTower,whichTower.getSimpleName());
-	}
-	
+
 	@Override
 	public void print() {
 		TextualConsole console = new TextualConsole();
