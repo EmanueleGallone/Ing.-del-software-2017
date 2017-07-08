@@ -46,7 +46,7 @@ public class DoSeveralTimesTest {
 		handler = new StateHandler(gameLogic, player);
 		aManager = handler.actions();
 		
-		familyMember = new NeutralFamilyMember("Neutral");
+		familyMember = new NeutralFamilyMember();
 		bonus = new ResourceList(new Coin(3));
 		cost = new ResourceList(new Coin(4));
 
@@ -71,11 +71,11 @@ public class DoSeveralTimesTest {
 
 		action = new DoSeveralTimeAction(aManager, incrementAction, 3);
 		action.perform();
-		assertEquals(10, aManager.state().getPlayer().getResourceList().get(new Coin().getId()).getValue());
+		assertEquals(10, new Coin().set(aManager.state().getPlayer().getResourceList()).getValue());
 		
 		action = new DoSeveralTimeAction(aManager, decrementAction, 3);
 		action.perform();
-		assertEquals(2, aManager.state().getPlayer().getResourceList().get(new Coin().getId()).getValue());	//l'azione viene eseguia solo 2 volte perchè poi non è più legal
+		assertEquals(2, new Coin().set(aManager.state().getPlayer().getResourceList()).getValue());	//l'azione viene eseguia solo 2 volte perchè poi non è più legal
 
 	}
 }

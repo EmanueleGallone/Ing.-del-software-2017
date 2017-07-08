@@ -55,7 +55,7 @@ public class GetCardTest {
 		handler = new StateHandler(gameLogic, player);
 		aManager = handler.actions();
 		
-		familyMember = new NeutralFamilyMember("Neutral");
+		familyMember = new NeutralFamilyMember();
 		cost1 = new ResourceList(new Coin(3));
 		cost2 = new ResourceList(new Coin(3), new Wood(3));
 		
@@ -111,9 +111,9 @@ public class GetCardTest {
 		action = new GetCardAction(aManager, floor1.getCard(), floor1.getCard().getFirstCost());
 		assertTrue(action.isLegal());
 		action.perform();
-		assertEquals(0, player.getResourceList().get(new Coin().getId()).getValue());
-		assertEquals(2, player.getResourceList().get(new Wood().getId()).getValue());
-		assertEquals(1, player.getResourceList().get(new Servant().getId()).getValue());
+		assertEquals(0, new Coin().set(player.getResourceList()).getValue());
+		assertEquals(2, new Wood().set(player.getResourceList()).getValue());
+		assertEquals(1, new Servant().set(player.getResourceList()).getValue());
 		
 		assertEquals(card1 ,player.getCardManager().getCardList(GreenCard.class).get(0));
 

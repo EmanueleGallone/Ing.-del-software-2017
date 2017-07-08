@@ -22,6 +22,7 @@ public class PlayerFactory {
 		} catch (FileNotFoundException | ClassCastException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public ArrayList<Player> takeAll(){
@@ -34,6 +35,12 @@ public class PlayerFactory {
 			players.add(newPlayer(i));
 		}
 		return players;
+	}
+	
+	public Player newPlayer(String name,int position){
+		Player player = newPlayer(position);
+		player.setName(name);
+		return player;
 	}
 	
 	public Player newPlayer(int position){
@@ -50,15 +57,24 @@ public class PlayerFactory {
 	
 	
 	
-//	private static final ArrayList<Resource> DEFAULT_RESOURCE = new ArrayList<>(Arrays.asList(new Wood(2),new Stone(2),new Servant(3),new Coin(5),new VictoryPoint(0),new FaithPoint(0),new MilitaryPoint(0)));	
+	
+	
+//	public static void main(String[] args) {
+//		
+//		ArrayList<Resource> DEFAULT_RESOURCE = new ArrayList<>(Arrays.asList(new Wood(2),new Stone(2),new Servant(3),new Coin(5),new VictoryPoint(0),new FaithPoint(0),new MilitaryPoint(0)));	
 //
-//	public FamilyMemberManager familyMemberManager(){
-//	ArrayList<FamilyMember> family = new ArrayList<>();
-//	family.add(new BlackFamilyMember("Black"));
-//	family.add(new WhiteFamilyMember("White"));
-//	family.add(new OrangeFamilyMember("Orange"));
-//	family.add(new NeutralFamilyMember("Neutral"));
-//	
-//	return new FamilyMemberManager(family);
-//}
+//		FamilyMemberManager familyMemberManager = new FamilyMemberManager();
+//		familyMemberManager.setFamilyMember(new BlackFamilyMember());
+//		familyMemberManager.setFamilyMember(new OrangeFamilyMember());
+//		familyMemberManager.setFamilyMember(new NeutralFamilyMember());
+//		familyMemberManager.setFamilyMember(new WhiteFamilyMember());
+//		
+//		Player player = new Player(DEFAULT_RESOURCE);
+//		player.setFamilyManager(familyMemberManager);
+//		
+//		Loader loader = new Loader(FileRegistry.player);
+//		loader.write(player);
+//		
+//	}
+	
 }

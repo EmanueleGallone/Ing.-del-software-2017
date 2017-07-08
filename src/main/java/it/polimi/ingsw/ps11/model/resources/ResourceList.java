@@ -156,7 +156,7 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
 	 * @return Optional<T extends Resource>
 	 */
-	public <T extends Resource> Optional<T> getResource(String rClass){
+	private <T extends Resource> Optional<T> getResource(String rClass){
 		return Optional.ofNullable(get(rClass));
 	}
 	

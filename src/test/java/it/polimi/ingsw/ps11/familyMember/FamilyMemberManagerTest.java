@@ -26,8 +26,9 @@ public class FamilyMemberManagerTest {
 	@Before
 	public void setting(){
 		
-		orangeFamilyMember = new OrangeFamilyMember("Orange"); blackFamilyMember = new BlackFamilyMember("Black");
-		whiteFamilyMember = new WhiteFamilyMember("White");
+		orangeFamilyMember = new OrangeFamilyMember(); 
+		blackFamilyMember = new BlackFamilyMember();
+		whiteFamilyMember = new WhiteFamilyMember();
 		
 		family = new ArrayList<>();
 		family.add(orangeFamilyMember);
@@ -53,19 +54,18 @@ public class FamilyMemberManagerTest {
 		DiceManager diceManager = new DiceManager(dices);
 		
 		familyManager.setDices(diceManager);
-		familyManager.getFamilyMember("Orange");
-
-		diceManager.rollDices();
-		
-		assertEquals(diceManager.get("Orange").getValue(),familyManager.getFamilyMember(OrangeFamilyMember.class).getValue());		
-		assertEquals(diceManager.get("Black").getValue(),familyManager.getFamilyMember(BlackFamilyMember.class).getValue());
-		assertEquals(diceManager.get("White").getValue(),familyManager.getFamilyMember(WhiteFamilyMember.class).getValue());
 		
 		diceManager.rollDices();
 		
-		assertEquals(diceManager.get("Orange").getValue(),familyManager.getFamilyMember(OrangeFamilyMember.class).getValue());		
-		assertEquals(diceManager.get("Black").getValue(),familyManager.getFamilyMember(BlackFamilyMember.class).getValue());
-		assertEquals(diceManager.get("White").getValue(),familyManager.getFamilyMember(WhiteFamilyMember.class).getValue());
+		assertEquals(diceManager.get("Orange").getValue(), new OrangeFamilyMember().set(familyManager).getValue());		
+		assertEquals(diceManager.get("Black").getValue(), new BlackFamilyMember().set(familyManager).getValue());
+		assertEquals(diceManager.get("White").getValue(), new WhiteFamilyMember().set(familyManager).getValue());
+		
+		diceManager.rollDices();
+		
+		assertEquals(diceManager.get("Orange").getValue(), new OrangeFamilyMember().set(familyManager).getValue());		
+		assertEquals(diceManager.get("Black").getValue(), new BlackFamilyMember().set(familyManager).getValue());
+		assertEquals(diceManager.get("White").getValue(), new WhiteFamilyMember().set(familyManager).getValue());
 
 	}
 	

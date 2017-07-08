@@ -1,8 +1,6 @@
 package it.polimi.ingsw.ps11.model.resources;
 
 import java.io.Serializable;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
 /**
  * <h3>Resource</h3>
  * <p>Classe astratta che rappresenta le risorse del gioco. Per ogni tipo di risorsa è stata creata una classe concreta specifica.
