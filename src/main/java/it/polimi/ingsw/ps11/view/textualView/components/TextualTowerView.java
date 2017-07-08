@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
@@ -12,6 +11,9 @@ public class TextualTowerView extends TowerView {
 
 	public TextualTowerView(String towername) {
 		super(towername);
+		
+		for(int i = 0; i < TOWERNUMBER; i++)
+			floorViews.add(new TextualFloorView(towerName, i));
 	}
 
 	@Override

@@ -14,8 +14,6 @@ public abstract class TowerView extends ViewComponent {
 
 	public TowerView(String towername) {
 		this.towerName = towername;
-		for(int i = 0; i < TOWERNUMBER; i++)
-			floorViews.add(new TextualFloorView(towerName, i));
 	}
 	
 	public String getTowerName() {
