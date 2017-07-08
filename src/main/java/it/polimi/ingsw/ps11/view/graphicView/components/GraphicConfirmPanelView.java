@@ -1,4 +1,4 @@
-package it.polimi.ingsw.ps11.view.graphicView.components;
+	package it.polimi.ingsw.ps11.view.graphicView.components;
 
 import java.awt.Color;
 import java.awt.Font;
