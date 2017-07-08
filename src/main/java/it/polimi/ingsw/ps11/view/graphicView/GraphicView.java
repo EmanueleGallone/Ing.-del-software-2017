@@ -263,11 +263,11 @@ public class GraphicView extends View{
 	};
 	
 	private transient EventListener<Player> changePlayerListener = new EventListener<Player>() {
-
 		@Override
 		public void handle(Player e) {
 			System.out.println(e.getName());
 			you.update(e);
+			you.print();
 		}
 	};
 	
