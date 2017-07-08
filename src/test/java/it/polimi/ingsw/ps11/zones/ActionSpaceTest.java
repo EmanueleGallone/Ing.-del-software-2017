@@ -22,7 +22,7 @@ public class ActionSpaceTest {
 		ActionSpace clone = actionSpace.clone(); //testo la clone
 		
 		Assert.assertEquals(actionSpace.getActionCost(), clone.getActionCost());
-		Coin coin = new Coin().set(actionSpace.getResources());
+		Coin coin = new Coin().getFrom(actionSpace.getResources());
 		Assert.assertEquals(coin.getValue(), clone.getResources().get(coin.getId()).getValue());
 		Assert.assertNull(actionSpace.getOwner());
 		

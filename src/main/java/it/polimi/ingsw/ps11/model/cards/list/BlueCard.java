@@ -9,11 +9,13 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class BlueCard extends DevelopmentCard {
 	
+	private static final String id = "BlueCard";
+	
 	/**<h3>  </h3>
 	 * <p> Costruttore di base, setta tutti i valori a DEFAULT_VALUE </p>
 	 */
 	public BlueCard() {
-		super();
+		super(id);
 		this.activeValue = DEFAULT_VALUE;
 		this.period = DEFAULT_VALUE;
 	}
@@ -21,8 +23,7 @@ public class BlueCard extends DevelopmentCard {
 	/** <p> Costruttore che richiede una stringa per il nome della carta </p>
 	 */
 	public BlueCard(String name) {
-		this();
-		setName(name);
+		super(id,name);
 	}
 
 	@Override

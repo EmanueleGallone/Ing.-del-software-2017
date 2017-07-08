@@ -72,8 +72,8 @@ public class ExchangeTest {
 		exchangelist.put(resourceListCoin, resourceListWood);
 		action = new ExchangeAction(aManager, exchangelist);
 		action.update(resourceListCoin);
-		assertEquals(0, new Coin().set(aManager.state().getPlayer().getResourceList()).getValue());
-		assertEquals(6, new Wood().set(aManager.state().getPlayer().getResourceList()).getValue());
+		assertEquals(0, new Coin().getFrom(aManager.state().getPlayer().getResourceList()).getValue());
+		assertEquals(6, new Wood().getFrom(aManager.state().getPlayer().getResourceList()).getValue());
 		
 	}
 }

@@ -25,7 +25,7 @@ public class Coin extends Resource {
 	}
 
 	@Override
-	public Coin set(ResourceList resourceList) {
+	public Coin getFrom(ResourceList resourceList) {
 		Coin resource = resourceList.get(id);
 		if (resource == null) {
 			return new Coin();

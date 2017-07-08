@@ -25,22 +25,15 @@ public abstract class DevelopmentCard extends Card {
 
 	protected ArrayList<Effect> instantEffect = new ArrayList<>();
 	protected ArrayList<Effect> permanentEffect = new ArrayList<>();
-	 
-	public DevelopmentCard() {
 	
+	public DevelopmentCard(String id,String name) {
+		super(id,name);
+	}
+	public DevelopmentCard(String id) {
+		super(id);
 	}
 	
-	public DevelopmentCard(String name) {
-		super(name);
-	}
 	
-	public DevelopmentCard(ResourceList cost){
-		this.costs.add(cost);
-	}
-	
-	public DevelopmentCard(ArrayList<ResourceList> costs){
-		this.costs = costs;
-	}
 	/**
 	 * <h3> ResourceList getFirstCost() </h3>
 	 * <p> Ritorna la prima resourceList rappresentatnte il costo</p>

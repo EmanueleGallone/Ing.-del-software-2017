@@ -26,7 +26,7 @@ public class FaithPoint extends Resource {
 	}
 
 	@Override
-	public FaithPoint set(ResourceList resourceList) {
+	public FaithPoint getFrom(ResourceList resourceList) {
 		FaithPoint resource = resourceList.get(id);
 		if (resource == null) {
 			return new FaithPoint();

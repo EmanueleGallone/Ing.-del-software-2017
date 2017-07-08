@@ -24,7 +24,7 @@ public class Wood extends Resource {
 	}
 	
 	@Override
-	public Wood set(ResourceList resourceList) {
+	public Wood getFrom(ResourceList resourceList) {
 		Wood resource = resourceList.get(id);
 		if (resource == null) {
 			return new Wood();

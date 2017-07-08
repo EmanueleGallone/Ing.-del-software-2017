@@ -31,7 +31,7 @@ public class MultipleActionSpaceTest {
 		clone = multipleActionSpace.clone();
 		
 		ResourceList list = clone.getActionSpace(0).getResources();
-		FaithPoint faithPoint = new FaithPoint().set(list);
+		FaithPoint faithPoint = new FaithPoint().getFrom(list);
 		
 		Assert.assertTrue(clone.getAllSpace().size() != multipleActionSpace.getAllSpace().size()); 
 		Assert.assertEquals(1, faithPoint.getValue());

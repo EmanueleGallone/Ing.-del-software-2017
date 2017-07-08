@@ -89,8 +89,8 @@ public class ActiveYieldTest {
 		action = new ActiveYieldAction(aManager, GreenCard.class.toString(), 3);
 		action.perform();
 
-		assertEquals(4, new Coin().set(player.getResourceList()).getValue());
-		assertEquals(1, new Wood().set(player.getResourceList()).getValue());
+		assertEquals(4, new Coin().getFrom(player.getResourceList()).getValue());
+		assertEquals(1, new Wood().getFrom(player.getResourceList()).getValue());
 
 	}	
 	@Test

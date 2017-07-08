@@ -25,7 +25,7 @@ public class VictoryPoint extends Resource{
 	}
 	
 	@Override
-	public VictoryPoint set(ResourceList resourceList) {
+	public VictoryPoint getFrom(ResourceList resourceList) {
 		VictoryPoint resource = resourceList.get(id);
 		if (resource == null) {
 			return new VictoryPoint();
