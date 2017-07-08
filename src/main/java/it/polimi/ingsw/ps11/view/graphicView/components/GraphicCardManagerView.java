@@ -9,6 +9,7 @@ import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import javax.swing.ButtonGroup;
@@ -37,11 +38,14 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 					 overlayedDecksPanel;
 	
 	private LinkedHashMap<String, Color> colorMap = new LinkedHashMap<>();
+	private LinkedHashMap<JToggleButton, LeaderCard> leaderButtonCards;
+
+	private HashMap<GraphicPaintedPanel, ArrayList<GraphicDevelopmentCardView>> allCards = new HashMap<>();
 	private ArrayList<GraphicPaintedPanel> allDecks = new ArrayList<>();
+	private HashMap<GraphicPaintedPanel, String> allDecks2 = new HashMap<>();
 
 	public EventListener<Card> zoomCard;
-	private ArrayList<GraphicDevelopmentCardView> allCards = new ArrayList<>();
-	private LinkedHashMap<JToggleButton, LeaderCard> leaderButtonCards;
+	//private ArrayList<GraphicDevelopmentCardView> allCards = new ArrayList<>();
 	private ArrayList<JToggleButton> arrayJTButton;
 	private ButtonGroup buttonGroupSelectors, buttonGroupLeaders;
 
@@ -100,7 +104,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		gbcTile.gridy = 1;
 		gbcTile.fill = GridBagConstraints.BOTH;
 		personalBoard.add(tile, gbcTile);
-			
+		
 		int i = 0;
 		for (String cardType : colorMap.keySet()) {
 			
@@ -130,88 +134,75 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 //				activate.addActionListener(new LeaderAction());
 				GridBagConstraints gbcActivate = new GridBagConstraints();
 				gbcActivate.gridx = 5;
+				gbcActivate.insets = new Insets(20, 0, 20, 5);
 				gbcActivate.fill = GridBagConstraints.BOTH;
 				deck.add(activate, gbcActivate);
 			}
 			
+			allDecks2.put(deck, cardType); 
 			overlayedDecksPanel.add(deck, cardType);
 			allDecks.add(deck);
 			i++;
 		}
 
+
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
+	}
+	
+	private void setCard(GraphicPaintedPanel deckPanel, ArrayList<DevelopmentCard> cards){
+		
+		int i = 0;
+		for (GraphicDevelopmentCardView developmentCardButton : allCards.get(deckPanel)) {
+			if(i<cards.size()){
+				developmentCardButton.update(cards.get(i));
+			}	
+			else 
+				developmentCardButton.update(null);
+			i++;
+			developmentCardButton.print();
+		}
+	}
+	
+	private void initializeCardManager(GraphicPaintedPanel deckPanel){
+		
+		ArrayList<GraphicDevelopmentCardView> deckCards = new ArrayList<>();
+		
+		for(int j = 0; j < cardManager.getMaxCards(); j++){
+			
+			GraphicDevelopmentCardView card = new GraphicDevelopmentCardView();
+			card.getComponent().setOpaque(false);
+			card.getComponent().setContentAreaFilled(false);
+			card.getComponent().setEnabled(false);
+			card.getComponent().loadImage("PlayerImages/BLANK.png");
+			
+			GridBagConstraints gbcCard = new GridBagConstraints();
+			
+			gbcCard.gridx = j;
+			gbcCard.gridy = 0;
+			gbcCard.fill = GridBagConstraints.BOTH;
+			gbcCard.insets = new Insets(20, 0, 20, 5);
+			deckCards.add(card);
+			deckPanel.add(card.getComponent(), gbcCard);	
+		}
+		allCards.put(deckPanel, deckCards);
 	}
 	
 	@Override
 	public void print() {
 		
-		allCards = new ArrayList<>();
+		for(GraphicPaintedPanel deckPanel : allDecks) {
+			if(allCards.get(deckPanel) == null)
+				initializeCardManager(deckPanel);
+		}
 		
-		for(int i=0; i<allDecks.size(); i++){
-			allDecks.get(i).removeAll();
+		for (GraphicPaintedPanel deckPanel : allDecks) {
+			setCard(deckPanel, cardManager.getCardList(allDecks2.get(deckPanel)));
 		}
-
-		ArrayList<String> deckTypesList = new ArrayList<>(this.colorMap.keySet());
-		buttonGroupLeaders = new ButtonGroup();
-		leaderButtonCards = new LinkedHashMap<>();
-
-		for (String deck : cardManager.getAllCards().keySet()) {
-			
-	    	int deckPosition = deckTypesList.indexOf(deck);
-			
-			int cards = 0;
-			if(!deck.equals("LeaderCard")){
-			for (DevelopmentCard card : cardManager.getCardList(deck)) {
-				
-				GraphicDevelopmentCardView cardButton = new GraphicDevelopmentCardView();
-				cardButton.update(card);
-				cardButton.print();
-				
-				GridBagConstraints gbcCard = new GridBagConstraints();
-				gbcCard.gridx = cards;
-				gbcCard.insets = new Insets(20, 0, 20, 5);
-				gbcCard.fill = GridBagConstraints.BOTH;
-
-				allCards.add(cardButton);
-				allDecks.get(deckPosition).add(cardButton.getComponent(), gbcCard);
-				cards++;
-			}
-		}
-//			else{
-//				ButtonGroup leaders = new ButtonGroup();
-//				for (LeaderCard card : cardManager.getLadersCard()) {
-//
-//					GraphicLeaderCardView cardButton = new GraphicLeaderCardView();
-//					cardButton.loadImage("LeaderCard/" + card.getName() + ".png");
-//					leaders.add(cardButton);
-//					leaderButtonCards.put(cardButton, card);
-//					
-//					GridBagConstraints gbcCard = new GridBagConstraints();
-//					gbcCard.gridx = cards;
-//					gbcCard.insets = new Insets(20, 0, 20, 5);
-//					gbcCard.fill = GridBagConstraints.BOTH;
-//					
-//					allDecks.get(4).add(card, gbcCard);
-//					cards++;
-//				}
-//			}
-		}
-
+		
+		
 	}
-	
-//	public class LeaderAction implements ActionListener{
-//		@Override
-//		public void actionPerformed(ActionEvent e) {
-//			int i = 0;
-//	    	for (JToggleButton toggleButton : leaderButtonCards.keySet()) {
-//	    		if(toggleButton.isSelected()){
-//	    			eventHandler.invoke(new LeaderCardActivated(leaderButtonCards.get(toggleButton)));
-//	    		}
-//			}
-//		}
-//	}
-	
+				
     public void itemStateChanged(ItemEvent evt) {														//listener dei selectors, mostra il pannello corrispondente
     																									//al selector
     	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
@@ -228,8 +219,10 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 
 	public void attachCardListener(EventListener<Card> zoomCard) {
 		this.zoomCard = zoomCard;
-		for (GraphicDevelopmentCardView graphicDevelopmentCardView : allCards) {
-			graphicDevelopmentCardView.attachCardListener(zoomCard);
+		for (GraphicPaintedPanel deckPanel: allCards.keySet()) {
+			for(int cards = 0; cards < cardManager.getMaxCards(); cards++){
+				allCards.get(deckPanel).get(cards).attachCardListener(zoomCard);
 		}
+	}
 	}
 }
