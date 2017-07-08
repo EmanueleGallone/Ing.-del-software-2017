@@ -55,9 +55,9 @@ public class InitializeCards {
 	
 	public static void inizializzaCarte(){
 		
-//		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
+		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
 		
-//		ResourceList resourceList = new ResourceList();
+		ResourceList resourceList = new ResourceList();
 		
 		/*
 		 * esempio
@@ -66,13 +66,13 @@ public class InitializeCards {
 		card.addInstantEffect(new AddResourceEffect(new ResourceList(new Coin(3))));
 		card.addPermanentEffect(new CouncilPrivilege(council)); //il privilegio del consiglio è un effetto e va passata la resource list con i valori
 		
-		card.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class, 2)); //+2 per le carte blue
-		card.addPermanentEffect(new CardDiscount(BlueCard.class,new ResourceList(new Coin(1)))); //sconto di una moneta per le carte blu
-		card.addPermanentEffect(new ActiveYieldEffect(YellowCard.class.toString(), 2)); //attiva produzione
+		card.addPermanentEffect(new FamilyInFloorBonus(new BlueCard().getId(), 2)); //+2 per le carte blue
+		card.addPermanentEffect(new CardDiscount(new BlueCard().getId(),new ResourceList(new Coin(1)))); //sconto di una moneta per le carte blu
+		card.addPermanentEffect(new ActiveYieldEffect(new YellowCard().getId(), 2)); //attiva produzione
 		
 		*/
 		
-		/*
+		
 		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
 		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
 		resourceList.setResource(new Wood(1));
@@ -515,7 +515,7 @@ public class InitializeCards {
 		resourceList.setResource(new Coin(3));
 		scavareCanalizzazioni.addCost(resourceList.clone());
 		resourceList = new ResourceList();
-		scavareCanalizzazioni.addInstantEffect(new ActiveYieldEffect(GreenCard.class.toString(), 4));
+		scavareCanalizzazioni.addInstantEffect(new ActiveYieldEffect(new GreenCard().getId(), 4));
 		resourceList.setResource(new VictoryPoint(5));
 		scavareCanalizzazioni.addPermanentEffect(new ResourceAtTheEnd(resourceList.clone()));
 		
@@ -672,7 +672,7 @@ public class InitializeCards {
 		resourceList.setResource(new Servant(3));
 		resourceList.setResource(new Coin(4));
 		migliorareStrade.addCost(resourceList.clone());
-		migliorareStrade.addInstantEffect(new ActiveYieldEffect(YellowCard.class.toString(),3)); //attiva la produzione con valore 3
+		migliorareStrade.addInstantEffect(new ActiveYieldEffect(new YellowCard().getId(),3)); //attiva la produzione con valore 3
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(5));
 		migliorareStrade.addPermanentEffect(new AddResourceEffect(resourceList.clone()));
@@ -793,7 +793,7 @@ public class InitializeCards {
 		teatro.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList();
 		resourceList.setResource(new VictoryPoint(1));
-		teatro.addPermanentEffect(new IncrementForCard(BlueCard.class.toString(), resourceList.clone()));
+		teatro.addPermanentEffect(new IncrementForCard(new BlueCard().getId(), resourceList.clone()));
 		
 		YellowCard esattoria = new YellowCard();
 		esattoria.setActiveValue(5);
@@ -806,7 +806,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new VictoryPoint(5));
 		esattoria.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new Coin(1));
-		esattoria.addPermanentEffect(new IncrementForCard(GreenCard.class.toString(), resourceList.clone()));
+		esattoria.addPermanentEffect(new IncrementForCard(new GreenCard().getId(), resourceList.clone()));
 		
 		YellowCard arcoTrionfo = new YellowCard();
 		arcoTrionfo.setActiveValue(6);
@@ -819,7 +819,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new VictoryPoint(6));
 		arcoTrionfo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new VictoryPoint(1));
-		arcoTrionfo.addPermanentEffect(new IncrementForCard(PurpleCard.class.toString(), resourceList.clone()));
+		arcoTrionfo.addPermanentEffect(new IncrementForCard(new PurpleCard().getId(), resourceList.clone()));
 		
 		YellowCard zecca = new YellowCard();
 		zecca.setActiveValue(5);
@@ -832,7 +832,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new VictoryPoint(5));
 		zecca.addInstantEffect(new AddResourceEffect(resourceList.clone()));
 		resourceList = new ResourceList(new Coin(1));
-		zecca.addPermanentEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
+		zecca.addPermanentEffect(new IncrementForCard(new YellowCard().getId(), resourceList.clone()));
 		
 		YellowCard falegnameria = new YellowCard();
 		falegnameria.setActiveValue(4);
@@ -1251,8 +1251,8 @@ public class InitializeCards {
 		dama.setPeriod(1);
 		resourceList = new ResourceList(new Coin(4));
 		dama.addCost(resourceList.clone());
-		dama.addPermanentEffect(new FamilyInFloorBonus(BlueCard.class.toString(), 2));
-		dama.addPermanentEffect(new CardDiscount(BlueCard.class.toString(), new ResourceList(new Coin(1))));
+		dama.addPermanentEffect(new FamilyInFloorBonus(new BlueCard().getId(), 2));
+		dama.addPermanentEffect(new CardDiscount(new BlueCard().getId(), new ResourceList(new Coin(1))));
 		
 		BlueCard cavaliere = new BlueCard();
 		cavaliere.setName("Knight");
@@ -1260,31 +1260,31 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Coin(2));
 		cavaliere.addCost(resourceList.clone());
 		cavaliere.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
-		cavaliere.addPermanentEffect(new FamilyInFloorBonus(PurpleCard.class.toString(), 2));
+		cavaliere.addPermanentEffect(new FamilyInFloorBonus(new PurpleCard().getId(), 2));
 		
 		BlueCard contadino = new BlueCard();
 		contadino.setName("Farmer");
 		contadino.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		contadino.addCost(resourceList.clone());
-		contadino.addPermanentEffect(new FamilyInYieldBonus(GreenCard.class.toString(), 2));
+		contadino.addPermanentEffect(new FamilyInYieldBonus(new GreenCard().getId(), 2));
 		
 		BlueCard artigiano = new BlueCard();
 		artigiano.setName("Artisan");
 		artigiano.setPeriod(1);
 		resourceList = new ResourceList(new Coin(3));
 		artigiano.addCost(resourceList.clone());
-		artigiano.addPermanentEffect(new FamilyInYieldBonus(YellowCard.class.toString(), 2));
+		artigiano.addPermanentEffect(new FamilyInYieldBonus(new YellowCard().getId(), 2));
 		
 		BlueCard costruttore = new BlueCard();
 		costruttore.setName("Stonemason");
 		costruttore.setPeriod(1);
 		resourceList = new ResourceList(new Coin(4));
 		costruttore.addCost(resourceList.clone());
-		costruttore.addPermanentEffect(new FamilyInFloorBonus(YellowCard.class.toString(), 2));
+		costruttore.addPermanentEffect(new FamilyInFloorBonus(new YellowCard().getId(), 2));
 		resourceList = new ResourceList(new Wood(1));
 		resourceList.setResource(new Stone(1));//paghi 1 wood OR stone, qui e' messo in AND
-		costruttore.addPermanentEffect(new CardDiscount(YellowCard.class.toString(), resourceList.clone()));
+		costruttore.addPermanentEffect(new CardDiscount(new YellowCard().getId(), resourceList.clone()));
 		
 		BlueCard condottiero = new BlueCard();
 		condottiero.setName("Warlord");
@@ -1293,7 +1293,7 @@ public class InitializeCards {
 		condottiero.addCost(resourceList.clone());
 		resourceList = new ResourceList(new MilitaryPoint(3));
 		condottiero.addInstantEffect(new AddResourceEffect(resourceList.clone()));
-		condottiero.addPermanentEffect(new FamilyInFloorBonus(GreenCard.class.toString(), 2));
+		condottiero.addPermanentEffect(new FamilyInFloorBonus(new GreenCard().getId(), 2));
 		
 		//FINE PRIMO PERIODO
 		
@@ -1310,7 +1310,7 @@ public class InitializeCards {
 		fattore.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		fattore.addCost(resourceList.clone());
-		fattore.addPermanentEffect(new FamilyInYieldBonus(GreenCard.class.toString(),3));
+		fattore.addPermanentEffect(new FamilyInYieldBonus(new GreenCard().getId(),3));
 		
 		BlueCard messoReale = new BlueCard();
 		messoReale.setName("Royal Messenger");
@@ -1326,9 +1326,9 @@ public class InitializeCards {
 		mecenate.setPeriod(2);
 		resourceList = new ResourceList(new Coin(3));
 		mecenate.addCost(resourceList.clone());
-		mecenate.addInstantEffect(new AnotherCard(BlueCard.class.toString(), 6));
+		mecenate.addInstantEffect(new AnotherCard(new BlueCard().getId(), 6));
 		resourceList.setResource(new Coin(2));
-		mecenate.addInstantEffect(new CardDiscount(BlueCard.class.toString(), resourceList.clone()));
+		mecenate.addInstantEffect(new CardDiscount(new BlueCard().getId(), resourceList.clone()));
 		
 		BlueCard capitano = new BlueCard();
 		capitano.setName("Captain");
@@ -1337,24 +1337,24 @@ public class InitializeCards {
 		capitano.addCost(resourceList.clone());
 		resourceList = new ResourceList(new MilitaryPoint(2));
 		capitano.addInstantEffect(new AddResourceEffect(resourceList.clone()));
-		capitano.addInstantEffect(new AnotherCard(GreenCard.class.toString(), 6));
+		capitano.addInstantEffect(new AnotherCard(new GreenCard().getId(), 6));
 		
 		BlueCard studioso = new BlueCard();
 		studioso.setName("Scholar");
 		studioso.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		studioso.addCost(resourceList.clone());
-		studioso.addPermanentEffect(new FamilyInYieldBonus(YellowCard.class.toString(), 3));
+		studioso.addPermanentEffect(new FamilyInYieldBonus(new YellowCard().getId(), 3));
 		
 		BlueCard architetto = new BlueCard();
 		architetto.setName("Architect");
 		architetto.setPeriod(2);
 		resourceList = new ResourceList(new Coin(4));
 		architetto.addCost(resourceList.clone());
-		architetto.addInstantEffect(new AnotherCard(YellowCard.class.toString(), 6));
+		architetto.addInstantEffect(new AnotherCard(new YellowCard().getId(), 6));
 		resourceList = new ResourceList(new Stone(1));
 		resourceList.setResource(new Wood(1));
-		architetto.addInstantEffect(new CardDiscount(YellowCard.class.toString(), resourceList.clone()));
+		architetto.addInstantEffect(new CardDiscount(new YellowCard().getId(), resourceList.clone()));
 		
 		BlueCard eroe = new BlueCard();
 		eroe.setName("Hero");
@@ -1362,7 +1362,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Coin(4));
 		eroe.addCost(resourceList.clone());
 		eroe.addInstantEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
-		eroe.addInstantEffect(new AnotherCard(PurpleCard.class.toString(),6));
+		eroe.addInstantEffect(new AnotherCard(new PurpleCard().getId(),6));
 		
 		//FINE SECONDO PERIODO
 		
@@ -1373,7 +1373,7 @@ public class InitializeCards {
 		cardinale.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(2));
 		cardinale.addInstantEffect(new AddResourceEffect(resourceList.clone()));
-		cardinale.addInstantEffect(new ActiveYieldEffect(GreenCard.class.toString(), 4));
+		cardinale.addInstantEffect(new ActiveYieldEffect(new GreenCard().getId(), 4));
 		
 		BlueCard araldo = new BlueCard();
 		araldo.setName("Herald");
@@ -1381,7 +1381,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Coin(6));
 		araldo.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(2));
-		araldo.addInstantEffect(new IncrementForCard(PurpleCard.class.toString(), resourceList.clone()));
+		araldo.addInstantEffect(new IncrementForCard(new PurpleCard().getId(), resourceList.clone()));
 		
 		BlueCard vescovo = new BlueCard();
 		vescovo.setName("Bishop");
@@ -1390,7 +1390,7 @@ public class InitializeCards {
 		vescovo.addCost(resourceList.clone());
 		resourceList = new ResourceList(new FaithPoint(1));
 		vescovo.addInstantEffect(new AddResourceEffect(resourceList.clone()));
-		vescovo.addInstantEffect(new ActiveYieldEffect(YellowCard.class.toString(), 4));
+		vescovo.addInstantEffect(new ActiveYieldEffect(new YellowCard().getId(), 4));
 		
 		BlueCard ambasciatore = new BlueCard();
 		ambasciatore.setName("Ambassador");
@@ -1406,7 +1406,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Coin(7));
 		cortigiana.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(2));
-		cortigiana.addInstantEffect(new IncrementForCard(BlueCard.class.toString(), resourceList.clone()));
+		cortigiana.addInstantEffect(new IncrementForCard(new BlueCard().getId(), resourceList.clone()));
 		
 		BlueCard generale = new BlueCard();
 		generale.setName("Generale");
@@ -1421,7 +1421,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Coin(6));
 		nobile.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(2));
-		nobile.addInstantEffect(new IncrementForCard(GreenCard.class.toString(), resourceList.clone()));
+		nobile.addInstantEffect(new IncrementForCard(new GreenCard().getId(), resourceList.clone()));
 		
 		BlueCard governatore = new BlueCard();
 		governatore.setName("Governor");
@@ -1429,7 +1429,7 @@ public class InitializeCards {
 		resourceList = new ResourceList(new Coin(6));
 		governatore.addCost(resourceList.clone());
 		resourceList = new ResourceList(new VictoryPoint(2));
-		governatore.addInstantEffect(new IncrementForCard(YellowCard.class.toString(), resourceList.clone()));
+		governatore.addInstantEffect(new IncrementForCard(new YellowCard().getId(), resourceList.clone()));
 		
 		ArrayList<BlueCard> bluDeck = new ArrayList<>();
 		bluDeck.add(badessa);
@@ -1500,19 +1500,19 @@ public class InitializeCards {
 		//CustomFileReaderWriter.writeFile("settings\\cards\\ThirdPeriod", gAdapter.toJson(cardManager,CardManager.class));
 
 		//Fine costruzione files
-*/
+
 	}
 
 	
 	public static void LeaderCardsInitializer(){
 		//INIZIO CARTE LEADER
-		/*
+		
 		ResourceList resourceList;
 		HashMap<String, Integer> map = new HashMap<>();
 		
-		ActiveYieldEffect activeYieldEffect = new ActiveYieldEffect(GreenCard.class.toString(), 1);
+		ActiveYieldEffect activeYieldEffect = new ActiveYieldEffect(new GreenCard().getId(), 1);
 		LeaderCard francescoSforza = new LeaderCard("Francesco Sforza");
-		map.put(PurpleCard.class.toString(), 5);
+		map.put(new PurpleCard().getId(), 5);
 		francescoSforza.addRequirement(new CardNumberRequirement(map));
 		francescoSforza.addEffect(activeYieldEffect);
 		
@@ -1570,23 +1570,23 @@ public class InitializeCards {
 		ludovicoIIIGonzaga.addRequirement(new ResourceRequirement(resourceList.clone()));
 		ludovicoIIIGonzaga.addEffect(councilPrivilegeEffect);
 		
-		ActiveYieldEffect activeYieldEffect2 = new ActiveYieldEffect(YellowCard.class.toString(), 0);
+		ActiveYieldEffect activeYieldEffect2 = new ActiveYieldEffect(new YellowCard().getId(), 0);
 		LeaderCard leonardoDaVinci = new LeaderCard("Leonardo Da Vinci");
 		leonardoDaVinci.addEffect(activeYieldEffect2);
 		HashMap<String, Integer> map2 = new HashMap<>();
-		map2.put(BlueCard.class.toString(), 4);
-		map2.put(GreenCard.class.toString(), 2);
+		map2.put(new BlueCard().getId(), 4);
+		map2.put(new GreenCard().getId(), 2);
 		leonardoDaVinci.addRequirement(new CardNumberRequirement(map2));
 		
 		resourceList = new ResourceList(new Coin(3));
-		CardDiscount cardDiscount = new CardDiscount(PurpleCard.class.toString(), resourceList.clone());
-		CardDiscount cardDiscount2 = new CardDiscount(BlueCard.class.toString(), resourceList.clone());
-		CardDiscount cardDiscount3 = new CardDiscount(GreenCard.class.toString(), resourceList.clone());
-		CardDiscount cardDiscount4 = new CardDiscount(YellowCard.class.toString(), resourceList.clone());
+		CardDiscount cardDiscount = new CardDiscount(new PurpleCard().getId(), resourceList.clone());
+		CardDiscount cardDiscount2 = new CardDiscount(new BlueCard().getId(), resourceList.clone());
+		CardDiscount cardDiscount3 = new CardDiscount(new GreenCard().getId(), resourceList.clone());
+		CardDiscount cardDiscount4 = new CardDiscount(new YellowCard().getId(), resourceList.clone());
 		LeaderCard picoDellaMirandola = new LeaderCard("Pico Della Mirandola"); //VERIFICA. sconto su tutte le carte
 		HashMap<String, Integer> map3 = new HashMap<>();
-		map3.put(BlueCard.class.toString(), 4);
-		map3.put(GreenCard.class.toString(), 2);
+		map3.put(new BlueCard().getId(), 4);
+		map3.put(new GreenCard().getId(), 2);
 		picoDellaMirandola.addRequirement(new CardNumberRequirement(map3));
 		picoDellaMirandola.addEffect(cardDiscount);
 		picoDellaMirandola.addEffect(cardDiscount2);
@@ -1599,8 +1599,8 @@ public class InitializeCards {
 		AddResourceEffect addResourceEffect5 = new AddResourceEffect(resourceList.clone());
 		LeaderCard cosimoDeMedici = new LeaderCard("Cosimo de Medici");
 		HashMap<String, Integer> map4 = new HashMap<>();
-		map4.put(BlueCard.class.toString(), 2);
-		map4.put(YellowCard.class.toString(), 4);
+		map4.put(new BlueCard().getId(), 2);
+		map4.put(new YellowCard().getId(), 4);
 		cosimoDeMedici.addRequirement(new CardNumberRequirement(map4));
 		cosimoDeMedici.addEffect(addResourceEffect5);
 		
@@ -1609,26 +1609,26 @@ public class InitializeCards {
 		AddResourceEffect addResourceEffect4 = new AddResourceEffect(resourceList.clone());
 		LeaderCard bartolomeoColleoni = new LeaderCard("Bartolomeo Colleoni");
 		HashMap<String, Integer> map5 = new HashMap<>();
-		map5.put(PurpleCard.class.toString(), 2);
-		map5.put(GreenCard.class.toString(), 4);
+		map5.put(new PurpleCard().getId(), 2);
+		map5.put(new GreenCard().getId(), 4);
 		bartolomeoColleoni.addRequirement(new CardNumberRequirement(map5));
 		bartolomeoColleoni.addEffect(addResourceEffect4);
-		*/
+		
 		/*
 		LeaderCard ludovicoAriosto = new LeaderCard("Ludovico Ariosto"); //io questa carta non la includerei proprio nel gioco
 		ludovicoAriosto.setCounter(5);
-		ludovicoAriosto.setCardClass(BlueCard.class.toString());
+		ludovicoAriosto.setCardClass(new BlueCard().getId());
 		//effetti: puoi posizionare in uno spazio azione già occupato; permanente
 		*/
 		/*
 		LeaderCard filippoBrunelleschi = new LeaderCard("Filippo Brunelleschi");
 		costs.clear();
-		costs.put(YellowCard.class.toString(), 5);
+		costs.put(new YellowCard().getId(), 5);
 		//effetti: non paghi più le 3 monete se posizioni il familiare in una torre già occupata; permanente
 		
 		LeaderCard federicoDaMontefeltro = new LeaderCard("Federico Da Montefeltro");
 		federicoDaMontefeltro.setCounter(5);
-		federicoDaMontefeltro.setCardClass(GreenCard.class.toString());
+		federicoDaMontefeltro.setCardClass(new GreenCard().getId());
 		//effetto : un familiare ha valore 6 una volta per turno	
 		
 		LeaderCard sistoIV = new LeaderCard("Sisto IV");
@@ -1662,7 +1662,7 @@ public class InitializeCards {
 		resourceList.setResource(new FaithPoint(2));
 		cesareBorgia.setRequirement(resourceList.clone());
 		cesareBorgia.setCounter(3);
-		cesareBorgia.setCardClass(YellowCard.class.toString()); //vuole 3 carte gialle
+		cesareBorgia.setCardClass(new YellowCard().getId()); //vuole 3 carte gialle
 		//ensures quando prendi le carte verdi non devi soddisfare il requisito sui MilitaryPoints
 		
 		LeaderCard santaRita = new LeaderCard("Santa Rita");
@@ -1670,7 +1670,7 @@ public class InitializeCards {
 		santaRita.setRequirement(resourceList.clone());
 		//ensures ogni volta che prendi instantBonus ricevi il bonus 2 volte
 		*/
-		/*
+		
 		ArrayList<LeaderCard> leaderCards = new ArrayList<>();
 		Type type = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
 		
@@ -1701,7 +1701,7 @@ public class InitializeCards {
 		
 		new Loader(FileRegistry.leaderCards).write(cardManager,CardManager.class);
 		//FINE LEADER CARDS
-	 */
+	 
 	}
 
 	public static void initializeExcommunication(){
@@ -1730,11 +1730,11 @@ public class InitializeCards {
 		fourth.addEffect(decrementResourceEffect4);
 		
 		Excommunication fifth = new Excommunication("5", 1);
-		FamilyInFloorBonus familyInFloorBonus = new FamilyInFloorBonus(GreenCard.class.toString(), -3);
+		FamilyInFloorBonus familyInFloorBonus = new FamilyInFloorBonus(new GreenCard().getId(), -3);
 		fifth.addEffect(familyInFloorBonus);
 		
 		Excommunication sixth = new Excommunication("6", 1);
-		FamilyInFloorBonus familyInFloorBonus2 = new FamilyInFloorBonus(YellowCard.class.toString(), -3);
+		FamilyInFloorBonus familyInFloorBonus2 = new FamilyInFloorBonus(new YellowCard().getId(), -3);
 		sixth.addEffect(familyInFloorBonus2);
 		
 		
@@ -1749,19 +1749,19 @@ public class InitializeCards {
 		
 		//SECONDO PERIODO
 		Excommunication eighth = new Excommunication("8", 2);
-		FamilyInFloorBonus FB = new FamilyInFloorBonus(GreenCard.class.toString(), -4);
+		FamilyInFloorBonus FB = new FamilyInFloorBonus(new GreenCard().getId(), -4);
 		eighth.addEffect(FB);
 		
 		Excommunication ninth = new Excommunication("9", 2);
-		FamilyInFloorBonus FB2 = new FamilyInFloorBonus(YellowCard.class.toString(), -4);
+		FamilyInFloorBonus FB2 = new FamilyInFloorBonus(new YellowCard().getId(), -4);
 		eighth.addEffect(FB2);
 		
 		Excommunication tenth = new Excommunication("10", 2);
-		FamilyInFloorBonus FB3 = new FamilyInFloorBonus(BlueCard.class.toString(), -4);
+		FamilyInFloorBonus FB3 = new FamilyInFloorBonus(new BlueCard().getId(), -4);
 		eighth.addEffect(FB3);
 		
 		Excommunication eleventh = new Excommunication("11", 2);
-		FamilyInFloorBonus FB4 = new FamilyInFloorBonus(PurpleCard.class.toString(), -4);
+		FamilyInFloorBonus FB4 = new FamilyInFloorBonus(new PurpleCard().getId(), -4);
 		eighth.addEffect(FB4);
 		
 		Excommunication twelveth = new Excommunication("12", 2);
@@ -1776,7 +1776,7 @@ public class InitializeCards {
 		//INIZIO TERZO PERIODO
 		
 		Excommunication fifteenth = new Excommunication("15", 3);
-		DisableCardVictoryPoint disableCardVictoryPoint = new DisableCardVictoryPoint(BlueCard.class.toString());
+		DisableCardVictoryPoint disableCardVictoryPoint = new DisableCardVictoryPoint(new BlueCard().getId());
 		fifteenth.addEffect(disableCardVictoryPoint);
 		
 //		Excommunication sixteen = new Excommunication("16", 3);
@@ -1784,7 +1784,7 @@ public class InitializeCards {
 //		sixteen.setEffect(r);
 		
 		Excommunication seventeen = new Excommunication("17", 3);
-		DisableCardVictoryPoint disableCardVictoryPoint2 = new DisableCardVictoryPoint(GreenCard.class.toString());
+		DisableCardVictoryPoint disableCardVictoryPoint2 = new DisableCardVictoryPoint(new GreenCard().getId());
 		seventeen.addEffect(disableCardVictoryPoint2);
 		
 		list.add(first);

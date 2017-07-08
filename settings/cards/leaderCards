@@ -8,7 +8,7 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
-              "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": 5
+              "PurpleCard": 5
             }
           }
         }
@@ -17,13 +17,14 @@
         {
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect",
           "INSTANCE": {
-            "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+            "cardType": "GreenCard",
             "value": 1
           }
         }
       ],
       "activated": false,
-      "name": "Francesco Sforza"
+      "name": "Francesco Sforza",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -32,10 +33,11 @@
           "INSTANCE": {
             "resources": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 18
+                    "value": 18,
+                    "id": "Coin"
                   }
                 }
               }
@@ -49,10 +51,11 @@
           "INSTANCE": {
             "resource": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                "FaithPoint": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "FaithPoint"
                   }
                 }
               }
@@ -61,7 +64,8 @@
         }
       ],
       "activated": false,
-      "name": "Girolamo Savonarola"
+      "name": "Girolamo Savonarola",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -70,10 +74,11 @@
           "INSTANCE": {
             "resources": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                "MilitaryPoint": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                   "INSTANCE": {
-                    "value": 12
+                    "value": 12,
+                    "id": "MilitaryPoint"
                   }
                 }
               }
@@ -87,66 +92,25 @@
           "INSTANCE": {
             "resource": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                },
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "Coin"
                   }
                 },
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
-                  "INSTANCE": {
-                    "value": 1
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "activated": false,
-      "name": "Giovanni Dalle Bande Nere"
-    },
-    {
-      "requirements": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement",
-          "INSTANCE": {
-            "resources": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                "Wood": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 10
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "effects": [
-        {
-          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
-          "INSTANCE": {
-            "resource": {
-              "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
-                  "INSTANCE": {
-                    "value": 1
+                    "value": 1,
+                    "id": "Wood"
                   }
                 },
-                "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                "Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                   "INSTANCE": {
-                    "value": 2
+                    "value": 1,
+                    "id": "Stone"
                   }
                 }
               }
@@ -155,7 +119,8 @@
         }
       ],
       "activated": false,
-      "name": "Sandro Botticelli"
+      "name": "Giovanni Dalle Bande Nere",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -164,10 +129,11 @@
           "INSTANCE": {
             "resources": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                "Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                   "INSTANCE": {
-                    "value": 10
+                    "value": 10,
+                    "id": "Wood"
                   }
                 }
               }
@@ -181,10 +147,18 @@
           "INSTANCE": {
             "resource": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                "MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 2,
+                    "id": "MilitaryPoint"
+                  }
+                },
+                "VictoryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+                  "INSTANCE": {
+                    "value": 1,
+                    "id": "VictoryPoint"
                   }
                 }
               }
@@ -193,7 +167,8 @@
         }
       ],
       "activated": false,
-      "name": "Michelangelo Buonarroti"
+      "name": "Sandro Botticelli",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -202,10 +177,52 @@
           "INSTANCE": {
             "resources": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                "Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 10,
+                    "id": "Stone"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "effects": [
+        {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect",
+          "INSTANCE": {
+            "resource": {
+              "resources": {
+                "Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 3,
+                    "id": "Stone"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "activated": false,
+      "name": "Michelangelo Buonarroti",
+      "id": "LeaderCard"
+    },
+    {
+      "requirements": [
+        {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement",
+          "INSTANCE": {
+            "resources": {
+              "resources": {
+                "Servant": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                   "INSTANCE": {
-                    "value": 15
+                    "value": 15,
+                    "id": "Servant"
                   }
                 }
               }
@@ -220,56 +237,62 @@
             "resources": [
               {
                 "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Wood": {
+                  "Wood": {
                     "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
                     "INSTANCE": {
-                      "value": 1
+                      "value": 1,
+                      "id": "Wood"
                     }
                   },
-                  "class it.polimi.ingsw.ps11.model.resources.list.Stone": {
+                  "Stone": {
                     "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
                     "INSTANCE": {
-                      "value": 1
+                      "value": 1,
+                      "id": "Stone"
                     }
                   }
                 }
               },
               {
                 "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
+                  "Servant": {
                     "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                     "INSTANCE": {
-                      "value": 2
+                      "value": 2,
+                      "id": "Servant"
                     }
                   }
                 }
               },
               {
                 "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                  "Coin": {
                     "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                     "INSTANCE": {
-                      "value": 2
+                      "value": 2,
+                      "id": "Coin"
                     }
                   }
                 }
               },
               {
                 "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint": {
+                  "MilitaryPoint": {
                     "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
                     "INSTANCE": {
-                      "value": 2
+                      "value": 2,
+                      "id": "MilitaryPoint"
                     }
                   }
                 }
               },
               {
                 "resources": {
-                  "class it.polimi.ingsw.ps11.model.resources.list.FaithPoint": {
+                  "FaithPoint": {
                     "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
                     "INSTANCE": {
-                      "value": 1
+                      "value": 1,
+                      "id": "FaithPoint"
                     }
                   }
                 }
@@ -279,7 +302,8 @@
         }
       ],
       "activated": false,
-      "name": "Ludovico III Gonzaga"
+      "name": "Ludovico III Gonzaga",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -287,8 +311,8 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
-              "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": 4,
-              "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": 2
+              "BlueCard": 4,
+              "GreenCard": 2
             }
           }
         }
@@ -297,13 +321,14 @@
         {
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect",
           "INSTANCE": {
-            "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
+            "cardType": "YellowCard",
             "value": 0
           }
         }
       ],
       "activated": false,
-      "name": "Leonardo Da Vinci"
+      "name": "Leonardo Da Vinci",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -311,8 +336,8 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
-              "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": 4,
-              "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": 2
+              "BlueCard": 4,
+              "GreenCard": 2
             }
           }
         }
@@ -321,13 +346,14 @@
         {
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
           "INSTANCE": {
-            "cardType": "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard",
+            "cardType": "PurpleCard",
             "discount": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Coin"
                   }
                 }
               }
@@ -337,13 +363,14 @@
         {
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
           "INSTANCE": {
-            "cardType": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+            "cardType": "BlueCard",
             "discount": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Coin"
                   }
                 }
               }
@@ -353,13 +380,14 @@
         {
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
           "INSTANCE": {
-            "cardType": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+            "cardType": "GreenCard",
             "discount": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Coin"
                   }
                 }
               }
@@ -369,13 +397,14 @@
         {
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CardDiscount",
           "INSTANCE": {
-            "cardType": "class it.polimi.ingsw.ps11.model.cards.list.YellowCard",
+            "cardType": "YellowCard",
             "discount": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Coin": {
+                "Coin": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 3,
+                    "id": "Coin"
                   }
                 }
               }
@@ -384,7 +413,8 @@
         }
       ],
       "activated": false,
-      "name": "Pico Della Mirandola"
+      "name": "Pico Della Mirandola",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -392,8 +422,8 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
-              "class it.polimi.ingsw.ps11.model.cards.list.BlueCard": 2,
-              "class it.polimi.ingsw.ps11.model.cards.list.YellowCard": 4
+              "YellowCard": 4,
+              "BlueCard": 2
             }
           }
         }
@@ -404,16 +434,18 @@
           "INSTANCE": {
             "resource": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.Servant": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                "VictoryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                   "INSTANCE": {
-                    "value": 3
+                    "value": 1,
+                    "id": "VictoryPoint"
                   }
                 },
-                "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+                "Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
                   "INSTANCE": {
-                    "value": 1
+                    "value": 3,
+                    "id": "Servant"
                   }
                 }
               }
@@ -422,7 +454,8 @@
         }
       ],
       "activated": false,
-      "name": "Cosimo de Medici"
+      "name": "Cosimo de Medici",
+      "id": "LeaderCard"
     },
     {
       "requirements": [
@@ -430,8 +463,8 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
-              "class it.polimi.ingsw.ps11.model.cards.list.PurpleCard": 2,
-              "class it.polimi.ingsw.ps11.model.cards.list.GreenCard": 4
+              "PurpleCard": 2,
+              "GreenCard": 4
             }
           }
         }
@@ -442,10 +475,11 @@
           "INSTANCE": {
             "resource": {
               "resources": {
-                "class it.polimi.ingsw.ps11.model.resources.list.VictoryPoint": {
+                "VictoryPoint": {
                   "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
                   "INSTANCE": {
-                    "value": 4
+                    "value": 4,
+                    "id": "VictoryPoint"
                   }
                 }
               }
@@ -454,7 +488,8 @@
         }
       ],
       "activated": false,
-      "name": "Bartolomeo Colleoni"
+      "name": "Bartolomeo Colleoni",
+      "id": "LeaderCard"
     }
   ],
   "limited": true
