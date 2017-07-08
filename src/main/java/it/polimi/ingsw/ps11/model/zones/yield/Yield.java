@@ -20,10 +20,6 @@ public class Yield implements Serializable, Iterable<ActionSpace> {
 	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace(COST);
 	private String cardType;
 	
-	public Yield(Class<? extends DevelopmentCard> cardType) {
-		this.cardType = cardType.toString();
-	}
-	
 	public Yield(String cardType) {
 		this.cardType = cardType;
 	}
