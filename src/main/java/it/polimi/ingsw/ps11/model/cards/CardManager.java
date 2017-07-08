@@ -142,4 +142,8 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		return cards.values().iterator();
 	}
 	
+	public int getMaxCards(){
+		return MAX_CARD;
+	}
+	
 }

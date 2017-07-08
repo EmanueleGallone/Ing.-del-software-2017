@@ -33,8 +33,10 @@ public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
 		if(developmentCard!= null){
 			image.loadImage(developmentCard.getId() +"/" + developmentCard.getName() + ".png");
-			image.repaint();
 		}
+		else 
+			image.loadImage("PlayerImages/BLANK.png");
+		image.repaint();
 	}
 
 	public void attachCardListener(EventListener<Card> zoomCardListener) {
