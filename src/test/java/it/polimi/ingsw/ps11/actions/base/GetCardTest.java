@@ -111,9 +111,9 @@ public class GetCardTest {
 		action = new GetCardAction(aManager, floor1.getCard(), floor1.getCard().getFirstCost());
 		assertTrue(action.isLegal());
 		action.perform();
-		assertEquals(0, player.getResourceList().get(Coin.class).getValue());
-		assertEquals(2, player.getResourceList().get(Wood.class).getValue());
-		assertEquals(1, player.getResourceList().get(Servant.class).getValue());
+		assertEquals(0, player.getResourceList().get(new Coin().getId()).getValue());
+		assertEquals(2, player.getResourceList().get(new Wood().getId()).getValue());
+		assertEquals(1, player.getResourceList().get(new Servant().getId()).getValue());
 		
 		assertEquals(card1 ,player.getCardManager().getCardList(GreenCard.class).get(0));
 

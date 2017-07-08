@@ -107,7 +107,7 @@ public class FamilyInSpaceTest {
 		player.getFamilyManager().getFamilyMember(NeutralFamilyMember.class).setModifier(0);
 		player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).setModifier(3);
 		
-		assertEquals(3, player.getResourceList().get(Coin.class).getValue());
+		assertEquals(3, player.getResourceList().get(new Coin().getId()).getValue());
 		
 		action1 = new FamilyInSpaceAction(aManager, player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class), actionSpace);
 		action1.perform();
@@ -116,7 +116,7 @@ public class FamilyInSpaceTest {
 		assertEquals(player,actionSpace.getOwner());
 		
 		assertTrue(player.getFamilyManager().getFamilyMember(OrangeFamilyMember.class).isUsed());
-		assertEquals(6, player.getResourceList().getResource(Coin.class).get().getValue());
+		assertEquals(6, player.getResourceList().getResource(new Coin().getId()).get().getValue());
 		
 	}
 }

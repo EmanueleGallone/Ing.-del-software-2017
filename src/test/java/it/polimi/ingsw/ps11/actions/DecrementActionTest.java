@@ -49,9 +49,9 @@ public class DecrementActionTest {
 		if(decrementAction.isLegal())
 			decrementAction.perform();
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(3));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(0));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(3));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(0));
 		
 		//Sommiamo una risorceList vuota, le risorse dovranno rimanere invariate
 		
@@ -62,9 +62,9 @@ public class DecrementActionTest {
 		if(incrementEmpty.isLegal())
 			incrementEmpty.perform();
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(3));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(0));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(3));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(0));
 		
 		//Sommiamo una risorceList nulla, le risorse dovranno rimanere invariate
 		
@@ -73,9 +73,9 @@ public class DecrementActionTest {
 		if(incrementNull.isLegal())
 			incrementNull.perform();
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(3));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(0));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(3));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(0));
 				
 		
 		

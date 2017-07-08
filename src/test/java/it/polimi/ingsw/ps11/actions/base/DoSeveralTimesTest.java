@@ -71,11 +71,11 @@ public class DoSeveralTimesTest {
 
 		action = new DoSeveralTimeAction(aManager, incrementAction, 3);
 		action.perform();
-		assertEquals(10, aManager.state().getPlayer().getResourceList().get(Coin.class).getValue());
+		assertEquals(10, aManager.state().getPlayer().getResourceList().get(new Coin().getId()).getValue());
 		
 		action = new DoSeveralTimeAction(aManager, decrementAction, 3);
 		action.perform();
-		assertEquals(2, aManager.state().getPlayer().getResourceList().get(Coin.class).getValue());	//l'azione viene eseguia solo 2 volte perchè poi non è più legal
+		assertEquals(2, aManager.state().getPlayer().getResourceList().get(new Coin().getId()).getValue());	//l'azione viene eseguia solo 2 volte perchè poi non è più legal
 
 	}
 }
