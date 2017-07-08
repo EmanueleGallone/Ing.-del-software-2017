@@ -66,7 +66,7 @@ public class Board implements Serializable{
 	
 	public void setCard(CardManager cards){
 		for(Tower tower : towers.values()){
-			ArrayList<DevelopmentCard> c = cards.getCardList(tower.getName());
+			ArrayList<DevelopmentCard> c = cards.getCardList(tower.getCardType());
 			c.removeAll(alreadyUsed);
 			alreadyUsed.addAll(tower.setCard(c));
 			

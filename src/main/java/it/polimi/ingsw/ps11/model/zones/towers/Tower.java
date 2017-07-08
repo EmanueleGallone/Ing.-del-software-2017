@@ -56,10 +56,6 @@ public class Tower implements Serializable{
 	}
 	
 	
-	public void setCardType(Class<? extends DevelopmentCard> cardType) {
-		this.name = cardType.toString();
-	}
-	
 	public Floor getFloor(int index){
 		if(index < floors.size()){
 			return floors.get(index);	
@@ -102,6 +98,10 @@ public class Tower implements Serializable{
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getCardType(){
+		return name.replace("Tower", "Card");
 	}
 	
 // End getters
