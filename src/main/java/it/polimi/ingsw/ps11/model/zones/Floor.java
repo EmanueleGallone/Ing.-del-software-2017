@@ -55,6 +55,10 @@ public class Floor implements FamilyMemberSpace, Serializable {
 		this.actionSpace.clean();
 	}
 	
+	public void cleanCard(){
+		this.card = null;
+	}
+	
 // End logic
 // Start setters
 	

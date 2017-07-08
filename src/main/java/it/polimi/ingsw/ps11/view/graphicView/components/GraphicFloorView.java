@@ -86,6 +86,7 @@ public class GraphicFloorView extends FloorView{
 			//graphicCardView = new GraphicDevelopmentCardView();
 			graphicCardView.update(this.floor.getCard());
 			graphicCardView.print();
+			graphicCardView.getComponent().setVisible(true);
 			
 			GridBagConstraints gbcCard = new GridBagConstraints();
 			gbcCard.gridx = 0;
@@ -94,11 +95,13 @@ public class GraphicFloorView extends FloorView{
 			gbcCard.insets = new Insets(10, 7, 0, 0);
 			gbcCard.fill = GridBagConstraints.BOTH;
 			
-			this.floorPanel.add(graphicCardView.getComponent(), gbcCard);
+			this.floorPanel.add(graphicCardView.getComponent(), gbcCard);	
+		}
+		else {
+			graphicCardView.getComponent().setVisible(false);
+		}
 			
-			}
-			
-			this.floorPanel.repaint();
+		this.floorPanel.repaint();
 	}
 	
 	public JPanel getComponent(){

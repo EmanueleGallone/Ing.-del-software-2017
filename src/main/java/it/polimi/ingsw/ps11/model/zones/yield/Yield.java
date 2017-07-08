@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.model.zones.yield;
 
 import java.io.Serializable;
+import java.util.Iterator;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
@@ -12,10 +13,11 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
  * <h3> Yield </h3>
  * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco. </p>
  */
-public class Yield implements Serializable {
+public class Yield implements Serializable, Iterable<ActionSpace> {
 	
+	private final int COST = 3;
 	private ActionSpace singleActionSpace = new ActionSpace();
-	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace();
+	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace(COST);
 	private String cardType;
 	
 	public Yield(Class<? extends DevelopmentCard> cardType) {
@@ -37,8 +39,9 @@ public class Yield implements Serializable {
 	
 	
 	public void resetFamilyMember(){
-		singleActionSpace.clean();
-		multipleActionSpace.clean();
+		for(ActionSpace aSpace: this){
+			aSpace.clean();
+		}
 	}
 	
 	public String getActiveCard(){
@@ -52,6 +55,15 @@ public class Yield implements Serializable {
 		return multipleActionSpace;
 	}
 	
+	public boolean search(Player player){
+		for(ActionSpace aSpace : this){
+			Player owner = aSpace.getOwner();
+			if(owner!= null && owner.equals(player))
+				return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public Yield clone(){
 		//NB: i singleActionSpace e i Multiple non sono mai null; inutile un controllo
@@ -61,5 +73,31 @@ public class Yield implements Serializable {
 		clone.multipleActionSpace = this.multipleActionSpace.clone();
 		
 		return clone;
+	}
+
+	@Override
+	public Iterator<ActionSpace> iterator() {
+
+		Iterator<ActionSpace> iter = new Iterator<ActionSpace>() {
+			
+			private int index = 0;
+			
+			@Override
+			public boolean hasNext() {
+				if(index == 0 && singleActionSpace != null)
+					return true;
+				return multipleActionSpace.iterator().hasNext();
+			}
+
+			@Override
+			public ActionSpace next() {
+				if(index == 0 && singleActionSpace != null){
+					index++;
+					return singleActionSpace;
+				}
+				return multipleActionSpace.iterator().next();
+			}
+		};
+		return iter;
 	}
 }

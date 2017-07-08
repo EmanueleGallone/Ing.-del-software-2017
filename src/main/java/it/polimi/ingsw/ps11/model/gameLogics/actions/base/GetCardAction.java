@@ -10,6 +10,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.zones.Floor;
 /** <h3> GetCardAction </h3>
  * <p> Azione di aggiunta di una carta al mazzo personale di un giocatore dal floor di un piano</p>
  * @see Action
@@ -19,16 +20,23 @@ public class GetCardAction implements Action {
 	private ActionManager aManager;
 	private DevelopmentCard card;
 	private ResourceList cost;
+	private Floor floor;
 	
-	private ResourceList modifier = new ResourceList();
+	//private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
 	
 	public GetCardAction(ActionManager aManager, DevelopmentCard card, ResourceList cost) {
 		this.aManager = aManager;
-		this.card = card.clone();
+		if(card!= null)
+			this.card = card.clone();
 		if(cost != null)
 			this.cost = cost.clone();
+	}
+	
+	public GetCardAction(ActionManager aManager, Floor floor, ResourceList cost) {
+		this(aManager,floor.getCard(),cost);
+		this.floor = floor;
 	}
 	
 	@Override
@@ -58,6 +66,9 @@ public class GetCardAction implements Action {
 	}
 
 	private DecrementAction makePayAction(){
+		ResourceList modifier = new ResourceList();
+		if(floor!= null)
+			modifier = floor.getActionSpace().getResources();
 		ResourceList totalCost = this.cost.clone();
 		totalCost.subtract(modifier);
 		DecrementAction pay = new DecrementAction(aManager,totalCost);
@@ -78,6 +89,9 @@ public class GetCardAction implements Action {
 		pay.perform();
 		aManager.state().getPlayer().getCardManager().addCard(card);
 		
+		if(floor!=null)
+			floor.cleanCard();
+		
 		for(Effect effect: card.getInstantEffect()){
 			Action action = effect.get(aManager);
 			if(action.isLegal())
@@ -96,9 +110,9 @@ public class GetCardAction implements Action {
 		return cost;
 	}
 	
-	public void setModifier(ResourceList modifier) {
-		this.modifier = modifier;
-	}
+//	public void setModifier(ResourceList modifier) {
+//		this.modifier = modifier;
+//	}
 	
 	public void setCost(ResourceList cost) {
 		this.cost = cost;

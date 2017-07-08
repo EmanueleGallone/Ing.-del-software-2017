@@ -42,7 +42,7 @@ public class FloorSelected extends PlayState {
 		
 		FamilyInTowerAction tAction = new FamilyInTowerAction(aManager,tower, fMember);
 		FamilyInSpaceAction sAction = new FamilyInSpaceAction(aManager,fMember, floor.getActionSpace());
-		GetCardAction getCard = new GetCardAction(aManager,floor.getCard(), cost);
+		GetCardAction getCard = new GetCardAction(aManager,floor, cost);
 		
 		tAction = aManager.affect(tAction);
 		sAction = aManager.affect(sAction);
