@@ -20,8 +20,8 @@ public class FamilyInTowerAffecter implements Affecter<FamilyInTowerAction>{
 	}
 	
 	@Override
-	public Class<FamilyInTowerAction> target() {
-		return FamilyInTowerAction.class;
+	public String target() {
+		return FamilyInTowerAction.class.toString();
 	}
 
 	@Override

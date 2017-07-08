@@ -24,8 +24,8 @@ public class FamilyInYieldAffecter implements Affecter<FamilyInYieldAction> {
 	}
 	
 	@Override
-	public Class<FamilyInYieldAction> target() {
-		return FamilyInYieldAction.class;
+	public String target() {
+		return FamilyInYieldAction.class.toString();
 	}
 
 	@Override

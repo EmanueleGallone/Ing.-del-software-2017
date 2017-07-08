@@ -17,8 +17,8 @@ public class PointByCardAffecter implements Affecter<PointByCardAction> {
 	}
 	
 	@Override
-	public Class<PointByCardAction> target() {
-		return PointByCardAction.class;
+	public String target() {
+		return PointByCardAction.class.toString();
 	}
 
 	@Override

@@ -21,8 +21,8 @@ public class EndGameAffecter implements Affecter<EndGameAction>{
 	
 	
 	@Override
-	public Class<EndGameAction> target() {
-		return EndGameAction.class;
+	public String target() {
+		return EndGameAction.class.toString();
 	}
 
 	@Override

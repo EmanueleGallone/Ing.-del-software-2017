@@ -29,8 +29,8 @@ public class DecrementAffecter implements Affecter<DecrementAction>{
 	}
 
 	@Override
-	public Class<DecrementAction> target() {
-		return DecrementAction.class;
+	public String target() {
+		return DecrementAction.class.toString();
 	}
 
 	@Override

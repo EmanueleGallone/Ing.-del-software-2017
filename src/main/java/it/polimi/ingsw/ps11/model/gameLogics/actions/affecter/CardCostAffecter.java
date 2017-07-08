@@ -17,17 +17,13 @@ public class CardCostAffecter implements Affecter<GetCardAction> {
 	private String cardType;
 	private ResourceList modifier;	
 	
-	public CardCostAffecter(Class<? extends DevelopmentCard> cardType, ResourceList resource) {
-		this(cardType.toString(), resource);
-	}
-	
 	public CardCostAffecter(String cardType, ResourceList resource) {
 		this.modifier = resource;
 	}
 	
 	@Override
-	public Class<GetCardAction> target() {
-		return GetCardAction.class;
+	public String target() {
+		return GetCardAction.class.toString();
 	}
 
 	@Override

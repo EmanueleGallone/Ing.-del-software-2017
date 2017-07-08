@@ -24,8 +24,8 @@ public class FamilyInFloorAffecter implements Affecter<FamilyInFloorAction>{
 	}
 	
 	@Override
-	public Class<FamilyInFloorAction> target() {
-		return FamilyInFloorAction.class;
+	public String target() {
+		return FamilyInFloorAction.class.toString();
 	}
 
 	@Override

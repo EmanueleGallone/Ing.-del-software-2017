@@ -23,8 +23,8 @@ public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 	}
 	
 	@Override
-	public Class<FamilyInSpaceAction> target() {
-		return FamilyInSpaceAction.class;
+	public String target() {
+		return FamilyInSpaceAction.class.toString();
 	}
 
 	@Override

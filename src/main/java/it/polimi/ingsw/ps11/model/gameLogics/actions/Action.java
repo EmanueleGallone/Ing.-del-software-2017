@@ -8,5 +8,8 @@ public interface Action {
 
 	public boolean isLegal();
 	public void perform();
+	public default String name(){
+		return this.getClass().toString();
+	}
 	public Action clone();
 }

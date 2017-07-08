@@ -26,18 +26,18 @@ public class ActionManager {
 		aList.add(affecter);
 	}
 	
-	private <T extends Action> ArrayList<Affecter<?>> get(Class<T> aClass){
-		ArrayList<Affecter<?>> aList = actions.get(aClass.toString());
+	private <T extends Action> ArrayList<Affecter<?>> get(String aClass){
+		ArrayList<Affecter<?>> aList = actions.get(aClass);
 		if(aList == null){
 			aList = new ArrayList<>();
-			actions.put(aClass.toString(), aList);
+			actions.put(aClass, aList);
 		}
 		return aList;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public <T extends Action> T affect(T action){
-		ArrayList<Affecter<?>> aList = this.get(action.getClass());
+		ArrayList<Affecter<?>> aList = this.get(action.name());
 		for(Affecter<?> aff : aList){
 			Affecter<T> affecter = (Affecter<T>)aff;
 			action = affecter.affect(action);

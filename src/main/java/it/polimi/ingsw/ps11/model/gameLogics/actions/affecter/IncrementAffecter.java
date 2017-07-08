@@ -26,8 +26,8 @@ public class IncrementAffecter implements Affecter<IncrementAction> {
 	}
 	
 	@Override
-	public Class<IncrementAction> target() {
-		return IncrementAction.class;
+	public String target() {
+		return IncrementAction.class.toString();
 	}
 
 	@Override
