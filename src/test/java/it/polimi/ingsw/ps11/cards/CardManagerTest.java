@@ -5,10 +5,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
+import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
@@ -75,5 +77,19 @@ public class CardManagerTest {
 		assertFalse(player.getCardManager().addCard(bCard));			//il player ha ancora risorse ma non spazi
 		
 		assertTrue(player.getCardManager().isLimited());				//infattiisLimited
+		
+		
+	}
+	
+	@Test
+	public void cloneTest(){
+		
+		CardManager clone = player.getCardManager().clone();
+		Assert.assertEquals(1, clone.getAllCards().size()); //c'è un solo arrayList di carte, ovvero le blu
+		Assert.assertEquals(6, clone.getCardList(bCard.getId()).size());
+		
+		String toString = player.getCardManager().toString();
+		Assert.assertEquals(toString, clone.toString());
+		
 	}
 }

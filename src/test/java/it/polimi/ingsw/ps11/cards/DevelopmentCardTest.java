@@ -5,11 +5,15 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -57,6 +61,8 @@ public class DevelopmentCardTest {
 		bCard1.addCost(resourceList2);
 		assertFalse(bCard1.isMonoCost());
 		
+		Assert.assertEquals(resourceList2, bCard1.getFirstCost());
+		
 	}
 	
 	
@@ -70,6 +76,37 @@ public class DevelopmentCardTest {
 		assertFalse(bCard1.equals(gCard));					//stesso nome, tipo diverso
 		bCard2 = new BlueCard("1");
 		assertTrue(bCard1.equals(bCard2));					//stesso nome e stesso tipo	
+		
+	}
+	
+	@Test
+	public void effectTest(){
+		Effect effect = new AddResourceEffect(new ResourceList(new Coin(1),new Stone(1)));
+		
+		BlueCard blueCard = new BlueCard("blueCard");
+		blueCard.addInstantEffect(effect);
+		
+		Assert.assertEquals(new ResourceList(), blueCard.getFirstCost()); //deve essere una resourceList vuota
+		
+		Assert.assertEquals(0, blueCard.getPeriod()); //periodo non settato
+		blueCard.setPeriod(1);
+		Assert.assertEquals(1, blueCard.getPeriod()); //periodo settato
+		
+		Assert.assertEquals(effect, blueCard.getInstantEffect().get(0)); //test dell'effetto
+		Assert.assertEquals(0, blueCard.getActiveValue()); //test sull'activeValue
+		Assert.assertEquals(0, blueCard.getCosts().size()); // non deve avere risorse all'interno
+		
+		ResourceList resourceList = new ResourceList(new Stone(1));
+		
+		blueCard.addCost(resourceList.clone());
+		Assert.assertEquals(1, blueCard.getCosts().size()); // deve avere un costo
+		
+		blueCard.addPermanentEffect(effect); //per coprire il metodo addPermanentEffect
+		Assert.assertEquals(effect, blueCard.getPermanentEffect().get(0));
+		
+		String toString = blueCard.toString();
+		BlueCard clone = blueCard.clone();
+		Assert.assertEquals(toString, blueCard.toString());
 		
 	}
 }
