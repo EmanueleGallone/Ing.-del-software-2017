@@ -15,12 +15,9 @@ public class FixFamilyValue extends FamilyInSpaceAffecter {
 
 	@Override
 	public FamilyInSpaceAction affect(FamilyInSpaceAction action) {
-		FamilyInSpaceAction newAction = action.clone();
-		int currentValue = newAction.getFamilyMember().getValue();
-		int currentModifier = newAction.getFamilyMember().getModifier(); 	//Serve a tenere conto dell'effetto di altri bonus che hanno alterato il modificatore
-		currentValue = currentValue - currentModifier;						//Serve ad ottenere il valore effettivo dei dadi
+		int currentValue = action.getFamilyMember().getValue();
 		int difference = this.value - currentValue;							
-		newAction.getFamilyMember().setModifier(difference + currentModifier );
-		return newAction;
+		action.addModifier(difference);
+		return action;
 	}
 }

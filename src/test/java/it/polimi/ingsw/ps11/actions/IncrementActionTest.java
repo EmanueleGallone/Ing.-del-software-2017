@@ -47,9 +47,9 @@ public class IncrementActionTest {
 		if(incrementAction.isLegal())
 			incrementAction.perform();
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(7));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(5));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(7));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(5));
 		
 		//Sommiamo una risorceList vuota, le risorse dovranno rimanere invariate
 		
@@ -60,9 +60,9 @@ public class IncrementActionTest {
 		if(incrementEmpty.isLegal())
 			incrementEmpty.perform();
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(7));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(5));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(7));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(5));
 		
 		//Sommiamo una risorceList nulla, le risorse dovranno rimanere invariate
 		
@@ -71,9 +71,9 @@ public class IncrementActionTest {
 		if(incrementNull.isLegal())
 			incrementNull.perform();
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(7));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(5));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(7));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(5));
 				
 		
 		
@@ -110,9 +110,9 @@ public class IncrementActionTest {
 			incrementActionAffected.perform();
 		
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(6));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(4));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(6));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(4));
 		
 		//Aggiungiamo un affecter che influenza una risorsa che non viene coinvolta nell'increment 
 		//(es: resourceToAdd ha 2 Coin e 3 Wood, creiamo un affecter che decrementa di 1 Coin e 2 Stone)
@@ -132,9 +132,9 @@ public class IncrementActionTest {
 		//che diminuiscono l'effetto rispettivamente di 1 coin e 1 wood e 1 coin e 2 stone. Quindi l'incremento totale
 		//dovra' essere di 0 coin e 2 wood (le stone non comparivano nell'incremento originale e non devono essere alterate)
 		
-		assertEquals(playerResources.get(Coin.class),new Coin(6));
-		assertEquals(playerResources.get(Stone.class),new Stone(2));
-		assertEquals(playerResources.get(Wood.class),new Wood(6));
+		assertEquals(playerResources.get(new Coin().getId()),new Coin(6));
+		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
+		assertEquals(playerResources.get(new Wood().getId()),new Wood(6));
 	}
 	
 

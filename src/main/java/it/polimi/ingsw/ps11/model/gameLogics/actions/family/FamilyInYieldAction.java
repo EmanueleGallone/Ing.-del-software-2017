@@ -17,7 +17,6 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 
 	private ActionManager aManager;
 	private Yield yield;
-	private FamilyMember familyMember;
 	private FamilyInSpaceAction spaceAction;
 		
 	public FamilyInYieldAction() {
@@ -27,13 +26,12 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	public FamilyInYieldAction(ActionManager aManager, Yield yield, FamilyMember familyMember) {
 		this.aManager = aManager;
 		this.yield = yield;
-		this.familyMember = familyMember;
 		spaceAction = new FamilyInSpaceAction(aManager,familyMember, yield.getFreeSpace());
 	}
 	
 	@Override
 	public boolean isLegal() {
-		if(!familyMember.isNeutral() && yield.search(aManager.state().getPlayer())){
+		if(!spaceAction.getFamilyMember().isNeutral() && yield.search(aManager.state().getPlayer())){
 			aManager.state().invoke("Non puoi piazzare un'altro familiare in questa zona");
 			return false;
 		}
@@ -47,7 +45,8 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	public void perform() {
 		FamilyInSpaceAction action = aManager.affect(spaceAction);
 		action.perform();
-		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), familyMember.getValue());
+		int activationValue = spaceAction.getFamilyMember().getValue();
+		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), activationValue );
 		activeYield = aManager.affect(activeYield);
 		activeYield.perform();
 	}
@@ -58,14 +57,14 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 		if(isLegal())
 			perform();
 	}
+	
+	public FamilyInSpaceAction getSpaceAction() {
+		return spaceAction;
+	}
 
 	@Override
 	public ConfirmEvent getConfirm() {
 		return new ConfirmEvent(spaceAction.getSpace());
-	}
-	
-	public FamilyMember getFamilyMember() {
-		return familyMember;
 	}
 	
 	public Yield getYield() {
@@ -74,6 +73,6 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	
 	@Override
 	public FamilyInYieldAction clone() {
-		return new FamilyInYieldAction(aManager, yield, familyMember);
+		return new FamilyInYieldAction(aManager, yield, spaceAction.getFamilyMember());
 	}
 }

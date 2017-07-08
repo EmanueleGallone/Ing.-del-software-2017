@@ -53,7 +53,7 @@ public class ActiveYieldTest {
 		handler = new StateHandler(gameLogic, player);
 		aManager = handler.actions();
 		
-		familyMember = new NeutralFamilyMember("Neutral");
+		familyMember = new NeutralFamilyMember();
 		
 		harvest = new Yield(GreenCard.class);
 		resourceListCoin = new ResourceList(new Coin(3));
@@ -89,8 +89,8 @@ public class ActiveYieldTest {
 		action = new ActiveYieldAction(aManager, GreenCard.class.toString(), 3);
 		action.perform();
 
-		assertEquals(4, player.getResourceList().get(Coin.class).getValue());
-		assertEquals(1, player.getResourceList().get(Wood.class).getValue());
+		assertEquals(4, new Coin().set(player.getResourceList()).getValue());
+		assertEquals(1, new Wood().set(player.getResourceList()).getValue());
 
 	}	
 	@Test

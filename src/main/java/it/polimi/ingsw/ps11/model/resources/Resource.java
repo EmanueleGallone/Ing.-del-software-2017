@@ -19,14 +19,16 @@ import java.io.Serializable;
 public abstract class Resource implements Serializable {
 	protected static final int DEFAULT = 0;
 	protected int value;
+	private String id;
 	
 	//start constructor
-	public Resource(){
-		this(DEFAULT);
+	public Resource(String id){
+		this(id,DEFAULT);
 	}
 	
-	public Resource(int value){
+	public Resource(String id,int value){
 		this.value = value;
+		this.id = id;
 	}
 	
 	//end constructor
@@ -48,6 +50,12 @@ public abstract class Resource implements Serializable {
 	public void increment(int value){
 		setValue(value + getValue());
 	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public abstract Resource set(ResourceList resourceList);
 	
 	@Override
 	public abstract Resource clone();

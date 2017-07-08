@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.actions.base;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +12,6 @@ import org.junit.Test;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ExchangeAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -72,8 +72,8 @@ public class ExchangeTest {
 		exchangelist.put(resourceListCoin, resourceListWood);
 		action = new ExchangeAction(aManager, exchangelist);
 		action.update(resourceListCoin);
-		assertEquals(0,aManager.state().getPlayer().getResourceList().getResource(Coin.class).get().getValue());
-		assertEquals(6,aManager.state().getPlayer().getResourceList().getResource(Wood.class).get().getValue());
+		assertEquals(0, new Coin().set(aManager.state().getPlayer().getResourceList()).getValue());
+		assertEquals(6, new Wood().set(aManager.state().getPlayer().getResourceList()).getValue());
 		
 	}
 }
