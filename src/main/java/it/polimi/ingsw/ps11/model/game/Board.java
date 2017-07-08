@@ -38,8 +38,8 @@ public class Board implements Serializable{
 	private HashMap<String, Tower> towers = new HashMap<>();
 	private DiceManager diceManager;
 	
-	private Yield harvest = new Yield(new GreenCard().getId());
-	private Yield production = new Yield(new YellowCard().getId());
+	private Yield harvest;
+	private Yield production;
 	private Market market;
 	private CouncilPalace councilPalace;
 	private Church church;
@@ -115,6 +115,13 @@ public class Board implements Serializable{
 	
 	public DiceManager getDices() {
 		return diceManager;
+	}
+	
+	public void setHarvest(Yield harvest) {
+		this.harvest = harvest;
+	}
+	public void setProduction(Yield production) {
+		this.production = production;
 	}
 	
 	/**<h3> String toString() </h3>
