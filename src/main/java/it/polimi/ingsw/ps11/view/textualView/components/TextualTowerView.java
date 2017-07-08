@@ -12,6 +12,8 @@ public class TextualTowerView extends TowerView {
 
 	public TextualTowerView(String towername) {
 		super(towername);
+		for(int i = 0; i < TOWERNUMBER; i++)
+			floorViews.add(new TextualFloorView(towerName, i));
 	}
 
 	@Override

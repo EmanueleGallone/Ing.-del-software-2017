@@ -54,7 +54,7 @@ public class LeaderCard extends Card implements Requirement{
 	public boolean equals(Object obj) {
 		if(obj == null)
 			return false;
-		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((DevelopmentCard) obj).getName()))
+		if(this.getClass() == obj.getClass() && this.name.equalsIgnoreCase(((LeaderCard) obj).getName()))
 				return true;
 		return false;
 	}
