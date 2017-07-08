@@ -161,8 +161,10 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 			JButton button = (JButton) e.getSource();
 			try {
 				int i = new Integer(button.getName());
-				Player player = currentOrder.get(i);
-				changePlayerEvent.invoke(player);
+				if(i < currentOrder.size()){
+					Player player = currentOrder.get(i);
+					changePlayerEvent.invoke(player);
+				}
 			} catch (NumberFormatException exception) {
 				exception.printStackTrace();
 			}

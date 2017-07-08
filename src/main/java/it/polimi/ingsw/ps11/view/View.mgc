@@ -32,10 +32,6 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-        <Association
-            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView"
-            endpointName="floorViews" kind="Simple"/>
-        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView"/>
     </Class>
     <Class
         name="it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView"
@@ -47,25 +43,6 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-    </Class>
-    <Class
-        name="it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView"
-        x="974" y="17">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-        <Association
-            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"
-            endpointName="resourceView" kind="Simple"/>
-        <Association
-            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView"
-            endpointName="cardView" kind="Simple"/>
-        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"/>
-        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView"/>
     </Class>
     <Class
         name="it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView"
@@ -208,7 +185,7 @@
     </Class>
     <Class
         name="it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView"
-        x="516" y="224">
+        x="516" y="226">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
