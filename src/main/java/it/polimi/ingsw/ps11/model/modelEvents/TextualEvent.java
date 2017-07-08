@@ -16,6 +16,15 @@ public class TextualEvent extends ModelEvent {
 	public void accept(ModelListener listener) {
 		listener.handle(this);
 	}
+
+	@Override
+	public TextualEvent clone() {
+		TextualEvent copy = new TextualEvent(message);
+		if(getReceiver()!=null)
+			copy.setReceiver(getReceiver().clone());
+		return copy;
+	}
+	
 	
 
 }

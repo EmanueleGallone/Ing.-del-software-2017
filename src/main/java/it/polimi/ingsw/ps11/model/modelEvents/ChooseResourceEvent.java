@@ -23,4 +23,13 @@ public class ChooseResourceEvent extends ModelEvent {
 		listener.handle(this);
 	}
 
+	@Override
+	public ChooseResourceEvent clone() {
+		ChooseResourceEvent copy = new ChooseResourceEvent(options);
+		if(getReceiver()!=null)
+			copy.setReceiver(getReceiver().clone());
+		copy.setMessage(getMessage());
+		return copy;
+	}
+
 }

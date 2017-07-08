@@ -41,4 +41,7 @@ public abstract class ModelEvent implements ModelEventInterface {
 	public Player getReceiver() {
 		return player;
 	}
+	
+	@Override
+	public abstract ModelEvent clone();
 }

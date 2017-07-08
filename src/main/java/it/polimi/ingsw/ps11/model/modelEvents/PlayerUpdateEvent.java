@@ -20,4 +20,13 @@ public class PlayerUpdateEvent extends ModelEvent{
 		listener.handle(this);
 	}
 
+	@Override
+	public PlayerUpdateEvent clone() {
+		PlayerUpdateEvent copy = new PlayerUpdateEvent(getReceiver().clone(),getMessage());
+		copy.setMessage(getMessage());
+		return copy;
+	}
+	
+	
+
 }

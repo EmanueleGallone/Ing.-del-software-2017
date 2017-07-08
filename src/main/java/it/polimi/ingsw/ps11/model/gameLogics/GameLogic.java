@@ -109,12 +109,13 @@ public class GameLogic implements Runnable{
 	public void handle(ViewEventInterface viewEvent){
 		System.out.println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
 		playerStatus.get(viewEvent.getSource().getName()).handle(viewEvent);
-		notifyAllClients(new GameUpdateEvent(game));
+		//notifyAllClients(new GameUpdateEvent(game));
 	}
 	
 	public void notifyAllClients(ModelEvent event){
 		for(StateHandler sHandler : playerStatus.values()){
-			sHandler.invoke(event);
+			System.out.println("Invio " + event.getClass().getSimpleName() + " a " + sHandler.getPlayer().getName());
+			sHandler.invoke(event.clone());
 		}
 	}
 	

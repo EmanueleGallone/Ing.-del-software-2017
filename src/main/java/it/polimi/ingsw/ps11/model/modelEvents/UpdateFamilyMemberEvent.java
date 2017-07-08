@@ -19,4 +19,13 @@ public class UpdateFamilyMemberEvent extends ModelEvent {
 		listener.handle(this);
 	}
 
+	@Override
+	public UpdateFamilyMemberEvent clone() {
+		UpdateFamilyMemberEvent copy = new UpdateFamilyMemberEvent(manager.clone());
+		if(getReceiver()!=null)
+			copy.setReceiver(getReceiver().clone());
+		copy.setMessage(getMessage());
+		return copy;
+	}
+
 }

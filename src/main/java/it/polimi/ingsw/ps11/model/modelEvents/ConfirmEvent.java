@@ -38,4 +38,13 @@ public class ConfirmEvent extends ModelEvent {
 		listener.handle(this);
 	}
 
+	@Override
+	public ConfirmEvent clone() {
+		ConfirmEvent copy = new ConfirmEvent(floor.clone(), tower);
+		if(getReceiver()!=null)
+			copy.setReceiver(getReceiver().clone());
+		copy.setMessage(getMessage());
+		return copy;
+	}
+
 }
