@@ -21,7 +21,7 @@ import it.polimi.ingsw.ps11.model.resources.list.Wood;
 public class ConnectionHandler {
 	
 	private final int MAX_SIZE = 4; 
-	private final int START_SIZE = 1;
+	private final int START_SIZE = 2;
 	private long delay = 30000;  //Viene caricato da file, tempo di attesa prima che una partita cominci dopo aver raggiunto i 2 giocatori
 	private Timer timer;
 	

@@ -9,6 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
@@ -34,89 +35,65 @@ import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class FamilyInYieldTest {
 
-	Player player1, player2;
-	
-	ArrayList<Player> players;
-	
-	FamilyMember familyMember1, orangeFamilyMember;
-	FamilyMember familyMember2, blackFamilyMember;
-			
-	GameLogic gameLogic;
-	FamilyInYieldAction action1;
-	StateHandler handler1, handler2;
-	ActionManager aManager1, aManager2;
-		
-	ResourceList resourceListCoin, resourceListWood;
-	GreenCard card1, card2;
-	Yield harvest;
-	
+
 	@Rule
 	public final ExpectedException exception = ExpectedException.none();
 	
-	@Before
-	public void setting(){
-		
-		//Inizializzo l'action manager e il player
-		player1 = new Player("Giocatore 1");
-		player2 = new Player("Giocatore 2");
-		
-		players = new ArrayList<>();
-		players.add(player1);
-		players.add(player2);
-		
-		familyMember1 = new NeutralFamilyMember();	
-		orangeFamilyMember = new OrangeFamilyMember();
-		
-		familyMember2 = new NeutralFamilyMember();	
-		blackFamilyMember = new BlackFamilyMember();
-		
-		player1.getFamilyManager().setFamilyMember(familyMember1);
-		player1.getFamilyManager().setFamilyMember(orangeFamilyMember);
-
-		player2.getFamilyManager().setFamilyMember(familyMember2);
-		player2.getFamilyManager().setFamilyMember(blackFamilyMember);
-			
-		gameLogic = new GameLogic(players);
-		handler1 = new StateHandler(gameLogic, player1);
-		handler2 = new StateHandler(gameLogic, player2);
-		
-		//Prendo l'action manager del Giocatore 1 
-		aManager1 = handler1.actions();
-		aManager2 = handler2.actions();
-		//Inizializzo le risorse del Giocatore 1
-		
-		resourceListCoin = new ResourceList(new Coin(3));
-		resourceListWood = new ResourceList(new Wood(3));
-		
-		card1 = new GreenCard();
-		card1.addInstantEffect(new AddResourceEffect(resourceListCoin));
-		card1.setActiveValue(2);
-		player1.getCardManager().addCard(card1);
-		
-		card2 = new GreenCard();
-		card2.addInstantEffect(new AddResourceEffect(resourceListWood));
-		card2.setActiveValue(4);
-		player1.getCardManager().addCard(card2);
-		
-		harvest = new Yield(GreenCard.class);
+	private ArrayList<Player> playersSetting() {
+		PlayerFactory playerFactory = new PlayerFactory();
+		ArrayList<Player> players = playerFactory.takeAll();
+		int i = 1;
+		for (Player player : players) {
+			player.setName("Giocatore " + i);
+			i++;
 		}
+		return players;
+	}
+
+	private ActionManager getActionManager(Player player, GameLogic gameLogic){
+		for (StateHandler s : gameLogic.getPlayerStatus()) {
+			if(s.getPlayer().equals(player)) 
+				return s.actions();
+			
+		}
+		return null;
+	}
 	
 	@Test
 	public void isLegalTest(){
+		//MANCA IL NEUTRALE PIù SERVITORI, SEMPREPOSSIBILE
+		ArrayList<Player> players = playersSetting();
+		GameLogic gameLogic = new GameLogic(players);
 		
-		action1 = new FamilyInYieldAction(aManager1, harvest, orangeFamilyMember);
-		//assertTrue(action1.isLegal()); 			//il controllo è nel FamilyInSpaceTest
+
+		Player player1 = players.get(0);
+		Player player2 = players.get(1);
+		Yield harvest = gameLogic.getGame().getBoard().getHarvest();
+		//valore del familiare troppo basso
+		FamilyInYieldAction familyInYieldAction = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(NeutralFamilyMember.class));
+		assertFalse(familyInYieldAction.isLegal());
+		//valore opportuno, eseguito
+		FamilyInYieldAction familyInYieldAction2 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(BlackFamilyMember.class));
+		assertTrue(familyInYieldAction2.isLegal());
+		familyInYieldAction2.perform();
+		//valore opportuno, ma player già presente nella zona
+		FamilyInYieldAction familyInYieldAction3 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, player1.getFamilyManager().getFamilyMember(OrangeFamilyMember.class));
+		assertFalse(familyInYieldAction3.isLegal());
+		//valore opportuno, altro giocatore eseguito
+		FamilyInYieldAction familyInYieldAction4 = new FamilyInYieldAction(getActionManager(player2, gameLogic), harvest, player2.getFamilyManager().getFamilyMember(OrangeFamilyMember.class));
+		assertTrue(familyInYieldAction4.isLegal());
 	}
 	
 	@Test
 	public void performTest(){
 		
-		orangeFamilyMember.setModifier(3);
-		action1 = new FamilyInYieldAction(aManager1, harvest, orangeFamilyMember);
-		action1.perform();
+		ArrayList<Player> players = playersSetting();
+		GameLogic gameLogic = new GameLogic(players);
 		
-		//assertEquals(3, player1.getResourceList().get(Coin.class).getValue());		//la prima carta viene attivata
-		//assertNull(player1.getResourceList().get(Wood.class).getValue());			//la seconda carta non viene attivata
+		Player player1 = players.get(0);
+		Player player2 = players.get(1);
+		Yield harvest = gameLogic.getGame().getBoard().getHarvest();
+
 	}
 	
 	
