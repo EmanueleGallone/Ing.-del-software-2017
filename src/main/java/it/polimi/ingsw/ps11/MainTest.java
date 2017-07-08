@@ -25,11 +25,7 @@ import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
-import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
 
 public class MainTest {
 	
@@ -57,7 +53,7 @@ public class MainTest {
 		
 // ___________ TUTTE LE TORRI ____________________________
 		
-		GreenTower greenTower = new GreenTower();
+		Tower greenTower = new Tower("GreenTower");
 		greenTower.addFloor(new Floor(1));
 		greenTower.addFloor(new Floor(3));
 		
@@ -69,7 +65,7 @@ public class MainTest {
 		greenTower.addFloor(new Floor(7,resource.clone()));
 		
 		
-		BlueTower blueTower = new BlueTower();
+		Tower blueTower = new Tower("BlueTower");
 		resource = new ResourceList();
 		
 		blueTower.addFloor(new Floor(1));
@@ -81,7 +77,7 @@ public class MainTest {
 		blueTower.addFloor(new Floor(7,resource.clone()));
 		
 		
-		YellowTower yellowTower = new YellowTower();
+		Tower yellowTower = new Tower("YellowTower");
 		resource = new ResourceList();
 		
 		yellowTower.addFloor(new Floor(1));
@@ -93,7 +89,7 @@ public class MainTest {
 		yellowTower.addFloor(new Floor(7,resource.clone()));
 		
 	
-		PurpleTower purpleTower = new PurpleTower();
+		Tower purpleTower = new Tower("PurpleTower");
 		resource = new ResourceList();
 		
 		purpleTower.addFloor(new Floor(1));

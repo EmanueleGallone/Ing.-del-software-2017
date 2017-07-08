@@ -55,7 +55,7 @@ public class ActiveYieldTest {
 		
 		familyMember = new NeutralFamilyMember();
 		
-		harvest = new Yield(GreenCard.class);
+		harvest = new Yield(new GreenCard().getId());
 		resourceListCoin = new ResourceList(new Coin(3));
 		resourceListWood = new ResourceList(new Wood(3));
 		

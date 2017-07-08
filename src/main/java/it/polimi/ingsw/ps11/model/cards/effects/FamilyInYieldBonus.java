@@ -1,0 +1,41 @@
+package it.polimi.ingsw.ps11.model.cards.effects;
+
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInYieldAffecter;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
+/**
+ * <h3> FamilyInYieldBonus </h3>
+ * <p> Effetto di una carta: modifica permanentemente il valore di attivazione delle carte "Territorio" e/o "Edificio" in seguito
+ * al posizionamento di un familiare in una zona Raccolta e/o Produzione attraverso un <code>FamilyInYieldAffecter</code>.</p>
+ * <p> Richiede: DevelopmentCard (tipo di carte da attivare in seguito al posizionamento su raccolta o produzione), int (valore
+ * del bonus di attivazione).</p>
+ * @see Effect
+ * @see FamilyInYieldAffecter
+ */
+public class FamilyInYieldBonus implements Effect{
+
+	private String cardType;
+	private int value;
+	
+	public FamilyInYieldBonus(Class<? extends DevelopmentCard> cardType, int value) {
+		this(cardType.toString(), value);
+	}
+	
+	public FamilyInYieldBonus(String cardType, int value) {
+		this.cardType = cardType;
+		this.value = value;
+	}
+	
+	@Override
+	public EmptyAction get(ActionManager aManager) {
+		return new EmptyAction();
+	}
+
+	@Override
+	public void attach(ActionManager aManager) {
+		FamilyInYieldAffecter affecter = new FamilyInYieldAffecter(cardType, value);
+		aManager.add(affecter);	
+	}
+
+}
