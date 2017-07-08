@@ -26,7 +26,7 @@ public class TextualFloorView extends FloorView {
 			card = floor.getCard().getName();
 		
 		if(floor != null && floor.getActionSpace().getFamilyMember() != null)
-			family = floor.getActionSpace().getFamilyMember().getClass().getSimpleName();
+			family = floor.getActionSpace().getFamilyMember().getId();
 		
 		//if(floor.getActionSpace().getActionCost() != null)
 			actionCost = floor.getActionSpace().getActionCost();

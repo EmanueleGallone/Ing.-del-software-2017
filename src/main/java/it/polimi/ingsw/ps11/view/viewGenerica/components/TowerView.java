@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.view.viewGenerica.components;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 
 public abstract class TowerView extends ViewComponent {
@@ -13,9 +14,11 @@ public abstract class TowerView extends ViewComponent {
 
 	public TowerView(String towername) {
 		this.towerName = towername;
+		for(int i = 0; i < TOWERNUMBER; i++)
+			floorViews.add(new TextualFloorView(towerName, i));
 	}
 	
-	public String getTower() {
+	public String getTowerName() {
 		return towerName;
 	}
 	

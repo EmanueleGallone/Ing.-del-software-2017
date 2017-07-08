@@ -85,7 +85,7 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 
 	@Override
 	public ConfirmEvent getConfirm() {
-		String tower = towerAction.getTower().getClass().toString();
+		String tower = towerAction.getTower().getName();
 		Floor floor = new Floor();
 		floor.setActionSpace(spaceAction.getSpace());
 		floor.setCard(getCard.getCard());
