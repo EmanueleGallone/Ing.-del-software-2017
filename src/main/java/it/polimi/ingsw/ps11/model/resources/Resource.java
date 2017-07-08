@@ -17,16 +17,19 @@ import java.io.Serializable;
  * @see it.polimi.ingsw.ps11.model.resources.list.VictoryPoint VictoryPoint
  */
 public abstract class Resource implements Serializable {
+	
 	protected static final int DEFAULT = 0;
+	private String identifier;
 	protected int value;
 	
 	//start constructor
-	public Resource(){
-		this(DEFAULT);
+	public Resource(String identifier){
+		this(identifier,DEFAULT);
 	}
 	
-	public Resource(int value){
+	public Resource(String identifier,int value){
 		this.value = value;
+		this.identifier = identifier;
 	}
 	
 	//end constructor
@@ -47,6 +50,10 @@ public abstract class Resource implements Serializable {
 	 */
 	public void increment(int value){
 		setValue(value + getValue());
+	}
+	
+	public String getId() {
+		return identifier;
 	}
 	
 	@Override
