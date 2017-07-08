@@ -61,21 +61,21 @@ public class ResourceListTest {
 		resourceList2 = new ResourceList(arrayListResource2);
 		
 		resourceList1.sum(resourceList2);
-		assertEquals(new Coin().set(resourceList1).getValue(), 4);			//somma tra risorsa presente in entrambi
-		assertEquals(new Wood().set(resourceList1).getValue(), 3);			//somma tra risorsa presente solo nella chiamante
-		assertEquals(new Servant().set(resourceList1).getValue(), 1);		//somma tra risorsa presente solo nella chiamata
+		assertEquals(new Coin().getFrom(resourceList1).getValue(), 4);			//somma tra risorsa presente in entrambi
+		assertEquals(new Wood().getFrom(resourceList1).getValue(), 3);			//somma tra risorsa presente solo nella chiamante
+		assertEquals(new Servant().getFrom(resourceList1).getValue(), 1);		//somma tra risorsa presente solo nella chiamata
 		exception.expect(NullPointerException.class);
-		assertEquals(0,new Stone().set(resourceList1).getValue());				//somma tra risorsa presente in nessuna
+		assertEquals(0,new Stone().getFrom(resourceList1).getValue());				//somma tra risorsa presente in nessuna
 		
 		resourceList1.sum(null);
-		assertEquals(new Coin().set(resourceList1).getValue(), 4);			//somma tra risorsa e null
+		assertEquals(new Coin().getFrom(resourceList1).getValue(), 4);			//somma tra risorsa e null
 		
 		resourceList1.sum(resourceListNegative);
 		
 
-		assertEquals(new Coin().set(resourceList1).getValue(), 3);			//somma tra risorsa presente in entrambi, chiamata negativa
+		assertEquals(new Coin().getFrom(resourceList1).getValue(), 3);			//somma tra risorsa presente in entrambi, chiamata negativa
 		resourceListNegative.sum(resourceList1);
-		assertEquals(new Coin().set(resourceList1).getValue(), 2);			//somma tra risorsa presente in entrambi, chiamata negativa
+		assertEquals(new Coin().getFrom(resourceList1).getValue(), 2);			//somma tra risorsa presente in entrambi, chiamata negativa
 	}
 	
 	@Test
@@ -93,22 +93,22 @@ public class ResourceListTest {
 		resourceList2 = new ResourceList(arrayListResource2);
 		
 		resourceList1.subtract(resourceList2);
-		assertEquals(new Coin().set(resourceList1).getValue(), 2);			//differenza tra risorsa presente in entrambi, con chiamante > chiamata
-		assertEquals(new VictoryPoint().set(resourceList1).getValue(), -2);	//differenza tra risorsa presente in entrambi, con chiamata > chiamante
-		assertEquals(new Wood().set(resourceList1).getValue(), 3);			//differenza tra risorsa presente solo nella chiamante
+		assertEquals(new Coin().getFrom(resourceList1).getValue(), 2);			//differenza tra risorsa presente in entrambi, con chiamante > chiamata
+		assertEquals(new VictoryPoint().getFrom(resourceList1).getValue(), -2);	//differenza tra risorsa presente in entrambi, con chiamata > chiamante
+		assertEquals(new Wood().getFrom(resourceList1).getValue(), 3);			//differenza tra risorsa presente solo nella chiamante
 		
-		assertEquals(0, new Servant().set(resourceList1).getValue());			//differenza tra risorsa presente solo nella chiamata
-		assertEquals(0, new Stone().set(resourceList1).getValue());				//differenza tra risorsa presente in nessuna
+		assertEquals(0, new Servant().getFrom(resourceList1).getValue());			//differenza tra risorsa presente solo nella chiamata
+		assertEquals(0, new Stone().getFrom(resourceList1).getValue());				//differenza tra risorsa presente in nessuna
 		
 		exception.expect(NullPointerException.class);
 		resourceList1.subtract(null);
-		assertEquals(new Coin().set(resourceList1), 2);						//differenza tra risorsa e null
+		assertEquals(new Coin().getFrom(resourceList1), 2);						//differenza tra risorsa e null
 		
 		resourceList1.subtract(resourceListNegative);
-		assertEquals(new Coin().set(resourceList1), 3);						//differenza tra risorsa presente in entrambi, chiamata negativa
+		assertEquals(new Coin().getFrom(resourceList1), 3);						//differenza tra risorsa presente in entrambi, chiamata negativa
 	
 		resourceListNegative.subtract(resourceList1);
-		assertEquals(new Coin().set(resourceList1), 2);				//differenza tra risorsa presente in entrambi, chiamante negativa
+		assertEquals(new Coin().getFrom(resourceList1), 2);				//differenza tra risorsa presente in entrambi, chiamante negativa
 
 	}
 	

@@ -24,7 +24,7 @@ public class OrangeFamilyMember extends FamilyMember {
 	}
 
 	@Override
-	public OrangeFamilyMember set(FamilyMemberManager familyMemberManager) {
+	public FamilyMember getFrom(FamilyMemberManager familyMemberManager) {
 		return familyMemberManager.getFamilyMember(id);
 	}
 }

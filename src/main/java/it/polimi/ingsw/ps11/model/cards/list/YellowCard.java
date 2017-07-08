@@ -9,15 +9,16 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class YellowCard extends DevelopmentCard{
 	
+	private static final String id = "YellowCard";
+	
 	public YellowCard() {
-		super();
+		super(id);
 		this.activeValue = DEFAULT_VALUE;
 		this.period = DEFAULT_VALUE;
 	}
 	
 	public YellowCard(String name) {
-		this();
-		setName(name);
+		super(id,name);
 	}
 
 	public void setActiveValue(int activeValue) {

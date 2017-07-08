@@ -36,7 +36,7 @@ public class VaticanReport extends DefaultState {
 	public void handle(ConfirmViewEvent confirmEvent) {
 		if(confirmEvent.getConfirm()){
 			ResourceList playerResource = sHandler.getPlayer().getResourceList();
-			ResourceList reward = church.getReward(new FaithPoint().set(playerResource).getValue());
+			ResourceList reward = church.getReward(new FaithPoint().getFrom(playerResource).getValue());
 			IncrementAction action = new IncrementAction(sHandler.actions(), reward);
 			playerResource.setResource(new FaithPoint());
 			action = sHandler.actions().affect(action);

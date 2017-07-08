@@ -24,6 +24,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
@@ -125,6 +126,14 @@ public class FamilyInYieldTest {
 	
 	@Test
 	public void performTest(){
+		
+		ResourceList resourceList = new ResourceList(new Coin(3));
+		GreenCard greenCard1 = new GreenCard();
+		greenCard1.setActiveValue(2);
+		greenCard1.addInstantEffect(new AddResourceEffect(resourceList));
+		
+		GreenCard greenCard2 = new GreenCard();
+		greenCard2.setActiveValue(2);
 
 		ArrayList<Player> players = playersSetting();
 		GameLogic gameLogic = new GameLogic(players);

@@ -25,7 +25,7 @@ public class MilitaryPoint extends Resource {
 	}
 	
 	@Override
-	public MilitaryPoint set(ResourceList resourceList) {
+	public MilitaryPoint getFrom(ResourceList resourceList) {
 		MilitaryPoint resource = resourceList.get(id);
 		if (resource == null) {
 			return new MilitaryPoint();

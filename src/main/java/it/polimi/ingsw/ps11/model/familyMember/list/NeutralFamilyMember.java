@@ -29,7 +29,7 @@ public class NeutralFamilyMember extends FamilyMember {
 	}
 
 	@Override
-	public NeutralFamilyMember set(FamilyMemberManager familyMemberManager) {
+	public FamilyMember getFrom(FamilyMemberManager familyMemberManager) {
 		return familyMemberManager.getFamilyMember(id);
 	}
 }

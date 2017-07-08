@@ -11,11 +11,14 @@ import java.io.Serializable;
 public abstract class Card implements Serializable{
 	
 	protected String name = "Default"; //Va visto come un identificatore unico
+	private String id;
 	
-	public Card() {
+	public Card(String id) {
+		this.id = id;
 	}
 	
-	public Card(String name) {
+	public Card(String id, String name) {
+		this(id);
 		this.name = name;
 	}
 	
@@ -29,6 +32,10 @@ public abstract class Card implements Serializable{
 //Start getters
 	public String getName() {
 		return name;
+	}
+	
+	public String getId() {
+		return id;
 	}
 	
 	

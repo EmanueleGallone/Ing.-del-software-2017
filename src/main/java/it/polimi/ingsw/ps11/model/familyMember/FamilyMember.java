@@ -42,7 +42,7 @@ public abstract class FamilyMember implements Serializable{
 		this.used = used;
 	}
 	
-	public abstract FamilyMember set(FamilyMemberManager familyMemberManager);
+	public abstract FamilyMember getFrom(FamilyMemberManager familyMemberManager);
 	
 	@Override
 	public abstract FamilyMember clone();

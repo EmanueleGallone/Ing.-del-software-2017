@@ -25,7 +25,7 @@ public class Servant extends Resource {
 	}
 	
 	@Override
-	public Servant set(ResourceList resourceList) {
+	public Servant getFrom(ResourceList resourceList) {
 		Servant resource = resourceList.get(id);
 		if (resource == null) {
 			return new Servant();

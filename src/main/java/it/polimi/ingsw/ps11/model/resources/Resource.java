@@ -55,7 +55,7 @@ public abstract class Resource implements Serializable {
 		return id;
 	}
 	
-	public abstract Resource set(ResourceList resourceList);
+	public abstract Resource getFrom(ResourceList resourceList);
 	
 	@Override
 	public abstract Resource clone();
