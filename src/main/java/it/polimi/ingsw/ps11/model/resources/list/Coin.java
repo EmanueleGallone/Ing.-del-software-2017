@@ -8,18 +8,16 @@ import it.polimi.ingsw.ps11.model.resources.Resource;
  */
 public class Coin extends Resource {
 	
-	private final static String id = "Coin";
-	
 	public Coin(){
-		this(id,DEFAULT);
+		this(DEFAULT);
 	}
 	
-	public Coin(String id, int value){
-		super(id,value);
+	public Coin(int value){
+		super(value);
 	}
 
 	@Override
 	public Coin clone() {
-		return  new Coin(id,this.value);
+		return  new Coin(this.value);
 	}
 }
