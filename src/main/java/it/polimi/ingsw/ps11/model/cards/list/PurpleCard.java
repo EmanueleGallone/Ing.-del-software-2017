@@ -9,15 +9,16 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class PurpleCard extends DevelopmentCard {
 	
+	private static final String id = "PurpleCard";
+	
 	public PurpleCard() {
-		super();
+		super(id);
 		this.activeValue = DEFAULT_VALUE;
 		this.period = DEFAULT_VALUE;
 	}
 	
 	public PurpleCard(String name) {
-		this();
-		setName(name);
+		super(id,name);
 	}
 
 	public void setActiveValue(int activeValue) {

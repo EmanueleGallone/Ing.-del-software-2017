@@ -30,7 +30,7 @@ public class BlackFamilyMember extends FamilyMember {
 	}
 
 	@Override
-	public BlackFamilyMember set(FamilyMemberManager familyMemberManager) {
+	public FamilyMember getFrom(FamilyMemberManager familyMemberManager) {
 		return familyMemberManager.getFamilyMember(id);
 	}
 	

@@ -26,7 +26,7 @@ public class Stone extends Resource {
 	}
 	
 	@Override
-	public Stone set(ResourceList resourceList) {
+	public Stone getFrom(ResourceList resourceList) {
 		Stone resource = resourceList.get(id);
 		if (resource == null) {
 			return new Stone();

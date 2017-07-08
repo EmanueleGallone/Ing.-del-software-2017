@@ -57,15 +57,15 @@ public class FamilyMemberManagerTest {
 		
 		diceManager.rollDices();
 		
-		assertEquals(diceManager.get("Orange").getValue(), new OrangeFamilyMember().set(familyManager).getValue());		
-		assertEquals(diceManager.get("Black").getValue(), new BlackFamilyMember().set(familyManager).getValue());
-		assertEquals(diceManager.get("White").getValue(), new WhiteFamilyMember().set(familyManager).getValue());
+		assertEquals(diceManager.get("Orange").getValue(), new OrangeFamilyMember().getFrom(familyManager).getValue());		
+		assertEquals(diceManager.get("Black").getValue(), new BlackFamilyMember().getFrom(familyManager).getValue());
+		assertEquals(diceManager.get("White").getValue(), new WhiteFamilyMember().getFrom(familyManager).getValue());
 		
 		diceManager.rollDices();
 		
-		assertEquals(diceManager.get("Orange").getValue(), new OrangeFamilyMember().set(familyManager).getValue());		
-		assertEquals(diceManager.get("Black").getValue(), new BlackFamilyMember().set(familyManager).getValue());
-		assertEquals(diceManager.get("White").getValue(), new WhiteFamilyMember().set(familyManager).getValue());
+		assertEquals(diceManager.get("Orange").getValue(), new OrangeFamilyMember().getFrom(familyManager).getValue());		
+		assertEquals(diceManager.get("Black").getValue(), new BlackFamilyMember().getFrom(familyManager).getValue());
+		assertEquals(diceManager.get("White").getValue(), new WhiteFamilyMember().getFrom(familyManager).getValue());
 
 	}
 	

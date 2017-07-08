@@ -9,15 +9,16 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class GreenCard extends DevelopmentCard{
 	
+	private static final String id = "GreenCard";
+	
 	public GreenCard() {
-		super();
+		super(id);
 		this.activeValue = DEFAULT_VALUE;
 		this.period = DEFAULT_VALUE;
 	}
 	
 	public GreenCard(String name) {
-		this();
-		setName(name);
+		super(id,name);
 	}
 
 	public void setActiveValue(int activeValue) {

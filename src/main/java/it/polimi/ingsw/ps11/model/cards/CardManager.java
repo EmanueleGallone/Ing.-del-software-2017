@@ -49,7 +49,7 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 	public <T extends DevelopmentCard> boolean addCard(T card){
 		
 		if(canAdd(card)){
-			cards.get(card.getClass().toString()).add(card);
+			cards.get(card.getId()).add(card);
 			return true;
 		}
 		
@@ -68,10 +68,10 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 	 */
 	public <T extends DevelopmentCard> boolean canAdd(T card){
 		
-		ArrayList<DevelopmentCard> temp = cards.get(card.getClass().toString());
+		ArrayList<DevelopmentCard> temp = cards.get(card.getId());
 		if(temp == null){
 			temp = new ArrayList<>();
-			this.cards.put(card.getClass().toString(), temp);
+			this.cards.put(card.getId(), temp);
 		}
 		if(isLimited() && temp.size() >= MAX_CARD)
 			return false;
@@ -93,13 +93,8 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 // Start getters
 	
 
-	public <T extends DevelopmentCard> ArrayList<T> getCardList (Class<T> cardClass){
-		return (ArrayList<T>) getCardList(cardClass.toString()); 
-	}
-	
-
-	public ArrayList<DevelopmentCard> getCardList (String cardClass){
-		ArrayList<DevelopmentCard> cards = this.cards.get(cardClass);
+	public ArrayList<DevelopmentCard> getCardList (String cardId){
+		ArrayList<DevelopmentCard> cards = this.cards.get(cardId);
 		if(cards == null)
 			cards = new ArrayList<>();
 		return cards;
