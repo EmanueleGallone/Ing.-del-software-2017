@@ -263,17 +263,11 @@ public class GraphicView extends View{
 	};
 	
 	private transient EventListener<Player> changePlayerListener = new EventListener<Player>() {
-//
-//		@Override
-//		public void handle(Card e) {
-//			String cardType = e.getClass().getSimpleName();
-//			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
-//			cardZoomPanel.repaint();
-//		}
-
+		
 		@Override
 		public void handle(Player e) {
 			you.update(e);
+			you.print();
 		}
 	};
 	

@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -42,21 +42,24 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
 		
 		showPanelButton = new JButton("^");
+		
 		toPlayer1 = new GraphicPaintedButton();
 		toPlayer2 = new GraphicPaintedButton();
 		toPlayer3 = new GraphicPaintedButton();
 		toPlayer4 = new GraphicPaintedButton();
-		
-		toPlayer1.addActionListener(new ChangePlayer());
-		toPlayer2.addActionListener(new ChangePlayer());
-		toPlayer3.addActionListener(new ChangePlayer());
-		toPlayer4.addActionListener(new ChangePlayer());
 		
 		playerSelectors.add(toPlayer1);
 		playerSelectors.add(toPlayer2);
 		playerSelectors.add(toPlayer3);
 		playerSelectors.add(toPlayer4);
 		
+		Integer i=0;
+		for (GraphicPaintedButton button : playerSelectors) {
+			button.setName(i.toString());
+			button.addActionListener(changePlayerListener);
+			i++;
+		}
+	
 		//multipleActionSpace.setContentAreaFilled(false);
 		
 		toPlayer1.setContentAreaFilled(false);
@@ -151,6 +154,20 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 	public JPanel getComponent() {
 		return councilPalacePanel;
 	}
+	
+	private  transient ActionListener changePlayerListener = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JButton button = (JButton) e.getSource();
+			try {
+				int i = new Integer(button.getName());
+				Player player = currentOrder.get(i);
+				changePlayerEvent.invoke(player);
+			} catch (NumberFormatException exception) {
+				exception.printStackTrace();
+			}
+		}
+	};
 	
 	public class ChangePlayer implements ActionListener{
 
