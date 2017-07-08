@@ -147,6 +147,10 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	public void print() {
 		
 		allCards = new ArrayList<>();
+		
+		for(int i=0; i<allDecks.size(); i++){
+			allDecks.get(i).removeAll();
+		}
 
 		ArrayList<String> deckTypesList = new ArrayList<>(this.colorMap.keySet());
 		buttonGroupLeaders = new ButtonGroup();
@@ -155,7 +159,6 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		for (String deck : cardManager.getAllCards().keySet()) {
 			
 	    	int deckPosition = deckTypesList.indexOf(deck);
-			allDecks.get(deckPosition).removeAll();
 			
 			int cards = 0;
 			if(!deck.equals("LeaderCard")){
