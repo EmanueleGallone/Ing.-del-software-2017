@@ -153,8 +153,8 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			for(int i=0; i<currentOrder.size(); i++){
-				if(e.getSource().equals(playerSelectors.get(i)));
-				changePlayerEvent.invoke(currentOrder.get(i));
+				if(e.getSource().equals(playerSelectors.get(i)))
+					changePlayerEvent.invoke(currentOrder.get(i));
 			}
 		}
 	}

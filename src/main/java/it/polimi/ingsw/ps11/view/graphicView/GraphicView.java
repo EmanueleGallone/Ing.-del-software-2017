@@ -175,7 +175,7 @@ public class GraphicView extends View{
 	
 	public void send(String string){
 		String toSend = string;
-		viewEvent.invoke(new TextualViewEvent(toSend));
+		viewEvent.invoke(new TextualViewEvent(you.getPlayer().getName() +" : " + toSend));
 	}
 	
 	private transient EventListener<ViewEventInterface> eventListener = new EventListener<ViewEventInterface>() {
@@ -263,16 +263,10 @@ public class GraphicView extends View{
 	};
 	
 	private transient EventListener<Player> changePlayerListener = new EventListener<Player>() {
-//
-//		@Override
-//		public void handle(Card e) {
-//			String cardType = e.getClass().getSimpleName();
-//			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
-//			cardZoomPanel.repaint();
-//		}
 
 		@Override
 		public void handle(Player e) {
+			System.out.println(e.getName());
 			you.update(e);
 		}
 	};
