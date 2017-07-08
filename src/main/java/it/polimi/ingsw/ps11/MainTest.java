@@ -6,15 +6,13 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.FileRegistry;
-import it.polimi.ingsw.ps11.model.JsonAdapter;
-import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.game.Board;
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
@@ -25,16 +23,12 @@ import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
-import it.polimi.ingsw.ps11.model.zones.towers.BlueTower;
-import it.polimi.ingsw.ps11.model.zones.towers.GreenTower;
-import it.polimi.ingsw.ps11.model.zones.towers.PurpleTower;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-import it.polimi.ingsw.ps11.model.zones.towers.YellowTower;
+import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class MainTest {
 	
 	public static void main(String[] args) throws FileNotFoundException{
-		//LeaderCardsInitializer();
 		//initializeTextualCommands();
 		//inizializzatoreBoard();
 	}
@@ -48,16 +42,9 @@ public class MainTest {
  
 	public static Board inizializzatoreBoard(){
 		
-		ArrayList<Class<?>> list = new ArrayList<>();
-		list.add(DevelopmentCard.class);
-		list.add(Resource.class);
-		list.add(Tower.class);
-		
-		JsonAdapter gAdapter = new JsonAdapter(list);
-		
 // ___________ TUTTE LE TORRI ____________________________
 		
-		GreenTower greenTower = new GreenTower();
+		Tower greenTower = new Tower("GreenTower");
 		greenTower.addFloor(new Floor(1));
 		greenTower.addFloor(new Floor(3));
 		
@@ -69,7 +56,7 @@ public class MainTest {
 		greenTower.addFloor(new Floor(7,resource.clone()));
 		
 		
-		BlueTower blueTower = new BlueTower();
+		Tower blueTower = new Tower("BlueTower");
 		resource = new ResourceList();
 		
 		blueTower.addFloor(new Floor(1));
@@ -81,7 +68,7 @@ public class MainTest {
 		blueTower.addFloor(new Floor(7,resource.clone()));
 		
 		
-		YellowTower yellowTower = new YellowTower();
+		Tower yellowTower = new Tower("YellowTower");
 		resource = new ResourceList();
 		
 		yellowTower.addFloor(new Floor(1));
@@ -93,7 +80,7 @@ public class MainTest {
 		yellowTower.addFloor(new Floor(7,resource.clone()));
 		
 	
-		PurpleTower purpleTower = new PurpleTower();
+		Tower purpleTower = new Tower("PurpleTower");
 		resource = new ResourceList();
 		
 		purpleTower.addFloor(new Floor(1));
@@ -127,7 +114,7 @@ public class MainTest {
 //		
 //		
   // ___________________________________________________
-		
+	
 		ArrayList<Dice> dices = new ArrayList<>();
 		dices.add(new Dice("Black"));
 		dices.add(new Dice("White"));
@@ -136,12 +123,14 @@ public class MainTest {
 		Board board = null;
 		try {
 			board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
+			board.setHarvest(new Yield(new GreenCard().getId())); //creazione zona produzione e raccolta
+			board.setProduction(new Yield(new YellowCard().getId()));
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		new Loader(FileRegistry.board).write(board);
+		new Loader(FileRegistry.board).write(board,Board.class);
 		//CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}
