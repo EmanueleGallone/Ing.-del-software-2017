@@ -43,6 +43,8 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 
 	public GraphicCardManagerView() {
 		
+		personalBoard.setOpaque(false);
+		
 		colorMap.put("GreenCard", Color.GREEN); 
 		colorMap.put("BlueCard", Color.BLUE); 
 		colorMap.put("YellowCard", Color.YELLOW); 
@@ -54,6 +56,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		
 		overlayedDecksPanel = new JPanel(new CardLayout());												//Pannello dei deck sovrapposti
 		JPanel selectorButtonsPanel = new JPanel();
+		selectorButtonsPanel.setOpaque(false);
 		GraphicPaintedPanel tile = new GraphicPaintedPanel();
 		//tile.loadImage("playerImages/" + cardManager.getTile() + ".png");
 		tile.loadImage("playerImages/Tile 1.png");

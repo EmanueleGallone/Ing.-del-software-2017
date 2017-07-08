@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView"
+        x="1346" y="1064">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView"
+        x="918" y="1468">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView"
+        x="1794" y="980">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView"
+            endpointName="floorViews" kind="Simple"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView"
+        x="1316" y="800">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView"
+        x="1770" y="678">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"
+            endpointName="resourceView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView"
+            endpointName="cardView" kind="Simple"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView"
+        x="762" y="480">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView"
+            endpointName="cardManagerView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"
+            endpointName="resourceView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView"
+            endpointName="chooseFamilyView" kind="Simple"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView"
+        x="1408" y="1198">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView"
+        x="1236" y="380">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.MarketView"
+        x="1416" y="1586">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView"
+        x="726" y="900">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView"
+            endpointName="harvestView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView"
+            endpointName="councilPalaceView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView"
+            endpointName="productionView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView"
+            endpointName="diceView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView"
+            endpointName="churchView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.MarketView"
+            endpointName="marketView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView"
+            endpointName="towerViews" kind="Simple"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.ProductionView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.MarketView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView"
+        x="1280" y="566">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView"
+        x="1270" y="194">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseResourceView"
+        x="-54" y="1536">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView"
+        x="1348" y="1344">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.Console"
+        x="608" y="706">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView"
+        x="2084" y="998">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="it.polimi.ingsw.ps11.view.viewGenerica.View" x="28" y="693">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.Console"
+            endpointName="console" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView"
+            endpointName="boardView" kind="Simple"/>
+        <Association
+            destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView"
+            endpointName="you" kind="Simple"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.Console"/>
+        <Communication destinationClassName="it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView"/>
+    </Class>
+</ClassDiagram>
