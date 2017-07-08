@@ -49,9 +49,9 @@ public class DecrementActionTest {
 		if(decrementAction.isLegal())
 			decrementAction.perform();
 		
-		assertEquals(playerResources.get(new Coin().getId()),new Coin(3));
-		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
-		assertEquals(playerResources.get(new Wood().getId()),new Wood(0));
+		assertEquals( new Coin().getFrom(playerResources), new Coin(3));
+		assertEquals( new Stone().getFrom(playerResources),new Stone(2));
+		assertEquals( new Wood().getFrom(playerResources), new Wood(0));
 		
 		//Sommiamo una risorceList vuota, le risorse dovranno rimanere invariate
 		
@@ -62,9 +62,9 @@ public class DecrementActionTest {
 		if(incrementEmpty.isLegal())
 			incrementEmpty.perform();
 		
-		assertEquals(playerResources.get(new Coin().getId()),new Coin(3));
-		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
-		assertEquals(playerResources.get(new Wood().getId()),new Wood(0));
+		assertEquals( new Coin().getFrom(playerResources), new Coin(3));
+		assertEquals( new Stone().getFrom(playerResources),new Stone(2));
+		assertEquals( new Wood().getFrom(playerResources), new Wood(0));
 		
 		//Sommiamo una risorceList nulla, le risorse dovranno rimanere invariate
 		
@@ -73,9 +73,9 @@ public class DecrementActionTest {
 		if(incrementNull.isLegal())
 			incrementNull.perform();
 		
-		assertEquals(playerResources.get(new Coin().getId()),new Coin(3));
-		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
-		assertEquals(playerResources.get(new Wood().getId()),new Wood(0));
+		assertEquals( new Coin().getFrom(playerResources), new Coin(3));
+		assertEquals( new Stone().getFrom(playerResources),new Stone(2));
+		assertEquals( new Wood().getFrom(playerResources), new Wood(0));
 				
 		
 		
@@ -93,70 +93,72 @@ public class DecrementActionTest {
 	@Test
 	public void decrementAffecterTest(){
 		
-//		// Inizializzo un player
-//		Player player = new Player();
-//		ResourceList playerResources = player.getResourceList();
-//		playerResources.setResource(new Coin(5),new Stone(2),new Wood(2));
-//		
-//		
-//		//Definisco la resourceList che andrà sottratta alle risorse del player
-//		ResourceList resourceToSubtract = new ResourceList(new Coin(2),new Wood(2));
-//		
-//		//Le Action per essere usate necessitano di un ActionManager con all'interno un player:
-//		ActionManager aManager = initializeAManager(player);
-//		
-//		DecrementAction decrementAction = new DecrementAction(aManager, resourceToSubtract);
-//		
-//		
-//		// Questo affecter aumenta il decremento di 2 coin
-//		DecrementAffecter decrementAffecter = new DecrementAffecter(new ResourceList(new Coin(2)));
-//		aManager.add(decrementAffecter);
-//		
-//		
-//		DecrementAction effectiveAction = aManager.affect(decrementAction);
-//	
-//		
-//		if(effectiveAction.isLegal())
-//			effectiveAction.perform();
-//		
-//		assertEquals(playerResources.get(Coin.class),new Coin(1));
-//		assertEquals(playerResources.get(Stone.class),new Stone(2));
-//		assertEquals(playerResources.get(Wood.class),new Wood(0));
-//		
-//		
-//		//Aggiungiamo un altro affecter:
-//		
-//		// Questo affecter aumenta il decremento di 2 Stone, bisogna tenere conto che è presente l'affecter precedente
-//		
-//		playerResources.setResource(new Coin(5),new Stone(2),new Wood(2)); // resetto le risorse del player
-//		
-//		DecrementAffecter decrementAffecter_stone = new DecrementAffecter(new ResourceList(new Stone(2)));
-//		aManager.add(decrementAffecter_stone);
-//		
-//		
-//		DecrementAction effectiveAction_2 = aManager.affect(decrementAction);
-//	
-//		
-//		if(effectiveAction_2.isLegal())
-//			effectiveAction_2.perform();
-//		
-//		// La decrementAction dovrebbe sottrarre 2 Coin e 2 wood, questo decremento viene aumentato dal primo affecter
-//		// di 2 coin e dal secondo di 2 stone quindi il decremento totale dovrà essere di  4 coin, 2 stone e 2 wood: 
-//		assertEquals(playerResources.get(Coin.class),new Coin(1));
-//		assertEquals(playerResources.get(Stone.class),new Stone(0));
-//		assertEquals(playerResources.get(Wood.class),new Wood(0));
-//		
-//		
-//		// Stessa situazione ma ora i costi modificati superano le risorse del giocatore:
-//		
-//		playerResources.setResource(new Coin(5),new Stone(2),new Wood(2)); // resetto le risorse del player
-//
-//		
-//		// Aggiungo un'altro affecter che incrementa il costo di 3 servant (il player ha 0 servant
-//		DecrementAffecter decrementAffecter_servant = new DecrementAffecter(new ResourceList(new Servant(3)));
-//		aManager.add(decrementAffecter_servant);
-//		
-//		assertFalse(aManager.affect(decrementAction).isLegal());
+		// Inizializzo un player
+		Player player = new Player();
+		ResourceList playerResources = player.getResourceList();
+		playerResources.setResource(new Coin(5),new Stone(2),new Wood(2));
+		
+		
+		//Definisco la resourceList che andrà sottratta alle risorse del player
+		ResourceList resourceToSubtract = new ResourceList(new Coin(1),new Wood(2));
+		
+		//Le Action per essere usate necessitano di un ActionManager con all'interno un player:
+		ActionManager aManager = initializeAManager(player);
+		
+		DecrementAction decrementAction = new DecrementAction(aManager, resourceToSubtract);
+		
+		
+		// Questo affecter triplica il costo in monete di qualsiasi cosa
+		DecrementAffecter decrementAffecter = new DecrementAffecter(new Coin().getId(), 3);
+		aManager.add(decrementAffecter);
+		
+		
+		DecrementAction effectiveAction = aManager.affect(decrementAction);
+	
+		
+		if(effectiveAction.isLegal())
+			effectiveAction.perform();
+		
+		//Dovevo sottrarre 1 coin e 2 wood, essendoci però l'affecter verranno sottratte 3 coin e 2 wood
+		assertEquals( new Coin().getFrom(playerResources), new Coin(2));
+		assertEquals( new Stone().getFrom(playerResources),new Stone(2));
+		assertEquals( new Wood().getFrom(playerResources), new Wood(0));
+		
+		//Aggiungiamo un altro affecter:
+		
+		// Questo affecter aumenta il decremento di 2 Stone, bisogna tenere conto che è presente l'affecter precedente
+		
+		playerResources.setResource(new Coin(5),new Stone(2),new Wood(2)); // resetto le risorse del player
+		
+		DecrementAffecter decrementAffecter_stone = new DecrementAffecter(new Stone().getId(), 2);
+		aManager.add(decrementAffecter_stone);
+		
+		
+		DecrementAction effectiveAction_2 = aManager.affect(decrementAction);
+	
+		
+		if(effectiveAction_2.isLegal())
+			effectiveAction_2.perform();
+		
+		// La decrementAction dovrebbe sottrarre 1 Coin e 2 wood, questo decremento viene aumentato dal primo affecter
+		// e portato a 3 coin.
+		// Il secondo affecter non influenza l'azione perchè moltiplica per due il decremento di stone che in questo caso è zero
+		// quindi il decremento totale dovrà essere di  3 coin, 0 stone e 2 wood: 
+		assertEquals( new Coin().getFrom(playerResources), new Coin(2));
+		assertEquals( new Stone().getFrom(playerResources),new Stone(2));
+		assertEquals( new Wood().getFrom(playerResources), new Wood(0));
+		
+		
+		// Stessa situazione ma ora i costi modificati superano le risorse del giocatore:
+		
+		playerResources.setResource(new Coin(5),new Stone(2),new Wood(2)); // resetto le risorse del player
+
+		
+		// Aggiungo un'altro affecter che incrementa il costo di 3 servant (il player ha 0 servant
+		DecrementAffecter decrementAffecter_servant = new DecrementAffecter(new Coin().getId(), 4);
+		aManager.add(decrementAffecter_servant);
+		
+		assertFalse(aManager.affect(decrementAction).isLegal());
 	}
 	
 

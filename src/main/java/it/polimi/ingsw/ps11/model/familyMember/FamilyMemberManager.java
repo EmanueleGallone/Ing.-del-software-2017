@@ -43,7 +43,9 @@ public class FamilyMemberManager implements Iterable<FamilyMember>,Serializable 
 	
 	public void setDices(DiceManager dices){
 		for(Dice d: dices){
-			this.family.get(d.getName() + "FamilyMember").setDice(new DiceProxy(d));
+			FamilyMember fMember = this.family.get(d.getName() + "FamilyMember"); 
+			if(fMember != null)
+				fMember.setDice(new DiceProxy(d));
 		}
 	}
 	
