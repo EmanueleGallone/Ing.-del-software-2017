@@ -27,8 +27,8 @@ public class Tower implements Serializable{
 
 	}
 	
-	public Tower(String cardId) {
-		this.name = cardId;
+	public Tower(String towerName) {
+		this.name = towerName;
 	}
 	
 	public Tower(ArrayList<Floor> floors) {
