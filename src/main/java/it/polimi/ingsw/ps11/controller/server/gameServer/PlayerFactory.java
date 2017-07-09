@@ -22,7 +22,6 @@ public class PlayerFactory {
 		} catch (FileNotFoundException | ClassCastException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public ArrayList<Player> takeAll(){
