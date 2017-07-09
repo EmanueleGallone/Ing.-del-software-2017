@@ -46,16 +46,21 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	public void perform() {
 		FamilyInSpaceAction action = aManager.affect(spaceAction);
 		action.perform();
-		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), spaceAction.getFamilyValue());
+		int activeValue = spaceAction.getFamilyValue() - spaceAction.getSpace().getActionCost();
+		System.out.println("Active yield value = " + activeValue +" per " + aManager.state().getPlayer().getName());
+		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), activeValue);
 		activeYield = aManager.affect(activeYield);
 		activeYield.perform();
 	}
 
 	@Override
-	public void notifyConfirm(ConfirmViewEvent confirm) {
+	public boolean notifyConfirm(ConfirmViewEvent confirm) {
 		spaceAction.incrementServant(confirm.getServant());
-		if(isLegal())
+		if(isLegal()){
 			perform();
+			return true;
+		}
+		return false;
 	}
 	
 	public FamilyInSpaceAction getSpaceAction() {

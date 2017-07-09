@@ -1,13 +1,19 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
@@ -141,11 +147,17 @@ public class PlayState extends DefaultState{
 	public void handle(CouncilSelectedEvent councilSelectedEvent) {
 		if(familySelectedCheck(councilSelectedEvent)){
 			FamilyMember fMember = selectFMember(councilSelectedEvent);
+			ActionManager aManager = stateHandler().actions();
 			CouncilPalace council = stateHandler().getGame().getBoard().getCouncilPalace();
-			FamilyInSpaceAction action = new FamilyInSpaceAction(stateHandler().actions(), fMember, council.getFreeSpace());
+			FamilyInSpaceAction action = new FamilyInSpaceAction(aManager, fMember, council.getFreeSpace());
 			action = stateHandler().actions().affect(action);
-			if(action.isLegal())
-				action.perform();
+			IncrementAction incrementAction = new IncrementAction(aManager,council.getBonus());
+			incrementAction = aManager.affect(incrementAction);
+			
+			ArrayList<Action> actions = new ArrayList<>();
+			actions.add(incrementAction);
+			actions.addAll(council.getEffects(aManager));
+			stateHandler().nextState(new WaitConfirm(action,actions));
 		}
 	}
 }

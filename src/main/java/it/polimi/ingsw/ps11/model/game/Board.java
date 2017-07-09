@@ -98,6 +98,10 @@ public class Board implements Serializable{
 		return this.councilPalace;
 	}
 	
+	public void setCouncilPalace(CouncilPalace councilPalace) {
+		this.councilPalace = councilPalace;
+	}
+	
 	public Market getMarket() {
 		return this.market;
 	}

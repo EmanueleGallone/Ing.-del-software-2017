@@ -76,11 +76,14 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 	}
 
 	@Override
-	public void notifyConfirm(ConfirmViewEvent confirm) {
+	public boolean notifyConfirm(ConfirmViewEvent confirm) {
 		this.confermed = confirm;
 		spaceAction.incrementServant(confirm.getServant());
-		if(isLegal())
+		if(isLegal()){
 			perform();
+			return true;
+		}
+		return false;
 	}
 
 	@Override
