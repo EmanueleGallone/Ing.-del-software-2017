@@ -12,6 +12,8 @@ import org.junit.rules.ExpectedException;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
@@ -110,6 +112,18 @@ public class ResourceListTest {
 		resourceListNegative.subtract(resourceList1);
 		assertEquals(new Coin().getFrom(resourceList1), 2);				//differenza tra risorsa presente in entrambi, chiamante negativa
 
+		
+		resourceList1 = new ResourceList(new Coin(8));
+		Coin coin = new Coin().getFrom(resourceList1);
+		assertEquals(8, coin.getValue());
+		assertNull(new FaithPoint().getFrom(resourceList1));
+		
+		resourceList1 = new ResourceList(new MilitaryPoint(1));
+		MilitaryPoint militaryPoint = new MilitaryPoint().getFrom(resourceList1);
+		assertEquals(1, militaryPoint.getValue());
+		assertNull(new VictoryPoint().getFrom(resourceList1));
+		assertNull(new Stone().getFrom(resourceList1));
+		
 	}
 	
 	@Test

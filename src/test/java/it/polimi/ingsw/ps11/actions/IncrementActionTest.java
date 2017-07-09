@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
@@ -135,6 +136,10 @@ public class IncrementActionTest {
 		assertEquals(playerResources.get(new Coin().getId()),new Coin(6));
 		assertEquals(playerResources.get(new Stone().getId()),new Stone(2));
 		assertEquals(playerResources.get(new Wood().getId()),new Wood(6));
+		
+		IncrementAction clone = incrementAction.clone();
+		assertEquals(clone.getResources().get(new Coin().getId()).getValue(), incrementAction.getResources().get(new Coin().getId()).getValue());
+		Assert.assertNull(clone.getResources().get(new Stone().getId()));
 	}
 	
 
