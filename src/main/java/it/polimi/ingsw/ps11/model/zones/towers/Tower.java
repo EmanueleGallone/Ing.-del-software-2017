@@ -117,6 +117,7 @@ public class Tower implements Serializable{
 	@Override
 	public Tower clone(){
 		Tower clone = new Tower();
+		clone.name = this.name;
 		clone.getFloors().clear();
 		
 		for(Floor f : this.floors){
