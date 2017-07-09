@@ -64,9 +64,11 @@ public class GraphicProductionView extends ProductionView {
 		if(!(production.getSingleActionSpace().getFamilyMember() == null)){
 			singleActionSpace.loadImage("PlayerImages/" + production.getSingleActionSpace().getOwner().getColor().toString() + 
 					" " + production.getSingleActionSpace().getFamilyMember().getId() + ".png");
+			singleActionSpace.setEnabled(false);
 		}
 		else {
 			singleActionSpace.loadImage("PlayerImages/BLANK.png");
+			singleActionSpace.setEnabled(true);
 		}
 		multipleActionSpace.print(production.getMultipleActionSpace().getAllSpace());
 		productionPanel.repaint();

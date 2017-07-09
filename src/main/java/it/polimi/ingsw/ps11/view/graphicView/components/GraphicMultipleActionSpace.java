@@ -14,6 +14,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	MultipleActionSpace multipleActionSpace;
 	JButton selector = new JButton();
+	ArrayList<GraphicPaintedPanel> players = new ArrayList<>();
 	
 	public GraphicMultipleActionSpace(){
 
@@ -24,7 +25,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 		GridBagLayout gblActionSpace = new GridBagLayout();
 		gblActionSpace.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblActionSpace.rowHeights = new int[]{0, 0};	
-		gblActionSpace.columnWeights = new double[]{0.25, 0.25, 0.25, 0.25, Double.MIN_VALUE};
+		gblActionSpace.columnWeights = new double[]{0.2, 0.2, 0.2, 0.2, 0.2, Double.MIN_VALUE};
 		gblActionSpace.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		setLayout(gblActionSpace);
 		
@@ -35,48 +36,48 @@ public class GraphicMultipleActionSpace  extends JPanel{
 		gbc.fill = GridBagConstraints.BOTH;
 		add(selector, gbc);
 		
+		setupMultipleActionSpace();
+		
+	}
+	
+	private void setupMultipleActionSpace(){
+		
+		for(int i = 1; i < 5; i++){
+			
+			GridBagConstraints gbc = new GridBagConstraints();
+			GraphicPaintedPanel panel = new GraphicPaintedPanel();
+			panel.loadImage("PlayerImages/BLANK.png");
+			panel.setOpaque(false);
+			gbc.gridx = i;
+			gbc.gridy = 0;
+			add(panel, gbc);
+			players.add(panel);
+			
+		}
+		
+	}
+	
+	public void clean(GraphicPaintedPanel panel){
+		panel.loadImage("PlayerImages/BLANK.png");
+		panel.setOpaque(true);
 	}
 	
 	public void print(ArrayList<ActionSpace> arrayList){
-		removeAll();
+		if (arrayList != null) return;
 		int i = 0;
-		for (ActionSpace actionSpace : arrayList) {
-			
-			GridBagConstraints gbc = new GridBagConstraints();
-			gbc.gridx = i;
-			gbc.gridy = 0;
-			gbc.fill = GridBagConstraints.BOTH;
-			
-			GraphicPaintedPanel familyMember = new GraphicPaintedPanel();
-			if(actionSpace != null && actionSpace.getOwner() != null  && actionSpace.getFamilyMember() != null){
-				String familyName = actionSpace.getFamilyMember().getId();
-				familyMember.setOpaque(false);
-				familyMember.loadImage("PlayerImages/" + actionSpace.getOwner().getColor().toString() + " " + familyName + ".png");
-				add(familyMember, gbc);
-				i++;
+		for (GraphicPaintedPanel panel : players) {
+			if(arrayList.get(i) == null){
+				clean(players.get(i));
+			} else {
+				if (arrayList.get(i).getFamilyMember() != null)
+					clean(players.get(i));
+				else {
+					String ownerColor = arrayList.get(i).getOwner().getColor().toString();
+					String familyMember = arrayList.get(i).getFamilyMember().getId();
+					players.get(i).loadImage("PlayerImages/" + ownerColor + " " + familyMember + ".png");
+				}
 			}
-		}
-		if(i<3){
-			
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = i;
-		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.BOTH;
-		add(selector, gbc);
-		i++;
-		}
-		while(i<4){
-			
-			GridBagConstraints gbc = new GridBagConstraints();
-			gbc.gridx = i;
-			gbc.gridy = 0;
-			gbc.fill = GridBagConstraints.BOTH;
-			
-			GraphicPaintedPanel empty = new GraphicPaintedPanel();
-			empty.setOpaque(false);
-			empty.loadImage("PlayerImages/BLANK.png");
-			add(empty, gbc);
-			i++;			
+
 		}
 		
 	    revalidate();
