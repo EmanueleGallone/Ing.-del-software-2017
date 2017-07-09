@@ -30,7 +30,7 @@ public class GraphicLeaderCardView extends JToggleButton{
 		try {
 			result = ImageIO.read(imagePath);
 		} catch (IOException | IllegalArgumentException e) {
-			System.err.println("Errore, immagine non trovata");
+			System.err.println("Errore, immagine non trovata url: " + url);
 			e.printStackTrace();
 		}
 		
