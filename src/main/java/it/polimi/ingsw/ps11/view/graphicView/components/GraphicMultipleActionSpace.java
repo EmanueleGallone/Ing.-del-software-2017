@@ -14,7 +14,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	MultipleActionSpace multipleActionSpace;
 	JButton selector = new JButton();
-	ArrayList<GraphicPaintedPanel> players = new ArrayList<>();
+	ArrayList<GraphicPaintedPanel> playersPanel = new ArrayList<>();
 	
 	public GraphicMultipleActionSpace(){
 
@@ -52,7 +52,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			gbc.gridy = 0;
 			gbc.fill = GridBagConstraints.BOTH;
 			add(panel, gbc);
-			players.add(panel);
+			playersPanel.add(panel);
 			
 		}
 		
@@ -65,16 +65,20 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	public void print(ArrayList<ActionSpace> arrayList){
 		
+		ArrayList<String> players = new ArrayList<>();
 		if (arrayList == null) 
 			return;
 		int i = 0;
-		for (GraphicPaintedPanel panel : players) {
+		for (GraphicPaintedPanel panel : playersPanel) {
 			if(i<arrayList.size() && arrayList.get(i).getFamilyMember() == null){
 				clean(panel);
 			} else if(i<arrayList.size()) {
-					String ownerColor = arrayList.get(i).getOwner().getColor().toString();
+				String ownerColor = arrayList.get(i).getOwner().getColor().toString();
+				if(!players.contains(ownerColor)){
+					players.add(ownerColor);
 					String familyMember = arrayList.get(i).getFamilyMember().getId();
 					panel.loadImage("PlayerImages/" + ownerColor + " " + familyMember + ".png");
+				}
 				}
 			i++;
 			}
