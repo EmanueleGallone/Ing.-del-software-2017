@@ -234,8 +234,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 				leaderPanel.setEnabled(true);
 			}
 			else {
-				leaderPanel.update(new LeaderCard("BLANK"));
-				leaderPanel.setEnabled(false);
+				leaderPanel.clean();
 			}
 			i++;
 			leaderPanel.repaint();
