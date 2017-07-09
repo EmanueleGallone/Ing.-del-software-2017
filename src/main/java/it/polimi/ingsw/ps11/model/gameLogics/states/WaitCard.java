@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
@@ -17,11 +19,12 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEve
 
 public class WaitCard extends PlayState{
 
-	private FloorSelectedEvent event;
 	private String cardType;
 	private Floor floor;
 	private Tower tower;
 	private int value;
+	
+	private FamilyInFloorAction action;
 	
 	public WaitCard(String cardType, int value) {
 		this.cardType = cardType;
@@ -41,14 +44,7 @@ public class WaitCard extends PlayState{
 			stateHandler().invoke(new TextualEvent("Non puoi selezionare questa carta"));
 		}
 	}
-	
-	private EventListener<ModelEvent> listener = new EventListener<ModelEvent>() {
 
-		@Override
-		public void handle(ModelEvent e) {
-			stateHandler().invoke(e);
-		}
-	};
 	
 	public void getCard(ResourceList cost){
 		NeutralFamilyMember fMember = new NeutralFamilyMember();
@@ -60,22 +56,33 @@ public class WaitCard extends PlayState{
 		FamilyInTowerAction tAction = new FamilyInTowerAction(aManager, tower, fMember);
 		GetCardAction getCard = new GetCardAction(aManager, floor, cost);
 		
-		FamilyInFloorAction action = new FamilyInFloorAction(aManager,tAction, sAction, getCard);
-		
 		sAction = aManager.affect(sAction);
 		tAction = aManager.affect(tAction);
 		getCard = aManager.affect(getCard);
-		action = aManager.affect(action);
 		
-		FloorSelected state = new FloorSelected(event);
-		stateHandler().nextState(state);
-		state.execute(tAction, sAction, getCard);
+		getCard.attach(listener);
+		
+		action = aManager.affect(new FamilyInFloorAction(aManager, tAction, sAction, getCard));
+		
+		if(action.isLegal()){
+			action.perform();
+			stateHandler().nextState(new PlayState());
+		}
 	}
 	
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
 		getCard(resourceSelectedEvent.getResourceList());
 	}
+	
+	
+	EventListener<ArrayList<ResourceList>> listener = new EventListener<ArrayList<ResourceList>>() {
+
+		@Override
+		public void handle(ArrayList<ResourceList> e) {
+			stateHandler().nextState(new WaitResource(e,action));
+		}
+	};
 	
 	@Override
 	public void notifyToClient() {
