@@ -58,10 +58,7 @@ public class FamilyInSpaceTest {
 		ActionSpace actionSpace = gameLogic.getGame().getBoard().getTower("GreenTower").getFloors().get(1).getActionSpace(); //prendo il secondo piano della greenTower
 		
 		FamilyInSpaceAction familyInSpaceAction = new FamilyInSpaceAction(aManager, blackFamilyMember, actionSpace);
-		Assert.assertTrue(familyInSpaceAction.isLegal());
 		
-		Assert.assertTrue(familyInSpaceAction.notifyConfirm(new ConfirmViewEvent(true)));
-		familyInSpaceAction.perform();
 		
 	}
 
