@@ -39,7 +39,7 @@ public class GraphicLeaderCardView extends JToggleButton{
 	
 	void update(LeaderCard leaderCard){
 		if(leaderCard != null)
-		loadImage("LeaderCard/" + leaderCard.getName() + ".png");
+		loadImage("LeaderCard/" + leaderCard.getName() + ".jpg");
 		else
 			loadImage("PlayerImages/BLANK.png");
 	}

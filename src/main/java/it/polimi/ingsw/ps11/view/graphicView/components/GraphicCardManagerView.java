@@ -42,6 +42,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	
 	private GraphicPaintedPanel leaderDeckPanel;
 	private ArrayList<GraphicLeaderCardView> leaderButtonCards;
+	ArrayList<LeaderCard> leadersDeck = new ArrayList<>();
 	
 	private LinkedHashMap<String, Color> mapCardTypeColor = new LinkedHashMap<>();
 	private HashMap<GraphicPaintedPanel, String> mapDeckPanelCardType = new HashMap<>();
@@ -50,7 +51,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 
 	private EventHandler<LeaderCard> activateLeader = new EventHandler<>();
 	private ArrayList<JToggleButton> arrayDeckSelectors;
-	private ButtonGroup buttonGroupSelectors, buttonGroupLeaders;
+	private ButtonGroup buttonGroupSelectors, buttonGroupLeaders = new ButtonGroup();
 
 	private EventListener<Card> zoomCard;
 
@@ -133,9 +134,20 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			gblDecks.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 			deck.setLayout(gblDecks);
 			
-			if(cardType.equals("LeaderCard"))
+			if(cardType.equals("LeaderCard")){
+				
+				GraphicPaintedButton activate= new GraphicPaintedButton();
+				activate.loadImage("PlayerImages/Activate.png");
+				activate.addActionListener(new LeaderAction());
+				GridBagConstraints gbcActivate = new GridBagConstraints();
+				gbcActivate.gridx = 5;
+				gbcActivate.insets = new Insets(20, 0, 20, 0);
+				gbcActivate.fill = GridBagConstraints.BOTH;
+				deck.add(activate, gbcActivate);	
 				leaderDeckPanel = deck;
-			
+				
+			}
+				
 			else
 			arrayAllDecks.add(deck);
 			
@@ -196,8 +208,9 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	private void initializeLeaderManager(){
 		int j = 0;
 		leaderButtonCards = new ArrayList<>();
-		for(j = 0; j < cardManager.getLeaderCards().size(); j++){
-			
+		//for(j = 0; j < cardManager.getLeaderCards().size(); j++){
+		for(j = 0; j < 4; j++){
+
 			GraphicLeaderCardView leaderCardView = new GraphicLeaderCardView();
 			leaderCardView.setOpaque(false);
 			leaderCardView.setContentAreaFilled(false);
@@ -213,29 +226,37 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			buttonGroupLeaders.add(leaderCardView);
 			leaderDeckPanel.add(leaderCardView, gbcCard);
 		}
-				
-		GraphicPaintedButton activate= new GraphicPaintedButton();
-		activate.loadImage("PlayerImages/Activate.png");
-		activate.addActionListener(new LeaderAction());
-		GridBagConstraints gbcActivate = new GridBagConstraints();
-		gbcActivate.gridx = 5;
-		gbcActivate.insets = new Insets(20, 0, 20, 0);
-		gbcActivate.fill = GridBagConstraints.BOTH;
-		leaderDeckPanel.add(activate, gbcActivate);	
 		}
 	
-	private void setLeaderCard(ArrayList<LeaderCard> leadersDeck){
-		
-		int i =0;
-		for (LeaderCard leaderCard : leadersDeck) {
-			leaderButtonCards.get(i).update(leaderCard);
+	private void setLeaderCard(ArrayList<LeaderCard> deck){
+
+		for(int i = 0; i < 4; i++){
+			leaderButtonCards.get(i).update(deck.get(i));
 			leaderButtonCards.get(i).repaint();
 		}
+		
+//		int i =0;
+//		for (LeaderCard leaderCard : deck) {
+//			
+//			leaderButtonCards.get(i).update(leaderCard);
+//			leaderButtonCards.get(i).repaint();
+//
+//			i++;
+//		}
 		
 	}
 	
 	@Override
 	public void print() {
+		
+		LeaderCard card1 = new LeaderCard("Cesare Borgia");
+		LeaderCard card2 = new LeaderCard("Cosimo de Medici");
+		LeaderCard card3 = new LeaderCard("Lorenzo de Medici");
+		LeaderCard card4 = new LeaderCard("Pico Della Mirandola");
+		leadersDeck.add(card1);
+		leadersDeck.add(card2);
+		leadersDeck.add(card3);
+		leadersDeck.add(card4);
 		
 		for(GraphicPaintedPanel deckPanel : arrayAllDecks) {
 			if(mapDeckPanelCardsView.get(deckPanel) == null)
@@ -249,16 +270,19 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			setCard(deckPanel, cardManager.getCardList(mapDeckPanelCardType.get(deckPanel)));
 		}
 		
-		setLeaderCard(cardManager.getLeaderCards());	
+		setLeaderCard(leadersDeck);
+		//setLeaderCard(cardManager.getLeaderCards());	
 		
 	}
 	
 	public class LeaderAction implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for(int i= 0; i < cardManager.getLeaderCards().size(); i++){
-				if(leaderButtonCards.get(i).isSelected())
-					activateLeader.invoke(cardManager.getLeaderCards().get(i));
+			for(int i= 0; i < 4; i++){
+				if(leaderButtonCards.get(i).isSelected()){
+					System.out.println(leadersDeck.get(i).getName());
+					activateLeader.invoke(leadersDeck.get(i));
+				}
 			}
 		}
 	}
@@ -277,7 +301,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		return personalBoard;
 	}
 
-	public void attachCardListener(EventListener<Card> zoomCard) {
-		this.zoomCard = zoomCard;
+	public void attachLeaderListener(EventListener<LeaderCard> leaderActivateListener) {
+		activateLeader.attach(leaderActivateListener);
 	}
 }
