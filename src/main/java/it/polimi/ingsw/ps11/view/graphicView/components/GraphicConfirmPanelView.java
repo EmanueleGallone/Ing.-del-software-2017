@@ -113,8 +113,11 @@ public class GraphicConfirmPanelView {
 		JLabel scrittaCosto = new JLabel("<html><font color='white'>COSTO</font></html>"),
 			   scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
 		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
+		if(floor!=null)
+		{
 		cardView.update(floor.getCard());
 		cardView.print();
+		}
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
 		costo.loadImage("BoardImages/Dice cost " + floor.getActionSpace().getActionCost() + ".png");
 		costo.setOpaque(false);
