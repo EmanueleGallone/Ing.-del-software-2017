@@ -78,12 +78,13 @@ public class Yield implements Serializable, Iterable<ActionSpace> {
 		Iterator<ActionSpace> iter = new Iterator<ActionSpace>() {
 			
 			private int index = 0;
+			private Iterator<ActionSpace> multipleIterator = multipleActionSpace.iterator();
 			
 			@Override
 			public boolean hasNext() {
 				if(index == 0 && singleActionSpace != null)
 					return true;
-				return multipleActionSpace.iterator().hasNext();
+				return multipleIterator.hasNext();
 			}
 
 			@Override
@@ -92,7 +93,7 @@ public class Yield implements Serializable, Iterable<ActionSpace> {
 					index++;
 					return singleActionSpace;
 				}
-				return multipleActionSpace.iterator().next();
+				return multipleIterator.next();
 			}
 		};
 		return iter;

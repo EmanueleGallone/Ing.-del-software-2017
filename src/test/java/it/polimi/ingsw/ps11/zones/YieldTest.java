@@ -13,6 +13,7 @@ import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 
 public class YieldTest {
@@ -46,15 +47,13 @@ public class YieldTest {
 		
 		Yield clone = harvest.clone();		
 		//MANCANO CLONE E ITERATOR
-//		assertEquals(harvest.getSingleActionSpace(), clone.getSingleActionSpace());
-//		assertEquals(harvest.getMultipleActionSpace(), clone.getMultipleActionSpace());
-//		
-//		harvest.resetFamilyMember();
-//		for (ActionSpace actionSpace : harvest) {
-//			assertTrue(actionSpace.isFree());
-//		}
+		assertEquals(harvest.getSingleActionSpace(), clone.getSingleActionSpace());
+		assertEquals(harvest.getMultipleActionSpace(), clone.getMultipleActionSpace());
 		
-		
+		harvest.resetFamilyMember();
+		for (ActionSpace actionSpace : harvest) {
+			assertTrue(actionSpace.isFree());
+		}
 	}
 
 }

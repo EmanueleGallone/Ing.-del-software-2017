@@ -87,8 +87,27 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 	}
 	
 	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		boolean result = false;
+		if(obj.getClass().equals(this.getClass())){
+			MultipleActionSpace aSpace = (MultipleActionSpace) obj;
+			result = this.cost == aSpace.cost;
+			if(this.multipleActionSpace.size() != aSpace.multipleActionSpace.size() || !result)
+				return false;
+			
+			for(int i=0; i < multipleActionSpace.size(); i++){
+				if(!multipleActionSpace.get(i).equals(aSpace.multipleActionSpace.get(i)))
+					return false;
+			}
+		}
+		return result;
+	}
+	
+	@Override
 	public MultipleActionSpace clone(){
-		MultipleActionSpace clone = new MultipleActionSpace();
+		MultipleActionSpace clone = new MultipleActionSpace(cost);
 		
 		for(ActionSpace a : this.multipleActionSpace){
 			if(a != null)

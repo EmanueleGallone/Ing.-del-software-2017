@@ -62,4 +62,15 @@ public abstract class FamilyMember implements Serializable{
 		return false;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		if(obj.getClass().equals(this.getClass())){
+			FamilyMember fMember = (FamilyMember) obj;
+				return fMember.getValue() == fMember.getValue() && this.getId().equals(fMember.getId());
+		}
+		return false;
+	}
+	
 }

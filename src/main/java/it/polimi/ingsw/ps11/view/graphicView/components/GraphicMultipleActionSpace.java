@@ -68,9 +68,9 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			return;
 		int i = 0;
 		for (GraphicPaintedPanel panel : players) {
-			if(i<arrayList.size() || arrayList.get(i).getFamilyMember() == null){
+			if(i<arrayList.size() && arrayList.get(i).getFamilyMember() == null){
 				clean(panel);
-			} else {
+			} else if(i<arrayList.size()) {
 					String ownerColor = arrayList.get(i).getOwner().getColor().toString();
 					String familyMember = arrayList.get(i).getFamilyMember().getId();
 					panel.loadImage("PlayerImages/" + ownerColor + " " + familyMember + ".png");

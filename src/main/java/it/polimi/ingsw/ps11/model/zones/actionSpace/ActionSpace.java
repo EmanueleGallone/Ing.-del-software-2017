@@ -93,6 +93,23 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		return familyMember;
 	}
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		if(obj.getClass().equals(this.getClass())){
+			ActionSpace aSpace = (ActionSpace) obj;
+			boolean result = aSpace.getActionCost() == this.getActionCost();
+			if(aSpace.familyMember != null)
+				result = result && aSpace.familyMember.equals(this.familyMember);
+			if(aSpace.owner != null)
+				result = result && aSpace.owner.equals(this.owner);
+			return result && aSpace.resources.equals(this.resources);
+	
+		}
+		return false;
+	}
 
 	
 	@Override
