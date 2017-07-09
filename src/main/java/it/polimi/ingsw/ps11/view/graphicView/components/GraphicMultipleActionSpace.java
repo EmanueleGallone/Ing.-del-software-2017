@@ -64,7 +64,8 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	public void print(ArrayList<ActionSpace> arrayList){
 		
-		if (arrayList != null) return;
+		if (arrayList == null) 
+			return;
 		int i = 0;
 		for (GraphicPaintedPanel panel : players) {
 			if(arrayList.get(i) == null){
