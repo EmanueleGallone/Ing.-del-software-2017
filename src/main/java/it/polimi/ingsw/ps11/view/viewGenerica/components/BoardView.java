@@ -34,7 +34,7 @@ public abstract class BoardView extends ViewComponent {
 		churchView.update(board.getChurch());
 		
 		for(TowerView t : towerViews){
-			t.update(board.getTower(t.getTower()));
+			t.update(board.getTower(t.getTowerName()));
 		}
 	}
 	

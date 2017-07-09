@@ -109,7 +109,7 @@ public class GraphicLoginPanel{
 		confirm.addActionListener(new CancelListener());
 		image.registerKeyboardAction(e -> {
 			if(!(login() == null)){
-				System.out.println(login());
+				//System.out.println(login());
 				messageEvent.invoke(new LogInMessage(username.getText(),password.getText()));
 				window.dispose();
 			}

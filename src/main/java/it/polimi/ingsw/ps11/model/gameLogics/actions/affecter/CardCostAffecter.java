@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> CardCostAffecter </h3>
@@ -12,25 +13,26 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * @see Affecter
  * @see GetCardAction
  */
-public class CardCostAffecter implements Affecter<GetCardAction> {
+public class CardCostAffecter implements Affecter<FamilyInFloorAction> {
 
 	private String cardType;
 	private ResourceList modifier;	
 	
 	public CardCostAffecter(String cardType, ResourceList resource) {
+		this.cardType = cardType;
 		this.modifier = resource;
 	}
 	
 	@Override
 	public String target() {
-		return GetCardAction.class.toString();
+		return FamilyInFloorAction.class.toString();
 	}
 
 	@Override
-	public GetCardAction affect(GetCardAction action) {
-		String card = action.getCard().getId();
-		if(card.equals(cardType)){
-			action.getCost().subtract(modifier);
+	public FamilyInFloorAction affect(FamilyInFloorAction action) {
+		DevelopmentCard card = action.getCardAction().getCard();
+		if(card.getId().equals(cardType)){
+			action.getCardAction().addModifier(modifier);
 		}
 		return action;
 	}

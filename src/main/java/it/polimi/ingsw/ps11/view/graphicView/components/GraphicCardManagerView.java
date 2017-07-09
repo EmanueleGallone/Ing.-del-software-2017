@@ -272,7 +272,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		
 		setLeaderCard(leadersDeck);
 		//setLeaderCard(cardManager.getLeaderCards());	
-		
+
 	}
 	
 	public class LeaderAction implements ActionListener{

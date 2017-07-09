@@ -48,11 +48,11 @@ public class TextualChooseFamilyView extends ChooseFamilyView implements EventLi
 			parsed = Integer.parseInt(e);
 			parsed--;
 			if(parsed <= family.size() && parsed >= 0){
-				eventHandler.invoke(new FamilySelectedEvent(family.get(parsed).getClass()));
+				eventHandler.invoke(new FamilySelectedEvent(family.get(parsed).getId()));
 			}
 				
 		} catch (NumberFormatException e1) {
-			new TextualConsole().println("Nessun familiare selezionato");
+			new TextualConsole().println("No family member selected");
 		}finally{
 			input.detach(this);
 		}

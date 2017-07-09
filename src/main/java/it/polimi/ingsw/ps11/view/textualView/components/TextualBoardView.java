@@ -1,5 +1,7 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
+import java.util.ArrayList;
+
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
@@ -12,7 +14,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
 public class TextualBoardView extends BoardView {
 
 	public TextualBoardView() {
-
+		
 		towerViews.add(new TextualTowerView("GreenTower"));
 		towerViews.add(new TextualTowerView("BlueTower"));
 		towerViews.add(new TextualTowerView("YellowTower"));

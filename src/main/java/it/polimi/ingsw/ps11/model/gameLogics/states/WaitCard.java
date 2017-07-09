@@ -25,7 +25,6 @@ public class WaitCard extends PlayState{
 	public WaitCard(String cardType, int value) {
 		this.cardType = cardType;
 		this.value = value;
-		stateHandler().invoke(new TextualEvent("Seleziona una carta su un piano di valore >= ad "+ value));
 	}
 	
 	@Override
@@ -33,7 +32,7 @@ public class WaitCard extends PlayState{
 		Tower tower = stateHandler().getGame().getBoard().getTower(floorSelectedEvent.getTower());
 		this.tower = tower;
 		floor = tower.getFloor(floorSelectedEvent.getFloor());
-		String card = floor.getCard().getClass().toString();
+		String card = floor.getCard().getId();
 
 		if(floor.getCard() != null && (card.equals(cardType) || cardType == null)){
 				getCard(null);
@@ -75,5 +74,10 @@ public class WaitCard extends PlayState{
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
 		getCard(resourceSelectedEvent.getResourceList());
+	}
+	
+	@Override
+	public void notifyToClient() {
+		stateHandler().invoke(new TextualEvent("Seleziona una carta su un piano di valore >= ad "+ value));
 	}
 }

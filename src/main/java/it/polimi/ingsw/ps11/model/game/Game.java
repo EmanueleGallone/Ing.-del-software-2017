@@ -39,7 +39,7 @@ public class Game implements Serializable  {
 			board = initializeBoard(players);
 			setDices(players);
 
-			//assignLeaderCard(players);
+			assignLeaderCard(players);
 			
 			refreshCard(roundManager.currentPeriod());
 		} catch (IOException e) {

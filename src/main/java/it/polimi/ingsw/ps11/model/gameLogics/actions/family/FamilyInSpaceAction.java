@@ -45,12 +45,12 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	@Override
 	public boolean isLegal() {
 
-		if(aManager.state().isDone()){ //Questa azione può essere fatta solo 1 volta per turno
+		if(aManager.state().isDone()){
 			aManager.state().invoke("Questa azione puo' essere fatta solo una volta per turno");
 			return false;
 		}
 		if(space.isFree() && makeServantAction().isLegal()){
-			return checkActionCost(servant);
+			return checkActionCost(servant + modifier);
 		}
 		return false;
 	}
