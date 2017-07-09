@@ -58,7 +58,7 @@ public class GameLogic implements Runnable{
 			
 			if(pState != nextPlayer ){
 			    pState.nextState(new DefaultState());
-			    pState.invoke(new TextualEvent("Non è il tuo turno"));
+			    pState.invoke(new TextualEvent("E' il turno di " + nextPlayer.getPlayer().getName()));
 			}
 		}
 		
@@ -109,7 +109,7 @@ public class GameLogic implements Runnable{
 	public void handle(ViewEventInterface viewEvent){
 		System.out.println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
 		playerStatus.get(viewEvent.getSource().getName()).handle(viewEvent);
-		notifyAllClients(new GameUpdateEvent(game));
+		//notifyAllClients(new GameUpdateEvent(game));
 	}
 	
 	public void notifyAllClients(ModelEvent event){

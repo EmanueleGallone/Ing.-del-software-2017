@@ -10,6 +10,7 @@ import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.TextualViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ActiveLeaderCardEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
@@ -87,6 +88,12 @@ public class DefaultState extends State {
 
 	@Override
 	public void handle(ActiveLeaderCardEvent activeLeaderCardEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handle(CouncilSelectedEvent councilSelectedEvent) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -3,10 +3,12 @@ package it.polimi.ingsw.ps11.model.gameLogics.states;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
+import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
+import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
@@ -15,6 +17,7 @@ import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
@@ -130,6 +133,18 @@ public class PlayState extends DefaultState{
 				card.active(stateHandler().actions());
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace(); //Carta non presente
+		}
+	}
+	
+	@Override
+	public void handle(CouncilSelectedEvent councilSelectedEvent) {
+		if(familySelectedCheck(councilSelectedEvent)){
+			FamilyMember fMember = selectFMember(councilSelectedEvent);
+			CouncilPalace council = stateHandler().getGame().getBoard().getCouncilPalace();
+			FamilyInSpaceAction action = new FamilyInSpaceAction(stateHandler().actions(), fMember, council.getFreeSpace());
+			action = stateHandler().actions().affect(action);
+			if(action.isLegal())
+				action.perform();
 		}
 	}
 }
