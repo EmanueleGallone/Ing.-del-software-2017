@@ -48,7 +48,7 @@ public class FamilyInSpaceTest {
 			Assert.assertFalse(familyInSpaceAction.isLegal());
 			Assert.assertFalse(familyInSpaceAction.checkActionCost());
 		}
-		
+
 		familyInSpaceAction.perform();
 		Assert.assertFalse(familyInSpaceAction.notifyConfirm(new ConfirmViewEvent(true))); //e' stata fatta la perform. non puo' piu' essere fatta l'azione
 		familyInSpaceAction.setAlreadyDone(true);

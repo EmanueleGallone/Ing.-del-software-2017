@@ -59,6 +59,7 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 			
 			if(register.search(user)){
 				waitingClient.remove(connection);
+				connection.detachListener(this);
 				connectionHandler.handle(connection);
 				return;
 			}else {
@@ -66,6 +67,7 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 			}
 			if(register.addNew(user)){
 				waitingClient.remove(connection);
+				connection.detachListener(this);
 				connectionHandler.addToLobby(connection);
 				connection.send("Ti sei registrato con successo, il tuo nome è: " + user.getId());
 				return;
