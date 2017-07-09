@@ -114,8 +114,10 @@ public class GraphicConfirmPanelView {
 			   scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
 		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
-		costo.loadImage("BoardImages/Dice cost " + floor.getActionSpace().getActionCost() + ".png");
-		costo.setOpaque(false);
+		if(floor!=null){
+			costo.loadImage("BoardImages/Dice cost " + floor.getActionSpace().getActionCost() + ".png");
+			costo.setOpaque(false);
+		}
 		addServitori = new JTextField("0");
 		JTextArea messaggio = new JTextArea("MESSAGGIO");			//DOVE SI TROVA IL MESSAGGIO?
 		JButton confirm = new JButton("Conferma"),
