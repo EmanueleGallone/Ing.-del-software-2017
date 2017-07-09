@@ -25,7 +25,8 @@ public class MessageSender extends Thread{
 		try {
 			writer.writeObject(message);
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.err.println("Soket MessageSender: The connection is closed");
 		}
 	}
 }
