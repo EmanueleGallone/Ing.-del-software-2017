@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -24,13 +25,13 @@ public class GraphicMarketView extends MarketView{
 
 	protected GraphicPaintedPanel marketPanel = new GraphicPaintedPanel();
 	private ArrayList<GraphicPaintedButton> marketSpaces = new ArrayList<>();
+	private int limit = 0;
 
 
 	public GraphicMarketView() {
 
 		marketPanel.loadImage("BoardImages/Market.png");
-
-		for(int i = 0; i < market.getPlayerNumber(); i++){
+		for(int i = 0; i < 4; i++){
 			GraphicPaintedButton actionSpace = new GraphicPaintedButton();
 			actionSpace.addActionListener(new MarketSelectedListner(i));
 			actionSpace.setContentAreaFilled(false);
@@ -42,7 +43,7 @@ public class GraphicMarketView extends MarketView{
 		GridBagLayout gblMarket = new GridBagLayout();
 		gblMarket.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gblMarket.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gblMarket.columnWeights = new double[]{0.18, 0.172626, 0.073743, 0.172626, 0.059777, 0.172626, 0.007821,0.172626, 0.034078,Double.MIN_VALUE};
+		gblMarket.columnWeights = new double[]{0.15, 0.172626, 0.103743, 0.172626, 0.059777, 0.172626, 0.007821,0.172626, 0.034078,Double.MIN_VALUE};
 		gblMarket.rowWeights = new double[]{0.27447, 0.122099, 0.160444 ,0.122099, 0.039354, 0.282543, Double.MIN_VALUE};
 		marketPanel.setLayout(gblMarket);
 		
@@ -54,24 +55,30 @@ public class GraphicMarketView extends MarketView{
 		gbcGoldMarket.gridx = 1;
 		gbcGoldMarket.gridy = 1;
 		gbcGoldMarket.gridheight = 2;
+		marketSpaces.get(0).setPreferredSize(new Dimension(10, 10));
 		gbcGoldMarket.fill = GridBagConstraints.BOTH;
 		marketPanel.add(marketSpaces.get(0), gbcGoldMarket);
 		
 		gbcServantMarket.gridx = 3;
 		gbcServantMarket.gridy = 1;
 		gbcServantMarket.gridheight = 2;
+		marketSpaces.get(1).setPreferredSize(new Dimension(10, 10));
 		gbcServantMarket.fill = GridBagConstraints.BOTH;
 		marketPanel.add(marketSpaces.get(1), gbcServantMarket);
 		
 		gbcMixed1Market.gridx = 5;
 		gbcMixed1Market.gridy = 2;
 		gbcMixed1Market.gridheight = 2;
+		marketSpaces.get(2).setPreferredSize(new Dimension(10, 10));
 		gbcMixed1Market.fill = GridBagConstraints.BOTH;
+		marketSpaces.get(2).setEnabled(false);
 		marketPanel.add(marketSpaces.get(2), gbcMixed1Market);
 		
 		gbcMixed2Market.gridx = 7;
 		gbcMixed2Market.gridy = 5;
+		marketSpaces.get(3).setPreferredSize(new Dimension(10, 10));
 		gbcMixed2Market.fill = GridBagConstraints.BOTH;
+		marketSpaces.get(3).setEnabled(false);
 		marketPanel.add(marketSpaces.get(3), gbcMixed2Market);
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -80,10 +87,21 @@ public class GraphicMarketView extends MarketView{
 	
 	@Override
 	public void print(){
-		for(int i = 0; i < market.getPlayerNumber(); i++){
+		
+		if (market.isFull()) limit = 4;
+		else limit = 2;
+		
+		for(int i = 0; i < limit; i++){
 			if(!(market.getActionSpace(i).getFamilyMember() == null)){
 				marketSpaces.get(i).loadImage("PlayerImages/" + market.getActionSpace(i).getOwner().getColor().toString() + 
 					" " + market.getActionSpace(i).getFamilyMember().getId() + ".png");
+			}
+		}
+		if(!market.isFull())
+			{
+			for(int i = limit; i < market.getMaxNumber(); i++){
+			marketSpaces.get(i).setEnabled(false);
+			marketSpaces.get(i).loadImage("PlayerImages/BLANK.png");
 			}
 		}
 	}

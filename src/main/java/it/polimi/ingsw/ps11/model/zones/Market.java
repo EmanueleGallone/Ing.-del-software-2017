@@ -46,4 +46,12 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		return playerNumber == MAX_NUMBER;
 	}
 	
+	public int getMaxNumber(){
+		return MAX_NUMBER;
+	}
+	
+	public int getThresHold() {
+		return THRESHOLD;
+	}
+	
 }
