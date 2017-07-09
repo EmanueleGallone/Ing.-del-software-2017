@@ -46,8 +46,7 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	public void perform() {
 		FamilyInSpaceAction action = aManager.affect(spaceAction);
 		action.perform();
-		int activeValue = spaceAction.getFamilyValue() - spaceAction.getSpace().getActionCost();
-		System.out.println("Active yield value = " + activeValue +" per " + aManager.state().getPlayer().getName());
+		int activeValue = spaceAction.getFamilyValue() - spaceAction.getSpace().getPenality();
 		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), activeValue);
 		activeYield = aManager.affect(activeYield);
 		activeYield.perform();

@@ -58,7 +58,8 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 
 			GraphicPaintedButton familyMemberPanel = new GraphicPaintedButton();
 			JLabel value = new JLabel("0", SwingConstants.CENTER);
-			value.setBackground(Color.WHITE);
+			value.setBackground(Color.BLACK);
+			value.setOpaque(false);
 //			familyMemberPanel.loadImage("playerImages/" + color + familyMemberName.getSimpleName() + ".png");
 			GridBagConstraints gbcButton = new GridBagConstraints();
 			GridBagConstraints gbcValue = new GridBagConstraints();
@@ -91,7 +92,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	public void print() {
 		for(FamilyMember member : familyManager.getFamily().values()){
 			String memberName = member.getId();
-			familyMemberButtons.get(memberName).setBackground(Color.black);
+			familyMemberButtons.get(memberName).setBackground(Color.BLACK);
 			if(member.isUsed()){
 				familyMemberButtons.get(memberName).loadImage("PlayerImages/BLANK.png");
 				familyMemberButtons.get(memberName).repaint();
