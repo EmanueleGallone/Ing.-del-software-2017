@@ -91,7 +91,8 @@ public class GameLogic implements Runnable{
 	public void notifyNewConnection(Player newPlayer){
 		stopTimer = false;
 		game.getRoundManager().removeFromAfk(newPlayer);
-		nextPlayer();  //Mmmm
+		if(game.getRoundManager().isSuspended())
+			nextPlayer();
 	}
 	
 	public void notifyVaticanReportConclusion(StateHandler sHandler){

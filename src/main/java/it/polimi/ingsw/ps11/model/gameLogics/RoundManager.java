@@ -96,6 +96,10 @@ public class RoundManager implements Serializable{
 		support.addAll(players);
 		this.players = support;
 	}
+	
+	public boolean isSuspended(){
+		return players.size() == suspended.size();
+	}
 // ____________________________________________
 	
 	/**

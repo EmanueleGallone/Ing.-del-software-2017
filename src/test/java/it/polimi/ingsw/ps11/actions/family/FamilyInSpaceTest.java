@@ -57,7 +57,10 @@ public class FamilyInSpaceTest {
 		FamilyInSpaceAction familyInSpaceAction = new FamilyInSpaceAction(aManager, blackFamilyMember, actionSpace);
 		Assert.assertTrue(familyInSpaceAction.isLegal());
 		
-		Assert.assertTrue(familyInSpaceAction.notifyConfirm(new ConfirmViewEvent(true)));
+		if(blackFamilyMember.getValue() > actionSpace.getActionCost())
+			Assert.assertTrue(familyInSpaceAction.notifyConfirm(new ConfirmViewEvent(true)));
+		else
+			Assert.assertFalse(familyInSpaceAction.notifyConfirm(new ConfirmViewEvent(true)));
 		familyInSpaceAction.perform();
 		
 	}
