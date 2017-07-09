@@ -35,7 +35,6 @@ public class MultipleActionSpaceTest {
 		
 		Assert.assertTrue(clone.getAllSpace().size() != multipleActionSpace.getAllSpace().size()); 
 		Assert.assertEquals(1, faithPoint.getValue());
-		Assert.assertNull(clone.getActionSpace(2));
 		
 		multipleActionSpace.addActionSpace(new ActionSpace());
 		
