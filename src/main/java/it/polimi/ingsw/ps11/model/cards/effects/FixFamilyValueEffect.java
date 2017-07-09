@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FixFamilyValue;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 /**
  * <h3> FixFamilyValueEffect </h3>
  * <p> Effetto di una carta: modifica permanentemente il valore di un familiare attraverso un <code>FixFamilyValue</code>.</p>
@@ -16,8 +17,9 @@ public class FixFamilyValueEffect extends FamilyInSpaceBonus {
 	}
 
 	@Override
-	public void attach(ActionManager aManager) {
+	public EmptyAction get(ActionManager aManager) {
 		FixFamilyValue affecter = new FixFamilyValue(familyType, value);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
 }

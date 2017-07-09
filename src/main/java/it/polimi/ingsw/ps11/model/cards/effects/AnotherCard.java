@@ -26,8 +26,4 @@ public class AnotherCard implements Effect{
 		return new ChangeStateAction(aManager, new WaitCard(cardType, value));
 	}
 
-	@Override
-	public void attach(ActionManager aManager) {
-
-	}
 }

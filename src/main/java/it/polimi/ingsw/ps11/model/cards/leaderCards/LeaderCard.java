@@ -7,6 +7,8 @@ import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.Requirement;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 
 public class LeaderCard extends Card implements Requirement{
@@ -15,7 +17,7 @@ public class LeaderCard extends Card implements Requirement{
 	
 	private ArrayList<Requirement> requirements = new ArrayList<>();
 	private ArrayList<Effect> effects = new ArrayList<>();
-	private boolean activated = false;
+	private boolean satisfied = false, activated = false;
 	
 	public LeaderCard(String name) {
 		super(id,name);
@@ -23,7 +25,7 @@ public class LeaderCard extends Card implements Requirement{
 	
 	@Override
 	public boolean isSatisfied(Player player) {
-		if(activated)
+		if(satisfied)
 			return true;
 		
 		for(Requirement r : requirements){
@@ -31,6 +33,14 @@ public class LeaderCard extends Card implements Requirement{
 				return false;
 		}
 		return true;
+	}
+	
+	public void active(ActionManager aManager){
+		for(Effect effect: effects){
+			Action action = effect.get(aManager);
+			if(action.isLegal())
+				action.perform();
+		}
 	}
 	
 	public void addRequirement(Requirement requirement){
@@ -42,7 +52,7 @@ public class LeaderCard extends Card implements Requirement{
 	}
 	
 	public void setActivated(boolean activated) {
-		this.activated = activated;
+		this.satisfied = activated;
 	}
 	
 	public ArrayList<Effect> getEffects() {
@@ -52,7 +62,6 @@ public class LeaderCard extends Card implements Requirement{
 	public boolean isActivated() {
 		return activated;
 	}
-	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -71,7 +80,7 @@ public class LeaderCard extends Card implements Requirement{
 		clone.requirements.addAll(this.requirements);
 		clone.effects.addAll(this.effects);
 		
-		clone.activated = this.activated;
+		clone.satisfied = this.satisfied;
 				
 		return clone;
 	}

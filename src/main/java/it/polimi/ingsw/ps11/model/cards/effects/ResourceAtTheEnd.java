@@ -24,14 +24,9 @@ public class ResourceAtTheEnd implements Effect {
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		IncrementAction action = new IncrementAction(aManager, resource);
 		EndGameAffecter affecter = new EndGameAffecter(action);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

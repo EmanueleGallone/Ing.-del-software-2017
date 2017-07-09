@@ -23,13 +23,8 @@ public class FamilyInSpaceBonus implements Effect {
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		FamilyInSpaceAffecter affecter = new FamilyInSpaceAffecter(familyType, value);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

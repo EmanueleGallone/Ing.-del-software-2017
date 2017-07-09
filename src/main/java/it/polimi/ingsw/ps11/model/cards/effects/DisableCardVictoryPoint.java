@@ -23,13 +23,8 @@ public class DisableCardVictoryPoint implements Effect{
 
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		PointByCardAffecter affecter = new PointByCardAffecter(card, rewards);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

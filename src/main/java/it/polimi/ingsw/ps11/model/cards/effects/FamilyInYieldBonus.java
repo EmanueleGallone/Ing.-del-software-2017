@@ -24,13 +24,8 @@ public class FamilyInYieldBonus implements Effect{
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		FamilyInYieldAffecter affecter = new FamilyInYieldAffecter(cardType, value);
 		aManager.add(affecter);	
+		return new EmptyAction();
 	}
-
 }

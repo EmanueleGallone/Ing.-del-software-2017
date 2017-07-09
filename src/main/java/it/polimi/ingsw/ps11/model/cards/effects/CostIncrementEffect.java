@@ -16,13 +16,8 @@ public class CostIncrementEffect implements Effect{
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		DecrementAffecter affecter = new DecrementAffecter(condiction,increment);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

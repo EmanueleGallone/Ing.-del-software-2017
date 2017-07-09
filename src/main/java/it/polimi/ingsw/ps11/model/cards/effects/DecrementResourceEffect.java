@@ -19,13 +19,8 @@ public class DecrementResourceEffect implements Effect{
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		IncrementAffecter affecter = new IncrementAffecter(resource);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

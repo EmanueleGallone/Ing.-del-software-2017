@@ -98,6 +98,14 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		return leaderCards;
 	}
 	
+	public LeaderCard getLeaderCard(String cardName) throws IllegalArgumentException{
+		for(LeaderCard card : leaderCards){
+			if(card.getName().equals(cardName))
+				return card;
+		}
+		throw new IllegalArgumentException();
+	}
+	
 	public void setLeaderCards(ArrayList<LeaderCard> leaderCards) {
 		this.leaderCards = leaderCards;
 	}

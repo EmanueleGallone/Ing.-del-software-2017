@@ -67,7 +67,7 @@ public class VaticanReport extends DefaultState {
 	private void addExcomunication(){
 		Excommunication excommunication = getExcomunication();
 		for(Effect e : excommunication){
-			e.attach(sHandler.actions());
+			e.get(sHandler.actions());
 		}
 		
 		completePhases();

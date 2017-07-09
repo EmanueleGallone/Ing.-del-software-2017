@@ -25,9 +25,4 @@ public class ActiveYieldEffect implements Effect {
 		return aManager.affect(action);
 	}
 
-	@Override
-	public void attach(ActionManager aManager) {
-		
-	}
-
 }
