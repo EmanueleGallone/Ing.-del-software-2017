@@ -1,10 +1,16 @@
-Parte il server e si mette in ascolto di connessioni in arrivo sulla porta tramite run() in ciclo continuo.
-Ogni volta che una si connette, si crea il client che richiede un nome e abilita lo scambio di messaggi con il server.
-Inserisce il client tra le connessioni in attesa (waitingGame).
-Quando ci sono almeno 2 connessioni in attesa, si crea la lobby. 
-Se ce ne sono piu' di 2 le passa direttamente alla lobby.
-La lobby aspetta tutte le connessioni in arrivo fino ad un massimo di altre 2 per 60 secondi.
-Arrivati al max di giocatori o scaduto il timer, crea la partita e ripulisce la lista dei giocatori in attesa.
-La partita crea board, view di ogni giocatore e setto il modello MVC, creando model e controller.
 
-La classe Deck rispetta il pattern Delegation(per il controllo del max size sui mazzi)
+-Per giocare una partita in locale, nel Connection.java (situato nel package Controller.network),
+assicuratevi che ci sia "localhost" nell'attributo String serverAddress;
+verificate che anche all'interno di RMIConnection (situato nel package Controller.network.rmi) vi sia "//localhost/myServer"
+all'interno dell'attributo static String DEFAULT_ADDRESS;
+
+-Avviate Server.java situato nel package Controller.server;
+
+-Per giocare una partita in rete, seguite gli stessi passi appena descritti, e sostituire al "localhost" l'ip della macchina dove avvierete il server.
+
+-Per avviare il Client, avviate il ClientStarter.java (package Controller); scegliete quale tecnologia di collegamento e quale interfaccia usare.
+
+Arrivati a questo punto, non dovreste avere problemi a giocare.
+
+GRAPHIC VIEW:
+Nel caso giocaste con la graphic view, appare un pannello di login dove dovrete inserire uno username ed una password. Se non siete nel database
