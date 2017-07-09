@@ -33,13 +33,14 @@ public class TextualCommands {
 		return instructions;
 	}
 	
-	
+
 //	private void initializeInstruction(){
 //		instructions = "\n\nINSTRUCTION:"
 //				+ "\n • If you want select the floor of a tower type \" yellow tower 1 \""
 //				+ "\n • If you want to print the entire board type \" update \" "
 //				+ "\n • If you want select production or harvest type \"production\" or \"harvest\""
 //				+ "\n • If you want select the first action space in the market type \"market 1\""
+//				+ "\n • If you want to activate a leader card type \"leader [LeaderCardName]\" "
 //				+ "\n • If you want end the turn type \"pass\""
 //				+ "\n"; 
 //	}

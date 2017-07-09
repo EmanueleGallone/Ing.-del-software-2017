@@ -132,7 +132,8 @@ public class PlayState extends DefaultState{
 			if(!card.isActivated())
 				card.active(stateHandler().actions());
 		} catch (IllegalArgumentException e) {
-			e.printStackTrace(); //Carta non presente
+			//e.printStackTrace(); //Carta non presente
+			stateHandler().invoke("Card's name not correct!");
 		}
 	}
 	
