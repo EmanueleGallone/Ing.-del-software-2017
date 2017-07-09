@@ -13,6 +13,8 @@ public class WaitResourceTest {
 		PlayerFactory playerFactory = new PlayerFactory();
 		GameLogic gameLogic = new GameLogic(playerFactory.takeAll());
 		
+		
+		
 	}
 	
 	
