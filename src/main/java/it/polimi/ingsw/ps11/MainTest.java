@@ -33,6 +33,7 @@ public class MainTest {
 	public static void main(String[] args) throws FileNotFoundException{
 		//initializeTextualCommands();
 		//inizializzatoreBoard();
+		
 	}
 	
 
