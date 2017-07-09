@@ -29,8 +29,10 @@ public class GraphicHarvestView extends HarvestView {
 
 		singleActionSpace.setContentAreaFilled(false);
 		
-		singleActionSpace.addActionListener(new SingleHarvestSelectedListener());	
-		multipleActionSpace.attachListener(new MultipleHarvestSelectedListener());
+		HarvestSelectedListener listener = new HarvestSelectedListener();
+		
+		singleActionSpace.addActionListener(listener);
+		multipleActionSpace.getButton().addActionListener(listener);
 				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
@@ -78,7 +80,7 @@ public class GraphicHarvestView extends HarvestView {
 		return harvestPanel;
 	}
 	
-	private class SingleHarvestSelectedListener implements ActionListener{		//Se il single action space viene selezionato invoca l'evento "spazio singolo raccolta selezionato"
+	private class HarvestSelectedListener implements ActionListener{		//Se il single action space viene selezionato invoca l'evento "spazio singolo raccolta selezionato"
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -86,11 +88,4 @@ public class GraphicHarvestView extends HarvestView {
 		}
 	}
 	
-	private class MultipleHarvestSelectedListener implements ActionListener{	//Se il multiple action space viene selezionato invoca l'evento "spazio multiplo raccolta selezionato"
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			eventHandler.invoke(new HarvestSelectedEvent());
-		}
-	}
 }

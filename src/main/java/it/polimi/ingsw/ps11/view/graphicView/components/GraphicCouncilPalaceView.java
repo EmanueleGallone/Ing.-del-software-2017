@@ -40,7 +40,8 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		councilPalacePanel.loadImage("BoardImages/CouncilPalace.png");
 		
 		multipleActionSpace = new GraphicMultipleActionSpace();
-		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
+		multipleActionSpace.getButton().addActionListener(new CouncilPalaceSelectedListener());
+
 		
 		showPanelButton = new JButton("^");
 		
@@ -130,7 +131,6 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
 		
-		multipleActionSpace.attachListener(new CouncilPalaceSelectedListener());
 		councilPalacePanel.repaint();
 		}
 	

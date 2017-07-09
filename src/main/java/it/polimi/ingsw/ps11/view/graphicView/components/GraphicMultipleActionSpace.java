@@ -63,6 +63,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	}
 	
 	public void print(ArrayList<ActionSpace> arrayList){
+		
 		if (arrayList != null) return;
 		int i = 0;
 		for (GraphicPaintedPanel panel : players) {
@@ -83,8 +84,8 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	    revalidate();
 	    repaint();
 	}
-	
-	public void attachListener(ActionListener listener) {
-		selector.addActionListener(listener);
+
+	public JButton getButton(){
+		return selector;
 	}
 }
