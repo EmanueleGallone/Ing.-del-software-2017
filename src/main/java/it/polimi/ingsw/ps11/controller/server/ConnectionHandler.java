@@ -9,7 +9,6 @@ import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
-import it.polimi.ingsw.ps11.model.player.Player;
 
 public class ConnectionHandler {
 	
