@@ -52,7 +52,7 @@ public class InitializeCards {
 		//LeaderCardsInitializer();
 		//initializeExcommunication();
 	}
-	/*
+	
 	public static void inizializzaCarte(){
 		
 		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
@@ -837,7 +837,7 @@ public class InitializeCards {
 		YellowCard falegnameria = new YellowCard();
 		falegnameria.setActiveValue(4);
 		falegnameria.setPeriod(1);
-		falegnameria.setName("Carpenter's Shop");
+		falegnameria.setName("Carpenter s Shop");
 		resourceList = new ResourceList(new Coin(1));
 		falegnameria.addCost(resourceList.clone());
 		resourceList = new ResourceList(new Wood(2));
@@ -872,7 +872,7 @@ public class InitializeCards {
 		
 		YellowCard tagliapietre = new YellowCard();
 		tagliapietre.setPeriod(1);
-		tagliapietre.setName("Stonemason's Shop");
+		tagliapietre.setName("Stonemason s Shop");
 		tagliapietre.setPeriod(1);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Coin(1));
@@ -896,7 +896,7 @@ public class InitializeCards {
 		
 		YellowCard gildaScultori = new YellowCard();
 		gildaScultori.setPeriod(2);
-		gildaScultori.setName("Sculptors' Guild");
+		gildaScultori.setName("Sculptors Guild");
 		gildaScultori.setActiveValue(5);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Stone(4));
@@ -915,7 +915,7 @@ public class InitializeCards {
 		
 		YellowCard gildaCostruttori = new YellowCard();
 		gildaCostruttori.setPeriod(2);
-		gildaCostruttori.setName("Stonemasons' Guild");
+		gildaCostruttori.setName("Stonemasons Guild");
 		gildaCostruttori.setActiveValue(4);
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(1));
@@ -937,7 +937,7 @@ public class InitializeCards {
 		YellowCard gildaPittori = new YellowCard();
 		gildaPittori.setPeriod(2);
 		gildaPittori.setActiveValue(4);
-		gildaPittori.setName("Painters' Guild");
+		gildaPittori.setName("Painters Guild");
 		resourceList = new ResourceList();
 		resourceList.setResource(new Wood(4));
 		gildaPittori.addCost(resourceList.clone());
@@ -1809,5 +1809,5 @@ public class InitializeCards {
 		loader.write(list,type);
 		
 	}
-*/	
+	
 }

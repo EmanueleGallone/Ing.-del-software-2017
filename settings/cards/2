@@ -1197,7 +1197,7 @@
               }
             }
           ],
-          "name": "Painters\u0027 Guild",
+          "name": "Painters Guild",
           "id": "YellowCard"
         }
       },
@@ -1296,7 +1296,7 @@
               }
             }
           ],
-          "name": "Stonemasons\u0027 Guild",
+          "name": "Stonemasons Guild",
           "id": "YellowCard"
         }
       },
@@ -1392,7 +1392,7 @@
               }
             }
           ],
-          "name": "Sculptors\u0027 Guild",
+          "name": "Sculptors Guild",
           "id": "YellowCard"
         }
       }
