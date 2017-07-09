@@ -18,7 +18,7 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	protected static final int DEFAULT_COST = 1;
 	protected FamilyMember familyMember;
 	protected Player owner;
-	private int cost;
+	private int cost,penality = 0;
 	private ResourceList resources = new ResourceList(); 
 	
 	/**<h3> ActionSpace() </h3>
@@ -70,6 +70,10 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 		familyMember = null;
 		owner = null;
 	}
+	
+	public int getPenality() {
+		return penality;
+	}
 //Start setters
 	
 	public void setResources(ResourceList resourceList){
@@ -77,6 +81,10 @@ public class ActionSpace implements FamilyMemberSpace, Serializable{
 	}
 
 // Getters
+	
+	public void setPenality(int penality) {
+		this.penality = penality;
+	}
 	
 	public int getActionCost() {
 		return cost;

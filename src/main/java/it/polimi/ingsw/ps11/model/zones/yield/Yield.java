@@ -13,9 +13,9 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
  */
 public class Yield implements Serializable, Iterable<ActionSpace> {
 	
-	private final int COST = 3;
+	private final int PENALITY = 3;
 	private ActionSpace singleActionSpace = new ActionSpace();
-	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace(COST);
+	private MultipleActionSpace multipleActionSpace = new MultipleActionSpace(PENALITY);
 	private String cardType;
 	
 	public Yield(String cardType) {
