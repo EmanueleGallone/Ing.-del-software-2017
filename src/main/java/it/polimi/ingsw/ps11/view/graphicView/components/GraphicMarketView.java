@@ -95,7 +95,13 @@ public class GraphicMarketView extends MarketView{
 			if(!(market.getActionSpace(i).getFamilyMember() == null)){
 				marketSpaces.get(i).loadImage("PlayerImages/" + market.getActionSpace(i).getOwner().getColor().toString() + 
 					" " + market.getActionSpace(i).getFamilyMember().getId() + ".png");
+				marketSpaces.get(i).setEnabled(false);
 			}
+			else {
+				marketSpaces.get(i).loadImage("PlayerImages/BLANK.png");
+				marketSpaces.get(i).setEnabled(true);
+				
+			}				
 		}
 		if(!market.isFull())
 			{
