@@ -226,7 +226,7 @@ public class GraphicView extends View{
 	
 	@Override
 	public void confirm(ConfirmEvent confirm) {
-		confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm.getFloor(), window);
+		confirmPanelView = new GraphicConfirmPanelView(viewEvent,confirm, window);
 		confirmPanelView.show();
 		window.setEnabled(false);
 	}

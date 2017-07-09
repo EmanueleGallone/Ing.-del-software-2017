@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
+import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -33,11 +34,11 @@ public class GraphicConfirmPanelView {
 	private EventHandler<ViewEventInterface> eventHandler;
 	private JFrame mainWindow;
 	
-	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent, Floor floor, JFrame mainWindow) {
+	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent,ConfirmEvent confirmEvent, JFrame mainWindow) {
 		
 		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
-		this.floor = floor;
+		this.floor = confirmEvent.getFloor();
 		window.setAlwaysOnTop(true);
 		
 		window.setAlwaysOnTop(true);
@@ -113,7 +114,7 @@ public class GraphicConfirmPanelView {
 		JLabel scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
 
 		addServitori = new JTextField("0");
-		JTextArea messaggio = new JTextArea("MESSAGGIO");			//DOVE SI TROVA IL MESSAGGIO?
+		JTextArea messaggio = new JTextArea(confirmEvent.getMessage());
 		JButton confirm = new JButton("Conferma"),
 				cancel = new JButton("Annulla");
 		
