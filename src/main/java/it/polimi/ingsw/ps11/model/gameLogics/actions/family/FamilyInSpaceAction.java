@@ -106,10 +106,13 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	}
 
 	@Override
-	public void notifyConfirm(ConfirmViewEvent confirm) {
+	public boolean notifyConfirm(ConfirmViewEvent confirm) {
 		this.incrementServant(confirm.getServant());
-		if(isLegal())
+		if(isLegal()){
 			perform();
+			return true;
+		}
+		return false;
 	}
 
 	@Override

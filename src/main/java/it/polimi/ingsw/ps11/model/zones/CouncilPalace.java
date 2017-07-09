@@ -3,9 +3,21 @@ package it.polimi.ingsw.ps11.model.zones;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Servant;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**
@@ -17,6 +29,10 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
  */
 public class CouncilPalace extends MultipleActionSpace  implements Serializable{
 	
+	private ResourceList bonus = new ResourceList(new Coin(1));
+	private ArrayList<Effect> effects = new ArrayList<>();
+	
+	
 	public ArrayList<Player> getNewOrder(){
 		ArrayList<Player> newOrder = new ArrayList<>();
 		for(ActionSpace space : multipleActionSpace){
@@ -26,19 +42,24 @@ public class CouncilPalace extends MultipleActionSpace  implements Serializable{
 		return newOrder;
 	}
 	
-//	/**<h3> boolean placeFamilyMember(FamilyMember) </h3>
-//	 *<p> Piazza il familiare nell'actionspace se questo non contiene già un altro familiare dello stesso giocatore che non sia di 
-//	 * tipo Neutral</p>
-//	 * @return true se è stato piazzato, false se non è stato possibile
-//	 */
-//	@Override
-//	public boolean placeFamilyMember(FamilyMember familyMember, Player player) {
-//		ActionSpace actionSpace = new ActionSpace(COST);
-//		if(actionSpace.placeFamilyMember(familyMember, player)){
-//			multipleActionSpace.add(actionSpace);
-//			return true;
-//		}
-//		return false;
-//	}
+	public ResourceList getBonus() {
+		return bonus;
+	}
+	
+	public ArrayList<Action> getEffects(ActionManager aManager) {
+		ArrayList<Action> actions = new ArrayList<>();
+		for(Effect e : effects){
+			actions.add(e.get(aManager));
+		}
+		return actions;
+	}
+	
+	public void setBonus(ResourceList bonus) {
+		this.bonus = bonus;
+	}
+	
+	public void addEffect(Effect effect){
+		this.effects.add(effect);
+	}
 
 }
