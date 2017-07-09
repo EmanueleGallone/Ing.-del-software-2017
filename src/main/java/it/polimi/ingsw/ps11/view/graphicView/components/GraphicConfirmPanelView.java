@@ -159,7 +159,7 @@ public class GraphicConfirmPanelView {
 		interPanel.add(costo, gbcCosto);
 		
 		}
-		}
+		
 		gbcScrittaServitori.gridx = 3;
 		gbcScrittaServitori.gridy = 2;
 		gbcScrittaServitori.anchor = GridBagConstraints.WEST;
@@ -170,6 +170,8 @@ public class GraphicConfirmPanelView {
 		gbcServitori.gridy = 2;
 		gbcServitori.fill = GridBagConstraints.HORIZONTAL;
 		interPanel.add(addServitori, gbcServitori);
+		
+		}
 		
 		gbcMessaggio.gridx = 3;
 		gbcMessaggio.gridy = 4;
