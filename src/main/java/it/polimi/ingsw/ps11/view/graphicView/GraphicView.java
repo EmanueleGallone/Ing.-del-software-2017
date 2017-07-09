@@ -32,6 +32,7 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicLoginPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.ActiveLeaderCardEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.TextualViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -275,7 +276,8 @@ public class GraphicView extends View{
 	private transient EventListener<LeaderCard> leaderActivateListener = new EventListener<LeaderCard>() {
 		@Override
 		public void handle(LeaderCard e) {
-			System.out.println(e.getId() + " activated: " + e.getName());
+			//System.out.println(e.getId() + " activated: " + e.getName());
+			viewEvent.invoke(new ActiveLeaderCardEvent(e.getName()));
 		}
 	};
 	

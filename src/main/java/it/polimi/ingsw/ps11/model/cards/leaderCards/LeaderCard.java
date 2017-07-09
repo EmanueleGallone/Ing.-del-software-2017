@@ -12,7 +12,6 @@ import it.polimi.ingsw.ps11.model.player.Player;
 public class LeaderCard extends Card implements Requirement{
 	
 	private static final String id= "LeaderCard";
-
 	
 	private ArrayList<Requirement> requirements = new ArrayList<>();
 	private ArrayList<Effect> effects = new ArrayList<>();
@@ -49,6 +48,11 @@ public class LeaderCard extends Card implements Requirement{
 	public ArrayList<Effect> getEffects() {
 		return effects;
 	}
+	
+	public boolean isActivated() {
+		return activated;
+	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {

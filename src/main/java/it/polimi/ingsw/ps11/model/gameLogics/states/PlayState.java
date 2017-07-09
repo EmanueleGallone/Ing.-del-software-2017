@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
+import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
@@ -8,6 +9,7 @@ import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
+import it.polimi.ingsw.ps11.view.viewEvents.ActiveLeaderCardEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
@@ -110,5 +112,9 @@ public class PlayState extends DefaultState{
 		stateHandler().getGameLogic().nextPlayer();
 	}
 
-
+	@Override
+	public void handle(ActiveLeaderCardEvent activeLeaderCardEvent) {
+		CardManager cManager = stateHandler().getPlayer().getCardManager();
+		
+	}
 }

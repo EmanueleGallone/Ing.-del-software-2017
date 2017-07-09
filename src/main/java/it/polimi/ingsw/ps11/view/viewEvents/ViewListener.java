@@ -17,4 +17,5 @@ public interface ViewListener {
 	public void handle(EndTurnEvent endTurnEvent);
 	public void handle(AskUpdateEvent updateEvent);
 	public void handle(TextualViewEvent textualViewEvent);
+	public void handle(ActiveLeaderCardEvent activeLeaderCardEvent);
 }
