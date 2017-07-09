@@ -25,13 +25,8 @@ public class CardDiscount implements Effect {
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		CardCostAffecter affecter = new CardCostAffecter(cardType, discount);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

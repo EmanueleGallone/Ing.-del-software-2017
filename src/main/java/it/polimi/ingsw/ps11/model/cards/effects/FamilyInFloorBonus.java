@@ -23,13 +23,8 @@ public class FamilyInFloorBonus implements Effect{
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		FamilyInFloorAffecter affecter = new FamilyInFloorAffecter(cardType, value);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
-
 }

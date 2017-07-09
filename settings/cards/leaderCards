@@ -22,6 +22,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Francesco Sforza",
       "id": "LeaderCard"
@@ -63,6 +64,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Girolamo Savonarola",
       "id": "LeaderCard"
@@ -118,6 +120,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Giovanni Dalle Bande Nere",
       "id": "LeaderCard"
@@ -166,6 +169,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Sandro Botticelli",
       "id": "LeaderCard"
@@ -207,6 +211,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Michelangelo Buonarroti",
       "id": "LeaderCard"
@@ -301,6 +306,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Ludovico III Gonzaga",
       "id": "LeaderCard"
@@ -326,6 +332,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Leonardo Da Vinci",
       "id": "LeaderCard"
@@ -412,6 +419,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Pico Della Mirandola",
       "id": "LeaderCard"
@@ -453,6 +461,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Cosimo de Medici",
       "id": "LeaderCard"
@@ -487,6 +496,7 @@
           }
         }
       ],
+      "satisfied": false,
       "activated": false,
       "name": "Bartolomeo Colleoni",
       "id": "LeaderCard"

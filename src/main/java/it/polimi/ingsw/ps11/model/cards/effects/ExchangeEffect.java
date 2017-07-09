@@ -44,10 +44,4 @@ public class ExchangeEffect implements Effect{
 		
 		return new ExchangeAction(aManager, exchange);
 	}
-
-	@Override
-	public void attach(ActionManager aManager) {
-
-	}
-	
 }

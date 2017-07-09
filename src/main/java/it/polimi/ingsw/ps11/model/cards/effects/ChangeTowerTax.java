@@ -23,13 +23,9 @@ public class ChangeTowerTax implements Effect{
 	
 	@Override
 	public EmptyAction get(ActionManager aManager) {
-		return new EmptyAction();
-	}
-
-	@Override
-	public void attach(ActionManager aManager) {
 		FamilyInTowerAffecter affecter = new FamilyInTowerAffecter(resource);
 		aManager.add(affecter);
+		return new EmptyAction();
 	}
 
 }

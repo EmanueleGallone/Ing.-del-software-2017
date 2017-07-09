@@ -37,9 +37,4 @@ public class CouncilPrivilege implements Effect {
 		IncrementAction action = new IncrementAction(aManager, null);
 		return new ChangeStateAction(aManager, new WaitResource(resources,action));
 	}
-
-	@Override
-	public void attach(ActionManager aManager) {
-
-	}
 }

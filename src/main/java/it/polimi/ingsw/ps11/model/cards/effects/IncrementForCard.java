@@ -30,10 +30,4 @@ public class IncrementForCard implements Effect {
 		int iterationNumber = aManager.state().getPlayer().getCardManager().getCardList(cardType).size();
 		return new DoSeveralTimeAction(aManager, action, iterationNumber);
 	}
-
-	@Override
-	public void attach(ActionManager aManager) {
-
-	}
-
 }

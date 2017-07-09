@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
@@ -115,6 +116,17 @@ public class PlayState extends DefaultState{
 	@Override
 	public void handle(ActiveLeaderCardEvent activeLeaderCardEvent) {
 		CardManager cManager = stateHandler().getPlayer().getCardManager();
-		
+		try {
+			LeaderCard card = cManager.getLeaderCard(activeLeaderCardEvent.getCardName());
+			if(card.isActivated()){
+				stateHandler().invoke("Hai gia' attivato questa carta in questo turno");
+				return;
+			}
+			if(!card.isSatisfied(stateHandler().getPlayer())){
+				stateHandler().invoke("Non hai i requisiti per attivare questa carta");
+			}
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace(); //Carta non presente
+		}
 	}
 }

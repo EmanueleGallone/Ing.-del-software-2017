@@ -99,7 +99,7 @@ public class GetCardAction implements Action {
 				action.perform();
 		}
 		for(Effect permaEffect: card.getPermanentEffect()){
-			permaEffect.attach(aManager);
+			permaEffect.get(aManager);
 		}
 	}
 	
