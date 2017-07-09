@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.FileRegistry;
+import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
@@ -15,6 +16,7 @@ import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
@@ -39,7 +41,7 @@ public class MainTest {
 		Player defaultPlayer = new PlayerFactory().newPlayer(0);
 		new Loader(FileRegistry.player).write(defaultPlayer);
 	}
- /*
+ 
 	public static Board inizializzatoreBoard(){
 		
 // ___________ TUTTE LE TORRI ____________________________
@@ -121,10 +123,36 @@ public class MainTest {
 		dices.add(new Dice("Orange"));
 		
 		Board board = null;
+		
+		
+// _______________ CouncilPalace _________________________________
+		
+		CouncilPalace councilPalace = new CouncilPalace();
+		councilPalace.setBonus(new ResourceList(new Coin(1)));
+		
+		ResourceList resourceList = new ResourceList();
+		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
+		//per settare il privilegio del consiglio. io lo sposterei all'interno del costruttore del privilegio
+		resourceList.setResource(new Wood(1));
+		resourceList.setResource(new Stone(1));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new Servant(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new Coin(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new MilitaryPoint(2));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList(new FaithPoint(1));
+		councilPrivilegeResourceLists.add(resourceList.clone());
+		resourceList = new ResourceList();
+		
+		councilPalace.addEffect(new CouncilPrivilege(councilPrivilegeResourceLists));
+		
 		try {
 			board = new Board(towers, market, new DiceManager(dices), new CouncilPalace());
 			board.setHarvest(new Yield(new GreenCard().getId())); //creazione zona produzione e raccolta
 			board.setProduction(new Yield(new YellowCard().getId()));
+			board.setCouncilPalace(councilPalace);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -142,7 +170,7 @@ public class MainTest {
 //		
 //		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
 //	}
-	*/
+	
 }
 
 

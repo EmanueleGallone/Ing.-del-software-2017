@@ -321,6 +321,88 @@
     ]
   },
   "councilPalace": {
+    "bonus": {
+      "resources": {
+        "Coin": {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+          "INSTANCE": {
+            "value": 1,
+            "id": "Coin"
+          }
+        }
+      }
+    },
+    "effects": [
+      {
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege",
+        "INSTANCE": {
+          "resources": [
+            {
+              "resources": {
+                "Wood": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
+                  "INSTANCE": {
+                    "value": 1,
+                    "id": "Wood"
+                  }
+                },
+                "Stone": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                  "INSTANCE": {
+                    "value": 1,
+                    "id": "Stone"
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "Servant": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
+                  "INSTANCE": {
+                    "value": 2,
+                    "id": "Servant"
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
+                  "INSTANCE": {
+                    "value": 2,
+                    "id": "Coin"
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "MilitaryPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint",
+                  "INSTANCE": {
+                    "value": 2,
+                    "id": "MilitaryPoint"
+                  }
+                }
+              }
+            },
+            {
+              "resources": {
+                "FaithPoint": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.FaithPoint",
+                  "INSTANCE": {
+                    "value": 1,
+                    "id": "FaithPoint"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
     "cost": 1,
     "multipleActionSpace": []
   },

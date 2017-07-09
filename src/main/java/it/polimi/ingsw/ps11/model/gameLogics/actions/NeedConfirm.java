@@ -9,6 +9,6 @@ import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
  */
 public interface NeedConfirm {
 
-	public void notifyConfirm(ConfirmViewEvent confirm);
+	public boolean notifyConfirm(ConfirmViewEvent confirm);
 	public ConfirmEvent getConfirm();
 }
