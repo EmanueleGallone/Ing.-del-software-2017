@@ -159,6 +159,9 @@ public class DecrementActionTest {
 		aManager.add(decrementAffecter_servant);
 		
 		assertFalse(aManager.affect(decrementAction).isLegal());
+		
+		DecrementAction clone = decrementAction.clone();
+		assertEquals(clone.getResources().get(new Coin().getId()).getValue(), decrementAction.getResources().get(new Coin().getId()).getValue());
 	}
 	
 
