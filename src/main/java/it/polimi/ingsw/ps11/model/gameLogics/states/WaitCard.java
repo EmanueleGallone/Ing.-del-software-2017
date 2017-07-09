@@ -25,7 +25,6 @@ public class WaitCard extends PlayState{
 	public WaitCard(String cardType, int value) {
 		this.cardType = cardType;
 		this.value = value;
-		stateHandler().invoke(new TextualEvent("Seleziona una carta su un piano di valore >= ad "+ value));
 	}
 	
 	@Override
@@ -75,5 +74,10 @@ public class WaitCard extends PlayState{
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
 		getCard(resourceSelectedEvent.getResourceList());
+	}
+	
+	@Override
+	public void notifyToClient() {
+		stateHandler().invoke(new TextualEvent("Seleziona una carta su un piano di valore >= ad "+ value));
 	}
 }
