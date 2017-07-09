@@ -41,9 +41,9 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent;
 		this.costs = resourceLists;
-		dialog.isAlwaysOnTop();
 		
 		dialog.setAlwaysOnTop(true);
+		dialog.getRootPane().setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
 		GridBagLayout gblDialog = new GridBagLayout();

@@ -55,12 +55,13 @@ public class GraphicConfirmPanelView {
 		GridBagLayout gblConfirmpanel = new GridBagLayout();
 		gblConfirmpanel.columnWidths = new int[]{0, 0, 0, 0};
 		gblConfirmpanel.rowHeights = new int[]{0, 0, 0, 0};
-		gblConfirmpanel.columnWeights = new double[]{0.25, 0.5, 0.25, Double.MIN_VALUE};
-		gblConfirmpanel.rowWeights = new double[]{0.2, 0.6, 0.2, Double.MIN_VALUE};
+		gblConfirmpanel.columnWeights = new double[]{0.35, 0.3, 0.35, Double.MIN_VALUE};
+		gblConfirmpanel.rowWeights = new double[]{0.25, 0.5, 0.25, Double.MIN_VALUE};
 		window.getContentPane().setLayout(gblConfirmpanel);
 		
 		GraphicPaintedPanel interPanel = new GraphicPaintedPanel();
 		interPanel.loadImage("BoardImages/Lorenzo LogIn.png");
+		interPanel.setBorder(BorderFactory.createLineBorder(Color.black, 30));
 		JPanel padding1 = new JPanel(),padding2 = new JPanel(),padding3 = new JPanel(),padding4 = new JPanel();
 		padding1.setOpaque(false);
 		padding2.setOpaque(false);
@@ -104,30 +105,28 @@ public class GraphicConfirmPanelView {
 		GridBagLayout gblInternPanel = new GridBagLayout();
 		gblInternPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gblInternPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gblInternPanel.columnWeights = new double[]{0.023, 0.25, 0.025, 0.025, 0.075, 
+		gblInternPanel.columnWeights = new double[]{0.023, 0.4, 0.025, 0.025, 0.075, 
 													0.0375, 0.0375, 0.025,Double.MIN_VALUE};
 		gblInternPanel.rowWeights = new double[]{0.05, 0.1, 0.1, 0.1, 0.15, 0.05, 0.05, Double.MIN_VALUE};
 		interPanel.setLayout(gblInternPanel);
 		
 		JLabel scrittaCosto = new JLabel("<html><font color='white'>COSTO</font></html>"),
-			   scrittaBonus = new JLabel("<html><font color='white'>BONUS</font></html>"),
 			   scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
 		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
 		cardView.update(floor.getCard());
 		cardView.print();
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
-		GraphicResourceListView bonus = new GraphicResourceListView(floor.getActionSpace().getResources());
+		costo.loadImage("BoardImages/Dice cost " + floor.getActionSpace().getActionCost() + ".png");
+		costo.setOpaque(false);
 		addServitori = new JTextField("0");
-		JTextArea messaggio = new JTextArea("MESSAGGIO");			//DOVE SI TROVA ILMESSAGGIO?
+		JTextArea messaggio = new JTextArea("MESSAGGIO");			//DOVE SI TROVA IL MESSAGGIO?
 		JButton confirm = new JButton("Conferma"),
 				cancel = new JButton("Annulla");
 		
 		GridBagConstraints gbcCard = new GridBagConstraints();
 		GridBagConstraints gbcScrittaCosto = new GridBagConstraints();
-		GridBagConstraints gbcScrittaBonus = new GridBagConstraints();
 		GridBagConstraints gbcScrittaServitori = new GridBagConstraints();
 		GridBagConstraints gbcCosto = new GridBagConstraints();
-		GridBagConstraints gbcBonus = new GridBagConstraints();
 		GridBagConstraints gbcServitori = new GridBagConstraints();
 		GridBagConstraints gbcMessaggio = new GridBagConstraints();
 		GridBagConstraints gbcCancel = new GridBagConstraints();
@@ -151,34 +150,21 @@ public class GraphicConfirmPanelView {
 			
 			gbcCosto.gridx = 4;
 			gbcCosto.gridy = 1;
-			costo.setOpaque(false);
+			gbcCosto.gridwidth = 2;
 			gbcCosto.fill = GridBagConstraints.BOTH;
 			interPanel.add(costo, gbcCosto);
 			}
 		} catch (NullPointerException e) {
 		}
 		
-		
-		gbcScrittaBonus.gridx = 3;
-		gbcScrittaBonus.gridy = 2;
-		gbcScrittaBonus.anchor = GridBagConstraints.WEST;
-		scrittaBonus.setFont(new Font("Times New Roman", Font.PLAIN, 40));
-		interPanel.add(scrittaBonus, gbcScrittaBonus);
-		
 		gbcScrittaServitori.gridx = 3;
-		gbcScrittaServitori.gridy = 3;
+		gbcScrittaServitori.gridy = 2;
 		gbcScrittaServitori.anchor = GridBagConstraints.WEST;
 		scrittaServitori.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 		interPanel.add(scrittaServitori, gbcScrittaServitori);
-		
-		gbcBonus.gridx = 4;
-		gbcBonus.gridy = 2;
-		gbcBonus.gridwidth = 3;
-		gbcBonus.fill = GridBagConstraints.BOTH;
-		interPanel.add(bonus, gbcBonus);
-		
+
 		gbcServitori.gridx = 4;
-		gbcServitori.gridy = 3;
+		gbcServitori.gridy = 2;
 		gbcServitori.fill = GridBagConstraints.HORIZONTAL;
 		interPanel.add(addServitori, gbcServitori);
 		

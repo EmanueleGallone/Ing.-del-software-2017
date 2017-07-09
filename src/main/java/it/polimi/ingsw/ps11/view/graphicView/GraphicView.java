@@ -234,7 +234,7 @@ public class GraphicView extends View{
 	@Override
 	public void chooseResource(ArrayList<ResourceList> resource) {
 		chooseResource = new GraphicChooseResourceListPanel(viewEvent,resource, window);
-		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.25), (int)Math.round(screenSize.getHeight()*0.4), 
+		chooseResource.getComponent().setBounds((int)Math.round(screenSize.getHeight()*0.405), (int)Math.round(screenSize.getHeight()*0.3), 
 				 (int)Math.round(screenSize.getWidth()*0.5), (int)Math.round(screenSize.getHeight()*0.33));
 		chooseResource.getComponent().setUndecorated(true);
 		chooseResource.getComponent().setVisible(true);
