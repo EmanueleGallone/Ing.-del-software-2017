@@ -59,5 +59,10 @@ public class TowerTest {
 		Tower clone = greenTower.clone();
 		assertEquals(clone.toString(), greenTower.toString());
 		
+		Tower tower = new Tower("Tower");
+		tower.addFloor(null);
+		tower.addFloor(new Floor()); //necessario per coprire la clone di tower
+		Tower clone2 = tower.clone();
+		assertFalse(tower.equals(clone2)); //equals non ridefinita nella torre
 	}
 }

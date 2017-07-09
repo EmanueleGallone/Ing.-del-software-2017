@@ -17,8 +17,11 @@ import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.AnotherCard;
 import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
 import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.cards.effects.DecrementResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint;
 import it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
@@ -29,6 +32,10 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
@@ -45,25 +52,25 @@ public class InitializeCards {
 		//LeaderCardsInitializer();
 		//initializeExcommunication();
 	}
-	
+	/*
 	public static void inizializzaCarte(){
 		
 		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
 		
 		ResourceList resourceList = new ResourceList();
 		
-		/*
-		 * esempio
-		DevelopmentCard card = new YellowCard();
 		
-		card.addInstantEffect(new AddResourceEffect(new ResourceList(new Coin(3))));
-		card.addPermanentEffect(new CouncilPrivilege(council)); //il privilegio del consiglio è un effetto e va passata la resource list con i valori
+//		  esempio
+//		DevelopmentCard card = new YellowCard();
+//		
+//		card.addInstantEffect(new AddResourceEffect(new ResourceList(new Coin(3))));
+//		card.addPermanentEffect(new CouncilPrivilege(council)); //il privilegio del consiglio è un effetto e va passata la resource list con i valori
+//		
+//		card.addPermanentEffect(new FamilyInFloorBonus(new BlueCard().getId(), 2)); //+2 per le carte blue
+//		card.addPermanentEffect(new CardDiscount(new BlueCard().getId(),new ResourceList(new Coin(1)))); //sconto di una moneta per le carte blu
+//		card.addPermanentEffect(new ActiveYieldEffect(new YellowCard().getId(), 2)); //attiva produzione
+//		
 		
-		card.addPermanentEffect(new FamilyInFloorBonus(new BlueCard().getId(), 2)); //+2 per le carte blue
-		card.addPermanentEffect(new CardDiscount(new BlueCard().getId(),new ResourceList(new Coin(1)))); //sconto di una moneta per le carte blu
-		card.addPermanentEffect(new ActiveYieldEffect(new YellowCard().getId(), 2)); //attiva produzione
-		
-		*/
 		
 	
 		ArrayList<ResourceList> councilPrivilegeResourceLists = new ArrayList<>();
@@ -1700,7 +1707,7 @@ public class InitializeCards {
 	}
 
 	public static void initializeExcommunication(){
-		/*
+		
 		ArrayList<Excommunication> list = new ArrayList<>();
 		Type type = new TypeToken<ArrayList<Excommunication>>(){}.getType();
 		
@@ -1800,8 +1807,7 @@ public class InitializeCards {
 		
 		Loader loader = new Loader(FileRegistry.excommunication);
 		loader.write(list,type);
-		*/
+		
 	}
-	
-	
+*/	
 }
