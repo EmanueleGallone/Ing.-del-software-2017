@@ -14,8 +14,8 @@ import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
 import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 
 public class RMIConnection extends Connection implements RMIReceiver,Serializable{
-
-	private static String DEFAULT_ADDRESS = "//192.168.1.67/myServer";
+	
+	private static String DEFAULT_ADDRESS = "//localhost/myServer";
 	private RMIReceiver connection;
 	
 	public RMIConnection() {
