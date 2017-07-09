@@ -14,9 +14,11 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.event.EventListenerList;
 
 import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.cards.Card;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMemberManager;
 import it.polimi.ingsw.ps11.model.game.Game;
@@ -162,7 +164,7 @@ public class GraphicView extends View{
         graphicPlayerView.attach(eventListener);
         graphicBoardView.attachChangePlayer(changePlayerListener);
         graphicBoardView.attachCardListener(cardClickListener);
-        graphicPlayerView.attachCardListener(cardClickListener);
+        graphicPlayerView.attachLeaderListener(leaderActivateListener);
         graphicPlayerView.attachEndTurnListener(new EndTurn());
       
 //<-------------------------------FINE LISTENER------------------------------->
@@ -256,6 +258,7 @@ public class GraphicView extends View{
 		@Override
 		public void handle(Card e) {
 			String cardType = e.getId();
+			//System.out.println(e.getName());
 			cardZoomPanel.loadImage(cardType+"/"+ e.getName()+".png");
 			cardZoomPanel.repaint();
 		}
@@ -266,6 +269,13 @@ public class GraphicView extends View{
 		public void handle(Player e) {
 			you.update(e);
 			you.print();
+		}
+	};
+	
+	private transient EventListener<LeaderCard> leaderActivateListener = new EventListener<LeaderCard>() {
+		@Override
+		public void handle(LeaderCard e) {
+			System.out.println(e.getId() + " activated: " + e.getName());
 		}
 	};
 	
