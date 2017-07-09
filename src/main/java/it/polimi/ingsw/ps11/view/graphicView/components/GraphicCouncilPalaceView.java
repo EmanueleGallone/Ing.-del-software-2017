@@ -142,6 +142,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 		for (GraphicPaintedButton button : playerSelectors) {
 			if(i < currentOrder.size())
 			button.loadImage("BoardImages/Player color " + currentOrder.get(i).getColor().toString() + ".png");
+			button.repaint();
 			i++;
 		}
 	}

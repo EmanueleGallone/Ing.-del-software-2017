@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
+import it.polimi.ingsw.ps11.model.dices.Dice;
+import it.polimi.ingsw.ps11.model.dices.DiceProxy;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
 import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
@@ -52,6 +54,7 @@ public class FamilyInSpaceTest {
 		
 		Player player = players.get(0); //prendo il primo giocatore
 		BlackFamilyMember blackFamilyMember = new BlackFamilyMember().getFrom(player.getFamilyManager()); // il familiare ha valore 0
+
 		ActionSpace actionSpace = gameLogic.getGame().getBoard().getTower("GreenTower").getFloors().get(1).getActionSpace(); //prendo il secondo piano della greenTower
 		
 		FamilyInSpaceAction familyInSpaceAction = new FamilyInSpaceAction(aManager, blackFamilyMember, actionSpace);
