@@ -14,7 +14,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	MultipleActionSpace multipleActionSpace;
 	JButton selector = new JButton();
-	ArrayList<GraphicPaintedPanel> players = new ArrayList<>();
+	ArrayList<GraphicPaintedPanel> playersPanel = new ArrayList<>();
 	
 	public GraphicMultipleActionSpace(){
 
@@ -25,7 +25,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 		GridBagLayout gblActionSpace = new GridBagLayout();
 		gblActionSpace.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gblActionSpace.rowHeights = new int[]{0, 0};	
-		gblActionSpace.columnWeights = new double[]{0.2, 0.2, 0.2, 0.2, 0.2, Double.MIN_VALUE};
+		gblActionSpace.columnWeights = new double[]{0.1, 0.225, 0.225, 0.225, 0.225, Double.MIN_VALUE};
 		gblActionSpace.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		setLayout(gblActionSpace);
 		
@@ -36,25 +36,19 @@ public class GraphicMultipleActionSpace  extends JPanel{
 		gbc.fill = GridBagConstraints.BOTH;
 		add(selector, gbc);
 		
-		setupMultipleActionSpace();
-		
-	}
-	
-	private void setupMultipleActionSpace(){
-		
 		for(int i = 1; i < 5; i++){
 			
-			GridBagConstraints gbc = new GridBagConstraints();
+			GridBagConstraints gbcPanel = new GridBagConstraints();
 			GraphicPaintedPanel panel = new GraphicPaintedPanel();
 			panel.loadImage("PlayerImages/BLANK.png");
 			panel.setOpaque(false);
-			gbc.gridx = i;
-			gbc.gridy = 0;
-			add(panel, gbc);
-			players.add(panel);
+			gbcPanel.gridx = i;
+			gbcPanel.gridy = 0;
+			gbcPanel.fill = GridBagConstraints.BOTH;
+			add(panel, gbcPanel);
+			playersPanel.add(panel);
 			
-		}
-		
+		}		
 	}
 	
 	public void clean(GraphicPaintedPanel panel){
@@ -64,16 +58,20 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	public void print(ArrayList<ActionSpace> arrayList){
 		
+		ArrayList<String> players = new ArrayList<>();
 		if (arrayList == null) 
 			return;
 		int i = 0;
-		for (GraphicPaintedPanel panel : players) {
+		for (GraphicPaintedPanel panel : playersPanel) {
 			if(i<arrayList.size() && arrayList.get(i).getFamilyMember() == null){
 				clean(panel);
 			} else if(i<arrayList.size()) {
-					String ownerColor = arrayList.get(i).getOwner().getColor().toString();
+				String ownerColor = arrayList.get(i).getOwner().getColor().toString();
+				if(!players.contains(ownerColor)){
+					players.add(ownerColor);
 					String familyMember = arrayList.get(i).getFamilyMember().getId();
 					panel.loadImage("PlayerImages/" + ownerColor + " " + familyMember + ".png");
+				}
 				}
 			i++;
 			}
