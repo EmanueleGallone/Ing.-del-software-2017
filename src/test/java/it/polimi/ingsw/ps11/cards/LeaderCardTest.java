@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.cards;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.Assert;
@@ -14,9 +15,13 @@ import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequireme
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.Requirement;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
+import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 
@@ -60,5 +65,34 @@ public class LeaderCardTest {
 		Assert.assertTrue(clone.isSatisfied(player)); //i requisiti della carta non sono piu' soddisfatti ma siccome era già stata soddisfatta allora rimane tale
 		
 		Assert.assertTrue(clone.equals(card));
+		
+		LeaderCard anotherCard = new LeaderCard("anotherCard");
+		anotherCard.addRequirement(new ResourceRequirement(new ResourceList(new MilitaryPoint(1))));
+		Assert.assertFalse(anotherCard.isSatisfied(player));
+	}
+	
+	@Test
+	public void activeTest(){
+		
+		ArrayList<Player> players = initializePlayers();
+		
+		GameLogic gameLogic = new GameLogic(players);
+		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
+		ActionManager aManager = new ActionManager(stateHandler);
+		
+		LeaderCard card = new LeaderCard("LeaderCard");
+		card.addEffect(new AddResourceEffect(new ResourceList(new VictoryPoint(10))));
+		card.active(aManager);
+		
+		Assert.assertEquals(10, players.get(0).getResourceList().get(new VictoryPoint().getId()).getValue());
+	}
+	
+	private ArrayList<Player> initializePlayers(){
+		PlayerFactory factory = new PlayerFactory();
+		ArrayList<Player> players = new ArrayList<>();
+		for(int i = 0; i < 4; i++)
+			players.add(factory.newPlayer(i));
+		
+		return players;
 	}
 }
