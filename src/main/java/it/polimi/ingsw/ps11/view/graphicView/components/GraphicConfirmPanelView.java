@@ -113,11 +113,6 @@ public class GraphicConfirmPanelView {
 		JLabel scrittaCosto = new JLabel("<html><font color='white'>COSTO</font></html>"),
 			   scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
 		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
-		if(floor!=null)
-		{
-		cardView.update(floor.getCard());
-		cardView.print();
-		}
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
 		costo.loadImage("BoardImages/Dice cost " + floor.getActionSpace().getActionCost() + ".png");
 		costo.setOpaque(false);
@@ -135,7 +130,9 @@ public class GraphicConfirmPanelView {
 		GridBagConstraints gbcCancel = new GridBagConstraints();
 		GridBagConstraints gbcConfirm = new GridBagConstraints();
 
-		if(floor.getCard() != null){
+		if(floor!=null && floor.getCard() != null){
+		cardView.update(floor.getCard());
+		cardView.print();
 		gbcCard.gridx = 1;
 		gbcCard.gridy = 1;
 		gbcCard.gridheight = 5;
