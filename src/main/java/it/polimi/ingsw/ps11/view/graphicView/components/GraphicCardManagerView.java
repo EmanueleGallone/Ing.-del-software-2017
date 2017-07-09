@@ -205,9 +205,9 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	}
 	
 	private void initializeLeaderManager(){
-		int j = 0;
+		int j = leaderButtonCards.size();
 		leaderButtonCards = new ArrayList<>();
-		for(j = 0; j < cardManager.getLeaderCards().size(); j++){
+		for(; j < cardManager.getLeaderCards().size(); j++){
 		
 			GraphicLeaderCardView leaderCardView = new GraphicLeaderCardView();
 			leaderCardView.setOpaque(false);
@@ -228,15 +228,16 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	
 	private void setLeaderCard(ArrayList<LeaderCard> deck){
 		
-		int i =0;
-		for (LeaderCard leaderCard : deck) {
-			
-			leaderButtonCards.get(i).update(leaderCard);
-			leaderButtonCards.get(i).repaint();
-
+		int i = 0;
+		for( GraphicLeaderCardView leaderPanel : leaderButtonCards){
+			if(i< deck.size())
+				leaderPanel.update(deck.get(i));
+			else {
+				leaderPanel.update(new LeaderCard("BLANK"));
+			}
 			i++;
+			leaderPanel.repaint();
 		}
-		
 	}
 	
 	@Override
@@ -247,7 +248,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 				initializeCardManager(deckPanel);
 		}
 		
-		if(leaderButtonCards == null)
+		if(leaderButtonCards.size() < cardManager.getLeaderCards().size())
 			initializeLeaderManager();
 		
 		for (GraphicPaintedPanel deckPanel : arrayAllDecks) {

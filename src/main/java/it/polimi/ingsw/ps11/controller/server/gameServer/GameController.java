@@ -31,16 +31,18 @@ public class GameController implements MessageListener,Runnable {
 		
 		int i = 0;
 		PlayerFactory pFactory = new PlayerFactory();
+		ArrayList<Player> temp = new ArrayList<>();
 		
 		for(Connection connection : clients){
 			connection.attachListener(messageListener);
 			Player player = pFactory.newPlayer(i);
 			player.setName(connection.getId());
 			this.clients.put(connection, player);
+			temp.add(player);
 			i++;
 		}
 		
-		gameLogic = new GameLogic(new ArrayList<>(this.clients.values()));
+		gameLogic = new GameLogic(temp);
 		gameLogic.attach(modelListener);
 	}
 	
