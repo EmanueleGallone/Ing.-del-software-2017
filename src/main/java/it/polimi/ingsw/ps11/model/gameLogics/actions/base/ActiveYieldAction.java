@@ -6,6 +6,7 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 /** <h3> ActiveYieldAction </h3>
  * <p> Azione di attivazione delle carte appartenenti alla classe "Territorio" o "Edificio", 
  * dovuto al piazzamento di un familiare nella zona racolta o Produzione o all'attivazione di una carta</p>
@@ -30,10 +31,17 @@ public class ActiveYieldAction implements Action {
 
 	@Override
 	public void perform() {
+		boolean update = true;
 		ArrayList<DevelopmentCard> cards = aManager.state().getPlayer().getCardManager().getCardList(cardType);
 		for(DevelopmentCard card : cards){
-			if(card.getActiveValue() <= value)
+			if(card.getActiveValue() <= value){
 				active(card.getPermanentEffect());
+				update = false;
+			}
+		}
+		if(update){
+			GameUpdateEvent event = new GameUpdateEvent(aManager.state().getGame());
+			aManager.state().getGameLogic().notifyAllClients(event);	
 		}
 	}
 
