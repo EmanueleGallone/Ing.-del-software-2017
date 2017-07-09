@@ -91,6 +91,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 	public void print() {
 		for(FamilyMember member : familyManager.getFamily().values()){
 			String memberName = member.getId();
+			familyMemberButtons.get(memberName).setBackground(Color.black);
 			if(member.isUsed()){
 				familyMemberButtons.get(memberName).loadImage("PlayerImages/BLANK.png");
 				familyMemberButtons.get(memberName).repaint();
