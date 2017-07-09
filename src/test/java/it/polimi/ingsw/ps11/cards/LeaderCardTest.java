@@ -57,7 +57,7 @@ public class LeaderCardTest {
 		Assert.assertTrue(clone.isSatisfied(player)); //la leaderCard puo' essere attivata
 		
 		clone.addRequirement(new ResourceRequirement(new ResourceList(new VictoryPoint(1))));
-		Assert.assertFalse(clone.isSatisfied(player)); //i requisiti della carta non sono piu' soddisfatti
+		Assert.assertTrue(clone.isSatisfied(player)); //i requisiti della carta non sono piu' soddisfatti ma siccome era già stata soddisfatta allora rimane tale
 		
 		Assert.assertTrue(clone.equals(card));
 	}
