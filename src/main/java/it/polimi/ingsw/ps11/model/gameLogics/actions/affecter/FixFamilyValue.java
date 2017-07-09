@@ -20,7 +20,6 @@ public class FixFamilyValue extends FamilyInSpaceAffecter {
 			int difference = this.value - currentValue;							
 			action.addModifier(difference);	
 		}
-		
 		return action;
 	}
 }

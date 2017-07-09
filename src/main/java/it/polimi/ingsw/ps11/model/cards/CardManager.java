@@ -83,6 +83,12 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		this.limited = limited;
 	}
 	
+	public void resetLeaderCard(){
+		for(LeaderCard card : leaderCards){
+			card.setActivated(false);
+		}
+	}
+	
 // End logic
 // Start getters
 	

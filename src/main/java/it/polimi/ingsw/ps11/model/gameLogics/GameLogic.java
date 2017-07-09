@@ -162,7 +162,11 @@ public class GameLogic implements Runnable{
 					game.getBoard().getDices().rollDices();
 					game.getBoard().resetFamilyMember();
 					ArrayList<Player> newOrder = game.getBoard().getCouncilPalace().getNewOrder();
-					game.getRoundManager().setNewOrder(newOrder);
+					RoundManager rManager = game.getRoundManager();
+					rManager.setNewOrder(newOrder);
+					for(Player player : rManager.getCurrentOrder()){
+						player.getCardManager().resetLeaderCard();
+					}
 				}
 				
 			} catch (FileNotFoundException e1) {

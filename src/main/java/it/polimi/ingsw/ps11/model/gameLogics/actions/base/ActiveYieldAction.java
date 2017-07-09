@@ -46,9 +46,9 @@ public class ActiveYieldAction implements Action {
 		}
 	}
 
-	@Override
-	public ActiveYieldAction clone() {
-		return new ActiveYieldAction(aManager, cardType, value);
-	}
+//	@Override
+//	public ActiveYieldAction clone() {
+//		return new ActiveYieldAction(aManager, cardType, value);
+//	}
 
 }

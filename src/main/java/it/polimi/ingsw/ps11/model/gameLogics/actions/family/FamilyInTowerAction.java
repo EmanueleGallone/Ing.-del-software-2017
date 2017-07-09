@@ -77,8 +77,8 @@ public class FamilyInTowerAction implements Action {
 		return tower;
 	}
 	
-	@Override
-	public FamilyInTowerAction clone(){
-		return new FamilyInTowerAction(aManager, tower, familyMember);
-	}
+//	@Override
+//	public FamilyInTowerAction clone(){
+//		return new FamilyInTowerAction(aManager, tower, familyMember);
+//	}
 }

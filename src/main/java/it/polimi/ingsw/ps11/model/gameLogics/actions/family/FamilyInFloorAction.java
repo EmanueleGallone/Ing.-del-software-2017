@@ -99,8 +99,8 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 			perform();
 	}
 	
-	@Override
-	public FamilyInFloorAction clone() {
-		return new FamilyInFloorAction(aManager, towerAction.clone(), spaceAction.clone(), getCard.clone());
-	}
+//	@Override
+//	public FamilyInFloorAction clone() {
+//		return new FamilyInFloorAction(aManager, towerAction.clone(), spaceAction.clone(), getCard.clone());
+//	}
 }

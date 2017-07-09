@@ -123,12 +123,12 @@ public class GetCardAction implements Action {
 		eventHandler.attach(listener);
 	}
 
-	@Override
-	public GetCardAction clone() {
-		ResourceList c = cost;
-		if(cost != null)
-			c = cost.clone();
-		return new GetCardAction(aManager, card.clone(), c);
-	}
+//	@Override
+//	public GetCardAction clone() {
+//		ResourceList c = cost;
+//		if(cost != null)
+//			c = cost.clone();
+//		return new GetCardAction(aManager, card.clone(), c);
+//	}
 
 }

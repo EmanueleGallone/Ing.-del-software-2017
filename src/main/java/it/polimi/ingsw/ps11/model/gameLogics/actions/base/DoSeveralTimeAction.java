@@ -32,9 +32,9 @@ public class DoSeveralTimeAction implements Action{
 		}
 	}
 
-	@Override
-	public DoSeveralTimeAction clone() {
-		return new DoSeveralTimeAction(aManager, action.clone(), iterationNumber);
-	}
+//	@Override
+//	public DoSeveralTimeAction clone() {
+//		return new DoSeveralTimeAction(aManager, action.clone(), iterationNumber);
+//	}
 
 }

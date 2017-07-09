@@ -124,7 +124,10 @@ public class PlayState extends DefaultState{
 			}
 			if(!card.isSatisfied(stateHandler().getPlayer())){
 				stateHandler().invoke("Non hai i requisiti per attivare questa carta");
+				return;
 			}
+			if(!card.isActivated())
+				card.active(stateHandler().actions());
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace(); //Carta non presente
 		}

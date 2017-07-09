@@ -57,9 +57,9 @@ public class ExchangeAction implements Action, ResourceListener {
 		}
 	}
 
-	@Override
-	public ExchangeAction clone() {
-		return new ExchangeAction(aManager, exchange);
-	}
+//	@Override
+//	public ExchangeAction clone() {
+//		return new ExchangeAction(aManager, exchange);
+//	}
 
 }

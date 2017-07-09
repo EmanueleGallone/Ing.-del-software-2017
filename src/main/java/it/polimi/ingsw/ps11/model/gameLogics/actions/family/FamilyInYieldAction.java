@@ -45,8 +45,7 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	public void perform() {
 		FamilyInSpaceAction action = aManager.affect(spaceAction);
 		action.perform();
-		int activationValue = spaceAction.getFamilyMember().getValue();
-		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), activationValue );
+		ActiveYieldAction activeYield = new ActiveYieldAction(aManager, yield.getActiveCard(), spaceAction.getFamilyValue());
 		activeYield = aManager.affect(activeYield);
 		activeYield.perform();
 	}
@@ -71,8 +70,8 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 		return yield;
 	}
 	
-	@Override
-	public FamilyInYieldAction clone() {
-		return new FamilyInYieldAction(aManager, yield, spaceAction.getFamilyMember());
-	}
+//	@Override
+//	public FamilyInYieldAction clone() {
+//		return new FamilyInYieldAction(aManager, yield, spaceAction.getFamilyMember());
+//	}
 }

@@ -11,5 +11,5 @@ public interface Action {
 	public default String name(){
 		return this.getClass().toString();
 	}
-	public Action clone();
+	//public Action clone();
 }

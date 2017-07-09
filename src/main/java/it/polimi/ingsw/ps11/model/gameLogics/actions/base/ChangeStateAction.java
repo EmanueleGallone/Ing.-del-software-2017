@@ -29,8 +29,8 @@ public class ChangeStateAction implements Action {
 	}
 
 	
-	@Override
-	public ChangeStateAction clone() {
-		return new ChangeStateAction(aManager, nextState);
-	}
+//	@Override
+//	public ChangeStateAction clone() {
+//		return new ChangeStateAction(aManager, nextState);
+//	}
 }

@@ -32,14 +32,17 @@ public class LeaderCard extends Card implements Requirement{
 			if(!r.isSatisfied(player))
 				return false;
 		}
+		setSatisfied(true);
 		return true;
 	}
 	
 	public void active(ActionManager aManager){
 		for(Effect effect: effects){
 			Action action = effect.get(aManager);
-			if(action.isLegal())
+			if(action.isLegal()){
 				action.perform();
+				this.setActivated(true);
+			}
 		}
 	}
 	
@@ -52,7 +55,11 @@ public class LeaderCard extends Card implements Requirement{
 	}
 	
 	public void setActivated(boolean activated) {
-		this.satisfied = activated;
+		this.activated = activated;
+	}
+	
+	public void setSatisfied(boolean satisfied) {
+		this.satisfied = satisfied;
 	}
 	
 	public ArrayList<Effect> getEffects() {

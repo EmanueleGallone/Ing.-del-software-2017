@@ -33,11 +33,6 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		this.alreadyDone = aManager.state().isDone();
 	}
 	
-	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space, int servant) {
-		this(aManager,fMember,space);
-		this.servant = servant;
-	}
-	
 	private DecrementAction makeServantAction (){
 		DecrementAction servantAction = new DecrementAction(aManager, new ResourceList(new Servant(servant)));
 		return aManager.affect(servantAction);
@@ -51,7 +46,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 			return false;
 		}
 		if(space.isFree() && makeServantAction().isLegal()){
-			return checkActionCost(servant + modifier);
+			return checkActionCost();
 		}
 		return false;
 	}
@@ -60,11 +55,8 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		this.modifier = this.modifier + modifier;
 	}
 	
-	public boolean checkActionCost(int mod){
-		int familyValue = 0;
-		if(familyMember != null)
-			familyValue = familyMember.getValue();
-		if(space.getActionCost() > (familyValue + mod)){
+	public boolean checkActionCost(){
+		if(space.getActionCost() > (getFamilyValue())){
 			aManager.state().invoke("Il familiare non ha un valore sufficiente");
 			return false;
 		}
@@ -102,6 +94,13 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		return space;
 	}
 	
+	public int getFamilyValue() {
+		int familyValue = 0;
+		if(familyMember != null)
+			familyValue = familyMember.getValue();
+		return modifier + servant + familyValue;
+	}
+	
 	public FamilyMember getFamilyMember() {
 		return familyMember;
 	}
@@ -118,9 +117,9 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		return new ConfirmEvent(space);
 	}
 	
-	@Override
-	public FamilyInSpaceAction clone() {
-		return new FamilyInSpaceAction(aManager, familyMember, space, servant);
-	}
+//	@Override
+//	public FamilyInSpaceAction clone() {
+//		return new FamilyInSpaceAction(aManager, familyMember, space, servant);
+//	}
 
 }
