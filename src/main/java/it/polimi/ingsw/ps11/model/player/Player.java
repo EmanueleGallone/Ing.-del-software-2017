@@ -92,6 +92,7 @@ public class Player implements Serializable{
 		Player clone = new Player();
 		
 		clone.name = this.name;
+		clone.color = this.color;
 		
 		clone.resourceList = this.resourceList.clone();
 		clone.familyManager = this.familyManager.clone();

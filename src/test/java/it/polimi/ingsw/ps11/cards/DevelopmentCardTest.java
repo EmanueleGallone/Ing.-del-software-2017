@@ -13,6 +13,8 @@ import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.model.loaders.InitializeCards;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -77,6 +79,15 @@ public class DevelopmentCardTest {
 		bCard2 = new BlueCard("1");
 		assertTrue(bCard1.equals(bCard2));					//stesso nome e stesso tipo	
 		
+		PurpleCard card = new PurpleCard("PurpleCard");
+		card.addCost(new ResourceList(new Stone(1)));
+		
+		Assert.assertFalse(card.equals(new PurpleCard("otherPurple")));
+		
+		GreenCard card2 = new GreenCard("GreenCard");
+		Assert.assertFalse(card2.equals(null));
+		Assert.assertFalse(card2.equals(new GreenCard()));
+		
 	}
 	
 	@Test
@@ -108,5 +119,22 @@ public class DevelopmentCardTest {
 		BlueCard clone = blueCard.clone();
 		Assert.assertEquals(toString, blueCard.toString());
 		
+	}
+	
+	@Test
+	public void cloneTest(){
+		PurpleCard card = new PurpleCard("PurpleCard");
+		card.addCost(new ResourceList(new Stone(1)));
+		PurpleCard clone = card.clone();
+		card.setActiveValue(1);
+		
+		Assert.assertEquals(card, clone); //devono essere uguali (avere nomi uguali)
+		Assert.assertFalse(card.equals(null));
+		
+		GreenCard card2 = new GreenCard("GreenCard");
+		GreenCard cloneGreenCard = card2.clone();
+		
+		Assert.assertFalse(card.equals(card2));
+		Assert.assertTrue(card2.equals(cloneGreenCard));
 	}
 }

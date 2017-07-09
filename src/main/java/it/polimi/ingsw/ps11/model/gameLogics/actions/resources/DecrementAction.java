@@ -18,8 +18,8 @@ public class DecrementAction extends IncrementAction{
 		Player player = aManager.state().getPlayer();
 		boolean result = super.isLegal() &&  player.getResourceList().canSubtract(getResources());
 		
-		if(!result)
-			aManager.state().invoke("Le risorse che hai non sono abbastanza, dovresti avere: " + getResources().toString() );
+		if(!result && getResources() != null)
+			aManager.state().invoke("You do not have enough resources; You should have: " + getResources().toString() );
 		
 		return result;
 	}
