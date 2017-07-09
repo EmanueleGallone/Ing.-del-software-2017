@@ -285,6 +285,7 @@ public class GraphicView extends View{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			window.setState(JFrame.ICONIFIED);
+			slideDialog.setVisible(false);
 		}
 	}
 	
@@ -301,5 +302,4 @@ public class GraphicView extends View{
 			viewEvent.invoke(new EndTurnEvent());
 		}
 	}
-	
 }
