@@ -14,15 +14,15 @@ import it.polimi.ingsw.ps11.model.player.Player;
 public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable {
 
 	protected final static int COST = 1;
-	private int cost;
+	private int penality;
 	protected ArrayList<ActionSpace> multipleActionSpace = new ArrayList<>();
 	
 	public MultipleActionSpace() {
 		this(COST);
 	}
 	
-	public MultipleActionSpace(int cost) {
-		this.cost = cost;
+	public MultipleActionSpace(int penality) {
+		this.penality = penality;
 	}
 	
 	/**<h3> ActionSpace getFreeSpace </h3>
@@ -33,7 +33,8 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 			if(space.isFree())
 				return space;
 		}
-		ActionSpace space = new ActionSpace(cost);
+		ActionSpace space = new ActionSpace(penality);
+		space.setPenality(penality);
 		multipleActionSpace.add(space);
 		return space;
 	}
@@ -93,7 +94,7 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 		boolean result = false;
 		if(obj.getClass().equals(this.getClass())){
 			MultipleActionSpace aSpace = (MultipleActionSpace) obj;
-			result = this.cost == aSpace.cost;
+			result = this.penality == aSpace.penality;
 			if(this.multipleActionSpace.size() != aSpace.multipleActionSpace.size() || !result)
 				return false;
 			
@@ -107,7 +108,7 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 	
 	@Override
 	public MultipleActionSpace clone(){
-		MultipleActionSpace clone = new MultipleActionSpace(cost);
+		MultipleActionSpace clone = new MultipleActionSpace(penality);
 		
 		for(ActionSpace a : this.multipleActionSpace){
 			if(a != null)

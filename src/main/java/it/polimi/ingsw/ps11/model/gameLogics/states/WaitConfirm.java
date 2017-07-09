@@ -27,8 +27,11 @@ public class WaitConfirm extends PlayState {
 	}
 	
 	private void doAfterAction(ArrayList<Action> actions){
+		if(actions == null)
+			return;
+		
 		for(Action action: actions ){
-			if(action!=null && action.isLegal())
+			if(action.isLegal())
 				action.perform();
 		}
 	}
