@@ -9,22 +9,22 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.JToggleButton;
 
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+
 public class GraphicLeaderCardView extends JToggleButton{
 	
 	protected BufferedImage background;
-	private boolean painted = false;
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if(painted){
+		if(background!=null){
 		Dimension size = getSize();
 		g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
 		}
 	}
 	
 	public void loadImage(String url){
-		painted = true;
 		URL imagePath = getClass().getClassLoader().getResource(url);
 		BufferedImage result = null;
 		try {
@@ -35,6 +35,13 @@ public class GraphicLeaderCardView extends JToggleButton{
 		}
 		
 		background = result;
+	}
+	
+	void update(LeaderCard leaderCard){
+		if(leaderCard != null)
+		loadImage("LeaderCard/" + leaderCard.getName() + ".png");
+		else
+			loadImage("PlayerImages/BLANK.png");
 	}
 
 }
