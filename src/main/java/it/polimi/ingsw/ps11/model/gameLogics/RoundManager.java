@@ -94,7 +94,7 @@ public class RoundManager implements Serializable{
 		}
 		players.removeAll(support);
 		support.addAll(players);
-		this.players = newOrder;
+		this.players = support;
 	}
 // ____________________________________________
 	
