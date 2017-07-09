@@ -21,8 +21,8 @@ import it.polimi.ingsw.ps11.view.textualView.components.TextualBoardView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseFamilyView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualChooseResourceView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualDevelopmentCardView;
-import it.polimi.ingsw.ps11.view.textualView.components.TextualFloorView;
 import it.polimi.ingsw.ps11.view.textualView.components.TextualPlayerView;
+import it.polimi.ingsw.ps11.view.viewEvents.ActiveLeaderCardEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
@@ -99,7 +99,12 @@ public class TextualView extends View {
 				viewEvent.invoke(commands.get(command));
 				if (command.equals("update")){
 					block = false;
-				}
+				}				
+			}
+			else if (command.contains("leader")) {
+				command = command.replace("leader", "");
+				command = command.trim();
+				viewEvent.invoke(new ActiveLeaderCardEvent(command));
 			}
 		}
 	}
