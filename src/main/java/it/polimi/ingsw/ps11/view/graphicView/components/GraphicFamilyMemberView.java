@@ -95,7 +95,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 				familyMemberButtons.get(memberName).loadImage("PlayerImages/BLANK.png");
 				familyMemberButtons.get(memberName).repaint();
 				familyMemberButtons.get(memberName).setEnabled(false);
-				familyMemberValues.get(memberName).setText("Used");
+				familyMemberValues.get(memberName).setText("<html><font color='white'>Used</font></html>");
 			} else {
 			familyMemberButtons.get(memberName).loadImage("PlayerImages/" + playerColor + " " + memberName + ".png");
 			familyMemberButtons.get(memberName).repaint();

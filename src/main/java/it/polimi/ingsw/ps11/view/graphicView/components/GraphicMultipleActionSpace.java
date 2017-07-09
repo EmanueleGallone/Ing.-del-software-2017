@@ -50,6 +50,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			panel.setOpaque(false);
 			gbc.gridx = i;
 			gbc.gridy = 0;
+			gbc.fill = GridBagConstraints.BOTH;
 			add(panel, gbc);
 			players.add(panel);
 			
