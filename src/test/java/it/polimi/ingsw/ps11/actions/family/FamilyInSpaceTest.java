@@ -39,7 +39,11 @@ public class FamilyInSpaceTest {
 		ActionSpace actionSpace = gameLogic.getGame().getBoard().getTower("GreenTower").getFloors().get(1).getActionSpace(); //prendo il secondo piano della greenTower
 		
 		FamilyInSpaceAction familyInSpaceAction = new FamilyInSpaceAction(aManager, blackFamilyMember, actionSpace);
-		Assert.assertTrue(familyInSpaceAction.isLegal()); //non e' possibile in quanto il valueCost dell'actionSpace e' maggiore del valore del familiare
+		if (blackFamilyMember.getValue() >= 3) //necessario in quanto il valore e' random
+			Assert.assertTrue(familyInSpaceAction.isLegal()); //possibile, in quanto il familiare ha valore maggiore o uguale allo spazio azione
+		else 
+			Assert.assertFalse(familyInSpaceAction.isLegal());
+		
 		
 	}
 

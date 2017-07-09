@@ -1,6 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.states;
 
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
@@ -41,6 +42,12 @@ public class WaitingActionSpace extends PlayState {
 	@Override
 	public void handle(HarvestSelectedEvent harvestSelectedEvent) {
 		actionSpaceSelected(harvestSelectedEvent);
+	}
+	
+	@Override
+	public void handle(CouncilSelectedEvent councilSelectedEvent) {
+		actionSpaceSelected(councilSelectedEvent);
+
 	}
 	
 }

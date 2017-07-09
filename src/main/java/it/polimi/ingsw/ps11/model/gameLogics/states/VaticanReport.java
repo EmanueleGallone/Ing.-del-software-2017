@@ -69,7 +69,7 @@ public class VaticanReport extends DefaultState {
 		for(Effect e : excommunication){
 			e.get(sHandler.actions());
 		}
-		
+		sHandler.invoke("Hai ricevuto una scomunica");
 		completePhases();
 	}
 	
