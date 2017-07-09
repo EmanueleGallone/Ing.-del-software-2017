@@ -86,12 +86,15 @@ public class RoundManager implements Serializable{
 	}
 	
 	public void setNewOrder(ArrayList<Player> newOrder) {
+		ArrayList<Player> support = new ArrayList<>();
 		for(Player player : newOrder){
 			if(player!=null){
-				players.remove(player);
-				players.add(player);
+				support.add(player);
 			}
 		}
+		players.removeAll(newOrder);
+		newOrder.addAll(players);
+		this.players = newOrder;
 	}
 // ____________________________________________
 	

@@ -60,7 +60,6 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 			JLabel value = new JLabel("0", SwingConstants.CENTER);
 			value.setBackground(Color.BLACK);
 			value.setOpaque(true);
-//			value.setOpaque(false);
 //			familyMemberPanel.loadImage("playerImages/" + color + familyMemberName.getSimpleName() + ".png");
 			GridBagConstraints gbcButton = new GridBagConstraints();
 			GridBagConstraints gbcValue = new GridBagConstraints();
