@@ -42,16 +42,6 @@ public class PlayState extends DefaultState{
 // Events handling
 
 	@Override
-	public void handle(ConfirmViewEvent confirmEvent) {
-		
-	}
-	
-	@Override
-	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
-		
-	}
-	
-	@Override
 	public void handle(FamilySelectedEvent familySelectedEvent) {
 		stateHandler().nextState(new WaitingActionSpace(familySelectedEvent));
 	}
@@ -65,11 +55,17 @@ public class PlayState extends DefaultState{
 	public void handle(MarketSelectedEvent marketSelectedEvent) {
 		if(familySelectedCheck(marketSelectedEvent)){
 			Market market = stateHandler().getGame().getBoard().getMarket();
-			ActionSpace space = market.getActionSpace(marketSelectedEvent.getActionSpace());
-			ActionManager aManager = stateHandler().actions();
-			FamilyInSpaceAction action = new FamilyInSpaceAction(aManager,selectFMember(marketSelectedEvent), space);
-			action = aManager.affect(action);
-			stateHandler().nextState(new WaitConfirm(action));
+			try {
+				ActionSpace space = market.getActionSpace(marketSelectedEvent.getActionSpace());
+				ActionManager aManager = stateHandler().actions();
+				FamilyInSpaceAction action = new FamilyInSpaceAction(aManager,selectFMember(marketSelectedEvent), space);
+				action = aManager.affect(action);
+				stateHandler().nextState(new WaitConfirm(action));
+			} catch (IllegalArgumentException e) {
+				stateHandler().invoke("Non puoi selezionare tale spazio azione del market");
+//				System.err.println();
+//				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -103,6 +99,12 @@ public class PlayState extends DefaultState{
 		stateHandler().nextState(new WaitConfirm(action));
 	}
 
+	@Override
+	public void handle(ConfirmViewEvent confirmEvent) {}
+	
+	@Override
+	public void handle(ResourceSelectedEvent resourceSelectedEvent) {}
+	
 	@Override
 	public void handle(EndTurnEvent endTurnEvent) {
 		stateHandler().getGameLogic().nextPlayer();

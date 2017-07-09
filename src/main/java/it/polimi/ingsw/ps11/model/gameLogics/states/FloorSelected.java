@@ -47,12 +47,20 @@ public class FloorSelected extends PlayState {
 		tAction = aManager.affect(tAction);
 		sAction = aManager.affect(sAction);
 		getCard = aManager.affect(getCard);
-		getCard.attach(listener);
-
-		action = aManager.affect(new FamilyInFloorAction(aManager, tAction, sAction, getCard));
+		
+		execute(tAction,sAction,getCard);
+	}
+	
+	
+	public void execute(FamilyInTowerAction tAction, FamilyInSpaceAction sAction, GetCardAction getCardAction){
+		ActionManager aManager = stateHandler().actions();
+		getCardAction.attach(listener);
+		
+		action = aManager.affect(new FamilyInFloorAction(aManager, tAction, sAction, getCardAction));
 		
 		if(action.isLegal()){
 			action.perform();
+			stateHandler().nextState(new PlayState());
 		}
 	}
 	
@@ -63,6 +71,10 @@ public class FloorSelected extends PlayState {
 			stateHandler().nextState(new WaitResource(e,action));
 		}
 	};
+	
+	public void setAction(FamilyInFloorAction action) {
+		this.action = action;
+	}
 	
 	@Override
 	public void handle(FamilySelectedEvent familySelectedEvent) {

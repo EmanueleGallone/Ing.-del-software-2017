@@ -70,11 +70,11 @@ public class MultipleActionSpace implements Iterable<ActionSpace>, Serializable 
 		}
 	}
 	
-	public ActionSpace getActionSpace(int index){
+	public ActionSpace getActionSpace(int index) throws IllegalArgumentException{
 		if (index < multipleActionSpace.size()){
 			return multipleActionSpace.get(index);
 		}
-		return null;
+		throw new IllegalArgumentException();
 	}
 	
 	public ArrayList<ActionSpace> getAllSpace() {

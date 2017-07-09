@@ -31,7 +31,7 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		if (index < THRESHOLD && index >= 0 ) {
 			return super.getActionSpace(index);
 		}
-		else if (playerNumber == MAX_NUMBER) {
+		else if (isFull()) {
 			return super.getActionSpace(index);
 		}
 		
@@ -42,4 +42,8 @@ public class Market extends MultipleActionSpace implements Serializable  {
 		return playerNumber;
 	}
 			
+	public boolean isFull(){
+		return playerNumber == MAX_NUMBER;
+	}
+	
 }

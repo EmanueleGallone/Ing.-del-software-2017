@@ -22,14 +22,15 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	private ActionManager aManager;
 	private FamilyMember familyMember;
 	private ActionSpace space;
-	private int servant;
-	private int modifier;
+	private int servant, modifier;
+	private boolean alreadyDone;
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space) {
 		this.aManager = aManager;
 		this.familyMember = fMember;
 		this.space = space;
 		this.servant = 0;
+		this.alreadyDone = aManager.state().isDone();
 	}
 	
 	public FamilyInSpaceAction(ActionManager aManager, FamilyMember fMember, ActionSpace space, int servant) {
@@ -45,7 +46,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	@Override
 	public boolean isLegal() {
 
-		if(aManager.state().isDone()){
+		if(alreadyDone){
 			aManager.state().invoke("Questa azione puo' essere fatta solo una volta per turno");
 			return false;
 		}
@@ -60,7 +61,10 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	}
 	
 	public boolean checkActionCost(int mod){
-		if(space.getActionCost() > (familyMember.getValue() + mod)){
+		int familyValue = 0;
+		if(familyMember != null)
+			familyValue = familyMember.getValue();
+		if(space.getActionCost() > (familyValue + mod)){
 			aManager.state().invoke("Il familiare non ha un valore sufficiente");
 			return false;
 		}
@@ -72,8 +76,10 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		if(servant>0)
 			makeServantAction().perform();
 		
-		space.placeFamilyMember(familyMember, aManager.state().getPlayer());
-		familyMember.setUsed(true);
+		if(familyMember!=null){
+			space.placeFamilyMember(familyMember, aManager.state().getPlayer());
+			familyMember.setUsed(true);
+		}
 		if(space.getResources()!=null){
 			IncrementAction increment = new IncrementAction(aManager,space.getResources());
 			increment = aManager.affect(increment);
@@ -82,6 +88,10 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 		aManager.state().setActionDone(true);
 		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 
+	}
+	
+	public void setAlreadyDone(boolean alreadyDone) {
+		this.alreadyDone = alreadyDone;
 	}
 	
 	public void incrementServant(int servant) {

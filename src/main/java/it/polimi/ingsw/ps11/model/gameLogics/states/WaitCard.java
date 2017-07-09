@@ -17,6 +17,7 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEve
 
 public class WaitCard extends PlayState{
 
+	private FloorSelectedEvent event;
 	private String cardType;
 	private Floor floor;
 	private Tower tower;
@@ -53,10 +54,11 @@ public class WaitCard extends PlayState{
 		NeutralFamilyMember fMember = new NeutralFamilyMember();
 		ActionManager aManager = stateHandler().actions();
 		
-		FamilyInSpaceAction sAction = new FamilyInSpaceAction(aManager,fMember, floor.getActionSpace());
+		FamilyInSpaceAction sAction = new FamilyInSpaceAction(aManager,null, floor.getActionSpace());
 		sAction.addModifier(value);
+		sAction.setAlreadyDone(false);
 		FamilyInTowerAction tAction = new FamilyInTowerAction(aManager, tower, fMember);
-		GetCardAction getCard = new GetCardAction(aManager, floor.getCard(), cost);
+		GetCardAction getCard = new GetCardAction(aManager, floor, cost);
 		
 		FamilyInFloorAction action = new FamilyInFloorAction(aManager,tAction, sAction, getCard);
 		
@@ -65,10 +67,9 @@ public class WaitCard extends PlayState{
 		getCard = aManager.affect(getCard);
 		action = aManager.affect(action);
 		
-		if(action.isLegal()){
-			getCard.perform();
-			stateHandler().nextState(new PlayState());
-		}
+		FloorSelected state = new FloorSelected(event);
+		stateHandler().nextState(state);
+		state.execute(tAction, sAction, getCard);
 	}
 	
 	@Override
