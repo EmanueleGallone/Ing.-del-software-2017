@@ -1,5 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.resources;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
@@ -27,6 +28,8 @@ public class DecrementAction extends IncrementAction{
 	@Override
 	public void perform() {
 		aManager.state().getPlayer().getResourceList().subtract(getResources());
+		GameUpdateEvent event = new GameUpdateEvent(aManager.state().getGame());
+		aManager.state().getGameLogic().notifyAllClients(event);
 	}
 	
 	@Override

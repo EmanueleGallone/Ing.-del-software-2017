@@ -3,6 +3,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.resources;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
+import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> IncrementAction </h3>
  * <p> Classe che rappresenta l'azione di incremento di risorse in una ResourceList</p>
@@ -28,6 +29,8 @@ public class IncrementAction implements Action, ResourceListener{
 	@Override
 	public void perform() {
 		aManager.state().getPlayer().getResourceList().sum(getResources());
+		GameUpdateEvent event = new GameUpdateEvent(aManager.state().getGame());
+		aManager.state().getGameLogic().notifyAllClients(event);
 	}
 
 	public ResourceList getResources() {

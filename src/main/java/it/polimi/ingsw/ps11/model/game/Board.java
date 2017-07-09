@@ -78,6 +78,7 @@ public class Board implements Serializable{
 		for(Tower tower : towers.values()){
 			tower.resetFloors();
 		}
+		councilPalace.clean();
 		production.resetFamilyMember();
 		harvest.resetFamilyMember();
 		market.clean();

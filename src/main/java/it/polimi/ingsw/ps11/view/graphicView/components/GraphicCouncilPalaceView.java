@@ -15,6 +15,7 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
 /**
  * <h3> GraphicCouncilPalaceView</h3>
@@ -186,7 +187,7 @@ public class GraphicCouncilPalaceView extends CouncilPalaceView{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//eventHandler.invoke(new CouncilSelectedEvent());
+			eventHandler.invoke(new CouncilSelectedEvent());
 		}
 	}
 }
