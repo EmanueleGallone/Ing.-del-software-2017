@@ -26,8 +26,12 @@ dove vengono mostrate le risorse.
 cliccate nel pulsante di fianco alla vostra barra dove sono situate le vostre risorse per aprire il pannello contenente la zona produzione,
 la zona raccolta, il mercato ed il palazzo del consiglio.
 
+Quando avete terminato l'azione (cioè posizionato un familiare o attivato una carta leader) ricordatevi di passare il turno, Altrimenti il server
+vi classificherà come utenti inattivi.
+
 COMMAND LINE INTERFACE:
 Una volta iniziata la partita, verrà stampata la board a schermo ed il vostro status. per stampare la board scrivete update e premete invio.
 Per selezionare un piano di una torre scrivete ad esempio "yellow tower 1". Per selezionare uno spazio azione del market scrivete "market 1".
 Quando selezionate un posto azione vi verrà mostrata la lista dei familiari disponibili al posizionamento. Successivamente verrà mostrato un messaggio
-dove vi verrà chiesto di scegliere quanti servitori utilizzare.
+dove vi verrà chiesto di scegliere quanti servitori utilizzare. una volta premuto invio, verra' inviato al server la vostra azione.
+Per passare il turno digitate "pass".
