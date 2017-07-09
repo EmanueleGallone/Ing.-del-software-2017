@@ -29,8 +29,10 @@ public class GraphicProductionView extends ProductionView {
 		
 		singleActionSpace.setContentAreaFilled(false);
 		
-		singleActionSpace.addActionListener(new ProductionSelectedListener());
-		multipleActionSpace.attachListener(new ProductionSelectedListener());
+		ProductionSelectedListener listener = new ProductionSelectedListener();
+		
+		singleActionSpace.addActionListener(listener);
+		multipleActionSpace.getButton().addActionListener(listener);
 				
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 
