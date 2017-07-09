@@ -164,6 +164,7 @@ public class TextualView extends View {
 					parsed = Integer.parseInt(e);
 					if(parsed >= 0){
 						viewEvent.invoke(new ConfirmViewEvent(true,parsed));
+						return;
 					}
 					viewEvent.invoke(new ConfirmViewEvent(false));
 				} catch (NumberFormatException e1) {

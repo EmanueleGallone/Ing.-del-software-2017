@@ -3,6 +3,8 @@ package it.polimi.ingsw.ps11.view.textualView.components;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.view.graphicView.components.GraphicCardManagerView.LeaderAction;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
 
@@ -27,6 +29,11 @@ public class TextualCardManagerView extends CardManagerView{
 			}
 			console.print("\n");
 		}
+		console.println("LeaderCards : ");
+		for(LeaderCard card : cardManager.getLeaderCards())
+			if (card != null) {
+				console.println(card.getName());
+			}
 	}
 
 }
