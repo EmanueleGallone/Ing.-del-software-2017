@@ -59,27 +59,23 @@ public class GraphicMultipleActionSpace  extends JPanel{
 	
 	public void clean(GraphicPaintedPanel panel){
 		panel.loadImage("PlayerImages/BLANK.png");
-		panel.setOpaque(true);
+		panel.setOpaque(false);
 	}
 	
 	public void print(ArrayList<ActionSpace> arrayList){
 		
-		if (arrayList != null) return;
+		if (arrayList == null) return;
 		int i = 0;
 		for (GraphicPaintedPanel panel : players) {
-			if(arrayList.get(i) == null){
-				clean(players.get(i));
+			if(i<arrayList.size() || arrayList.get(i).getFamilyMember() == null){
+				clean(panel);
 			} else {
-				if (arrayList.get(i).getFamilyMember() != null)
-					clean(players.get(i));
-				else {
 					String ownerColor = arrayList.get(i).getOwner().getColor().toString();
 					String familyMember = arrayList.get(i).getFamilyMember().getId();
-					players.get(i).loadImage("PlayerImages/" + ownerColor + " " + familyMember + ".png");
+					panel.loadImage("PlayerImages/" + ownerColor + " " + familyMember + ".png");
 				}
+			i++;
 			}
-
-		}
 		
 	    revalidate();
 	    repaint();
