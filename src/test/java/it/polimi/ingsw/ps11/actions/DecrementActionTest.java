@@ -67,7 +67,7 @@ public class DecrementActionTest {
 		assertEquals( new Wood().getFrom(playerResources), new Wood(0));
 		
 		//Sommiamo una risorceList nulla, le risorse dovranno rimanere invariate
-		
+		resourceToSubtract = new ResourceList();
 		DecrementAction incrementNull = new DecrementAction(aManager, null);
 		
 		if(incrementNull.isLegal())

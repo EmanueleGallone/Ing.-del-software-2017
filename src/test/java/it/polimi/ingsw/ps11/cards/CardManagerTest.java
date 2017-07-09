@@ -11,7 +11,9 @@ import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
@@ -83,10 +85,19 @@ public class CardManagerTest {
 	
 	@Test
 	public void cloneTest(){
+		PlayerFactory factory = new PlayerFactory();
+		player = factory.newPlayer(0);
+		
+		player.getCardManager().addCard(new LeaderCard("LeaderCard"));
+		player.getCardManager().addCard(new BlueCard("Bluecard"));
+		
+		CardManager cardManager = new CardManager(false);
+		Assert.assertFalse(cardManager.isLimited()); //non deve essere limitato (cioe' deve poter contenere un numero di carte illimitato)
+		Assert.assertEquals(0 , cardManager.getCardList(new GreenCard().getId()).size()); //deve ritornare un arraylist vuoto
 		
 		CardManager clone = player.getCardManager().clone();
 		Assert.assertEquals(1, clone.getAllCards().size()); //c'è un solo arrayList di carte, ovvero le blu
-		Assert.assertEquals(6, clone.getCardList(bCard.getId()).size());
+		Assert.assertEquals(1, clone.getCardList(bCard.getId()).size()); //c'e' una sola carta blu
 		
 		String toString = player.getCardManager().toString();
 		Assert.assertEquals(toString, clone.toString());

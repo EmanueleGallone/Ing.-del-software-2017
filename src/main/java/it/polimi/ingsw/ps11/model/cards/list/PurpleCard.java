@@ -31,6 +31,7 @@ public class PurpleCard extends DevelopmentCard {
 
 			clone.name = this.name;
 			clone.period = this.period;
+			clone.activeValue = this.activeValue;
 			
 			for(ResourceList r : this.getCosts())
 				clone.addCost(r.clone());

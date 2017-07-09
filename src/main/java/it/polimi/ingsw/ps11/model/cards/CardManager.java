@@ -34,12 +34,6 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 	public CardManager(boolean limited) {
 		setLimited(limited);
 	}
-
-	public CardManager(ArrayList<DevelopmentCard> cards) {
-		for(DevelopmentCard card : cards){
-			addCard(card);
-		}
-	}
 	
 	
 // Start logic
