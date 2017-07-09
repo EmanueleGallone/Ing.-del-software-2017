@@ -41,7 +41,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 					 overlayedDecksPanel;
 	
 	private GraphicPaintedPanel leaderDeckPanel;
-	private ArrayList<GraphicLeaderCardView> leaderButtonCards;
+	private ArrayList<GraphicLeaderCardView> leaderButtonCards = new ArrayList<>();
 	
 	private LinkedHashMap<String, Color> mapCardTypeColor = new LinkedHashMap<>();
 	private HashMap<GraphicPaintedPanel, String> mapDeckPanelCardType = new HashMap<>();
@@ -206,7 +206,6 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	
 	private void initializeLeaderManager(){
 		int j = leaderButtonCards.size();
-		leaderButtonCards = new ArrayList<>();
 		for(; j < cardManager.getLeaderCards().size(); j++){
 		
 			GraphicLeaderCardView leaderCardView = new GraphicLeaderCardView();
@@ -230,10 +229,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		
 		int i = 0;
 		for( GraphicLeaderCardView leaderPanel : leaderButtonCards){
-			if(i< deck.size())
+			if(i< deck.size()){
 				leaderPanel.update(deck.get(i));
+				leaderPanel.setEnabled(true);
+			}
 			else {
 				leaderPanel.update(new LeaderCard("BLANK"));
+				leaderPanel.setEnabled(false);
 			}
 			i++;
 			leaderPanel.repaint();
