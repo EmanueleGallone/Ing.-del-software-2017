@@ -113,8 +113,6 @@ public class GraphicConfirmPanelView {
 		JLabel scrittaCosto = new JLabel("<html><font color='white'>COSTO</font></html>"),
 			   scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
 		GraphicDevelopmentCardView cardView = new GraphicDevelopmentCardView();
-		cardView.update(floor.getCard());
-		cardView.print();
 		GraphicPaintedPanel costo = new GraphicPaintedPanel();
 		costo.loadImage("BoardImages/Dice cost " + floor.getActionSpace().getActionCost() + ".png");
 		costo.setOpaque(false);
@@ -132,29 +130,34 @@ public class GraphicConfirmPanelView {
 		GridBagConstraints gbcCancel = new GridBagConstraints();
 		GridBagConstraints gbcConfirm = new GridBagConstraints();
 
+		if(floor!=null){
+			
 		if(floor.getCard() != null){
+		
+		cardView.update(floor.getCard());
+		cardView.print();
 		gbcCard.gridx = 1;
 		gbcCard.gridy = 1;
 		gbcCard.gridheight = 5;
 		gbcCard.fill = GridBagConstraints.BOTH;
 		interPanel.add(cardView.getComponent(), gbcCard);
+		
 		}
 		
-		try {
-			if(!(floor.getActionSpace() == null)){
-			gbcScrittaCosto.gridx = 3;
-			gbcScrittaCosto.gridy = 1;
-			gbcScrittaCosto.anchor = GridBagConstraints.WEST;
-			scrittaCosto.setFont(new Font("Times New Roman", Font.PLAIN, 40));
-			interPanel.add(scrittaCosto, gbcScrittaCosto);
+		if(floor.getActionSpace() != null){
 			
-			gbcCosto.gridx = 4;
-			gbcCosto.gridy = 1;
-			gbcCosto.gridwidth = 2;
-			gbcCosto.fill = GridBagConstraints.BOTH;
-			interPanel.add(costo, gbcCosto);
-			}
-		} catch (NullPointerException e) {
+		gbcScrittaCosto.gridx = 3;
+		gbcScrittaCosto.gridy = 1;
+		gbcScrittaCosto.anchor = GridBagConstraints.WEST;
+		scrittaCosto.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		interPanel.add(scrittaCosto, gbcScrittaCosto);
+		
+		gbcCosto.gridx = 4;
+		gbcCosto.gridy = 1;
+		gbcCosto.gridwidth = 2;
+		gbcCosto.fill = GridBagConstraints.BOTH;
+		interPanel.add(costo, gbcCosto);
+		
 		}
 		
 		gbcScrittaServitori.gridx = 3;
@@ -167,6 +170,8 @@ public class GraphicConfirmPanelView {
 		gbcServitori.gridy = 2;
 		gbcServitori.fill = GridBagConstraints.HORIZONTAL;
 		interPanel.add(addServitori, gbcServitori);
+		
+		}
 		
 		gbcMessaggio.gridx = 3;
 		gbcMessaggio.gridy = 4;
