@@ -93,6 +93,7 @@ public class GameController implements MessageListener,Runnable {
 			if(c.getId().equals(connection.getId())){
 				Player player = clients.get(c);
 				clients.remove(c);
+				connection.attachListener(messageListener);
 				clients.put(connection, player);
 				try {
 					connection.send(new ModelMessage(new GameUpdateEvent(gameLogic.getGame(), player)));

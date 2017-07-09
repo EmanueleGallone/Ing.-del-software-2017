@@ -9,17 +9,17 @@ public class EventHandler<PARAMETER_TYPE> implements Serializable {
 	
 	protected ArrayList<EventListener<PARAMETER_TYPE>> eventListeners = new ArrayList<>();
 
-	public void attach(EventListener<PARAMETER_TYPE> eventListener) {
+	public synchronized void attach(EventListener<PARAMETER_TYPE> eventListener) {
 		eventListeners.add(eventListener);
 	}
 
-	public void detach(EventListener<PARAMETER_TYPE> eventListener) {
+	public synchronized void detach(EventListener<PARAMETER_TYPE> eventListener) {
 		eventListeners.remove(eventListener);
 	}
 
-	public void invoke(PARAMETER_TYPE parameter) {
-		for(EventListener<PARAMETER_TYPE> listener:eventListeners){
-			listener.handle(parameter);
+	public synchronized void invoke(PARAMETER_TYPE parameter) {		
+		for(int i = 0; i < eventListeners.size(); i++){
+			eventListeners.get(i).handle(parameter);
 		}
 	}
 	
