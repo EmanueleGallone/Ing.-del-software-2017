@@ -11,5 +11,6 @@ public interface ConnectionInterface {
 	public void on() throws IOException;
 	public void send(Message message) throws IOException;
 	public void attachListener(EventListener<MessageEvent> listener);
+	public void detachListener(EventListener<MessageEvent> listener);
 	
 }

@@ -42,6 +42,7 @@ public class GameLogic implements Runnable{
 	}
 		
 	public void nextPlayer(){
+		
 		String nextPlayerName = game.getRoundManager().next().getName();
 		StateHandler nextPlayer = playerStatus.get(nextPlayerName);
 		if(periodEnd){
@@ -52,8 +53,8 @@ public class GameLogic implements Runnable{
 	}
 	
 	private void round(StateHandler nextPlayer){
+		notifyAllClients(new TextualEvent(game.getRoundManager().currentSituation()));
 		nextPlayer.play();
-		
 		for(StateHandler pState : playerStatus.values()){
 			
 			if(pState != nextPlayer ){
@@ -91,7 +92,8 @@ public class GameLogic implements Runnable{
 	public void notifyNewConnection(Player newPlayer){
 		stopTimer = false;
 		game.getRoundManager().removeFromAfk(newPlayer);
-		nextPlayer();  //Mmmm
+		if(game.getRoundManager().isSuspended())
+			nextPlayer();
 	}
 	
 	public void notifyVaticanReportConclusion(StateHandler sHandler){
@@ -101,7 +103,8 @@ public class GameLogic implements Runnable{
 			sHandler.play();
 			game.getRoundManager().startTimer();
 		}
-		sHandler.nextState(new DefaultState());
+		else
+			sHandler.nextState(new DefaultState());
 	}
 
 // Handle events from view
@@ -114,7 +117,7 @@ public class GameLogic implements Runnable{
 	
 	public void notifyAllClients(ModelEvent event){
 		for(StateHandler sHandler : playerStatus.values()){
-			System.out.println("Invio " + event.getClass().getSimpleName() + " a " + sHandler.getPlayer().getName());
+			//System.out.println("Invio " + event.getClass().getSimpleName() + " a " + sHandler.getPlayer().getName());
 			sHandler.invoke(event.clone());
 		}
 	}

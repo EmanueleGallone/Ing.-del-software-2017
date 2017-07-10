@@ -72,4 +72,9 @@ public abstract class Connection implements ConnectionInterface {
 	public void attachListener(EventListener<MessageEvent> listener) {
 		messageListener.attach(listener);
 	}
+	
+	@Override
+	public void detachListener(EventListener<MessageEvent> listener) {
+		messageListener.detach(listener);
+	}
 }
