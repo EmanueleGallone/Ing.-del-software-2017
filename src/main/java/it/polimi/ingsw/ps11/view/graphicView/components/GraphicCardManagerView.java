@@ -183,16 +183,16 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		mapPanelCardsViews.put(deckPanel, deckCards);
 	}
 	
-	private void setCard(GraphicPaintedPanel deckPanel, ArrayList<DevelopmentCard> cards2){
-		ArrayList<DevelopmentCard> cards = new ArrayList<>();
+	private void setCard(GraphicPaintedPanel deckPanel, ArrayList<DevelopmentCard> cards){
+		//ArrayList<DevelopmentCard> cards = new ArrayList<>();
 //		for(int c =0; c<cards2.size(); c++){
 //			if(cards.get(c).getName().equals(cardManager.getTiles()))
 //				cards.remove(cards.get(c));
 //		}
-		for(DevelopmentCard card : cards2){
-			if(!card.getName().equals(cardManager.getTiles()))
-				cards.add(card);
-		}
+//		for(DevelopmentCard card : cards2){
+//			if(!card.getName().equals(cardManager.getTiles()))
+//				cards.add(card);
+//		}
 		
 		int i = 0;
 		for (GraphicDevelopmentCardView developmentCardButton : mapPanelCardsViews.get(deckPanel)) {
