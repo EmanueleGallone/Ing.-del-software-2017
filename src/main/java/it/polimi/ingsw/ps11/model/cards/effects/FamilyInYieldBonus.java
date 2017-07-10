@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInYieldAffec
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 /**
  * <h3> FamilyInYieldBonus </h3>
- * <p> Effetto di una carta: modifica permanentemente il valore di attivazione delle carte "Territorio" e/o "Edificio" in seguito
+ * <p> Classe che rappresenta l'effetto di una carta: modifica permanentemente il valore di attivazione delle carte "Territorio" e/o "Edificio" in seguito
  * al posizionamento di un familiare in una zona Raccolta e/o Produzione attraverso un <code>FamilyInYieldAffecter</code>.</p>
  * <p> Richiede: DevelopmentCard (tipo di carte da attivare in seguito al posizionamento su raccolta o produzione), int (valore
  * del bonus di attivazione).</p>
