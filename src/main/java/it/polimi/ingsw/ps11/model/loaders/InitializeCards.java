@@ -1588,8 +1588,8 @@ public class InitializeCards {
 		CardDiscount cardDiscount4 = new CardDiscount(new YellowCard().getId(), resourceList.clone());
 		LeaderCard picoDellaMirandola = new LeaderCard("Pico Della Mirandola"); //VERIFICA. sconto su tutte le carte
 		HashMap<String, Integer> map3 = new HashMap<>();
-		map3.put(new BlueCard().getId(), 4);
-		map3.put(new GreenCard().getId(), 2);
+		map3.put(new PurpleCard().getId(), 4);
+		map3.put(new YellowCard().getId(), 2);
 		picoDellaMirandola.addRequirement(new CardNumberRequirement(map3));
 		picoDellaMirandola.addEffect(cardDiscount);
 		picoDellaMirandola.addEffect(cardDiscount2);

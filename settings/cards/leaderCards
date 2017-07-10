@@ -343,8 +343,8 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
-              "BlueCard": 4,
-              "GreenCard": 2
+              "PurpleCard": 4,
+              "YellowCard": 2
             }
           }
         }
