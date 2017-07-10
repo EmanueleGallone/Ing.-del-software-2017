@@ -50,7 +50,7 @@ public class FamilyInYieldTest {
 	
 	@Test
 	public void isLegalTest(){
-		//MANCA IL NEUTRALE PIù SERVITORI, SEMPREPOSSIBILE
+		//MANCA IL NEUTRALE PIU' SERVITORI, SEMPREPOSSIBILE
 		ArrayList<Player> players = playersSetting();
 		GameLogic gameLogic = new GameLogic(players);
 		StateHandler stateHandler1 = gameLogic.getPlayerStatus().get(0);

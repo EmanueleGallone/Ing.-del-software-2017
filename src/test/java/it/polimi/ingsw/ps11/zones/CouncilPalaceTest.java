@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
+import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
@@ -13,6 +14,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 
@@ -61,6 +63,9 @@ public class CouncilPalaceTest {
 		
 		councilPalace.setBonus(new ResourceList(new Wood(1)));
 		Assert.assertEquals(1, councilPalace.getBonus().getResources().size());
+		
+		councilPalace.addEffect(new AddResourceEffect(new ResourceList(new Coin(1)))); //aggiungo un ulteriore effetto
+		Assert.assertEquals(2, councilPalace.getEffects(actionManager).size());
 		
 	}
 
