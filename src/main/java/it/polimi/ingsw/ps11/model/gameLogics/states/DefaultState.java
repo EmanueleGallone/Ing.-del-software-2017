@@ -22,52 +22,52 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelect
  */
 public class DefaultState extends State {
 
+	
+	private void defCommand(){
+		stateHandler().invoke("Is not your turn!");
+	}
+	
 	@Override
 	public void handle(FloorSelectedEvent floorSelectedEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
 	public void handle(FamilySelectedEvent familySelectedEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
 	public void handle(MarketSelectedEvent marketSelectedEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
 	public void handle(ProductionSelectedEvent productionSelectedEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
+	}
+	
+	@Override
+	public void handle(TextualViewEvent textualViewEvent) {
+		stateHandler().getGameLogic().notifyAllClients(new TextualEvent(textualViewEvent.getMessage()));
 	}
 
 	@Override
 	public void handle(HarvestSelectedEvent harvestSelectedEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
 	public void handle(ResourceSelectedEvent resourceSelectedEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
-	public void handle(ConfirmViewEvent confirmEvent) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void handle(ConfirmViewEvent confirmEvent) {}
 
 	@Override
 	public void handle(EndTurnEvent endTurnEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
@@ -76,26 +76,14 @@ public class DefaultState extends State {
 	}
 
 	@Override
-	public void notifyToClient() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void handle(TextualViewEvent textualViewEvent) {
-		stateHandler().getGameLogic().notifyAllClients(new TextualEvent(textualViewEvent.getMessage()));
-	}
+	public void notifyToClient() {}
 
 	@Override
 	public void handle(ActiveLeaderCardEvent activeLeaderCardEvent) {
-		// TODO Auto-generated method stub
-		
+		defCommand();
 	}
 
 	@Override
-	public void handle(CouncilSelectedEvent councilSelectedEvent) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void handle(CouncilSelectedEvent councilSelectedEvent) {}
 
 }

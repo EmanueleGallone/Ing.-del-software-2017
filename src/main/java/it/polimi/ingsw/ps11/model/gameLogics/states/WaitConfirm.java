@@ -22,6 +22,8 @@ public class WaitConfirm extends PlayState {
 	
 	@Override
 	public void handle(ConfirmViewEvent confirmEvent) {
+		if(!confirmEvent.getConfirm())
+			return;
 		if(action.notifyConfirm(confirmEvent))
 			doAfterAction(doAfter);
 	}

@@ -147,10 +147,11 @@ public class GameLogic implements Runnable{
 			Player winner = new Player();
 			int maxVictoryPoint = 0;
 			for(StateHandler sHandler : playerStatus.values()){
-				sHandler.nextState(new DefaultState());
 				EndGameAction endGame = new EndGameAction(sHandler.actions());
 				endGame = sHandler.actions().affect(endGame);
 				endGame.perform();
+				
+				sHandler.nextState(new DefaultState());
 				
 				ResourceList pList = sHandler.getPlayer().getResourceList();
 				int victoryP = new VictoryPoint().getFrom(pList).getValue();
@@ -158,6 +159,7 @@ public class GameLogic implements Runnable{
 					maxVictoryPoint = victoryP;
 					winner = sHandler.getPlayer();
 				}
+				
 			}
 			
 			notifyAllClients(new TextualEvent("Game over, the winner is " + winner.getName()));
