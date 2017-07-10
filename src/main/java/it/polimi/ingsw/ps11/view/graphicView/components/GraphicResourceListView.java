@@ -16,7 +16,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  */
 public class GraphicResourceListView extends JPanel{
 
-	ResourceList resourceList;
+	private ResourceList resourceList;
 	
 	public GraphicResourceListView(ResourceList resourceList) {
 		this.resourceList = resourceList;

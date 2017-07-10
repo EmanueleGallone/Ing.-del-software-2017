@@ -11,9 +11,9 @@ import javax.swing.JToggleButton;
 
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 
-public class GraphicLeaderCardView extends JToggleButton{
+public class GraphicLeaderCardView extends JToggleButton implements ToPaint{
 	
-	protected BufferedImage background;
+	private BufferedImage background;
 	
 	@Override
 	public void paintComponent(Graphics g) {
@@ -25,16 +25,7 @@ public class GraphicLeaderCardView extends JToggleButton{
 	}
 	
 	public void loadImage(String url){
-		URL imagePath = getClass().getClassLoader().getResource(url);
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(imagePath);
-		} catch (IOException | IllegalArgumentException e) {
-			System.err.println("Errore, immagine non trovata url: " + url);
-			e.printStackTrace();
-		}
-		
-		background = result;
+		background = getImage(url);
 	}
 	
 	void update(LeaderCard leaderCard){

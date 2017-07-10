@@ -20,8 +20,8 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
  */
 public class GraphicTowerView extends TowerView{
 	
-	protected GraphicPaintedPanel tower = new GraphicPaintedPanel();
-	ArrayList<GraphicFloorView> graphicFloorViews;
+	private GraphicPaintedPanel tower = new GraphicPaintedPanel();
+	private ArrayList<GraphicFloorView> graphicFloorViews;
 	
 	public GraphicTowerView(String towerName) {
 

@@ -135,6 +135,12 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 	public JDialog getComponent(){
 		return dialog;
 	}
+	
+	public void show() {
+		this.mainWindow.setEnabled(false);
+		dialog.setUndecorated(true);
+		dialog.setVisible(true);
+	}
 
 	@Override
 	public void print() {		

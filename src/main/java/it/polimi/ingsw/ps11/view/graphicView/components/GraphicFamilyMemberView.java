@@ -29,12 +29,12 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
  */
 public class GraphicFamilyMemberView extends ChooseFamilyView {
 		
-	protected JPanel familyMembers = new JPanel();
-	protected HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
+	private JPanel familyMembersPanel = new JPanel();
+	private HashMap<String, GraphicPaintedButton> familyMemberButtons = new HashMap<>();
 	private HashMap<String, JLabel> familyMemberValues = new HashMap<>();
 	
 	public GraphicFamilyMemberView() {
-		familyMembers.setOpaque(false);
+		familyMembersPanel.setOpaque(false);
 
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -43,7 +43,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		gblFamilyMembers.rowHeights = new int[]{0, 0};
 		gblFamilyMembers.columnWeights = new double[]{0.2, 0.6, 0.04, 0.04, 0.04, 0.04, Double.MIN_VALUE};
 		gblFamilyMembers.rowWeights = new double[]{0.9, 0.1, Double.MIN_VALUE};
-		familyMembers.setLayout(gblFamilyMembers);
+		familyMembersPanel.setLayout(gblFamilyMembers);
 
 		int i = 2;
 		
@@ -67,13 +67,13 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 			gbcButton.gridy = 0;
 			gbcButton.fill = GridBagConstraints.BOTH;
 			familyMemberPanel.setContentAreaFilled(false);
-			familyMembers.add(familyMemberPanel, gbcButton);
+			familyMembersPanel.add(familyMemberPanel, gbcButton);
 			
 			gbcValue.gridx = i;
 			gbcValue.gridy = 1;
 			gbcValue.fill = GridBagConstraints.BOTH;
 			familyMemberPanel.setContentAreaFilled(false);
-			familyMembers.add(value, gbcValue);
+			familyMembersPanel.add(value, gbcValue);
 			
 			familyMemberPanel.addActionListener(new ChooseFamillyMemberListener(familyMemberName));
 			String memberName = familyMemberName.toString();
@@ -109,7 +109,7 @@ public class GraphicFamilyMemberView extends ChooseFamilyView {
 		}
 
 	public JPanel getComponent() {
-		return familyMembers;
+		return familyMembersPanel;
 	}
 
 	private class ChooseFamillyMemberListener implements ActionListener{			//Se un familiare è selezionato invoca l'evento "Familiare selezionato"

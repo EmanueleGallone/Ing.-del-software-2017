@@ -23,9 +23,8 @@ public class GraphicMarketView extends MarketView{
 	
 	//Zona mercato, ha un action space singolo per ogni zona intriore del mercato e un pannello che mostra i turni
 
-	protected GraphicPaintedPanel marketPanel = new GraphicPaintedPanel();
+	private GraphicPaintedPanel marketPanel = new GraphicPaintedPanel();
 	private ArrayList<GraphicPaintedButton> marketSpaces = new ArrayList<>();
-	private int limit = 0;
 
 
 	public GraphicMarketView() {
@@ -87,7 +86,7 @@ public class GraphicMarketView extends MarketView{
 	
 	@Override
 	public void print(){
-		
+		int limit = 0;
 		if (market.isFull()) limit = 4;
 		else limit = 2;
 		

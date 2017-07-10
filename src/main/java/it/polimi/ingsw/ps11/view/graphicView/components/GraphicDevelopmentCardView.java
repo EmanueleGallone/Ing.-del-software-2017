@@ -15,28 +15,27 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
  */
 public class GraphicDevelopmentCardView extends DevelopmentCardView{
 
-	GraphicPaintedButton image;
-	int cont = 0;
+	private GraphicPaintedButton buttonImage;
 	
 	private EventHandler<Card> cardClickEvent = new EventHandler<>();
 	
 	public GraphicDevelopmentCardView() {
-		image = new GraphicPaintedButton();
-		image.addActionListener(new ZoomCard());
+		buttonImage = new GraphicPaintedButton();
+		buttonImage.addActionListener(new ZoomCard());
 	}
 	
 	public GraphicPaintedButton getComponent(){
-		return image;
+		return buttonImage;
 	}
 
 	public void print(){
 
 		if(developmentCard!= null){
-			image.loadImage(developmentCard.getId() +"/" + developmentCard.getName() + ".png");
+			buttonImage.loadImage(developmentCard.getId() +"/" + developmentCard.getName() + ".png");
 		}
 		else 
-			image.loadImage("PlayerImages/BLANK.png");
-		image.repaint();
+			buttonImage.loadImage("PlayerImages/BLANK.png");
+		buttonImage.repaint();
 	}
 
 	public void attachCardListener(EventListener<Card> zoomCardListener) {

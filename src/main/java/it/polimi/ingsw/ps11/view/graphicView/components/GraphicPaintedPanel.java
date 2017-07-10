@@ -14,33 +14,21 @@ import javax.swing.JPanel;
  * aggiunta di componenti</p>
  * @see View
  */
-public class GraphicPaintedPanel extends JPanel {
-	
-	//JPanel con immagine fissa
-	
+public class GraphicPaintedPanel extends JPanel implements ToPaint{
+		
 	private BufferedImage background;
-	private boolean painted = false;
 	
 	 @Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if(painted){
-		Dimension size = getSize();
-		g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
+		if(background!=null){
+			Dimension size = getSize();
+			g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
 		}
 	}
 	
 	public void loadImage(String url){
-		painted = true;
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(getClass().getClassLoader().getResource(url));
-		} catch (IOException | IllegalArgumentException e) {
-			System.err.println("Errore, immagine non trovata url: " + url);
-			e.printStackTrace();
-		}
-		
-		background = result;
+		background = getImage(url);
 	}
 
 }

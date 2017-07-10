@@ -26,12 +26,9 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView;
  */
 public class GraphicResourceView extends ResourceView {
 		
-	protected GraphicPaintedPanel resourcesPanel = new GraphicPaintedPanel();
-	protected HashMap<String, JLabel> resourcesPosition = new HashMap<>();
+	private GraphicPaintedPanel resourcesPanel = new GraphicPaintedPanel();
+	private HashMap<String, JLabel> resourcesPosition = new HashMap<>();
 
-	
-	
-	
 	public GraphicResourceView() {
 		
 		resourcesPanel.loadImage("PlayerImages/Resources.png");

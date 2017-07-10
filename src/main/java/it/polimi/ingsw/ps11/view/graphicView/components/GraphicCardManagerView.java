@@ -37,32 +37,32 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
  */
 public class GraphicCardManagerView extends CardManagerView implements ItemListener{
 	
-	protected JPanel personalBoard = new JPanel(),
+	private  JPanel cardBoardPanel = new JPanel(),
 					 overlayedDecksPanel;
 	
 	private GraphicPaintedPanel leaderDeckPanel;
 	private ArrayList<GraphicLeaderCardView> leaderButtonCards = new ArrayList<>();
 	
-	private LinkedHashMap<String, Color> mapCardTypeColor = new LinkedHashMap<>();
-	private HashMap<GraphicPaintedPanel, String> mapDeckPanelCardType = new HashMap<>();
-	private HashMap<GraphicPaintedPanel, ArrayList<GraphicDevelopmentCardView>> mapDeckPanelCardsView = new HashMap<>();
+	private LinkedHashMap<String, Color> mapStringColor = new LinkedHashMap<>();
+	private HashMap<GraphicPaintedPanel, String> mapPanelString = new HashMap<>();
+	private HashMap<GraphicPaintedPanel, ArrayList<GraphicDevelopmentCardView>> mapPanelCardsViews = new HashMap<>();
 	private ArrayList<GraphicPaintedPanel> arrayAllDecks = new ArrayList<>();
 
 	private EventHandler<LeaderCard> activateLeader = new EventHandler<>();
 	private ArrayList<JToggleButton> arrayDeckSelectors;
-	private ButtonGroup buttonGroupSelectors, buttonGroupLeaders = new ButtonGroup();
+	private ButtonGroup buttonGroupSelectors;
 
 	private EventListener<Card> zoomCard;
 
 	public GraphicCardManagerView() {
 		
-		personalBoard.setOpaque(false);
+		cardBoardPanel.setOpaque(false);
 		
-		mapCardTypeColor.put(new GreenCard().getId(), Color.GREEN); 
-		mapCardTypeColor.put(new BlueCard().getId(), Color.BLUE); 
-		mapCardTypeColor.put(new YellowCard().getId(), Color.YELLOW); 
-		mapCardTypeColor.put(new PurpleCard().getId(), Color.PINK);
-		mapCardTypeColor.put(new LeaderCard("").getId(), Color.BLACK);
+		mapStringColor.put(new GreenCard().getId(), Color.GREEN); 
+		mapStringColor.put(new BlueCard().getId(), Color.BLUE); 
+		mapStringColor.put(new YellowCard().getId(), Color.YELLOW); 
+		mapStringColor.put(new PurpleCard().getId(), Color.PINK);
+		mapStringColor.put(new LeaderCard("").getId(), Color.BLACK);
 
 		arrayDeckSelectors = new ArrayList<>();
 		buttonGroupSelectors = new ButtonGroup();
@@ -81,7 +81,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		gblPersonalBoard.rowHeights = new int[]{0, 0, 0};
 		gblPersonalBoard.columnWeights = new double[]{0.03, 0.97, Double.MIN_VALUE};
 		gblPersonalBoard.rowWeights = new double[]{0.06, 0.94, Double.MIN_VALUE};
-		personalBoard.setLayout(gblPersonalBoard);
+		cardBoardPanel.setLayout(gblPersonalBoard);
 		
 		GridBagLayout gblSelectors = new GridBagLayout();												//Layout dei bottoni
 		gblSelectors.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
@@ -97,24 +97,24 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		gbcSelectors.gridx = 1;
 		gbcSelectors.gridy = 0;
 		gbcSelectors.fill = GridBagConstraints.BOTH;
-		personalBoard.add(selectorButtonsPanel, gbcSelectors);
+		cardBoardPanel.add(selectorButtonsPanel, gbcSelectors);
 		
 		gbcDecks.gridx = 1;
 		gbcDecks.gridy = 1;
 		gbcDecks.fill = GridBagConstraints.BOTH;
 		overlayedDecksPanel.setPreferredSize(new Dimension(10, 10));
-		personalBoard.add(overlayedDecksPanel, gbcDecks);
+		cardBoardPanel.add(overlayedDecksPanel, gbcDecks);
 		
 		gbcTile.gridx = 0;
 		gbcTile.gridy = 1;
 		gbcTile.fill = GridBagConstraints.BOTH;
-		personalBoard.add(tile, gbcTile);
+		cardBoardPanel.add(tile, gbcTile);
 		
 		int i = 0;
-		for (String cardType : mapCardTypeColor.keySet()) {
+		for (String cardType : mapStringColor.keySet()) {
 			
 			JToggleButton selector = new JToggleButton();												//selettore
-			selector.setBackground(mapCardTypeColor.get(cardType));
+			selector.setBackground(mapStringColor.get(cardType));
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = i;
 			gbc.fill = GridBagConstraints.BOTH;
@@ -150,7 +150,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			else
 			arrayAllDecks.add(deck);
 			
-			mapDeckPanelCardType.put(deck, cardType); 
+			mapPanelString.put(deck, cardType); 
 			overlayedDecksPanel.add(deck, cardType);
 			i++;
 		}
@@ -181,13 +181,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			deckCards.add(card);
 			deckPanel.add(card.getComponent(), gbcCard);	
 		}
-		mapDeckPanelCardsView.put(deckPanel, deckCards);
+		mapPanelCardsViews.put(deckPanel, deckCards);
 	}
 	
 	private void setCard(GraphicPaintedPanel deckPanel, ArrayList<DevelopmentCard> cards){
 		
 		int i = 0;
-		for (GraphicDevelopmentCardView developmentCardButton : mapDeckPanelCardsView.get(deckPanel)) {
+		for (GraphicDevelopmentCardView developmentCardButton : mapPanelCardsViews.get(deckPanel)) {
 			if(i<cards.size()){
 				developmentCardButton.update(cards.get(i));
 				developmentCardButton.attachCardListener(zoomCard);
@@ -205,6 +205,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	}
 	
 	private void initializeLeaderManager(){
+		ButtonGroup buttonGroupLeaders = new ButtonGroup();
 		int j = leaderButtonCards.size();
 		for(; j < cardManager.getLeaderCards().size(); j++){
 		
@@ -245,7 +246,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	public void print() {
 		
 		for(GraphicPaintedPanel deckPanel : arrayAllDecks) {
-			if(mapDeckPanelCardsView.get(deckPanel) == null)
+			if(mapPanelCardsViews.get(deckPanel) == null)
 				initializeCardManager(deckPanel);
 		}
 		
@@ -253,7 +254,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 			initializeLeaderManager();
 		
 		for (GraphicPaintedPanel deckPanel : arrayAllDecks) {
-			setCard(deckPanel, cardManager.getCardList(mapDeckPanelCardType.get(deckPanel)));
+			setCard(deckPanel, cardManager.getCardList(mapPanelString.get(deckPanel)));
 		}
 		
 		setLeaderCard(cardManager.getLeaderCards());	
@@ -275,14 +276,14 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
     																									//al selector
     	CardLayout cl = (CardLayout) overlayedDecksPanel.getLayout();
     	int i = 0;
-    	for (String deckName : mapCardTypeColor.keySet()) {
+    	for (String deckName : mapStringColor.keySet()) {
     		if(arrayDeckSelectors.get(i).isSelected())cl.show(overlayedDecksPanel, deckName);
     		i++;
 		}
     }
 
 	public JPanel getComponent(){
-		return personalBoard;
+		return cardBoardPanel;
 	}
 
 	public void attachLeaderListener(EventListener<LeaderCard> leaderActivateListener) {

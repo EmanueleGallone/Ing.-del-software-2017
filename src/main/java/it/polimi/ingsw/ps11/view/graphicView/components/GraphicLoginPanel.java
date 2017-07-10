@@ -33,10 +33,10 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
  */
 public class GraphicLoginPanel{
 	
-	public JFrame window = new JFrame();
-	public JTextField username  = new JTextField();
-	public JPasswordField password = new JPasswordField();
-	public JButton confirm = new JButton("Cancel");
+	private JFrame window = new JFrame();
+	private JTextField username  = new JTextField();
+	private JPasswordField password = new JPasswordField();
+	private JButton confirm = new JButton("Cancel");
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	//dimensione del pannello
     
     
@@ -54,7 +54,7 @@ public class GraphicLoginPanel{
         GraphicPaintedPanel image = new GraphicPaintedPanel();
         window.setContentPane(image);
         image.loadImage("BoardImages/Lorenzo LogIn.png");
-		image.setBorder(BorderFactory.createLineBorder(Color.BLACK, 7));
+        window.getRootPane().setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
 		
 		JLabel scrittaUsername = new JLabel("<html><font color='white'>Username</font></html>"),
 			   scrittaPassword = new JLabel("<html><font color='white'>Password</font></html>");
@@ -69,7 +69,7 @@ public class GraphicLoginPanel{
 		GridBagLayout gblLoginPanel = new GridBagLayout();
 		gblLoginPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gblLoginPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gblLoginPanel.columnWeights = new double[]{0.2, 0.2, 0.555, 0.05, 0.1, 0.2, Double.MIN_VALUE};
+		gblLoginPanel.columnWeights = new double[]{0.2, 0.4, 0.355, 0.05, 0.1, 0.2, Double.MIN_VALUE};
 		gblLoginPanel.rowWeights = new double[]{0.8, 0.1, 0.1, 0.1, 0.04, 0.1, Double.MIN_VALUE};
 		image.setLayout(gblLoginPanel);
 		

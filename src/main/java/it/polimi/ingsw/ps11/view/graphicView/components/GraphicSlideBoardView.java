@@ -25,8 +25,8 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
  */
 public class GraphicSlideBoardView extends BoardView {
 	
-	protected JDialog slideBoard = new JDialog();
-	protected JButton slideOutButton;
+	private JDialog slideBoard = new JDialog();
+	private JButton slideOutButton;
 
 	public GraphicSlideBoardView() {
 
