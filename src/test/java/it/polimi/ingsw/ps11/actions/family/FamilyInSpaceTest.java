@@ -32,9 +32,9 @@ public class FamilyInSpaceTest {
 		
 		GameLogic gameLogic = new GameLogic(players);
 		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
-		ActionManager aManager = new ActionManager(stateHandler);
+		ActionManager aManager = stateHandler.actions();
 		
-		Player player = players.get(0); //prendo il primo giocatore
+		Player player = stateHandler.getPlayer(); //prendo il primo giocatore
 		BlackFamilyMember blackFamilyMember = new BlackFamilyMember().getFrom(player.getFamilyManager()); // il familiare ha valore 0
 
 		ActionSpace actionSpace = gameLogic.getGame().getBoard().getTower("GreenTower").getFloors().get(1).getActionSpace(); //prendo il secondo piano della greenTower

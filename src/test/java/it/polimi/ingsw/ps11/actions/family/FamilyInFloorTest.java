@@ -43,7 +43,7 @@ public class FamilyInFloorTest {
 		
 		GameLogic gameLogic = new GameLogic(players);
 		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
-		ActionManager aManager = new ActionManager(stateHandler);
+		ActionManager aManager = stateHandler.actions();
 		
 		Player player = stateHandler.getPlayer();
 		player.getResourceList().sum(new ResourceList(new Stone(1)));

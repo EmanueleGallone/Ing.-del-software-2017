@@ -21,6 +21,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 
 public class FamilyInYieldTest {
 
@@ -52,10 +53,12 @@ public class FamilyInYieldTest {
 		//MANCA IL NEUTRALE PIù SERVITORI, SEMPREPOSSIBILE
 		ArrayList<Player> players = playersSetting();
 		GameLogic gameLogic = new GameLogic(players);
+		StateHandler stateHandler1 = gameLogic.getPlayerStatus().get(0);
+		StateHandler stateHandler2 = gameLogic.getPlayerStatus().get(1);
 		
 
-		Player player1 = players.get(0);
-		Player player2 = players.get(1);
+		Player player1 = stateHandler1.getPlayer();
+		Player player2 = stateHandler2.getPlayer();
 		Yield harvest = gameLogic.getGame().getBoard().getHarvest();
 		//valore del familiare troppo basso
 		FamilyMember neutralFamilyMember = new NeutralFamilyMember().getFrom(player1.getFamilyManager());
@@ -64,7 +67,7 @@ public class FamilyInYieldTest {
 		//valore opportuno, eseguito
 		FamilyMember blackFamilyMember = new BlackFamilyMember().getFrom(player1.getFamilyManager());
 		FamilyInYieldAction familyInYieldAction2 = new FamilyInYieldAction(getActionManager(player1, gameLogic), harvest, blackFamilyMember);
-		assertTrue(familyInYieldAction2.isLegal());
+		assertTrue(familyInYieldAction2.notifyConfirm(new ConfirmViewEvent(true)));
 		familyInYieldAction2.perform();
 		//valore opportuno, ma player già presente nella zona
 
@@ -74,7 +77,6 @@ public class FamilyInYieldTest {
 		//valore opportuno, altro giocatore eseguito
 		FamilyMember orangeFamilyMemberPlayer2 = new OrangeFamilyMember().getFrom(player2.getFamilyManager());
 		FamilyInYieldAction familyInYieldAction4 = new FamilyInYieldAction(getActionManager(player2, gameLogic), harvest, orangeFamilyMemberPlayer2);
-//		assertFalse(familyInYieldAction4.isLegal());
 	}
 	
 	@Test
