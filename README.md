@@ -48,6 +48,7 @@ Requisiti sviluppati:
 -Sviluppate CLI e GUI (GUI sviluppata utilizzando Swing).
 -Il client puo' scegliere quale interfaccia e tecnologia di collegamento usare.
 -Gioco completamente configurabile editando opportunamente i file.
+-In caso di disconnessione, e' possibile riconnettersi e rientrare in partita.
 -Timeout per inizio partita settabile da file.
 -Timeout per azione settabile da file.
 -Non tutte le carte Leader implementate.
