@@ -157,21 +157,39 @@
           "cardType": "GreenCard",
           "value": -4
         }
-      },
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "period": 2,
+    "effect": [
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
           "cardType": "YellowCard",
           "value": -4
         }
-      },
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "period": 2,
+    "effect": [
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
           "cardType": "BlueCard",
           "value": -4
         }
-      },
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "period": 2,
+    "effect": [
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
         "INSTANCE": {
@@ -180,21 +198,6 @@
         }
       }
     ]
-  },
-  {
-    "id": "9",
-    "period": 2,
-    "effect": []
-  },
-  {
-    "id": "10",
-    "period": 2,
-    "effect": []
-  },
-  {
-    "id": "11",
-    "period": 2,
-    "effect": []
   },
   {
     "id": "15",

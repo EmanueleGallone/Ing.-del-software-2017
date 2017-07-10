@@ -227,7 +227,7 @@ public class GraphicView extends View {
 	public void update(Game game) {
 		super.update(game);
 		String currentPlayer = game.getRoundManager().currentPlayer().getName();
-		String roundManager = "Round: " + game.getRoundManager().currentTurn() + ", Turn: " + game.getRoundManager().currentTurn()
+		String roundManager = "Round: " + game.getRoundManager().currentRound() + ", Turn: " + game.getRoundManager().currentTurn()
 				+ ", Period: " + game.getRoundManager().currentPeriod() + ".";
 		turn.setText(currentPlayer + "'s turn. " + roundManager);
 		

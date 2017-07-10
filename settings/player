@@ -5,7 +5,7 @@
       "Coin": {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
         "INSTANCE": {
-          "value": 5,
+          "value": 50,
           "id": "Coin"
         }
       },
@@ -19,7 +19,7 @@
       "Wood": {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Wood",
         "INSTANCE": {
-          "value": 2,
+          "value": 20,
           "id": "Wood"
         }
       },
@@ -40,14 +40,14 @@
       "Stone": {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
         "INSTANCE": {
-          "value": 2,
+          "value": 20,
           "id": "Stone"
         }
       },
       "Servant": {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Servant",
         "INSTANCE": {
-          "value": 3,
+          "value": 30,
           "id": "Servant"
         }
       }

@@ -50,7 +50,7 @@ public class InitializeCards {
 	public static void main(String[] args) {
 		//inizializzaCarte();
 		//LeaderCardsInitializer();
-		initializeExcommunication();
+		//initializeExcommunication();
 	}
 	
 	public static void inizializzaCarte(){
@@ -1757,15 +1757,15 @@ public class InitializeCards {
 		
 		Excommunication ninth = new Excommunication("9", 2);
 		FamilyInFloorBonus FB2 = new FamilyInFloorBonus(new YellowCard().getId(), -4);
-		eighth.addEffect(FB2);
+		ninth.addEffect(FB2);
 		
 		Excommunication tenth = new Excommunication("10", 2);
 		FamilyInFloorBonus FB3 = new FamilyInFloorBonus(new BlueCard().getId(), -4);
-		eighth.addEffect(FB3);
+		tenth.addEffect(FB3);
 		
 		Excommunication eleventh = new Excommunication("11", 2);
 		FamilyInFloorBonus FB4 = new FamilyInFloorBonus(new PurpleCard().getId(), -4);
-		eighth.addEffect(FB4);
+		eleventh.addEffect(FB4);
 		
 		Excommunication twelveth = new Excommunication("12", 2);
 		//non puoi posizionare nel mercato
