@@ -46,10 +46,10 @@ public class FamilyInTowerTest {
 		
 		GameLogic gameLogic = new GameLogic(players);
 		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
-		ActionManager aManager = new ActionManager(stateHandler);
+		ActionManager aManager = stateHandler.actions();
 		
 		OrangeFamilyMember orangeFamilyMember = new OrangeFamilyMember().getFrom(players.get(0).getFamilyManager());
-		Player player = players.get(0);
+		Player player = stateHandler.getPlayer();
 		
 		Tower tower = gameLogic.getGame().getBoard().getTower("YellowTower");
 		

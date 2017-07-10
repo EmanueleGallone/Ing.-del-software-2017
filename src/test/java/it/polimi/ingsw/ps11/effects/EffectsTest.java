@@ -1,12 +1,10 @@
 package it.polimi.ingsw.ps11.effects;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
@@ -31,10 +29,8 @@ import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ChangeStateAction;
@@ -49,7 +45,8 @@ import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
+
+
 
 public class EffectsTest {
 	
@@ -67,8 +64,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new IncrementForCard(new GreenCard().getId(), new ResourceList(new Servant(1)));
 
@@ -80,8 +77,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new ActiveYieldEffect(new YellowCard().getId(), 1);
 
@@ -93,8 +90,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new AddResourceEffect(new ResourceList(new FaithPoint(1)));
 
@@ -106,8 +103,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new AnotherCard(new PurpleCard().getId(), 6);
 
@@ -119,8 +116,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new CardDiscount(new PurpleCard().getId(), new ResourceList(new Stone(1)));
 
@@ -132,8 +129,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new ChangeTowerTax(new ResourceList());
 
@@ -145,8 +142,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new CostIncrementEffect(new GreenCard().getId(), 6);
 
@@ -158,8 +155,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		ArrayList<ResourceList> resourceLists = new ArrayList<>();
 		resourceLists.add(new ResourceList(new Stone(2)));
@@ -173,8 +170,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new DecrementResourceEffect( new ResourceList(new Stone(1)));
 
@@ -186,8 +183,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new DisableCardVictoryPoint(new PurpleCard().getId());
 
@@ -199,8 +196,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new ExchangeEffect();
 
@@ -220,8 +217,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new FamilyInFloorBonus(new PurpleCard().getId(), 2);
 
@@ -233,8 +230,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new FamilyInSpaceBonus(new OrangeFamilyMember().getId(), -2);
 
@@ -246,8 +243,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new FamilyInYieldBonus(new GreenCard().getId(), -2);
 
@@ -259,8 +256,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new FixFamilyValueEffect(new OrangeFamilyMember().getId(), -1);
 
@@ -272,8 +269,8 @@ public class EffectsTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		ActionManager aManager = stateHandler.actions();
 		
 		Effect effect = new ResourceAtTheEnd(new ResourceList(new Stone(1)));
 

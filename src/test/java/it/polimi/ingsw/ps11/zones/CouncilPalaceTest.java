@@ -6,9 +6,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
+import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
+import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
+import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 
 public class CouncilPalaceTest {
@@ -41,6 +48,24 @@ public class CouncilPalaceTest {
 		game.getRoundManager().setNewOrder(councilPalace.getNewOrder()); //cambio l'ordine
 		Assert.assertEquals(players.get(3), game.getRoundManager().getCurrentOrder().get(0)); //il quarto giocatore deve ora essere il primo
 		Assert.assertEquals(4, game.getRoundManager().getCurrentOrder().size()); //il round manager deve contenere lo stesso numero di giocatori
+		
+	}
+	
+	@Test
+	public void councilPalaceEffectsTest(){
+		GameLogic game = new GameLogic(new PlayerFactory().take(4));
+		CouncilPalace councilPalace = game.getGame().getBoard().getCouncilPalace();
+		StateHandler stateHandler = game.getPlayerStatus().get(0);
+		ActionManager actionManager = stateHandler.actions();
+		
+		Assert.assertEquals(1, councilPalace.getBonus().get("Coin").getValue());
+		Assert.assertNotNull(councilPalace.getEffects(actionManager));
+		
+		councilPalace.setBonus(new ResourceList(new Wood(1)));
+		Assert.assertEquals(1, councilPalace.getBonus().getResources().size());
+		
+		councilPalace.addEffect(new AddResourceEffect(new ResourceList(new Coin(1)))); //aggiungo un ulteriore effetto
+		Assert.assertEquals(2, councilPalace.getEffects(actionManager).size());
 		
 	}
 
