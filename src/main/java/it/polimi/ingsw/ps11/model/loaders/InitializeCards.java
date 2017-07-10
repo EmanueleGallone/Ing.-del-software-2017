@@ -49,7 +49,7 @@ public class InitializeCards {
 	
 	public static void main(String[] args) {
 		//inizializzaCarte();
-		//LeaderCardsInitializer();
+		LeaderCardsInitializer();
 		//initializeExcommunication();
 	}
 	
