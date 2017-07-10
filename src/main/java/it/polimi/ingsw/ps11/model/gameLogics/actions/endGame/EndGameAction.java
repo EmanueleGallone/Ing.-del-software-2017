@@ -1,11 +1,15 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.endGame;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 /** <h3> EndGameAction </h3>
  * <p> Azione da compiere per terminare il Game. Al suo interno può contenere una serie di azioni da fare alla fine della partita.</p>
@@ -46,15 +50,15 @@ public class EndGameAction implements Action {
 
 	private void loadDefaultAction(){
 		try {
-			PointByCardAction territories = new Loader(FileRegistry.territoriesAction).load(PointByCardAction.class);
-			territories.setActionManager(aManager);
-			PointByCardAction characters = new Loader(FileRegistry.charactersAction).load(PointByCardAction.class);
-			characters.setActionManager(aManager);
 			
+			Type type = new TypeToken<ArrayList<NeedManager>>(){}.getType();
+			ArrayList<NeedManager> defaultDoAtTheEnd = new Loader(FileRegistry.endActions).load(type);
 			
-			this.doAtTheEnd.add(new IncrementEvryResource(aManager));
-			this.doAtTheEnd.add(territories);
-			this.doAtTheEnd.add(characters);
+			for(NeedManager endAction : defaultDoAtTheEnd){
+				endAction.setManager(aManager);
+			}
+			
+			doAtTheEnd.addAll(defaultDoAtTheEnd);
 			
 		} catch (FileNotFoundException | ClassCastException e) {
 			e.printStackTrace();

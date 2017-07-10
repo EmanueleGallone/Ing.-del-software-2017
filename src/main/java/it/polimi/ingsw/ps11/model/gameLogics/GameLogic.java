@@ -7,6 +7,7 @@ import java.util.HashMap;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.EndGameAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
@@ -15,6 +16,8 @@ import it.polimi.ingsw.ps11.model.modelEvents.ModelEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 
 public class GameLogic implements Runnable{
@@ -68,6 +71,9 @@ public class GameLogic implements Runnable{
 
 	@Override
 	public void run() {
+		for(int i = 0; i < 22; i++)
+			nextPlayer();
+		
 		nextPlayer();
 		for(StateHandler playerState : playerStatus.values()){
 			playerState.start();
@@ -140,8 +146,23 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(RoundManager e) {
-			// TODO Auto-generated method stub
-			System.out.println("Il gioco è finito");
+			
+			Player winner = new Player();
+			int maxVictoryPoint = 0;
+			for(StateHandler sHandler : playerStatus.values()){
+				sHandler.nextState(new DefaultState());
+				EndGameAction endGame = new EndGameAction(sHandler.actions());
+				endGame = sHandler.actions().affect(endGame);
+				endGame.perform();
+				ResourceList pList = sHandler.getPlayer().getResourceList();
+				int victoryP = new VictoryPoint().getFrom(pList).getValue();
+				if(victoryP > maxVictoryPoint){
+					maxVictoryPoint = victoryP;
+					winner = sHandler.getPlayer();
+				}
+			}
+			
+			notifyAllClients(new TextualEvent("Game over, the winner is " + winner.getName()));
 		}
 	};
 	
