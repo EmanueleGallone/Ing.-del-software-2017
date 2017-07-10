@@ -1,4 +1,5 @@
 PS11 Lorenzo il Magnifico:
+ISTRUZIONI PER GIOCARE:
 -Per giocare una partita in locale, nel Connection.java (situato nel package Controller.network),
 assicuratevi che ci sia "localhost" nell'attributo String serverAddress;
 verificate che anche all'interno di RMIConnection (situato nel package Controller.network.rmi) vi sia "//localhost/myServer"
@@ -32,6 +33,22 @@ vi classificher� come utenti inattivi.
 COMMAND LINE INTERFACE:
 Una volta iniziata la partita, verr� stampata la board a schermo ed il vostro status. per stampare la board scrivete update e premete invio.
 Per selezionare un piano di una torre scrivete ad esempio "yellow tower 1". Per selezionare uno spazio azione del market scrivete "market 1".
-Quando selezionate un posto azione vi verr� mostrata la lista dei familiari disponibili al posizionamento. Successivamente verr� mostrato un messaggio
+Quando selezionate un posto azione vi verr� mostrata la lista dei familiari disponibili al posizionamento. Successivamente verra' mostrato un messaggio
 dove vi verra' chiesto di scegliere quanti servitori utilizzare. una volta premuto invio, verra' inviato al server la vostra azione.
 Per passare il turno digitate "pass". Vi saranno comunque istruzioni stampate a schermo.
+
+
+
+Requisiti sviluppati:
+-Regole Complete
+-Pattern MVC
+-Networking con Socket ed RMI.
+-Server instanziato singolarmente capace di gestire più partite contemporaneamente.
+-Server supporta la comunicazione tra Client che utilizzano tecnologie di comunicazione diverse (Socket, RMI)
+-Sviluppate CLI e GUI (GUI sviluppata utilizzando Swing).
+-Il client puo' scegliere quale interfaccia e tecnologia di collegamento usare.
+-Gioco completamente configurabile editando opportunamente i file.
+-Timeout per inizio partita settabile da file.
+-Timeout per azione settabile da file.
+-Non tutte le carte Leader implementate.
+-Non tutte le scomuniche implementate.
