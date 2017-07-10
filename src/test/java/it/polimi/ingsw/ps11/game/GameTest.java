@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
@@ -21,6 +22,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
+import it.polimi.ingsw.ps11.model.gameLogics.states.WaitCard;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -276,9 +278,19 @@ public class GameTest {
 		
 	}
 	
-	@Test
-	public void waitCardTest(){
-		
-	}
+//	@Test
+//	public void waitCardTest(){
+//		ArrayList<Player> players = new PlayerFactory().take(1);
+//		for(int i = 0; i < players.size(); i++)
+//			players.get(i).setName("Giocatore " + (i+1));
+//		
+//		GameLogic gameLogic = new GameLogic(players);
+//		gameLogic.run();
+//		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+//		Player player = stateHandler.getPlayer();
+//		
+//		
+//		
+//	}
 
 }
