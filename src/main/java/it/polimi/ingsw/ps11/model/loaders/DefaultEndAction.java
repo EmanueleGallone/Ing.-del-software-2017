@@ -34,10 +34,10 @@ public class DefaultEndAction {
 		
 		HashMap<Integer, ResourceList> territories = new HashMap<>();
 		
-		territories.put(1, new ResourceList(new VictoryPoint(3)));
+		territories.put(3, new ResourceList(new VictoryPoint(1)));
 		territories.put(4, new ResourceList(new VictoryPoint(4)));
-		territories.put(10, new ResourceList(new VictoryPoint(5)));
-		territories.put(20, new ResourceList(new VictoryPoint(6)));
+		territories.put(5, new ResourceList(new VictoryPoint(10)));
+		territories.put(6, new ResourceList(new VictoryPoint(20)));
 		
 		PointByCardAction terrAction = new PointByCardAction(null, new GreenCard().getId(), territories);
 		
@@ -51,7 +51,7 @@ public class DefaultEndAction {
 		bluCard.put(5, new ResourceList(new VictoryPoint(15)));
 		bluCard.put(6, new ResourceList(new VictoryPoint(21)));
 		
-		PointByCardAction bluAction = new PointByCardAction(null, new BlueCard().getId(), territories);
+		PointByCardAction bluAction = new PointByCardAction(null, new BlueCard().getId(), bluCard);
 		
 		
 		IncrementEvryResource incrementEvryResource = new IncrementEvryResource(null, 5, new VictoryPoint(1));

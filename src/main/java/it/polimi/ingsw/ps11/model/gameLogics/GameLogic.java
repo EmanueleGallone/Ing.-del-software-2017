@@ -151,6 +151,7 @@ public class GameLogic implements Runnable{
 				endGame = sHandler.actions().affect(endGame);
 				endGame.perform();
 				
+				
 				sHandler.nextState(new DefaultState());
 				
 				ResourceList pList = sHandler.getPlayer().getResourceList();

@@ -4,12 +4,12 @@
     "INSTANCE": {
       "card": "GreenCard",
       "rewards": {
-        "1": {
+        "3": {
           "resources": {
             "VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
               "INSTANCE": {
-                "value": 3,
+                "value": 1,
                 "id": "VictoryPoint"
               }
             }
@@ -26,23 +26,23 @@
             }
           }
         },
-        "20": {
+        "5": {
           "resources": {
             "VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
               "INSTANCE": {
-                "value": 6,
+                "value": 10,
                 "id": "VictoryPoint"
               }
             }
           }
         },
-        "10": {
+        "6": {
           "resources": {
             "VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
               "INSTANCE": {
-                "value": 5,
+                "value": 20,
                 "id": "VictoryPoint"
               }
             }
@@ -61,24 +61,24 @@
             "VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
               "INSTANCE": {
+                "value": 1,
+                "id": "VictoryPoint"
+              }
+            }
+          }
+        },
+        "2": {
+          "resources": {
+            "VictoryPoint": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+              "INSTANCE": {
                 "value": 3,
                 "id": "VictoryPoint"
               }
             }
           }
         },
-        "4": {
-          "resources": {
-            "VictoryPoint": {
-              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
-              "INSTANCE": {
-                "value": 4,
-                "id": "VictoryPoint"
-              }
-            }
-          }
-        },
-        "20": {
+        "3": {
           "resources": {
             "VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
@@ -89,12 +89,34 @@
             }
           }
         },
-        "10": {
+        "4": {
           "resources": {
             "VictoryPoint": {
               "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
               "INSTANCE": {
-                "value": 5,
+                "value": 10,
+                "id": "VictoryPoint"
+              }
+            }
+          }
+        },
+        "5": {
+          "resources": {
+            "VictoryPoint": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+              "INSTANCE": {
+                "value": 15,
+                "id": "VictoryPoint"
+              }
+            }
+          }
+        },
+        "6": {
+          "resources": {
+            "VictoryPoint": {
+              "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.VictoryPoint",
+              "INSTANCE": {
+                "value": 21,
                 "id": "VictoryPoint"
               }
             }
