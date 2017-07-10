@@ -1,5 +1,5 @@
 package it.polimi.ingsw.ps11.model.loaders;
-
+/*
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,12 +44,12 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-
+*/
 public class InitializeCards {
-	
+/*	
 	public static void main(String[] args) {
 		//inizializzaCarte();
-		//LeaderCardsInitializer();
+		LeaderCardsInitializer();
 		//initializeExcommunication();
 	}
 	
@@ -1409,7 +1409,7 @@ public class InitializeCards {
 		cortigiana.addInstantEffect(new IncrementForCard(new BlueCard().getId(), resourceList.clone()));
 		
 		BlueCard generale = new BlueCard();
-		generale.setName("Generale");
+		generale.setName("General");
 		generale.setPeriod(3);
 		resourceList = new ResourceList(new Coin(5));
 		generale.addCost(resourceList.clone());
@@ -1733,7 +1733,7 @@ public class InitializeCards {
 		fourth.addEffect(decrementResourceEffect4);
 		
 		Excommunication fifth = new Excommunication("5", 1);
-		FamilyInFloorBonus familyInFloorBonus = new FamilyInFloorBonus(new GreenCard().getId(), -3);
+		FamilyInYieldBonus familyInFloorBonus = new FamilyInYieldBonus(new GreenCard().getId(), -3);
 		fifth.addEffect(familyInFloorBonus);
 		
 		Excommunication sixth = new Excommunication("6", 1);
@@ -1757,15 +1757,15 @@ public class InitializeCards {
 		
 		Excommunication ninth = new Excommunication("9", 2);
 		FamilyInFloorBonus FB2 = new FamilyInFloorBonus(new YellowCard().getId(), -4);
-		eighth.addEffect(FB2);
+		ninth.addEffect(FB2);
 		
 		Excommunication tenth = new Excommunication("10", 2);
 		FamilyInFloorBonus FB3 = new FamilyInFloorBonus(new BlueCard().getId(), -4);
-		eighth.addEffect(FB3);
+		tenth.addEffect(FB3);
 		
 		Excommunication eleventh = new Excommunication("11", 2);
 		FamilyInFloorBonus FB4 = new FamilyInFloorBonus(new PurpleCard().getId(), -4);
-		eighth.addEffect(FB4);
+		eleventh.addEffect(FB4);
 		
 		Excommunication twelveth = new Excommunication("12", 2);
 		//non puoi posizionare nel mercato
@@ -1809,5 +1809,5 @@ public class InitializeCards {
 		loader.write(list,type);
 		
 	}
-	
+	*/
 }

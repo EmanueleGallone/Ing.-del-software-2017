@@ -199,11 +199,11 @@
           "INSTANCE": {
             "resource": {
               "resources": {
-                "Stone": {
-                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Stone",
+                "Coin": {
+                  "CLASSNAME": "it.polimi.ingsw.ps11.model.resources.list.Coin",
                   "INSTANCE": {
                     "value": 3,
-                    "id": "Stone"
+                    "id": "Coin"
                   }
                 }
               }

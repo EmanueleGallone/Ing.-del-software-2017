@@ -53,7 +53,6 @@ public class GameLogic implements Runnable{
 	}
 	
 	private void round(StateHandler nextPlayer){
-		notifyAllClients(new TextualEvent(game.getRoundManager().currentSituation()));
 		nextPlayer.play();
 		for(StateHandler pState : playerStatus.values()){
 			
@@ -114,6 +113,7 @@ public class GameLogic implements Runnable{
 		playerStatus.get(viewEvent.getSource().getName()).handle(viewEvent);
 		//notifyAllClients(new GameUpdateEvent(game));
 	}
+	
 	
 	public void notifyAllClients(ModelEvent event){
 		for(StateHandler sHandler : playerStatus.values()){
