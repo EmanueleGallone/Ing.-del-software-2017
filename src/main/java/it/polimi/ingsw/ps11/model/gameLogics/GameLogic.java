@@ -111,7 +111,7 @@ public class GameLogic implements Runnable{
 // Handle events from view
 	
 	public void handle(ViewEventInterface viewEvent){
-		System.out.println(" - E' arrivato l'evento "+ viewEvent.getClass().getSimpleName() + " da " + viewEvent.getSource().getName());
+		System.out.println(" - The Event "+ viewEvent.getClass().getSimpleName() + " has arrived from " + viewEvent.getSource().getName());
 		playerStatus.get(viewEvent.getSource().getName()).handle(viewEvent);
 		//notifyAllClients(new GameUpdateEvent(game));
 	}
@@ -131,9 +131,9 @@ public class GameLogic implements Runnable{
 
 		@Override
 		public void handle(Player e) {
-			System.out.println("Timer scattato per il player " + e.getName());
+			System.out.println("Timer ended fot the player " + e.getName());
 			for(StateHandler player : playerStatus.values()){
-				player.invoke(new TextualEvent("Il giocatore " + e.getName() + " è inattivo"));
+				player.invoke(new TextualEvent("The player " + e.getName() + " is inactive."));
 			}
 			nextPlayer();
 		}
@@ -204,7 +204,7 @@ public class GameLogic implements Runnable{
 		public void handle(RoundManager e) {
 			stopTimer = true;
 			game.getRoundManager().stopTimer();
-			System.err.println("\nPartita sospesa, nessuno sta giocando\n");
+			System.err.println("\nGame suspended, no player is active.\n");
 		}
 	};
 	

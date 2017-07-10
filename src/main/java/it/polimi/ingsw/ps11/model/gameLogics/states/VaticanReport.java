@@ -69,7 +69,7 @@ public class VaticanReport extends DefaultState {
 		for(Effect e : excommunication){
 			e.get(sHandler.actions());
 		}
-		sHandler.invoke("Hai ricevuto una scomunica");
+		sHandler.invoke("You got an excommunication from the Church.");
 		completePhases();
 	}
 	
@@ -81,7 +81,7 @@ public class VaticanReport extends DefaultState {
 	@Override
 	public void notifyToClient() {
 		if(checkFaithPoints()){
-			sHandler.invoke(new ConfirmEvent("Vuoi mostrare il tuo sostegno alla chiesa?"));
+			sHandler.invoke(new ConfirmEvent("Would you like to support the Church?"));
 			startTimer();
 		}
 		else {

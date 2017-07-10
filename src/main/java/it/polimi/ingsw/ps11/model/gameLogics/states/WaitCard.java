@@ -41,7 +41,7 @@ public class WaitCard extends PlayState{
 		if(floor.getCard() != null && (card.equals(cardType) || cardType == null)){
 				getCard(null);
 		}else {
-			stateHandler().invoke(new TextualEvent("Non puoi selezionare questa carta"));
+			stateHandler().invoke(new TextualEvent("Cannot select this card."));
 		}
 	}
 
@@ -86,6 +86,6 @@ public class WaitCard extends PlayState{
 	
 	@Override
 	public void notifyToClient() {
-		stateHandler().invoke(new TextualEvent("Seleziona una carta su un piano di valore >= ad "+ value));
+		stateHandler().invoke(new TextualEvent("Select a card from a floor with a value >= "+ value));
 	}
 }
