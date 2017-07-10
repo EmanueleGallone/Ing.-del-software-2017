@@ -53,7 +53,6 @@ public class GameLogic implements Runnable{
 	}
 	
 	private void round(StateHandler nextPlayer){
-		notifyAllClients(new TextualEvent(game.getRoundManager().currentSituation()));
 		nextPlayer.play();
 		for(StateHandler pState : playerStatus.values()){
 			

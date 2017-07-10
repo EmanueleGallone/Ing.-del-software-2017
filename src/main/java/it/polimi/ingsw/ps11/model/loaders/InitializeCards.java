@@ -50,7 +50,7 @@ public class InitializeCards {
 	public static void main(String[] args) {
 		//inizializzaCarte();
 		//LeaderCardsInitializer();
-		//initializeExcommunication();
+		initializeExcommunication();
 	}
 	
 	public static void inizializzaCarte(){
@@ -1409,7 +1409,7 @@ public class InitializeCards {
 		cortigiana.addInstantEffect(new IncrementForCard(new BlueCard().getId(), resourceList.clone()));
 		
 		BlueCard generale = new BlueCard();
-		generale.setName("Generale");
+		generale.setName("General");
 		generale.setPeriod(3);
 		resourceList = new ResourceList(new Coin(5));
 		generale.addCost(resourceList.clone());
@@ -1733,7 +1733,7 @@ public class InitializeCards {
 		fourth.addEffect(decrementResourceEffect4);
 		
 		Excommunication fifth = new Excommunication("5", 1);
-		FamilyInFloorBonus familyInFloorBonus = new FamilyInFloorBonus(new GreenCard().getId(), -3);
+		FamilyInYieldBonus familyInFloorBonus = new FamilyInYieldBonus(new GreenCard().getId(), -3);
 		fifth.addEffect(familyInFloorBonus);
 		
 		Excommunication sixth = new Excommunication("6", 1);

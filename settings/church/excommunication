@@ -99,7 +99,7 @@
     "period": 1,
     "effect": [
       {
-        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus",
+        "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus",
         "INSTANCE": {
           "cardType": "GreenCard",
           "value": -3
