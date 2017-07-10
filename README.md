@@ -9,14 +9,14 @@ all'interno dell'attributo static String DEFAULT_ADDRESS;
 -Per giocare una partita in rete, seguite gli stessi passi appena descritti, e sostituire al "localhost" l'ip della macchina dove avvierete il server.
 
 -Per avviare il Client, avviate il Client.java (package Controller.client); scegliete quale tecnologia di collegamento e quale interfaccia usare.
--Una volta scelta l'interfaccia, vi verr� chiesto di inserire username e password. Se non siete registrati, verrete automaticamente registrati nel database.
+-Una volta scelta l'interfaccia, vi verra' chiesto di inserire username e password. Se non siete registrati, verrete automaticamente registrati nel database.
 
 Arrivati a questo punto, non dovreste avere problemi a giocare.
 
 GRAPHIC USER INTERFACE:
 Una volta iniziata la partita, per muovere un familiare, selezionare prima uno spazio azione e successivamente il familiare.
-Successivamente vi verr� mostrato un pannello dove inserire il numero di servitori da usare. In caso voleste prendere una carta da una torre
-e qualora quella carta avesse pi� ci un costo vi verr� mostrato un pannello dove c'� la possibilit� di selezionare un costo da pagare.
+Successivamente vi verra' mostrato un pannello dove inserire il numero di servitori da usare. In caso voleste prendere una carta da una torre
+e qualora quella carta avesse piu' ci un costo vi verra' mostrato un pannello dove c'e' la possibilita' di selezionare un costo da pagare.
 
 � possibile selezionare la carta nella torre per vederla nel pannello di fianco la chat, in versione piu' grande.
 
@@ -26,7 +26,7 @@ dove vengono mostrate le risorse.
 cliccate nel pulsante di fianco alla vostra barra dove sono situate le vostre risorse per aprire il pannello contenente la zona produzione,
 la zona raccolta, il mercato ed il palazzo del consiglio.
 
-Quando avete terminato l'azione (cio� posizionato un familiare o attivato una carta leader) ricordatevi di passare il turno, Altrimenti il server
+Quando avete terminato l'azione (cioe' posizionato un familiare o attivato una carta leader) ricordatevi di passare il turno, Altrimenti il server
 vi classificher� come utenti inattivi.
 
 COMMAND LINE INTERFACE:
