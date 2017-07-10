@@ -12,7 +12,7 @@ import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.IncrementEvryResource;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.IncrementEveryResource;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -20,7 +20,10 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-
+/**
+ * <h3> State </h3>
+ * <p> Classe che inizializza le azioni base di fine partita.</p> 
+ */
 public class DefaultEndAction {
 
 	public static void main(String[] args) throws FileNotFoundException, ClassCastException {
@@ -54,7 +57,7 @@ public class DefaultEndAction {
 		PointByCardAction bluAction = new PointByCardAction(null, new BlueCard().getId(), bluCard);
 		
 		
-		IncrementEvryResource incrementEvryResource = new IncrementEvryResource(null, 5, new VictoryPoint(1));
+		IncrementEveryResource incrementEvryResource = new IncrementEveryResource(null, 5, new VictoryPoint(1));
 		incrementEvryResource.addTarget(new Wood().getId());
 		incrementEvryResource.addTarget(new Stone().getId());
 		incrementEvryResource.addTarget(new Coin().getId());

@@ -17,7 +17,10 @@ import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-
+/**
+ * <h3> State </h3>
+ * <p> Classe che inizializza le personal tiles.</p> 
+ */
 public class DefaultTiles {
 
 	public static void main(String[] args) {

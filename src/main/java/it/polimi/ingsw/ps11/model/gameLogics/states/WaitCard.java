@@ -16,7 +16,11 @@ import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
-
+/**
+ * <h3> WaitCard </h3>
+ * <p> Classe che rappresenta lo stato di attesa della scelta del giocatore su quale carta prendere.</p>
+ * @see 
+ */
 public class WaitCard extends PlayState{
 
 	private String cardType;

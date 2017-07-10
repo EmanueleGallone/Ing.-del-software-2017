@@ -9,7 +9,7 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**
  * <h3> Yield </h3>
- * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco. </p>
+ * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco, possiede un un single e un multiple action space. </p>
  */
 public class Yield implements Serializable, Iterable<ActionSpace> {
 	

@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.endGame;
 
 import java.util.ArrayList;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
@@ -10,7 +11,11 @@ import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
-
+/**
+ * <h3>MilitaryPointAction</h3>
+ * <p> Classe che rappresenta l'azione che aggiunge punti vittoria a fine partita in base alla classifica dei punti militari.</p>
+ * @version 1.0
+ */
 public class MilitaryPointAcion implements Action {
 
 	private ActionManager aManager;

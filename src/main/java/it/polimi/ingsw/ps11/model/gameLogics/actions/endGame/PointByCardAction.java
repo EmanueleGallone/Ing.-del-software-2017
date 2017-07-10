@@ -2,12 +2,17 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.endGame;
 
 import java.util.HashMap;
 
+import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3>PointByCardAction</h3>
+ * <p> Classe che rappresenta l'azione che aggiunge punti vittoria a fine partita in baase al numero di carte di un certo tipo possedute
+ * da un giocatore.</p>
+ */
 public class PointByCardAction implements NeedManager {
 
 	private ActionManager aManager;

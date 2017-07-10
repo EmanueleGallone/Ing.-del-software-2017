@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedConfirm;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
-
+/**
+ * <h3> WaitConfirm </h3>
+ * <p> Classe che rappresenta lo stato di attesa di conferma o annullamento azione da parte del giocatore.</p> 
+ */
 public class WaitConfirm extends PlayState {
 
 	private NeedConfirm action;
