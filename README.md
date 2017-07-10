@@ -33,5 +33,5 @@ COMMAND LINE INTERFACE:
 Una volta iniziata la partita, verr� stampata la board a schermo ed il vostro status. per stampare la board scrivete update e premete invio.
 Per selezionare un piano di una torre scrivete ad esempio "yellow tower 1". Per selezionare uno spazio azione del market scrivete "market 1".
 Quando selezionate un posto azione vi verr� mostrata la lista dei familiari disponibili al posizionamento. Successivamente verr� mostrato un messaggio
-dove vi verr� chiesto di scegliere quanti servitori utilizzare. una volta premuto invio, verra' inviato al server la vostra azione.
-Per passare il turno digitate "pass".
+dove vi verra' chiesto di scegliere quanti servitori utilizzare. una volta premuto invio, verra' inviato al server la vostra azione.
+Per passare il turno digitate "pass". Vi saranno comunque istruzioni stampate a schermo.
