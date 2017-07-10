@@ -53,7 +53,7 @@ public class GraphicConfirmPanelView {
 		GridBagLayout gblDialog = new GridBagLayout();
 		gblDialog.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gblDialog.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gblDialog.columnWeights = new double[]{0.06, 0.62, 0.02, 0.01, 0.1, 
+		gblDialog.columnWeights = new double[]{0.06, 0.9, 0.02, 0.01, 0.1, 
 													0.06, 0.06, 0.06,Double.MIN_VALUE};
 		gblDialog.rowWeights = new double[]{0.05, 0.1, 0.1, 0.15, 0.075, 0.075, 0.05, Double.MIN_VALUE};
 		dialog.getContentPane().setLayout(gblDialog);
