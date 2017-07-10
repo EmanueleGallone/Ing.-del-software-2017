@@ -71,9 +71,6 @@ public class GameLogic implements Runnable{
 
 	@Override
 	public void run() {
-		for(int i = 0; i < 22; i++)
-			nextPlayer();
-		
 		nextPlayer();
 		for(StateHandler playerState : playerStatus.values()){
 			playerState.start();
