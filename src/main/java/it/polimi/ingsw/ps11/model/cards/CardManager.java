@@ -2,6 +2,7 @@ package it.polimi.ingsw.ps11.model.cards;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -22,7 +23,9 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 	
 	private final int MAX_CARD = 6;
 	private HashMap<String , ArrayList<DevelopmentCard>> cards = new HashMap<>();
+	private HashMap<String, DevelopmentCard> tiles = new HashMap<>();
 	private ArrayList<LeaderCard> leaderCards = new ArrayList<>();
+	
 	private boolean limited = true;
 	
 	public CardManager() {
@@ -72,6 +75,18 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		return true;
 	}
 	
+	public void setTiles(ArrayList<DevelopmentCard> tiles) {
+		for(DevelopmentCard tile : tiles){
+			this.tiles.put(tile.getId(), tile);
+		}
+	}
+	
+	public String getTiles() {
+		for(DevelopmentCard tile : tiles.values())
+			return tile.getName();
+		return "BLANK";
+	}
+	
 	/**<h3> boolean isLimited() </h3>
 	 * <p> Indica se il mazzo ha limite nel numero di carte. </p>
 	 */
@@ -97,6 +112,9 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		ArrayList<DevelopmentCard> cards = this.cards.get(cardId);
 		if(cards == null)
 			cards = new ArrayList<>();
+		DevelopmentCard tile = tiles.get(cardId);
+		if(tile!=null)
+			cards.add(tiles.get(cardId));
 		return cards;
 	}
 	

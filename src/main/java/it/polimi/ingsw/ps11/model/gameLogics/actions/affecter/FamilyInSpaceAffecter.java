@@ -30,7 +30,7 @@ public class FamilyInSpaceAffecter implements Affecter<FamilyInSpaceAction> {
 	@Override
 	public FamilyInSpaceAction affect(FamilyInSpaceAction action) {
 		FamilyMember familyMember = action.getFamilyMember();
-		if(familyMember.getId().equals(familyType))
+		if(familyMember != null && familyMember.getId().equals(familyType))
 			action.addModifier(value);
 		return action;
 	}

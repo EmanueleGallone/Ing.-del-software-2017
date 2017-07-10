@@ -16,4 +16,6 @@ public class FileRegistry {
 	public static final String leaderCards = cards + "leaderCards";
 	public static final String excommunication = root + "church" + File.separatorChar + "excommunication";
 	public static final String endActions = root + "actions" + File.separatorChar + "defaultEndActions";
+	public static final String default_tiles = root + "tiles";
+	
 }
