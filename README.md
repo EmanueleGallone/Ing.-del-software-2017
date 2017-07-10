@@ -52,3 +52,4 @@ Requisiti sviluppati:
 -Timeout per azione settabile da file.
 -Non tutte le carte Leader implementate.
 -Non tutte le scomuniche implementate.
+-UML è presente sotto forma di immagine nella cartella uml/uml finale.
