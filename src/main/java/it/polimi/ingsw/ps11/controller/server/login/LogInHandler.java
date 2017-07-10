@@ -69,11 +69,11 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 				waitingClient.remove(connection);
 				connection.detachListener(this);
 				connectionHandler.addToLobby(connection);
-				connection.send("Ti sei registrato con successo, il tuo nome è: " + user.getId());
+				connection.send("Succesful sign In, your username is: " + user.getId());
 				return;
 			}
 			else {
-				connection.send("Registrazione fallita, nome utente già in uso");
+				connection.send("Sign in error: username already used.");
 			}
 			
 

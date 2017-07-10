@@ -92,7 +92,7 @@ public class ResourceListTest {
 		
 		resourceList1.subtract(resourceList2);
 		assertEquals(new Coin().getFrom(resourceList1).getValue(), 2);			//differenza tra risorsa presente in entrambi, con chiamante > chiamata
-		assertEquals(new VictoryPoint().getFrom(resourceList1).getValue(), -2);	//differenza tra risorsa presente in entrambi, con chiamata > chiamante
+		assertEquals(new VictoryPoint().getFrom(resourceList1).getValue(), 0);	//differenza tra risorsa presente in entrambi, con chiamata > chiamante
 		assertEquals(new Wood().getFrom(resourceList1).getValue(), 3);			//differenza tra risorsa presente solo nella chiamante
 		
 		assertEquals(0, new Servant().getFrom(resourceList1).getValue());			//differenza tra risorsa presente solo nella chiamata

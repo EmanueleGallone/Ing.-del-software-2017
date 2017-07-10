@@ -42,7 +42,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	public boolean isLegal() {
 
 		if(alreadyDone){
-			aManager.state().invoke("Questa azione puo' essere fatta solo una volta per turno");
+			aManager.state().invoke("This action can be done only once per Turn.");
 			return false;
 		}
 		if(space.isFree() && makeServantAction().isLegal()){
@@ -57,7 +57,7 @@ public class FamilyInSpaceAction implements Action, NeedConfirm{
 	
 	public boolean checkActionCost(){
 		if(space.getActionCost() > (getFamilyValue())){
-			aManager.state().invoke("Il familiare non ha un valore sufficiente");
+			aManager.state().invoke("The value of the selected family member is not high enough.");
 			return false;
 		}
 		return true;

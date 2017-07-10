@@ -53,7 +53,7 @@ public class ConnectionHandler {
 			Connection c = lobby.get(i);
 			if(c.getId().equals(connection.getId())){
 				lobby.remove(c);
-				c.send("Un'altro giocatore ha effettuato l'accesso con le tue credenziali");
+				c.send("Another player has Logged in with your credentials. Log Out.");
 			}
 		}
 	}
@@ -61,15 +61,15 @@ public class ConnectionHandler {
 	public synchronized void addToLobby(Connection client){
 	
 		checkPresenceInLobby(client);
-		client.send("Connesso, in attesa di altri giocatori");
+		client.send("Connected, waiting for other players...");
 		
 		lobby.add(client);
-		System.out.println("  -> Nuovo " + client.getClass().getSimpleName() + "  ci sono:   " + lobby.size() + " client nella lobby");
+		System.out.println("  -> New " + client.getClass().getSimpleName() + "  there are:   " + lobby.size() + " clients in the lobby");
 		if(lobby.size() == START_SIZE){
 			timer = new Timer();
 			TimerTask task = new StartingMatch();
 			timer.schedule(task, delay);
-			System.out.println("Timer avviato, la partita iniziera' fra " + delay/1000 + " secondi ");
+			System.out.println("Timer started, the game will start in " + delay/1000 + " seconds ");
 		}
 		
 		if(lobby.size() == MAX_SIZE){
@@ -80,7 +80,7 @@ public class ConnectionHandler {
 	
 	
 	private synchronized void newMatch() {
-		System.out.println("Avvio una nuova partita");
+		System.out.println("A new game has started");
 		GameController gameController = new GameController(lobby);
 		lobby = new ArrayList<>();
 		this.games.add(gameController);

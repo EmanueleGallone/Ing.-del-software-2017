@@ -170,8 +170,8 @@ public class GraphicConfirmPanelView {
 			int servant = getConfirm();
 			eventHandler.invoke(new ConfirmViewEvent(true, servant));
 			}
-			mainWindow.setEnabled(true);
 			dialog.dispose();
+			mainWindow.setEnabled(true);
 		}
 	}
 

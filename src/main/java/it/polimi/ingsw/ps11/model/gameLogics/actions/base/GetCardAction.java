@@ -45,7 +45,7 @@ public class GetCardAction implements Action {
 	public boolean isLegal() {
 		
 		if(card == null){
-			aManager.state().invoke("Il piano è vuoto");
+			aManager.state().invoke("The floor has no card.");
 			return false;
 		}
 		
@@ -57,11 +57,11 @@ public class GetCardAction implements Action {
 
 		DecrementAction pay = makePayAction();
 		if(!pay.isLegal()){
-			aManager.state().invoke("Non hai abbastanza risorse per prendere la carta");
+			aManager.state().invoke("Not enough resources to get this card.");
 			return false;
 		}
 		if(!aManager.state().getPlayer().getCardManager().canAdd(card)){
-			aManager.state().invoke("Non puoi prendere un'altra carta di questo tipo");
+			aManager.state().invoke("Cannot have more cards of this type.");
 			return false;
 		}
 		return true;

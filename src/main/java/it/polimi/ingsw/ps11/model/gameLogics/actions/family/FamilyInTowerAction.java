@@ -43,7 +43,7 @@ public class FamilyInTowerAction implements Action {
 	@Override
 	public boolean isLegal() {
 		if(!familyMember.isNeutral() && contains(tower, aManager.state().getPlayer())){
-			aManager.state().invoke("Non puoi posizionare altri familiari su questa torre");
+			aManager.state().invoke("Cannot place another family member of same player that is not a Neutral family member.");
 			return false;
 		}
 		return checkTax();
