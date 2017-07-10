@@ -4,10 +4,11 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
-public class PointByCardAction implements Action {
+public class PointByCardAction implements NeedManager {
 
 	private ActionManager aManager;
 	private String card;
@@ -17,6 +18,11 @@ public class PointByCardAction implements Action {
 		this.aManager = aManager;
 		this.card = card;
 		this.rewards = rewards;
+	}
+	
+	@Override
+	public void setManager(ActionManager aManager) {
+		this.aManager = aManager;
 	}
 	
 	@Override
