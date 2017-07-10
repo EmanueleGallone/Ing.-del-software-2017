@@ -86,10 +86,6 @@ public class GraphicConfirmPanelView {
 				gbcCard.gridheight = 5;
 				gbcCard.fill = GridBagConstraints.BOTH;
 				dialog.getContentPane().add(cardView.getComponent(), gbcCard);
-				
-				gbcMessaggio.gridx = 3;
-				gbcMessaggio.gridy = 4;
-				gbcMessaggio.gridwidth = 4;
 			
 			}
 			
@@ -128,17 +124,14 @@ public class GraphicConfirmPanelView {
 			gbcServitori.gridy = 2;
 			gbcServitori.fill = GridBagConstraints.HORIZONTAL;
 			dialog.getContentPane().add(addServitori, gbcServitori);
-			
+
 		}
 		
-		if(confirmEvent.getFloor().getCard()==null){
-			
-			gbcMessaggio.gridx = 1;
-			gbcMessaggio.gridy = 4;
-			gbcMessaggio.gridwidth = 6;
-			
-		}
-
+		
+		gbcMessaggio.gridx = 3;
+		gbcMessaggio.gridy = 4;
+		gbcMessaggio.gridwidth = 4;
+		
 		gbcMessaggio.fill = GridBagConstraints.BOTH;
 		messaggio.setFont(new Font("Arial", Font.PLAIN, 15));
 		messaggio.setEditable(false);
