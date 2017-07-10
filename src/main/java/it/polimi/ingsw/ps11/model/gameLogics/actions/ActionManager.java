@@ -42,6 +42,7 @@ public class ActionManager {
 			Affecter<T> affecter = (Affecter<T>)aff;
 			action = affecter.affect(action);
 		}
+		
 		return action;
 	}
 	
