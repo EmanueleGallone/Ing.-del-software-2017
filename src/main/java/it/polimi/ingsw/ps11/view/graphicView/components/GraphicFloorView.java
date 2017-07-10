@@ -89,6 +89,7 @@ public class GraphicFloorView extends FloorView{
 			graphicCardView.update(this.floor.getCard());
 			graphicCardView.print();
 			graphicCardView.getComponent().setVisible(true);
+			graphicCardView.getComponent().setEnabled(true);
 			
 			GridBagConstraints gbcCard = new GridBagConstraints();
 			gbcCard.gridx = 0;
@@ -116,7 +117,8 @@ public class GraphicFloorView extends FloorView{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			eventHandler.invoke(new FloorSelectedEvent(tower, whichFloor));			
+			eventHandler.invoke(new FloorSelectedEvent(tower, whichFloor));		
+			print();
 		}
 		
 	}

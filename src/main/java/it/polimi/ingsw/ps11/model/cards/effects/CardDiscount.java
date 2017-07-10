@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> CardDiscount </h3>
- * <p> Effetto di una carta: modifica permanentemente il costo di un tipo di carta attraverso <code>CardCostAffecter</code>.</p>
+ * <p> Classe che rappresenta l'effetto di una carta: modifica permanentemente il costo di un tipo di carta attraverso <code>CardCostAffecter</code>.</p>
  * <p> Richiede: string (tipo della carta su cui è applicabile la modifica del costo), resourceList (valore delle risorse che 
  * modificano i costi delle carte).</p>
  * @see Effect

@@ -51,7 +51,7 @@ public class SocketConnection extends Connection implements EventListener<Messag
 		try {
 			new MessageSender(socket, message).run();
 		} catch (IOException e) {
-			System.err.println("Soket MessageSender: The connection is closed");
+			System.err.println("Soket MessageSender: The connection has been closed");
 		}
 		
 	}

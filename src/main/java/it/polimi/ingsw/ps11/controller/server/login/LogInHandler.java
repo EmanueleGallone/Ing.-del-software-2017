@@ -63,7 +63,7 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 				connectionHandler.handle(connection);
 				return;
 			}else {
-				connection.send("\nDati non validi per il login, procedo con la registrazione\n");
+				connection.send("\nInvalid datas for the Log in. Signing up...\n");
 			}
 			if(register.addNew(user)){
 				waitingClient.remove(connection);

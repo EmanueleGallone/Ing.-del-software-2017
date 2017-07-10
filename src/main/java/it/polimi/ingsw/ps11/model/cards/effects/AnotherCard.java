@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ChangeStateAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitCard;
 /**
  * <h3> AnotherCard </h3>
- * <p> Effetto di una carta: modifica lo stato di un giocatore in <code>Waitcard</code>.</p>
+ * <p> Classe che rappresenta l'effetto di una carta: modifica lo stato di un giocatore in <code>Waitcard</code>.</p>
  * <p> Richiede: string (tipo di carta che è possibile prendere), int (valore massimo del costo dell'actionspace associato
  * alla carta).</p>
  * @see Effect

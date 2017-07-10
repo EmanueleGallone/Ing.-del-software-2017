@@ -41,11 +41,11 @@ public class MessageReceiver implements Runnable {
 			
 		} catch (IOException e) {
 			//e.printStackTrace();
-			System.err.println("Connessione chiusa");
+			System.err.println("Closed Connection");
 			disconnectEvent.invoke(new DisconnectEvent());
 		} catch (ClassNotFoundException e) {
 			//e.printStackTrace();
-			System.err.println("Messaggio non valido");
+			System.err.println("Invalid message");
 		}
 	}
 	

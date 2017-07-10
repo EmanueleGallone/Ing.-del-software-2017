@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> AddResourceEffect </h3>
- * <p> Effetto di una carta: attiva l'azione <code>IncrementAction</code>.</p>
+ * <p> Classe che rappresenta l'effetto di una carta: attiva l'azione <code>IncrementAction</code>.</p>
  * <p> Richiede: resource (il tipo di risorsa da incrementare).</p>
  * @see Effect
  * @see IncrementAction
