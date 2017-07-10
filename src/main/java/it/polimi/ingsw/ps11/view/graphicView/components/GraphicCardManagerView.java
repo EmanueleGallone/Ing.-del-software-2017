@@ -184,7 +184,10 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	}
 	
 	private void setCard(GraphicPaintedPanel deckPanel, ArrayList<DevelopmentCard> cards){
-		
+		for(int c =0; c<cards.size(); c++){
+			if(cards.get(c).getName().equals(cardManager.getTiles()))
+				cards.remove(cards.get(c));
+		}
 		int i = 0;
 		for (GraphicDevelopmentCardView developmentCardButton : mapPanelCardsViews.get(deckPanel)) {
 			if(i<cards.size()){
