@@ -430,6 +430,48 @@
           "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
           "INSTANCE": {
             "requirement": {
+              "PurpleCard": 2,
+              "YellowCard": 2,
+              "GreenCard": 2,
+              "BlueCard": 2
+            }
+          }
+        }
+      ],
+      "effects": [
+        {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FixFamilyValueEffect",
+          "INSTANCE": {
+            "familyType": "OrangeFamilyMember",
+            "value": 5
+          }
+        },
+        {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FixFamilyValueEffect",
+          "INSTANCE": {
+            "familyType": "BlackFamilyMember",
+            "value": 5
+          }
+        },
+        {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FixFamilyValueEffect",
+          "INSTANCE": {
+            "familyType": "WhiteFamilyMember",
+            "value": 5
+          }
+        }
+      ],
+      "satisfied": false,
+      "activated": false,
+      "name": "Ludovico Il Moro",
+      "id": "LeaderCard"
+    },
+    {
+      "requirements": [
+        {
+          "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement",
+          "INSTANCE": {
+            "requirement": {
               "YellowCard": 4,
               "BlueCard": 2
             }
