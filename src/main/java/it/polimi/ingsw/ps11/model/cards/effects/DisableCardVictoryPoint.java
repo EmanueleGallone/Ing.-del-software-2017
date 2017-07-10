@@ -3,10 +3,17 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.IncrementAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.PointByCardAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> Decrement ResourceEffect </h3>
+ * <p> Classe che rappresenta l'Effetto di una carta: modifica le risorse guadagnate per le carte a fine partita attraverso una <code>PointByCardAffecter</code>.</p>
+ * <p> Richiede: arrayList di resource (valori delle resourceLists che incrementano le risorse).</p>
+ * @see Effect
+ * @see PointByCardAffecter
+ */
 public class DisableCardVictoryPoint implements Effect{
 
 	private String card;

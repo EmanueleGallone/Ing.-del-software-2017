@@ -9,7 +9,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.states.WaitResource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> CouncilPrivilege </h3>
- * <p> Effetto di una carta: attiva l'azione <code>IncrementAction</code>. Limitato a una scelta
+ * <p> Classe che rappresenta l'Effetto di una carta: attiva l'azione <code>IncrementAction</code>. Limitato a una scelta
  * tra: 1 wood e 1 stone, 2 servants, 2 coins, 2 militaryPoints, 1 faithPoint.</p>
  * <p> Richiede: arrayList di resource (valori delle resourceLists che incrementano le risorse).</p>
  * @see Effect

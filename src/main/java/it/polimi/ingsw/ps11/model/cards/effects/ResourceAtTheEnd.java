@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> ResourceAtTheEnd </h3>
- * <p> Effetto di una carta: modifica permanentemente il valore delle risorse ottenute da <code>IncrementAction</code> a 
+ * <p> Classe che rappresenta l'effetto di una carta: modifica permanentemente il valore delle risorse ottenute da <code>IncrementAction</code> a 
  * fine partita.</p>
  * <p> Richiede: resourceList (Valori delle risorse ottenute a fine partita).</p>
  * @see Effect
