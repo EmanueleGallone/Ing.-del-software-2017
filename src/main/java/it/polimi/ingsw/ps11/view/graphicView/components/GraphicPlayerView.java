@@ -121,8 +121,8 @@ public class GraphicPlayerView extends PlayerView{
 		return personalPanel;
 	}
 
-	public void attachLeaderListener(EventListener<LeaderCard> zoomCard) {
-		graphicCardManagerView.attachLeaderListener(zoomCard);
+	public void attachLeaderListener(EventListener<LeaderCard> activateLeader) {
+		graphicCardManagerView.attachLeaderListener(activateLeader);
 	}
 
 	public void attachEndTurnListener(EndTurn endTurn2) {

@@ -58,8 +58,8 @@ public class GraphicLoginPanel{
 		
 		JLabel scrittaUsername = new JLabel("<html><font color='white'>Username</font></html>"),
 			   scrittaPassword = new JLabel("<html><font color='white'>Password</font></html>");
-		scrittaUsername.setFont(new Font("Times New Roman", Font.PLAIN, 35));
-		scrittaPassword.setFont(new Font("Times New Roman", Font.PLAIN, 35));
+		scrittaUsername.setFont(new Font("Times New Roman", Font.PLAIN, (int)Math.round(screenSize.getHeight()*0.678703)/15));
+		scrittaPassword.setFont(new Font("Times New Roman", Font.PLAIN, (int)Math.round(screenSize.getHeight()*0.678703)/15));
 		username.setFont(new Font("Times New Roman", Font.PLAIN, 35));
 		password.setFont(new Font("Times New Roman", Font.PLAIN, 35));
 		
@@ -69,7 +69,7 @@ public class GraphicLoginPanel{
 		GridBagLayout gblLoginPanel = new GridBagLayout();
 		gblLoginPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gblLoginPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gblLoginPanel.columnWeights = new double[]{0.2, 0.4, 0.355, 0.05, 0.1, 0.2, Double.MIN_VALUE};
+		gblLoginPanel.columnWeights = new double[]{0.2, 0.3, 0.455, 0.05, 0.1, 0.2, Double.MIN_VALUE};
 		gblLoginPanel.rowWeights = new double[]{0.8, 0.1, 0.1, 0.1, 0.04, 0.1, Double.MIN_VALUE};
 		image.setLayout(gblLoginPanel);
 		

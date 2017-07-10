@@ -54,8 +54,6 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	private ArrayList<JToggleButton> arrayDeckSelectors;
 	private ButtonGroup buttonGroupSelectors;
 
-	private EventListener<Card> zoomCard;
-
 	public GraphicCardManagerView() {
 		
 		cardBoardPanel.setOpaque(false);
@@ -192,7 +190,6 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		for (GraphicDevelopmentCardView developmentCardButton : mapPanelCardsViews.get(deckPanel)) {
 			if(i<cards.size()){
 				developmentCardButton.update(cards.get(i));
-				developmentCardButton.attachCardListener(zoomCard);
 				developmentCardButton.getComponent().setEnabled(true);
 				developmentCardButton.getComponent().setName(cards.get(i).getName());
 
