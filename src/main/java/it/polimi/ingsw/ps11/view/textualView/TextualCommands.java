@@ -3,13 +3,15 @@ package it.polimi.ingsw.ps11.view.textualView;
 import java.util.HashMap;
 import java.util.Map;
 
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
-import it.polimi.ingsw.ps11.model.zones.towers.*;
 import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.*;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 
 
 
@@ -38,6 +40,7 @@ public class TextualCommands {
 //		instructions = "\n\nINSTRUCTION:"
 //				+ "\n • If you want select the floor of a tower type \" yellow tower 1 \""
 //				+ "\n • If you want to print the entire board type \" update \" "
+//				+ "\n • If you want to select the Council palace type  \" council palace \" "
 //				+ "\n • If you want select production or harvest type \"production\" or \"harvest\""
 //				+ "\n • If you want select the first action space in the market type \"market 1\""
 //				+ "\n • If you want to activate a leader card type \"leader [LeaderCardName]\" "
@@ -75,6 +78,9 @@ public class TextualCommands {
 //	commands.put("update" , new AskUpdateEvent());
 //	
 //	commands.put("pass" , new EndTurnEvent());
+//	
+//	commands.put("councilpalace", new CouncilSelectedEvent());
+//	commands.put("council palace", new CouncilSelectedEvent());
 //}
 //	
 //	
