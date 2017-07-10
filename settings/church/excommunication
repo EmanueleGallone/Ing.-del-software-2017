@@ -127,21 +127,21 @@
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus",
         "INSTANCE": {
-          "familyType": "class it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember",
+          "familyType": "BlackFamilyMember",
           "value": -1
         }
       },
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus",
         "INSTANCE": {
-          "familyType": "class it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember",
+          "familyType": "WhiteFamilyMember",
           "value": -1
         }
       },
       {
         "CLASSNAME": "it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus",
         "INSTANCE": {
-          "familyType": "class it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember",
+          "familyType": "OrangeFamilyMember",
           "value": -1
         }
       }

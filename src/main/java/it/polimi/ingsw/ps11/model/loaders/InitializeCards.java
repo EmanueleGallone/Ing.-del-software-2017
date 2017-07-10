@@ -49,7 +49,7 @@ public class InitializeCards {
 /*	
 	public static void main(String[] args) {
 		//inizializzaCarte();
-		LeaderCardsInitializer();
+		//LeaderCardsInitializer();
 		//initializeExcommunication();
 	}
 	
@@ -1742,9 +1742,9 @@ public class InitializeCards {
 		
 		
 		Excommunication seventh = new Excommunication("7", 1);
-		FamilyInSpaceBonus familyInSpaceBonus3 = new FamilyInSpaceBonus(BlackFamilyMember.class.toString(), -1);
-		FamilyInSpaceBonus familyInSpaceBonus4 = new FamilyInSpaceBonus(WhiteFamilyMember.class.toString(), -1);
-		FamilyInSpaceBonus familyInSpaceBonus5 = new FamilyInSpaceBonus(OrangeFamilyMember.class.toString(), -1);
+		FamilyInSpaceBonus familyInSpaceBonus3 = new FamilyInSpaceBonus(new BlackFamilyMember().getId(), -1);
+		FamilyInSpaceBonus familyInSpaceBonus4 = new FamilyInSpaceBonus(new WhiteFamilyMember().getId(), -1);
+		FamilyInSpaceBonus familyInSpaceBonus5 = new FamilyInSpaceBonus(new OrangeFamilyMember().getId(), -1);
 		seventh.addEffect(familyInSpaceBonus3); 
 		seventh.addEffect(familyInSpaceBonus4);
 		seventh.addEffect(familyInSpaceBonus5);
@@ -1809,5 +1809,5 @@ public class InitializeCards {
 		loader.write(list,type);
 		
 	}
-	*/
+*/
 }

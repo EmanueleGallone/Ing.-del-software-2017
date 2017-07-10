@@ -6,9 +6,7 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.game.Game;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.EndGameAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
 import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
