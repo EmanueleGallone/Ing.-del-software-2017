@@ -91,7 +91,7 @@ public class RMIConnection extends Connection implements RMIReceiver,Serializabl
 				connection.receive(message);
 			} catch (RemoteException e) {
 				//e.printStackTrace();
-				System.err.println("RMIConnection: The connection is closed");
+				System.err.println("RMIConnection: The connection has been closed");
 			}
 		}
 	}

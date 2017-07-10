@@ -33,7 +33,7 @@ public class FamilyInYieldAction implements Action, NeedConfirm {
 	@Override
 	public boolean isLegal() {
 		if(!spaceAction.getFamilyMember().isNeutral() && yield.search(aManager.state().getPlayer())){
-			aManager.state().invoke("Non puoi piazzare un'altro familiare in questa zona");
+			aManager.state().invoke("Cannot place in this zonee another family member of same player that is not a Neutral family member.");
 			return false;
 		}
 		

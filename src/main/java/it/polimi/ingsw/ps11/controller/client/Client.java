@@ -147,18 +147,18 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		View view = null;
 		Connection connection = null;
 		
-		console.println("Scegli le modalità di gioco\n• Digita \"s\" o \"r\" per scegliere tra una connessione socket o rmi ");
-		console.println("• Digita \"g\" o \"t\" per scegliere tra view grafica o testuale");
+		console.println("Choose a connection mode\n• Type \"s\" to choose Socket, \"r\" to choose RMI");
+		console.println("Choose a view mode\n• Type \"g\" to choose Graphic, \"t\" to choose Textual");
 		
 		boolean viewSel = true, connectionSel = true;
 		
 		while (viewSel || connectionSel) {
-			switch (console.read("Inserisci la tua scelta: ")) {
+			switch (console.read("Insert your choiche here: ")) {
 			case "s": connection = new SocketConnection(); connectionSel = false ;break;
 			case "r": connection = new RMIConnection().randomGen(); connectionSel = false; break;
 			case "g": view = new GraphicView(); viewSel = false ;break;
 			case "t": view = new TextualView(); viewSel = false;break;
-			default: console.println("Input non riconosciuto"); break;
+			default: console.println("Invalid input."); break;
 			}
 		}
 		Client client = new Client(view, connection);

@@ -63,17 +63,17 @@ public class LogInHandler implements MessageListener, EventListener<MessageEvent
 				connectionHandler.handle(connection);
 				return;
 			}else {
-				connection.send("\nDati non validi per il login, procedo con la registrazione\n");
+				connection.send("\nInvalid datas for the Log in. Signing up...\n");
 			}
 			if(register.addNew(user)){
 				waitingClient.remove(connection);
 				connection.detachListener(this);
 				connectionHandler.addToLobby(connection);
-				connection.send("Ti sei registrato con successo, il tuo nome è: " + user.getId());
+				connection.send("Succesful sign In, your username is: " + user.getId());
 				return;
 			}
 			else {
-				connection.send("Registrazione fallita, nome utente già in uso");
+				connection.send("Sign in error: username already used.");
 			}
 			
 

@@ -22,8 +22,9 @@ public class GetCardAction implements Action {
 	private ResourceList cost;
 	private Floor floor;
 	
-	private ResourceList modifier = new ResourceList();
-	
+	private ResourceList positiveModifier = new ResourceList();
+	private ResourceList negativeModifier = new ResourceList();
+
 	//private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
@@ -45,7 +46,7 @@ public class GetCardAction implements Action {
 	public boolean isLegal() {
 		
 		if(card == null){
-			aManager.state().invoke("Il piano è vuoto");
+			aManager.state().invoke("The floor has no card.");
 			return false;
 		}
 		
@@ -57,11 +58,11 @@ public class GetCardAction implements Action {
 
 		DecrementAction pay = makePayAction();
 		if(!pay.isLegal()){
-			aManager.state().invoke("Non hai abbastanza risorse per prendere la carta");
+			aManager.state().invoke("Not enough resources to get this card.");
 			return false;
 		}
 		if(!aManager.state().getPlayer().getCardManager().canAdd(card)){
-			aManager.state().invoke("Non puoi prendere un'altra carta di questo tipo");
+			aManager.state().invoke("Cannot have more cards of this type.");
 			return false;
 		}
 		return true;
@@ -69,9 +70,10 @@ public class GetCardAction implements Action {
 
 	private DecrementAction makePayAction(){
 		if(floor!= null)
-			modifier.sum(floor.getActionSpace().getResources());
+			positiveModifier.sum(floor.getActionSpace().getResources());
 		ResourceList totalCost = this.cost.clone();
-		totalCost.subtract(modifier);
+		totalCost.subtract(positiveModifier);
+		totalCost.sum(negativeModifier);
 		DecrementAction pay = new DecrementAction(aManager,totalCost);
 		return aManager.affect(pay);
 	}
@@ -111,8 +113,12 @@ public class GetCardAction implements Action {
 		return cost;
 	}
 	
-	public void addModifier(ResourceList modifier){
-		this.modifier.sum(modifier);
+	public void addDiscount(ResourceList modifier){
+		this.positiveModifier.sum(modifier);
+	}
+	
+	public void addPenality(ResourceList modifier){
+		this.negativeModifier.sum(modifier);
 	}
 	
 	public void setCost(ResourceList cost) {
