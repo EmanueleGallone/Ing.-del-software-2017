@@ -145,6 +145,7 @@ public class GameLogic implements Runnable{
 		public void handle(RoundManager e) {
 			
 			Player winner = new Player();
+			
 			int maxVictoryPoint = 0;
 			for(StateHandler sHandler : playerStatus.values()){
 				EndGameAction endGame = new EndGameAction(sHandler.actions());
