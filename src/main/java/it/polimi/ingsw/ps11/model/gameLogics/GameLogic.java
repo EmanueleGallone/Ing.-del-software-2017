@@ -59,7 +59,8 @@ public class GameLogic implements Runnable{
 			
 			if(pState != nextPlayer ){
 			    pState.nextState(new DefaultState());
-			    pState.invoke(new TextualEvent("E' il turno di " + nextPlayer.getPlayer().getName()));
+			    //pState.invoke(new TextualEvent("E' il turno di " + nextPlayer.getPlayer().getName()));
+			    pState.invoke(new GameUpdateEvent(game));
 			}
 		}
 		
