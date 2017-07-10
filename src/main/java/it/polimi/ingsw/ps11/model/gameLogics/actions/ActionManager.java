@@ -42,7 +42,6 @@ public class ActionManager {
 			Affecter<T> affecter = (Affecter<T>)aff;
 			action = affecter.affect(action);
 		}
-		System.out.println();
 		return action;
 	}
 	

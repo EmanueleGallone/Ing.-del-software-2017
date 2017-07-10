@@ -2,7 +2,7 @@
   {
     "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction",
     "INSTANCE": {
-      "card": "class it.polimi.ingsw.ps11.model.cards.list.GreenCard",
+      "card": "GreenCard",
       "rewards": {
         "1": {
           "resources": {
@@ -54,7 +54,7 @@
   {
     "CLASSNAME": "it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction",
     "INSTANCE": {
-      "card": "class it.polimi.ingsw.ps11.model.cards.list.BlueCard",
+      "card": "BlueCard",
       "rewards": {
         "1": {
           "resources": {

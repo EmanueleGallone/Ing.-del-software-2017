@@ -150,6 +150,7 @@ public class GameLogic implements Runnable{
 				EndGameAction endGame = new EndGameAction(sHandler.actions());
 				endGame = sHandler.actions().affect(endGame);
 				endGame.perform();
+				
 				ResourceList pList = sHandler.getPlayer().getResourceList();
 				int victoryP = new VictoryPoint().getFrom(pList).getValue();
 				if(victoryP > maxVictoryPoint){
