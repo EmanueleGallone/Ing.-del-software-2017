@@ -32,7 +32,7 @@ public class ActiveYieldAction implements Action {
 	@Override
 	public void perform() {
 		boolean update = true;
-		ArrayList<DevelopmentCard> cards = aManager.state().getPlayer().getCardManager().getCardList(cardType);
+		ArrayList<DevelopmentCard> cards = aManager.state().getPlayer().getCardManager().getCardList(cardType,true);
 		for(DevelopmentCard card : cards){
 			if(card.getActiveValue() <= value){
 				active(card.getPermanentEffect());

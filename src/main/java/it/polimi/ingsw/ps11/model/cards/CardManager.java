@@ -109,7 +109,7 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 	
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<DevelopmentCard> getCardList (String cardId){
+	public ArrayList<DevelopmentCard> getCardList (String cardId, boolean all){
 		ArrayList<DevelopmentCard> cards = this.cards.get(cardId);
 		if(cards == null)
 			cards = new ArrayList<>();
@@ -119,6 +119,13 @@ public class CardManager implements Serializable, Iterable<ArrayList<Development
 		DevelopmentCard tile = tiles.get(cardId);
 		if(tile!=null)
 			cards.add(tiles.get(cardId));
+		return cards;
+	}
+	
+	public ArrayList<DevelopmentCard> getCardList (String cardId){
+		ArrayList<DevelopmentCard> cards = this.cards.get(cardId);
+		if(cards == null)
+			cards = new ArrayList<>();
 		return cards;
 	}
 	
