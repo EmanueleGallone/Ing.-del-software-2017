@@ -5,7 +5,6 @@ import java.util.Random;
 import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
-import it.polimi.ingsw.ps11.view.textualView.TextualView;
 
 public class RmiClientStarter {
 	
