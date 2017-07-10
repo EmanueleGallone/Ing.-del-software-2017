@@ -1,5 +1,5 @@
 package it.polimi.ingsw.ps11.model.loaders;
-
+/*
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,9 +44,9 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-
+*/
 public class InitializeCards {
-	
+/*	
 	public static void main(String[] args) {
 		//inizializzaCarte();
 		LeaderCardsInitializer();
@@ -1809,5 +1809,5 @@ public class InitializeCards {
 		loader.write(list,type);
 		
 	}
-	
+	*/
 }

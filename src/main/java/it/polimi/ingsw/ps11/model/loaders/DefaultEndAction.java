@@ -1,5 +1,5 @@
 package it.polimi.ingsw.ps11.model.loaders;
-
+/*
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 
@@ -9,9 +9,9 @@ import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
-
+*/
 public class DefaultEndAction {
-
+/*
 	public static void main(String[] args) throws FileNotFoundException, ClassCastException {
 		//initializeDefaultAction();
 	}
@@ -43,4 +43,5 @@ public class DefaultEndAction {
 		new Loader(FileRegistry.charactersAction).write(bluAction);
 		
 	}
+	*/
 }

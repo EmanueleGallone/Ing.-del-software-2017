@@ -1,5 +1,5 @@
-package it.polimi.ingsw.ps11;
-
+package it.polimi.ingsw.ps11.model.loaders;
+/*
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.game.Board;
-import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -27,12 +26,12 @@ import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.model.zones.yield.Yield;
-
-public class MainTest {
-	
+*/
+public class InitializeBoard {
+/*	
 	public static void main(String[] args) throws FileNotFoundException{
 		//initializeTextualCommands();
-		inizializzatoreBoard();
+		//inizializzatoreBoard();
 		
 	}
 	
@@ -163,14 +162,7 @@ public class MainTest {
 		//CustomFileReaderWriter.writeFile("settings\\board", gAdapter.toJson(board));
 		return board;
 	}
-	
-	
-//	public static void initializeTextualCommands(){
-//		
-//		TextualCommands commands = new TextualCommands();
-//		
-//		CustomFileReaderWriter.writeFile("settings\\textualCommands", new JsonAdapter().toJson(commands));
-//	}
+	*/
 	
 }
 
