@@ -34,11 +34,13 @@ public class GraphicConfirmPanelView {
 	private EventHandler<ViewEventInterface> eventHandler;
 	private JFrame mainWindow;
 	
-	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent,ConfirmEvent confirmEvent, JFrame mainWindow) {
+	public GraphicConfirmPanelView(EventHandler<ViewEventInterface> viewEvent,ConfirmEvent confirmEvent, JFrame mainWindow, int spaceLeft, int spaceTop, int panelWidth, int panelHeight) {
 		
 		this.mainWindow = mainWindow;
 		this.eventHandler = viewEvent; 	
 
+		dialog.setBounds(spaceLeft, spaceTop, panelWidth, panelHeight);
+		
 		GraphicPaintedPanel internalPannel = new GraphicPaintedPanel();
 		internalPannel.loadImage("BoardImages/Lorenzo LogIn.png");
 		dialog.setContentPane(internalPannel);
@@ -101,7 +103,7 @@ public class GraphicConfirmPanelView {
 				gbcScrittaCosto.gridx = 3;
 				gbcScrittaCosto.gridy = 1;
 				gbcScrittaCosto.anchor = GridBagConstraints.WEST;
-				scrittaCosto.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+				scrittaCosto.setFont(new Font("Times New Roman", Font.PLAIN, panelHeight/20));
 				dialog.getContentPane().add(scrittaCosto, gbcScrittaCosto);
 				
 				gbcCosto.gridx = 4;
@@ -115,7 +117,7 @@ public class GraphicConfirmPanelView {
 			gbcScrittaServitori.gridx = 3;
 			gbcScrittaServitori.gridy = 2;
 			gbcScrittaServitori.anchor = GridBagConstraints.WEST;
-			scrittaServitori.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+			scrittaServitori.setFont(new Font("Times New Roman", Font.PLAIN, panelHeight/20));
 			dialog.getContentPane().add(scrittaServitori, gbcScrittaServitori);
 	
 			gbcServitori.gridx = 4;
