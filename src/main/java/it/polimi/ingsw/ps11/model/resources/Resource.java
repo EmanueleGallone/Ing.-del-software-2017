@@ -48,7 +48,11 @@ public abstract class Resource implements Serializable {
 	 * @param value è il valore di incremento per la risorsa.
 	 */
 	public void increment(int value){
-		setValue(value + getValue());
+		int result = value + getValue();
+		if(result < 0)
+			setValue(0);
+		else
+			setValue(result);
 	}
 	
 	public String getId() {

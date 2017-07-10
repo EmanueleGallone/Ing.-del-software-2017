@@ -31,7 +31,7 @@ public class CardCostAffecter implements Affecter<FamilyInFloorAction> {
 	@Override
 	public FamilyInFloorAction affect(FamilyInFloorAction action) {
 		DevelopmentCard card = action.getCardAction().getCard();
-		if(card.getId().equals(cardType)){
+		if(card != null && card.getId().equals(cardType)){
 			action.getCardAction().addModifier(modifier);
 		}
 		return action;
