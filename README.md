@@ -2,8 +2,7 @@ PS11 Lorenzo il Magnifico:
 ISTRUZIONI PER GIOCARE:
 -Per giocare una partita in locale, nel Connection.java (situato nel package Controller.network),
 assicuratevi che ci sia "localhost" nell'attributo String serverAddress;
-verificate che anche all'interno di RMIConnection (situato nel package Controller.network.rmi) vi sia "//localhost/myServer"
-all'interno dell'attributo static String DEFAULT_ADDRESS;
+verificate che anche all'interno di RMIConnection (situato nel package Controller.network.rmi) vi sia "//localhost/myServer" (Sostituire solo la parte "localhost") all'interno dell'attributo static String DEFAULT_ADDRESS;
 
 -Avviate Server.java situato nel package Controller.server;
 
