@@ -18,6 +18,7 @@ public class ChangeStateAction implements Action {
 	}
 	
 	
+	
 	@Override
 	public boolean isLegal() {
 		return true;
