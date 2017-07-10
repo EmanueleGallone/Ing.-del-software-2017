@@ -31,7 +31,7 @@ public class FamilyInSpaceTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
 		ActionManager aManager = new ActionManager(stateHandler);
 		
 		Player player = players.get(0); //prendo il primo giocatore

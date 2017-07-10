@@ -50,7 +50,8 @@ public class FamilyInFloorTest {
 		
 		Tower tower = gameLogic.getGame().getBoard().getTower("PurpleTower");
 		ActionSpace actionSpace = tower.getFloor(0).getActionSpace();
-		DevelopmentCard card = tower.getFloor(0).getCard();
+		DevelopmentCard card = new PurpleCard("PurpleCard");
+		card.addCost(new ResourceList(new Stone(1)));
 		ResourceList cost = card.getFirstCost();
 		
 		FamilyInTowerAction tAction = new FamilyInTowerAction(aManager, tower, familyMember);
