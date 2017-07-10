@@ -1,5 +1,5 @@
 package it.polimi.ingsw.ps11.model.loaders;
-/*
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +23,7 @@ import it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus;
 import it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.FixFamilyValueEffect;
 import it.polimi.ingsw.ps11.model.cards.effects.IncrementForCard;
 import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
@@ -44,9 +45,9 @@ import it.polimi.ingsw.ps11.model.resources.list.Servant;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Wood;
-*/
+
 public class InitializeCards {
-/*	
+	
 	public static void main(String[] args) {
 		//inizializzaCarte();
 		//LeaderCardsInitializer();
@@ -1616,6 +1617,20 @@ public class InitializeCards {
 		bartolomeoColleoni.addRequirement(new CardNumberRequirement(map5));
 		bartolomeoColleoni.addEffect(addResourceEffect4);
 		
+		LeaderCard ludovicoIlMoro = new LeaderCard("Ludovico Il Moro");
+		HashMap<String, Integer> map6 = new HashMap<>();
+		map6.put(new PurpleCard().getId(), 2);
+		map6.put(new GreenCard().getId(), 2);
+		map6.put(new YellowCard().getId(), 2);
+		map6.put(new BlueCard().getId(), 2);
+		ludovicoIlMoro.addRequirement(new CardNumberRequirement(map6));
+		FixFamilyValueEffect fixFamilyValueEffect1 = new FixFamilyValueEffect(new OrangeFamilyMember().getId(), 5);
+		FixFamilyValueEffect fixFamilyValueEffect2 = new FixFamilyValueEffect(new BlackFamilyMember().getId(), 5);
+		FixFamilyValueEffect fixFamilyValueEffect3 = new FixFamilyValueEffect(new WhiteFamilyMember().getId(), 5);
+		ludovicoIlMoro.addEffect(fixFamilyValueEffect1);
+		ludovicoIlMoro.addEffect(fixFamilyValueEffect2);
+		ludovicoIlMoro.addEffect(fixFamilyValueEffect3);
+		
 		
 //		LeaderCard ludovicoAriosto = new LeaderCard("Ludovico Ariosto"); //io questa carta non la includerei proprio nel gioco
 //		ludovicoAriosto.setCounter(5);
@@ -1655,9 +1670,7 @@ public class InitializeCards {
 //		resourceList = new ResourceList(new VictoryPoint(35));
 //		//copia l'abilita' di un altro leader
 //		
-//		LeaderCard ludovicoIlMoro = new LeaderCard("Ludovico Il Moro");
-//		//vuole 2 carte per tipo
-//		//setta i familiari colorati permanentemente a 5
+
 //		
 //		LeaderCard cesareBorgia = new LeaderCard("Cesare Borgia");
 //		resourceList.setResource(new Coin(12));
@@ -1691,7 +1704,7 @@ public class InitializeCards {
 //		leaderCards.add(lucreziaBorgia);
 //		leaderCards.add(sigismondoMalatesta);
 //		leaderCards.add(lorenzoDeMedici);
-//		leaderCards.add(ludovicoIlMoro);
+		leaderCards.add(ludovicoIlMoro);
 //		leaderCards.add(cesareBorgia);
 //		leaderCards.add(santaRita);
 		leaderCards.add(cosimoDeMedici);
@@ -1809,5 +1822,5 @@ public class InitializeCards {
 		loader.write(list,type);
 		
 	}
-*/
+
 }
