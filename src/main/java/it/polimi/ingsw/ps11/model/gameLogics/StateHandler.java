@@ -62,7 +62,7 @@ public class StateHandler {
 	public void play(){
 		actionDone = false;
 		nextState(new PlayState());
-		invoke(new TextualEvent("E' il tuo turno!"));
+		invoke(new TextualEvent("It's your turn to Play!"));
 		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 	}
 // State handling 
@@ -70,7 +70,7 @@ public class StateHandler {
 	public void nextState(State state){
 		state.setStateHandler(this);
 		this.currState = state;
-		System.out.println(" • Player: "+ this.getPlayer().getName() + " -> Stato: " + state.getClass().getSimpleName());
+		System.out.println(" • Player: "+ this.getPlayer().getName() + " -> State: " + state.getClass().getSimpleName());
 		state.notifyToClient();
 	}
 	

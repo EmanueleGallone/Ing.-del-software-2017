@@ -45,7 +45,7 @@ public class PlayState extends DefaultState{
 	private boolean familySelectedCheck(SpaceSelectedEvent event){
 		if(!event.isComplete()){
 			stateHandler().nextState(new WaitingFamilyMember(event));
-			stateHandler().invoke(new TextualEvent("Seleziona un family member"));
+			stateHandler().invoke(new TextualEvent("Select a family member"));
 			return false;
 		}
 		return true;
@@ -74,7 +74,7 @@ public class PlayState extends DefaultState{
 				action = aManager.affect(action);
 				stateHandler().nextState(new WaitConfirm(action));
 			} catch (IllegalArgumentException e) {
-				stateHandler().invoke("Non puoi selezionare tale spazio azione del market");
+				stateHandler().invoke("Cannot select this action space from the market.");
 //				System.err.println();
 //				e.printStackTrace();
 			}
@@ -128,11 +128,11 @@ public class PlayState extends DefaultState{
 		try {
 			LeaderCard card = cManager.getLeaderCard(activeLeaderCardEvent.getCardName());
 			if(card.isActivated()){
-				stateHandler().invoke("Hai gia' attivato questa carta in questo turno");
+				stateHandler().invoke("This card has already been activated in this turn.");
 				return;
 			}
 			if(!card.isSatisfied(stateHandler().getPlayer())){
-				stateHandler().invoke("Non hai i requisiti per attivare questa carta");
+				stateHandler().invoke("Requirements not met to activate the card.");
 				return;
 			}
 			if(!card.isActivated())

@@ -85,8 +85,8 @@ public class RoundManager implements Serializable{
 	}
 	
 	public String currentSituation(){
-		String message = "Siamo al round " + currentRound() + " del turno " + currentTurn();
-		message = message + " del periodo " + currentPeriod();
+		String message =  currentRound() + " Round of " + currentTurn();
+		message = message + " Turn of " + currentPeriod() + " Period.";
 		return message;
 	}
 	

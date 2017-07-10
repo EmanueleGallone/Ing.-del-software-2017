@@ -58,12 +58,12 @@ public class GraphicConfirmPanelView {
 		gblDialog.rowWeights = new double[]{0.05, 0.1, 0.1, 0.15, 0.075, 0.075, 0.05, Double.MIN_VALUE};
 		dialog.getContentPane().setLayout(gblDialog);
 		
-		JLabel scrittaServitori = new JLabel("<html><font color='white'>SERVITORI</font></html>");
+		JLabel scrittaServitori = new JLabel("<html><font color='white'>SERVANTS</font></html>");
 
 		addServitori = new JTextField("0");
 		JTextArea messaggio = new JTextArea(confirmEvent.getMessage());
-		JButton confirm = new JButton("Conferma"),
-				cancel = new JButton("Annulla");
+		JButton confirm = new JButton("Confirm"),
+				cancel = new JButton("Cancel");
 		confirm.setName("Confirm"); cancel.setName("Cancel");
 		
 		GridBagConstraints gbcScrittaServitori = new GridBagConstraints();
@@ -86,12 +86,16 @@ public class GraphicConfirmPanelView {
 				gbcCard.gridheight = 5;
 				gbcCard.fill = GridBagConstraints.BOTH;
 				dialog.getContentPane().add(cardView.getComponent(), gbcCard);
+				
+				gbcMessaggio.gridx = 3;
+				gbcMessaggio.gridy = 4;
+				gbcMessaggio.gridwidth = 4;
 			
 			}
 			
 			if(confirmEvent.getFloor().getActionSpace() != null){
 				
-				JLabel scrittaCosto = new JLabel("<html><font color='white'>COSTO</font></html>");
+				JLabel scrittaCosto = new JLabel("<html><font color='white'>COST</font></html>");
 				GridBagConstraints gbcScrittaCosto = new GridBagConstraints();
 				
 				GraphicPaintedPanel costo = new GraphicPaintedPanel();
@@ -125,13 +129,9 @@ public class GraphicConfirmPanelView {
 			gbcServitori.fill = GridBagConstraints.HORIZONTAL;
 			dialog.getContentPane().add(addServitori, gbcServitori);
 			
-			gbcMessaggio.gridx = 3;
-			gbcMessaggio.gridy = 4;
-			gbcMessaggio.gridwidth = 4;
-			
 		}
 		
-		if(confirmEvent.getFloor()==null){
+		if(confirmEvent.getFloor().getCard()==null){
 			
 			gbcMessaggio.gridx = 1;
 			gbcMessaggio.gridy = 4;
@@ -167,15 +167,17 @@ public class GraphicConfirmPanelView {
 		public void actionPerformed(ActionEvent e) {
 			JButton button = (JButton) e.getSource();
 			if(button.getName().equals("Confirm")){
-			int servant = getConfirm();
-			eventHandler.invoke(new ConfirmViewEvent(true, servant));
+				int servant = getServant();
+				eventHandler.invoke(new ConfirmViewEvent(true, servant));
 			}
+			else
+				eventHandler.invoke(new ConfirmViewEvent(false));
 			dialog.dispose();
 			mainWindow.setEnabled(true);
 		}
 	}
 
-	public int getConfirm() {
+	public int getServant() {
 		int servitori;
 		try {
 			servitori = Integer.parseInt(addServitori.getText());

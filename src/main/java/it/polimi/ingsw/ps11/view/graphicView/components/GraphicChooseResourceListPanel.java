@@ -68,7 +68,7 @@ public class GraphicChooseResourceListPanel extends ChooseResourceView{
 			
 		}
 		
-		JButton cancel = new JButton("CANCEL");
+		JButton cancel = new JButton("Cancel");
 		cancel.addActionListener(new Cancel());
 		GridBagConstraints gbcCancel = new GridBagConstraints();
 		gbcCancel.gridx = 1;
