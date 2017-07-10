@@ -19,6 +19,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
@@ -71,7 +72,8 @@ public class FamilyInFloorTest {
 		//Quando arriva la conferma l'azione familyInFloorAction viene notificata  avviene il check sulla isLegal() e successivamente la perform
 		
 		//Verifico che il giocatore abbia preso la carta
-		Assert.assertTrue(player.getCardManager().getCardList(card.getId()).contains(card));
+		Assert.assertTrue(player.getCardManager().getCardList(card.getId()).contains(card));	
+		familyInFloorAction.update(new ResourceList(new Coin(1)));
 		
 	}
 	
