@@ -62,7 +62,7 @@ public class StateHandler {
 	public void play(){
 		actionDone = false;
 		nextState(new PlayState());
-		invoke(new TextualEvent("It' your turn to Play!"));
+		invoke(new TextualEvent("It's your turn to Play!"));
 		aManager.state().invoke(new GameUpdateEvent(aManager.state().getGame()));
 	}
 // State handling 
