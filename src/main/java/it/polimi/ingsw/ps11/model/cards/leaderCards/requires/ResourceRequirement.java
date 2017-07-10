@@ -1,8 +1,13 @@
 package it.polimi.ingsw.ps11.model.cards.leaderCards.requires;
 
+import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/**
+ * <h3> ResourceRequirement </h3>
+ * <p> Classe che rappresenta i requisiti di attivazione di una carta leader: richiede una resourceList.</p>
+ * <p> Richiede: resourceList (risorse richieste per l'attivazione della carta).</p>
+ */
 public class ResourceRequirement implements Requirement{
 
 	private ResourceList resources;

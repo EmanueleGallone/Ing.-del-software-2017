@@ -71,8 +71,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		JPanel selectorButtonsPanel = new JPanel();
 		selectorButtonsPanel.setOpaque(false);
 		GraphicPaintedPanel tile = new GraphicPaintedPanel();
-		//tile.loadImage("playerImages/" + cardManager.getTile() + ".png");
-		tile.loadImage("playerImages/Tile 1.png");
+		tile.loadImage("playerImages/" + cardManager.getTiles() + ".png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		

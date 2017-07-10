@@ -4,8 +4,13 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-
+/** <h3> PointByCardAffecter </h3>
+ * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse ottenute da un giocatore in seguito 
+ * ad una qualunque azione</p>
+ * @see IncrementAction
+ */
 public class PointByCardAffecter implements Affecter<PointByCardAction> {
 
 	private String card;

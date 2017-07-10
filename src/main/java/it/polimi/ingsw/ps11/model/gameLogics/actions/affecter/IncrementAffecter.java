@@ -11,11 +11,6 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * @see Affecter
  * @see 
  */
-/** <h3> Nome </h3>
- * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse ottenute da un giocatore in seguito 
- * ad una qualunque azione</p>
- * @see IncrementAction
- */
 public class IncrementAffecter implements Affecter<IncrementAction> {
 
 	private ResourceList resources;

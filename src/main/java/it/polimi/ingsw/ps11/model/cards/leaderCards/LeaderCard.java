@@ -10,7 +10,13 @@ import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.Requirement;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
-
+/**
+ * <h3> LeaderCard </h3>
+ * <p> Classe che rappresenta le carte leader del gioco. Vengono assegnate ad ogni giocatore all'inizio di ogni partita, hanno un requisito per
+ * l'attivazione e comportano un bonus. Possono essere attivate una sola volta per turno.</p>
+ * <p> Richiede: Hashmap<String, int> (Id delle carte, quantità delle carte).</p>
+ * @see ActionManager
+ */
 public class LeaderCard extends Card implements Requirement{
 	
 	private static final String id= "LeaderCard";

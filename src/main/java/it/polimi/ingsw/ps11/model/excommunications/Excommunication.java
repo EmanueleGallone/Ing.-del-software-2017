@@ -7,10 +7,7 @@ import java.util.Iterator;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 /**
  * <h3>Excommunication</h3>
- * <p>
- * Classe astratta che rappresenta le scomuniche del gioco.
- * </p>
- *
+ * <p> Classe astratta che rappresenta le scomuniche del gioco. </p>
  */
 public class Excommunication implements Serializable,Iterable<Effect>{
 	
