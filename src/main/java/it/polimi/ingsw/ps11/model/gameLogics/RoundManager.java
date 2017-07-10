@@ -50,7 +50,6 @@ public class RoundManager implements Serializable{
 	}
 	
 	public Player next(){
-		System.out.println("Faccio la next, siamo al round: " + currentRound() + " | turn: " + currentTurn() + " | period: " + currentPeriod());
 		actions++;
 		if(roundIsOver() && turnIsOver()){
 			newTurn.invoke(this);
@@ -83,6 +82,12 @@ public class RoundManager implements Serializable{
 	
 	public ArrayList<Player> getCurrentOrder(){
 		return players;
+	}
+	
+	public String currentSituation(){
+		String message = "Siamo al round " + currentRound() + " del turno " + currentTurn();
+		message = message + " del periodo " + currentPeriod();
+		return message;
 	}
 	
 	public void setNewOrder(ArrayList<Player> newOrder) {

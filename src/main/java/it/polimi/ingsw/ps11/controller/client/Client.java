@@ -10,6 +10,8 @@ import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
 import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
 import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
+import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
+import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
@@ -19,6 +21,9 @@ import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
 import it.polimi.ingsw.ps11.model.modelEvents.PlayerUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
+import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
+import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
+import it.polimi.ingsw.ps11.view.textualView.TextualView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 
@@ -97,6 +102,9 @@ public class Client implements MessageListener,ModelListener,Runnable {
 
 	@Override
 	public void receive(ViewMessage viewMessage) {}
+	
+	@Override
+	public void receive(LogInMessage logInMessage) {}
 
 	@Override
 	public void handle(GameUpdateEvent gameStartedEvent) {
@@ -133,9 +141,29 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		view.update(updateFamilyMemberEvent.getManager());
 	}
 
-	@Override
-	public void receive(LogInMessage logInMessage) {
-		// TODO Auto-generated method stub
+
+	public static void main(String[] args) {
+		TextualConsole console = new TextualConsole();
+		View view = null;
+		Connection connection = null;
+		
+		console.println("Scegli le modalità di gioco\n• Digita \"s\" o \"r\" per scegliere tra una connessione socket o rmi ");
+		console.println("• Digita \"g\" o \"t\" per scegliere tra view grafica o testuale");
+		
+		boolean viewSel = true, connectionSel = true;
+		
+		while (viewSel || connectionSel) {
+			switch (console.read("Inserisci la tua scelta: ")) {
+			case "s": connection = new SocketConnection(); connectionSel = false ;break;
+			case "r": connection = new RMIConnection().randomGen(); connectionSel = false; break;
+			case "g": view = new GraphicView(); viewSel = false ;break;
+			case "t": view = new TextualView(); viewSel = false;break;
+			default: console.println("Input non riconosciuto"); break;
+			}
+		}
+		Client client = new Client(view, connection);
+		client.run();
 		
 	}
+	
 }
