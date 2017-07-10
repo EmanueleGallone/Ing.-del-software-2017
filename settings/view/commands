@@ -1,15 +1,7 @@
 {
   "commands": {
-    "harvest": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent",
-      "INSTANCE": {}
-    },
     "production": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent",
-      "INSTANCE": {}
-    },
-    "pass": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent",
       "INSTANCE": {}
     },
     "yellow tower 4": {
@@ -17,12 +9,6 @@
       "INSTANCE": {
         "tower": "YellowTower",
         "floor": 3
-      }
-    },
-    "market 4": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
-      "INSTANCE": {
-        "actionSpace": 3
       }
     },
     "yellow tower 3": {
@@ -36,11 +22,75 @@
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent",
       "INSTANCE": {}
     },
+    "councilpalace": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent",
+      "INSTANCE": {}
+    },
     "green tower 4": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
         "tower": "GreenTower",
         "floor": 3
+      }
+    },
+    "yellow tower 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "YellowTower",
+        "floor": 1
+      }
+    },
+    "purple tower 3": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "PurpleTower",
+        "floor": 2
+      }
+    },
+    "council palace": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent",
+      "INSTANCE": {}
+    },
+    "yellow tower 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "YellowTower",
+        "floor": 0
+      }
+    },
+    "purple tower 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "PurpleTower",
+        "floor": 3
+      }
+    },
+    "purple tower 1": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "PurpleTower",
+        "floor": 0
+      }
+    },
+    "purple tower 2": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
+      "INSTANCE": {
+        "tower": "PurpleTower",
+        "floor": 1
+      }
+    },
+    "harvest": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent",
+      "INSTANCE": {}
+    },
+    "pass": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent",
+      "INSTANCE": {}
+    },
+    "market 4": {
+      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
+      "INSTANCE": {
+        "actionSpace": 3
       }
     },
     "green tower 2": {
@@ -70,38 +120,10 @@
         "actionSpace": 0
       }
     },
-    "yellow tower 2": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
-      "INSTANCE": {
-        "tower": "YellowTower",
-        "floor": 1
-      }
-    },
-    "purple tower 3": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
-      "INSTANCE": {
-        "tower": "PurpleTower",
-        "floor": 2
-      }
-    },
     "market 2": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent",
       "INSTANCE": {
         "actionSpace": 1
-      }
-    },
-    "yellow tower 1": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
-      "INSTANCE": {
-        "tower": "YellowTower",
-        "floor": 0
-      }
-    },
-    "purple tower 4": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
-      "INSTANCE": {
-        "tower": "PurpleTower",
-        "floor": 3
       }
     },
     "market 3": {
@@ -117,24 +139,10 @@
         "floor": 0
       }
     },
-    "purple tower 1": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
-      "INSTANCE": {
-        "tower": "PurpleTower",
-        "floor": 0
-      }
-    },
     "blue tower 2": {
       "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
       "INSTANCE": {
         "tower": "BlueTower",
-        "floor": 1
-      }
-    },
-    "purple tower 2": {
-      "CLASSNAME": "it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent",
-      "INSTANCE": {
-        "tower": "PurpleTower",
         "floor": 1
       }
     },
@@ -153,5 +161,5 @@
       }
     }
   },
-  "instructions": "\n\nINSTRUCTION:\n • If you want select the floor of a tower type \" yellow tower 1 \"\n • If you want to print the entire board type \" update \" \n • If you want select production or harvest type \"production\" or \"harvest\"\n • If you want select the first action space in the market type \"market 1\"\n • If you want to activate a leader card type \"leader [LeaderCardName]\" \n • If you want end the turn type \"pass\"\n"
+  "instructions": "\n\nINSTRUCTION:\n • If you want select the floor of a tower type \" yellow tower 1 \"\n • If you want to print the entire board type \" update \" \n • If you want to select the Council palace type  \" council palace \" \n • If you want select production or harvest type \"production\" or \"harvest\"\n • If you want select the first action space in the market type \"market 1\"\n • If you want to activate a leader card type \"leader [LeaderCardName]\" \n • If you want end the turn type \"pass\"\n"
 }
