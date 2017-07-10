@@ -43,7 +43,9 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 					 overlayedDecksPanel;
 	
 	private GraphicPaintedPanel leaderDeckPanel;
+	private GraphicPaintedPanel tile = new GraphicPaintedPanel();
 	private ArrayList<GraphicLeaderCardView> leaderButtonCards = new ArrayList<>();
+	
 	
 	private LinkedHashMap<String, Color> mapStringColor = new LinkedHashMap<>();
 	private HashMap<GraphicPaintedPanel, String> mapPanelString = new HashMap<>();
@@ -70,8 +72,6 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		overlayedDecksPanel = new JPanel(new CardLayout());												//Pannello dei deck sovrapposti
 		JPanel selectorButtonsPanel = new JPanel();
 		selectorButtonsPanel.setOpaque(false);
-		GraphicPaintedPanel tile = new GraphicPaintedPanel();
-		tile.loadImage("PlayerImages/" + cardManager.getTiles() + ".png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -261,7 +261,7 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		}
 		
 		setLeaderCard(cardManager.getLeaderCards());	
-
+		tile.loadImage("PlayerImages/" + cardManager.getTiles() + ".png");
 	}
 	
 	public class LeaderAction implements ActionListener{
