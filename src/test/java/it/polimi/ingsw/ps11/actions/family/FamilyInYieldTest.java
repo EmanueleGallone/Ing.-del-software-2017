@@ -89,10 +89,4 @@ public class FamilyInYieldTest {
 		Player player2 = players.get(1);
 		Yield harvest = gameLogic.getGame().getBoard().getHarvest();
 	}
-	
-	
-	@Test
-	public void Test(){
-		assertEquals(3, 3);
-	}
 }

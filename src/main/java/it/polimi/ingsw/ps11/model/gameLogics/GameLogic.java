@@ -120,6 +120,7 @@ public class GameLogic implements Runnable{
 		//notifyAllClients(new GameUpdateEvent(game));
 	}
 	
+	
 	public void notifyAllClients(ModelEvent event){
 		for(StateHandler sHandler : playerStatus.values()){
 			//System.out.println("Invio " + event.getClass().getSimpleName() + " a " + sHandler.getPlayer().getName());

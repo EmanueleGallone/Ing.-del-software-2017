@@ -1,17 +1,11 @@
 package it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents;
 
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
-import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewListener;
 
 public class FloorSelectedEvent extends SpaceSelectedEvent {
 
 	private String tower;
 	private int floor;
-	
-	public FloorSelectedEvent(Class<? extends Tower> tower , int floor) {
-		this(tower.toString(),floor);
-	}
 	
 	public FloorSelectedEvent(String tower , int floor) {
 		this.tower = tower;
