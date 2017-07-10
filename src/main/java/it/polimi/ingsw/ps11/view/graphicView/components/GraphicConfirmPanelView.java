@@ -191,7 +191,8 @@ public class GraphicConfirmPanelView {
 	
 	public void show(){
 		this.mainWindow.setEnabled(false);
-		dialog.setUndecorated(true);
+		if(!dialog.isVisible())
+			dialog.setUndecorated(true);
 		dialog.setVisible(true);
 	}
 }
