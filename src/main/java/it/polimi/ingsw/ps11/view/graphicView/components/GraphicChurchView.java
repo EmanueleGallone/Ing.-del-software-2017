@@ -20,19 +20,19 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView;
  */
 public class GraphicChurchView extends ChurchView {
 	
-	protected GraphicPaintedPanel churchPanel = new GraphicPaintedPanel();
-	private ArrayList<GraphicPaintedPanel> cards = new ArrayList<>();
+	private GraphicPaintedPanel churchPanel = new GraphicPaintedPanel();
+	private ArrayList<GraphicPaintedPanel> excommunicationCards = new ArrayList<>();
 	
 	public GraphicChurchView() {
 		churchPanel.loadImage("BoardImages/Church.png");
 		
-		GraphicPaintedPanel card1 = new GraphicPaintedPanel();
-		GraphicPaintedPanel card2 = new GraphicPaintedPanel();
-		GraphicPaintedPanel card3 = new GraphicPaintedPanel();
+		GraphicPaintedPanel excommunicationCard1 = new GraphicPaintedPanel();
+		GraphicPaintedPanel excommunicationCard2 = new GraphicPaintedPanel();
+		GraphicPaintedPanel excommunicationCard3 = new GraphicPaintedPanel();
 		
-		cards.add(card1);
-		cards.add(card2);
-		cards.add(card3);
+		excommunicationCards.add(excommunicationCard1);
+		excommunicationCards.add(excommunicationCard2);
+		excommunicationCards.add(excommunicationCard3);
 		
 		GridBagLayout gblChurch = new GridBagLayout();
 		gblChurch.columnWidths = new int[]{0, 0, 0, 0, 0};
@@ -49,22 +49,22 @@ public class GraphicChurchView extends ChurchView {
 		gbcCard1.gridy = 1;
 		gbcCard1.gridheight = 2;
 		gbcCard1.fill = GridBagConstraints.BOTH;
-		card1.setOpaque(false);
-		churchPanel.add(card1, gbcCard1);
+		excommunicationCard1.setOpaque(false);
+		churchPanel.add(excommunicationCard1, gbcCard1);
 		
 		gbcCard2.gridx = 2;
 		gbcCard2.gridy = 2;
 		gbcCard2.gridheight = 2;
 		gbcCard2.fill = GridBagConstraints.BOTH;
-		card2.setOpaque(false);
-		churchPanel.add(card2, gbcCard2);
+		excommunicationCard2.setOpaque(false);
+		churchPanel.add(excommunicationCard2, gbcCard2);
 		
 		gbcCard3.gridx = 3;
 		gbcCard3.gridy = 1;
 		gbcCard3.gridheight = 2;
 		gbcCard3.fill = GridBagConstraints.BOTH;
-		card3.setOpaque(false);
-		churchPanel.add(card3, gbcCard3);
+		excommunicationCard3.setOpaque(false);
+		churchPanel.add(excommunicationCard3, gbcCard3);
 	}
 	
 	@Override
@@ -73,7 +73,7 @@ public class GraphicChurchView extends ChurchView {
 		for(int i = 0; i < church.getMaxExcomunication(); i++){
 			Excommunication excommunication = church.getExcomunications(i+1);
 			if(excommunication != null)
-				cards.get(i).loadImage("ExcomunicationCard/" + excommunication.getId() + ".png");
+				excommunicationCards.get(i).loadImage("ExcomunicationCard/" + excommunication.getId() + ".png");
 		}
 	}
 

@@ -12,9 +12,9 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 public class GraphicMultipleActionSpace  extends JPanel{
 	
-	MultipleActionSpace multipleActionSpace;
-	JButton selector = new JButton();
-	ArrayList<GraphicPaintedPanel> playersPanel = new ArrayList<>();
+	private MultipleActionSpace multipleActionSpace;
+	private JButton selector = new JButton();
+	private ArrayList<GraphicPaintedPanel> playersPanel = new ArrayList<>();
 	
 	public GraphicMultipleActionSpace(){
 

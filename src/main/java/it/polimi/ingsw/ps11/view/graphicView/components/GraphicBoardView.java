@@ -17,27 +17,27 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
  */
 public class GraphicBoardView extends BoardView {
 
-	GraphicMainBoardView mainBoard = new GraphicMainBoardView();	//Parte fissa della Board
-	GraphicSlideBoardView slideBoard = new GraphicSlideBoardView();	//Parte della Board che compare e scompare
+	private GraphicMainBoardView mainBoardPanel = new GraphicMainBoardView();	//Parte fissa della Board
+	private GraphicSlideBoardView slideBoardPanel = new GraphicSlideBoardView();	//Parte della Board che compare e scompare
 	
 	public GraphicBoardView() {
 		
-		this.councilPalaceView = mainBoard.getGraphicCouncilPalaceView();
-		this.towerViews = mainBoard.getTowerViews();
-		this.churchView = mainBoard.getChurchView();
+		this.councilPalaceView = mainBoardPanel.getGraphicCouncilPalaceView();
+		this.towerViews = mainBoardPanel.getTowerViews();
+		this.churchView = mainBoardPanel.getChurchView();
 		
-		this.productionView = slideBoard.getProductionView();
-		this.harvestView = slideBoard.getHarvestView();
-		this.diceView = slideBoard.getDiceView();
-		this.marketView = slideBoard.getMarketView();
+		this.productionView = slideBoardPanel.getProductionView();
+		this.harvestView = slideBoardPanel.getHarvestView();
+		this.diceView = slideBoardPanel.getDiceView();
+		this.marketView = slideBoardPanel.getMarketView();
 	}
 	
 	@Override
 	public void print() {
 		
-		mainBoard.getCouncilPalaceView().setCurrentOrder(this.currentOrder);
-		mainBoard.print();
-		slideBoard.print();
+		mainBoardPanel.getCouncilPalaceView().setCurrentOrder(this.currentOrder);
+		mainBoardPanel.print();
+		slideBoardPanel.print();
 		
 	};
 	
@@ -46,30 +46,30 @@ public class GraphicBoardView extends BoardView {
 	@Override
 	public void attach(EventListener<ViewEventInterface> listener) {	//attach il listener ad ogni parte della board
 		super.attach(listener);
-		mainBoard.attach(listener);
-		slideBoard.attach(listener);
+		mainBoardPanel.attach(listener);
+		slideBoardPanel.attach(listener);
 	}
 
 	public void attachSlideListener(ShowPanel showPanel) {				//attach la finestra principale al bottone che 
-		mainBoard.attachSlideListener(showPanel);						//mostra la parte della board nascosta
+		mainBoardPanel.attachSlideListener(showPanel);						//mostra la parte della board nascosta
 	}
 
 	public void attachChangePlayer(EventListener<Player> changePlayer) {			//attacha la finestra principale ai bottoni che
-		mainBoard.attachChangePlayerListener(changePlayer);						//switchano tra le board dei player
+		mainBoardPanel.attachChangePlayerListener(changePlayer);						//switchano tra le board dei player
 	}
 	
 	public void attachCardListener(EventListener<Card> zoomCard) {
-		mainBoard.attachCardListener(zoomCard);
+		mainBoardPanel.attachCardListener(zoomCard);
 	}
 
 	//<-------------------------------INIZIO GETTER------------------------------->
 	
 	public GraphicMainBoardView getMainBoard(){
-		return mainBoard;
+		return mainBoardPanel;
 	}
 	
 	public GraphicSlideBoardView getSlideBoard(){
-		return slideBoard;
+		return slideBoardPanel;
 		
 	}
 }

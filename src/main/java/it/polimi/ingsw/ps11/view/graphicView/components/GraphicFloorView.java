@@ -26,9 +26,9 @@ public class GraphicFloorView extends FloorView{
 	
 	//Piano della torre, ha la classe della torre e un int per il piano
 	
-	protected JPanel floorPanel = new JPanel();
-	protected GraphicDevelopmentCardView graphicCardView;
-	protected GraphicPaintedButton actionSpace;
+	private JPanel floorPanel = new JPanel();
+	private GraphicDevelopmentCardView graphicCardView;
+	private GraphicPaintedButton actionSpace;
 	
 	public GraphicFloorView(String whichTower, int whichFloor) {
 		

@@ -5,15 +5,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
-import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView.ShowPanel;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
@@ -32,10 +27,9 @@ public class GraphicMainBoardView extends BoardView{
 	
 	//Parte della board sempre visibile, contiene le torri, la chiesa e il palazzo del consiglio
 	
-	protected JPanel mainBoard = new JPanel();
-	protected JButton slideInButton;
-	protected GraphicCouncilPalaceView graphicCouncilPalaceView = new GraphicCouncilPalaceView();
-	protected ArrayList<GraphicTowerView> graphicTowerViews = new ArrayList<>();
+	private JPanel mainBoard = new JPanel();
+	private GraphicCouncilPalaceView graphicCouncilPalaceView = new GraphicCouncilPalaceView();
+	private ArrayList<GraphicTowerView> graphicTowerViews = new ArrayList<>();
 	
 	public GraphicMainBoardView() {
 		
@@ -68,7 +62,6 @@ public class GraphicMainBoardView extends BoardView{
 		JPanel purpleTowerPanel = graphicPurpleTowerView.getComponent();
 		JPanel churchPanel = graphicChurchView.getComponent();
 		JPanel councilPalacePanel = graphicCouncilPalaceView.getComponent();
-		slideInButton = new JButton("SlideIn");		
 		
 		GridBagConstraints gbcGreenTower = new GridBagConstraints();
 		GridBagConstraints gbcBlueTower = new GridBagConstraints();

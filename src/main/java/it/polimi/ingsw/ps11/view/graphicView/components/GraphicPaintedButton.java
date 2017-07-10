@@ -3,27 +3,18 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 /**
  * <h3> GraphicPaintedButton</h3>
  * <p> Classe che estende JButton. Aggiunge la possibilità di assegnare un nome al pulsante tramite costruttore e aggiunge
  * un'immagine al pulsante se richiesto senza l'ulteriore aggiunta di componenti </p>
  */
+
 public class GraphicPaintedButton extends JButton implements ToPaint{
 		
-	protected BufferedImage background;
-	private JLabel text;
+	private BufferedImage background;
 	
-	public GraphicPaintedButton() {
-		text = new JLabel();
-		add(this.text);
-	}
-
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -33,17 +24,7 @@ public class GraphicPaintedButton extends JButton implements ToPaint{
 		}
 	}
 	
-	@Override
 	public void loadImage(String url){
-		URL imagePath = getClass().getClassLoader().getResource(url);
-		BufferedImage result = null;
-		try {
-			result = ImageIO.read(imagePath);
-		} catch (IOException | IllegalArgumentException e) {
-			System.err.println("Errore, immagine non trovata url: " + url);
-			e.printStackTrace();
-		}
-		
-		background = result;
+		background = getImage(url);
 	}
 }

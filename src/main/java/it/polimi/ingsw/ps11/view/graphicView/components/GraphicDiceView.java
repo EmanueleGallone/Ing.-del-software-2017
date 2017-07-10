@@ -19,9 +19,9 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView;
  */
 public class GraphicDiceView extends DiceView {
 
-	protected GraphicPaintedPanel dice = new GraphicPaintedPanel();
-	protected ArrayList<GraphicPaintedPanel> dicePanels = new ArrayList<>();
-	protected JButton closeButton;
+	private GraphicPaintedPanel dicePanel = new GraphicPaintedPanel();
+	private ArrayList<GraphicPaintedPanel> dicePanels = new ArrayList<>();
+	private JButton closeButton;
 	
 	public GraphicDiceView() {
 		
@@ -34,7 +34,7 @@ public class GraphicDiceView extends DiceView {
 		
 		closeButton = new JButton("X");
 		
-		dice.loadImage("BoardImages/Dices.png");
+		dicePanel.loadImage("BoardImages/Dices.png");
 		
 //<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -43,7 +43,7 @@ public class GraphicDiceView extends DiceView {
 		gblDice.rowHeights = new int[]{0, 0, 0 ,0};
 		gblDice.columnWeights = new double[]{0.08324, 0.164804, 0.090503, 0.164804, 0.09,0.164804, 0.115, 0.115, Double.MIN_VALUE};
 		gblDice.rowWeights = new double[]{0.053191, 0.64, 0.30, Double.MIN_VALUE};
-		dice.setLayout(gblDice);
+		dicePanel.setLayout(gblDice);
 		
 		GridBagConstraints gbcBlackDice = new GridBagConstraints();
 		GridBagConstraints gbcOrangeDice = new GridBagConstraints();
@@ -54,26 +54,26 @@ public class GraphicDiceView extends DiceView {
 		gbcBlackDice.gridy = 1;
 		gbcBlackDice.fill = GridBagConstraints.BOTH;
 		blackDice.setOpaque(false);
-		dice.add(blackDice, gbcBlackDice);
+		dicePanel.add(blackDice, gbcBlackDice);
 		
 		gbcOrangeDice.gridx = 1;
 		gbcOrangeDice.gridy = 1;
 		gbcOrangeDice.fill = GridBagConstraints.BOTH;
 		orangeDice.setOpaque(false);
-		dice.add(orangeDice, gbcOrangeDice);
+		dicePanel.add(orangeDice, gbcOrangeDice);
 
 		gbcWhite.gridx = 5;
 		gbcWhite.gridy = 1;
 		gbcWhite.fill = GridBagConstraints.BOTH;
 		whiteDice.setOpaque(false);
-		dice.add(whiteDice, gbcWhite);
+		dicePanel.add(whiteDice, gbcWhite);
 		
 		gbcCloseButton.gridx = 7;
 		gbcCloseButton.gridy = 2;
 		gbcCloseButton.fill = GridBagConstraints.BOTH;
 		gbcCloseButton.anchor = GridBagConstraints.SOUTHEAST;
 		closeButton.setPreferredSize(new Dimension(5, 5));
-		dice.add(closeButton, gbcCloseButton);
+		dicePanel.add(closeButton, gbcCloseButton);
 		
 		
 //<-------------------------------FINE ALLINEAMENTO------------------------------->
@@ -90,7 +90,7 @@ public class GraphicDiceView extends DiceView {
 	}
 
 	public JPanel getComponent(){
-		return dice;
+		return dicePanel;
 	}
 	
 	public void attachCloseButton(ActionListener listener){

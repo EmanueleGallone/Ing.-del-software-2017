@@ -25,14 +25,12 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
  * @see ConcilPalaceView
  */
 public class GraphicCouncilPalaceView extends CouncilPalaceView{
-	
-	//Palazzo del consiglio, contiene un action space singolo e uno multiplo
-	
-	protected GraphicPaintedPanel councilPalacePanel = new GraphicPaintedPanel();
-	protected GraphicMultipleActionSpace multipleActionSpace;
-	protected JButton showPanelButton;
-	protected GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
-	protected ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
+		
+	private GraphicPaintedPanel councilPalacePanel = new GraphicPaintedPanel();
+	private GraphicMultipleActionSpace multipleActionSpace;
+	private JButton showPanelButton;
+	private GraphicPaintedButton toPlayer1, toPlayer2, toPlayer3, toPlayer4;
+	private ArrayList<GraphicPaintedButton> playerSelectors = new ArrayList<>();
 	private EventHandler<Player> changePlayerEvent = new EventHandler<>();
 	
 	public GraphicCouncilPalaceView() {

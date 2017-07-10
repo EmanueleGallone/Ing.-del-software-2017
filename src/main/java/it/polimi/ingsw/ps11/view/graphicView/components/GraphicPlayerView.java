@@ -26,14 +26,14 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.PlayerView;
  */
 public class GraphicPlayerView extends PlayerView{
 		
-	protected GraphicPaintedPanel personal = new GraphicPaintedPanel();
-	GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
-	GraphicPaintedButton endTurn = new GraphicPaintedButton();
-	JLabel playersName;
+	private GraphicPaintedPanel personalPanel = new GraphicPaintedPanel();
+	private GraphicCardManagerView graphicCardManagerView = new GraphicCardManagerView();
+	private GraphicPaintedButton endTurn = new GraphicPaintedButton();
+	private JLabel playersName;
 	
 	public GraphicPlayerView() {
 		
-		personal.loadImage("PlayerImages/baseBoard.png");
+		personalPanel.loadImage("PlayerImages/baseBoard.png");
 		
 		//<-------------------------------INIZIO ALLINEAMENTO------------------------------->
 		
@@ -45,7 +45,7 @@ public class GraphicPlayerView extends PlayerView{
 		gblPersonal.rowHeights = new int[]{0, 0, 0};
 		gblPersonal.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gblPersonal.rowWeights = new double[]{0.17, 0.515116, 0.214884, Double.MIN_VALUE};
-		personal.setLayout(gblPersonal);
+		personalPanel.setLayout(gblPersonal);
 				
 		JPanel cardPanel = graphicCardManagerView.getComponent();
 		JPanel resourcePanel = graphicResourceView.getComponent();
@@ -64,7 +64,7 @@ public class GraphicPlayerView extends PlayerView{
 		gbcFamilyMember.gridx = 0;
 		gbcFamilyMember.fill = GridBagConstraints.BOTH;
 		familyMemberPanel.setPreferredSize(new Dimension(10, 10));
-		personal.add(familyMemberPanel, gbcFamilyMember);
+		personalPanel.add(familyMemberPanel, gbcFamilyMember);
 		
 		gbcName.gridx = 1;
 		gbcName.gridy = 0;
@@ -82,13 +82,13 @@ public class GraphicPlayerView extends PlayerView{
 		gbcPersonal.gridwidth = 2;
 		gbcPersonal.fill = GridBagConstraints.BOTH;
 		cardPanel.setPreferredSize(new Dimension(10, 10));
-		personal.add(cardPanel, gbcPersonal);
+		personalPanel.add(cardPanel, gbcPersonal);
 				
 		gbcResource.gridx = 0;
 		gbcResource.gridy = 2;
 		gbcResource.fill = GridBagConstraints.BOTH;
 		resourcePanel.setPreferredSize(new Dimension(10, 10));
-		personal.add(resourcePanel, gbcResource);
+		personalPanel.add(resourcePanel, gbcResource);
 				
 		//<-------------------------------FINE ALLINEAMENTO------------------------------->
 
@@ -118,7 +118,7 @@ public class GraphicPlayerView extends PlayerView{
 	}
 	
 	public JPanel getComponent() {
-		return personal;
+		return personalPanel;
 	}
 
 	public void attachLeaderListener(EventListener<LeaderCard> zoomCard) {

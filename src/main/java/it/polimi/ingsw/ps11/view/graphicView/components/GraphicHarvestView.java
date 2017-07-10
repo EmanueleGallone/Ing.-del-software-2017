@@ -19,9 +19,9 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
  */
 public class GraphicHarvestView extends HarvestView {
 		
-	protected GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
-	protected GraphicPaintedButton singleActionSpace = new GraphicPaintedButton();
-	protected GraphicMultipleActionSpace multipleActionSpace = new GraphicMultipleActionSpace();
+	private GraphicPaintedPanel harvestPanel = new GraphicPaintedPanel();
+	private GraphicPaintedButton singleActionSpace = new GraphicPaintedButton();
+	private GraphicMultipleActionSpace multipleActionSpace = new GraphicMultipleActionSpace();
 	
 	public GraphicHarvestView() {
 		

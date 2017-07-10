@@ -10,11 +10,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.AttributeSet;
+import javax.swing.text.DefaultCaret;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
@@ -30,15 +32,17 @@ import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 public class GraphicConsole extends Console {
 		
 	private JPanel consolePanel = new JPanel();
-	protected JTextPane outPut;
+	private JTextArea outPut;
 	private JTextField inPut;
-	Calendar rightNow;
+	private Calendar rightNow;
 	
 	public GraphicConsole() {
 	
-		outPut = new JTextPane();
+		outPut = new JTextArea();
 		outPut.setEditable(false);
 		outPut.setBackground(Color.WHITE);
+		DefaultCaret caret = (DefaultCaret)outPut.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         outPut.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
 		inPut = new JTextField();
@@ -81,11 +85,7 @@ public class GraphicConsole extends Console {
 			return;
 		
 		new TextualConsole().println(message);
-		//appendToPane(outPut, message, Color.BLUE);
-		rightNow = Calendar.getInstance();
-		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
-			minute = rightNow.get(Calendar.MINUTE);
-		outPut.setText(outPut.getText() + "   ["+ hour + ": " + minute + "]  " + message + "\n");
+		outPut.setText(outPut.getText() + rightNow() + message + "\n");
 	}
 
 	@Override
@@ -93,11 +93,7 @@ public class GraphicConsole extends Console {
 		if(message == null || message.equals(""))
 			return;
 		new TextualConsole().print(message);
-		//appendToPane(outPut, message, Color.BLUE);
-		rightNow = Calendar.getInstance();
-		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
-			minute = rightNow.get(Calendar.MINUTE);
-		outPut.setText(outPut.getText() + "   ["+ hour + ": " + minute + "]  " + message );
+		outPut.setText(outPut.getText() + rightNow() + message );
 		}
 	
 	@Override
@@ -109,7 +105,6 @@ public class GraphicConsole extends Console {
 					+ " you want to confirm and proceed, or cancel tha action and rethink about your plan. If you confirm get"
 					+ " sure to press the \"End Turn\" button to terminate your turn");
 		}
-		//else println(toSend);
 		inPut.setText("");
 		return toSend;
 	}
@@ -118,18 +113,21 @@ public class GraphicConsole extends Console {
 	public String read(String message) {
 		println(message);
 		String toSend = inPut.getText();
-		//println(toSend);
 		inPut.setText("");
 		return toSend;
 	}
 
 	@Override
 	public void printError(String message) {
-		//appendToPane(outPut, message, Color.RED);
+		
+		outPut.setText(outPut.getText() + rightNow() + "<ERRORE> : " + message);
+	}
+	
+	private String rightNow(){
 		rightNow = Calendar.getInstance();
 		int hour = rightNow.get(Calendar.HOUR_OF_DAY),
 			minute = rightNow.get(Calendar.MINUTE);
-		outPut.setText(outPut.getText() + "   ["+ hour + ": " + minute + "]  <ERRORE> : " + message);
+		return "    [" + hour + ":" + minute + "] ";
 	}
 
 
@@ -143,18 +141,5 @@ public class GraphicConsole extends Console {
 			graphicView.send(toSend);
 		}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
 	}
-	
-//    private void appendToPane(JTextPane tp, String msg, Color c)
-//    {
-//        StyleContext sc = StyleContext.getDefaultStyleContext();
-//        AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, c);
-//
-//        aset = sc.addAttribute(aset, StyleConstants.FontFamily, "Lucida Console");
-//        aset = sc.addAttribute(aset, StyleConstants.Alignment, StyleConstants.ALIGN_JUSTIFIED);
-//
-//        int len = tp.getDocument().getLength();
-//        tp.setCaretPosition(len);
-//        tp.setCharacterAttributes(aset, false);
-//        tp.replaceSelection(msg);
-//    }
+
 }
