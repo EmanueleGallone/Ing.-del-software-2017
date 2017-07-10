@@ -32,7 +32,7 @@ public class CardCostAffecter implements Affecter<FamilyInFloorAction> {
 	public FamilyInFloorAction affect(FamilyInFloorAction action) {
 		DevelopmentCard card = action.getCardAction().getCard();
 		if(card != null && card.getId().equals(cardType)){
-			action.getCardAction().addModifier(modifier);
+			action.getCardAction().addDiscount(modifier);
 		}
 		return action;
 	}

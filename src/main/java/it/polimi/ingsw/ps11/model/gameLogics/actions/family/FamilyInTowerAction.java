@@ -33,11 +33,11 @@ public class FamilyInTowerAction implements Action {
 
 	@Override
 	public void perform() {
-		if(!tower.isFree()){
-			DecrementAction tax = new DecrementAction(aManager, taxIfNotFree);
-			tax = aManager.affect(tax);
-			tax.perform();
-		}
+//		if(!tower.isFree()){
+//			DecrementAction tax = new DecrementAction(aManager, taxIfNotFree);
+//			tax = aManager.affect(tax);
+//			tax.perform();
+//		}
 	}
 
 	@Override

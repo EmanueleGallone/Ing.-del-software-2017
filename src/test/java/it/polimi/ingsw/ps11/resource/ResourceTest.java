@@ -39,7 +39,7 @@ public class ResourceTest {
 		coin1.increment(-1);
 		assertEquals(coin1.getValue(), 1);		//somma con valore negativo
 		coin1.increment(-coin3.getValue());
-		assertEquals(coin1.getValue(), 0);		//somma con risultato negativo non possibile per controllo sulla increment
+		assertEquals(coin1.getValue(), 0);		//la somma darebbe un risultato negativo ma la increment setta a zero
 		//coin1.increment(null);				non ammesso
 		
 	}

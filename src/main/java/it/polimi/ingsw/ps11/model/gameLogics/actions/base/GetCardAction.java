@@ -22,8 +22,9 @@ public class GetCardAction implements Action {
 	private ResourceList cost;
 	private Floor floor;
 	
-	private ResourceList modifier = new ResourceList();
-	
+	private ResourceList positiveModifier = new ResourceList();
+	private ResourceList negativeModifier = new ResourceList();
+
 	//private ResourceList modifier = new ResourceList();
 	
 	private EventHandler<ArrayList<ResourceList>> eventHandler = new EventHandler<>();
@@ -69,9 +70,10 @@ public class GetCardAction implements Action {
 
 	private DecrementAction makePayAction(){
 		if(floor!= null)
-			modifier.sum(floor.getActionSpace().getResources());
+			positiveModifier.sum(floor.getActionSpace().getResources());
 		ResourceList totalCost = this.cost.clone();
-		totalCost.subtract(modifier);
+		totalCost.subtract(positiveModifier);
+		totalCost.sum(negativeModifier);
 		DecrementAction pay = new DecrementAction(aManager,totalCost);
 		return aManager.affect(pay);
 	}
@@ -111,8 +113,12 @@ public class GetCardAction implements Action {
 		return cost;
 	}
 	
-	public void addModifier(ResourceList modifier){
-		this.modifier.sum(modifier);
+	public void addDiscount(ResourceList modifier){
+		this.positiveModifier.sum(modifier);
+	}
+	
+	public void addPenality(ResourceList modifier){
+		this.negativeModifier.sum(modifier);
 	}
 	
 	public void setCost(ResourceList cost) {

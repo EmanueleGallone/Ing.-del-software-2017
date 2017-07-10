@@ -76,7 +76,7 @@ public class GetCardTest {
 		
 		assertEquals(card1, action.getCard());
 		assertEquals(cost1, action.getCost());
-		action.addModifier(cost1);
+		action.addDiscount(cost1);
 		action.setCost(cost1);
 				
 		action = new GetCardAction(aManager, floor2.getCard(), floor2.getCard().getCosts().get(0));
