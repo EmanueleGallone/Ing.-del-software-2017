@@ -86,6 +86,6 @@ public class WaitCard extends PlayState{
 	
 	@Override
 	public void notifyToClient() {
-		stateHandler().invoke(new TextualEvent("Select a card from a floor with a value >= "+ value));
+		stateHandler().invoke(new TextualEvent("Select the action space from a floor with a value >= "+ value +" to take the associated card"));
 	}
 }
