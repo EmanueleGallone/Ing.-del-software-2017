@@ -1,5 +1,50 @@
 package it.polimi.ingsw.ps11.model.loaders;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.google.gson.reflect.TypeToken;
+
+import it.polimi.ingsw.ps11.model.FileRegistry;
+import it.polimi.ingsw.ps11.model.JsonAdapter;
+import it.polimi.ingsw.ps11.model.cards.CardManager;
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
+import it.polimi.ingsw.ps11.model.cards.effects.ActiveYieldEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.AnotherCard;
+import it.polimi.ingsw.ps11.model.cards.effects.CardDiscount;
+import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
+import it.polimi.ingsw.ps11.model.cards.effects.DecrementResourceEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.DisableCardVictoryPoint;
+import it.polimi.ingsw.ps11.model.cards.effects.ExchangeEffect;
+import it.polimi.ingsw.ps11.model.cards.effects.FamilyInFloorBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.FamilyInSpaceBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.FamilyInYieldBonus;
+import it.polimi.ingsw.ps11.model.cards.effects.IncrementForCard;
+import it.polimi.ingsw.ps11.model.cards.effects.ResourceAtTheEnd;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement;
+import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement;
+import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
+import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
+import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
+import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
+import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
+import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Coin;
+import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
+import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Servant;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
+import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
+import it.polimi.ingsw.ps11.model.resources.list.Wood;
+
 public class InitializeCards {
 	
 	public static void main(String[] args) {
@@ -7,7 +52,7 @@ public class InitializeCards {
 		//LeaderCardsInitializer();
 		//initializeExcommunication();
 	}
-	/*
+	
 	public static void inizializzaCarte(){
 		
 		JsonAdapter gAdapter = new JsonAdapter(); //per la scrittura su file
@@ -1499,7 +1544,7 @@ public class InitializeCards {
 		sandroBotticelli.addEffect(addResourceE);
 		
 		
-		resourceList = new ResourceList(new Stone(3));
+		resourceList = new ResourceList(new Coin(3));
 		AddResourceEffect addResourceEffect2 = new AddResourceEffect(resourceList.clone());
 		LeaderCard michelangeloBuonarroti = new LeaderCard("Michelangelo Buonarroti");
 		resourceList = new ResourceList(new Stone(10));
@@ -1764,5 +1809,5 @@ public class InitializeCards {
 		loader.write(list,type);
 		
 	}
-	*/
+	
 }
