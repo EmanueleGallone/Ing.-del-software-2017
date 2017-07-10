@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.game;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import org.junit.Test;
 
 import it.polimi.ingsw.ps11.controller.server.gameServer.PlayerFactory;
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
-import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
@@ -22,14 +20,12 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
-import it.polimi.ingsw.ps11.model.gameLogics.states.DefaultState;
-import it.polimi.ingsw.ps11.model.gameLogics.states.PlayState;
+import it.polimi.ingsw.ps11.model.gameLogics.states.VaticanReport;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.resources.list.Stone;
-import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.ActiveLeaderCardEvent;
@@ -163,12 +159,7 @@ public class GameTest {
 		GetCardAction getCard = new GetCardAction(aManager1, yellowCard, yellowCard.getCosts().get(1)); //gli passo direttamente il costo
 		FamilyInFloorAction familyInFloorAction = new FamilyInFloorAction(aManager1, familyInTowerAction, familyInSpaceAction, getCard);
 	
-		assertFalse(familyInFloorAction.notifyConfirm(new ConfirmViewEvent(true))); // non e' possibile in quanto quello spazio azione e' gia' occupato
-		
-		
-		
-		
-		
+		assertFalse(familyInFloorAction.notifyConfirm(new ConfirmViewEvent(true))); // non e' possibile in quanto quello spazio azione e' gia' occupato		
 	}
 	
 	@Test
@@ -218,6 +209,8 @@ public class GameTest {
 		assertTrue(familyInSpaceAction2.notifyConfirm(new ConfirmViewEvent(true)));
 		familyInSpaceAction2.perform(); //perform action
 		
+		assertTrue(player2.getFamilyManager().getFamilyMember("BlackFamilyMember").isUsed());
+		
 	}
 	
 	@Test
@@ -251,6 +244,40 @@ public class GameTest {
 		gameLogic.handle(activeLeaderCardEvent);
 		gameLogic.handle(activeLeaderCardEvent);
 		
+		
+	}
+	
+	@Test
+	public void vaticanReportTesT(){
+		ArrayList<Player> players = new PlayerFactory().take(1);
+		for(int i = 0; i < players.size(); i++)
+			players.get(i).setName("Giocatore " + (i+1));
+		
+		GameLogic gameLogic = new GameLogic(players);
+		gameLogic.run();
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		Player player = stateHandler.getPlayer();
+		
+		EndTurnEvent endTurnEvent = new EndTurnEvent();
+		endTurnEvent.setSource(player);
+		
+		player.getResourceList().setResource(new FaithPoint(10));
+		
+		for(int i = 0; i < 22; i++)
+			gameLogic.handle(endTurnEvent);
+		
+		ConfirmViewEvent confirmViewEvent = new ConfirmViewEvent(true);
+		confirmViewEvent.setSource(player);
+		
+		VaticanReport vaticanReport = new VaticanReport(stateHandler);
+		vaticanReport.handle(confirmViewEvent); //emulo che il giocatore confermi di voler mostrare il sostegno al
+		
+		vaticanReport.handle(new ConfirmViewEvent(false));
+		
+	}
+	
+	@Test
+	public void waitCardTest(){
 		
 	}
 
