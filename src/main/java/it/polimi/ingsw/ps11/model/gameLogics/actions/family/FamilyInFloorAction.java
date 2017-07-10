@@ -49,13 +49,13 @@ public class FamilyInFloorAction  implements Action, NeedConfirm,ResourceListene
 		
 		//checkFloorBonus();
 		result = towerAction.isLegal();
+		if(!towerAction.getTower().isFree() && confermed == null && getCard.getCost()==null)
+			getCard.addPenality(towerAction.taxIfNotFree);
 		if(result && (result = getCard.isLegal()) && confermed == null){
 			aManager.state().nextState(new WaitConfirm(this));
 			return false;
 		}
 		
-		if(!towerAction.getTower().isFree() && confermed == null)
-			getCard.addPenality(towerAction.taxIfNotFree);
 		return result && spaceAction.isLegal();
 	}
 	
