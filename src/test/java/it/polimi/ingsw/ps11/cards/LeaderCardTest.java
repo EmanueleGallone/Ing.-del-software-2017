@@ -14,7 +14,9 @@ import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.CardNumberRequirement;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.Requirement;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.ResourceRequirement;
+import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
+import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
 import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
@@ -69,6 +71,38 @@ public class LeaderCardTest {
 		LeaderCard anotherCard = new LeaderCard("anotherCard");
 		anotherCard.addRequirement(new ResourceRequirement(new ResourceList(new MilitaryPoint(1))));
 		Assert.assertFalse(anotherCard.isSatisfied(player));
+		
+		LeaderCard card2 = new LeaderCard("card2");
+		card2.addRequirement(new CardNumberRequirement("PurpleCard", 8));
+		Assert.assertFalse(card2.isSatisfied(player));
+		
+		anotherCard = new LeaderCard("newLeader");
+		anotherCard.addRequirement(new ResourceRequirement(new ResourceList(new Coin(1))));
+		Assert.assertTrue(anotherCard.isSatisfied(player));
+		
+		
+	}
+	
+	@Test
+	public void RequirementsTest(){
+		PlayerFactory factory = new PlayerFactory();
+		Player player = factory.newPlayer(0); //il giocatore creato ha 5 coin
+		
+		HashMap<String, Integer> numberofCards = new HashMap<>();
+		numberofCards.put(new PurpleCard().getId(), 1);
+		numberofCards.put(new YellowCard().getId(), 1);		
+		
+		LeaderCard card = new LeaderCard("leader");
+		card.addRequirement(new CardNumberRequirement(numberofCards));
+		Assert.assertFalse(card.isActivated());
+		Assert.assertFalse(card.isSatisfied(player));
+		
+		Player player2 = factory.newPlayer(1);
+		card = new LeaderCard("anotherCArd");
+		player2.getCardManager().addCard(new PurpleCard());
+		player2.getCardManager().addCard(new YellowCard()); //aggiungo le due carte per soddisfare i requirements
+		card.addRequirement(new CardNumberRequirement(numberofCards));
+		Assert.assertTrue(card.isSatisfied(player2)); //i requirements devono essere soddisfatti
 	}
 	
 	@Test
@@ -77,14 +111,15 @@ public class LeaderCardTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
-		ActionManager aManager = new ActionManager(stateHandler);
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
+		Player player = stateHandler.getPlayer();
+		ActionManager aManager = stateHandler.actions();
 		
 		LeaderCard card = new LeaderCard("LeaderCard");
 		card.addEffect(new AddResourceEffect(new ResourceList(new VictoryPoint(10))));
 		card.active(aManager);
 		
-		Assert.assertEquals(10, players.get(0).getResourceList().get(new VictoryPoint().getId()).getValue());
+		Assert.assertEquals(10, player.getResourceList().get(new VictoryPoint().getId()).getValue());
 	}
 	
 	private ArrayList<Player> initializePlayers(){

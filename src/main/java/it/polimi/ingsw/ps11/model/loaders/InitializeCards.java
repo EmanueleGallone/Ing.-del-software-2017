@@ -1544,7 +1544,7 @@ public class InitializeCards {
 		sandroBotticelli.addEffect(addResourceE);
 		
 		
-		resourceList = new ResourceList(new Stone(3));
+		resourceList = new ResourceList(new Coin(3));
 		AddResourceEffect addResourceEffect2 = new AddResourceEffect(resourceList.clone());
 		LeaderCard michelangeloBuonarroti = new LeaderCard("Michelangelo Buonarroti");
 		resourceList = new ResourceList(new Stone(10));
