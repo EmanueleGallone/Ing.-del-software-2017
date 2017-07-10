@@ -1,6 +1,8 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
@@ -15,7 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.event.EventListenerList;
 
 import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.cards.Card;
@@ -30,7 +31,6 @@ import it.polimi.ingsw.ps11.view.graphicView.components.GraphicBoardView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicChooseResourceListPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicConfirmPanelView;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicLoginPanel;
-import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedButton;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPaintedPanel;
 import it.polimi.ingsw.ps11.view.graphicView.components.GraphicPlayerView;
 import it.polimi.ingsw.ps11.view.viewEvents.ActiveLeaderCardEvent;
@@ -82,6 +82,7 @@ public class GraphicView extends View {
 		GraphicPlayerView graphicPlayerView = new GraphicPlayerView();
 		GraphicConsole graphicConsole = new GraphicConsole();
 		turn = new JLabel();
+		turn.setFont(new Font("Times New Roman", Font.PLAIN, (int) screenSize.getHeight()/50));
 		JButton exit = new JButton("X"), minimize = new JButton("_");
 		JPanel consoleAndManagerPanel = new JPanel();
 
@@ -226,10 +227,11 @@ public class GraphicView extends View {
 	@Override
 	public void update(Game game) {
 		super.update(game);
+		//turn.setBackground(Color.);
 		String currentPlayer = game.getRoundManager().currentPlayer().getName();
-		String roundManager = "Round: " + game.getRoundManager().currentTurn() + ", Turn: " + game.getRoundManager().currentTurn()
+		String roundManager = "Round: " + game.getRoundManager().currentRound() + ", Turn: " + game.getRoundManager().currentTurn()
 				+ ", Period: " + game.getRoundManager().currentPeriod() + ".";
-		turn.setText(currentPlayer + "'s turn. " + roundManager);
+		turn.setText(currentPlayer.toUpperCase() + "'s turn. " + roundManager);
 		
 	}
 
@@ -260,10 +262,9 @@ public class GraphicView extends View {
 
 	@Override
 	public void confirm(ConfirmEvent confirm) {
-		confirmPanelView = new GraphicConfirmPanelView(viewEvent, confirm, window);
-		confirmPanelView.getComponent().setBounds((int) Math.round(screenSize.getWidth() * 0.325),
-				(int) Math.round(screenSize.getHeight() * 0.25), (int) Math.round(screenSize.getWidth() * 0.35),
-				(int) Math.round(screenSize.getHeight() * 0.45));
+		confirmPanelView = new GraphicConfirmPanelView(viewEvent, confirm, window, 
+				(int) Math.round(screenSize.getWidth() * 0.325), (int) Math.round(screenSize.getHeight() * 0.25), 
+				(int) Math.round(screenSize.getWidth() * 0.35),  (int) Math.round(screenSize.getHeight() * 0.45));
 		confirmPanelView.show();
 	}
 

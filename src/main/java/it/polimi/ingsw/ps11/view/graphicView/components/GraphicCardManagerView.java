@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
@@ -232,7 +233,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 		for( GraphicLeaderCardView leaderPanel : leaderButtonCards){
 			if(i< deck.size()){
 				leaderPanel.update(deck.get(i));
+				if(deck.get(i).isActivated()){
+					leaderPanel.setEnabled(false);
+					leaderPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+				}
+
 				leaderPanel.setEnabled(true);
+				leaderPanel.setBorderPainted(false);
 			}
 			else {
 				leaderPanel.clean();

@@ -9,12 +9,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Random;
 
-import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
-import it.polimi.ingsw.ps11.controller.network.message.MessageListener;
-import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
-import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
 
 public class RMIConnection extends Connection implements RMIReceiver,Serializable{
 	
