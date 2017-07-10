@@ -293,4 +293,13 @@ public class GraphicCardManagerView extends CardManagerView implements ItemListe
 	public void attachLeaderListener(EventListener<LeaderCard> leaderActivateListener) {
 		activateLeader.attach(leaderActivateListener);
 	}
+
+	public void attachCardListener(EventListener<Card> cardClickListener) {
+		for (ArrayList<GraphicDevelopmentCardView> panel : mapPanelCardsViews.values()) {
+			for (GraphicDevelopmentCardView card : panel) {
+				card.attachCardListener(cardClickListener);
+			}
+		}
+		
+	}
 }

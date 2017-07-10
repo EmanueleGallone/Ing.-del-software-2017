@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
+import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.player.Player;
@@ -124,7 +125,7 @@ public class GraphicPlayerView extends PlayerView{
 	public void attachLeaderListener(EventListener<LeaderCard> activateLeader) {
 		graphicCardManagerView.attachLeaderListener(activateLeader);
 	}
-
+	
 	public void attachEndTurnListener(EndTurn endTurn2) {
 		endTurn.addActionListener(endTurn2);
 	}
