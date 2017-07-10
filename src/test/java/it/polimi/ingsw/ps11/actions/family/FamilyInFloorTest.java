@@ -16,10 +16,14 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInTowerAction;
+import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
+import it.polimi.ingsw.ps11.model.resources.list.Stone;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.towers.Tower;
+import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
+import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
 
 public class FamilyInFloorTest {	
 	
@@ -37,10 +41,11 @@ public class FamilyInFloorTest {
 		ArrayList<Player> players = initializePlayers();
 		
 		GameLogic gameLogic = new GameLogic(players);
-		StateHandler stateHandler = new StateHandler(gameLogic, players.get(0));
+		StateHandler stateHandler = gameLogic.getPlayerStatus().get(0);
 		ActionManager aManager = new ActionManager(stateHandler);
 		
-		Player player = players.get(0);
+		Player player = stateHandler.getPlayer();
+		player.getResourceList().sum(new ResourceList(new Stone(1)));
 		WhiteFamilyMember familyMember = new WhiteFamilyMember().getFrom(player.getFamilyManager());
 		
 		Tower tower = gameLogic.getGame().getBoard().getTower("PurpleTower");
@@ -54,8 +59,19 @@ public class FamilyInFloorTest {
 		
 		FamilyInFloorAction familyInFloorAction = new FamilyInFloorAction(aManager, tAction, sAction, getCard);
 		
-		Assert.assertTrue(familyInFloorAction.isLegal()); //dovrebbe essere legale e invece non lo e'. perche'?
-		familyInFloorAction.perform();
+		Assert.assertFalse(familyInFloorAction.isLegal()); //L'azione e' lecita ma ritorna false e manda il giocatore nello stato "WaitConfirm"
+		Assert.assertEquals(stateHandler.currentState().getClass(), WaitConfirm.class);
+		
+		
+		//Simulo l'invio di una conferma da parte del client
+		ViewEvent confirmEvent = new ConfirmViewEvent(true);
+		confirmEvent.setSource(player);
+		gameLogic.handle(confirmEvent); 
+		//Quando arriva la conferma l'azione familyInFloorAction viene notificata  avviene il check sulla isLegal() e successivamente la perform
+		
+		//Verifico che il giocatore abbia preso la carta
+		Assert.assertTrue(player.getCardManager().getCardList(card.getId()).contains(card));
+		
 	}
 	
 	
