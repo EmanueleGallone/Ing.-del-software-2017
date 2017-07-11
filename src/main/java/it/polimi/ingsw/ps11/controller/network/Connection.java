@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.model.events.EventListener;
 
 public abstract class Connection implements ConnectionInterface {
 
-	private String serverAddress = "192.168.1.95";
+	private String serverAddress = "localhost";
 	private int port = 4099;
 	private String id;
 	
