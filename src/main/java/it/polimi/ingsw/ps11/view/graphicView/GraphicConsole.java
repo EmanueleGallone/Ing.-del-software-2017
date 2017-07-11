@@ -12,21 +12,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.text.AttributeSet;
 import javax.swing.text.DefaultCaret;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyleContext;
 
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
 /**
  * <h3> GraphicConsole</h3>
- * <p> Classe per la visualizzazione della console. Simula un terminale, con possibilità di usare diversi colori per diversi
- * tipi di messaggio.</p>
+ * <p> Classe per la visualizzazione della console. Simula un terminale con pannello a scorrimento.</p>
  * @see Console
  */
 public class GraphicConsole extends Console {

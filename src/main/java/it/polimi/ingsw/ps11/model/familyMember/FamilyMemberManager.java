@@ -8,10 +8,6 @@ import java.util.Iterator;
 import it.polimi.ingsw.ps11.model.dices.Dice;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.dices.DiceProxy;
-import it.polimi.ingsw.ps11.model.familyMember.list.BlackFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.NeutralFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.OrangeFamilyMember;
-import it.polimi.ingsw.ps11.model.familyMember.list.WhiteFamilyMember;
 /**
  * <h3>FamilyMemberManager</h3>
  * <p> Classe Manager per i <code>FamilyMember</code>. Associa ad ogni tipo di familiare il familiare corrispondente. Uno per ogni giocatore.</p>

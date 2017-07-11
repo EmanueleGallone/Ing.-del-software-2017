@@ -3,8 +3,6 @@ package it.polimi.ingsw.ps11.model.cards.leaderCards;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
-import it.polimi.ingsw.ps11.model.cards.CardManager;
-import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.requires.Requirement;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;

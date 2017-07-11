@@ -1,9 +1,13 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
-
+/**
+ * <p>
+ * Modulo della CLI che permette di stampare un piano inerente ad una torre. verra' visualizzata a schermo la carta, l'eventuale risorsa e lo spazio azione
+ * </p>
+ *
+ */
 public class TextualFloorView extends FloorView {
 
 	private final int SPACE = 30;

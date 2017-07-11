@@ -4,7 +4,11 @@ import it.polimi.ingsw.ps11.model.zones.CouncilPalace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CouncilPalaceView;
-
+/**
+ * <h3> TextualCouncilPalaceView</h3>
+ * <p> Classe per la visualizzazione testuale del palazzo del consiglio del gioco e i familiari in esso posizionati.</p>
+ * @see CouncilPalaceView
+ */
 public class TextualCouncilPalaceView extends CouncilPalaceView{
 	
 	public TextualCouncilPalaceView(CouncilPalace councilPalace) {

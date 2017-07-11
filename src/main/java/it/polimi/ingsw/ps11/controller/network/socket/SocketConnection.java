@@ -6,7 +6,11 @@ import java.net.Socket;
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-
+/**
+ * <h3> SocketConnection </h3>
+ * <p> Classe che gestisce la connessione tramite socket e in particolare la ricezione dei messaggi lato client.</p>
+ * @see 
+ */
 public class SocketConnection extends Connection implements EventListener<Message>{
 
 	private Socket socket;

@@ -8,8 +8,6 @@ import java.util.HashMap;
 
 import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.model.zones.Church;
 import it.polimi.ingsw.ps11.model.zones.CouncilPalace;

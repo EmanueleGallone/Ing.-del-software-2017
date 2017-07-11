@@ -9,7 +9,11 @@ import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.server.gameServer.GameController;
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
-
+/**
+ * <h3> ConnectionHandler. </h3>
+ * <p> Classe che gestisce la lobby del server, contiene il numero minimo e massimo dei giocatori per partita e un delay per la connessione
+ * di giocatori oltre la sogglia minima.</p>
+ */
 public class ConnectionHandler {
 	
 	private final int MAX_SIZE = 4; 

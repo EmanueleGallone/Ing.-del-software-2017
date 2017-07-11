@@ -1,12 +1,10 @@
 package it.polimi.ingsw.ps11.model.game;
 
-import java.awt.List;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 import com.google.gson.reflect.TypeToken;

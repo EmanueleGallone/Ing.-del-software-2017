@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;

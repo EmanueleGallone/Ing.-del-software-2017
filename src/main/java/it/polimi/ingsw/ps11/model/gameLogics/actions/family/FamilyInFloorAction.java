@@ -8,7 +8,6 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.ResourceListener;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.GetCardAction;
 import it.polimi.ingsw.ps11.model.gameLogics.states.WaitConfirm;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
-import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;

@@ -3,14 +3,15 @@ package it.polimi.ingsw.ps11.view.graphicView.components;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
 import javax.swing.JToggleButton;
 
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
-
+/**
+ * <h3> GraphicLeaderCardView</h3>
+ * <p> Classe per la visualizzazione delle carte di tipo leader, estendono JToggleButton e insieme sono inseriti in un  buttonGroup.</p>
+ * @see LeaderCard
+ */
 public class GraphicLeaderCardView extends JToggleButton implements ToPaint{
 	
 	private BufferedImage background;

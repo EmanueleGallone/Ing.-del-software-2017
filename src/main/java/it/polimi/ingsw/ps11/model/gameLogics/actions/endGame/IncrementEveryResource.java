@@ -2,21 +2,24 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.endGame;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
-
-public class IncrementEvryResource implements  NeedManager{
+/**
+ * <h3>IncrementEveryResource</h3>
+ * <p> Classe che rappresenta l'azione che aggiunge un punto vittoria durente l'End Game ogni cinque risorse rimaste ad
+ * un giocatore (coin, wood, stone e servant).</p>
+ * @see NeedManager
+ */
+public class IncrementEveryResource implements  NeedManager{
 	
 	private int value = 1;
 	private ActionManager aManager;
 	private ArrayList<String> target = new ArrayList<>();
 	private Resource resourceToAdd;
 	
-	public IncrementEvryResource(ActionManager aManager, int value, Resource increment) {
+	public IncrementEveryResource(ActionManager aManager, int value, Resource increment) {
 		this.aManager = aManager;
 		if(value!=0)
 			this.value = value;

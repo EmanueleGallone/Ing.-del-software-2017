@@ -1,7 +1,11 @@
 package it.polimi.ingsw.ps11.model.gameLogics;
 
 import it.polimi.ingsw.ps11.view.viewEvents.ViewListener;
-
+/**
+ * <h3> State </h3>
+ * <p> Classe che rappresenta uno stato di gioco durante una partita.</p>
+ * @see 
+ */
 public abstract class State implements ViewListener {
 	
 	private StateHandler handler;

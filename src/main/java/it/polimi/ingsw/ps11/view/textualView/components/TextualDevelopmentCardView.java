@@ -3,7 +3,11 @@ package it.polimi.ingsw.ps11.view.textualView.components;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
-
+/**
+ * <h3> TextualDevelopmentCardView</h3>
+ * <p> Classe per la visualizzazione testuale </p>
+ * @see View
+ */
 public class TextualDevelopmentCardView extends DevelopmentCardView {
 
 	@Override

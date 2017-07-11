@@ -7,7 +7,11 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedE
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.SpaceSelectedEvent;
-
+/**
+ * <h3> State </h3>
+ * <p> Classe che rappresenta lo stato di attesa della scelta dell'action space su cui posizionare il familiare da parte del giocatore.</p>
+ * @see 
+ */
 public class WaitingActionSpace extends PlayState {
 
 	private FamilySelectedEvent familyMember;

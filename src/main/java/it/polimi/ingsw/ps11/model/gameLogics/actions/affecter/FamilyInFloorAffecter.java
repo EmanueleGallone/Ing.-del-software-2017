@@ -1,7 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInFloorAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;

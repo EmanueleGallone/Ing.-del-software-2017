@@ -3,9 +3,13 @@ package it.polimi.ingsw.ps11.controller.server.login;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.FileRegistry;
-import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
-
+/**
+ * <h3> Register. </h3>
+ * <p> Classe che gestisce la registrazione di un giocatore. Ricerca l'username selezionato e se non è presente notifica la registrazione
+ * .</p>
+ * @see User
+ */
 public class Register {
 
 	private ArrayList<User> users = new ArrayList<>();

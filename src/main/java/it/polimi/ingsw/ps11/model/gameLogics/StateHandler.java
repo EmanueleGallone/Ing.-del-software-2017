@@ -10,7 +10,11 @@ import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.modelEvents.TextualEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
-
+/**
+ * <h3> State </h3>
+ * <p> Classe che rappresenta lo stato di un giocatore e ne gestisce le azioni. Associa un giocatore al relativo action manager.</p>
+ * @see 
+ */
 public class StateHandler {
 
 	private State currState;

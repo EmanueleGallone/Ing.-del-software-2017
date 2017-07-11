@@ -13,15 +13,17 @@ import it.polimi.ingsw.ps11.controller.network.message.ModelMessage;
 import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.gameLogics.GameLogic;
-import it.polimi.ingsw.ps11.model.gameLogics.StateHandler;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ModelEventInterface;
 import it.polimi.ingsw.ps11.model.player.Player;
-import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
-
+/**
+ * <h3> GameController. </h3>
+ * <p> Classe che gestisce una partita e i giocatori che vi stanno partecipando con la loro relativa connessione, salvati tramite hashmap.</p>
+ * @see GameLogic
+ * @see Connection
+ */
 public class GameController implements MessageListener,Runnable {
 
 	private HashMap<Connection, Player> clients = new HashMap<>();

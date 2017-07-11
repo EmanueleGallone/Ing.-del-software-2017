@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.view.viewGenerica.components;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.view.viewGenerica.ViewComponent;
 

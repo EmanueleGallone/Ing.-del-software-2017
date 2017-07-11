@@ -13,7 +13,12 @@ import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIReceiver;
 import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
 import it.polimi.ingsw.ps11.controller.server.login.LogInHandler;
-
+/**
+ * <h3> . </h3>
+ * <p> Classe che gestisce il server, con modalità sia Socket che RMI. Contiene un LogInHandler per la registrazione dei giocatori e 
+ * e il salvataggio dei dati su file.</p>
+ * @see 
+ */
 public class Server extends UnicastRemoteObject implements RMIReceiver,Runnable {
 	
 	//private ConnectionHandler connectionHandler = new ConnectionHandler();

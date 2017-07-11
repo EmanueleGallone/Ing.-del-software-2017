@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.dices.Dice;
-import it.polimi.ingsw.ps11.model.dices.DiceManager;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DiceView;
 /**
  * <h3> GraphicDiceView</h3>

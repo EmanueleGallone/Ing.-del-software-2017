@@ -4,7 +4,11 @@ import it.polimi.ingsw.ps11.model.modelEvents.UpdateFamilyMemberEvent;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.SpaceSelectedEvent;
-
+/**
+ * <h3> WaitingFamilyMember </h3>
+ * <p> Classe che rappresenta lo stato di attesa del familaiare da posizionare da parte del giocatore. </p>
+ * @see 
+ */
 public class WaitingFamilyMember extends PlayState{
 
 	private SpaceSelectedEvent event;

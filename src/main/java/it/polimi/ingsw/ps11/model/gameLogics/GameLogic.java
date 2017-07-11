@@ -17,7 +17,11 @@ import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
-
+/**
+ * <h3> GameLogic </h3>
+ * <p> Classe che gestisce la logica dela partita, organizza i giocatori e ele loro interazioni.</p>
+ * @see 
+ */
 public class GameLogic implements Runnable{
 
 	private Game game;

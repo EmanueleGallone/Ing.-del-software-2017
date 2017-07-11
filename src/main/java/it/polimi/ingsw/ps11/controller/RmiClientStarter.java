@@ -5,7 +5,11 @@ import java.util.Random;
 import it.polimi.ingsw.ps11.controller.client.Client;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.view.graphicView.GraphicView;
-
+/**
+ * <h3> . </h3>
+ * <p> Classe per il testing RMI.</p>
+ * @see 
+ */
 public class RmiClientStarter {
 	
 	public static void main(String[] args) {
