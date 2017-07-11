@@ -13,7 +13,6 @@ import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.controller.network.rmi.RMIConnection;
 import it.polimi.ingsw.ps11.controller.network.socket.SocketConnection;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.events.EventManager;
 import it.polimi.ingsw.ps11.model.modelEvents.ChooseResourceEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
 import it.polimi.ingsw.ps11.model.modelEvents.GameUpdateEvent;
