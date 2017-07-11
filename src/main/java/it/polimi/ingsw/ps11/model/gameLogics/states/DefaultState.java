@@ -17,7 +17,7 @@ import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEv
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 /**
  * <h3> DefaultState </h3>
- * <p> Classe che rappresenta raccoglie ogni altro State. </p>
+ * <p> Classe che lo stato di Default, raccoglie ogni altro State e li gestisce tramite il Visitor Pattern. </p>
  * @see State
  */
 public class DefaultState extends State {

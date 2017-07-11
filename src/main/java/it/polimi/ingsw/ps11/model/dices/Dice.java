@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Random;
 /**
  * <h3>Dice</h3>
- * <p> Classe che rappresenta l'oggetto dado del gioco. Contiene un int per il value del dado, compreso tra 1 e 6, una string   
- * identificativa per il nome del dado.</p>
+ * <p> Classe che rappresenta l'oggetto dado del gioco. Contiene un int per il value del dado, compreso tra 1 e 6, casuale per ogni
+ * nuovo turno, una string identificativa per il nome del dado.</p>
  */
 public class Dice implements Serializable{
 	

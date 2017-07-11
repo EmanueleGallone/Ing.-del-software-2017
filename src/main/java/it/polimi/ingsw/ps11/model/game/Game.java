@@ -19,7 +19,9 @@ import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.zones.Church;
 /** <h3> Game </h3>
- * <p> Classe che racchiude l'intera partita: la board, il roundManager e i giocatori</p>
+ * <p> Classe generale che racchiude l'intera partita: la board di gioco contenente tutte le zone di gioco, una per partita, il roundManager
+ * che gestisce la meccanica dei turni del gioco, uno per partita,e i giocatori che partecipano alla partita, da due a quattro per partita,
+ * Gestisce l'intera interazione tra i vari componenti</p>
  * @version 1.0
  * @see Board
  * @see RoundManager

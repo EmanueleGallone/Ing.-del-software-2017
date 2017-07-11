@@ -9,7 +9,9 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 
 /**
  * <h3> Church </h3>
- * <p> Classe che rappresenta la zona della Chiesa del gioco con le carte scomunica associate</p>
+ * <p> Classe che rappresenta la zona della Chiesa del gioco con le carte scomunica associate. La church richiede un quantitativo minimo di 
+ * Faith Point per non assegnare la scomunica del round al giocatore. Associa ad ogni numero di FaithPoint una resourceList che rappresenta
+ * i punti Vittoria acquisiti. </p>
  */
 public class Church implements Serializable {
 	

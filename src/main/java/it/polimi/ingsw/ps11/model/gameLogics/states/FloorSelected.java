@@ -19,7 +19,8 @@ import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 /**
  * <h3> State </h3>
- * <p> Classe che rappresenta lo stato che segue l'azione di selezione di un piano da parte di un giocatore.</p>
+ * <p> Classe che rappresenta lo stato che segue l'azione di selezione di un piano da parte di un giocatore. Richiede che siano stati attivati
+ * gli stati di selezione di un piano, un familiare e che venga eseguita un FamilyInFloorAction.</p>
  */
 public class FloorSelected extends PlayState {
 

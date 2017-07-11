@@ -9,7 +9,8 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 
 /**
  * <h3> DiceManager </h3>
- * <p> Classe Manager per i <code>Dice</code>. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. </p>
+ * <p> Classe Manager per i <code>Dice</code>. Associa ad ogni tipo di dato il dado corrispondente. Uno per ogni partita. Ad ogni turno 
+ * assegna ad ogni suo dado un valore casuale compreso tra 1 e 6.</p>
  * @see DevelopmentCard
  */
 public class DiceManager implements Iterable<Dice>,Serializable{

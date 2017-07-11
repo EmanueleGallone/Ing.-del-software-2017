@@ -7,8 +7,10 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.zones.Floor;
 /**
  * <h3>Tower</h3>
- * <p> Classe che rappresenta le torri del gioco. Per ogni torre è stata implementata una classe apposita, identificata dal tipo di carta
- * che può contenere. Ogni torre ha esattamente 4 piani.</p>
+ * <p> Classe che rappresenta le torri del gioco. Ogni torre è identificata dal tipo di carta che può contenere. Ogni torre contine al più
+ * quattro piani, ogniuno contenente una carta dello stesso tipo della torre e un action space. Ogni giocatore può posizionare solo un 
+ * familiare che non sia di tipo Neutral, e deve pagare una tassa di 3 Coin se al posizionamento è già presente sulla torre un familiare
+ * di qualsiasi tipo e di qualsiasi giocatore.</p>
  */
 public class Tower implements Serializable{
 	
