@@ -9,7 +9,10 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**
  * <h3> Yield </h3>
- * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco, possiede un un single e un multiple action space. </p>
+ * <p> Classe che raggruppa le zone Raccolta e Produzione del gioco, possiede un un single e un multiple action space. il valore del familiare
+ * posizionato sul single actionspace non riceve penalità all'attivazione della zona, mentre i familiari sul multiple actionspace ricevono
+ * un malus di -3 sul valore del familiare all'attivazione della zona. Sono identificati da una string che rappresenta l'Id del tipo di
+ * carta presente nel cardManager di un giocatore che il cui bonus viene attivato all'attivazione della zona.</p>
  */
 public class Yield implements Serializable, Iterable<ActionSpace> {
 	

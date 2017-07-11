@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
  * <h3> FamilyInYieldAffecter </h3>
  * <p> Bonus: modifica il valore di un familiar se questo viene posizionato sull'actionspace appartenente alla zona Raccolta
  * o Produzione attraverso una <code>FamilyInYieldAction</code>.</p>
- * <p> Richiede: string (tipo della carta associato alla zona dell'actionspace), int (quantità del modificatore del valore 
+ * @param  string (tipo della carta associato alla zona dell'actionspace), int (quantità del modificatore del valore 
  * del familiare).</p>
  * @see Affecter
  * @see FamilyYieldAction

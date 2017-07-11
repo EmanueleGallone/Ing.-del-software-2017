@@ -6,7 +6,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 /**
  * <h3> CostIncrementEffect </h3>
  * <p> Classe che rappresenta l'effetto di una carta: modifica permanentemente il costo di un tipo di carta attraverso una <code>DecrementAffecter</code>.</p>
- * <p> Richiede: String (Id della carta a cui viene aumentato il costo), int (quantità di incremento).</p>
+ * @param  String (Id della carta a cui viene aumentato il costo), int (quantità di incremento).
  * @see Effect
  * @see DecrementAffecter
  */

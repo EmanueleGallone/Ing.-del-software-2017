@@ -11,7 +11,7 @@ import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.IncrementEveryResource;
+import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.IncrementEvryResource;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
@@ -56,7 +56,7 @@ public class DefaultEndAction {
 		PointByCardAction bluAction = new PointByCardAction(null, new BlueCard().getId(), bluCard);
 		
 		
-		IncrementEveryResource incrementEvryResource = new IncrementEveryResource(null, 5, new VictoryPoint(1));
+		IncrementEvryResource incrementEvryResource = new IncrementEvryResource(null, 5, new VictoryPoint(1));
 		incrementEvryResource.addTarget(new Wood().getId());
 		incrementEvryResource.addTarget(new Stone().getId());
 		incrementEvryResource.addTarget(new Coin().getId());

@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> CardCostAffecter </h3>
  * <p> Bonus: modifica le reosurceLists dei costi di una carta attraverso una <code>GetCardAction</code>.</p>
- * <p> Richiede: DevelopmentCard (carta a cui va modificato il costo), resourceList (valori delle risorse che modificano le
+ * @param  DevelopmentCard (carta a cui va modificato il costo), resourceList (valori delle risorse che modificano le
  * resourceList dei costi della carta).</p>
  * @see Affecter
  * @see GetCardAction

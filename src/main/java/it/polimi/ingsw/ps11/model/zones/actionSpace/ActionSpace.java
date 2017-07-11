@@ -6,8 +6,8 @@ import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3>ActionSpace</h3>
- * <p> Classe che rappresenta lo spazio azione del gioco dove e' possibile posizionare un solo familiare. Puo' avere delle risorse o meno e ha un costo
- * in termini di valore del familiare.</p>
+ * <p> Classe che rappresenta lo spazio azione del gioco dove e' possibile posizionare un solo familiare. Puo' avere una ResourceList
+ * come bonus ricevuto o penalità da pagare al posizionamento di un familiare, e ha un costo in termini di valore del familiare.</p>
  * @see it.polimi.ingsw.ps11.model.familyMember.FamilyMember FamilyMember
  * @see it.polimi.ingsw.ps11.model.player.Player Player
  * @see it.polimi.ingsw.ps11.model.resources.ResourceList ResourceList

@@ -6,8 +6,10 @@ import it.polimi.ingsw.ps11.model.cards.effects.Effect;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3>Development Card</h3>
- * <p> Classe astratta che rappresenta le carte sviluppo. Estensione della classe Card. </p> 
- * <p>Il costruttore accetta: string (per il nome), resourceList o array di resourcelist (per il/i costo/i).</p>
+ * <p> Classe astratta che rappresenta le carte sviluppo. Estensione della classe Card. Possono essere di quattro tipi: 
+ * "Territorio", "Personaggio", "Edificio", "Impresa". Contengono un ArrayList di ResourceList che rappresentano i costi tra cui i
+ * giocatori possono scegliere. La carta può avere un effetto immediato e/o un effetto permanente.</p> 
+ * <p>Il costruttore accetta: string (Id della carta), string (nome della carta).</p>
  * @version 1.0
  * @see Card
  * @see it.polimi.ingsw.ps11.model.cards.list.YellowCard YellowCard

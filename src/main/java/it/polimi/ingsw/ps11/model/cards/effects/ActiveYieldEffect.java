@@ -5,7 +5,8 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ActiveYieldAction;
 /**
  * <h3> ActiveYieldEffect </h3>
  * <p> Classe che rappresenta l'effetto di una carta: attiva l'azione <code>ActiveYieldAction</code>.</p>
- * <p> Richiede: string (tipo delle carte da attivare, raccolta o produzione), int value (valore di attivazione)</p>
+ * @param  string (tipo delle carte da attivare, raccolta o produzione)
+ * @param  int value (valore di attivazione)
  * @see Effect
  * @see ActiveYieldAction
  */

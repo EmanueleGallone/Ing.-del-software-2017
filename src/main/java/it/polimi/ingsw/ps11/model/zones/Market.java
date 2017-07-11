@@ -8,7 +8,9 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**
  * <h3> Market </h3>
- * <p> Classe che rappresenta la zona mercato del gioco con i relativi spazi in base al numero dei giocatori. </p>
+ * <p> Classe che rappresenta la zona mercato del gioco con i relativi spazi in base al numero dei giocatori. Un minimo di 2 zone viene 
+ * attivato a partita, le zone attivate diventano 4 se almeno 4 giocatori sono presenti nella partita. Ogniuna delle zone possiede un
+ * bonus unico.</p>
  */
 public class Market extends MultipleActionSpace implements Serializable  {
 	

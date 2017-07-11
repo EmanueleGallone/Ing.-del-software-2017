@@ -96,7 +96,7 @@ public class GraphicConsole extends Console {
 		if(toSend.equals("help")){
 			println("Welcome to \"Lorenzo il Magnifico\", a game by Cranio Creations.\nTo play select a family member from the"
 					+ " buttons below and select an action space where you want to place it. Review your move and decide wheter"
-					+ " you want to confirm and proceed, or cancel tha action and rethink about your plan. If you confirm get"
+					+ " you want to confirm and proceed, or cancel tha action and rethink your plan. If you confirm get"
 					+ " sure to press the \"End Turn\" button to terminate your turn");
 		}
 		inPut.setText("");

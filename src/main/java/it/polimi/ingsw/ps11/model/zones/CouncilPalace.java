@@ -14,7 +14,8 @@ import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**
  * <h3>CouncilPalace</h3>
- * <p> Classe che rappresenta il palazzo del consiglio. Permette di variare l'ordine in cui i giocatori possono compiere azioni.</p>
+ * <p> Classe che rappresenta il palazzo del consiglio. Al posizionmento di un familiare restituisce una lista di ConcilPrivileges che
+ * rappresentano bonus tra cui il giocatore può scegliere. Permette di variare l'ordine in cui i giocatori possono compiere azioni.</p>
  * @version 1.0
  * @see it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace MultipleActionSpace
  * @see RoundManager

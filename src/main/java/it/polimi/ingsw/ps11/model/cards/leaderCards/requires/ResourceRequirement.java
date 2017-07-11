@@ -5,7 +5,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> ResourceRequirement </h3>
  * <p> Classe che rappresenta i requisiti di attivazione di una carta leader: richiede una resourceList.</p>
- * <p> Richiede: resourceList (risorse richieste per l'attivazione della carta).</p>
+ * @param  resourceList (risorse richieste per l'attivazione della carta).</p>
  */
 public class ResourceRequirement implements Requirement{
 

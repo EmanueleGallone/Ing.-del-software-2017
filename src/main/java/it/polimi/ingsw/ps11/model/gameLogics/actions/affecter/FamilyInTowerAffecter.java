@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * <h3> FamilyInTowerAffecter </h3>
  * <p> Bonus: modifica permanentement il valore del costo di posizionamento di un familiare su una torre, se su questa è già
  * presente un'altro familiare attraverso una <code>FamilyInTowerAction</code>.</p>
- * <p> Richiede: resourceList (nuovo costo del posizionamento di un familiare su una torre non vuota).</p>
+ * @param  resourceList (nuovo costo del posizionamento di un familiare su una torre non vuota).</p>
  * @see Affecter
  * @see FamilyInTowerAction
  */
