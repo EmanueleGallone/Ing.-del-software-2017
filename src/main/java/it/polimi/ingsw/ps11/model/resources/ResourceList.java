@@ -8,7 +8,8 @@ import java.util.Optional;
 
 /**
  * <h3>ResourceList</h3>
- * <p> Classe container per tutti i tipi di <code>Resource</code> utilizzabile in qualsiasi parte del gioco.
+ * <p> Classe container per tutti i tipi di <code>Resource</code> utilizzabile in qualsiasi parte del gioco. Fornisce metodi
+ * per sommare due resourceList e verificare se due resourceList possono essere sottratte.
  * </p>
  * @see Resource
  */
@@ -49,32 +50,6 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		this.setResource(resources);
 	}
 	
-
-// end constructor
-// start logic
-	
-//	/**<h3>greaterEquals(ResourceList otherList)</h3>
-//	 * <p>
-//	 * Metodo che ritorna <code>true</code> se tutti i campi della ResourceList chiamante sono maggiori o al limite uguali dei rispettivi campi nell'otherList.
-//	 * Nel caso in cui l'otherList non abbia una  risorsa, quest'ultima sarà considerata come fosse al valore di default (zero).
-//	 * </p>
-//	 * @param otherList ResourceList da comparare
-//	 */
-//	public boolean greaterEquals(ResourceList otherList){
-//		if(otherList == null)
-//			return true;
-//		
-//		if (resources.size() == 0)
-//			return (resources.size() == otherList.getResources().size());
-//		
-//		for(Resource r : this.resources.values()){
-//			if( r.getValue() < otherList.getValueOf(r.getClass())){
-//				return false;
-//			}
-//		}
-//		return true;			
-//	}
-	
 	/**<h3>public void sum(ResourceList otherResources)</h3>
 	 * <p>
 	 * Metodo che somma alla ResourceList chiamante la ResourceList passata come parametro.
@@ -114,6 +89,13 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		}
 	}
 	
+	
+	/**
+	 * 
+	 * @param resourceList Insieme di risorse che si vuole sottrarre alla resourceList su cui viene chiamato questo metodo
+	 * @return <b>true</b> se la resourceList passata come parametro ha tuttii campi minori o uguali dei rispettivi campi
+	 * nella resourceList corrente. Ritorna <b>false</b> altrimenti
+	 */
 	public boolean canSubtract(ResourceList resourceList){
 		for(Resource resource : resourceList){
 			Resource playerResource = this.get(resource.getId());
@@ -125,6 +107,9 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	}
 	
 
+	/**
+	 * Due resourceList sono uguali se in entrambe sono presenti le stesse risorse e se quest'ultime sono equals tra di loro
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if(obj.getClass() == this.getClass()){
@@ -156,10 +141,15 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 	 * @param rClass classe del tipo di risorsa che si vuole ottenere, deve estendere Resource
 	 * @return Optional<T extends Resource>
 	 */
+	@SuppressWarnings("unused")
 	private <T extends Resource> Optional<T> getResource(String rClass){
 		return Optional.ofNullable(get(rClass));
 	}
 	
+	/**
+	 * Metodo che preleva la Resource associata ad una certa stringa. In caso la risorsa sia presente ritorna
+	 * una sua copia altrimenti ritorna null;
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Resource> T get(String rType){
 		Resource resource = resources.get(rType);
@@ -190,11 +180,6 @@ public class ResourceList implements Iterable<Resource>, Serializable{
 		}
 	}
 	
-	
-	/**
-	 * 
-	 * @param resource
-	 */
 	public void setResource(Resource resource){
 		this.resources.put(resource.getId() , resource.clone());
 	}

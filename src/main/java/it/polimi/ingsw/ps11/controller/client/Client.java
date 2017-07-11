@@ -65,6 +65,10 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		}
 	}
 	
+	/**
+	 * Componente che si occupa di intercettare i messaggi dal server e attraverso il pattern Visitor fa si che il client
+	 * gestisca un determinato messaggio
+	 */
 	private transient EventListener<MessageEvent> serverListener = new EventListener<MessageEvent>() {
 
 		@Override
@@ -73,6 +77,9 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		}
 	};
 	
+	/**
+	 * Listener che intercetta eventi da parte della View e successivamente li invia al server tramite la Connection
+	 */
 	private transient EventListener<ViewEventInterface> viewListener = new EventListener<ViewEventInterface>() {
 
 		@Override
@@ -85,8 +92,12 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		}
 	};
 	
+	/** 
+	 * Componente che si occupa di inoltrare al server gli oggetti di tipo Message generati dalla view
+	 */
 	private transient EventListener<Message> viewMessageListener = new EventListener<Message>() {
-
+      // Utilizzato in fase di login, dopodichè la view genererà solo eventi e non più oggetti Message
+		
 		@Override
 		public void handle(Message e) {
 			try {
@@ -102,6 +113,10 @@ public class Client implements MessageListener,ModelListener,Runnable {
 	}
 	
 // Handling messages from server and events from model
+	
+	/*
+	 * Applicazione del pattern visitor
+	 */
 	
 	@Override
 	public void receive(TextualMessage message) {
@@ -154,7 +169,11 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		view.update(updateFamilyMemberEvent.getManager());
 	}
 
-
+	
+	
+	
+// _________________________ Starter per il client ________________________________________ 
+	
 	public static void main(String[] args) {
 		TextualConsole console = new TextualConsole();
 		View view = null;
@@ -176,7 +195,6 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		}
 		Client client = new Client(view, connection);
 		client.run();
-		
 	}
 	
 }
