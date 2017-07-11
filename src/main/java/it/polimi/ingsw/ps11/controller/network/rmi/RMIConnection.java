@@ -11,10 +11,14 @@ import java.util.Random;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
 import it.polimi.ingsw.ps11.controller.network.message.Message;
-
+/**
+ * <h3> Client </h3>
+ * <p> Classe che gestisce la connessione lato client di tipo RMI, implementa il RMIReceiver per la gestione dei messaggi.</p>
+ * @see Connection
+ */
 public class RMIConnection extends Connection implements RMIReceiver,Serializable{
 	
-	private static String DEFAULT_ADDRESS = "//192.168.1.95/myServer";
+	private static String DEFAULT_ADDRESS = "//localhost/myServer";
 	private RMIReceiver connection;
 	
 	public RMIConnection() {

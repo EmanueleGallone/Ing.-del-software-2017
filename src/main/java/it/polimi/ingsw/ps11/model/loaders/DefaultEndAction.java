@@ -10,7 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.IncrementEveryResource;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.PointByCardAction;

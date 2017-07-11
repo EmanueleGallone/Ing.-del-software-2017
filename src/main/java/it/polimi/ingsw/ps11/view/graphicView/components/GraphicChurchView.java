@@ -1,15 +1,11 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.excommunications.Excommunication;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChurchView;
 /**

@@ -2,13 +2,10 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.endGame;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
-import it.polimi.ingsw.ps11.model.resources.list.VictoryPoint;
 /**
  * <h3>IncrementEveryResource</h3>
  * <p> Classe che rappresenta l'azione che aggiunge un punto vittoria durente l'End Game ogni cinque risorse rimaste ad

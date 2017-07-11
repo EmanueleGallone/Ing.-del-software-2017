@@ -1,7 +1,5 @@
 package it.polimi.ingsw.ps11.model.cards.effects;
 
-import java.util.ArrayList;
-
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FixFamilyValue;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;

@@ -1,7 +1,13 @@
 package it.polimi.ingsw.ps11.controller.network.message;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
-
+import it.polimi.ingsw.ps11.model.modelEvents.ModelListener;
+/**
+ * <h3> LogInMessage </h3>
+ * <p> Messaggio di log In, richiede l'inserimento di un nome utente e una password che poi invia al server..</p>
+ * @see MessageListener
+ * @see ModelListener
+ */
 public class LogInMessage implements Message{
 
 	private Connection connection;

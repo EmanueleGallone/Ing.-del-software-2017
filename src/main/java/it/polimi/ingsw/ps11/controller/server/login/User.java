@@ -1,5 +1,9 @@
 package it.polimi.ingsw.ps11.controller.server.login;
-
+/**
+ * <h3> User. </h3>
+ * <p> Classe che rappresenta un giocatore connesso, contiene il nome dello stesso e la relativa password.</p>
+ * @see Register
+ */
 public class User {
 	
 	private String id;

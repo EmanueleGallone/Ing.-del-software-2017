@@ -1,8 +1,6 @@
 package it.polimi.ingsw.ps11.controller.server.login;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.controller.network.Connection;
@@ -14,10 +12,15 @@ import it.polimi.ingsw.ps11.controller.network.message.TextualMessage;
 import it.polimi.ingsw.ps11.controller.network.message.ViewMessage;
 import it.polimi.ingsw.ps11.controller.server.ConnectionHandler;
 import it.polimi.ingsw.ps11.model.FileRegistry;
-import it.polimi.ingsw.ps11.model.JsonAdapter;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
-
+/**
+ * <h3> LogInHandler. </h3>
+ * <p> Classe che gestisce il Log In di un giocatore, se un username non è ancora stato usato procede con la registrazione,cse invece è
+ * già stato usato controlla che la password corrispondi a quella salvata su file: se è corretta ricerca un'eventuale partita a cui il
+ * giocatore stava partecipando e nel caso lo riconnette ad essa, se invece è errata notifica il giocatore e chiude la connessione.</p>
+ * @see MessageListener
+ */
 public class LogInHandler implements MessageListener, EventListener<MessageEvent> {
 
 	private ArrayList<Connection> waitingClient = new ArrayList<>();

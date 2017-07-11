@@ -10,7 +10,6 @@ import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.effects.AddResourceEffect;
 import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
 import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
 import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;

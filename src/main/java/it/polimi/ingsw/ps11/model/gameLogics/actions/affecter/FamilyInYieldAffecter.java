@@ -1,8 +1,6 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInYieldAction;
 /**
  * <h3> FamilyInYieldAffecter </h3>

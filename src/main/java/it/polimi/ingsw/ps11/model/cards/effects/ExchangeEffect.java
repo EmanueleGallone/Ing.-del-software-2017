@@ -3,7 +3,6 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.ExchangeAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;

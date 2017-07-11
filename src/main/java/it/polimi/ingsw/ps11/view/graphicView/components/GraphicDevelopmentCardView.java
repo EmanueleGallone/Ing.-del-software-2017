@@ -4,14 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
-import it.polimi.ingsw.ps11.model.cards.CardManager;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.DevelopmentCardView;
 /**
  * <h3> GraphicDevelopmentCardView</h3>
- * <p> Classe per la visualizzazione delle carte, contiene un pulsante raffigurante la carta che se cliccato crea una finestra
- * zoom che permette di visualizzare la carta su dimensione maggiore</p>
+ * <p> Classe per la visualizzazione delle carte di tipo Development card, contiene un pulsante raffigurante la carta che se cliccato crea 
+ * notifica il pannello di zoom per visualizzare la carta su dimensione maggiore</p>
  * @see DevelopmentCardView
  */
 public class GraphicDevelopmentCardView extends DevelopmentCardView{

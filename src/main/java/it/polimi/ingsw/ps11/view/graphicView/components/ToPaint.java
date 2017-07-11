@@ -5,7 +5,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+/**
+ * <h3> ToPaint</h3>
+ * <p> Interfaccia per il caricamento di un immagine tramite BufferedImage e stampa su componente grafico.</p>
+ */
 public interface ToPaint {
 	
 	public void paintComponent(Graphics g);

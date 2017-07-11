@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.yield.Yield;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.HarvestView;
 /**

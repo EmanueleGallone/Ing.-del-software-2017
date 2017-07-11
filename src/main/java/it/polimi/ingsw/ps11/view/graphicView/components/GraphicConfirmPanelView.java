@@ -12,13 +12,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.modelEvents.ConfirmEvent;
-import it.polimi.ingsw.ps11.model.zones.Floor;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 /**

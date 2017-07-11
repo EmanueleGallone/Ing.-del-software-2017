@@ -3,15 +3,7 @@ package it.polimi.ingsw.ps11.view.textualView;
 import java.util.HashMap;
 import java.util.Map;
 
-import it.polimi.ingsw.ps11.model.loaders.Loader;
-import it.polimi.ingsw.ps11.view.viewEvents.AskUpdateEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.EndTurnEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.CouncilSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.HarvestSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
-import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.ProductionSelectedEvent;
 
 
 

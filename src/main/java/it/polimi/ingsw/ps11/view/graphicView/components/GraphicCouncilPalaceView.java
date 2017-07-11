@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.view.graphicView.components;
 
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

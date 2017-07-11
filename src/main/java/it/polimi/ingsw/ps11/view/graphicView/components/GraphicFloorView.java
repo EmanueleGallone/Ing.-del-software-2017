@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.ps11.model.cards.Card;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.FloorSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 /**

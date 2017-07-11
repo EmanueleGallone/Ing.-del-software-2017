@@ -1,16 +1,15 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
-import java.util.ArrayList;
-
-import it.polimi.ingsw.ps11.model.cards.list.BlueCard;
-import it.polimi.ingsw.ps11.model.cards.list.GreenCard;
-import it.polimi.ingsw.ps11.model.cards.list.PurpleCard;
-import it.polimi.ingsw.ps11.model.cards.list.YellowCard;
 import it.polimi.ingsw.ps11.model.game.Board;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.BoardView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.TowerView;
-
+/**
+ * <h3> TextualBoardView</h3>
+ * <p> Classe per la visualizzazione testuale della board, contiene le 4 torri, la chiesa, il palazzo del consiglio, le zone di raccolta
+ * e di produzione, le zone del mercato e i dadi.</p>
+ * @see BoardView
+ */
 public class TextualBoardView extends BoardView {
 
 	public TextualBoardView() {

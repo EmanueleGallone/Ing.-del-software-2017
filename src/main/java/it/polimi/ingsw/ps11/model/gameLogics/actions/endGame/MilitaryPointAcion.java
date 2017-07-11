@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.model.gameLogics.actions.endGame;
 
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.game.Game;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;

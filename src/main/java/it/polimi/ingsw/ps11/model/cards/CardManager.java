@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.model.cards;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 

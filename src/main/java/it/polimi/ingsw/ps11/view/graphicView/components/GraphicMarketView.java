@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.ps11.model.zones.Market;
 import it.polimi.ingsw.ps11.view.viewEvents.spaceSelectedEvents.MarketSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.MarketView;
 /**
