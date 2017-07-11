@@ -9,7 +9,9 @@ import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 /**
  * <h3> MessageReceiver </h3>
- * <p> Classe che gestisce l'arrivo dei messaggio tramite socket e la disconnessione di un giocatore.</p>
+ * <p> Classe che gestisce l'arrivo dei messaggio tramite socket. <br>
+ * Utilizza un <i>ObjectInputStream</i> per restare in ascolto di messaggi dal canale di comunicazione. Quando arriva un messaggio
+ * quest'ultimo viene inoltrato ad eventuali Listener attaccati all'oggetto. </p>
  */
 public class MessageReceiver implements Runnable {
 

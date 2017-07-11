@@ -28,16 +28,18 @@ import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
 /**
  * <h3> Client </h3>
- * <p> Classe che gestisce la connessione lato client e recapita alla view i messaggi provenienti dal server.</p>
+ * <p> Classe che gestisce la connessione lato client e recapita alla view i messaggi provenienti dal server.
+ * E' un observer per gli eventi generati dalla view e quando questi si verificano li incapsula in un "Message"
+ * che verrà inoltrato al server tramite la "Connection"<p>
  * @see MessageListener
  * @see ModelListener
+ * @see Connection
+ * @see View
  */
 public class Client implements MessageListener,ModelListener,Runnable {
 	
 	private View view;
 	protected Connection connection;
-	
-	EventManager manager = new EventManager();
 	
 	public Client(View view, Connection connection) {
 		this.view = view;
@@ -46,6 +48,13 @@ public class Client implements MessageListener,ModelListener,Runnable {
 		view.attachMessageListener(viewMessageListener);
 	}
 
+	
+	/**
+	 * Metodo che avvia la connessione e l'interfaccia chiamando il metodo on() sulla Connection e creando un thread
+	 * su cui verrà runnata la View
+	 * @see Connection
+	 * @see View
+	 */
 	@Override
 	public void run() {
 		try {

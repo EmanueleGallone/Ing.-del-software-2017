@@ -8,8 +8,16 @@ import it.polimi.ingsw.ps11.controller.network.message.Message;
 import it.polimi.ingsw.ps11.model.events.EventListener;
 /**
  * <h3> SocketConnection </h3>
- * <p> Classe che gestisce la connessione tramite socket e in particolare la ricezione dei messaggi lato client.</p>
- * @see 
+ * <p> Estende la classe <b>Connection</b> e usa come canale di comunicazione una tecnologia basata sui <b>Socket</b>. <br>
+ * Quando l'oggetto viene creato la connessione non è ancora presente. Per far partire la connessione bisogna utilizzare l'apposito
+ * metodo <b> on() </b></p>
+ * <h3> Components and behavior </h3>
+ * <p> Per la ricezione dei messaggi si avvale della classe <b><i>MessageReceiver</i></b> che resta in ascolto di messaggi e che invoca
+ * un evento appena ne arriva uno. La ricezione di messaggi avviene su un thread separato in modo che avvenga in modo asincrono.<br>
+ * L'invio di messaggi avviene attraverso la classe <b><i>MessageSender</i></b></p> e anche in questo caso viene unsato un thread separato.
+ * @see Connection
+ * @see MessageSender
+ * @see MessageReceiver
  */
 public class SocketConnection extends Connection implements EventListener<Message>{
 
@@ -41,6 +49,10 @@ public class SocketConnection extends Connection implements EventListener<Messag
 		super(serverAddress,port);
 	}
 	
+	/**
+	 * Una volta invocato fa partire il thread che si occuperà della ricezione dei messaggi.
+	 * Fa automaticamente l'attach del listener all'oggetto MessageReceiver.
+	 */
 	@Override
 	public void on() throws IOException {
 		if(socket == null)
@@ -60,6 +72,10 @@ public class SocketConnection extends Connection implements EventListener<Messag
 		
 	}
 
+	/**
+	 * Metodo invocato quando arriva un messaggio dal MessageReceiver. Questo metodo si occupa di inoltrarlo a sua volta
+	 * ad eventuali listener attaccati alla Connection
+	 */
 	@Override
 	public void handle(Message e) {
 		invokeMessageEvent(e);

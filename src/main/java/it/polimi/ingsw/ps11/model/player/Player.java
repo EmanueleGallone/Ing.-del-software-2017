@@ -20,6 +20,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * @see it.polimi.ingsw.ps11.model.resources.ResourceList ResourceList
  * @see it.polimi.ingsw.ps11.model.cards.CardManager CardManager
  */
+@SuppressWarnings("serial")
 public class Player implements Serializable{
 	
 	private static final String DEFAULT_NAME = "Predefinito";
