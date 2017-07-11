@@ -30,9 +30,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
  * <p>
  * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco. Il suo funzionamento e' semplice:
  * dal server arriva un oggetto del gioco e viene stampato a video; la console e' sempre in ascolto di eventuali input; se il giocatore
- * inserisce un comando contenuto nella Map allora viene invocato l'evento ed inviato al server
- * Classe rappresentante la CLI. Da qui l'utente si interfaccia con il gioco.
-
+ * inserisce un comando contenuto nella Map allora viene invocato l'evento ed inviato al server. La view ha una struttura modulare.
  * </p>
  */
 public class TextualView extends View {
@@ -57,7 +55,12 @@ public class TextualView extends View {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * <p>
+	 * Classe che permette il caricamento dei comandi utilizzabili dalla CLI.
+	 * </p>
+	 * @throws FileNotFoundException
+	 */
 	private TextualCommands loadCommands() throws FileNotFoundException{
 		return new Loader(FileRegistry.view_commands).load(TextualCommands.class);
 	}
