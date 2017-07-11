@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.view.textualView.components;
 
-import it.polimi.ingsw.ps11.model.zones.towers.Tower;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.FloorView;
 

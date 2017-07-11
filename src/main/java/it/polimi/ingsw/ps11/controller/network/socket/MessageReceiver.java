@@ -5,10 +5,12 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 
 import it.polimi.ingsw.ps11.controller.network.message.Message;
-import it.polimi.ingsw.ps11.controller.network.message.MessageEvent;
 import it.polimi.ingsw.ps11.model.events.EventHandler;
 import it.polimi.ingsw.ps11.model.events.EventListener;
-
+/**
+ * <h3> MessageReceiver </h3>
+ * <p> Classe che gestisce l'arrivo dei messaggio tramite socket e la disconnessione di un giocatore.</p>
+ */
 public class MessageReceiver implements Runnable {
 
 	

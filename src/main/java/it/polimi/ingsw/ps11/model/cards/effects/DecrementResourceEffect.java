@@ -3,7 +3,6 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.IncrementAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> Decrement ResourceEffect </h3>

@@ -1,10 +1,7 @@
 package it.polimi.ingsw.ps11.model.gameLogics.actions.affecter;
 
-import javax.imageio.ImageTypeSpecifier;
-
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Affecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.DecrementAction;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.resources.IncrementAction;
 import it.polimi.ingsw.ps11.model.resources.Resource;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**

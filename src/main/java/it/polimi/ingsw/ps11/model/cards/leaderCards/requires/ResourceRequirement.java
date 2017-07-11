@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.cards.leaderCards.requires;
 
-import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**

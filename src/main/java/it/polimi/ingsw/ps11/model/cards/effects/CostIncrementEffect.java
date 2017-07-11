@@ -2,7 +2,6 @@ package it.polimi.ingsw.ps11.model.cards.effects;
 
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.DecrementAffecter;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.FamilyInTowerAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;
 /**
  * <h3> CostIncrementEffect </h3>

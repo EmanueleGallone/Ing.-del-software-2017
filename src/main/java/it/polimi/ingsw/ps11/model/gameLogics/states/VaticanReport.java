@@ -13,7 +13,7 @@ import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
 import it.polimi.ingsw.ps11.model.zones.Church;
 import it.polimi.ingsw.ps11.view.viewEvents.ConfirmViewEvent;
 /**
- * <h3> State </h3>
+ * <h3> VaticanReport </h3>
  * <p> Classe che rappresenta lo stato a fine turno in cui la Chiesa esegue le azioni.</p>
  * @see 
  */

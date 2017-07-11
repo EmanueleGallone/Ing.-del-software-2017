@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.model.cards.effects;
 
-import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.affecter.CardCostAffecter;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.base.EmptyAction;

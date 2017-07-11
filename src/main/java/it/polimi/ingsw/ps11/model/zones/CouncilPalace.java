@@ -3,21 +3,13 @@ package it.polimi.ingsw.ps11.model.zones;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.ps11.model.cards.effects.CouncilPrivilege;
 import it.polimi.ingsw.ps11.model.cards.effects.Effect;
-import it.polimi.ingsw.ps11.model.familyMember.FamilyMember;
 import it.polimi.ingsw.ps11.model.gameLogics.RoundManager;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.Action;
 import it.polimi.ingsw.ps11.model.gameLogics.actions.ActionManager;
-import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
-import it.polimi.ingsw.ps11.model.resources.list.FaithPoint;
-import it.polimi.ingsw.ps11.model.resources.list.MilitaryPoint;
-import it.polimi.ingsw.ps11.model.resources.list.Servant;
-import it.polimi.ingsw.ps11.model.resources.list.Stone;
-import it.polimi.ingsw.ps11.model.resources.list.Wood;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.ActionSpace;
 import it.polimi.ingsw.ps11.model.zones.actionSpace.MultipleActionSpace;
 /**

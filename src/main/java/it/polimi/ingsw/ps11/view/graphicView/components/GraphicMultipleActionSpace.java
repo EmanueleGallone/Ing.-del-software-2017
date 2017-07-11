@@ -63,6 +63,7 @@ public class GraphicMultipleActionSpace  extends JPanel{
 			return;
 		int i = 0;
 		for (GraphicPaintedPanel panel : playersPanel) {
+
 			if(i<arrayList.size() && arrayList.get(i).getFamilyMember() == null){
 				clean(panel);
 			} else if(i<arrayList.size()) {

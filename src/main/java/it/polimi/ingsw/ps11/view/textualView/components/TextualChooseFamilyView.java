@@ -11,7 +11,12 @@ import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewEvents.FamilySelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseFamilyView;
-
+/**
+ * <h3> TextualChooseFamilyView</h3>
+ * <p> Classe per la visualizzazione testuale dei familiari dei giocatori, con i relativi valori e l'input per la scelta su quale
+ * utilizzare</p>
+ * @see ChooseFamilyView
+ */
 public class TextualChooseFamilyView extends ChooseFamilyView implements EventListener<String>{
 	
 	private Input input;

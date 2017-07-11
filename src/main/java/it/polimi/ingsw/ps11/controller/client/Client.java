@@ -26,7 +26,12 @@ import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.textualView.TextualView;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.View;
-
+/**
+ * <h3> Client </h3>
+ * <p> Classe che gestisce la connessione lato client e recapita alla view i messaggi provenienti dal server.</p>
+ * @see MessageListener
+ * @see ModelListener
+ */
 public class Client implements MessageListener,ModelListener,Runnable {
 	
 	private View view;

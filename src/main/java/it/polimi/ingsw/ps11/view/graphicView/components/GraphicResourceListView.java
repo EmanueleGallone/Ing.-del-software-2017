@@ -15,11 +15,8 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * @see ResourceList
  */
 public class GraphicResourceListView extends JPanel{
-
-	private ResourceList resourceList;
 	
 	public GraphicResourceListView(ResourceList resourceList) {
-		this.resourceList = resourceList;
 		
 		this.setOpaque(false);
 		GridBagConstraints gbc = new GridBagConstraints();

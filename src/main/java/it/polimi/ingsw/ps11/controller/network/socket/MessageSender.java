@@ -3,7 +3,10 @@ package it.polimi.ingsw.ps11.controller.network.socket;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-
+/**
+ * <h3> MessageSender. </h3>
+ * <p> Classe che gestisce la preparazione e succesivo invio di un messaggio tramite socket.</p>
+ */
 public class MessageSender extends Thread{
 	
 	private Socket socket;

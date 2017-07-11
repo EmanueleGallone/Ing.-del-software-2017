@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.cards.leaderCards.LeaderCard;
-import it.polimi.ingsw.ps11.view.graphicView.components.GraphicCardManagerView.LeaderAction;
 import it.polimi.ingsw.ps11.view.textualView.TextualConsole;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.CardManagerView;
-
+/**
+ * <h3> TextualCardManagerView</h3>
+ * <p> Classe per la visualizzazione testuale del CardManager di ogni giocatore</p>
+ * @see CardManagerView
+ */
 public class TextualCardManagerView extends CardManagerView{
 
 	

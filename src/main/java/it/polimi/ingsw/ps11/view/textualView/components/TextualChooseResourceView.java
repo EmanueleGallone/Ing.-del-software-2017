@@ -11,8 +11,11 @@ import it.polimi.ingsw.ps11.view.viewEvents.ResourceSelectedEvent;
 import it.polimi.ingsw.ps11.view.viewEvents.ViewEventInterface;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.ChooseResourceView;
 import it.polimi.ingsw.ps11.view.viewGenerica.components.Console;
-import it.polimi.ingsw.ps11.view.viewGenerica.components.ResourceView;
-
+/**
+ * <h3> TextualChooseResourceView</h3>
+ * <p> Classe per la visualizzazione testuale di varie ResourceLists tra cui scegliere quale pagare/ottenere.</p>
+ * @see ChooseResourceView
+ */
 public class TextualChooseResourceView extends ChooseResourceView implements EventListener<String>{
 	
 	private EventHandler<ViewEventInterface> events;

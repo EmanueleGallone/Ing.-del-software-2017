@@ -5,19 +5,21 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 
 import com.google.gson.reflect.TypeToken;
 
 import it.polimi.ingsw.ps11.model.FileRegistry;
 import it.polimi.ingsw.ps11.model.cards.DevelopmentCard;
 import it.polimi.ingsw.ps11.model.game.Colors;
-import it.polimi.ingsw.ps11.model.gameLogics.actions.NeedManager;
 import it.polimi.ingsw.ps11.model.loaders.Loader;
 import it.polimi.ingsw.ps11.model.player.Player;
 import it.polimi.ingsw.ps11.model.resources.ResourceList;
 import it.polimi.ingsw.ps11.model.resources.list.Coin;
-
+/**
+ * <h3> . </h3>
+ * <p> Classe factory per la creazione di giocatori di tipo standard secondo le regole del gioco. Può creare fino a MAX_PLAYER = 4 giocatori</p>
+ * @see Player
+ */
 public class PlayerFactory {
 
 	private Player defaultPlayer;

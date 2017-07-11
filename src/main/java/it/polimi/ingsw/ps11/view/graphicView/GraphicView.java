@@ -1,6 +1,5 @@
 package it.polimi.ingsw.ps11.view.graphicView;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -45,7 +44,7 @@ import it.polimi.ingsw.ps11.view.viewGenerica.View;
  * Classe che rappresenta la finestra generale della GUI, contiene un JPanel per
  * la board Superiore(torri, chiesa e consiglio), un JDialog per la board
  * Inferiore(zone raccolta e produzione, mercato e dadi) un JPanel per la board
- * Personale e un JTextPane per la console vhe visualizza i messaggi
+ * Personale e un pannello per la console che visualizza i messaggi
  * </p>
  * 
  * @see GraphicBoardView
