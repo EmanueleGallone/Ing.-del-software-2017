@@ -8,7 +8,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.family.FamilyInSpaceAction;
  * <h3> FamilyInSpaceAffecter </h3>
  * <p> Bonus: modifica il valore di un familiare se questo viene posizionato su un qualunque actionspace 
  * attraverso un <code>FamilyInFloorAction</code>.</p>
- * <p> Richiede: string (tipo del familiare), int (quantità che modifica il valore del familiare).</p>
+ * @param  string (tipo del familiare), int (quantità che modifica il valore del familiare).</p>
  * @see Affecter
  * @see FamilyInFloorAction
  */

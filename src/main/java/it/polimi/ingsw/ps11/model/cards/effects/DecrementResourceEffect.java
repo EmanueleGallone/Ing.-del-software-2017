@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> Decrement ResourceEffect </h3>
  * <p> Classe che rappresenta l'Effetto di una carta: modifica permanentemente le risorse guadagnate con ogni mossa attraverso una <code>IncrementAffecter</code>.</p>
- * <p> Richiede: arrayList di resource (valori delle resourceLists che incrementano le risorse).</p>
+ * @param  arrayList di resource (valori delle resourceLists che incrementano le risorse).
  * @see Effect
  * @see IncrementAffecter
  */

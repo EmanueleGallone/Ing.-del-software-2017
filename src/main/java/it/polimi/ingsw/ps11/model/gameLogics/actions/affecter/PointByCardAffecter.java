@@ -9,6 +9,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /** <h3> PointByCardAffecter </h3>
  * <p> Classe che rappresenta il bonus che ha il compito di modificare le Risorse ottenute da un giocatore in seguito 
  * ad una qualunque azione</p>
+ * @param  string(Id della carta) HashMap (premi ottenuti)
  * @see IncrementAction
  */
 public class PointByCardAffecter implements Affecter<PointByCardAction> {

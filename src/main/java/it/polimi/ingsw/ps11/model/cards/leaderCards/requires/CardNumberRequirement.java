@@ -10,7 +10,7 @@ import it.polimi.ingsw.ps11.model.player.Player;
 /**
  * <h3> CardNumberRequirement </h3>
  * <p> Classe che rappresenta i requisiti di attivazione di una carta leader: richiede un numero di carte per tipo di carta.</p>
- * <p> Richiede: Hashmap<String, int> (Id delle carte, quantità delle carte).</p>
+ * @param  Hashmap<String, int> (Id delle carte, quantità delle carte).</p>
  * @see ActionManager
  */
 public class CardNumberRequirement implements Requirement{

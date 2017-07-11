@@ -9,7 +9,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
 /**
  * <h3> ExchangeEffect </h3>
  * <p> Classe che rappresenta l'effetto di una carta: attiva l'azione <code>ExchangeAction</code>.</p>
- * <p> Richiede: due resourceList (la prima indica i valori delle risorse che vanno perse, la seconda il valori delle risorse
+ * @param  due resourceList (la prima indica i valori delle risorse che vanno perse, la seconda il valori delle risorse
  * che vengono guadagnate).</p>
  * @see Effect
  * @see ExchangeAction

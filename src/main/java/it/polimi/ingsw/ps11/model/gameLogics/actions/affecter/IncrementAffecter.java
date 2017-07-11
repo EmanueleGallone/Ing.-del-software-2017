@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.resources.ResourceList;
  * <h3> IncrementAffecter </h3>
  * <p> Bonus: modifica la resourceList ottenuta da un giocatore a seguito di un'azione qualunque attraverso una 
  * <code>IncrementAction</code>.</p>
- * <p> Richiede: resourceList (valore delle risorse che modificano la resourceList).</p>
+ * @param  resourceList (valore delle risorse che modificano la resourceList).</p>
  * @see Affecter
  * @see 
  */

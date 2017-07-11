@@ -7,7 +7,7 @@ import it.polimi.ingsw.ps11.model.gameLogics.actions.endGame.EndGameAction;
 /**
  * <h3> EndGameAffecter </h3>
  * <p> Bonus: modifica le azioni che vengo eseguite automaticamente a fine partita attraverso una <code>EndGameAction</code>.</p>
- * <p> Richiede: action (azione eseguita a fine partita).</p>
+ * @param  action (azione eseguita a fine partita).</p>
  * @see Affecter
  * @see EndGameAction
  */
